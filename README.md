@@ -1,4 +1,6 @@
-IV
+Material docente para Infraestructura Virtual
 ==
 
-Asignatura de infraestructuras virtuales para el Grado de Informática
+[Infraestructura virtual](http://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/espti/infraestructuravirtual)
+es una asignatura optativa del primer cuatrimestre del cuarto de Grado
+de Ingeniería Informática.
