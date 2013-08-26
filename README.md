@@ -10,3 +10,14 @@ La asignatura se imparte en el curso 2013-2014 los lunes de 11:30 a
 [GitHub](http://github.com) para las prácticas y trabajo final.
 
 Estos son los [objetivos de la asignatura](documentos/objetivos.md). 
+
+Temario
+------------
+
+<ol>
+  {% for page in site.pages %}
+    <li>
+      <a href="{{ page.url }}">{{ page.title }}</a>
+    </li>
+  {% endfor %}
+</ol>
