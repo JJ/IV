@@ -14,14 +14,5 @@ Estos son los [objetivos de la asignatura](documentos/objetivos.md).
 Temario
 ------------
 
-<ol>
-  {% for page in site.pages %}
-	  {{page.url | split:/ | join:"-" }}
-	  {{page.url | split:/ | first }}
-	  {% if {{page.url | split:/ | first | first }} == 'temas' %}
-    <li>
-      <a href="{{ page.url  }}">{{ page.title }}</a>
-    </li>
-	   {% endif %}
-  {% endfor %}
-</ol>
+1. [Introducción: conceptos y soporte físico](documents/temas/1.Intro:concepto_y_soporte_fisico.md)
+
