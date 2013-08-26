@@ -11,3 +11,5 @@ de Ingeniería Informática.
 La asignatura se imparte en el curso 2013-2014 los lunes de 11:30 a
 13:30 en la 1.5 y los viernes de 9;30 a 11:30 en la 3.2. Se usará
 [GitHub](http://github.com) para las prácticas y trabajo final.
+
+Estos son los [objetivos de la asignatura](documentos/objetivos). 
