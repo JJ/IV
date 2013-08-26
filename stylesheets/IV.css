@@ -1,6 +1,6 @@
 
 .objetivos { 
-             margin: 20px;
+             margin: 60px;
              padding: 40px 60px;
              border-radius: 10px;
              box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
@@ -10,7 +10,7 @@
              color: #2f4f4f ;
              }
 
-h2.objetivos { 
+.objetivos h2 { 
                color: #1f3f3f ;        
                font-size: 2em;
                font-family: "Lato", sans-serif;
