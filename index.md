@@ -19,10 +19,9 @@ Temario
 
 <ol>
   {% for page in site.pages %}
-	  {{page.url | split: /  }}
-	  {{page.url | split: / | first }}
-      {{page.url | split: / | first | first }}
-	  {% if {{page.url | split: / | first | first }} == 'temas' %}
+	  {{page.url | split:/ | join:"-" }}
+	  {{page.url | split:/ | first }}
+	  {% if {{page.url | split:/ | first | first }} == 'temas' %}
     <li>
       <a href="{{ page.url  }}">{{ page.title }}</a>
     </li>
