@@ -28,6 +28,12 @@ div.objetivos a:link, div.nota a:link,  div.ejercicios a:link
                   background-color:#020943
 }
 
+div.objetivos code, div.nota code,  div.ejercicios code 
+ { 
+                  background-color:#020202;
+   color: green
+}
+
 div.objetivos h2{ 
                color: #1f3f3f;        
                font-size: 2em;
@@ -41,7 +47,8 @@ h1 {
      }
 
 
-
-div.nota a:link { 
-                  background-color:#020943
+#header nav li.nav {
+  float: left;
+  margin-left: 6px;
+  background-color: DarkCyan
 }
