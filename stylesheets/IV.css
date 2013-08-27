@@ -47,8 +47,8 @@ h1 {
      }
 
 
-#header nav li.nav {
+#header nav li.nav a {
   float: left;
-  margin-left: 6px;
-  background-color: DarkCyan
+  margin-left: 8px;
+  linear-gradient(DarkCyan, LightSkyBlue) repeat scroll 0 0 Cyan;
 }
