@@ -20,6 +20,7 @@ Temario
 ------------
 
 1. [Introducción: conceptos y soporte físico](documentos/temas/1.Intro:concepto_y_soporte_fisico)
-2. [Técnicas de Virtualización](documentos/temas/2.Tecnicas_de_virtualizacion.md]
+2. [Técnicas de Virtualización](documentos/temas/2.Tecnicas_de_virtualizacion)
+
 
 
