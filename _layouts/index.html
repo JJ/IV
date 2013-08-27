@@ -25,8 +25,16 @@
         <nav>
           <li class="fork"><a href="https://github.com/JJ/IV">Ver en
           GitHub</a></li>
+{% if page.prev %}	
+	   <li class="downloads"><a href="{{page.prev}}">Tema
+	   anterior</a></li>
+{%endif%}
 	  <li class="fork"><a href="/IV">Página principal
 	  Infraestructura Virtual</a></li>
+{% if page.next %}	
+	   <li class="downloads"><a href="{{page.next}}">Tema
+	   siguiente</a></li>
+{%endif%}
           <li class="downloads"><a href="https://github.com/JJ/IV/zipball/master">ZIP</a></li>
           <li class="downloads"><a href="https://github.com/JJ/IV/tarball/master">TAR</a></li>
           <li class="title">Descargas</li>
