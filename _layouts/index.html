@@ -21,11 +21,12 @@
 
   </head>
   <body>
+{{ page.prev }} and {{ page.next }}
       <div id="header">
         <nav>
           <li class="fork"><a href="https://github.com/JJ/IV">Ver en
           GitHub</a></li>
-{% if page.prev %}	
+{% if page.prev  %}	
 	   <li class="downloads"><a href="{{page.prev}}">Tema
 	   anterior</a></li>
 {% endif %}
