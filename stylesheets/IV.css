@@ -1,15 +1,32 @@
 
-div.objetivos { 
+div.objetivos, div.nota,  div.ejercicios { 
                 max-width: 800px;
                 margin: 60px;
                 padding: 40px 60px;
                 border-radius: 10px;
                 box-shadow: 0 0 5px rgba(255, 255, 255, 0.2), inset 0 0 50px rgba(255, 255, 255, 0.1);
-                background-color: #FAF0E6;
+
+                                           color: #2f4f4f ; 
                 font-size: 1.5em;
                 font-family: "Telex", sans-serif;
-                color: #2f4f4f ;
                 }
+
+div.objetivos { 
+                background-color: #FAF0E6;
+                }
+
+div.nota { 
+           background-color: #EEFAE7;
+           }
+
+div.ejercicios { 
+                 background-color: #E8F7FA;
+                 }
+
+div.objetivos a:link, div.nota a:link,  div.ejercicios a:link 
+ { 
+                  background-color:#020943
+}
 
 div.objetivos h2{ 
                color: #1f3f3f;        
@@ -23,14 +40,8 @@ h1 {
      font-family: "Lato", sans-serif;
      }
 
-div.nota { 
-           max-width: 900px;
-           margin: 60px;
-           padding: 40px 60px;
-           border-radius: 10px;
-           box-shadow: 0 0 5px rgba(255, 255, 255, 0.2), inset 0 0 50px rgba(255, 255, 255, 0.1);
-           background-color: #EEFAE7;
-           font-size: 1.5em;
-           font-family: "Telex", sans-serif;
-           color: #2f4f4f ;
-           }
+
+
+div.nota a:link { 
+                  background-color:#020943
+}
