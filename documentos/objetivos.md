@@ -14,3 +14,15 @@ Objetivos de la asignatura
 * Optimizar aplicaciones sobre plataformas virtuales. 
 * Conocer diferentes tecnologías relacionadas con la virtualización (Computación Nube, Utility Computing, Software as a Service, Google AppSpot, etc.) 
 * Realizar tareas de administración en infraestructura virtual.
+
+Otros objetivos
+---------------
+
+* Aprender a crear un entorno personal de aprendizaje que ayude al aprendizaje autónomo.
+* Aprender una serie de lenguajes de programación de scripting de
+  aplicación en computación nube tales como Ruby, *shell* de Linux y
+  JavaScript (en forma de node.js). 
+* Saber trabajar en un entorno de desarrollo colaborativo de software.
+* Asumir los factores económicos en la implantación de centros de procesos de datos y cómo facturarlos.
+* Usar diferentes lenguajes de marcas tales como MediaWiki y Markdown.
+* Trabajar en un entorno de desarrollo basado en tecnologías libres.
