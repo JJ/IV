@@ -26,3 +26,5 @@ Otros objetivos
 * Asumir los factores económicos en la implantación de centros de procesos de datos y cómo facturarlos.
 * Usar diferentes lenguajes de marcas tales como MediaWiki y Markdown.
 * Trabajar en un entorno de desarrollo basado en tecnologías libres.
+* Ampliar conocimientos de administración de sistemas Linux.
+* Comprender las implicaciones de seguridad de las diferentes tecnologías de virtualización. 
