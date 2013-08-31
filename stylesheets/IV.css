@@ -23,7 +23,7 @@ div.nota {
            }
 
 div.ejercicios:before {
-    content: "<h3>Ejercicios</h3> " counter(ejercicios) ". ";
+    content: "Ejercicios " counter(ejercicios) ". ";
     counter-increment: ejercicios;  /* Add 1 to ejercicios */
 }
 
