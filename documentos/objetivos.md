@@ -1,7 +1,9 @@
 ---
 layout: index
+
 ---
-Objetivos de la asignatura
+
+Objetivos perseguidos con la materia de la asignatura
 ================
 
 * Conocer la historia de la Computación Virtual, sus orígenes y razones de su existencia.
@@ -11,9 +13,26 @@ Objetivos de la asignatura
 * Diseñar, construir y analizar las prestaciones de un centro de proceso de datos virtual. 
 * Conocer las diferentes tecnologías y herramientas de virtualización tanto para procesamiento, comunicación y almacenamiento. 
 * Instalar, configurar, evaluar y optimizar las prestaciones de un servidor virtual.
-* Configurar los diferentes dispositivos físicos para acceso a los servidores virtuales: acceso de usuarios, redes de comunicaciones, entrada/salida, etc.
+* Configurar los diferentes dispositivos físicos para acceso a los
+  servidores virtuales: acceso de usuarios, redes de comunicaciones o entrada/salida.
 * Diseñar, implementar y construir un centro de procesamiento de datos virtual.
 * Documentar y mantener una plataforma virtual.
 * Optimizar aplicaciones sobre plataformas virtuales. 
-* Conocer diferentes tecnologías relacionadas con la virtualización (Computación Nube, Utility Computing, Software as a Service, Google AppSpot, etc.) 
+* Conocer diferentes tecnologías relacionadas con la virtualización
+  (Computación Nube, Utility Computing, Software as a Service) e
+  implementaciones tales como Google AppSpot, OpenShift o Heroku.
 * Realizar tareas de administración en infraestructura virtual.
+
+Otros objetivos
+---------------
+
+* Aprender a crear un entorno personal de aprendizaje que ayude al aprendizaje autónomo.
+* Aprender una serie de lenguajes de programación de scripting de
+  aplicación en computación nube tales como Ruby, *shell* de Linux y
+  JavaScript (en forma de node.js). 
+* Saber trabajar en un entorno de desarrollo colaborativo de software.
+* Asumir los factores económicos en la implantación de centros de procesos de datos y cómo facturarlos.
+* Usar diferentes lenguajes de marcas tales como MediaWiki y Markdown.
+* Trabajar en un entorno de desarrollo basado en tecnologías libres.
+* Ampliar conocimientos de administración de sistemas Linux.
+* Comprender las implicaciones de seguridad de las diferentes tecnologías de virtualización. 
