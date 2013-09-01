@@ -1,5 +1,7 @@
 BODY {
-    counter-reset: ejercicios;      /* Create a chapter counter scope */
+       counter-reset: ejercicios;      /* Create a chapter counter scope */
+       font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+       font-size: 1.2em;
 }
 
 div.objetivos, div.nota,  div.ejercicios { 
@@ -51,7 +53,7 @@ div.objetivos h2{
 h1 { 
      color: green;        
      font-size: 2.5em;
-     font-family: "Lato", sans-serif;
+     font-family: "Arvo", sans-serif;
      }
 
 
