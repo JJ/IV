@@ -530,6 +530,10 @@ opción de incluir el fichero Readme.
 2. Modificar el readme y subir el fichero modificado.
 </div>
 
+<div class='notas' markdown='1'>
+Este [video de 14 minutos](http://www.youtube.com/watch?v=ygbWIJWe29Y)
+sirve como introducción al uso de git
+</div>
 
 Niveles de infraestructura virtual
 -----
@@ -598,7 +602,7 @@ características definidas; en ambos casos habrá que descargar una
 aplicación libre para llevar a cabo ciertas tareas como monitorizar el
 status y hacer tests básicos; una vez creado el fuente de la
 aplicación el despliegue en la máquina virtual se hace mediante
-`git`tal como hemos contado anteriormente. 
+`git` tal como hemos contado anteriormente. 
 
 Los lenguajes más habituales en las PaaS son los de scripting, que
 permiten crear aplicaciones rápidamente; las bases de datos
