@@ -56,6 +56,9 @@ h1 {
      font-family: "Arvo", sans-serif;
      }
 
+h2 {
+    font-size: 1.6em;
+}
 
 #header nav li.nav a {
   float: left;
