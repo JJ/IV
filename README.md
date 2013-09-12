@@ -14,7 +14,7 @@ Estos son los [objetivos de la asignatura](documentos/objetivos.md).
 Temario
 ------------
 
-1. [Introducción: conceptos y soporte físico](documentos/temas/1.Intro:concepto_y_soporte_fisico.md)
+1. [Introducción: conceptos y soporte físico](documentos/temas/Intro:concepto_y_soporte_fisico.md)
 2. [Técnicas de virtualización](documentos/temas/2.Tecnicas_de_virtualizacion.md)
 3. [Uso de sistemas de virtualización](documentos/temas/3.Uso_de_sistemas.md)
 

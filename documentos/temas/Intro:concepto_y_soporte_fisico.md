@@ -531,9 +531,12 @@ opción de incluir el fichero Readme.
 </div>
 
 <div class='notas' markdown='1'>
+
 Este [video de 14 minutos](http://www.youtube.com/watch?v=ygbWIJWe29Y)
 sirve como introducción al uso de git
+
 </div>
+
 
 Niveles de infraestructura virtual
 -----
@@ -562,9 +565,12 @@ desplegar en el mismo nuestras propias aplicaciones.
 
 
 <div class='ejercicios' markdown="1">
+
 Comentar diferentes soluciones de *Software as a Service* de uso
 habitual. 
+
 </div>
+
 
 Usando un servicio PaaS
 -----
@@ -584,6 +590,7 @@ en general relativamente limitada; [Heroku](http://heroku.com) y
 <div class='ejercicios' markdown="1">
 
 Darse de alta en algún servicio PaaS tal como Heroku, Nodejitsu u OpenShift.
+
 </div>
 
 Estos servicios proveen un número limitado de máquinas virtuales y
@@ -607,7 +614,7 @@ aplicación el despliegue en la máquina virtual se hace mediante
 Los lenguajes más habituales en las PaaS son los de scripting, que
 permiten crear aplicaciones rápidamente; las bases de datos
 disponibles son tanto las clásicas DBMS aunque, con más frecuencia, se
-usan las bases de datos NoSQL como MongoDB, Redis o CouchDB
+usan las bases de datos NoSQL como MongoDB, Redis o CouchDB.
 
 En cualquier caso, los PaaS suelen tener un panel de control que
 permite hacer ciertas cosas como configurar *plugins* o *add-ons*
@@ -622,6 +629,7 @@ Crear una aplicación en OpenShift y dentro de ella instalar
 Wordpress. 
 
 </div>
+
 
 A dónde ir desde aquí
 -----
