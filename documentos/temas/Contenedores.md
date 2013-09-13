@@ -172,7 +172,14 @@ tápers (que así vamos a llamar a los contenedores a partir de ahora)
 es más fácil usar [lxc-webpanel](http://lxc-webpanel.github.io/), un
 centro de control por web que permite iniciar y parar las máquinas
 virtuales, aparte de controlar los recursos asignados a cada una de
-ellas y visualizarlos.
+ellas y visualizarlos, tal como se muestra a continuación.
+
+![Visualizando uno de los tápers](../img/Minube - LXC Web Panel.png)
+
+La página principal te da una visión general de los contenedores
+instalados y desde ella se pueden arrancar o parar. 
+
+![Página inicial de LXC-Webpanel](../img/Overview - LXC Web Panel.png)
 
 <div class='ejercicios' markdown='1'>
 
