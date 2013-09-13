@@ -571,6 +571,38 @@ habitual.
 
 </div>
 
+Entornos virtuales de desarrollo
+---
+
+Los lenguajes de scripting tales como Perl, Python y Ruby tienen
+ciclos de desarrollo muy rápidos que hacen que a veces convivan en
+producción diferenets versiones de los mismos, incluso *major*
+versions. Eso hace complicado desarrollar e incluso probar los
+programas que se desarrollan: si el sistema operativo viene con Perl
+5.14, puede que haga falta probar o desarrollar para 5.16 o 5.18 o
+incluso probar 5.19.
+
+Por eso desde hacer cierto tiempo se han venido usando *entornos
+virtuales de desarrollo* tales como
+[virtualenv para Python](http://www.virtualenv.org/en/latest/),
+[nodeenv para node.js](https://pypi.python.org/pypi/nodeenv/)
+[rbenv para Ruby](https://github.com/sstephenson/rbenv) y
+[perlbrew para Perl](http://perlbrew.pl).
+
+Una vez instalados, estos programas permiten instalar fácilmente
+nuevas versiones de tu lenguaje de programación (con las librerías
+asociadas) y probar un programa en todas ellas. Se usan principalmente
+para reflejar localmente los entornos que se usan en producción; por
+ejemplo, usar en el entorno de desarrollo local la misma versión y
+librerías que nos vamos a encontrar en un PaaS tal como los que
+veremos a continuación.
+
+<div class='ejercicios' markdown="1">
+
+Instalar un entorno virtual para tu lenguaje de programación favorito
+(uno de los mencionados arriba, obviamente)
+
+</div>
 
 Usando un servicio PaaS
 -----
@@ -626,10 +658,20 @@ algunos casos cualquier instancia tiene un coste.
 <div class='ejercicios' markdown="1">
 
 Crear una aplicación en OpenShift y dentro de ella instalar
-Wordpress. 
+WordPress. 
 
 </div>
 
+<div class='notas' markdown='1'>
+
+Este
+[video explica como usar heroku para aplicaciones en Ruby](http://www.youtube.com/watch?v=dqAXmratgzE);
+en
+[este un poco más extenso y hecho por una persona de Heroku](http://www.youtube.com/watch?v=VZgHItD9bAQ)
+te explica cómo usarlo. No hay muchos videos en español, pero en
+[este explica cómo crear una aplicación Django y subirla a Heroku](http://www.youtube.com/watch?v=3k2eg0stnCI)
+
+</div>
 
 A dónde ir desde aquí
 -----
