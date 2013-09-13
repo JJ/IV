@@ -251,7 +251,7 @@ una herramienta universal, ni siquiera para todas las *debian-like*
 
 Otras distros tienen herramientas similares, adaptadas a sus
 características y sistemas de paquetes. Por ejemplo,
-[`urpmi` se puede usar en Madriva](http://wiki.mandriva.com/en/Development/Howto/Chroot)
+[`urpmi` se puede usar en Mandriva](http://wiki.mandriva.com/en/Development/Howto/Chroot)
 (aunque es más bien un sistema para instalar paquetes en cualquier
 sitio) y, aunque también existe en Fedora `febootstrap` lo más
 flexible es usar
@@ -342,6 +342,9 @@ que actualizar la distribución, los locales, y configurarlos.
 
 	apt-get install language-pack-es
 	
+Esto instala el paquete español que básicamente evita que nos dé una
+serie de errores. Puede que haya que instalar alguna cosa más, pero
+con esto evitamos los errores más comunes.
 
 <div class='ejercicios' markdown="1">
 
@@ -375,6 +378,16 @@ el usuario quien tenga que usarlos. Otras órdenes como
 [`schroot`](http://linuxgazette.net/150/kapil.html) permiten trabajar
 con varios entornos fácilmente y gestionarlos desde la línea de
 órdenes, refiriéndonos a ellos por nombres o aliases.
+
+<div class='notas' markdown='1'>
+
+Este
+[video de unos 20 minutos y de LinuxMagazineSpain](http://www.youtube.com/watch?v=Hk8nxDZ2wjY)
+explica el concepto de chroot y cómo instalarlo. Se enrolla un poco
+más de la cuenta, pero es más o menos completo.
+
+</div>
+
 
 Lo primero que hay que hacer es crear una definición para cada uno de
 los entornos en el fichero `/etc/schroot/schroot.conf` tal como esta:
