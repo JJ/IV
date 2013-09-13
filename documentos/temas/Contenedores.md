@@ -182,12 +182,12 @@ centro de control por web que permite iniciar y parar las máquinas
 virtuales, aparte de controlar los recursos asignados a cada una de
 ellas y visualizarlos, tal como se muestra a continuación.
 
-![Visualizando uno de los tápers](../img/Minube - LXC Web Panel.png)
+![Visualizando uno de los tápers](../img/Minube-lxc.png)
 
 La página principal te da una visión general de los contenedores
 instalados y desde ella se pueden arrancar o parar. 
 
-![Página inicial de LXC-Webpanel](../img/Overview - LXC Web Panel.png)
+![Página inicial de LXC-Webpanel](../img/Overview-lxc.png)
 
 <div class='ejercicios' markdown='1'>
 
