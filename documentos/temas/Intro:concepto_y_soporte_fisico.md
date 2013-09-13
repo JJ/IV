@@ -320,6 +320,12 @@ su contenido usando `ls` o el navegador de ficheros. Si no lo está, se
 monta con
 
 	mount -t cgroup cgroup /sys/fs/cgroup/
+	
+o 
+
+		mount -t cgroup cgroup /cgroup/
+		
+dependiendo de donde esté configurado.
 
 Un listado de ese directorio arrojará algo como esto
 

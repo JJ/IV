@@ -161,3 +161,27 @@ distribución y otro basado en otra que no sea la tuya.
 
 </div>
 
+Los contenedores son la implementación de todas las tecnologías vistas
+anteriormente: espacios de nombres, CGroups y puentes de red y como
+tales pueden ser configurados para usar sólo una cantidad determinada
+de recursos, por ejemplo
+[la CPU](http://www.slideshare.net/dotCloud/scale11x-lxc-talk-16766275). Para
+ello se usan los ficheros de configuración de cada una de las máquinas
+virtuales. Sin embargo, tanto para controlar como para visualizar los
+tápers (que así vamos a llamar a los contenedores a partir de ahora)
+es más fácil usar [lxc-webpanel](http://lxc-webpanel.github.io/), un
+centro de control por web que permite iniciar y parar las máquinas
+virtuales, aparte de controlar los recursos asignados a cada una de
+ellas y visualizarlos.
+
+<div class='ejercicios' markdown='1'>
+
+1. Instalar lxc-webpanel y usarlo para arrancar, parar y visualizar las
+máquinas virtuales que se tengan instaladas.
+
+2. Desde el panel restringir los recursos que pueden usar: CPU
+*shares*, CPUs que se pueden usar (en sistemas multinúcleo) o cantidad
+de memoria.
+</div>
+
+
