@@ -245,6 +245,57 @@ para comprender cómo funciona.
 </div>
 
 
+Desarrollo colaborativo y despliegue de aplicaciones: `git`
+----------------------------------------------------------
+
+[git](http://git-scm.com) es un programa distribuido de gestión de
+control de versiones. Se diseñó originalmente para la gestión de
+fuentes del núcleo de Linux, pero hoy en día se usa también de forma
+extensiva para despliegue de aplicaciones.
+
+Un sistema de control de versiones permite saber a quién corresponde
+cada cambio en un fuente y revertir tales cambios si hay algún
+problema en los mismos. También permite trabajar simultáneamente con
+diferentes versiones y, eventualmente, fusionarlas conservando los
+cambios en las mismas. El hecho de que se puedan revertir los cambios
+y también integrarse en un flujo de desarrollo (que incluya
+integración continua, por ejemplo) es la clave de su popularidad en el
+despliegue de aplicaciones en la nube.
+
+<div class='notas' markdown='1'>
+
+Esta
+[presentación sobre Git y su uso en GitHub](http://www.slideshare.net/jjmerelo/introduccin-al-uso-git-y-github-para-trabajo-colaborativo)
+está más enfocada al uso general, pero las órdenes básicas que se usan
+para desplegar en la nube se tratan también.
+
+</div>
+
+<div class='ejercicios' markdown="1">
+Instala el sistema de gestión de fuentes `git`
+</div>
+
+El ciclo básico de uso de `git` consiste, tras la clonación, en hacer
+`pull` - modificar - `commit` - `push`. Este último sincroniza la
+versión local con la versión remota. Se pueden hacer varios `commits`
+antes de hacer `push`; todos los cambios se subirán al hacerlo. En
+realidad el programa es mucho más complejo y admite múltiples cambios,
+pero a este nivel es suficiente con conocer esto. 
+
+<div class='ejercicios' markdown="1">
+1. Crear un proyecto y descargárselo con git. Al crearlo se marca la
+opción de incluir el fichero Readme.
+2. Modificar el readme y subir el fichero modificado.
+</div>
+
+<div class='notas' markdown='1'>
+
+Este [video de 14 minutos](http://www.youtube.com/watch?v=ygbWIJWe29Y)
+sirve como introducción al uso de git
+
+</div>
+
+
 Restricción y medición del uso de recursos: `cgroups`
 -----
 
@@ -491,57 +542,6 @@ puede usar la aceleración por hardware del procesador.
 <div class='ejercicios' markdown="1">
 Comprobar si el núcleo instalado en tu ordenador contiene este módulo
 del kernel usando la orden `kvm-ok`
-</div>
-
-
-Desarrollo colaborativo y despliegue de aplicaciones: `git`
-----------------------------------------------------------
-
-[git](http://git-scm.com) es un programa distribuido de gestión de
-control de versiones. Se diseñó originalmente para la gestión de
-fuentes del núcleo de Linux, pero hoy en día se usa también de forma
-extensiva para despliegue de aplicaciones.
-
-Un sistema de control de versiones permite saber a quién corresponde
-cada cambio en un fuente y revertir tales cambios si hay algún
-problema en los mismos. También permite trabajar simultáneamente con
-diferentes versiones y, eventualmente, fusionarlas conservando los
-cambios en las mismas. El hecho de que se puedan revertir los cambios
-y también integrarse en un flujo de desarrollo (que incluya
-integración continua, por ejemplo) es la clave de su popularidad en el
-despliegue de aplicaciones en la nube.
-
-<div class='notas' markdown='1'>
-
-Esta
-[presentación sobre Git y su uso en GitHub](http://www.slideshare.net/jjmerelo/introduccin-al-uso-git-y-github-para-trabajo-colaborativo)
-está más enfocada al uso general, pero las órdenes básicas que se usan
-para desplegar en la nube se tratan también.
-
-</div>
-
-<div class='ejercicios' markdown="1">
-Instala el sistema de gestión de fuentes `git`
-</div>
-
-El ciclo básico de uso de `git` consiste, tras la clonación, en hacer
-`pull` - modificar - `commit` - `push`. Este último sincroniza la
-versión local con la versión remota. Se pueden hacer varios `commits`
-antes de hacer `push`; todos los cambios se subirán al hacerlo. En
-realidad el programa es mucho más complejo y admite múltiples cambios,
-pero a este nivel es suficiente con conocer esto. 
-
-<div class='ejercicios' markdown="1">
-1. Crear un proyecto y descargárselo con git. Al crearlo se marca la
-opción de incluir el fichero Readme.
-2. Modificar el readme y subir el fichero modificado.
-</div>
-
-<div class='notas' markdown='1'>
-
-Este [video de 14 minutos](http://www.youtube.com/watch?v=ygbWIJWe29Y)
-sirve como introducción al uso de git
-
 </div>
 
 
