@@ -2,7 +2,7 @@ Introducción a la computación virtual: concepto y soporte físico
 ==
 
 <!--@
-next: 2.Tecnicas_de_virtualizacion
+next: Tecnicas_de_virtualizacion
 -->
 
 <div class="objetivos" markdown="1">
@@ -676,7 +676,7 @@ te explica cómo usarlo. No hay muchos videos en español, pero en
 A dónde ir desde aquí
 -----
 
-En el [siguiente tema](2.Tecnicas_de_virtualizacion.md) usaremos
+En el [siguiente tema](Tecnicas_de_virtualizacion.md) usaremos
 diferentes técnicas de virtualización y gestión de máquinas
 virtuales. Previamente habrá que [realizar la
 práctica correspondiente a esta materia](../practicas/1.PaaS.md). 
