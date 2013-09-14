@@ -192,3 +192,214 @@ de memoria.
 </div>
 
 
+Configurando tápers
+----
+
+Una vez creados los tápers, son en casi todos los aspectos como una
+instalación normal de un sistema operativo: se puede instalar lo que
+uno quiera. Sin embargo, una de las ventajas de la infraestructura
+virtual es precisamente la (aparente) configuración del *hardware*
+mediante *software*: de la misma forma que se crea, inicia y para
+desde el anfitrión una MV, se puede configurar para que ejecute unos
+servicios y programas determinados.
+
+A este tipo de aplicaciones y sistemas se les denomina
+[SCM por *software configuration management*](http://en.wikipedia.org/wiki/Software_configuration_management);
+a pesar de ese nombre, se dedican principalmente a configurar
+hardware, no software. Un sistema de este estilo permite, por ejemplo,
+crear un táper (o, para el caso, una máquina virtual, o muchas de
+ellas) y automáticamente *provisionarla* con el software necesario
+para comportarse como un
+[PaaS](http://jj.github.io/IV/documentos/temas/Intro:concepto_y_soporte_fisico#usando_un_servicio_paas)
+o simplemente como una máquina de servicio al cliente. 
+
+En general, un SCM permite crear métodos para instalar una aplicación
+o servicio determinado, expresando sus dependencias, los servicios que
+provee y cómo se puede trabajar con ellos. Por ejemplo, una base de
+datos ofrece precisamente ese servicio; un sistema de gestión de
+contenidos dependerá del lenguaje en el que esté escrito; además, se
+pueden establecer *relaciones* entre ellos para que el CMS use la BD
+para almacenar sus tablas. 
+
+Hay
+[decenas de sistemas CMS](http://en.wikipedia.org/wiki/Comparison_of_open-source_configuration_management_software),
+aunque hoy en día los hay que tienen cierta popularidad, como Salt,
+Ansible, Chef, Juju y Puppet. Todos ellos tienen sus ventajas e
+inconvenientes, pero para la configuración de tápers se puede usar
+directamente [Juju](http://juju.ubuntu.com), creado por Canonical
+especialmente para máquinas virtuales de ubuntu que se ejecuten en la
+nube de Amazon. En este punto nos interesa también porque se puede
+usar directamente con contenedores LXC, mientras que no todos lo
+hacen.
+
+Para instalarlo conviene usar la última versión; la que hay en los
+repositorios de algunas versiones de Ubuntu no tiene todas las
+capacidades. Por tanto:
+
+	sudo add-apt-repository ppa:juju/stable
+	sudo apt-get update && sudo apt-get install juju-core
+	
+Si has instalado previamente con sudo apt-get install juju te lo
+desinstalará automáticamente. Esto añade un repositorio PPA (creado
+por el desarrollador); actualiza los contenidos del local e instala
+`juju`, que está basado en Python y por tanto instalará un montón de
+librerías del mismo, inclusive Twisted y varias más. 
+
+Para empezar a trabajar con él, se escribe
+
+	juju init -w
+	
+<div class='notas' markdown='1'>
+
+En el
+[documento de instalación](https://juju.ubuntu.com/docs/getting-started.html)
+pone incorrectamente que basta con hacer 
+
+	juju init
+	
+En ese caso escribirá el fichero de configuración en pantalla
+
+</div>
+
+Esta orden escribe en el subdirectorio `~/.juju`, que también crea, el
+fichero `environments.yaml`, que contiene información sobre los
+*entornos* con los que suele trabajar: proveedores de servicios de
+nube y el local, que es el que vamos a probar. Por omisión, el fichero
+trabajará con Amazon EC2. Tenemos que cambiarlo a `local` editando el
+fichero y cambiando la línea 
+	
+	#default: amazon
+	
+comentándola de esta forma, por ejemplo, y añadiendo 
+
+	default: local
+
+Este es el entorno con el que se va a trabajar por omisión; usando
+
+	juju switch amazon
+	
+por ejemplo, se puede cambiar a ese entorno. 
+
+<div class='notas' markdown='1'>
+
+Para [trabajar en local hace falta instalar MongoDB](http://marcoceppi.com/2013/07/compiling-juju-and-the-local-provider/). Si no lo tienes
+instalado, haz
+
+	sudo apt-get install mongodb-server
+	
+</div>
+
+Si tienes ya algún táper creado, te fastidias. A `juju`,
+aparentemente, le gustan los suyos propios. Pero la verdad es que es
+fácil crearlo, simplemente
+
+	juju bootstrap
+	
+te creará un táper con su propia configuración, algo así como 
+
+	bash$ lxc-ls 
+	
+	contenedor  jmerelo-local-machine-1  jmerelo-local-machine-2
+	nubecilla
+	
+Es decir, `usuario-machine-número`. A estas alturas no tengo muy claro
+como se puede entrar a través de lxc, pero usando `juju` se puede
+hacer fácilmente. Lo vemos más adelante.
+
+A partir de la creación de este táper, se pueden instalar
+cosas. `juju` usa [*encantos*](https://jujucharms.com/), scripts que expresan qué necesitan y qué
+provee cada aplicación. Son simplemente *scripts* que usan un lenguaje
+basado en YAML, pero ya hay *charms* para las tareas más comunes:
+instalar servicios web o lenguajes de programación. Por ejemplo, para
+instalar mediawiki simplemente se escribiría 
+
+	juju deploy mediawiki
+	
+No hace falta que indiquemos la máquina en principio, porque en todo
+momento se trabaja con la máquina por defecto (en mi caso
+`jmerelo-machine-1`). Lo que ocurre es que con esto no se consigue
+gran cosa. Mediawiki usa mysql, por lo que habrá que instalarlo
+también
+
+	juju deploy mysql
+	
+No sólo eso, sino que habrá que indicar que mediawiki va a usar
+precisamente mysql como base de datos. Se trata de añadir una
+*relación* con 
+
+	juju add-relation mediawiki mysql
+	
+Una vez hecho esto, se tiene que
+[exponer](https://juju.ubuntu.com/docs/charms-exposing.html) el
+servicio para que pueda ser usado por el público, lo que implicará que
+se enganche al servidor web, por ejemplo
+
+	juju expose mediawiki
+	
+Con esto se puede mostar ya el estado de la máquina:
+
+	juju status
+
+que mostrará algo así:
+
+	machines:
+  "0":
+    agent-state: started
+    agent-version: 1.12.0.1
+    instance-id: localhost
+    instance-state: missing
+    series: precise
+  "1":
+    agent-state: started
+    agent-version: 1.12.0.1
+    instance-id: jmerelo-local-machine-1
+    instance-state: missing
+    series: precise
+  "2":
+    agent-state: started
+    agent-version: 1.12.0.1
+    instance-id: jmerelo-local-machine-2
+    instance-state: missing
+    series: precise
+services:
+  mysql:
+    charm: cs:precise/mysql-27
+    exposed: false
+    relations:
+      cluster:
+      - mysql
+      db:
+      - wordpress
+    units:
+      mysql/0:
+        agent-state: started
+        agent-version: 1.12.0.1
+        machine: "1"
+        public-address: 10.0.3.15
+  wordpress:
+    charm: cs:precise/wordpress-16
+    exposed: true
+    relations:
+      db:
+      - mysql
+      loadbalancer:
+      - wordpress
+    units:
+      wordpress/0:
+        agent-state: started
+        agent-version: 1.12.0.1
+        machine: "2"
+        public-address: 10.0.3.23
+
+`0` es la máquina anfitriona; en este caso muestro un ejemplo en el
+que se ha instalado wordpress; en el mismo se muestra la relación con
+la base de datos y también con un *loadbalancer* para equilibrar la
+carga. Como dato interesante, esta orden nos da la IP local del táper
+que hemos creado, por lo que accediendo desde el navegador a
+http://10.0.3.15 nos mostrará la página de inicio de MediaWiki
+
+<div class='ejercicios' markdown='1'>
+
+Instalar `juju` y, usándolo, instalar MediaWiki en un táper
+
+</div>
