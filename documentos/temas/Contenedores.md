@@ -273,7 +273,8 @@ Esta orden escribe en el subdirectorio `~/.juju`, que también crea, el
 fichero `environments.yaml`, que contiene información sobre los
 *entornos* con los que suele trabajar: proveedores de servicios de
 nube y el local, que es el que vamos a probar. Por omisión, el fichero
-trabajará con Amazon EC2. Tenemos que cambiarlo a `local` editando el
+trabajará con Amazon EC2. Tenemos que cambiarlo a `local` [si queremos
+trabajar con contenedores LXC](https://juju.ubuntu.com/docs/config-local.html) editando el
 fichero y cambiando la línea 
 	
 	#default: amazon
@@ -332,8 +333,8 @@ también
 	juju deploy mysql
 	
 No sólo eso, sino que habrá que indicar que mediawiki va a usar
-precisamente mysql como base de datos. Se trata de añadir una
-*relación* con 
+precisamente mysql como base de datos. Se trata de añadir [una
+*relación*](https://juju.ubuntu.com/docs/charms-relations.html) con 
 
 	juju add-relation mediawiki mysql
 	
