@@ -14,9 +14,10 @@ next: Contenedores
 virtualización tanto para procesamiento, comunicación y
 almacenamiento. 
 
-2. Crear infraestructuras virtuales básicas: dispositivos
+2. Crear infraestructuras virtuales básicas: dispositivos.
 
-3. Crear recursos aislados usando *jaulas* 
+3. Crear recursos aislados usando *jaulas* usando órdenes del sistema
+y diferentes utilidades.
 
 </div>
 
@@ -470,10 +471,11 @@ Y a partir de ahí
 
 En esta orden `-v` indica que se muestren todos los mensajes (para que
 se vea que se está haciendo) y `-j` indica el directorio donde se
-encuentra la jaula
+encuentra la jaula.
 
 Esta jaula se puede usar directamente con `chroot`, pero [jailkit
-también permite *enjaular* usuarios](http://www.binarytides.com/setup-a-jail-shell-with-jailkit-on-ubuntu/). Tras crearlo de la forma habitual
+también permite *enjaular* usuarios](http://www.binarytides.com/setup-a-jail-shell-with-jailkit-on-ubuntu/). Tras
+crear el usuario de la forma habitual
 en Linux
 
 	sudo jk_jailuser -m -j /seguro/jaulas/dorada alguien
@@ -489,7 +491,7 @@ usando este nombre de usuario.
 
 <div class='ejercicios' mardown='1'>
 
-Crear una jaula y enjaular un usuario usando jailkit, que previamente se habrá tenido que instalar. 
+Crear una jaula y enjaular un usuario usando `jailkit`, que previamente se habrá tenido que instalar. 
 
 </div>
 
