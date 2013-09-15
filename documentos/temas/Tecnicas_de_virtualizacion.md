@@ -2,7 +2,7 @@ Técnicas de virtualización
 ==
 
 <!--@
-prev: Intro:concepto_y_soporte_fisico
+prev: Intro_concepto_y_soporte_fisico
 next: Contenedores
 -->
 
@@ -14,7 +14,9 @@ next: Contenedores
 virtualización tanto para procesamiento, comunicación y
 almacenamiento. 
 
-2. Crear infraestructuras virtuales básicas.
+2. Crear infraestructuras virtuales básicas: dispositivos
+
+3. Crear recursos aislados usando *jaulas* 
 
 </div>
 
@@ -49,13 +51,13 @@ Hay seis tipos de *namespaces*, algunso de los cuales son
 relativamente modernos y otros proceden de las versiones 2.4 y 2.6 del
 núcleo:
 
-* De montaje, aislan los recursos declarados con `mount`
+* De montaje, aislan los recursos declarados con `mount`.
 * UTS (el acrónimo viene de *Unix Time Sharing System*, sistemas de
   virtualización tempranos), básicamente los nombres del ordenador y
-  su dominio
+  su dominio.
 * IPC o *inter-process communication*, referidos a los *sockets* y
-    colas de mensajes
-* PID o identificadores de proceso
+    colas de mensajes.
+* PID o identificadores de proceso.
 * Red, los recursos relacionados con la red, números de puerto y
       demás.
 * Usuario, lo que puede permitir, por ejemplo, que un proceso
