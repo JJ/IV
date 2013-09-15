@@ -16,12 +16,12 @@ Temario
 
 1. [Introducción: conceptos y soporte físico](documentos/temas/Intro:concepto_y_soporte_fisico.md)
 2. [Técnicas de virtualización](documentos/temas/Tecnicas_de_virtualizacion.md)
-2. [Usando contenedores](documentos/temas/Contenedores.md)
-3. [Uso de sistemas de virtualización](documentos/temas/Uso_de_sistemas.md)
+3. [Usando contenedores](documentos/temas/Contenedores.md)
+4. [Uso de sistemas de virtualización](documentos/temas/Uso_de_sistemas.md)
 
 Prácticas
 -------------
 
 1. [Platform as a Service](documentos/practicas/1.PaaS.md)
-1. [Creación de una jaula](documentos/practicas/2.Jaula.md)
+2. [Creación de una jaula](documentos/practicas/2.Jaula.md)
 
