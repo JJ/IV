@@ -491,7 +491,7 @@ Algunas aplicaciones están preparadas de serie para usar cgroups:
 
 </div>
 
-Virtualización a nivel de hardware
+Virtualización a nivel de *hardware* 
 ----------------------------------
 
 Los sistemas operativos modernos ofrecen *puentes* para poder usar las

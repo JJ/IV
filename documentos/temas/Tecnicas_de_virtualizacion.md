@@ -1,7 +1,7 @@
 ---
 layout: index
 
-prev: Intro:concepto_y_soporte_fisico
+prev: Intro_concepto_y_soporte_fisico
 next: Contenedores
 
 ---
@@ -10,7 +10,7 @@ Técnicas de virtualización
 ==
 
 <!--@
-prev: Intro:concepto_y_soporte_fisico
+prev: Intro_concepto_y_soporte_fisico
 next: Contenedores
 -->
 
@@ -22,7 +22,10 @@ next: Contenedores
 virtualización tanto para procesamiento, comunicación y
 almacenamiento. 
 
-2. Crear infraestructuras virtuales básicas.
+2. Crear infraestructuras virtuales básicas: dispositivos.
+
+3. Crear recursos aislados usando *jaulas* usando órdenes del sistema
+y diferentes utilidades.
 
 </div>
 
@@ -57,13 +60,13 @@ Hay seis tipos de *namespaces*, algunso de los cuales son
 relativamente modernos y otros proceden de las versiones 2.4 y 2.6 del
 núcleo:
 
-* De montaje, aislan los recursos declarados con `mount`
+* De montaje, aislan los recursos declarados con `mount`.
 * UTS (el acrónimo viene de *Unix Time Sharing System*, sistemas de
   virtualización tempranos), básicamente los nombres del ordenador y
-  su dominio
+  su dominio.
 * IPC o *inter-process communication*, referidos a los *sockets* y
-    colas de mensajes
-* PID o identificadores de proceso
+    colas de mensajes.
+* PID o identificadores de proceso.
 * Red, los recursos relacionados con la red, números de puerto y
       demás.
 * Usuario, lo que puede permitir, por ejemplo, que un proceso
@@ -476,10 +479,11 @@ Y a partir de ahí
 
 En esta orden `-v` indica que se muestren todos los mensajes (para que
 se vea que se está haciendo) y `-j` indica el directorio donde se
-encuentra la jaula
+encuentra la jaula.
 
 Esta jaula se puede usar directamente con `chroot`, pero [jailkit
-también permite *enjaular* usuarios](http://www.binarytides.com/setup-a-jail-shell-with-jailkit-on-ubuntu/). Tras crearlo de la forma habitual
+también permite *enjaular* usuarios](http://www.binarytides.com/setup-a-jail-shell-with-jailkit-on-ubuntu/). Tras
+crear el usuario de la forma habitual
 en Linux
 
 	sudo jk_jailuser -m -j /seguro/jaulas/dorada alguien
@@ -495,7 +499,7 @@ usando este nombre de usuario.
 
 <div class='ejercicios' mardown='1'>
 
-Crear una jaula y enjaular un usuario usando jailkit, que previamente se habrá tenido que instalar. 
+Crear una jaula y enjaular un usuario usando `jailkit`, que previamente se habrá tenido que instalar. 
 
 </div>
 
