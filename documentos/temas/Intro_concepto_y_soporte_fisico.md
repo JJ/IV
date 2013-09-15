@@ -1,4 +1,4 @@
-Introducción a la computación virtual: concepto y soporte físico
+Introducción a la infraestructura virtual: concepto y soporte físico
 ==
 
 <!--@
@@ -480,7 +480,7 @@ reciba mayor prioridad de entrada/salida que el resto de los usuarios.
 <div class='notas' markdown='1'>
 
 Algunas aplicaciones están preparadas de serie para usar cgroups: 
-[este manual explican cómo asignarle calidades de servicio usando CGROUPS a un marco web denominado uWSCGI](http://uwsgi-docs.readthedocs.org/en/latest/Cgroups.html)
+[este manual explican cómo asignarle calidades de servicio usando CGROUPS a un marco web denominado uWSCGI](http://uwsgi-docs.readthedocs.org/en/latest/Cgroups.html).
 
 </div>
 
@@ -540,7 +540,7 @@ puede usar la aceleración por hardware del procesador.
 
 <div class='ejercicios' markdown="1">
 Comprobar si el núcleo instalado en tu ordenador contiene este módulo
-del kernel usando la orden `kvm-ok`
+del kernel usando la orden `kvm-ok`.
 </div>
 
 
@@ -606,7 +606,7 @@ veremos a continuación.
 <div class='ejercicios' markdown="1">
 
 Instalar un entorno virtual para tu lenguaje de programación favorito
-(uno de los mencionados arriba, obviamente)
+(uno de los mencionados arriba, obviamente).
 
 </div>
 
