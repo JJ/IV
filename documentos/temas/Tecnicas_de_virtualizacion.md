@@ -22,7 +22,7 @@ next: Contenedores
 virtualización tanto para procesamiento, comunicación y
 almacenamiento. 
 
-2. Realizar tareas de administración en infraestructura virtual.
+2. Crear infraestructuras virtuales básicas.
 
 </div>
 
@@ -374,6 +374,22 @@ directamente dentro de la misma. Esto se puede usar para crear
 usuarios poco privilegiados para ejecutar shells restringidos o
 servicios como `sftp` o un servidor web. 
 
+<div class='notas' markdown='1'>
+
+Hay que tener en cuenta que si este usuario no está definido *dentro
+de la jaula* al acceder directamente a la misma (mediante un
+*contenedor* de los que se verán más adelante, por ejemplo) no se
+podrá usar. Esta es una de las principales diferencias entre las
+jaulas `chroot` y los contenedores: los primeros no necesitan usuarios
+definidos, porque se ejecutan como una serie de procesos del anfitrión
+con limitaciones en el acceso al sistema de ficheros; sin embargo, un
+*contenedor* se ejecuta como una máquina completa. Esta es una de las
+diferencias entre *jaulas* y *tápers* por lo que si se quiere usar una
+jaula como tal una de las cosas que habrá que hacer es, precisamente,
+definir usuarios y darle privilegios.
+
+</div>
+
 <div class='ejercicios' markdown="1">
 
 Instalar una jaula chroot para ejecutar el servidor web de altas
@@ -492,6 +508,12 @@ y
 
 </div>
 
+Dado que las jaulas contienen, en realidad, sistemas completos, se
+pueden usar más adelante para incluirlas en *tápers* o
+*contenedores*. La diferencia no está en cómo está constituida la
+jaula, sino en cómo se accede a ella. Sin embargo, las técnicas
+necesarias para crear un sistema con virtualización completa son
+diferentes y se verán más adelante.
 
 A dónde ir desde aquí
 -----
