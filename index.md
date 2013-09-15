@@ -19,9 +19,14 @@ Estos son los [objetivos de la asignatura](documentos/objetivos).
 Temario
 ------------
 
-1. [Introducción: conceptos y soporte físico](documentos/temas/1.Intro:concepto_y_soporte_fisico)
-2. [Técnicas de virtualización](documentos/temas/2.Tecnicas_de_virtualizacion)
-3. [Uso de sistemas de virtualización](documentos/temas/3.Uso_de_sistemas)
+1. [Introducción: conceptos y soporte físico](documentos/temas/Intro:concepto_y_soporte_fisico)
+2. [Técnicas de virtualización](documentos/temas/Tecnicas_de_virtualizacion)
+2. [Usando contenedores](documentos/temas/Contenedores)
+3. [Uso de sistemas de virtualización](documentos/temas/Uso_de_sistemas)
 
+Prácticas
+-------------
 
+1. [Platform as a Service](documentos/practicas/1.PaaS)
+1. [Creación de una jaula](documentos/practicas/2.Jaula)
 
