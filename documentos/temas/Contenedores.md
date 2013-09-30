@@ -29,6 +29,17 @@ restringían lo que los procesos podían hacer en relación con el resto
 del sistema. Tiene como limitación, sin embargo, la obligación de
 ejecutar la misma versión del núcleo del sistema.
 
+<div class='notas' markdown='1'>
+
+En
+[esta presentación](http://www.slideshare.net/dotCloud/scale11x-lxc-talk-16766275)
+explica como los espacios de nombres son la clave para la creación de
+contenedores y cuáles son sus ventajas frente a otros métodos de
+virtualización
+
+</div>
+
+
 El mundo Linux no tendría capacidades similares hasta los años 80, con
 [vServers, OpenVZ y finalmente LXC](http://en.wikipedia.org/wiki/Operating_system-level_virtualization#Implementations). Este
 último, [LXC](http://lxc.sourceforge.net), se basa en el concepto de
@@ -67,11 +78,19 @@ creación de contenedores más fácil de usar hoy en día en Linux.
 Instala LXC en tu versión de Linux favorita.
 </div>
 
+Esta virtualización *ligera* tiene, entre otras ventajas, la poca
+*huella*: un ordenador normal puede admitir 10 veces más contenedores
+(o *tápers*) que máquinas virtuales; su tiempo de arranque es de unos
+segundos y, además, tienes mayor control desde fuera (desde el anfitrión) del que se pueda
+tener usando máquinas virtuales. 
 
-No todos los núcleos pueden usar este tipo de container; para empezar,
+Usando `lxc`
+--
+
+No todos los núcleos del sistema operativo pueden usar este tipo de container; para empezar,
 dependerá de cómo esté compilado, pero también del soporte que tenga
 el hardware. `lxc-checkconfig` permite comprobar si está preparado
-para usar este tipo de tecnología. Parte de la configuración se
+para usar este tipo de tecnología y también si se ha configurado correctamente. Parte de la configuración se
 refiere a la instalación de `cgroups`, que hemos visto antes; el resto
 a los espacios de nombres y a capacidades *misceláneas* relacionadas
 con la red y el sistema de ficheros. 
