@@ -419,10 +419,11 @@ correspondientes.
 
 </div>
 
-La librería `libcgroup` (`libcgroup1` en Ubuntu) [permite un control por línea de órdenes](https://wiki.archlinux.org/index.php/Cgroups) algo
+El paguete `cgroup-bin` (`libcgroup` en ArchLinux, puede variar en
+otras distros) [permite un control por línea de órdenes](https://wiki.archlinux.org/index.php/Cgroups) algo
 más sencillo sin necesidad de trabajar directamente con sistemas de
 ficheros virtuales. Con una serie de órdenes o un fichero de
-configuración en `/etc/cggroup.conf` [se pueden controlar los
+configuración en `/etc/cgconfig.conf` [se pueden controlar los
 diferentes grupos de control y limitar y contabilizar el uso de
 recursos por parte de los diferentes procesos](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/) que se hayan asignado en
 los grupos.
@@ -435,14 +436,14 @@ Esta orden crea un grupo `teestoyviendo` que se encarga de controlar
 memoria, CPU y de contabilizar el uso de recursos de la CPU y da
 permiso a `un_usuario` para que trabaje con él. El resto de las
 órdenes que afecten a este grupo las podrá realizar este usuario. Por
-ejemplo, se pueden crear subgrupos
+ejemplo, se pueden crear subgrupos con
 
 	cgcreate -g memory,cpu,cpuacct:teestoyviendo/wp
 	cgcreate -g memory,cpu,cpuacct:teestoyviendo/navegadores
 	
 Y cada uno de estos subgrupos se podrá controlar por separado,
 teniendo su subdirectorio correspondiente dentro de
-`/sys/fs/cgroup/(memory|cpu|cpuacct` .
+`/sys/fs/cgroup/(memory|cpu|cpuacct)` .
 
 Esta librería tiene otra orden, `cgexec`, para ejecutar órdenes dentro
 de un grupo determinado, de forma que no haya que añadir el PID de un
@@ -460,15 +461,15 @@ Si se quiere trabajar con usuarios en vez de procesos, se puede usar
 un fichero de configuración que permite especificar a qué grupo
 pertenece cada usuario e incluso qué comandos de qué usuario deben
 pertenecer a cada grupo. Con ello se le puede asignar, por ejemplo,
-más prioridad en la CPU o entrada salida a unos usuarios que a otros. 
+más prioridad en la CPU o entrada/salida a unos usuarios que a otros. 
 
 
 <div class='ejercicios' markdown="1">
-1. Discutir diferentes escenarios de limitación de uso de recursos o
-de asignación de los mismos a una u otra CPU.
-2. Implementar usando el fichero de configuración de cgcreate una
+1. [Discutir diferentes escenarios de limitación de uso de recursos o
+de asignación de los mismos a una u otra CPU](https://github.com/IV-GII/GII-2013/issues/4).
+2. Implementar usando el fichero de configuración de `cgcreate` una
 política que dé menos prioridad a los procesos de usuario que a los
-procesos del sistema.
+procesos del sistema (o viceversa).
 3. Usar un programa que muestre en tiempo real la carga del sistema
 tal como `htop`y comprobar los efectos de la migración en tiempo real
 de una tarea *pesada* de un procesador a otro (si se tiene dos núcleos
