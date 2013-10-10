@@ -580,8 +580,8 @@ desplegar en el mismo nuestras propias aplicaciones.
 
 <div class='ejercicios' markdown="1">
 
-Comentar diferentes soluciones de *Software as a Service* de uso
-habitual. 
+[Comentar diferentes soluciones de *Software as a Service* de uso
+habitual.](https://github.com/IV-GII/GII-2013/issues/11)
 
 </div>
 
