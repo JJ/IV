@@ -14,7 +14,7 @@ prev: Tecnicas_de_virtualizacion
 next: 3.Uso_de_sistemas
 -->
 
-Un primer paso de virtualización: *contenedores*
+Un  paso más hacia la virtualización completa: *contenedores*
 -------
 
 El aislamiento de grupos de procesos formando una *jaula* o
@@ -22,7 +22,7 @@ El aislamiento de grupos de procesos formando una *jaula* o
 de la rama Unix desde los años 80, en forma del programa
 [chroot](http://es.wikipedia.org/wiki/Chroot) (creado por Bill Joy, el
 que más adelante sería uno de los padres de Java). La restricción de
-uso de recursos de las *jaulas `chroot`* se limitaba a la protección
+uso de recursos de las *jaulas `chroot`*, que ya hemos visto, se limitaba a la protección
 del acceso a ciertos recursos del sistema de archivos, aunque son
 relativamente fáciles de superar; incluso así, fue durante mucho
 tiempo la forma principal de configurar servidores de alojamiento
@@ -37,7 +37,18 @@ restringían lo que los procesos podían hacer en relación con el resto
 del sistema. Tiene como limitación, sin embargo, la obligación de
 ejecutar la misma versión del núcleo del sistema.
 
-El mundo Linux no tendría capacidades similares hasta los años 80, con
+<div class='nota' markdown='1'>
+
+En
+[esta presentación](http://www.slideshare.net/dotCloud/scale11x-lxc-talk-16766275)
+explica como los espacios de nombres son la clave para la creación de
+contenedores y cuáles son sus ventajas frente a otros métodos de
+virtualización
+
+</div>
+
+
+El mundo Linux no tendría capacidades similares hasta bien entrados los años 90, con
 [vServers, OpenVZ y finalmente LXC](http://en.wikipedia.org/wiki/Operating_system-level_virtualization#Implementations). Este
 último, [LXC](http://lxc.sourceforge.net), se basa en el concepto de
 [grupos de control o CGROUPS](http://en.wikipedia.org/wiki/Cgroups),
@@ -75,11 +86,19 @@ creación de contenedores más fácil de usar hoy en día en Linux.
 Instala LXC en tu versión de Linux favorita.
 </div>
 
+Esta virtualización *ligera* tiene, entre otras ventajas, una
+*huella* escasa: un ordenador normal puede admitir 10 veces más contenedores
+(o *tápers*) que máquinas virtuales; su tiempo de arranque es de unos
+segundos y, además, tienes mayor control desde fuera (desde el anfitrión) del que se pueda
+tener usando máquinas virtuales. 
 
-No todos los núcleos pueden usar este tipo de container; para empezar,
+Usando `lxc`
+--
+
+No todos los núcleos del sistema operativo pueden usar este tipo de container; para empezar,
 dependerá de cómo esté compilado, pero también del soporte que tenga
 el hardware. `lxc-checkconfig` permite comprobar si está preparado
-para usar este tipo de tecnología. Parte de la configuración se
+para usar este tipo de tecnología y también si se ha configurado correctamente. Parte de la configuración se
 refiere a la instalación de `cgroups`, que hemos visto antes; el resto
 a los espacios de nombres y a capacidades *misceláneas* relacionadas
 con la red y el sistema de ficheros. 
@@ -257,7 +276,7 @@ Para empezar a trabajar con él, se escribe
 
 	juju init -w
 	
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 En el
 [documento de instalación](https://juju.ubuntu.com/docs/getting-started.html)
@@ -289,7 +308,7 @@ Este es el entorno con el que se va a trabajar por omisión; usando
 	
 por ejemplo, se puede cambiar a ese entorno. 
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 Para [trabajar en local hace falta instalar MongoDB](http://marcoceppi.com/2013/07/compiling-juju-and-the-local-provider/). Si no lo tienes
 instalado, haz
@@ -409,6 +428,6 @@ http://10.0.3.15 nos mostrará la página de inicio de MediaWiki
 
 <div class='ejercicios' markdown='1'>
 
-Instalar `juju` y, usándolo, instalar MediaWiki en un táper
+Instalar `juju` y, usándolo, instalar MediaWiki en un táper. 
 
 </div>

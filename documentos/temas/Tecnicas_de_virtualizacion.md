@@ -24,7 +24,7 @@ almacenamiento.
 
 2. Crear infraestructuras virtuales básicas: dispositivos.
 
-3. Crear recursos aislados usando *jaulas* usando órdenes del sistema
+3. Aislar recursos (incluyendo todos los relacionados con un usuario) usando *jaulas* usando órdenes del sistema
 y diferentes utilidades.
 
 </div>
@@ -113,14 +113,14 @@ base de los contenedores que se verán en este tema.
 
 `unshare`tiene sus limitaciones, y la principal es que sólo se puede
 *entrar* en un *namespace* ejecutando un comando, no "desde fuera". A
-partir de la versión 2.23 de `util-linux` (la versión en mi Ubuntu 12.04
+partir de la versión 2.23 de util-linux (la versión en mi Ubuntu 12.04
 es la 2.20) [un nuevo comando `nsenter`](http://karelzak.blogspot.com.es/2013/04/umount8-mount8-and-nsenter1.html) permitirá entrar dando el
 PID del proceso dentro del que se haya creado. 
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 Los espacios de nombres permiten aislar todo tipo de aplicaciones; en
-[este manual explican cómo aislar un marco web denominado uWSCGI y su centro de control](http://uwsgi-docs.readthedocs.org/en/latest/Namespaces.html)
+[este manual explican cómo aislar un marco web denominado uWSCGI y su centro de control](http://uwsgi-docs.readthedocs.org/en/latest/Namespaces.html). 
 
 </div>
 
@@ -202,10 +202,10 @@ o simplemente crear un sólo interfaz virtual que contenga los dos
 interfaces reales presentes en el ordenador; también para simular
 redes dentro de un sólo ordenador. 
 
-<div class="notas" markdown="1">
+<div class="nota" markdown="1">
 
 Un
-[video que explica los interfaces puente](http://www.youtube.com/watch?v=XivXeKxQ4KI)
+[video que explica los interfaces puente](http://www.youtube.com/watch?v=XivXeKxQ4KI).
 
 </div>
 
@@ -299,7 +299,7 @@ implementación en C (en vez de scripts del shell, lo que tiene que
 haber sido todo un infierno) de `debootstrap` y que en realidad se usa
 sólo en imágenes de DebianInstaller. 
 
-<div class="notas" markdown="1">
+<div class="nota" markdown="1">
 
 Un
 [*screencast* (en inglés) que muestra cómo instalar Ubuntu 12.04 usando debootstrap](http://www.youtube.com/watch?v=xiM9GOKvTI4)
@@ -313,7 +313,7 @@ ficheros, el `root` o raíz al que se cambia la jaula. En ese sentido,
 es un mecanismo de virtualización menos seguro que otros, porque se
 sigue teniendo acceso al resto de los recursos (dispositivos,
 procesos), aunque el acceso estará limitado al que tenga el usuario
-con el que se trabaje. Sin rmbargo, para ciertas aplicaciones de la
+con el que se trabaje. Sin embargo, para ciertas aplicaciones de la
 virtualización (por ejemplo, para crear entornos de prueba de
 aplicaciones) es suficiente y no hace falta ningún mecanismo
 adicional. De forma rutinaria se usa, por ejemplo, para prueba de
@@ -377,17 +377,16 @@ directamente dentro de la misma. Esto se puede usar para crear
 usuarios poco privilegiados para ejecutar shells restringidos o
 servicios como `sftp` o un servidor web. 
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 Hay que tener en cuenta que si este usuario no está definido *dentro
 de la jaula* al acceder directamente a la misma (mediante un
 *contenedor* de los que se verán más adelante, por ejemplo) no se
 podrá usar. Esta es una de las principales diferencias entre las
-jaulas `chroot` y los contenedores: los primeros no necesitan usuarios
+jaulas `chroot` y los contenedores (que se verán más adelante): las primeras no necesitan usuarios
 definidos, porque se ejecutan como una serie de procesos del anfitrión
 con limitaciones en el acceso al sistema de ficheros; sin embargo, un
-*contenedor* se ejecuta como una máquina completa. Esta es una de las
-diferencias entre *jaulas* y *tápers* por lo que si se quiere usar una
+*contenedor* se ejecuta como una máquina completa. Por tanto, si se quiere usar una
 jaula como tal una de las cosas que habrá que hacer es, precisamente,
 definir usuarios y darle privilegios.
 
@@ -396,17 +395,17 @@ definir usuarios y darle privilegios.
 <div class='ejercicios' markdown="1">
 
 Instalar una jaula chroot para ejecutar el servidor web de altas
-prestaciones `nginx`
+prestaciones `nginx`.
 
 </div>
 
-`chroot` va bien siempre que no tengamos diferentes entornos y no sea
+Usar un simple `chroot` va bien siempre que no tengamos diferentes entornos y no sea
 el usuario quien tenga que usarlos. Otras órdenes como
 [`schroot`](http://linuxgazette.net/150/kapil.html) permiten trabajar
 con varios entornos fácilmente y gestionarlos desde la línea de
 órdenes, refiriéndonos a ellos por nombres o aliases.
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 Este
 [video de unos 20 minutos y de LinuxMagazineSpain](http://www.youtube.com/watch?v=Hk8nxDZ2wjY)
@@ -438,13 +437,13 @@ jmerelo. [Las opciones completas están en la página de manual](http://manpages
 pero, en general, `schroot` añade sólo un poco de conveniencia para
 usuarios, no nuevas capacidades.
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 En la familia
 [BSD existe Warden](http://wiki.pcbsd.org/index.php/Warden%C2%AE), una
 utilidad con interfaz gráfico que permite crear jaulas tanto BSD como
 Linux; con la limitación, por supuesto, de que la versión Linux tenga
-el mismo núcleo
+el mismo núcleo.
 
 </div>
 
@@ -479,7 +478,11 @@ Y a partir de ahí
 
 En esta orden `-v` indica que se muestren todos los mensajes (para que
 se vea que se está haciendo) y `-j` indica el directorio donde se
-encuentra la jaula.
+encuentra la jaula. Los comandos son alias de lo que se va a instalar
+en la jaula; `editors`, por ejemplo, instala una serie de editores y
+las dependencias pertinentes. A estos alias se le denominan
+*secciones* y se refieren a la parte correspondiente del fichero de
+configuración. 
 
 Esta jaula se puede usar directamente con `chroot`, pero [jailkit
 también permite *enjaular* usuarios](http://www.binarytides.com/setup-a-jail-shell-with-jailkit-on-ubuntu/). Tras
@@ -503,12 +506,12 @@ Crear una jaula y enjaular un usuario usando `jailkit`, que previamente se habr�
 
 </div>
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 Unas
 [cuantas cosas que se pueden hacer con jailkit](http://olivier.sessink.nl/jailkit/howtos_chroot_shell.html)
 y
-[prácticas de seguridad](http://www.unixwiz.net/techtips/chroot-practices.html) 
+[prácticas de seguridad](http://www.unixwiz.net/techtips/chroot-practices.html).
 
 </div>
 
@@ -527,4 +530,4 @@ práctica todos los conceptos aprendidos en este tema y
 [el anterior](Intro:concepto_y_soporte_fisico) para crear *tápers*
 o contenedores que aparecen a sus usuarios como una máquina virtual.
 Antes, habrá que hacer y entregar la
-[segunda práctica](../practicas/2.Jaula).
+[segunda práctica](../practicas/2.Jaulas).

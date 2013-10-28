@@ -28,7 +28,7 @@ tanto de software como de hardware y ponerlos en práctica.
 4. Justificar la necesidad de procesamiento virtual frente a real en el contexto de una infraestructura TIC de una organización.
 
 5. Conocer diferentes tecnologías relacionadas con la virtualización
-(Computación Nube, Utility Computing, Software as a Service o Google
+(Computación nube, *Utility Computing*, *Software as a Service* o Google
 AppSpot) 
 
 6. Conocer el concepto de software libre y su importancia dentro de la
@@ -262,7 +262,7 @@ y también integrarse en un flujo de desarrollo (que incluya
 integración continua, por ejemplo) es la clave de su popularidad en el
 despliegue de aplicaciones en la nube.
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 Esta
 [presentación sobre Git y su uso en GitHub](http://www.slideshare.net/jjmerelo/introduccin-al-uso-git-y-github-para-trabajo-colaborativo)
@@ -288,7 +288,7 @@ opción de incluir el fichero Readme.
 2. Modificar el readme y subir el fichero modificado.
 </div>
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 Este [video de 14 minutos](http://www.youtube.com/watch?v=ygbWIJWe29Y)
 sirve como introducción al uso de git
@@ -299,7 +299,7 @@ sirve como introducción al uso de git
 Restricción y medición del uso de recursos: `cgroups`
 -----
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 Este [video de RedHat](http://www.youtube.com/watch?v=KX5QV4LId_c)
 explica cómo y en qué ocasiones usar cgroups para gestionar los
@@ -485,7 +485,7 @@ en el sistema).
 reciba mayor prioridad de entrada/salida que el resto de los usuarios.
 </div>
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 Algunas aplicaciones están preparadas de serie para usar cgroups: 
 [este manual explican cómo asignarle calidades de servicio usando CGROUPS a un marco web denominado uWSCGI](http://uwsgi-docs.readthedocs.org/en/latest/Cgroups.html).
@@ -676,10 +676,10 @@ WordPress.
 
 </div>
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 Este
-[video explica como usar heroku para aplicaciones en Ruby](http://www.youtube.com/watch?v=dqAXmratgzE);
+[video explica como usar `heroku` para aplicaciones en Ruby](http://www.youtube.com/watch?v=dqAXmratgzE);
 en
 [este un poco más extenso y hecho por una persona de Heroku](http://www.youtube.com/watch?v=VZgHItD9bAQ)
 te explica cómo usarlo. No hay muchos videos en español, pero en
@@ -691,7 +691,7 @@ A dónde ir desde aquí
 -----
 
 En el [siguiente tema](Tecnicas_de_virtualizacion) usaremos
-diferentes técnicas de virtualización y gestión de máquinas
-virtuales. Previamente habrá que [realizar la
+diferentes técnicas de virtualización para la creación de contenedores
+y jaulas que aislan procesos, usuarios y recursos del resto del sistema. Previamente habrá que [realizar la
 práctica correspondiente a esta materia](../practicas/1.PaaS). 
 
