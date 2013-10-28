@@ -375,11 +375,10 @@ Hay que tener en cuenta que si este usuario no está definido *dentro
 de la jaula* al acceder directamente a la misma (mediante un
 *contenedor* de los que se verán más adelante, por ejemplo) no se
 podrá usar. Esta es una de las principales diferencias entre las
-jaulas `chroot` y los contenedores: los primeros no necesitan usuarios
+jaulas `chroot` y los contenedores (que se verán más adelante): las primeras no necesitan usuarios
 definidos, porque se ejecutan como una serie de procesos del anfitrión
 con limitaciones en el acceso al sistema de ficheros; sin embargo, un
-*contenedor* se ejecuta como una máquina completa. Esta es una de las
-diferencias entre *jaulas* y *tápers* por lo que si se quiere usar una
+*contenedor* se ejecuta como una máquina completa. Por tanto, si se quiere usar una
 jaula como tal una de las cosas que habrá que hacer es, precisamente,
 definir usuarios y darle privilegios.
 
@@ -388,11 +387,11 @@ definir usuarios y darle privilegios.
 <div class='ejercicios' markdown="1">
 
 Instalar una jaula chroot para ejecutar el servidor web de altas
-prestaciones `nginx`
+prestaciones `nginx`.
 
 </div>
 
-`chroot` va bien siempre que no tengamos diferentes entornos y no sea
+Usar un simple `chroot` va bien siempre que no tengamos diferentes entornos y no sea
 el usuario quien tenga que usarlos. Otras órdenes como
 [`schroot`](http://linuxgazette.net/150/kapil.html) permiten trabajar
 con varios entornos fácilmente y gestionarlos desde la línea de
@@ -436,7 +435,7 @@ En la familia
 [BSD existe Warden](http://wiki.pcbsd.org/index.php/Warden%C2%AE), una
 utilidad con interfaz gráfico que permite crear jaulas tanto BSD como
 Linux; con la limitación, por supuesto, de que la versión Linux tenga
-el mismo núcleo
+el mismo núcleo.
 
 </div>
 
@@ -471,7 +470,11 @@ Y a partir de ahí
 
 En esta orden `-v` indica que se muestren todos los mensajes (para que
 se vea que se está haciendo) y `-j` indica el directorio donde se
-encuentra la jaula.
+encuentra la jaula. Los comandos son alias de lo que se va a instalar
+en la jaula; `editors`, por ejemplo, instala una serie de editores y
+las dependencias pertinentes. A estos alias se le denominan
+*secciones* y se refieren a la parte correspondiente del fichero de
+configuración. 
 
 Esta jaula se puede usar directamente con `chroot`, pero [jailkit
 también permite *enjaular* usuarios](http://www.binarytides.com/setup-a-jail-shell-with-jailkit-on-ubuntu/). Tras
@@ -500,7 +503,7 @@ Crear una jaula y enjaular un usuario usando `jailkit`, que previamente se habr�
 Unas
 [cuantas cosas que se pueden hacer con jailkit](http://olivier.sessink.nl/jailkit/howtos_chroot_shell.html)
 y
-[prácticas de seguridad](http://www.unixwiz.net/techtips/chroot-practices.html) 
+[prácticas de seguridad](http://www.unixwiz.net/techtips/chroot-practices.html).
 
 </div>
 
