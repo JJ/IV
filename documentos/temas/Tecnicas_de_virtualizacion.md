@@ -16,7 +16,7 @@ almacenamiento.
 
 2. Crear infraestructuras virtuales básicas: dispositivos.
 
-3. Crear recursos aislados usando *jaulas* usando órdenes del sistema
+3. Aislar recursos (incluyendo todos los relacionados con un usuario) usando *jaulas* usando órdenes del sistema
 y diferentes utilidades.
 
 </div>
@@ -112,7 +112,7 @@ PID del proceso dentro del que se haya creado.
 <div class='notas' markdown='1'>
 
 Los espacios de nombres permiten aislar todo tipo de aplicaciones; en
-[este manual explican cómo aislar un marco web denominado uWSCGI y su centro de control](http://uwsgi-docs.readthedocs.org/en/latest/Namespaces.html)
+[este manual explican cómo aislar un marco web denominado uWSCGI y su centro de control](http://uwsgi-docs.readthedocs.org/en/latest/Namespaces.html). 
 
 </div>
 
@@ -197,7 +197,7 @@ redes dentro de un sólo ordenador.
 <div class="notas" markdown="1">
 
 Un
-[video que explica los interfaces puente](http://www.youtube.com/watch?v=XivXeKxQ4KI)
+[video que explica los interfaces puente](http://www.youtube.com/watch?v=XivXeKxQ4KI).
 
 </div>
 
@@ -305,7 +305,7 @@ ficheros, el `root` o raíz al que se cambia la jaula. En ese sentido,
 es un mecanismo de virtualización menos seguro que otros, porque se
 sigue teniendo acceso al resto de los recursos (dispositivos,
 procesos), aunque el acceso estará limitado al que tenga el usuario
-con el que se trabaje. Sin rmbargo, para ciertas aplicaciones de la
+con el que se trabaje. Sin embargo, para ciertas aplicaciones de la
 virtualización (por ejemplo, para crear entornos de prueba de
 aplicaciones) es suficiente y no hace falta ningún mecanismo
 adicional. De forma rutinaria se usa, por ejemplo, para prueba de
