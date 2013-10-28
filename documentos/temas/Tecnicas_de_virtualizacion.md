@@ -105,11 +105,11 @@ base de los contenedores que se verán en este tema.
 
 `unshare`tiene sus limitaciones, y la principal es que sólo se puede
 *entrar* en un *namespace* ejecutando un comando, no "desde fuera". A
-partir de la versión 2.23 de `util-linux` (la versión en mi Ubuntu 12.04
+partir de la versión 2.23 de util-linux (la versión en mi Ubuntu 12.04
 es la 2.20) [un nuevo comando `nsenter`](http://karelzak.blogspot.com.es/2013/04/umount8-mount8-and-nsenter1.html) permitirá entrar dando el
 PID del proceso dentro del que se haya creado. 
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 Los espacios de nombres permiten aislar todo tipo de aplicaciones; en
 [este manual explican cómo aislar un marco web denominado uWSCGI y su centro de control](http://uwsgi-docs.readthedocs.org/en/latest/Namespaces.html). 
@@ -369,7 +369,7 @@ directamente dentro de la misma. Esto se puede usar para crear
 usuarios poco privilegiados para ejecutar shells restringidos o
 servicios como `sftp` o un servidor web. 
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 Hay que tener en cuenta que si este usuario no está definido *dentro
 de la jaula* al acceder directamente a la misma (mediante un
@@ -398,7 +398,7 @@ el usuario quien tenga que usarlos. Otras órdenes como
 con varios entornos fácilmente y gestionarlos desde la línea de
 órdenes, refiriéndonos a ellos por nombres o aliases.
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 Este
 [video de unos 20 minutos y de LinuxMagazineSpain](http://www.youtube.com/watch?v=Hk8nxDZ2wjY)
@@ -430,7 +430,7 @@ jmerelo. [Las opciones completas están en la página de manual](http://manpages
 pero, en general, `schroot` añade sólo un poco de conveniencia para
 usuarios, no nuevas capacidades.
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 En la familia
 [BSD existe Warden](http://wiki.pcbsd.org/index.php/Warden%C2%AE), una
@@ -495,7 +495,7 @@ Crear una jaula y enjaular un usuario usando `jailkit`, que previamente se habr�
 
 </div>
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 Unas
 [cuantas cosas que se pueden hacer con jailkit](http://olivier.sessink.nl/jailkit/howtos_chroot_shell.html)
@@ -519,4 +519,4 @@ práctica todos los conceptos aprendidos en este tema y
 [el anterior](Intro:concepto_y_soporte_fisico.md) para crear *tápers*
 o contenedores que aparecen a sus usuarios como una máquina virtual.
 Antes, habrá que hacer y entregar la
-[segunda práctica](../practicas/2.Jaula.md).
+[segunda práctica](../practicas/2.Jaulas.md).

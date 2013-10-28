@@ -255,7 +255,7 @@ y también integrarse en un flujo de desarrollo (que incluya
 integración continua, por ejemplo) es la clave de su popularidad en el
 despliegue de aplicaciones en la nube.
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 Esta
 [presentación sobre Git y su uso en GitHub](http://www.slideshare.net/jjmerelo/introduccin-al-uso-git-y-github-para-trabajo-colaborativo)
@@ -281,7 +281,7 @@ opción de incluir el fichero Readme.
 2. Modificar el readme y subir el fichero modificado.
 </div>
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 Este [video de 14 minutos](http://www.youtube.com/watch?v=ygbWIJWe29Y)
 sirve como introducción al uso de git
@@ -292,7 +292,7 @@ sirve como introducción al uso de git
 Restricción y medición del uso de recursos: `cgroups`
 -----
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 Este [video de RedHat](http://www.youtube.com/watch?v=KX5QV4LId_c)
 explica cómo y en qué ocasiones usar cgroups para gestionar los
@@ -478,7 +478,7 @@ en el sistema).
 reciba mayor prioridad de entrada/salida que el resto de los usuarios.
 </div>
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 Algunas aplicaciones están preparadas de serie para usar cgroups: 
 [este manual explican cómo asignarle calidades de servicio usando CGROUPS a un marco web denominado uWSCGI](http://uwsgi-docs.readthedocs.org/en/latest/Cgroups.html).
@@ -669,7 +669,7 @@ WordPress.
 
 </div>
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 Este
 [video explica como usar heroku para aplicaciones en Ruby](http://www.youtube.com/watch?v=dqAXmratgzE);
