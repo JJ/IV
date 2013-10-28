@@ -6,7 +6,7 @@ prev: Tecnicas_de_virtualizacion
 next: 3.Uso_de_sistemas
 -->
 
-Un primer paso de virtualización: *contenedores*
+Un  paso más hacia la virtualización completa: *contenedores*
 -------
 
 El aislamiento de grupos de procesos formando una *jaula* o
@@ -14,7 +14,7 @@ El aislamiento de grupos de procesos formando una *jaula* o
 de la rama Unix desde los años 80, en forma del programa
 [chroot](http://es.wikipedia.org/wiki/Chroot) (creado por Bill Joy, el
 que más adelante sería uno de los padres de Java). La restricción de
-uso de recursos de las *jaulas `chroot`* se limitaba a la protección
+uso de recursos de las *jaulas `chroot`*, que ya hemos visto, se limitaba a la protección
 del acceso a ciertos recursos del sistema de archivos, aunque son
 relativamente fáciles de superar; incluso así, fue durante mucho
 tiempo la forma principal de configurar servidores de alojamiento
@@ -40,7 +40,7 @@ virtualización
 </div>
 
 
-El mundo Linux no tendría capacidades similares hasta los años 80, con
+El mundo Linux no tendría capacidades similares hasta bien entrados los años 90, con
 [vServers, OpenVZ y finalmente LXC](http://en.wikipedia.org/wiki/Operating_system-level_virtualization#Implementations). Este
 último, [LXC](http://lxc.sourceforge.net), se basa en el concepto de
 [grupos de control o CGROUPS](http://en.wikipedia.org/wiki/Cgroups),
@@ -78,8 +78,8 @@ creación de contenedores más fácil de usar hoy en día en Linux.
 Instala LXC en tu versión de Linux favorita.
 </div>
 
-Esta virtualización *ligera* tiene, entre otras ventajas, la poca
-*huella*: un ordenador normal puede admitir 10 veces más contenedores
+Esta virtualización *ligera* tiene, entre otras ventajas, una
+*huella* escasa: un ordenador normal puede admitir 10 veces más contenedores
 (o *tápers*) que máquinas virtuales; su tiempo de arranque es de unos
 segundos y, además, tienes mayor control desde fuera (desde el anfitrión) del que se pueda
 tener usando máquinas virtuales. 
