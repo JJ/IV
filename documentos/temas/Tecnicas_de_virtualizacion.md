@@ -474,7 +474,7 @@ tanto, hay que crear un sistema de ficheros *poseído* por `root`:
 	
 Y a partir de ahí 
 
-	jkinit -v -j /seguro/jaulas/dorada jk_lsh basicshell netutils editors
+	jk_init -v -j /seguro/jaulas/dorada jk_lsh basicshell netutils editors
 
 En esta orden `-v` indica que se muestren todos los mensajes (para que
 se vea que se está haciendo) y `-j` indica el directorio donde se
@@ -530,4 +530,4 @@ práctica todos los conceptos aprendidos en este tema y
 [el anterior](Intro:concepto_y_soporte_fisico) para crear *tápers*
 o contenedores que aparecen a sus usuarios como una máquina virtual.
 Antes, habrá que hacer y entregar la
-[segunda práctica](../practicas/2.Jaulas).
+[segunda práctica](../practicas/2.Jaula).
