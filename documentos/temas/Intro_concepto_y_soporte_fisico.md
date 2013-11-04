@@ -21,7 +21,7 @@ tanto de software como de hardware y ponerlos en práctica.
 4. Justificar la necesidad de procesamiento virtual frente a real en el contexto de una infraestructura TIC de una organización.
 
 5. Conocer diferentes tecnologías relacionadas con la virtualización
-(Computación Nube, Utility Computing, Software as a Service o Google
+(Computación nube, *Utility Computing*, *Software as a Service* o Google
 AppSpot) 
 
 6. Conocer el concepto de software libre y su importancia dentro de la
@@ -672,7 +672,7 @@ WordPress.
 <div class='nota' markdown='1'>
 
 Este
-[video explica como usar heroku para aplicaciones en Ruby](http://www.youtube.com/watch?v=dqAXmratgzE);
+[video explica como usar `heroku` para aplicaciones en Ruby](http://www.youtube.com/watch?v=dqAXmratgzE);
 en
 [este un poco más extenso y hecho por una persona de Heroku](http://www.youtube.com/watch?v=VZgHItD9bAQ)
 te explica cómo usarlo. No hay muchos videos en español, pero en
@@ -684,7 +684,7 @@ A dónde ir desde aquí
 -----
 
 En el [siguiente tema](Tecnicas_de_virtualizacion.md) usaremos
-diferentes técnicas de virtualización y gestión de máquinas
-virtuales. Previamente habrá que [realizar la
+diferentes técnicas de virtualización para la creación de contenedores
+y jaulas que aislan procesos, usuarios y recursos del resto del sistema. Previamente habrá que [realizar la
 práctica correspondiente a esta materia](../practicas/1.PaaS.md). 
 

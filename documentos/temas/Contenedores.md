@@ -29,7 +29,7 @@ restringían lo que los procesos podían hacer en relación con el resto
 del sistema. Tiene como limitación, sin embargo, la obligación de
 ejecutar la misma versión del núcleo del sistema.
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 En
 [esta presentación](http://www.slideshare.net/dotCloud/scale11x-lxc-talk-16766275)
@@ -268,7 +268,7 @@ Para empezar a trabajar con él, se escribe
 
 	juju init -w
 	
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 En el
 [documento de instalación](https://juju.ubuntu.com/docs/getting-started.html)
@@ -300,7 +300,7 @@ Este es el entorno con el que se va a trabajar por omisión; usando
 	
 por ejemplo, se puede cambiar a ese entorno. 
 
-<div class='notas' markdown='1'>
+<div class='nota' markdown='1'>
 
 Para [trabajar en local hace falta instalar MongoDB](http://marcoceppi.com/2013/07/compiling-juju-and-the-local-provider/). Si no lo tienes
 instalado, haz
@@ -420,6 +420,6 @@ http://10.0.3.15 nos mostrará la página de inicio de MediaWiki
 
 <div class='ejercicios' markdown='1'>
 
-Instalar `juju` y, usándolo, instalar MediaWiki en un táper
+Instalar `juju` y, usándolo, instalar MediaWiki en un táper. 
 
 </div>

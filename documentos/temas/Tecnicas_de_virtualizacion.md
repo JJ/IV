@@ -194,7 +194,7 @@ o simplemente crear un sólo interfaz virtual que contenga los dos
 interfaces reales presentes en el ordenador; también para simular
 redes dentro de un sólo ordenador. 
 
-<div class="notas" markdown="1">
+<div class="nota" markdown="1">
 
 Un
 [video que explica los interfaces puente](http://www.youtube.com/watch?v=XivXeKxQ4KI).
@@ -291,7 +291,7 @@ implementación en C (en vez de scripts del shell, lo que tiene que
 haber sido todo un infierno) de `debootstrap` y que en realidad se usa
 sólo en imágenes de DebianInstaller. 
 
-<div class="notas" markdown="1">
+<div class="nota" markdown="1">
 
 Un
 [*screencast* (en inglés) que muestra cómo instalar Ubuntu 12.04 usando debootstrap](http://www.youtube.com/watch?v=xiM9GOKvTI4)
