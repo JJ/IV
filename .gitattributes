@@ -1,1 +1,1 @@
-meta/*.md filter=add-obj
+_obj*.md filter=add-obj
