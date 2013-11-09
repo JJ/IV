@@ -10,11 +10,9 @@ SESSION=${SESSION/s:/}
 OBJ=`git log -1 --pretty=format:"%s" | grep -o 'o:[[:digit:]]*\>'`
 OBJ=${OBJ/o:/}
 echo $SESSION
-declare -a SESSION_OBJS
+IFS=$'\n'
 SESSION_OBJS=( $(wget http://objiv-jmerelo.rhcloud.com/get/$SESSION -q -O - ) )  
-echo $SESSION_OBJS
-echo ${SESSION_OBJS[@]}
-echo ${SESSION_OBJS[0]}
-
+unset IFS
+((OBJ_IDX=OBJ-1))
 echo -e $FILE
-echo $COMMIT_MESSAGE
+echo ${SESSION_OBJS[$OBJ_IDX]/[ ]/X}
