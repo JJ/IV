@@ -11,5 +11,6 @@ OBJ=${OBJ/o:/}
 IFS=$'\n'
 SESSION_OBJS=( $(wget http://objiv-jmerelo.rhcloud.com/get/$SESSION -q -O - ) )  
 unset IFS
+((OBJ_IDX=OBJ-1))
 echo -e $FILE
-echo ${SESSION_OBJS[$OBJ]/[ ]/X}
+echo ${SESSION_OBJS[$OBJ_IDX]/[ ]/X}
