@@ -277,19 +277,7 @@ librerías del mismo, inclusive Twisted y varias más.
 
 Para empezar a trabajar con él, se escribe
 
-	juju init -w
-	
-<div class='nota' markdown='1'>
-
-En el
-[documento de instalación](https://juju.ubuntu.com/docs/getting-started.html)
-pone incorrectamente que basta con hacer 
-
 	juju init
-	
-En ese caso escribirá el fichero de configuración en pantalla
-
-</div>
 
 Esta orden escribe en el subdirectorio `~/.juju`, que también crea, el
 fichero `environments.yaml`, que contiene información sobre los
