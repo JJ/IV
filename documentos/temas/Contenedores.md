@@ -354,53 +354,53 @@ Con esto se puede mostar ya el estado de la máquina:
 que mostrará algo así:
 
 	machines:
-  "0":
+	"0":
     agent-state: started
     agent-version: 1.12.0.1
     instance-id: localhost
     instance-state: missing
     series: precise
-  "1":
+	"1":
     agent-state: started
     agent-version: 1.12.0.1
     instance-id: jmerelo-local-machine-1
     instance-state: missing
     series: precise
-  "2":
+	"2":
     agent-state: started
     agent-version: 1.12.0.1
     instance-id: jmerelo-local-machine-2
     instance-state: missing
     series: precise
-services:
-  mysql:
+	services:
+	mysql:
     charm: cs:precise/mysql-27
     exposed: false
     relations:
-      cluster:
-      - mysql
-      db:
-      - wordpress
+    cluster:
+    - mysql
+    db:
+    - wordpress
     units:
-      mysql/0:
-        agent-state: started
-        agent-version: 1.12.0.1
-        machine: "1"
-        public-address: 10.0.3.15
-  wordpress:
+    mysql/0:
+    agent-state: started
+    agent-version: 1.12.0.1
+    machine: "1"
+    public-address: 10.0.3.15
+	wordpress:
     charm: cs:precise/wordpress-16
     exposed: true
     relations:
-      db:
-      - mysql
-      loadbalancer:
-      - wordpress
+    db:
+    - mysql
+    loadbalancer:
+    - wordpress
     units:
-      wordpress/0:
-        agent-state: started
-        agent-version: 1.12.0.1
-        machine: "2"
-        public-address: 10.0.3.23
+    wordpress/0:
+    agent-state: started
+    agent-version: 1.12.0.1
+    machine: "2"
+    public-address: 10.0.3.23
 
 `0` es la máquina anfitriona; en este caso muestro un ejemplo en el
 que se ha instalado wordpress; en el mismo se muestra la relación con
