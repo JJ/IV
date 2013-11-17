@@ -423,3 +423,66 @@ http://10.0.3.15 nos mostrará la página de inicio de MediaWiki
 Instalar `juju` y, usándolo, instalar MediaWiki en un táper. 
 
 </div>
+
+Estos contenedores se pueden manejar junto con otros proveedores de
+infraestructuras virtuales usando herramientas como la librería
+[libvirt](http://en.wikipedia.org/wiki/Libvirt), que abstrae las
+características generales de todos ellos y permite trabajar, usando
+*drivers* específicos, con todo tipo de contenedor o máquina virtual. 
+
+<div class='ejercicios' markdown='1'>
+
+Instalar `libvirt`. Te puede ayudar
+[esta guía para Ubuntu](https://help.ubuntu.com/12.04/serverguide/libvirt.html). 
+
+</div>
+
+`libvirt` ofrece un interfaz de aplicación usable desde un programa,
+pero también un *shell*, `virsh`, para gestión desde línea de
+órdenes. Si tienes hipervisores instalados, puedes usar `libvirt`
+directamente, pero si tienes sólo los contenedores anteriores, tendrás
+que usar el [driver para `lxc`](http://libvirt.org/drvlxc.html). Lo
+que permite `libvirt` es independizar la gestión de las máquinas
+virtuales de la implementación física de las mismas: desde un
+contenedor hasta una máquina virtual usando diferentes
+hipervisores. Con las diferentes herramientas, se pueden instalar,
+clonar, arrancar y conectarse a las diferentes máquinas virtuales o
+gestionar las existentes.
+
+<div class='nota' markdown='1'>
+
+En
+[este mensaje a la lista de correo de libvirt](https://lists.linux-foundation.org/pipermail/containers/2008-September/013237.html)
+explica como usarlo para crear rápidamente un contenedor con el mismo
+y gestionarlo desde `virsh`
+
+</div>
+
+Se pueden usar máquinas virtuales ya instaladas, pero facilita mucho
+la labot
+[instalarlas directamente con `virt-install`](https://fedoraproject.org/wiki/Getting_started_with_virtualization#Creating_a_guest_with_virt-install). Esta
+orden usará los drivers instalados para crear un contenedor y
+colocarlo bajo el control de `libvirt`.
+
+<div class='ejercicios' markdown='1'>
+
+Instalar un contenedor usando `virt-install`.
+
+</div>
+
+Orquestación de contenedores
+---
+
+Los contenedores son un ejemplo de máquinas virtuales, pero ya tienen
+ciertas características, como el aislamiento y la gestión
+independiente, que las asemeja a las máquinas virtuales *reales*. En
+un momento determinado puede hacer falta crear una serie de máquinas
+virtuales con características determinadas y usar un *script* con
+órdenes de `juju` puede llegar a ser un poco molesto. Se hace
+necesario que se usen herramientas para crear y configurar estos
+entornos.
+
+Estas herramientas se denominan, en general,
+[gestores de configuración](http://en.wikipedia.org/wiki/Configuration_management). [Vagrant](http://en.wikipedia.org/wiki/Vagrant_%28software%29)
+es uno de ellos, pero también hay otros: Chef, Salt y Puppet, por
+ejemplo. 
