@@ -213,7 +213,7 @@ instalados y desde ella se pueden arrancar o parar.
 
 <div class='ejercicios' markdown='1'>
 
-1. Instalar lxc-webpanel y usarlo para arrancar, parar y visualizar las
+1. Instalar `lxc-webpanel` y usarlo para arrancar, parar y visualizar las
 máquinas virtuales que se tengan instaladas.
 
 2. Desde el panel restringir los recursos que pueden usar: CPU
