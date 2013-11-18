@@ -176,7 +176,10 @@ existentes para que vaya todo rápidamente.
 
 2. Crear y ejecutar un contenedor basado en otra distribución, tal
 como Fedora. *Nota* En general, crear un contenedor basado en *tu*
-distribución y otro basado en otra que no sea la tuya.  
+distribución y otro basado en otra que no sea la tuya.  Fedora, al
+parecer, tiene problemas si estás en Ubuntu 13.04 o superior, así que
+en tal caso usa cualquier otra distro. Por ejemplo,
+[Óscar Zafra ha logrado instalar Gentoo usando un script descargado desde su sitio, como indica en este comentario en el issue](https://github.com/IV-GII/GII-2013/issues/87#issuecomment-28639976). 
 
 </div>
 
@@ -202,7 +205,7 @@ instalados y desde ella se pueden arrancar o parar.
 
 <div class='ejercicios' markdown='1'>
 
-1. Instalar lxc-webpanel y usarlo para arrancar, parar y visualizar las
+1. Instalar `lxc-webpanel` y usarlo para arrancar, parar y visualizar las
 máquinas virtuales que se tengan instaladas.
 
 2. Desde el panel restringir los recursos que pueden usar: CPU
@@ -266,19 +269,7 @@ librerías del mismo, inclusive Twisted y varias más.
 
 Para empezar a trabajar con él, se escribe
 
-	juju init -w
-	
-<div class='nota' markdown='1'>
-
-En el
-[documento de instalación](https://juju.ubuntu.com/docs/getting-started.html)
-pone incorrectamente que basta con hacer 
-
 	juju init
-	
-En ese caso escribirá el fichero de configuración en pantalla
-
-</div>
 
 Esta orden escribe en el subdirectorio `~/.juju`, que también crea, el
 fichero `environments.yaml`, que contiene información sobre los
@@ -363,53 +354,53 @@ Con esto se puede mostar ya el estado de la máquina:
 que mostrará algo así:
 
 	machines:
-  "0":
+	"0":
     agent-state: started
     agent-version: 1.12.0.1
     instance-id: localhost
     instance-state: missing
     series: precise
-  "1":
+	"1":
     agent-state: started
     agent-version: 1.12.0.1
     instance-id: jmerelo-local-machine-1
     instance-state: missing
     series: precise
-  "2":
+	"2":
     agent-state: started
     agent-version: 1.12.0.1
     instance-id: jmerelo-local-machine-2
     instance-state: missing
     series: precise
-services:
-  mysql:
+	services:
+	mysql:
     charm: cs:precise/mysql-27
     exposed: false
     relations:
-      cluster:
-      - mysql
-      db:
-      - wordpress
+    cluster:
+    - mysql
+    db:
+    - wordpress
     units:
-      mysql/0:
-        agent-state: started
-        agent-version: 1.12.0.1
-        machine: "1"
-        public-address: 10.0.3.15
-  wordpress:
+    mysql/0:
+    agent-state: started
+    agent-version: 1.12.0.1
+    machine: "1"
+    public-address: 10.0.3.15
+	wordpress:
     charm: cs:precise/wordpress-16
     exposed: true
     relations:
-      db:
-      - mysql
-      loadbalancer:
-      - wordpress
+    db:
+    - mysql
+    loadbalancer:
+    - wordpress
     units:
-      wordpress/0:
-        agent-state: started
-        agent-version: 1.12.0.1
-        machine: "2"
-        public-address: 10.0.3.23
+    wordpress/0:
+    agent-state: started
+    agent-version: 1.12.0.1
+    machine: "2"
+    public-address: 10.0.3.23
 
 `0` es la máquina anfitriona; en este caso muestro un ejemplo en el
 que se ha instalado wordpress; en el mismo se muestra la relación con
