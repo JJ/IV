@@ -470,6 +470,9 @@ Instalar un contenedor usando `virt-install`.
 
 </div>
 
+Una vez instalados diferentes contenedores, `virsh` permite trabajar
+con ellos
+
 Orquestación de contenedores
 ---
 
