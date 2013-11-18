@@ -16,8 +16,7 @@ almacenamiento.
 
 2. Crear infraestructuras virtuales básicas: dispositivos.
 
-3. Aislar recursos (incluyendo todos los relacionados con un usuario) usando *jaulas* usando órdenes del sistema
-y diferentes utilidades.
+3. Aislar recursos (incluyendo todos los relacionados con un usuario) usando *jaulas* a base de órdenes del sistema y diferentes utilidades.
 
 </div>
 

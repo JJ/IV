@@ -3,8 +3,34 @@ Virtualización *ligera* usando contenedores
 
 <!--@
 prev: Tecnicas_de_virtualizacion
-next: 3.Uso_de_sistemas
+next: Gestion_de_configuracion
 -->
+
+Objetivos
+--
+
+### Cubre los siguientes objetivos de la asignatura
+
+* Conocer las diferentes tecnologías y herramientas de virtualización tanto para procesamiento, comunicación y almacenamiento. 
+* Instalar, configurar, evaluar y optimizar las prestaciones de un servidor virtual.
+* Configurar los diferentes dispositivos físicos para acceso a los
+  servidores virtuales: acceso de usuarios, redes de comunicaciones o entrada/salida.
+* Diseñar, implementar y construir un centro de procesamiento de datos virtual.
+* Documentar y mantener una plataforma virtual.
+* Optimizar aplicaciones sobre plataformas virtuales. 
+* Conocer diferentes tecnologías relacionadas con la virtualización
+  (Computación Nube, Utility Computing, Software as a Service) e
+  implementaciones tales como Google AppSpot, OpenShift o Heroku.
+* Realizar tareas de administración en infraestructura virtual.
+
+### Objetivos específicos
+
+1. Entender cómo las diferentes tecnologías de virtualización se integran en la creación de contenedores. 
+
+2. Crear infraestructuras virtuales completas.
+
+3. Comprender los pasos necesarios para la configuración automática de las mismas.
+
 
 Un  paso más hacia la virtualización completa: *contenedores*
 -------
@@ -464,19 +490,3 @@ Instalar un contenedor usando `virt-install`.
 Una vez instalados diferentes contenedores, `virsh` permite trabajar
 con ellos
 
-Orquestación de contenedores
----
-
-Los contenedores son un ejemplo de máquinas virtuales, pero ya tienen
-ciertas características, como el aislamiento y la gestión
-independiente, que las asemeja a las máquinas virtuales *reales*. En
-un momento determinado puede hacer falta crear una serie de máquinas
-virtuales con características determinadas y usar un *script* con
-órdenes de `juju` puede llegar a ser un poco molesto. Se hace
-necesario que se usen herramientas para crear y configurar estos
-entornos.
-
-Estas herramientas se denominan, en general,
-[gestores de configuración](http://en.wikipedia.org/wiki/Configuration_management). [Vagrant](http://en.wikipedia.org/wiki/Vagrant_%28software%29)
-es uno de ellos, pero también hay otros: Chef, Salt y Puppet, por
-ejemplo. 
