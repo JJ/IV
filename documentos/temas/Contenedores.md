@@ -239,8 +239,22 @@ máquinas virtuales que se tengan instaladas.
 de memoria.
 </div>
 
+Cada solución de virtualización tiene sus ventajas e
+inconvenientes. La principal ventaja de los contenedores son el
+aislamiento de recursos y la posibilidad de manejarlos, lo que hace
+que se use de forma habitual en proveedores de infraestructuras
+virtuales. El hecho de que se virtualicen los recursos también implica
+que haya una diferencia en las prestaciones, que puede ser apreciable
+en ciertas circunstancias. 
 
-Configurando tápers
+<div class='ejercicios' markdown='1'>
+
+1. Comparar las prestaciones de un servidor web en una jaula y el
+mismo servidor en un contenedor. Usar nginx.
+
+</div>
+
+Configurando las aplicaciones en un táper
 ----
 
 Una vez creados los tápers, son en casi todos los aspectos como una
@@ -445,7 +459,12 @@ Estos contenedores se pueden manejar junto con otros proveedores de
 infraestructuras virtuales usando herramientas como la librería
 [libvirt](http://en.wikipedia.org/wiki/Libvirt), que abstrae las
 características generales de todos ellos y permite trabajar, usando
-*drivers* específicos, con todo tipo de contenedor o máquina virtual. 
+*drivers* específicos, con todo tipo de contenedor o máquina
+virtual. `libvirt` es un interfaz de aplicación a los diferentes
+hipervisores y gestores de contenedores que pueda haber en un
+ordenador, y se puede usar tanto desde el interfaz de la línea de
+órdenes como conectando con un servicio directamente desde una
+aplicación. 
 
 <div class='ejercicios' markdown='1'>
 
@@ -476,7 +495,7 @@ y gestionarlo desde `virsh`
 </div>
 
 Se pueden usar máquinas virtuales ya instaladas, pero facilita mucho
-la labot
+la labor posterior
 [instalarlas directamente con `virt-install`](https://fedoraproject.org/wiki/Getting_started_with_virtualization#Creating_a_guest_with_virt-install). Esta
 orden usará los drivers instalados para crear un contenedor y
 colocarlo bajo el control de `libvirt`.
