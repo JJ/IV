@@ -160,7 +160,7 @@ hemos visto anteriormente. En general, creará un puente llamado
 
 <div class='ejercicios' markdown='1'>
 
-Comprobar qué interfaces puente ha creado y explicarlos
+Comprobar qué interfaces puente se han creado y explicarlos.
 
 </div>
 
@@ -455,8 +455,27 @@ Instalar `juju` y, usándolo, instalar MediaWiki en un táper.
 
 </div>
 
+Breve introducción a los hipervisores
+-----
+
+Un [hipervisor](http://en.wikipedia.org/wiki/Hypervisor) es un monitor
+de máquinas virtuales que permite instalarlas, activarlas, monitorizar
+su actividad e interaccionar con ellas de las formas posibles. Un
+hipervisor se denomina
+[*bare-metal*](http://en.wikipedia.org/wiki/Bare_machine) o Tipo uno
+si se ejecuta *antes* que el sistema operativo (siendo, por tanto, un
+sistema operativo en sí) o Tipo 2 si se arranca como una aplicación
+del sistema operativo; VirtualBox sería un ejemplo de este último.
+
+Un hipervisor denomina *dominios* a las máquinas virtuales con las que
+trabaja, siendo él mismo también un dominio denominado [*dominio
+0*](http://wiki.xen.org/wiki/Dom0). Las MVs alojadas son *dominios de usuario* o *DomU*.
+
+Usando los hipervisores de forma uniforme
+---
+
 Estos contenedores se pueden manejar junto con otros proveedores de
-infraestructuras virtuales usando herramientas como la librería
+infraestructuras virtuales (en general, hipervisores, aunque algunos como User Mode Linux pueden no serlo) usando herramientas como la librería
 [libvirt](http://en.wikipedia.org/wiki/Libvirt), que abstrae las
 características generales de todos ellos y permite trabajar, usando
 *drivers* específicos, con todo tipo de contenedor o máquina
@@ -490,7 +509,7 @@ gestionar las existentes.
 En
 [este mensaje a la lista de correo de libvirt](https://lists.linux-foundation.org/pipermail/containers/2008-September/013237.html)
 explica como usarlo para crear rápidamente un contenedor con el mismo
-y gestionarlo desde `virsh`
+y gestionarlo desde `virsh`.
 
 </div>
 
