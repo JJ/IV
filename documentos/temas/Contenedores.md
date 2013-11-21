@@ -449,14 +449,61 @@ que se ha instalado wordpress; en el mismo se muestra la relación con
 la base de datos y también con un *loadbalancer* para equilibrar la
 carga. Como dato interesante, esta orden nos da la IP local del táper
 que hemos creado, por lo que accediendo desde el navegador a
-http://10.0.3.15 nos mostrará la página de inicio de MediaWiki
+http://10.0.3.15 nos mostrará la página de inicio de MediaWiki. Al instalar un *servicio* en una *máquina* se crean una serie de *unidades*. Esas unidades son como mini-contenedores que están a cargo de ejecutar el servicio que se ha instalado mediante juju. 
 
 <div class='ejercicios' markdown='1'>
 
 1. Instalar `juju`.
 
-2. Usándolo, instalar MySql en un táper. 
+2. Usándolo, instalar `MySql` en un táper. 
 
+</div>
+
+Para desmontar los servicios se tiene que hacer en orden inverso a su creación: primero hay que destruir las unidades, de esta forma: 
+
+	sudo juju destroy-unit mysql/0
+
+La destrucción de las máquinas sólo se puede hacer una vez que todas las unidades hayan dejado de funcionar, de esta forma:
+
+	sudo juju destroy-machine 2
+	
+donde 2 es el número de la máquina que aparecería en status. La máquina `0` siempre es la máquina anfitriona, que no se puede destruir a no ser que queramos ver el fin del universo conocido. 
+
+
+Los números de máquina no se reutilizan, y cuando se ejecuta 
+
+	sudo juju add-machine
+	
+se creará una con número posterior al último utilizado:
+
+	environment: local
+  machines:
+    "0":
+      agent-state: started
+      agent-version: 1.16.3.1
+      dns-name: 10.0.3.1
+      instance-id: localhost
+      series: precise
+    "4":
+      instance-id: pending
+      series: precise
+
+La nueva máquina aparecerá inicialmente de esta forma, porque la orden regresa antes de que se complete la orden. Posteriormente, si todo ha ido bien, aparecerá el estado completo de esta nueva máquina. Si ha ido mal, aparecerá algo como:
+
+	 agent-state-info: '(error: error executing "lxc-create": No such file or directory
+      - bad template: ubuntu-cloud; bad template: ubuntu-cloud)'
+    instance-id: pending
+    series: precise
+
+Cuando algo va mal en `juju`, hay que echar mano de los logs. En algún momento funcionará `juju debug-log`, pero por lo pronto hay que apañarse con el registro de errores del mismo, que se puede consultar (y se debe borrar con cierta frecuencia, porque engorda que da gusto), en `~/.juju/local/log/machine-0.log`; en este caso sería el de la máquina anfitriona, pero cada una de las máquinas tendrá su propio registro. 
+
+	2013-11-21 21:28:16 DEBUG juju.rpc.jsoncodec codec.go:107 <- {"RequestId":110,"Type":"Provisioner","Request":"SetStatus","Params":{"Entities":[{"Tag":"machine-4","Status":"error","Info":"error executing \"lxc-create\": No such file or directory - bad template: ubuntu-cloud; bad template: ubuntu-cloud","Data":null}],"Machines":null}}
+	
+	Lo que indica que falta una plantilla del tipo de máquina que se ha usado.
+	
+	Para 
+
+<div class='ejercicios' markdown='1'>
 3. A continuación, instalar MediaWiki y conectarlos. 
 
 </div>
