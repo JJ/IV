@@ -13,7 +13,7 @@
   <devices>
     <emulator>/usr/lib/libvirt/libvirt_lxc</emulator>
     <filesystem type='mount'>
-      <source dir='/home/jaulas/raring'/>
+      <source dir='/var/lib/lxc/contenedor'/>
       <target dir='/'/>
     </filesystem>
     <interface type='network'>

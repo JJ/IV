@@ -101,7 +101,7 @@ espacios de nomgres y grupos de control. `lxc` es la solución de
 creación de contenedores más fácil de usar hoy en día en Linux.
 
 <div class='ejercicios' markdown="1">
-Instala LXC en tu versión de Linux favorita.
+Instala LXC en tu versión de Linux favorita. Normalmente la versión en desarrollo, disponible tanto en [GitHub](http://github.com/lxc/lxc) como en el [sitio web](http://linxcontainers.com) está bastante más avanzada; para evitar problemas sobre todo con las herramientas que vamos a ver más adelante, conviene que te instales la última versión y si es posible una igual o mayor a la 1.0.
 </div>
 
 Esta virtualización *ligera* tiene, entre otras ventajas, una
@@ -245,7 +245,7 @@ aislamiento de recursos y la posibilidad de manejarlos, lo que hace
 que se use de forma habitual en proveedores de infraestructuras
 virtuales. El hecho de que se virtualicen los recursos también implica
 que haya una diferencia en las prestaciones, que puede ser apreciable
-en ciertas circunstancias. 
+en ciertas circunstancias.
 
 <div class='ejercicios' markdown='1'>
 
@@ -337,6 +337,8 @@ Para [trabajar en local hace falta instalar MongoDB](http://marcoceppi.com/2013/
 instalado, haz
 
 	sudo apt-get install mongodb-server
+	
+MongoDB reserva una gran cantidad de espacio para sus bases de datos, por lo que tendrás que tener bastantes gigas libres para usarlo. 
 	
 </div>
 
@@ -451,7 +453,11 @@ http://10.0.3.15 nos mostrará la página de inicio de MediaWiki
 
 <div class='ejercicios' markdown='1'>
 
-Instalar `juju` y, usándolo, instalar MediaWiki en un táper. 
+1. Instalar `juju`.
+
+2. Usándolo, instalar MySql en un táper. 
+
+3. A continuación, instalar MediaWiki y conectarlos. 
 
 </div>
 
@@ -524,6 +530,12 @@ colocarlo bajo el control de `libvirt`.
 Instalar un contenedor usando `virt-install`.
 
 </div>
+
+De hecho, también se pueden usar contenedores que hayan sido instalados usando `lxc` (como no podía ser de otra forma, por otro lado). Por [ejemplo](http://wiki.centos.org/HowTos/LXC-on-CentOS6), esta orden 
+
+    virt-install --connect lxc:/// --name esa_maquina --ram 512 --vcpu 1 --filesystem /var/lib/libvirt/lxc/taper --noautoconsole
+	
+instalaría usando el conector para lxc	una máquina con el nombre indicado, medio giga de RAM, una sola CPU virtual y un filesystem ya instalado previamente en el subdirectorio `taper`. 
 
 Una vez instalados diferentes contenedores, `virsh` permite trabajar
 con ellos
