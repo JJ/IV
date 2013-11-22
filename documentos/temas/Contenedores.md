@@ -2,7 +2,7 @@
 layout: index
 
 prev: Tecnicas_de_virtualizacion
-next: 3.Uso_de_sistemas
+next: Gestion_de_configuracion
 
 ---
 
@@ -11,8 +11,34 @@ Virtualización *ligera* usando contenedores
 
 <!--@
 prev: Tecnicas_de_virtualizacion
-next: 3.Uso_de_sistemas
+next: Gestion_de_configuracion
 -->
+
+Objetivos
+--
+
+### Cubre los siguientes objetivos de la asignatura
+
+* Conocer las diferentes tecnologías y herramientas de virtualización tanto para procesamiento, comunicación y almacenamiento. 
+* Instalar, configurar, evaluar y optimizar las prestaciones de un servidor virtual.
+* Configurar los diferentes dispositivos físicos para acceso a los
+  servidores virtuales: acceso de usuarios, redes de comunicaciones o entrada/salida.
+* Diseñar, implementar y construir un centro de procesamiento de datos virtual.
+* Documentar y mantener una plataforma virtual.
+* Optimizar aplicaciones sobre plataformas virtuales. 
+* Conocer diferentes tecnologías relacionadas con la virtualización
+  (Computación Nube, Utility Computing, Software as a Service) e
+  implementaciones tales como Google AppSpot, OpenShift o Heroku.
+* Realizar tareas de administración en infraestructura virtual.
+
+### Objetivos específicos
+
+1. Entender cómo las diferentes tecnologías de virtualización se integran en la creación de contenedores. 
+
+2. Crear infraestructuras virtuales completas.
+
+3. Comprender los pasos necesarios para la configuración automática de las mismas.
+
 
 Un  paso más hacia la virtualización completa: *contenedores*
 -------
@@ -83,7 +109,7 @@ espacios de nomgres y grupos de control. `lxc` es la solución de
 creación de contenedores más fácil de usar hoy en día en Linux.
 
 <div class='ejercicios' markdown="1">
-Instala LXC en tu versión de Linux favorita.
+Instala LXC en tu versión de Linux favorita. Normalmente la versión en desarrollo, disponible tanto en [GitHub](http://github.com/lxc/lxc) como en el [sitio web](http://linxcontainers.com) está bastante más avanzada; para evitar problemas sobre todo con las herramientas que vamos a ver más adelante, conviene que te instales la última versión y si es posible una igual o mayor a la 1.0.
 </div>
 
 Esta virtualización *ligera* tiene, entre otras ventajas, una
@@ -142,7 +168,7 @@ hemos visto anteriormente. En general, creará un puente llamado
 
 <div class='ejercicios' markdown='1'>
 
-Comprobar qué interfaces puente ha creado y explicarlos
+Comprobar qué interfaces puente se han creado y explicarlos.
 
 </div>
 
@@ -221,8 +247,22 @@ máquinas virtuales que se tengan instaladas.
 de memoria.
 </div>
 
+Cada solución de virtualización tiene sus ventajas e
+inconvenientes. La principal ventaja de los contenedores son el
+aislamiento de recursos y la posibilidad de manejarlos, lo que hace
+que se use de forma habitual en proveedores de infraestructuras
+virtuales. El hecho de que se virtualicen los recursos también implica
+que haya una diferencia en las prestaciones, que puede ser apreciable
+en ciertas circunstancias.
 
-Configurando tápers
+<div class='ejercicios' markdown='1'>
+
+1. Comparar las prestaciones de un servidor web en una jaula y el
+mismo servidor en un contenedor. Usar nginx.
+
+</div>
+
+Configurando las aplicaciones en un táper
 ----
 
 Una vez creados los tápers, son en casi todos los aspectos como una
@@ -305,6 +345,8 @@ Para [trabajar en local hace falta instalar MongoDB](http://marcoceppi.com/2013/
 instalado, haz
 
 	sudo apt-get install mongodb-server
+	
+MongoDB reserva una gran cantidad de espacio para sus bases de datos, por lo que tendrás que tener bastantes gigas libres para usarlo. 
 	
 </div>
 
@@ -415,19 +457,101 @@ que se ha instalado wordpress; en el mismo se muestra la relación con
 la base de datos y también con un *loadbalancer* para equilibrar la
 carga. Como dato interesante, esta orden nos da la IP local del táper
 que hemos creado, por lo que accediendo desde el navegador a
-http://10.0.3.15 nos mostrará la página de inicio de MediaWiki
+http://10.0.3.15 nos mostrará la página de inicio de MediaWiki. Al instalar un *servicio* en una *máquina* se crean una serie de *unidades*. Esas unidades son como mini-contenedores que están a cargo de ejecutar el servicio que se ha instalado mediante juju. 
 
 <div class='ejercicios' markdown='1'>
 
-Instalar `juju` y, usándolo, instalar MediaWiki en un táper. 
+1. Instalar `juju`.
+
+2. Usándolo, instalar `MySql` en un táper. 
 
 </div>
 
+Para desmontar los servicios se tiene que hacer en orden inverso a su creación: primero hay que destruir las unidades, de esta forma: 
+
+	sudo juju destroy-unit mysql/0
+
+La destrucción de las máquinas sólo se puede hacer una vez que todas las unidades hayan dejado de funcionar, de esta forma:
+
+	sudo juju destroy-machine 2
+	
+donde 2 es el número de la máquina que aparecería en status. La máquina `0` siempre es la máquina anfitriona, que no se puede destruir a no ser que queramos ver el fin del universo conocido. 
+
+
+Los números de máquina no se reutilizan, y cuando se ejecuta 
+
+	sudo juju add-machine
+	
+se creará una con número posterior al último utilizado:
+
+	environment: local
+  machines:
+    "0":
+      agent-state: started
+      agent-version: 1.16.3.1
+      dns-name: 10.0.3.1
+      instance-id: localhost
+      series: precise
+    "4":
+      instance-id: pending
+      series: precise
+
+La nueva máquina aparecerá inicialmente de esta forma, porque la orden regresa antes de que se complete la orden. Posteriormente, si todo ha ido bien, aparecerá el estado completo de esta nueva máquina. Si ha ido mal, aparecerá algo como:
+
+	 agent-state-info: '(error: error executing "lxc-create": No such file or directory
+      - bad template: ubuntu-cloud; bad template: ubuntu-cloud)'
+    instance-id: pending
+    series: precise
+
+Cuando algo va mal en `juju`, hay que echar mano de los logs. En algún momento funcionará `juju debug-log`, pero por lo pronto hay que apañarse con el registro de errores del mismo, que se puede consultar (y se debe borrar con cierta frecuencia, porque engorda que da gusto), en `~/.juju/local/log/machine-0.log`; en este caso sería el de la máquina anfitriona, pero cada una de las máquinas tendrá su propio registro. 
+
+	2013-11-21 21:28:16 DEBUG juju.rpc.jsoncodec codec.go:107 <- {"RequestId":110,"Type":"Provisioner","Request":"SetStatus","Params":{"Entities":[{"Tag":"machine-4","Status":"error","Info":"error executing \"lxc-create\": No such file or directory - bad template: ubuntu-cloud; bad template: ubuntu-cloud","Data":null}],"Machines":null}}
+	
+	Lo que indica que falta una plantilla del tipo de máquina que se
+	ha usado, por algún error en la instalación de `lxc-templates`,
+	seguramente. 
+	
+	
+
+<div class='ejercicios' markdown='1'>
+
+1. Destruir toda la configuración creada anteriormente
+2. Volver a crear la máquina anterior y añadirle mediawiki y una
+relación entre ellos.
+3. Crear un script en shell para reproducir la configuración usada en
+las máquinas que hagan falta.
+
+</div>
+
+Breve introducción a los hipervisores
+-----
+
+Un [hipervisor](http://en.wikipedia.org/wiki/Hypervisor) es un monitor
+de máquinas virtuales que permite instalarlas, activarlas, monitorizar
+su actividad e interaccionar con ellas de las formas posibles. Un
+hipervisor se denomina
+[*bare-metal*](http://en.wikipedia.org/wiki/Bare_machine) o Tipo uno
+si se ejecuta *antes* que el sistema operativo (siendo, por tanto, un
+sistema operativo en sí) o Tipo 2 si se arranca como una aplicación
+del sistema operativo; VirtualBox sería un ejemplo de este último.
+
+Un hipervisor denomina *dominios* a las máquinas virtuales con las que
+trabaja, siendo él mismo también un dominio denominado [*dominio
+0*](http://wiki.xen.org/wiki/Dom0). Las MVs alojadas son *dominios de usuario* o *DomU*.
+
+Usando los hipervisores de forma uniforme
+---
+
 Estos contenedores se pueden manejar junto con otros proveedores de
-infraestructuras virtuales usando herramientas como la librería
+infraestructuras virtuales (en general, hipervisores, aunque algunos como User Mode Linux pueden no serlo) usando herramientas como la librería
 [libvirt](http://en.wikipedia.org/wiki/Libvirt), que abstrae las
 características generales de todos ellos y permite trabajar, usando
-*drivers* específicos, con todo tipo de contenedor o máquina virtual. 
+*drivers* específicos, con todo tipo de contenedor o máquina
+virtual. `libvirt` es un interfaz de aplicación a los diferentes
+hipervisores y gestores de contenedores que pueda haber en un
+ordenador, y se puede usar tanto desde el interfaz de la línea de
+órdenes como conectando con un servicio directamente desde una
+aplicación. 
 
 <div class='ejercicios' markdown='1'>
 
@@ -453,12 +577,12 @@ gestionar las existentes.
 En
 [este mensaje a la lista de correo de libvirt](https://lists.linux-foundation.org/pipermail/containers/2008-September/013237.html)
 explica como usarlo para crear rápidamente un contenedor con el mismo
-y gestionarlo desde `virsh`
+y gestionarlo desde `virsh`.
 
 </div>
 
 Se pueden usar máquinas virtuales ya instaladas, pero facilita mucho
-la labot
+la labor posterior
 [instalarlas directamente con `virt-install`](https://fedoraproject.org/wiki/Getting_started_with_virtualization#Creating_a_guest_with_virt-install). Esta
 orden usará los drivers instalados para crear un contenedor y
 colocarlo bajo el control de `libvirt`.
@@ -469,19 +593,12 @@ Instalar un contenedor usando `virt-install`.
 
 </div>
 
-Orquestación de contenedores
----
+De hecho, también se pueden usar contenedores que hayan sido instalados usando `lxc` (como no podía ser de otra forma, por otro lado). Por [ejemplo](http://wiki.centos.org/HowTos/LXC-on-CentOS6), esta orden 
 
-Los contenedores son un ejemplo de máquinas virtuales, pero ya tienen
-ciertas características, como el aislamiento y la gestión
-independiente, que las asemeja a las máquinas virtuales *reales*. En
-un momento determinado puede hacer falta crear una serie de máquinas
-virtuales con características determinadas y usar un *script* con
-órdenes de `juju` puede llegar a ser un poco molesto. Se hace
-necesario que se usen herramientas para crear y configurar estos
-entornos.
+    virt-install --connect lxc:/// --name esa_maquina --ram 512 --vcpu 1 --filesystem /var/lib/libvirt/lxc/taper --noautoconsole
+	
+instalaría usando el conector para lxc	una máquina con el nombre indicado, medio giga de RAM, una sola CPU virtual y un filesystem ya instalado previamente en el subdirectorio `taper`. 
 
-Estas herramientas se denominan, en general,
-[gestores de configuración](http://en.wikipedia.org/wiki/Configuration_management). [Vagrant](http://en.wikipedia.org/wiki/Vagrant_%28software%29)
-es uno de ellos, pero también hay otros: Chef, Salt y Puppet, por
-ejemplo. 
+Una vez instalados diferentes contenedores, `virsh` permite trabajar
+con ellos
+
