@@ -499,12 +499,19 @@ Cuando algo va mal en `juju`, hay que echar mano de los logs. En algún momento 
 
 	2013-11-21 21:28:16 DEBUG juju.rpc.jsoncodec codec.go:107 <- {"RequestId":110,"Type":"Provisioner","Request":"SetStatus","Params":{"Entities":[{"Tag":"machine-4","Status":"error","Info":"error executing \"lxc-create\": No such file or directory - bad template: ubuntu-cloud; bad template: ubuntu-cloud","Data":null}],"Machines":null}}
 	
-	Lo que indica que falta una plantilla del tipo de máquina que se ha usado.
+	Lo que indica que falta una plantilla del tipo de máquina que se
+	ha usado, por algún error en la instalación de `lxc-templates`,
+	seguramente. 
 	
-	Para 
+	
 
 <div class='ejercicios' markdown='1'>
-3. A continuación, instalar MediaWiki y conectarlos. 
+
+1. Destruir toda la configuración creada anteriormente
+2. Volver a crear la máquina anterior y añadirle mediawiki y una
+relación entre ellos.
+3. Crear un script en shell para reproducir la configuración usada en
+las máquinas que hagan falta.
 
 </div>
 
