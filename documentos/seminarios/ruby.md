@@ -56,8 +56,8 @@ Primer programa
 --
 
 
-Para programar en Ruby necesitas el editor y el Ruby propiamente
-  dicho. Descárgatelo e instálalo, aunque te vendrá bien también
+Para programar en Ruby necesitas el editor y el intérprete de Ruby propiamente
+  dicho. Descárgatelo e instálalo (o haz las dos cosas a la vez), aunque te vendrá bien también
   bajarte `irb`, un intérprete interactivo que te permitirá
   probar cosas sobre la marcha. Servidor usa Emacs como editor, pero
   cualquier otra cosa también servirá, incluso Notepad. Ahora, si
@@ -130,9 +130,7 @@ Pero Ruby es un lenguaje orientado a objetos, o más bien empotrado
  caracteres:
 
     usuario@usuario-desktop:~/code$ ./jauja-center.rb
---   Esto es jauja    --
-
-  
+    --   Esto es jauja    --  
 
 También podíamos haber creado el objeto explícitamente, pero
   hubiera sido mucho más clásico:
@@ -232,8 +230,6 @@ de hashes de arrays e imprimirlo.
 Como los arrays y hashes son objetos, también se usa normalmente un
 método para recorrerlos, como en el ejemplo siguiente:
 
-    #!/usr/bin/ruby
-
     zipi = { :foo => 'bar', 
       :baz => 'quux'}
 
@@ -256,7 +252,7 @@ método para recorrerlos, como en el ejemplo siguiente:
 						   
 <div class='ejerccios' maridown='1'>
 
-Recorrer una estructura compleja exhaustivamente
+Recorrer una estructura compleja exhaustivamente, imprimiendo todos los datos.
 
 </div>
 
@@ -268,26 +264,25 @@ Tratándose de un lenguaje orientado a objetos, habrá que buscar la
   clase para abrir y cerrar ficheros, que se llama en un alarde de
   originalidad `File`.
 
-  #!/usr/bin/ruby
 
-  fh = File::new( ARGV[0] )
-  while (line = fh.gets ) 
-      nombre, apellidos  = line.split(',')
-      puts "* Nombre #{nombre}\n\tapellidos #{apellidos}"
-  end
+	fh = File::new( ARGV[0] )
+	while (line = fh.gets ) 
+		nombre, apellidos  = line.split(',')
+		puts "* Nombre #{nombre}\n\tapellidos #{apellidos}"
+	end
 
 En este caso, tampoco es sorprendente la matriz que se usa para
-acceder a la línea de comandos: ARGV, igual que en C (pero en
+acceder a la línea de comandos: `ARGV`, igual que en C (pero en
 mayúsculas) o en Perl (pero sin dólares). Ya puestos, introducimos
 también una esctructura de control: el bucle `while` que
 va leyendo línea a línea con `gets` (lo contrario
 que `puts`, que es para escribir). El cuerpo del bucle no
-usa llaves, sólo la indentación y la palabra $end$ para indicar el
+usa llaves, sólo la indentación y la palabra `end` para indicar el
 final. 
 
 Fijaros también en una cosa curiosa: el `=` de la primera línea
   tiene a la izquiera y a la derecha una matriz: dos variables a las
-  que se le asigna lo que queda al partir ($split$) la línea del
+  que se le asigna lo que queda al partir (`split`) la línea del
   tipo `nombre, apellidos` por la coma que lo
   divide. Simplemente se ponen a la izquierda las variables a las que
   van a ir a parar los diferentes elementos de la matriz. Y en la
@@ -333,7 +328,7 @@ En `require` cambia un poco la sintaxis: se separan las partes de la
 librería con `/` y se pone todo en minúsculas. `require`
 importa el código, pero no los identificadores; por eso para usar
 alguna función del módulo hay que decir todo el nombre de la misma:
-nombre de la clase `nombre_del_método`. $get_print$ es un método
+nombre de la clase `nombre_del_método`. `get_print` es un método
   de clase, y recibe como argumentos el nombre del servidor (el HTTP
   va de soi) y la dirección dentro de ese servidor, en este caso el
   directorio raíz. Al ejecutarlo nos dará de resultado un mogollón de
@@ -345,30 +340,36 @@ Juntando todo lo anterior, y añadiendo alguna cosilla más de
   nuestra cosecha, podemos bajarnos una página web y
   meterla en un fichero
 
+	require 'net/http'
 
-    <span class="hl kwa">require</span> <span class="hl str">'net/http'</span>
+	url = ARGV[0]
+	puts "La url es " << url
+	respuesta = Net::HTTP.get  url, '/'
+	fname =  "#{url}.html"
+	if ( File.writable?(fname) ) 
+		salida = File.new fname, "w"	    
+		salida.puts( respuesta )
+	else
+		puts("No puedo escribir en #{fname}")
+	end
 
-url <span class="hl sym">=</span> <span class="hl kwc">ARGV</span><span class="hl sym">[</span><span class="hl num">0</span><span class="hl sym">]</span>
-respuesta <span class="hl sym">=</span> Net<span class="hl sym">::</span>HTTP<span class="hl sym">.</span>get  url<span class="hl sym">,</span> <span class="hl str">'/'</span>
-fname <span class="hl sym">=</span> url <span class="hl sym">+</span> <span class="hl str">&quot;.html&quot;</span>
-<span class="hl kwa">if</span> <span class="hl sym">(</span> File<span class="hl sym">.</span>writable<span class="hl sym">?(</span>fname<span class="hl sym">) )</span>
-   salida <span class="hl sym">=</span> File<span class="hl sym">.</span>new fname<span class="hl sym">,</span> <span class="hl str">&quot;w&quot;</span>
-   salida<span class="hl sym">.</span><span class="hl kwd">puts</span><span class="hl sym">(</span> respuesta <span class="hl sym">)</span>
-<span class="hl kwa">else</span>
-   <span class="hl kwd">puts</span><span class="hl sym">(</span><span class="hl str">'No puedo escribir en '</span> <span class="hl sym">+</span>fname<span class="hl sym">)</span>
-<span class="hl kwa">end</span>
-`
-Nuestra cosecha incluye una interrogación y un $if$, que no
-  habíamos visto antes. La interrogación se pone en los métodos que
+Nuestra cosecha incluye una interrogación y un `if`, que no
+  habíamos visto antes. La interrogación se usa en los métodos que
   devuelven un valor lógico, verdadero o falso (valores que tienen un
   tratamiento diferente en Ruby y en otros lenguajes: un valor lógico
   es un valor lógico, no un 0 o una cadena nula). En este caso, si se
   trata o no de un fichero sobre el que tengamos derechos de escritura
   (en lo que, al parecer, es un poco peculiar este Ruby). El bloque
-  $if$ termina en $end$, como antes el bucle. Además, hemos usado "w"
+  `if` termina en `end`, como antes el bucle. Además, hemos usado "w"
   como segundo argumento de $File.new$ para abrirlo para
   escritura. Como se ve, no hace falta cerrarlo. Pa qué, si ya sabe
   hacerlo el ordenador. 
+  
+<div class='ejerccios' maridown='1'>
+
+1. Almacenar un array en formato JSON en un fichero cuyo nombre se pase por línea de órdenes. 
+
+</div>
 
 Bloques
 ----
@@ -376,90 +377,109 @@ Bloques
 Después de las variables uno de los conceptos importantes en Ruby
   son los bloques. Un bloque es una secuencia de código con sus
   propias variables, y en Ruby se denota por
-  llaves `{}` o por $do$ - $done$. Se usa, por ejemplo, para bucles tales como los siguientes.
+  llaves `{}` o por `do` - `done`. Se usa, por ejemplo, para bucles tales como los siguientes.
 
-    host <span class="hl sym">=</span> <span class="hl kwc">ARGV</span><span class="hl sym">[</span><span class="hl num">0</span><span class="hl sym">]</span>
-partes <span class="hl sym">=</span> host<span class="hl sym">.</span><span class="hl kwd">split</span><span class="hl sym">(</span><span class="hl str">&quot;.&quot;</span><span class="hl sym">)</span>
-partes<span class="hl sym">.</span>each <span class="hl kwa">do</span> <span class="hl sym">|</span>p<span class="hl sym">|</span>
-  puts <span class="hl str">&quot;* #{p}&quot;</span>
-<span class="hl kwa">end</span>
-`
-En este mini-programa le pasamos un nombre de servidor en internet (del tipo subdominio.dominio.tld) y nos da cada una de sus partes, que se guardan precisamente en una variable que se llama así. Pero el truco está en la tercera línea: `partes.each` es una función que recibe un bloque como argumento. También lo podríamos expresar de la forma siguiente:
+	host = ARGV[0]
+	partes = host.split(".")
+	partes.each do |p|
+		puts "* #{p}"
+	end
 
-    partes <span class="hl sym">=</span> host<span class="hl sym">.</span><span class="hl kwd">split</span><span class="hl sym">(</span><span class="hl str">&quot;.&quot;</span><span class="hl sym">)</span>
-partes<span class="hl sym">.</span>each <span class="hl sym">{ |</span>p<span class="hl sym">|</span>
-  puts <span class="hl str">&quot;* #{p}&quot;</span>
-<span class="hl sym">}</span>
-`
+En este mini-programa le pasamos un nombre de servidor en internet
+	(del tipo subdominio.dominio.tld) y nos da cada una de sus partes,
+	que se guardan precisamente en una variable que se llama así. Pero
+	el truco está en la tercera línea: `partes.each` es una función
+	que recibe un bloque como argumento. También lo podríamos expresar
+	de la forma siguiente: 
+	
+	host = ARGV[0]
+	partes = host.split(".")
+	partes.each { |p|
+		puts "* #{p}"
+	}
+
 y sería exactamente lo mismo (salvo la precedencia, pero eso no nos importa ahora). 
 
 Los bloques tienen todos la misma estructura: al principio se
   declara una variable, que será la variable que irá tomando los
   valores que reciba de su función uno por uno. En este caso la hemos
-  llamado $p$, pero es un nombre arbitrario, porque estamos haciendo
+  llamado `p`, pero es un nombre arbitrario, porque estamos haciendo
   una declaración. Dentro ya del bloque metemos el código que
   consideremos necesario, y lo finalizamos con llaves o end,
   dependiendo de cómo lo hayamos comenzado
 
 Lo que ocurre con los bloques en Ruby es que tienen entidad
-  propia. Son como funciones anónimas, y de hecho se pueden usar como
+  propia. Son como funciones anónimas (es decir, funciones que no
+  tienen asignado un nombre), y de hecho se pueden usar como
   tales; además, como todo en Ruby, son objetos, o sea que podemos
   crearlos y pasarlos por ahí como queramos. 
 
+	prefijos = %w( pre post ante super macro mega)
+	prefijadores = Hash.new
+	prefijos.each { |p|
+		prefijadores[p] = lambda { |post| return "#{p}#{post}";}
+	}
 
-    prefijos <span class="hl sym">= %</span><span class="hl kwd">w</span><span class="hl sym">(</span> pre post ante <span class="hl kwa">super</span> macro mega<span class="hl sym">)</span>
-prefijadores <span class="hl sym">=</span> Hash<span class="hl sym">.</span>new
-prefijos<span class="hl sym">.</span>each <span class="hl sym">{ |</span>p<span class="hl sym">|</span>
-  prefijadores<span class="hl sym">[</span>p<span class="hl sym">] =</span> lambda <span class="hl sym">{ |</span>post<span class="hl sym">|</span> <span class="hl kwa">return</span> <span class="hl str">&quot;#{p}#{post}&quot;</span><span class="hl sym">;}</span>
-<span class="hl sym">}</span>
-
-puts prefijadores<span class="hl sym">[</span><span class="hl str">'macro'</span><span class="hl sym">].</span><span class="hl kwd">call</span><span class="hl sym">(</span> <span class="hl str">'objetivo'</span> <span class="hl sym">)</span>
-puts prefijadores<span class="hl sym">[</span><span class="hl str">'super'</span><span class="hl sym">].</span><span class="hl kwd">call</span><span class="hl sym">(</span> <span class="hl str">'chanchi'</span> <span class="hl sym">)</span>
-puts prefijadores<span class="hl sym">[</span><span class="hl str">'mega'</span><span class="hl sym">].</span><span class="hl kwd">call</span><span class="hl sym">(</span> <span class="hl str">'chuli'</span> <span class="hl sym">)</span>
-`
+	puts prefijadores['macro'].call( 'objetivo' )
+	puts prefijadores['super'].call( 'chanchi' )
+	puts prefijadores['mega'].call( 'chuli' )
+   
 En este ejemplo hemos empezado definiendo una matriz de forma
 abreviada: usando `%w` para ahorrarnos comas y comillas, y
-hemos seguido creando un $Hash$ (matriz asociativa) donde vamos a
+hemos seguido creando un `Hash` (matriz asociativa) donde vamos a
 guardar todas las funciones. Recorriendo el array creado y usando
-$lambda$ creamos una función que tiene una parte fija, $p$ que recibe
-del bucle, y una parte variable, $post$, que es el argumento que
-recibirá cuando se llame, tal como se hace abajo usando $call$
+`lambda` creamos una función que tiene una parte fija, `p` que recibe
+del bucle, y una parte variable, `post`, que es el argumento que
+recibirá cuando se llame, tal como se hace abajo usando `call`
 (recordad que es un objeto, y para ejecutar esa función hay que llamar
-al método $call$ de ese objeto). La
+al método `call` de ese objeto). La
 función `prefijadores['macro']` se comportará de la misma
 forma que si la hubiéramos definido así
 
-    <span class="hl kwa">def</span> <span class="hl kwd">prefijador</span><span class="hl sym">(</span> post <span class="hl sym">)</span>
-  <span class="hl str">&quot;macro#{post}&quot;</span><span class="hl sym">;</span>
-<span class="hl kwa">end</span>
+	def prefijador( post ) 
+		"macro#{post}";
+	end
 
-puts <span class="hl kwd">prefijador</span><span class="hl sym">(</span><span class="hl str">'micro'</span><span class="hl sym">);</span>
-`
-la única diferencia es que en este caso no hace falta usar $call$ para
+	puts prefijador('micro');
+
+la única diferencia es que en este caso no hace falta usar `call` para
 llamar a la función: se puede usar directamente el nombre de la
-misma. De camino, vemos como se definen funciones en ruby: usando
-también $def$. Igual que antes, salvo que ahora damos un nombre al
+misma. De camino, vemos como se definen funciones en Ruby: usando
+también `def`. Igual que antes, salvo que ahora damos un nombre al
 bloque, lo que le da más derechos, al parecer.
 
-<& h2.mhtml, h1 => $h1, h2 => \$h2, titulo => 'Instalando nuevos módulos', abbrev =>
-  'cpan' &>
+
+<div class='ejercicios' markdown="1">
+
+1. Crear una serie de funciones instanciadas con un URL que devuelvan
+algún tipo de información sobre el mismo: fecha de última
+modificación, por ejemplo. *Pista*: esa información está en la
+cabecera HTTP que devuelve
+
+</div>
+
+Instalando nuevos módulos
+
 
 Qué sería de cualquier lenguaje si tuviéramos que conformarnos con
-  lo que nos da, y no pudiéramos instalar cosas nuevas... comenzó
+  lo que nos da, y no pudiéramos instalar cosas nuevas... El usar
+  repositorios centralizados de módulos o bibliotecas lo comenzó
   LaTeX con CTAN, luego siguió Perl con CPAN, y Ruby tiene su
   colección de gemas para poder bajártelas cómodamente. Sin embargo,
-  hace falta instalar cosas para usarlo, no se puede usar
-  directamente. En ubuntu habrá que instalar el paquete $rubygems$, y
+  hace falta instalar paquetes para usarlo, no se instala
+  automáticamente junto con el
+  intérprete. En Ubuntu habrá que instalar el paquete `rubygems`, y
   en otras distros hacer cosas más complicadas (o no). La manera más
   general es [bajarse
-    el paquete de Rubyforge e instalarlo](http://docs.rubygems.org/read/chapter/3=, tampoco es demasiado
-  complicado. Afortunadamente, a partir de la versión 1.9 (que todavía
+    el paquete de Rubyforge e instalarlo](http://docs.rubygems.org/read/chapter/3), tampoco es demasiado
+  complicado. Afortunadamente, a partir de la versión 1.9 (que a fecha
+  de 2013 todavía 
   no viene por defecto en las distros) vendrá incluida.
 
 Aparte de gem, hay que instalarse alguna cosa más, porque muchos
-  módulos en ruby necesitan herramientas de construcción
+  módulos en Ruby necesitan herramientas de construcción
   adicionales. En concreto, la versión `-dev` del paquete
-  Ruby que tengamos instalado. Por ejemplo, en Ubuntu habría que
+  Ruby que tengamos instalado. Por ejemplo, en alguna versión de Ubuntu habría que
   escribir 
   
     sudo apt-get install ruby1.8-dev
@@ -473,20 +493,20 @@ Una vez instalado todo eso, no hay más que usarlo. Empezamos por
     jmerelo@sheldon:~/public_html/tutoriales/ruby-para-impacientes$
   <span class='user'>gem search mysql</span>
 
-*** LOCAL GEMS ***
-`
+  *** LOCAL GEMS ***
+
 Joeves, no devuelve nada. Pero claro, es que busca en la colección
   local de gemas. Habrá que buscar en la remota:
 
-  jmerelo@sheldon:~/public_html/tutoriales/ruby-para-impacientes$ <span class='user'>gem search --remote mysql</span>
+	jmerelo@sheldon:~/public_html/tutoriales/ruby-para-impacientes$ <span class='user'>gem search --remote mysql</span>
 
-  *** REMOTE GEMS ***
+	*** REMOTE GEMS ***
 
-  activerecord-jdbcmysql-adapter (0.9.6)
-  activerecord-mysql-adapter-flags (0.0.3)
-  dbd-mysql (0.4.4)
-  do_mysql (0.10.1)
-  ...
+	activerecord-jdbcmysql-adapter (0.9.6)
+	activerecord-mysql-adapter-flags (0.0.3)
+	dbd-mysql (0.4.4)
+	do_mysql (0.10.1)
+	...
 
 Y así hasta un mogollón de cosas. Tendremos un listado de todas las
   disponibles, y todas las versiones. Vamos a instalarnos la tercera;
@@ -502,7 +522,7 @@ Could not find main page README
 Could not find main page README
 Could not find main page README
 Could not find main page README
-`
+
 En algunos casos puede que dé error, porque falte alguna
   dependencia que haya que instalar desde el sistema operativo; en ese
   caso, es conveniente instalar el paquete correspondiente, en vez de
@@ -513,84 +533,33 @@ En algunos casos puede que dé error, porque falte alguna
   alguna de las librerías dependientes que se han instalado con el
   paquete (en mi caso, sólo una denominada $deprecated$)
 
+<div class='ejercicios' markdown="1">
 
-Rascando HTML: hpricot
+1. Ver si está disponible Vagrant como una gema de Ruby e instalarla.
 
-Hay verdaderas virguerías entre los paquetes gem, pero uno de los
-  más útiles para los que nos dedicamos
-  a <acronym name='scraping'>rascar HTML</acronym>
-  es [hpricot](http://hpricot.com/), un analizador
-  *liberal* de HTML que permite extraer información de las páginas
-  muy fácilmente. Lo instalamos con gem (`sudo gem install
-    hpricot`) y podemos empezar a usarlo
-
-  
-    require 'rubygems'
-    require 'hpricot'
-    require 'open-uri'
-
-    osl =  Hpricot(open("http://osl.ugr.es/"))
-    osl.search("//h2[@class='entry-title']").each { |h2|
-      this_h2 = Hpricot( h2.to_s )
-      link = this_h2.search("a[@href]").text
-      text = this_h2.at("a").inner_html
-      puts "#{link} => #{text}"
-    }
-
-Hay que incluir unos cuantos módulos; a partir de ahí se trata de
-  usar expresiones XPath (hay que saber un poco de XML para esto, pero
-  es bastante lógico todo) y de usar `inner_html` para
-  extraer el interior de los elementos que vamos analizando, en este
-  caso los enlaces y títulos de los titulares del blog de
-  la <a href='http://osl.ugr.es'>OSL</a>. Por ejemplo, en este caso
-  le estamos diciendo que extraiga los elementos $h2$ que, además,
-  tengan como atributo $class$ `entry-title`; y lo estamos
-      haciendo pasándole un bloque con las cosas que tiene que hacer
-      cada vez que se encuentre con un elemento que cumpla esa
-      condición.  
-
-Por cierto, no es la única forma de hacer <em>scraping</em> con
-      Ruby: se <a
-      href='http://muharem.wordpress.com/2007/09/04/scrape-the-web-with-ruby/'>puede
-      usar también WWW::Mechanize</a>, una versión de la librería en Perl.
+</div>
 
 
-<& h2.mhtml, h1 => $h1, h2 => \$h2, titulo => 'Bibliografía', abbrev => 't1:biblio' &>
 
-<iframe src="http://rcm-uk.amazon.co.uk/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=severawebsite-21&o=2&p=8&l=as1&m=amazon&f=ifr&md=0M5A6TN3AXP2JHJBWT02&asins=0596516177" style="width:120px;height:240px;float:left" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>  Como es de esperar, hay libros enteros gratuitos sobre
-    Ruby: <a href='http://ruby-doc.org/docs/ProgrammingRuby/'>Programming
-      Ruby</a>, por ejemplo, pero el más curioso
-    es <a href='http://mislav.uniqpath.com/poignant-guide/'>la guía
-      intensa de Why's a Ruby</a>, con cómics, vericuetos inefables,
-    pero que finalmente termina enseñando bastante. También tienes
-    este <a href='http://www.ruby-lang.org/en/documentation/quickstart/'>tutorial
-      en 20 minutos</a>, y los libros que te aparecen a ambos lados
-    de este texto.
-<iframe src="http://rcm-uk.amazon.co.uk/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=severawebsite-21&o=2&p=8&l=as1&m=amazon&f=ifr&md=0M5A6TN3AXP2JHJBWT02&asins=0596516177" style="width:120px;height:240px;float:right" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+Referencias adicionales
 
+ Como es de esperar, hay libros enteros gratuitos sobre
+    Ruby: [Programming Ruby](http://ruby-doc.org/docs/ProgrammingRuby/), por ejemplo, pero el más curioso
+    es [la guía intensa de Ruby por Why](http://mislav.uniqpath.com/poignant-guide), con cómics, vericuetos inefables,
+    pero que finalmente termina enseñando bastante. 
 Como seguramente conoces otro lenguaje de programación, prueba <a
-	href='http://www.ruby-lang.org/es/documentation/ruby-from-other-languages/'>Ruby
-	desde otros lenguajes</a>, con tutoriales en inglés y español
+	[Ruby
+	desde otros lenguajes](http://www.ruby-lang.org/es/documentation/ruby-from-other-languages/), con tutoriales en inglés y español
       que explican cómo trabajar  con Ruby si se conoce Perl, o Java,
 	o Python.
 
 En español se puede
-  mirar <a href='http://rubytutorial.wikidot.com/'>este tutorial de
-  Ruby</a>, bastante completo,
-  o <a href='http://rubytutorial.wikidot.com/ruby-15-minutos'>este
-  resumen</a> para aprender en sólo 15 minutos. También hay
-  traducciones de todos los libros anteriores, y si quieres meterte
-  más a fondo, tienes <a href='http://todoruby.blogspot.com/'>este
-  blog</a> para
-  seguir. Esta <a href='http://www.demiurgo.org/charlas/ruby.pdf'>presentación
-    también está bien</a>, aunque le falta detalle; es bastante
-  buena, en general, e instructiva. 
+  mirar [este tutorial de
+  Ruby](http://rubytutorial.wikidot.com/), bastante completo,
+  o [este resumen](http://rubytutorial.wikidot.com/ruby-15-minutos) para aprender en sólo 15 minutos. 
 
 Cuando ya estés harto de
-  Ruby, <a href='http://www.maestrosdelweb.com/editorial/rubyonrails/'>también
-    puedes aprender un poquico de Ruby on Rails</a>, ya puesto. 
+  Ruby,[también
+    puedes aprender un poquico de Ruby on Rails](http://www.maestrosdelweb.com/editorial/rubyonrails/), ya puesto. 
 
 
-<& footer.mhtml &>
-
-</&>
