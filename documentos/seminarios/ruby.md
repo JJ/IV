@@ -3,15 +3,16 @@ Una introducción ligera al lenguaje Ruby
 
 <div class="objetivos" markdown="1">
 
+
 Objetivos específicos
 --
 
-* Conocer la historia y origenes de este lenguaje
-* Entender los conceptos principales detrás del mismo
-* Conocer y saber usar la sintaxis 
-* Aprender las estructuras de datos y control principales
-* Instalar y usar bibliotecas
-* Hacer un pequeño programa
+ * Conocer la historia y origenes de este lenguaje
+ * Entender los conceptos principales detrás del mismo
+ * Conocer y saber usar la sintaxis 
+ * Aprender las estructuras de datos y control principales
+ * Instalar y usar bibliotecas
+ * Hacer un pequeño programa
 
 </div>
 
