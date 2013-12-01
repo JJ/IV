@@ -495,9 +495,8 @@ No siempre es necesario, pero si te da un error algún módulo típico,
 Una vez instalado todo eso, no hay más que usarlo. Empezamos por
   buscar algo que queramos instalar:
 
-    jmerelo@sheldon:~/public_html/tutoriales/ruby-para-impacientes$
-  gem search mysql
-  *** LOCAL GEMS ***
+    jmerelo@sheldon:~/public_html/tutoriales/ruby-para-impacientes$ gem search mysql
+    *** LOCAL GEMS ***
 
 Joeves, no devuelve nada. Pero claro, es que busca en la colección
   local de gemas. Habrá que buscar en la remota:
