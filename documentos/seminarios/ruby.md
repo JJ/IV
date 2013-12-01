@@ -491,13 +491,13 @@ Una vez instalado todo eso, no hay más que usarlo. Empezamos por
   buscar algo que queramos instalar:
 
     jmerelo@sheldon:~/public_html/tutoriales/ruby-para-impacientes$
-  <span class='user'>gem search mysql</span>
+  gem search mysql
   *** LOCAL GEMS ***
 
 Joeves, no devuelve nada. Pero claro, es que busca en la colección
   local de gemas. Habrá que buscar en la remota:
 
-	jmerelo@sheldon:~/public_html/tutoriales/ruby-para-impacientes$ <span class='user'>gem search --remote mysql</span>
+	jmerelo@sheldon:~/public_html/tutoriales/ruby-para-impacientes$ gem search --remote mysql
 
 	*** REMOTE GEMS ***
 
@@ -512,7 +512,7 @@ Y así hasta un mogollón de cosas. Tendremos un listado de todas las
   si queremos que esté disponible para todos los usuarios tendremos
   que lanzar la orden con privilegios de administrador:
 
-    jmerelo@sheldon:~/ruby-para-impacientes$ <span class='user'>sudo gem install ruby-mysql</span>
+    jmerelo@sheldon:~/ruby-para-impacientes$ sudo gem install ruby-mysql
 Successfully installed ruby-mysql-2.9.2
 1 gem installed
 Installing ri documentation for ruby-mysql-2.9.2...
@@ -548,7 +548,7 @@ Referencias adicionales
     Ruby: [Programming Ruby](http://ruby-doc.org/docs/ProgrammingRuby/), por ejemplo, pero el más curioso
     es [la guía intensa de Ruby por Why](http://mislav.uniqpath.com/poignant-guide), con cómics, vericuetos inefables,
     pero que finalmente termina enseñando bastante. 
-Como seguramente conoces otro lenguaje de programación, prueba <a
+Como seguramente conoces otro lenguaje de programación, prueba 
 	[Ruby
 	desde otros lenguajes](http://www.ruby-lang.org/es/documentation/ruby-from-other-languages/), con tutoriales en inglés y español
       que explican cómo trabajar  con Ruby si se conoce Perl, o Java,
