@@ -1,6 +1,7 @@
 Una introducción ligera al lenguaje Ruby
 ===
 
+<div class="objetivos" markdown="1">
 
 Objetivos específicos
 --
@@ -11,6 +12,8 @@ Objetivos específicos
 * Aprender las estructuras de datos y control principales
 * Instalar y usar bibliotecas
 * Hacer un pequeño programa
+
+</div>
 
 
 ¿Ruby? Pero si es muy fácil

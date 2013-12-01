@@ -3,8 +3,10 @@ Virtualización *ligera* usando contenedores
 
 <!--@
 prev: Tecnicas_de_virtualizacion
-next: Gestion_de_configuracion
+next: Almacenamiento
 -->
+
+<div class="objetivos" markdown="1">
 
 Objetivos
 --
@@ -31,6 +33,7 @@ Objetivos
 
 3. Comprender los pasos necesarios para la configuración automática de las mismas.
 
+</div>
 
 Un  paso más hacia la virtualización completa: *contenedores*
 -------
