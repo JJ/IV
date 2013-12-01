@@ -68,10 +68,24 @@ Objetivos
  Cada disco, partición o LUN constituye un volumen físico que tiene
  una serie de bloques llamados *physical extents* (PEs, extensiones
  físicas) y se puede combinar en un [*physical volume group* (PVG,
- grupo de volúmenes físicos)}(http://h30499.www3.hp.com/t5/LVM-and-VxVM/what-is-PVG-Physical-Volume-Group/td-p/4675294#.UpuJG0Pzt4w), de forma que un PE de cada volumen en el PVG se usará de forma combinada a la hora de escribir. 
+ grupo de volúmenes físicos)](http://h30499.www3.hp.com/t5/LVM-and-VxVM/what-is-PVG-Physical-Volume-Group/td-p/4675294#.UpuJG0Pzt4w), de forma que un PE de cada volumen en el PVG se usará de forma combinada a la hora de escribir. 
  
  Esta estructura física se reflejará en la estructura lógica, pero la virtualización lo que hace es transformarla de forma que cada elemento lógico equivalga a uno, varios o ningún elemento físico.  
- 
+
+Los
+[volúmenes lógicos](http://en.wikipedia.org/wiki/Logical_volume_management)
+son una virtualización habitual en los sistemas operativos.  Un
+volúmen lógico crea un LE (*logical extent*) a partir de uno PE o
+varios en el caso de que se haga *mirroring* transparente. Los LEs se
+agrupan en volúmenes lógicos, que aparecen desde el punto de vista del
+sistema operativo como cualquier otra partición. En realidad, el
+concepto de partición y el de volumen lógico es similar, salvo que una
+partición virtualiza siempre parte de un volumen físico y se hace a
+un nivel lógico inferior que el de los volúmenes lógicos. En Linux
+estos se suelen usar para manejar la partición extendida y crear más
+particiones que las cuatro que admite por defecto el formato de tabla
+de particiones usual. 
+
  <div class='ejercicios' markdown="1">
  
  1. ¿Cómo tienes instalado tu disco duro? ¿Usas particiones? ¿Volúmenes lógicos? 
@@ -81,4 +95,6 @@ Objetivos
 3. Buscar ofertas SAN comerciales y comparar su precio con ofertas *locales* (en el propio ordenador) equivalentes.
 
 </div>
+
+
 
