@@ -6,7 +6,8 @@ Objetivos específicos
 --
 
 * Conocer la historia y origenes de este lenguaje
-* Entender los conceptos principales detras del mismo^J * Conocer y saber usar la sintaxis 
+* Entender los conceptos principales detrás del mismo
+* Conocer y saber usar la sintaxis 
 * Aprender las estructuras de datos y control principales
 * Instalar y usar bibliotecas
 * Hacer un pequeño programa
@@ -19,7 +20,7 @@ Si alguna vez habéis oído hablar de él, posiblemente conozcáis [Ruby](http://rub
   web que sigue el paradigma MVC (Model, View, Controller) creado alrededor de 2005 que usa Ruby como lenguaje
   subyacente; mucha gente llega a Ruby desde la derecha (el On Rails)
   y se piensan que es como un lenguaje de macros que imita a Python o
-    a Perl o a ambos... pero no es así.
+    a Perl o a ambos... Pero no es así.
 
 El lenguaje Ruby lo
   creó [`Matz`, Yukihiro Matsumoto](http://www.ruby-lang.org/en/about/), con la intención de que fuera fácil de aprender y se
@@ -473,10 +474,9 @@ Qué sería de cualquier lenguaje si tuviéramos que conformarnos con
   general es [bajarse
     el paquete de Rubyforge e instalarlo](http://docs.rubygems.org/read/chapter/3), tampoco es demasiado
   complicado. Afortunadamente, a partir de la versión 1.9 (que a fecha
-  de 2013 todavía 
-  no viene por defecto en las distros) vendrá incluida.
+  de 2013 ya empieza a aparecer en las distros) vendrá incluida.
 
-Aparte de gem, hay que instalarse alguna cosa más, porque muchos
+Aparte de `gem`, hay que instalarse alguna cosa más, porque muchos
   módulos en Ruby necesitan herramientas de construcción
   adicionales. En concreto, la versión `-dev` del paquete
   Ruby que tengamos instalado. Por ejemplo, en alguna versión de Ubuntu habría que
@@ -492,7 +492,6 @@ Una vez instalado todo eso, no hay más que usarlo. Empezamos por
 
     jmerelo@sheldon:~/public_html/tutoriales/ruby-para-impacientes$
   <span class='user'>gem search mysql</span>
-
   *** LOCAL GEMS ***
 
 Joeves, no devuelve nada. Pero claro, es que busca en la colección
@@ -542,6 +541,8 @@ En algunos casos puede que dé error, porque falte alguna
 
 
 Referencias adicionales
+--
+
 
  Como es de esperar, hay libros enteros gratuitos sobre
     Ruby: [Programming Ruby](http://ruby-doc.org/docs/ProgrammingRuby/), por ejemplo, pero el más curioso
