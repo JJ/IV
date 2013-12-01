@@ -88,5 +88,13 @@ de particiones usual.
 
 </div>
 
+<div class='nota' markdown='1'>
+
+En
+[esta guía](http://www.idevelopment.info/data/Unix/Linux/LINUX_ManagingPhysicalLogicalVolumes.shtml)
+hay un resumen de todos los comandos usados para trabajar con
+volúmenes físicos y lógicos en Linux.
+
+</div>
 
 
