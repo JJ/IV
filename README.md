@@ -26,6 +26,13 @@ disponibles con una licencia libre. Los fuentes de los mismos están en
 5. Virtualización de CPU y almacenamiento
 6. Virtualización de aplicaciones: software como servicio.
 
+Seminarios
+---------------
+
+Material adicional de la asignatura, que se usará en clase pero que el
+alumno tendrá que aprender a su ritmo
+
+1. [Introdución ligera al lenguaje Ruby](documentos/seminarios/ruby.md). 
 
 
 Prácticas - Actividades académicas dirigidas
