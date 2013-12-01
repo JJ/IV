@@ -122,7 +122,39 @@ hecho, eso es lo que hace
 [este programa, `gitfuse`](https://github.com/davesque/gitfuse)), que
 sólo permite visualizarlos y que está escrito en Python. 
 
+En Linux se usa la librería [FUSE](http://fuse.sourceforge.net/) para
+implementarlo. Se puede usar directamente o mediante alguna adaptación
+a
+[cualquier lenguaje o a cualquier tipo de sistema](http://sourceforge.net/apps/mediawiki/fuse/index.php?title=FileSystems). Por
+ejemplo, se puede usar para acceder a ficheros comprimidos
+directamente, o a bases de datos, o a la red, o en realidad a casi
+cualquier cosa. Por ejemplo, `sshfs` (que debería estar instalado con
+el paquete OpenSSH) permite acceder a ficheros remotos como si fueran
+locales con el protocolo ssh.
 
+<div class='ejercicios' markdown='1'>
+
+Usar FUSE para acceder a recursos remotos como si fueran ficheros
+locales. Por ejemplo, sshfs para acceder a ficheros de una máquina
+virtual invitada o de la invitada al anfitrión. 
+
+*Avanzado* Usar los drivers de FUSE para Ruby
+ ([aquí explican más o menos como hacerlo con fusefs](http://www.debian-administration.org/articles/619)
+ para mostrar el contenido de una estructura de datos en un lenguaje
+ como si fuera un
+ fichero. [Este es un ejemplo en Python](http://www.stavros.io/posts/python-fuse-filesystem/). 
+
+</div>
+
+El usar la metáfora del sistema de ficheros puede convertir una
+estructura de datos remota, o compleja, o simplemente extraña, en una
+serie de operaciones perfectamente familiares como leer y escribir en
+ficheros o navegar por directorios. Se puede usar tanto
+pedagógicamente como para convertir recursos muy diferentes en algo
+que pueda ser manejado desde un programa que sólo, o principalmente,
+sepa manejar ficheros. En cualquier caso, se trata de un ejemplo
+estupendo de virtualización de recursos y de un tipo de recurso que,
+también, se puede usar dentro de máquinas virtuales. 
 
 
 Provisionamiento delgado
