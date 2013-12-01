@@ -1,12 +1,8 @@
----
-layout: index
-
----
-
 Una introducción ligera al lenguaje Ruby
 ===
 
 <div class="objetivos" markdown="1">
+
 
 Objetivos específicos
 --
