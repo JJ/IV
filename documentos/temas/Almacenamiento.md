@@ -105,4 +105,40 @@ volúmenes físicos y lógicos en Linux.
 
 </div>
 
+Sistemas de ficheros en espacio de usuario
+-----------------------
+
+Los
+[FUSE o sistemas de ficheros en espacio de usuario](http://en.wikipedia.org/wiki/Thin_provisioning)
+son *drivers* que permiten proyectar sobre el sistema local recursos
+remotos como si se trataran de sistemas de ficheros locales y sin
+necesidad de usar órdenes privilegiadas para montarlos. Un ejemplo muy
+usado es Dropbox, pero en general casi cualquier recurso que se pueda
+*mapear* a una estructura de directorios se puede pasar a una metáfora
+de sistema de ficheros y hacerlo mediante un programa. Por ejemplo, un
+repositorio remoto de `git` podría usarse de esa forma, accediendo a
+ficheros en el mismo como si se tratara de ficheros locales (y, de
+hecho, eso es lo que hace
+[este programa, `gitfuse`](https://github.com/davesque/gitfuse)), que
+sólo permite visualizarlos y que está escrito en Python. 
+
+
+
+
+Provisionamiento delgado
+----
+
+Una máquina virtual puede usar directamente cualquiera de los
+volúmenes físicos o lógicos creados por el sistema operativo, pero lo
+más habitual es crear, sobre los volúmenes físicos o lógicos creados por el sistema
+operativo también un almacenamiento virtual en un proceso que se llama
+habitualmente
+[provisionamiento delgado](http://en.wikipedia.org/wiki/Thin_provisioning). El
+término *delgado* indica que el volumen lógico va a tener más espacio
+disponible que el espacio físico que realmente ocupa y de forma
+práctica se hace creando ficheros en diferentes formatos, ficheros que
+serán vistos como un volumen lógico dentro de la máquina virtual con
+más espacio del que usan realmente. 
+
+
 
