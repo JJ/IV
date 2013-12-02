@@ -227,11 +227,13 @@ o, en el caso de qcow2, usando qemu-nbd
 	partprobe /dev/nbd0
 	mount /dev/nbd0p1 /mnt/image
 	
-en cualquier caso, el objetivo de estas imágenes es precisamente ser
+, donde
+[NBD se refiere a Network Block Device](http://en.wikipedia.org/wiki/Network_block_device).
+En cualquier caso, el objetivo de estas imágenes es precisamente ser
 usadas como sistemas de ficheros montables, por lo que, en cualquier
 caso, la forma de manipularlas es montándolas en algún anfitrión.
 	
-<div class='ejercicios' markdown=1'>
+<div class='ejercicios' markdown='1'>
 
 Crear imágenes con estos formatos (y otros que se encuentren tales
 como VMDK) y manipularlas a base de montarlas o con cualquier otra
