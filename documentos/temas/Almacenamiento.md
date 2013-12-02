@@ -215,7 +215,7 @@ inferior al indicado (5M).
 
 Estos ficheros se van a usar como sistemas de ficheros virtuales, pero
 eso no quiere decir que haga falta una máquina virtual para
-leerlos; se pueden montar usando `mount` de la forma siguiente:
+leerlos; se pueden [montar usando `mount`](http://en.wikibooks.org/wiki/QEMU/Images) de la forma siguiente:
 
 	mount -o loop,offset=32256 /camino/a/fichero-suelto.img
 	/mnt/mountpoint
@@ -226,6 +226,10 @@ o, en el caso de qcow2, usando qemu-nbd
 	qemu-nbd -c /dev/nbd0 fichero-cow.qcow2
 	partprobe /dev/nbd0
 	mount /dev/nbd0p1 /mnt/image
+	
+en cualquier caso, el objetivo de estas imágenes es precisamente ser
+usadas como sistemas de ficheros montables, por lo que, en cualquier
+caso, la forma de manipularlas es montándolas en algún anfitrión.
 	
 <div class='ejercicios' markdown=1'>
 
