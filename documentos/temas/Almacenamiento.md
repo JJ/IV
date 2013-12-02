@@ -33,8 +33,8 @@ Objetivos
    
  * Saber usar diferentes órdenes y utilidades para crearlas.
  
- 
  </div>
+ 
  
  La parte verdadera: un disco físico.
  --------
@@ -155,7 +155,7 @@ Provisionamiento delgado
 Una máquina virtual puede usar directamente cualquiera de los
 volúmenes físicos o lógicos creados por el sistema operativo, pero lo
 más habitual es crear, sobre los volúmenes físicos o lógicos creados por el sistema
-operativo también un almacenamiento virtual en un proceso que se llama
+operativo,  un almacenamiento virtual en un proceso que se llama
 habitualmente
 [provisionamiento delgado](http://en.wikipedia.org/wiki/Thin_provisioning). El
 término *delgado* indica que el volumen lógico va a tener más espacio
@@ -163,6 +163,77 @@ disponible que el espacio físico que realmente ocupa y de forma
 práctica se hace creando ficheros en diferentes formatos, ficheros que
 serán vistos como un volumen lógico dentro de la máquina virtual con
 más espacio del que usan realmente. 
+
+Este almacenamiento virtual puede tener muchos formatos
+diferentes. Cada hipervisor, librería, máquina virtual o incluso
+[*pools* de recursos admite unos
+cuantos; por ejemplo, `libvirt` admite hasta una docena](http://libvirt.org/storage.html). Cualquiera
+de estos recursos tendrá que estar disponible (es decir,
+*provisionado*) antes de la creación de la máquina virtual, por lo que
+conviene *tenerlo a mano* previamente, junto con las herramientas que
+trabajan con él. Algunos formatos que son populares son
+
+*
+  [`raw` o *poco poblado* (*sparse*)](http://en.wikipedia.org/wiki/Sparse_file):
+  son ficheros cuyo formato evita los espacios sin asignar, que se
+  representan por metadatos y por lo tanto puede usar en el
+  almacenamiento físico menos espacio del asignado inicialmente. Lo
+  admiten la mayoría de los sistemas operativos modernos. Para el
+  usuario se comportan como los ficheros normales, pero su creación
+  necesitará una orden de Linux como esta:
+  
+	  dd of=fichero-suelto.img bs=1k seek=5242879 count=0
+	  
+, donde `of` indica el nombre de fichero de salida, `bs` es el tamaño
+del bloque y `seek` es el tamaño del fichero en bytes  (menos uno); 
+mientras que 
+
+	ls -lks fichero-suelto.img 
+	
+dice cuantos bloques se han ocupado realmente. También se
+[puede hacer](http://stackoverflow.com/questions/257844/quickly-create-a-large-file-on-a-linux-system)
+usando `fallocate`:
+
+	fallocate -l 5M fichero-suelto.img
+	
+lo que tendrá el mismo resultado, aunque este último no funciona en
+algunos sistemas de ficheros (como ZFS). 
+
+* [`qcow2`](https://people.gnome.org/~markmc/qcow-image-format.html)
+  es un formato usado inicialmente por QEMU pero más adelante
+  generalizado a casi todos los gestores de MVs de Linux. Es un
+  sistema que usa
+  [*copy on write*](http://en.wikipedia.org/wiki/Copy-on-write) para
+  mantener la coherencia del resultado en memoria con lo que hay en
+  disco a la vez que se optimiza el acceso al mismo. Una forma de
+  crear este fichero es con `qemu-img`:
+  
+	  qemu-img create -f qcow2 fichero-cow.qcow2 5M
+	  
+lo que aparecerá como un fichero normal y corriente de un tamaño
+inferior al indicado (5M). 
+
+Estos ficheros se van a usar como sistemas de ficheros virtuales, pero
+eso no quiere decir que haga falta una máquina virtual para
+leerlos; se pueden montar usando `mount` de la forma siguiente:
+
+	mount -o loop,offset=32256 /camino/a/fichero-suelto.img
+	/mnt/mountpoint
+	
+o, en el caso de qcow2, usando qemu-nbd
+
+	modprobe nbd max_part=16
+	qemu-nbd -c /dev/nbd0 fichero-cow.qcow2
+	partprobe /dev/nbd0
+	mount /dev/nbd0p1 /mnt/image
+	
+<div class='ejercicios' markdown=1'>
+
+Crear imágenes con estos formatos (y otros que se encuentren tales
+como VMDK) y manipularlas a base de montarlas o con cualquier otra
+utilidad que se encuentre
+
+</div>
 
 
 
