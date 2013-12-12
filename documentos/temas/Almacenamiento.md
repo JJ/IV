@@ -436,6 +436,14 @@ siguiente:
  nuestra máquina, que tendremos que cambiar por el que haga falta (raj
  o wollowitz o el que sea).
  
+ <div class='nota' markdown='1'>
+ 
+ [Esta presentación de Hastexo](http://www.hastexo.com/misc/static/presentations/lceu2012/ceph.html#/step-21)
+ muestra las ventajas de este tipo de almacenamiento frente al clásico
+ y explica los conceptos de OSD
+ 
+ </div>
+ 
  La parte que hay que cambiar también es donde efectivamente se van a
  almacenar los objetos. Lo podemos hacer en cualquier dispositivo,
  pero en este caso he elegido usar un dispositivo *loop* como los que
@@ -479,18 +487,73 @@ sistema de bloques, sino de objetos.
 <div class='ejercicios' markdown='1'>
 
 Crear un dispositivo `ceph` usando BTRFS o XFS
-	
+
+*Avanzado*  Usar varios dispositivos en un nodo para distribuir la
+carga. 
+
 </div>
 
 <div class='nota' markdown='1'>
 
-Por la presente, yo no he conseguido montar el sistema usando XFS,
-aunque sí con
-BTRFS. [Estas instrucciones](http://svealiden.se/Ceph.html) muestran
+ [Estas instrucciones](http://svealiden.se/Ceph.html) muestran
 paso a paso como montar CPH en un solo sistema; también
-[una forma alternativa de hacerlo usando las nuevas órdenes](http://svealiden.se/Ceph.html#installnew) 
+[una forma alternativa de hacerlo usando las nuevas órdenes](http://svealiden.se/Ceph.html#installnew)
+(aunque la verdad es que no resultan mucho más comprensibles que las
+*clásicas*. Si te animas, puedes seguir
+[las docenas de pasos](http://ceph.com/docs/next/start/) que vienen en
+el sitio oficial de ceph, o
+[estas de Admin magazine](http://www.admin-magazine.com/HPC/Articles/The-RADOS-Object-Store-and-Ceph-Filesystem/%28language%29/eng-US),
+aunque usan autenticación que aquí no estamos usando (pero hará falta
+en una instalación seria).
+
 
 </div>
+
+Ahora podemos manipular este sistema de ficheros, una vez montado,
+usando diferentes programas o bien una orden llamada `rados` (Reliable
+Autonomic Distributed Object Storage). `rados` conecta a la
+configuración que tentamos funcionando en ese momento, con lo que no
+hace falta indicarle los monitores y todas esas cosas. Tal como se ha
+creado, la orden que funciona es 
+
+	rados lspools
+	
+que devolverá
+
+	data
+	metadata
+	rbd
+	
+Esta orden lista los *pools* o "directorios" (cubos, en realidad) en
+los que se van a colocar los diferentes objetos. Podemos crear nuevos
+*pools* con 
+
+	sudo rados mkpool esa-piscina
+	
+(con `rmpool`, por supuesto, se puede borrar). La orden
+
+	sudo rados df
+	
+te mostrará qué hay en cada uno de los pools. Hay
+[muchos más comandos](https://synnefo.readthedocs.org/en/latest/storage.html?highlight=import)
+pero tampoco me voy a poner a hacer todos y cada uno de ellos. Para
+almacenar objetos, por ejemplo, se usa put
+
+	sudo rados put -p esa-piscina objeto-almacenado	fichero-que-almacenaremos.whatever
+	
+
+<div class='ejercicios' markdown='1'>
+
+	Almacenar objetos y ver la forma de almacenar directorios
+	completos usando ceph y rados. 
+	
+</div>
+
+En infraestructuras virtuales como OpenStack hay servicios que usan
+este tipo de almacenes de objetos sobre todo para almacenar imágenes
+de dispositivos de almacenamiento completos o *snapshots* de la
+misma. Se verá más adelante cuando usemos este tipo de sistemas.
+
 
 
 
