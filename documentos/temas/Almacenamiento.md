@@ -150,6 +150,13 @@ sistema
 
 </div>
 
+<div class='notas' markdown='1'>
+
+Una lista de
+[cosas chulas que se pueden hacer con ficheros sueltecillos (o sea, *sparse*)](http://www.ogris.de/docs/sparse.html) 
+
+</div>
+
 
 
 
