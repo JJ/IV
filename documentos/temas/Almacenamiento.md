@@ -25,7 +25,7 @@ Objetivos
    
  * Realizar tareas de administración en infraestructura virtual.
  
- ### Objetivos específicos
+### Objetivos específicos
  
  * Conocer las técnicas de provisionamiento de almacenamiento de datos
    para
@@ -242,4 +242,70 @@ utilidad que se encuentre
 </div>
 
 
+Almacenamiento de objetos
+----
 
+La metáfora del sistema de ficheros funciona correctamente en la mayor
+parte de los casos, pero muchas aplicaciones requieren que se pueda
+acceder al almacenamiento mediante un interfaz que permita trabajar
+con otro tipo de entidades; por eso el
+[almacenamiento de objetos](http://en.wikipedia.org/wiki/Object_storage)
+permite manipular entidades en forma de objetos, en vez de ficheros y
+directorios; aparte del contenido, los objetos tienen también
+metadatos (igual que los ficheros tienen fecha de modificación o un
+nombre y camino, que equivale a una identidad única) que permite
+indexarlos y manipularlos más fácilmente. 
+
+<div class='nota' markdown='1'>
+
+En [este video](http://www.youtube.com/watch?v=kN7-fzxlllM) se
+explica, mediante una animación, qué es el almacenamiento de objetos
+en la nube
+
+</div>
+
+En un sistema de almacenamiento de objetos estos se agrupan en cubos
+(*buckets*); aparte de este agrupamiento, que no se puede anidar, la
+jerarquía de los objetos es totalmente plana y un objeto tiene un ID
+único en el cubo o en todo el sistema. El hecho de que un objeto esté
+ligado a un ID hace que se pueda almacenar en principio en cualquier
+dispositivo físico que esté conectado a la red. 
+
+Los metadatos están también separados físicamente del objeto (a
+diferencia de los sistemas de ficheros basados en bloques, en los que
+suelen estar ligados al propio fichero o directorio en el que se
+encuentra); los sistemas de almacenamiento de objetos suelen tener
+servidores diferentes para objetos y para datos, lo que permite
+también que sean mucho más escalables. 
+
+Para acceder a los objetos se usan operaciones CRUD (Create, read,
+update y delete) habituales, en muchos casos mediante un interfaz REST
+basado en la sintaxis del protocolo HTTP. Esto permite cierta
+interoperabilidad entre sistemas de diferente procedencia, igual que
+todos los sistemas de ficheros usan la misma metáfora de directorios y
+ficheros para acceder a los mismos. 
+
+Dado que en la mayor parte de los casos las aplicaciones en nube
+requieren este tipo de almacenamiento, muchos sistemas de
+almacenamiento en nube, como
+[Google cloud storage](https://developers.google.com/storage/index),
+[Amazon Elastic Block Store (EBS)](http://aws.amazon.com/es/ebs/) o
+[el de SoftLayer](http://www.softlayer.com/cloudlayer/storage/). Todos
+estos servicios son de pago (o *freemium* con una capa de pago), pero
+también existen soluciones open source que se pueden instalar
+localmente como [CEPH](http://ceph.com) u
+[OpenStack Cinder](http://en.wikipedia.org/wiki/Openstack#Object_Storage_.28Swift.29). También
+se pueden comprar dispositivos físicos que utilizan este tipo de
+almacenamiento, como
+[Nexenta](http://en.wikipedia.org/wiki/Openstack#Object_Storage_.28Swift.29).
+
+<div class='ejercicios' markdown='1'>
+
+Usar esto en un ejercicio puede ser complicado. No hay sistemas que
+ofrezcan almacenamiento gratuito (o que lo ofrezcan sin el uso de una
+tarjeta de crédito) y los sistemas como CEPH no son triviales de
+usar. El ejercicio, que es de nivel *avanzado*, consistiría en montar
+[Lustre](http://lustre.org) o [CEPH](http://ceph.com) o usar Azure o
+Amazon para crear un sistema de almacenamiento en bloque.
+
+</div>

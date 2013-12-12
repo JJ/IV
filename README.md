@@ -22,9 +22,10 @@ disponibles con una licencia libre. Los fuentes de los mismos están en
 1. [Introducción: conceptos y soporte físico](documentos/temas/Intro_concepto_y_soporte_fisico.md)
 2. [Técnicas de virtualización](documentos/temas/Tecnicas_de_virtualizacion.md)
 3. [Usando contenedores](documentos/temas/Contenedores.md)
-4. [Uso de sistemas de virtualización](documentos/temas/Uso_de_sistemas.md)
-5. Virtualización de CPU y almacenamiento
-6. Virtualización de aplicaciones: software como servicio.
+4. [Almacenamiento virtual](documentos/temas/Almacenamiento.md)
+5. [Uso de sistemas de virtualización](documentos/temas/Uso_de_sistemas.md)
+6. Virtualización de CPU y almacenamiento
+7. Virtualización de aplicaciones: software como servicio.
 
 Seminarios
 ---------------
