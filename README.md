@@ -6,7 +6,7 @@ es una asignatura optativa del primer cuatrimestre del cuarto de Grado
 de Ingeniería Informática.
 
 La asignatura se imparte en el curso 2013-2014 los lunes de 11:30 a
-13:30 en la 1.5 y los viernes de 9;30 a 11:30 en la 3.2. Se usará
+13:30 en el aula polivalente y los viernes de 9;30 a 11:30 en la 3.2. Se usará
 [GitHub](http://github.com) para las prácticas y trabajo final.
 
 Estos son los [objetivos de la asignatura](documentos/objetivos.md). 
@@ -24,8 +24,8 @@ disponibles con una licencia libre. Los fuentes de los mismos están en
 3. [Usando contenedores](documentos/temas/Contenedores.md)
 4. [Almacenamiento virtual](documentos/temas/Almacenamiento.md)
 5. [Uso de sistemas de virtualización](documentos/temas/Uso_de_sistemas.md)
-6. Virtualización de CPU y almacenamiento
-7. Virtualización de aplicaciones: software como servicio.
+6. Hipervisores y otros sistemas de virtualización.
+7. Software como servicio.
 
 Seminarios
 ---------------
@@ -34,6 +34,7 @@ Material adicional de la asignatura, que se usará en clase pero que el
 alumno tendrá que aprender a su ritmo
 
 1. [Introdución ligera al lenguaje Ruby](documentos/seminarios/ruby.md). 
+2. Visita a las instalaciones de Trevenque.
 
 
 Prácticas - Actividades académicas dirigidas
