@@ -97,6 +97,63 @@ volúmenes físicos y lógicos en Linux.
 
 </div>
 
+Estos ficheros se pueden usar como cualquier otro dispositivo; son, de
+hecho, sistemas de almacenamiento virtual. Tal cual pueden ser usados
+directamente como almacenamiento cuando creemos un nodo virtual, pero
+también pueden usarse como tales dentro de nuestro sistema. Para ello
+tenemos que convertirlos en un
+[dispositivo *loop*](http://en.wikipedia.org/wiki/Loop_device#Uses_of_loop_mounting)
+usando `losetup`
+
+	sudo losetup -v -f fichero-suelto.img 
+
+Un dispositivo *bucle* o *loop* es un seudo-dispositivo que presenta
+un fichero como si fuera un dispositivo de acceso por bloques (como un
+disco duro). Puede ser una alternativa a una partición del sistema
+operativo si no queremos reparticionar o simplemente queremos crear
+*contenedores* de ficheros para máquinas virtuales, aplicaciones o
+lo que nos dé la gana. 
+
+En este caso lo que hacemos es usar un fichero que hemos creado
+previamente con `fallocate` o de cualquiera de las formas vistas
+anteriormente en un dispositivo bucle; `-v` es el modo *verbose* que
+te muestra el resultado. Dado que los dispositivos son privilegio del
+superusuario, hay que hacerlo en tal modo superusuario. La respuesta
+será algo así como
+
+	El dispositivo de bucle es /dev/loop1
+
+Lo que tenemos ahora mismo es un dispositivo *en crudo*, el
+equivalente a un disco duro no formateado. Si queremos formatearlo
+habrá que tratarlo de la misma forma que cualquier otro disco duro,
+usando las herramientas que hay para ello: `fdisk`, `mkfs`, `gparted`
+o la que sea. Por ejemplo, para formatearlo con el
+[sistema de ficheros `btrfs`](http://en.wikipedia.org/wiki/Btrfs) 
+
+	sudo mkfs.btrfs /dev/loop0
+	
+Y una vez formateado, ya se puede montar como cualquier otro
+dispositivo usando el tipo de sistema de ficheros con el que se haya
+formateado y usarse como cualquier otro sistema de ficheros que se
+haya montado, para máquinas virtuales o para lo que sea; en la
+práctica, se comportará como otro dispositivo cualquiera, con la
+diferencia que al borrar el fichero original desmontaremos todo el
+tinglado que se ha montado. 
+
+<div class='ejercicios' markdown='1'>
+
+Crear uno o varios sistema de ficheros en bucle usando un formato que no sea
+habitual (xfs o btrfs) y comparar las prestaciones de entrada/salida
+entre sí y entre ellos y el sistema de ficheros en el que se
+encuentra, para comprobar el *overhead* que se añade mediante este
+sistema
+
+</div>
+
+
+
+
+
 Sistemas de ficheros en espacio de usuario
 -----------------------
 
