@@ -97,68 +97,6 @@ volúmenes físicos y lógicos en Linux.
 
 </div>
 
-Estos ficheros se pueden usar como cualquier otro dispositivo; son, de
-hecho, sistemas de almacenamiento virtual. Tal cual pueden ser usados
-directamente como almacenamiento cuando creemos un nodo virtual, pero
-también pueden usarse como tales dentro de nuestro sistema. Para ello
-tenemos que convertirlos en un
-[dispositivo *loop*](http://en.wikipedia.org/wiki/Loop_device#Uses_of_loop_mounting)
-usando `losetup`
-
-	sudo losetup -v -f fichero-suelto.img 
-
-Un dispositivo *bucle* o *loop* es un seudo-dispositivo que presenta
-un fichero como si fuera un dispositivo de acceso por bloques (como un
-disco duro). Puede ser una alternativa a una partición del sistema
-operativo si no queremos reparticionar o simplemente queremos crear
-*contenedores* de ficheros para máquinas virtuales, aplicaciones o
-lo que nos dé la gana. 
-
-En este caso lo que hacemos es usar un fichero que hemos creado
-previamente con `fallocate` o de cualquiera de las formas vistas
-anteriormente en un dispositivo bucle; `-v` es el modo *verbose* que
-te muestra el resultado. Dado que los dispositivos son privilegio del
-superusuario, hay que hacerlo en tal modo superusuario. La respuesta
-será algo así como
-
-	El dispositivo de bucle es /dev/loop1
-
-Lo que tenemos ahora mismo es un dispositivo *en crudo*, el
-equivalente a un disco duro no formateado. Si queremos formatearlo
-habrá que tratarlo de la misma forma que cualquier otro disco duro,
-usando las herramientas que hay para ello: `fdisk`, `mkfs`, `gparted`
-o la que sea. Por ejemplo, para formatearlo con el
-[sistema de ficheros `btrfs`](http://en.wikipedia.org/wiki/Btrfs) 
-
-	sudo mkfs.btrfs /dev/loop0
-	
-Y una vez formateado, ya se puede montar como cualquier otro
-dispositivo usando el tipo de sistema de ficheros con el que se haya
-formateado y usarse como cualquier otro sistema de ficheros que se
-haya montado, para máquinas virtuales o para lo que sea; en la
-práctica, se comportará como otro dispositivo cualquiera, con la
-diferencia que al borrar el fichero original desmontaremos todo el
-tinglado que se ha montado. 
-
-<div class='ejercicios' markdown='1'>
-
-Crear uno o varios sistema de ficheros en bucle usando un formato que no sea
-habitual (xfs o btrfs) y comparar las prestaciones de entrada/salida
-entre sí y entre ellos y el sistema de ficheros en el que se
-encuentra, para comprobar el *overhead* que se añade mediante este
-sistema
-
-</div>
-
-<div class='notas' markdown='1'>
-
-Una lista de
-[cosas chulas que se pueden hacer con ficheros sueltecillos (o sea, *sparse*)](http://www.ogris.de/docs/sparse.html) 
-
-</div>
-
-
-
 
 
 Sistemas de ficheros en espacio de usuario
@@ -281,10 +219,10 @@ Estos ficheros se van a usar como sistemas de ficheros virtuales, pero
 eso no quiere decir que haga falta una máquina virtual para
 leerlos; se pueden [montar usando `mount`](http://en.wikibooks.org/wiki/QEMU/Images) de la forma siguiente:
 
-	mount -o loop,offset=32256 /camino/a/fichero-suelto.img
-	/mnt/mountpoint
+	mount -o loop,offset=32256 /camino/a/fichero-suelto.img	/mnt/mountpoint
 	
-o, en el caso de qcow2, usando qemu-nbd
+aunque dará un error en caso de no haber sido formateado (lo que se
+verá un poco más adelante). En el caso de qcow2, usando qemu-nbd
 
 	modprobe nbd max_part=16
 	qemu-nbd -c /dev/nbd0 fichero-cow.qcow2
@@ -304,6 +242,70 @@ como VMDK) y manipularlas a base de montarlas o con cualquier otra
 utilidad que se encuentre
 
 </div>
+
+Estos ficheros se pueden usar como cualquier otro dispositivo; son, de
+hecho, sistemas de almacenamiento virtual. Tal cual pueden ser usados
+directamente como almacenamiento cuando creemos un nodo virtual, pero
+también pueden usarse como tales dentro de nuestro sistema. Para ello
+tenemos que convertirlos en un
+[dispositivo *loop*](http://en.wikipedia.org/wiki/Loop_device#Uses_of_loop_mounting)
+usando `losetup`
+
+	sudo losetup -v -f fichero-suelto.img 
+
+Un dispositivo *bucle* o *loop* es un seudo-dispositivo que presenta
+un fichero como si fuera un dispositivo de acceso por bloques (como un
+disco duro). Puede ser una alternativa a una partición del sistema
+operativo si no queremos reparticionar o simplemente queremos crear
+*contenedores* de ficheros para máquinas virtuales, aplicaciones o
+lo que nos dé la gana.  Este fichero lo puedes crear en cualquier
+sistema de ficheros, incluyendo externos, tarjetas o pendrives, lo que
+te da gran flexibilidad a la hora de crear almacenamiento virtual. 
+
+En este caso lo que hacemos es usar un fichero que hemos creado
+previamente con `fallocate` o de cualquiera de las formas vistas
+anteriormente en un dispositivo bucle; `-v` es el modo *verbose* que
+te muestra el resultado. Dado que los dispositivos son privilegio del
+superusuario, hay que hacerlo en tal modo superusuario. La respuesta
+será algo así como
+
+	El dispositivo de bucle es /dev/loop1
+
+Lo que tenemos ahora mismo es un dispositivo *en crudo*, el
+equivalente a un disco duro no formateado. Si queremos formatearlo
+habrá que tratarlo de la misma forma que cualquier otro disco duro,
+usando las herramientas que hay para ello: `fdisk`, `mkfs`, `gparted`
+o la que sea. Por ejemplo, para formatearlo con el
+[sistema de ficheros `btrfs`](http://en.wikipedia.org/wiki/Btrfs) 
+
+	sudo mkfs.btrfs /dev/loop0
+	
+Y una vez formateado, ya se puede montar como cualquier otro
+dispositivo usando el tipo de sistema de ficheros con el que se haya
+formateado y usarse como cualquier otro sistema de ficheros que se
+haya montado, para máquinas virtuales o para lo que sea; en la
+práctica, se comportará como otro dispositivo cualquiera, con la
+diferencia que al borrar el fichero original desmontaremos todo el
+tinglado que se ha montado. 
+
+<div class='ejercicios' markdown='1'>
+
+Crear uno o varios sistema de ficheros en bucle usando un formato que no sea
+habitual (xfs o btrfs) y comparar las prestaciones de entrada/salida
+entre sí y entre ellos y el sistema de ficheros en el que se
+encuentra, para comprobar el *overhead* que se añade mediante este
+sistema
+
+</div>
+
+<div class='notas' markdown='1'>
+
+Una lista de
+[cosas chulas que se pueden hacer con ficheros sueltecillos (o sea, *sparse*)](http://www.ogris.de/docs/sparse.html) 
+
+</div>
+
+
 
 
 Almacenamiento de objetos
@@ -365,11 +367,123 @@ almacenamiento, como
 
 <div class='ejercicios' markdown='1'>
 
-Usar esto en un ejercicio puede ser complicado. No hay sistemas que
-ofrezcan almacenamiento gratuito (o que lo ofrezcan sin el uso de una
-tarjeta de crédito) y los sistemas como CEPH no son triviales de
-usar. El ejercicio, que es de nivel *avanzado*, consistiría en montar
-[Lustre](http://lustre.org) o [CEPH](http://ceph.com) o usar Azure o
-Amazon para crear un sistema de almacenamiento en bloque.
+Instalar `ceph` en tu sistema operativo. 
 
 </div>
+
+Podemos probar como sistema de almacenamiento de objetos
+[`ceph`](http://ceph.com), uno de los más simples (relativamente) de
+instalar, al menos si sigues
+[estas instrucciones](http://blog.bob.sh/2012/02/basic-ceph-storage-kvm-virtualisation.html). 
+
+`ceph` crea tres tipos de nodos: el nodo monitor, el que almacena los
+metadatos y, finalmente, el nodo cliente. Cada uno de ellos podemos
+instalarlo en una máquina diferente, ya que ceph permite la creación
+de ODS distribuidos, pero siguiendo el tutorial anterior podemos
+instalarlos en el mismo sistema.
+
+Primero, habrá que instalar varios paquetes 
+
+	sudo apt-get install ceph-mds
+	
+te instala las dependencias necesarias (que incluyen el paquete
+ceph-fs-common, ceph y ceph-common. 
+
+Vamos a crear los directorios donde se va a almacenar la información
+de CEPH
+
+	mkdir -p /srv/ceph/{osd,mon,mds}
+
+(si no tenemos permiso de escritura en `/srv` habrá que hacerlo con
+superusuario). Estos directorios contendrán ficheros específicos de
+ceph.
+
+Vamos a configurar ceph, creando un fichero de configuración como el
+siguiente:
+
+  [global]
+        log file = /var/log/ceph/$name.log
+        pid file = /var/run/ceph/$name.pid
+  [mon]
+        mon data = /srv/ceph/mon/$name
+  [mon.mio]
+  host = penny
+  mon addr = 127.0.0.1:6789
+  [mds]
+  [mds.mio]
+  host = penny
+  [osd]
+  osd data = /srv/ceph/osd/$name
+  osd journal = /srv/ceph/osd/$name/journal
+  osd journal size = 1000 ; journal size, in megabytes
+  [osd.0]
+  host = penny
+  devs = /dev/loop0
+  
+ Aparte de declarar los ficheros de logs y demás, el fichero de
+ configuración tiene tres partes: `mon`, para configurar el monitor,
+ `mds`, para configurar el servidor de metadatos, y `osd`, para
+ configurar el dispositivo servidor de objetos. `mio` es el nombre
+ corto que le damos a la máquina y `penny` es el nombre local de
+ nuestra máquina, que tendremos que cambiar por el que haga falta (raj
+ o wollowitz o el que sea).
+ 
+ La parte que hay que cambiar también es donde efectivamente se van a
+ almacenar los objetos. Lo podemos hacer en cualquier dispositivo,
+ pero en este caso he elegido usar un dispositivo *loop* como los que
+ hemos configurado anteriormente, con el objeto de no tener que
+ disponer una partición específica para ello. Esta partición se
+ aconseja que se formatee con XFS o BTRFS; en este caso he elegido el
+ primero ya que el segundo todavía es experimental y XFS es el sistema
+ por defecto para ceph.
+ 
+ Una vez hecho esto, hay que crear un directorio a mano (no me
+ preguntéis por qué, pero es así y [aquí lo dicen](http://tracker.ceph.com/issues/1015))
+ 
+	 sudo mkdir /srv/ceph/osd/osd.0
+	 
+y ya podemos crear el sistema de ficheros de objetos con 
+
+	sudo /sbin/mkcephfs -a -c /etc/ceph/ceph.conf 
+
+Por favor notad que en este caso, a diferencia del tutorial enlazado,
+no especificamos BTRFS sino XFS, con lo que nos ahorramos
+opciones. Esa orden da un montón de resultados diferentes, pero
+finalmente ya está el sistema ceph creado. Iniciamos el servicio con
+	
+		sudo /etc/init.d/ceph -a start
+		
+(lo que dará un montón de mensajes sobre los diferentes servidores que
+están empezando). Puedes comprobar si todo ha ido (más o menos) bien
+con 
+
+	sudo ceph -s 
+
+y ya lo podemos montar con
+
+	sudo mount -t ceph penny:/ /mnt/ceph
+	
+(previamente habrá que habido que crear el directorio que se va a usar
+como punto de montaje).  Con un poco de suerte, aparecerá el sistema
+de ficheros montado como un sistema normal, aunque no se tratará de un
+sistema de bloques, sino de objetos.
+
+<div class='ejercicios' markdown='1'>
+
+Crear un dispositivo `ceph` usando BTRFS o XFS
+	
+</div>
+
+<div class='nota' markdown='1'>
+
+Por la presente, yo no he conseguido montar el sistema usando XFS,
+aunque sí con
+BTRFS. [Estas instrucciones](http://svealiden.se/Ceph.html) muestran
+paso a paso como montar CPH en un solo sistema; también
+[una forma alternativa de hacerlo usando las nuevas órdenes](http://svealiden.se/Ceph.html#installnew) 
+
+</div>
+
+
+
+	
