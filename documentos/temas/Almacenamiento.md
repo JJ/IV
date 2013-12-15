@@ -554,6 +554,190 @@ este tipo de almacenes de objetos sobre todo para almacenar imágenes
 de dispositivos de almacenamiento completos o *snapshots* de la
 misma. Se verá más adelante cuando usemos este tipo de sistemas.
 
+Almacenamiento virtual en la nube
+---
+
+Todos servicios IaaS poseen su propio *Storage as a service*, que se
+puede usar desde los servicios de computación o bien desde servicios
+basados en servidores (en nubes *mixtas*). En general, los servicios
+de almacenamiento en la nube, fuera de ofertas masivas como
+[Drobox](http://dropbox.com), suelen funcionar por bloques y
+estructurando el almacenamiento de una forma determinada, usando
+objetos y los denominados *blobs*, que son simplemente objetos sin
+ningún tipo de almacenamiento interno.
+
+En [Microsoft Azure](http://azure.com), por ejemplo,
+[la creación de almacenamiento virtual requiere una *cuenta*](http://www.windowsazure.com/en-us/documentation/services/storage/?fb=es-es)
+que estará asociada a la cuenta general que se use en el resto de
+Azure. La cuenta se activa en una zona geográfica determinada, lo que
+dependerá de nuestras preferencias o de las disposiciones legales al
+respecto.
+
+<div class='nota' markdown='1'>
+
+Las disposiciones legales con respecto a la privacidad de los datos y
+a la protección de los mismos son muy diferentes en la Unión Europea y en
+Estados Unidos. Por eso, en producción es conveniente que se elija
+siempre un almacenamiento que resida físicamente en la Unión Europea o
+en la Europa Occidental.
+
+</div>
+
+<div class='ejercicios' markdown='1'>
+
+Tras crear la cuenta de Azure, instalar las
+[herramientas de línea de órdenes (Command line interface, cli) del mismo](http://www.windowsazure.com/en-us/manage/install-and-configure-cli/)
+y configurarlas con la cuenta Azure correspondiente
+
+</div>
+
+Tal cuenta se puede crear de dos formas diferentes: desde el panel de
+control de Azure o bien
+[desde la línea de órdenes con](https://github.com/WindowsAzure/azure-sdk-tools-xplat)
+
+	azure account storage create esacuenta
+	
+te presentará una lista de las localizaciones y habrá que elegir la
+más conveniente (según lo indicado antes). El nombre de la cuenta no
+admite guiones. Dependiendo del tipo de suscripción te permitirá crear
+una o más cuentas, pero seguramente sólo una.
+
+Para manejar esta cuenta se necesitan una serie de claves. Con 
+
+	azure account storage keys list esacuenta
+	
+te dará una clave primaria y otra secundaria. Esta información se debe
+copiar en variables de entorno (que tendrás que cargar en tu
+`.profile` o bien establecerlas cada vez que vayas a usarlo con
+
+	export AZURE_STORAGE_ACCOUNT=esacuenta
+	export	AZURE_STORAGE_ACCESS_KEY=unaclavemuylargaquetieneigualesalfinal==
+	
+Una vez creada la cuenta y establecida la configuración ya [se pueden
+crear cosas en ella](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/?fb=es-es)
+se puede empezar a manejar la cuenta; una vez más,
+](se
+pueden crear diferentes contenedores desde el panel de
+control)[http://www.windowsazure.com/en-us/manage/services/storage/what-is-a-storage-account/?fb=es-es],
+pero es más práctico hacerlo desde la línea de órdenes.
+
+Azure divide su cuenta en
+[*contenedores* y llama a los objetos almacenados *blobs*](http://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/?fb=es-es#what-is);
+los contenedores son simplemente una forma de agrupar a las *masas* o
+*blobs* y equivalen a los *pools* o piscinas creadas en la sección
+anterior. Los containers se crean de forma más o menos obvia:
+
+	azure storage container create taper
+	
+pero esto crea un contenedor de acceso privado; los contenedores
+pueden ser públicos o privados y por defecto se crean privados; [los
+niveles de permisos existentes son ](http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx):
+
+ * Públicos para que se vean los contenidos
+ * Blobs públicos sólo
+ * Sin acceso público
+ 
+ Este último es el permiso por defecto, pero si queremos que se acceda
+ a los *blobs* se crea con
+ 
+	 azure storage container create otrotaper -p blob
+	 
+En este caso, se contesta con
+
+![Contestación a una creación de contenedor con acceso a nivel de blob](../img/container-con-acceso-blob.png)
+
+que indica en `publicAccessLevel`el valor `Blob`; dado que el CLI de
+azure es una herramienta en node.js, la contestación a las peticiones
+es en JSON. Los containers creados tienen un URL de la forma
+`http://micuenta.blob.core.windows.net/taper` (por ejemplo,
+[este creado para las imágenes de IV con acceso público](http://paraiv.blob.core.windows.net/imagenes-iv) y si tiene acceso
+público se puede acceder directamente a ellos o usando el interfaz
+REST; también se pueden hacer
+[otra serie de operaciones](https://github.com/WindowsAzure/azure-sdk-tools-xplat)
+como listarlos y borrarlos. Pero lo que nos interesa es como subir un
+blob a este almacenamiento, lo que también se puede hacer desde la
+línea de órdenes con `azure storage blob` tal como
+
+    azure storage blob upload container-con-acceso-blob.png imagenes-iv container-con-acceso-blob.png
+ 
+que almacenará un fichero png usando como nombre de blob el mismo
+nombre en el contenedor `imagenes-iv`. Estos ficheros, dependiendo del
+acceso definido, podrán estar disponibles públicamente, en este caso
+con la dirección
+[http://paraiv.blob.core.windows.net/imagenes-iv/container-con-acceso-blob.png](http://paraiv.blob.core.windows.net/imagenes-iv/container-con-acceso-blob.png) 
+
+<div class='ejercicios' markdown='1'>
+
+Crear varios contenedores en la cuenta usando la línea de órdenes para
+ficheros de diferente tipo y almacenar en ellos las imágenes en las
+que capturéis las pantallas donde se muestre lo que habéis hecho. 
+
+</div>
+
+Con esto estamos a punto de llegar al primer programa que se va a
+mostrar en esta asignatura, fuera de los seminarios. Como es natural,
+se puede acceder al almacenamiento usando diferentes librerías, que,
+en consonancia con el espíritu libre (que no libertario) de la nube y
+en disonancia con el espíritu, ejem, todo lo contrario, de Microsoft,
+son libres. Dado que hemos hecho un
+[seminario de Ruby](../seminarios/ruby) vamos a usar ese lenguaje,
+pero hay SDKs para muchos otros lenguajes: node.js, Java y por
+supuesto los propios de Microsoft. Instalemos la [gema para Azure](https://github.com/WindowsAzure/azure-sdk-for-ruby/blob/master/README)
+
+ sudo gem install azure
+ 
+y vamos a usar
+[este programa](https://github.com/JJ/IV/tree/master/ejemplos/blob-azure.rb)
+para crear un contenedor y almacenar algo
+en él
+
+ #!/usr/bin/ruby
+
+require "azure"
+
+#Recuerda establecer las variables de entorno AZURE_STORAGE_ACCOUNT and AZURE_STORAGE_ACCESS_KEY
+
+azure_blob_service = Azure::BlobService.new
+begin
+  container = azure_blob_service.create_container("test-container",
+                                                  :public_access_level => "blob" )
+rescue
+  puts $!
+end
+
+content = File.open("blob-azure.rb", "rb") { |file| file.read }
+blob = azure_blob_service.create_block_blob(container.name,
+                                            "file-blob", content)
+puts blob.name
+
+Este programa crea un contenedor llamado `test-container` y se
+almacena a si mismo con el nombre `file-blob`. El programa usa la
+configuración que se ha dado mediante variables de entorno, crea un
+contenedor con acceso a nivel de *blob*; usa una estructura de Ruby
+para escribir el error si hubiera alguno. Luego, abre un fichero (el
+que contiene el programa) y crea un *blob* de bloques en el contenedor
+creado. 
+
+Este interfaz programático permite usar el almacenamiento nube como lo
+que es, un sistema para crear y almacenar ficheros donde podemos crear
+diferentes estructuras de datos y almacenarlas desde nuestros
+programas.
+
+<div class='ejercicios' markdown='1'>
+
+Desde un programa en Ruby o en algún otro lenguaje, listar los *blobs*
+que hay en un contenedor, crear un fichero con la lista de los mismos
+y subirla al propio contenedor. Muy meta todo.
+
+</div>
+
+	 
+
+	
+
+
+
+	
 
 
 
