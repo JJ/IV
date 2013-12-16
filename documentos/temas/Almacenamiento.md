@@ -401,24 +401,24 @@ ceph.
 Vamos a configurar ceph, creando un fichero de configuración como el
 siguiente:
 
-  [global]
+	[global]
         log file = /var/log/ceph/$name.log
         pid file = /var/run/ceph/$name.pid
-  [mon]
+	[mon]
         mon data = /srv/ceph/mon/$name
-  [mon.mio]
-  host = penny
-  mon addr = 127.0.0.1:6789
-  [mds]
-  [mds.mio]
-  host = penny
-  [osd]
-  osd data = /srv/ceph/osd/$name
-  osd journal = /srv/ceph/osd/$name/journal
-  osd journal size = 1000 ; journal size, in megabytes
-  [osd.0]
-  host = penny
-  devs = /dev/loop0
+	[mon.mio]
+		host = penny
+		mon addr = 127.0.0.1:6789
+	[mds]
+	[mds.mio]
+		host = penny
+	[osd]
+		osd data = /srv/ceph/osd/$name
+		osd journal = /srv/ceph/osd/$name/journal
+		osd journal size = 1000 ; journal size, in megabytes
+	[osd.0]
+	host = penny
+	devs = /dev/loop0
   
  Aparte de declarar los ficheros de logs y demás, el fichero de
  configuración tiene tres partes: `mon`, para configurar el monitor,
@@ -544,7 +544,14 @@ almacenar objetos, por ejemplo, se usa put
 En infraestructuras virtuales como OpenStack hay servicios que usan
 este tipo de almacenes de objetos sobre todo para almacenar imágenes
 de dispositivos de almacenamiento completos o *snapshots* de la
-misma. Se verá más adelante cuando usemos este tipo de sistemas.
+misma. Se verá más adelante cuando usemos este tipo de sistemas. En
+concreto,
+[el servicio de almacenamiento de objetos en OpenStack se llama Swift](http://en.wikipedia.org/wiki/Openstack#Object_Storage_.28Swift.29)
+y se
+[usa principalmente almacenamiento de imágenes (discos duros completos) y *snapshots* (estado de un disco duro en un momento determinado](http://www.openstack.org/software/openstack-storage/). En
+Amazon, [Elastic Block Storage](http://aws.amazon.com/es/ebs/) forma
+parte de las ofertas de servicios web del mismo y permite trabajar con
+bloques desde las instancias EC2. 
 
 
 
