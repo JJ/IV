@@ -616,7 +616,7 @@ copiar en variables de entorno (que tendrás que cargar en tu
 Una vez creada la cuenta y establecida la configuración ya [se pueden
 crear cosas en ella](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/?fb=es-es)
 se puede empezar a manejar la cuenta; una vez más,
-](se
+(se
 pueden crear diferentes contenedores desde el panel de
 control)[http://www.windowsazure.com/en-us/manage/services/storage/what-is-a-storage-account/?fb=es-es],
 pero es más práctico hacerlo desde la línea de órdenes.
@@ -631,7 +631,7 @@ anterior. Los containers se crean de forma más o menos obvia:
 	
 pero esto crea un contenedor de acceso privado; los contenedores
 pueden ser públicos o privados y por defecto se crean privados; [los
-niveles de permisos existentes son ](http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx):
+niveles de permisos existentes son](http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx):
 
  * Públicos para que se vean los contenidos
  * Blobs públicos sólo
