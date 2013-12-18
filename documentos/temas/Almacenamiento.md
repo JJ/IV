@@ -702,7 +702,7 @@ en él
       container = azure_blob_service.create_container("test-container",
                                                       :public_access_level => "blob" )
      rescue
-      puts $!
+       puts $!
      end
     
      content = File.open("blob-azure.rb", "rb") { |file| file.read }
