@@ -29,8 +29,6 @@ disponibles con una licencia libre. Los fuentes de los mismos están en
 3. [Usando contenedores](documentos/temas/Contenedores)
 4. [Almacenamiento virtual](documentos/temas/Almacenamiento)
 5. [Uso de sistemas de virtualización](documentos/temas/Uso_de_sistemas)
-6. Hipervisores y otros sistemas de virtualización.
-7. Software como servicio.
 
 Seminarios
 ---------------

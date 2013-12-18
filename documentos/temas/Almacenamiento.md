@@ -2,7 +2,7 @@
 layout: index
 
 prev: Contenedores
-next: Gestion_de_configuracion
+next: Uso_de_sistemas
 
 ---
 
@@ -11,7 +11,7 @@ Virtualización del almacenamiento
 
 <!--@
 prev: Contenedores
-next: Gestion_de_configuracion
+next: Uso_de_sistemas
 -->
 
 <div class="objetivos" markdown="1">
