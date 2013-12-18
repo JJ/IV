@@ -25,7 +25,7 @@ proceso de datos virtual.
 Introducción
 ------------------
 
-El objetivo de las plataforma de virtualización es, eventualmente,
+El objetivo de las plataformas de virtualización es, eventualmente,
 crear una máquina virtual completa que funcione de forma aislada 
 del resto del sistema y que permita trabajar con sistemas
 virtualizados de forma flexible, escalable y adaptada a cualquier
