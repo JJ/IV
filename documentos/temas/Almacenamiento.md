@@ -616,9 +616,9 @@ copiar en variables de entorno (que tendrás que cargar en tu
 Una vez creada la cuenta y establecida la configuración ya [se pueden
 crear cosas en ella](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/?fb=es-es)
 se puede empezar a manejar la cuenta; una vez más,
-(se
+[se
 pueden crear diferentes contenedores desde el panel de
-control)[http://www.windowsazure.com/en-us/manage/services/storage/what-is-a-storage-account/?fb=es-es],
+control](http://www.windowsazure.com/en-us/manage/services/storage/what-is-a-storage-account/?fb=es-es),
 pero es más práctico hacerlo desde la línea de órdenes.
 
 Azure divide su cuenta en
