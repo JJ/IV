@@ -57,7 +57,7 @@ hipervisores alojados que se ejecutan desde un sistema operativo.
 
 Para apoyar la virtualización, casi todos los procesadores actuales y
 especialmente [los de las líneas más populares basadas en la
-arquitectura x86 tienen una serie de instrucciones que permiten usarla de manera segura y eficiente]/(http://en.wikipedia.org/wiki/X86_virtualization). Esta
+arquitectura x86 tienen una serie de instrucciones que permiten usarla de manera segura y eficiente](http://en.wikipedia.org/wiki/X86_virtualization). Esta
 arquitectura tiene dos ramas: la Intel y la AMD, cada uno de los
 cuales tiene un conjunto de instrucciones diferentes para llevarla a
 cabo. Aunque la mayoría de los procesadores lo incluyen, los
