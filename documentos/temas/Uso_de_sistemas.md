@@ -2,8 +2,7 @@ Virtualización completa: uso de máquinas virtuales
 ==
 
 <!--@
-prev: Intro_concepto_y_soporte_fisico
-next: Contenedores
+prev: Almacenamiento
 -->
 
 <div class="objetivos" markdown="1">
