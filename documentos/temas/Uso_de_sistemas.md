@@ -146,6 +146,20 @@ del sistema operativo, incluyendo tarjetas o pendrives; la diferencia,
 principalmente, será la velocidad paro para pruebas se puede usar
 cualquier dispositivo.
 
+<div class='nota' markdown='1'>
+Si se ha cortado la instalación o ha habido algún problema el comando
+anterior tratará de arrancar de todas formas del disco duro. Se puede
+cortar la máquina virtual simplemente cerrando al ventana y tratar de
+arrancar de nuevo empezando por el CD virtual usando 
+
+	qemu-system-x86_64 -hda otro-disco.img -cdrom picaros-diego-b.iso
+	-boot once=d
+	
+con `-boot` se le indica el orden de arranque; `once` indica que sólo
+va a ser así esta vez y `d`, como antiguamente, es el CD
+
+</div>
+
 <div class='ejercicios' markdown="1">
 
 1. Crear varias máquinas virtuales con algún sistema operativo libre,
@@ -184,4 +198,15 @@ qué orden tienen que arrancar (usando el DD, en este caso) y mediante
 `-drive` le indicamos que use `virtio`, una paravirtualización de la
 entrada/salida que permite acceso mucho más rápido al disco; esto se
 lo indicamos mediante la segunda opción `if` al argumento.
+
+<div class='ejercicios' markdown="1">
+
+Crear un *benchmark* de velocidad de entrada salida y comprobar la
+diferencia entre usar paravirtualización y arrancar la máquina virtual
+simplemente con
+
+	qemu-system-x86_64 -hda /media/Backup/Isos/discovirtual.img
+	
+</div>
+
 
