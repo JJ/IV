@@ -516,9 +516,7 @@ diferentes y se verán más adelante.
 A dónde ir desde aquí
 -----
 
-En el [siguiente tema](Contenedores.md) pondremos en
-práctica todos los conceptos aprendidos en este tema y
-[el anterior](Intro:concepto_y_soporte_fisico.md) para crear *tápers*
-o contenedores que aparecen a sus usuarios como una máquina virtual.
+En el [siguiente tema](Gestion_de_configuracion.md) veremos cómo se
+trabaja de forma universal con máquinas virtuales.
 Antes, habrá que hacer y entregar la
-[segunda práctica](../practicas/2.Jaula.md).
+[segunda práctica](../practicas/3.MV.md).
