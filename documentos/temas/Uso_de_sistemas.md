@@ -149,8 +149,8 @@ cualquier dispositivo.
 <div class='nota' markdown='1'>
 Si se ha cortado la instalación o ha habido algún problema el comando
 anterior tratará de arrancar de todas formas del disco duro. Se puede
-cortar la máquina virtual simplemente cerrando al ventana y tratar de
-arrancar de nuevo empezando por el CD virtual usando 
+cortar la máquina virtual simplemente cerrando al ventana y [tratar de
+arrancar de nuevo empezando por el CD virtual usando](http://www.linux-kvm.com/content/some-new-kvm-options-boot-order-and-process-name)
 
 	qemu-system-x86_64 -hda otro-disco.img -cdrom picaros-diego-b.iso
 	-boot once=d
@@ -209,4 +209,31 @@ simplemente con
 	
 </div>
 
+Cuando se tienen varias máquinas funcionando no hace falta que se
+abran ventanas para cada una de ellas, pero el problema es
+interaccionar con las mismas. Lo podemos hacer de diferentes formas,
+pero una de ellas es arrancarlas dentro de un
+[servidor VNC](http://en.wikipedia.org/wiki/Virtual_Network_Computing)
+con una orden como esta
+
+		qemu-system-x86_64 -hda /media/Backup/Isos/discovirtual.img -vnc :1
+
+Con esto podemos conectar a la máquina virtual usando algún
+[cliente de VNC tal como `vinagre`](https://help.ubuntu.com/community/VNC/Clients). Hay
+[múltiples opciones más](http://man.cx/qemu-system-x86_64%281%29) en
+la línea de órdenes, que nos permiten establecer los tipos de CPU,
+todo tipo de periféricos, tamaño de memoria (son 128 megas por
+omisión) o nombre del invitado. 
+
+<div class='ejercicios' markdown='1'>
+
+Crear una máquina virtual Linux con 512 megas de RAM y entorno gráfico
+LXDE a la que se puede acceder mediante VNC y ssh
+
+</div>
+
+
+
+
+		
 
