@@ -45,9 +45,8 @@ Prácticas - Actividades académicas dirigidas
 
 1. Introducción a la computación virtual: [Platform as a Service](documentos/practicas/1.PaaS)
 2. Técnicas de virtualización [Creación de una jaula](documentos/practicas/2.Jaula)
-3. Uso de sistemas de virtualización.
-4. Virtualización de CPU y almacenamiento.
-5. Virtualización de aplicaciones.
+3. Virtualización de CPU y almacenamiento.
+4. Virtualización de aplicaciones.
 
 Tutorías virtuales
 ----
