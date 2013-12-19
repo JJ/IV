@@ -1,6 +1,6 @@
 ---
 layout: index
-
+title: just a test
 ---
 
 Material docente para Infraestructura Virtual: Documentos.
