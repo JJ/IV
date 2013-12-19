@@ -115,8 +115,20 @@ ejecutarlo o hay que conformarse con la paravirtualización.
 A continuación hay que crear un
 [disco duro virtual en formato QCOW2](Almacenamiento) como hemos
 visto anteriormente y descargar una distribución de algún sistema
-operativo, por ejemplo [Debian](http://www.debian.org/distrib/). Con
-esos dos ficheros, uno de almacenamiento virtual y una ISO para poder
+operativo, por ejemplo [Debian](http://www.debian.org/distrib/). 
+
+Dado que KVM es un módulo del kernel, puede que no esté cargado por
+defecto. Dependiendo del procesador que usemos,
+[lo cargamos](http://www.linux-kvm.org/page/HOWTO1) con 
+
+	sudo modprobe kvm-amd
+	
+o
+
+	sudo modprobe kvm-intel
+	
+	
+Con los ficheros de almacenamiento virtual y una ISO para poder
 arrancar el sistema ya podemos arrancar KVM para instalarlo usando,
 por ejemplo
 
@@ -136,7 +148,7 @@ cualquier dispositivo.
 
 <div class='ejercicios' markdown="1">
 
-Crear varias máquinas virtuales con algún sistema operativo libre,
+1. Crear varias máquinas virtuales con algún sistema operativo libre,
 Linux o BSD. Si se
 quieren distribuciones que ocupen poco espacio con el objetivo
 principalmente de hacer pruebas se puede usar
@@ -147,4 +159,29 @@ mundo,
 [SliTaz](http://www.slitaz.org/en/) (que cabe en 35 megas) y
 [ttylinux](http://ttylinux.net/) (basado en línea de órdenes solo). 
 
+2. Hacer un ejercicio equivalente usando otro hipervisor como Xen, VirtualBox o
+Parallels. 
+
 </div>
+
+
+<div class='nota' markdown='1'>
+
+En [esta guía](http://www.dedoimedo.com/computers/kvm-intro.html) se
+explica cómo trabajar con KVM usando VMM, o *virtual machine manager*,
+una herramienta gráfica que trabaja sobre KVM
+
+</div>
+
+La máquina virtual, una vez instalada, se puede arrancar directamente
+desde el fichero en el que la hemos instalado, usando una orden [tal
+como esta](https://wiki.archlinux.org/index.php/QEMU#Creating_new_virtualized_system) 
+
+	qemu-system-x86_64 -boot order=c -drive	file=/media/Backup/Isos/discovirtual.img,if=virtio
+	
+En este caso no necesitamos *pegarle* el CD, sino que le indicamos en
+qué orden tienen que arrancar (usando el DD, en este caso) y mediante
+`-drive` le indicamos que use `virtio`, una paravirtualización de la
+entrada/salida que permite acceso mucho más rápido al disco; esto se
+lo indicamos mediante la segunda opción `if` al argumento.
+
