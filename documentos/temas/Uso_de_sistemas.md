@@ -226,7 +226,15 @@ LXDE a la que se puede acceder mediante VNC y ssh
 </div>
 
 
+A dónde ir desde aquí
+-----
 
+En el [siguiente tema](.md) pondremos en
+práctica todos los conceptos aprendidos en este tema y
+[el anterior](Intro:concepto_y_soporte_fisico.md) para crear *tápers*
+o contenedores que aparecen a sus usuarios como una máquina virtual.
+Antes, habrá que hacer y entregar la
+[segunda práctica](../practicas/2.Jaula.md).
 
 		
 
