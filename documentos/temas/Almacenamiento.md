@@ -426,7 +426,12 @@ siguiente:
  configurar el dispositivo servidor de objetos. `mio` es el nombre
  corto que le damos a la máquina y `penny` es el nombre local de
  nuestra máquina, que tendremos que cambiar por el que haga falta (raj
- o wollowitz o el que sea).
+ o wollowitz o el que sea). 
+ 
+ El dispositivo que se use en `devs` debe estar formateado con el
+ formato XFS; en el caso de usar otro distema de ficheros (btrfs
+ principalmente) se indica previamente (como se indica en las
+ instrucciones que se han enlazado anteriormente. 
  
  <div class='nota' markdown='1'>
  
