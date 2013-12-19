@@ -549,7 +549,14 @@ almacenar objetos, por ejemplo, se usa put
 En infraestructuras virtuales como OpenStack hay servicios que usan
 este tipo de almacenes de objetos sobre todo para almacenar imágenes
 de dispositivos de almacenamiento completos o *snapshots* de la
-misma. Se verá más adelante cuando usemos este tipo de sistemas.
+misma. Se verá más adelante cuando usemos este tipo de sistemas. En
+concreto,
+[el servicio de almacenamiento de objetos en OpenStack se llama Swift](http://en.wikipedia.org/wiki/Openstack#Object_Storage_.28Swift.29)
+y se
+[usa principalmente almacenamiento de imágenes (discos duros completos) y *snapshots* (estado de un disco duro en un momento determinado](http://www.openstack.org/software/openstack-storage/). En
+Amazon, [Elastic Block Storage](http://aws.amazon.com/es/ebs/) forma
+parte de las ofertas de servicios web del mismo y permite trabajar con
+bloques desde las instancias EC2. 
 
 Almacenamiento virtual en la nube
 ---
