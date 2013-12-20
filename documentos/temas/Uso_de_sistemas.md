@@ -221,7 +221,7 @@ omisión) o nombre del invitado.
 <div class='ejercicios' markdown='1'>
 
 Crear una máquina virtual Linux con 512 megas de RAM y entorno gráfico
-LXDE a la que se puede acceder mediante VNC y ssh
+LXDE a la que se puede acceder mediante VNC y `ssh`.
 
 </div>
 
@@ -234,7 +234,7 @@ práctica todos los conceptos aprendidos en este tema y
 [el anterior](Almacenamiento) para crear configuraciones que sean
 fácilmente gestionables y adaptables a un fin determinado.
 Antes, habrá que hacer y entregar la
-[segunda práctica](../practicas/3.MV).
+[tercera práctica](../practicas/3.MV).
 
 
 
