@@ -243,5 +243,7 @@ fácilmente gestionables y adaptables a un fin determinado.
 Antes, habrá que hacer y entregar la
 [segunda práctica](../practicas/3.MV).
 
+
+
 		
 
