@@ -541,8 +541,8 @@ almacenar objetos, por ejemplo, se usa put
 
 <div class='ejercicios' markdown='1'>
 
-	Almacenar objetos y ver la forma de almacenar directorios
-	completos usando ceph y rados. 
+Almacenar objetos y ver la forma de almacenar directorios
+completos usando `ceph` y `rados`. 
 	
 </div>
 
