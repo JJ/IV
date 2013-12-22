@@ -6,7 +6,7 @@ es una asignatura optativa del primer cuatrimestre del cuarto de Grado
 de Ingeniería Informática.
 
 La asignatura se imparte en el curso 2013-2014 los lunes de 11:30 a
-13:30 en el aula polivalente y los viernes de 9;30 a 11:30 en la 3.2. Se usará
+13:30 en el aula polivalente y los viernes de 9:30 a 11:30 en la 3.2. Se usará
 [GitHub](http://github.com) para las prácticas y trabajo final.
 
 Estos son los [objetivos de la asignatura](documentos/objetivos.md). 
@@ -24,6 +24,7 @@ disponibles con una licencia libre. Los fuentes de los mismos están en
 3. [Usando contenedores](documentos/temas/Contenedores.md)
 4. [Almacenamiento virtual](documentos/temas/Almacenamiento.md)
 5. [Uso de sistemas de virtualización](documentos/temas/Uso_de_sistemas.md)
+6. [Gestión de configuraciones](documentos/temas/Gestion_de_configuraciones.md)
 
 Seminarios
 ---------------
@@ -38,9 +39,9 @@ alumno tendrá que aprender a su ritmo
 Prácticas - Actividades académicas dirigidas
 -------------
 
-1. Introducción a la computación virtual: [Platform as a Service](documentos/practicas/1.PaaS.md)
-2. Técnicas de virtualización [Creación de una jaula](documentos/practicas/2.Jaula.md)
-3. Virtualización de CPU y almacenamiento.
+1. Introducción a la computación virtual: [Platform as a Service](documentos/practicas/1.PaaS.md).
+2. Técnicas de virtualización [Creación de una jaula](documentos/practicas/2.Jaula.md).
+3. Diseño de sistemas usando [CPU y almacenamiento virtuales](documentos/practicas/3.MV.md).
 4. Virtualización de aplicaciones.
 
 Tutorías virtuales
