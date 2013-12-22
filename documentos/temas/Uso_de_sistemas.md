@@ -3,6 +3,7 @@ Virtualización completa: uso de máquinas virtuales
 
 <!--@
 prev: Almacenamiento
+next: Gestion_de_configuraciones
 -->
 
 <div class="objetivos" markdown="1">
@@ -229,7 +230,7 @@ LXDE a la que se puede acceder mediante VNC y `ssh`.
 A dónde ir desde aquí
 -----
 
-En el [siguiente tema](Configuraciones) pondremos en
+En el [siguiente tema](Gestion_de_configuraciones) pondremos en
 práctica todos los conceptos aprendidos en este tema y
 [el anterior](Almacenamiento) para crear configuraciones que sean
 fácilmente gestionables y adaptables a un fin determinado.

@@ -736,6 +736,13 @@ y subirla al propio contenedor. Muy meta todo.
 </div>
 
 	 
+A dónde ir desde aquí
+-----
+
+En el [siguiente tema](Almacenamiento) veremos configurar el
+almacenamiento virtual que, en general, es independiente de la
+generación de una máquina virtual. Tras él, habrá que hacer y entregar la
+[tercera práctica](../practicas/3.MV).
 
 	
 

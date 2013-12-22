@@ -1,8 +1,8 @@
-Temas 4 y 5: Virtualización de CPU, almacenamiento, red y otros recursos físicos
-==
+Gestión de infraestructuras virtuales
+===
 
 <!--@
-prev: 3.Uso_de_sistemas
+prev: Uso_de_sistemas
 -->
 
 <div class="objetivos" markdown="1">
@@ -16,8 +16,21 @@ prev: 3.Uso_de_sistemas
 </div>
 
 Introducción
--------------------
+---
 
-<div class='ejercicios' markdown='1'>
-	Instalar el software de virtualización Xen
-</div>
+Los contenedores son un ejemplo de máquinas virtuales, pero ya tienen
+ciertas características, como el aislamiento y la gestión
+independiente, que las asemeja a las máquinas virtuales *reales*. En
+un momento determinado puede hacer falta crear una serie de máquinas
+virtuales con características determinadas y usar un *script* con
+órdenes de `juju` puede llegar a ser un poco molesto. Se hace
+necesario que se usen herramientas para crear y configurar estos
+entornos.
+
+Estas herramientas se denominan, en general,
+[gestores de configuración](http://en.wikipedia.org/wiki/Configuration_management). [Vagrant](http://en.wikipedia.org/wiki/Vagrant_%28software%29)
+es uno de ellos, pero también hay otros: [Chef](http://www.getchef.com/chef/), Salt y Puppet, por
+ejemplo. Todos son libres, pero
+[tienen características específicas](http://en.wikipedia.org/wiki/Comparison_of_open_source_configuration_management_software)
+que hay que tener en cuenta a la hora de elegir uno u otro. 
+
