@@ -1,15 +1,9 @@
----
-layout: index
-
-prev: Almacenamiento
-
----
-
 Virtualización completa: uso de máquinas virtuales
 ==
 
 <!--@
 prev: Almacenamiento
+next: Gestion_de_configuraciones
 -->
 
 <div class="objetivos" markdown="1">
@@ -38,7 +32,7 @@ del resto del sistema y que permita trabajar con sistemas
 virtualizados de forma flexible, escalable y adaptada a cualquier
 objetivo. Eventualmente, el objetivo de este este tema es aprender a
 crear
-[infraestructura como servicio tal como vimos en el primer tema](Intro_concepto_y_soporte_fisico). Para
+[infraestructura como servicio tal como vimos en el primer tema](Intro_concepto_y_soporte_fisico.md). Para
 ello necesitamos configurar una serie de infraestucturas virtuales,
 especialmente
 [almacenamiento como se vio en el tema anterior](Intro_concepto_y_soporte_fisico).
@@ -106,14 +100,14 @@ gráficos, será similar.
 
 Instalar los paquetes necesarios para usar KVM. Se pueden
 [seguir estas instrucciones](https://wiki.debian.org/KVM#Installation). Ya
-lo hicimos [en el primer tema](Intro_concepto_y_soporte_fisico),
+lo hicimos [en el primer tema](Intro_concepto_y_soporte_fisico.md),
 pero volver a comprobar si nuestro sistema está preparado para
 ejecutarlo o hay que conformarse con la paravirtualización.
 
 </div>
 
 A continuación hay que crear un
-[disco duro virtual en formato QCOW2](Almacenamiento) como hemos
+[disco duro virtual en formato QCOW2](Almacenamiento.md) como hemos
 visto anteriormente y descargar una distribución de algún sistema
 operativo, por ejemplo [Debian](http://www.debian.org/distrib/). 
 
@@ -228,20 +222,74 @@ omisión) o nombre del invitado.
 <div class='ejercicios' markdown='1'>
 
 Crear una máquina virtual Linux con 512 megas de RAM y entorno gráfico
-LXDE a la que se puede acceder mediante VNC y ssh
+LXDE a la que se puede acceder mediante VNC y `ssh`.
 
 </div>
 
+Trabajando con máquinas virtuales en la nube
+----
+
+Azure permite,
+[tras la creación de almacenamiento virtual](Almacenamiento.md), la
+creación de máquinas virtuales, como es natural. Se puede crear una
+máquina virtual desde el panel de control y obviamente desde la [línea
+de órdenes](https://github.com/WindowsAzure/azure-sdk-tools-xplat). Primero
+hay que saber qué imágenes hay disponibles:
+
+	azure vm image list
+
+Por ejemplo, se puede escoger la imagen
+`b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu_DAILY_BUILD-trusty-14_04-LTS-amd64-server-20131221-en-us-30GB`
+de la última versión de Ubuntu (para salir dentro de cuator meses) o
+alguna más probada como la
+`b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131215-en-us-30GB`
+Con
+
+	azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131215-en-us-30GB
+	
+nos muestra detalles sobre la imagen; entre otras cosas dónde está
+disponible y sobre si es Premium o no (en este caso no lo es). Con
+esta (o con otra) podemos crear una máquina virtual
+
+	azure vm create peasomaquina b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131215-en-us-30GB peasousuario PeasoD2clav= --location "West Europe" --ssh
+
+En esta clave tenemos que asignar un nombre de máquina (que se
+convertirá en un nombre de dominio `peasomaquina.cloudapp.net`, un
+nombre de usuario (como `peasousuario`) que será el superusuario de la
+máquina, una clave como `PeasoD2clav=` que debe incluir mayúsculas,
+minúsculas, números y caracteres especiales (no uséis esta, hombre),
+una localización que en nuestro caso, para producción, será
+conveniente que sea *West Europa* pero que para probar podéis
+llevárosla a la localización exótica que queráis y, finalmente, para
+poder acceder a ella mediante ssh, la última opción, si no no tengo
+muy claro cómo se podrá acceder. Una vez hecho esto, conviene que se
+cree un par clave pública/privada y se copie al mismo para poder
+acceder fácilmente.
+
+La máquina todavía no está funcionando. Con `azure vm list` nos
+muestra las máquinas virtuales que tenemos y el nombre que se le ha
+asignado y finalmente con `azure vm start` se arranca la máquina y
+podemos conectarnos con ella usando `ssh` Una de las primeras cosas
+que hay que hacer cuando se arranque es actualizar el sistema para
+evitar problemas de seguridad. A partir de ahi, podemos instalar lo
+que queramos.
+
+<div class='ejercicios' markdown='1'>
+
+Crear una máquina virtual ubuntu e instalar en ella un servidor
+nginx para poder acceder mediante web.
+
+</div>
 
 A dónde ir desde aquí
 -----
 
-En el [siguiente tema](Configuraciones) pondremos en
+En el [siguiente tema](Gestion_de_configuraciones) pondremos en
 práctica todos los conceptos aprendidos en este tema y
 [el anterior](Almacenamiento) para crear configuraciones que sean
 fácilmente gestionables y adaptables a un fin determinado.
 Antes, habrá que hacer y entregar la
-[segunda práctica](../practicas/3.MV).
+[tercera práctica](../practicas/3.MV).
 
 
 

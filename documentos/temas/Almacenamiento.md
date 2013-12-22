@@ -1,11 +1,3 @@
----
-layout: index
-
-prev: Contenedores
-next: Uso_de_sistemas
-
----
-
 Virtualización del almacenamiento
 ===
 
@@ -549,7 +541,7 @@ almacenar objetos, por ejemplo, se usa put
 
 <div class='ejercicios' markdown='1'>
 
-	Almacenar objetos y ver la forma de almacenar directorios
+Almacenar objetos y ver la forma de almacenar directorios
 	completos usando ceph y rados. 
 	
 </div>
@@ -557,7 +549,14 @@ almacenar objetos, por ejemplo, se usa put
 En infraestructuras virtuales como OpenStack hay servicios que usan
 este tipo de almacenes de objetos sobre todo para almacenar imágenes
 de dispositivos de almacenamiento completos o *snapshots* de la
-misma. Se verá más adelante cuando usemos este tipo de sistemas.
+misma. Se verá más adelante cuando usemos este tipo de sistemas. En
+concreto,
+[el servicio de almacenamiento de objetos en OpenStack se llama Swift](http://en.wikipedia.org/wiki/Openstack#Object_Storage_.28Swift.29)
+y se
+[usa principalmente almacenamiento de imágenes (discos duros completos) y *snapshots* (estado de un disco duro en un momento determinado](http://www.openstack.org/software/openstack-storage/). En
+Amazon, [Elastic Block Storage](http://aws.amazon.com/es/ebs/) forma
+parte de las ofertas de servicios web del mismo y permite trabajar con
+bloques desde las instancias EC2. 
 
 Almacenamiento virtual en la nube
 ---
@@ -685,9 +684,9 @@ se puede acceder al almacenamiento usando diferentes librerías, que,
 en consonancia con el espíritu libre (que no libertario) de la nube y
 en disonancia con el espíritu, ejem, todo lo contrario, de Microsoft,
 son libres. Dado que hemos hecho un
-[seminario de Ruby](../seminarios/ruby) vamos a usar ese lenguaje,
+[seminario de Ruby](../seminarios/ruby.md) vamos a usar ese lenguaje,
 pero hay SDKs para muchos otros lenguajes: node.js, Java y por
-supuesto los propios de Microsoft. Instalemos la [gema para Azure](https://github.com/WindowsAzure/azure-sdk-for-ruby/blob/master/README)
+supuesto los propios de Microsoft. Instalemos la [gema para Azure](https://github.com/WindowsAzure/azure-sdk-for-ruby/blob/master/README.md)
 
  sudo gem install azure
  
@@ -737,6 +736,13 @@ y subirla al propio contenedor. Muy meta todo.
 </div>
 
 	 
+A dónde ir desde aquí
+-----
+
+En el [siguiente tema](Almacenamiento) veremos configurar el
+almacenamiento virtual que, en general, es independiente de la
+generación de una máquina virtual. Tras él, habrá que hacer y entregar la
+[tercera práctica](../practicas/3.MV).
 
 	
 
