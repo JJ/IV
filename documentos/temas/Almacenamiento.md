@@ -569,11 +569,11 @@ bloques desde las instancias EC2.
 Almacenamiento virtual en la nube
 ---
 
-Todos servicios IaaS poseen su propio *Storage as a service*, que se
+Todos servicios IaaS poseen su propio *Storage as a ervice*, que se
 puede usar desde los servicios de computación o bien desde servicios
 basados en servidores (en nubes *mixtas*). En general, los servicios
 de almacenamiento en la nube, fuera de ofertas masivas como
-[Drobox](http://dropbox.com), suelen funcionar por bloques y
+[Dropbox](http://dropbox.com), suelen funcionar por bloques y
 estructurando el almacenamiento de una forma determinada, usando
 objetos y los denominados *blobs*, que son simplemente objetos sin
 ningún tipo de almacenamiento interno.
@@ -645,9 +645,9 @@ pero esto crea un contenedor de acceso privado; los contenedores
 pueden ser públicos o privados y por defecto se crean privados; [los
 niveles de permisos existentes son](http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx):
 
- * Públicos para que se vean los contenidos
- * Blobs públicos sólo
- * Sin acceso público
+ * Públicos para que se vean los contenidos.
+ * Blobs públicos sólo.
+ * Sin acceso público.
  
  Este último es el permiso por defecto, pero si queremos que se acceda
  a los *blobs* se crea con
@@ -676,7 +676,7 @@ que almacenará un fichero png usando como nombre de blob el mismo
 nombre en el contenedor `imagenes-iv`. Estos ficheros, dependiendo del
 acceso definido, podrán estar disponibles públicamente, en este caso
 con la dirección
-[http://paraiv.blob.core.windows.net/imagenes-iv/container-con-acceso-blob.png](http://paraiv.blob.core.windows.net/imagenes-iv/container-con-acceso-blob.png) 
+[http://paraiv.blob.core.windows.net/imagenes-iv/container-con-acceso-blob.png](http://paraiv.blob.core.windows.net/imagenes-iv/container-con-acceso-blob.png).
 
 <div class='ejercicios' markdown='1'>
 
@@ -742,6 +742,14 @@ que hay en un contenedor, crear un fichero con la lista de los mismos
 y subirla al propio contenedor. Muy meta todo.
 
 </div>
+
+En todo caso, estas infraestructuras virtuales no son imprescindibles
+para crear una máquina virtual en Azure; se pueden usar para almacenar
+*snapshots* de máquinas virtuales y también configuraciones de
+arranque, pero, como se verá más adelante, al crear una máquina
+virtual se crea simultáneamente el almacenamiento necesario para la
+misma, aunque, por supuesto, puedes usar almacenamiento virtual creado
+previamente. 
 
 	 
 A dónde ir desde aquí
