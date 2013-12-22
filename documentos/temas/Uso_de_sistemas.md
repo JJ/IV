@@ -222,10 +222,64 @@ omisión) o nombre del invitado.
 <div class='ejercicios' markdown='1'>
 
 Crear una máquina virtual Linux con 512 megas de RAM y entorno gráfico
-LXDE a la que se puede acceder mediante VNC y `ssh`.
+LXDE a la que se pueda acceder mediante VNC y `ssh`.
 
 </div>
 
+Trabajando con máquinas virtuales en la nube
+----
+
+Azure permite,
+[tras la creación de almacenamiento virtual](Almacenamiento.md), la
+creación de máquinas virtuales, como es natural. Se puede crear una
+máquina virtual desde el panel de control, pero también desde la [línea
+de órdenes](https://github.com/WindowsAzure/azure-sdk-tools-xplat). Primero
+hay que saber qué imágenes hay disponibles:
+
+	azure vm image list
+
+Por ejemplo, se puede escoger la imagen
+`b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu_DAILY_BUILD-trusty-14_04-LTS-amd64-server-20131221-en-us-30GB`
+de la última versión de Ubuntu (para salir dentro de cuator meses) o
+alguna más probada como la
+`b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131215-en-us-30GB`
+Con
+
+	azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131215-en-us-30GB
+	
+nos muestra detalles sobre la imagen; entre otras cosas dónde está
+disponible y sobre si es Premium o no (en este caso no lo es). Con
+esta (o con otra) podemos crear una máquina virtual
+
+	azure vm create peasomaquina b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131215-en-us-30GB peasousuario PeasoD2clav= --location "West Europe" --ssh
+
+En esta clave tenemos que asignar un nombre de máquina (que se
+convertirá en un nombre de dominio `peasomaquina.cloudapp.net`, un
+nombre de usuario (como `peasousuario`) que será el superusuario de la
+máquina, una clave como `PeasoD2clav=` que debe incluir mayúsculas,
+minúsculas, números y caracteres especiales (no uséis esta, hombre),
+una localización que en nuestro caso, para producción, será
+conveniente que sea *West Europa* pero que para probar podéis
+llevárosla a la localización exótica que queráis y, finalmente, para
+poder acceder a ella mediante ssh, la última opción, si no no tengo
+muy claro cómo se podrá acceder. Una vez hecho esto, conviene que se
+cree un par clave pública/privada y se copie al mismo para poder
+acceder fácilmente.
+
+La máquina todavía no está funcionando. Con `azure vm list` nos
+muestra las máquinas virtuales que tenemos y el nombre que se le ha
+asignado y finalmente con `azure vm start` se arranca la máquina y
+podemos conectarnos con ella usando `ssh` Una de las primeras cosas
+que hay que hacer cuando se arranque es actualizar el sistema para
+evitar problemas de seguridad. A partir de ahi, podemos instalar lo
+que queramos.
+
+<div class='ejercicios' markdown='1'>
+
+Crear una máquina virtual ubuntu e instalar en ella un servidor
+nginx para poder acceder mediante web.
+
+</div>
 
 A dónde ir desde aquí
 -----

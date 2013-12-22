@@ -18,7 +18,7 @@ prev: Uso_de_sistemas
 Introducción
 ---
 
-Los contenedores son un ejemplo de máquinas virtuales, pero ya tienen
+Los [contenedores](Contenedores.md) son un ejemplo de máquinas virtuales, pero ya tienen
 ciertas características, como el aislamiento y la gestión
 independiente, que las asemeja a las máquinas virtuales *reales*. En
 un momento determinado puede hacer falta crear una serie de máquinas
