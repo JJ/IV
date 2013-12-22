@@ -1,3 +1,11 @@
+---
+layout: index
+
+prev: Almacenamiento
+next: Gestion_de_configuraciones
+
+---
+
 Virtualización completa: uso de máquinas virtuales
 ==
 
@@ -32,7 +40,7 @@ del resto del sistema y que permita trabajar con sistemas
 virtualizados de forma flexible, escalable y adaptada a cualquier
 objetivo. Eventualmente, el objetivo de este este tema es aprender a
 crear
-[infraestructura como servicio tal como vimos en el primer tema](Intro_concepto_y_soporte_fisico.md). Para
+[infraestructura como servicio tal como vimos en el primer tema](Intro_concepto_y_soporte_fisico). Para
 ello necesitamos configurar una serie de infraestucturas virtuales,
 especialmente
 [almacenamiento como se vio en el tema anterior](Intro_concepto_y_soporte_fisico).
@@ -100,14 +108,14 @@ gráficos, será similar.
 
 Instalar los paquetes necesarios para usar KVM. Se pueden
 [seguir estas instrucciones](https://wiki.debian.org/KVM#Installation). Ya
-lo hicimos [en el primer tema](Intro_concepto_y_soporte_fisico.md),
+lo hicimos [en el primer tema](Intro_concepto_y_soporte_fisico),
 pero volver a comprobar si nuestro sistema está preparado para
 ejecutarlo o hay que conformarse con la paravirtualización.
 
 </div>
 
 A continuación hay que crear un
-[disco duro virtual en formato QCOW2](Almacenamiento.md) como hemos
+[disco duro virtual en formato QCOW2](Almacenamiento) como hemos
 visto anteriormente y descargar una distribución de algún sistema
 operativo, por ejemplo [Debian](http://www.debian.org/distrib/). 
 
@@ -222,7 +230,7 @@ omisión) o nombre del invitado.
 <div class='ejercicios' markdown='1'>
 
 Crear una máquina virtual Linux con 512 megas de RAM y entorno gráfico
-LXDE a la que se puede acceder mediante VNC y `ssh`.
+LXDE a la que se pueda acceder mediante VNC y `ssh`.
 
 </div>
 
@@ -230,9 +238,9 @@ Trabajando con máquinas virtuales en la nube
 ----
 
 Azure permite,
-[tras la creación de almacenamiento virtual](Almacenamiento.md), la
+[tras la creación de almacenamiento virtual](Almacenamiento), la
 creación de máquinas virtuales, como es natural. Se puede crear una
-máquina virtual desde el panel de control y obviamente desde la [línea
+máquina virtual desde el panel de control, pero también desde la [línea
 de órdenes](https://github.com/WindowsAzure/azure-sdk-tools-xplat). Primero
 hay que saber qué imágenes hay disponibles:
 
