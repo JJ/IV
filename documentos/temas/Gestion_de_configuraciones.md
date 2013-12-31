@@ -32,5 +32,45 @@ Estas herramientas se denominan, en general,
 es uno de ellos, pero también hay otros: [Chef](http://www.getchef.com/chef/), Salt y Puppet, por
 ejemplo. Todos son libres, pero
 [tienen características específicas](http://en.wikipedia.org/wiki/Comparison_of_open_source_configuration_management_software)
-que hay que tener en cuenta a la hora de elegir uno u otro. 
+que hay que tener en cuenta a la hora de elegir uno u otro. En el caso
+específico de
+[sistemas operativos](http://en.wikipedia.org/wiki/Configuration_management#Operating_System_configuration_management)
+se trata de gestionar automáticamente todas las tareas de
+configuración de un sistema, automatizando la edición de ficheros de
+configuración, instalación de software y configuración del mismo,
+creación de usuarios y autenticación, de forma que se pueda hacer de
+forma automática y masiva. 
 
+A continuación veremos diferentes ejemplos de sistemas de
+configuración, empezando por Chef. En
+[temas anteriores](Contenedores.md) hemos visto Juju, un ejemplo de
+sistema de configuración también, aunque específico de Ubuntu. 
+
+Usando Chef para gestión de configuración
+-----
+
+ [Chef](http://www.getchef.com/chef/) es una herramienta que, en
+ general, se usa en un servidor que se encarga no sólo de gestionar la
+ configuración, sino también las versiones. Empezar a usarlo
+ [es complicado](http://wiki.opscode.com/display/chef/Documentation).
+ Sin embargo, como
+ introducción a la gestión de configuraciones se puede usar
+ [`chef-solo`](http://docs.opscode.com/chef_solo.html), una versión
+ aislada que permite trabajar en una máquina desde la misma y que, por
+ tanto, se puede usar como introducción y para probar
+ configuraciones. 
+ 
+ <div class='nota' markdown='1'>
+ 
+ Hay varios tutoriales que te permiten, con relativa rapidez, comenzar
+ a trabajar con Chef-solo en un servidor;
+ [este te proporciona una serie de ficheros que puedes usar](http://www.opinionatedprogrammer.com/2011/06/chef-solo-tutorial-managing-a-single-server-with-chef/)
+ y
+ [este otro es más directo, dando una serie de órdenes](http://www.mechanicalrobotfish.com/blog/2013/01/01/configure-a-server-with-chef-solo-in-five-minutes/). En
+ todo caso, se trata básicamente tener acceso a un servidor o máquina
+ virtual, instalar una serie de aplicaciones en él y ejecutarlas sobre
+ un fichero de configuración
+ 
+ </div>
+ 
+ 

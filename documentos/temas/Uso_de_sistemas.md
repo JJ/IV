@@ -281,6 +281,30 @@ nginx para poder acceder mediante web.
 
 </div>
 
+En principio, para configurar la máquina virtual hay que hacerlo como
+siempre se ha hecho: trabajando desde línea de órdenes e instalando
+los paquetes que hagan falta. Pero
+[conociendo `juju`](Contenedores.md) tambien
+[se puede trabajar con él](https://juju.ubuntu.com/docs/config-azure.html)
+para instalar lo que haga falta. Se puede empezar, por ejemplo
+[instalando el GUI de juju](https://juju.ubuntu.com/docs/howto-gui-management.html)
+para poder a partir de ahí manejar despliegues en máquinas virtuales
+desde él. 
+
+<div class='ejercicios' markdown='1'>
+
+Usar `juju` para hacer el ejercicio anterior.
+
+</div>
+
+Trabajar con estas máquinas virtuales como se tratara de máquinas
+reales no tiene mucho sentido. El uso de infraestructuras virtuales,
+precisamente, lo que permite es automatizar la creación y
+provisionamiento de las mismas de forma que se puedan crear y
+configurar máquinas en instantes y personalizarlas de forma
+masiva. Veremos como hacerlo en el
+[siguiente tema](Gestion_de_configuraciones). 
+
 A dónde ir desde aquí
 -----
 
