@@ -272,7 +272,15 @@ asignado y finalmente con `azure vm start` se arranca la máquina y
 podemos conectarnos con ella usando `ssh` Una de las primeras cosas
 que hay que hacer cuando se arranque es actualizar el sistema para
 evitar problemas de seguridad. A partir de ahi, podemos instalar lo
-que queramos.
+que queramos. El arranque tarda cierto tiempo y dependerá de la
+disponibilidad de recursos; evidentemente, mientras no esté arrancada
+no se puede usar, pero conviene de todas formas apagarla con 
+
+	azure vm shutdown maquina
+	
+cuando terminemos la sesión y no sea necesaria, sobre todo porque,
+dado que se pagan por tiempo de uso, se puede incurrir en costes
+innecesarios. 
 
 <div class='ejercicios' markdown='1'>
 
@@ -282,7 +290,7 @@ nginx para poder acceder mediante web.
 </div>
 
 En principio, para configurar la máquina virtual hay que hacerlo como
-siempre se ha hecho: trabajando desde línea de órdenes e instalando
+siempre se ha hecho: trabajando desde línea de órdenes, editando ficheros de configuración e instalando
 los paquetes que hagan falta. Pero
 [conociendo `juju`](Contenedores.md) tambien
 [se puede trabajar con él](https://juju.ubuntu.com/docs/config-azure.html)
