@@ -272,7 +272,15 @@ asignado y finalmente con `azure vm start` se arranca la máquina y
 podemos conectarnos con ella usando `ssh` Una de las primeras cosas
 que hay que hacer cuando se arranque es actualizar el sistema para
 evitar problemas de seguridad. A partir de ahi, podemos instalar lo
-que queramos.
+que queramos. El arranque tarda cierto tiempo y dependerá de la
+disponibilidad de recursos; evidentemente, mientras no esté arrancada
+no se puede usar, pero conviene de todas formas apagarla con 
+
+	azure vm shutdown maquina
+	
+cuando terminemos la sesión y no sea necesaria, sobre todo porque,
+dado que se pagan por tiempo de uso, se puede incurrir en costes
+innecesarios. 
 
 <div class='ejercicios' markdown='1'>
 
@@ -280,6 +288,30 @@ Crear una máquina virtual ubuntu e instalar en ella un servidor
 nginx para poder acceder mediante web.
 
 </div>
+
+En principio, para configurar la máquina virtual hay que hacerlo como
+siempre se ha hecho: trabajando desde línea de órdenes, editando ficheros de configuración e instalando
+los paquetes que hagan falta. Pero
+[conociendo `juju`](Contenedores.md) tambien
+[se puede trabajar con él](https://juju.ubuntu.com/docs/config-azure.html)
+para instalar lo que haga falta. Se puede empezar, por ejemplo
+[instalando el GUI de juju](https://juju.ubuntu.com/docs/howto-gui-management.html)
+para poder a partir de ahí manejar despliegues en máquinas virtuales
+desde él. 
+
+<div class='ejercicios' markdown='1'>
+
+Usar `juju` para hacer el ejercicio anterior.
+
+</div>
+
+Trabajar con estas máquinas virtuales como se tratara de máquinas
+reales no tiene mucho sentido. El uso de infraestructuras virtuales,
+precisamente, lo que permite es automatizar la creación y
+provisionamiento de las mismas de forma que se puedan crear y
+configurar máquinas en instantes y personalizarlas de forma
+masiva. Veremos como hacerlo en el
+[siguiente tema](Gestion_de_configuraciones). 
 
 A dónde ir desde aquí
 -----
