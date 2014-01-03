@@ -8,7 +8,21 @@ next: Contenedores
 
 <div class="objetivos" markdown="1">
 
-<h2>Objetivos</h2>
+Cubre los siguientes objetivos de la asignatura
+---
+
+* Conocer los conceptos relacionados con el proceso de virtualización
+  tanto de software como de hardware. 
+
+* Conocer las diferentes tecnologías y herramientas de virtualización
+  tanto para procesamiento, comunicación y almacenamiento. 
+  
+ * Configurar los diferentes dispositivos físicos para acceso a los
+  servidores virtuales: acceso de usuarios, redes de comunicaciones o entrada/salida.
+
+* Realizar tareas de administración en infraestructura virtual.
+
+<h2>Objetivos específicos</h2>
 
 1.  Conocer las diferentes tecnologías y herramientas de
 virtualización tanto para procesamiento, comunicación y
@@ -516,7 +530,6 @@ diferentes y se verán más adelante.
 A dónde ir desde aquí
 -----
 
-En el [siguiente tema](Gestion_de_configuracion.md) veremos cómo se
-trabaja de forma universal con máquinas virtuales.
-Antes, habrá que hacer y entregar la
-[segunda práctica](../practicas/3.MV.md).
+En el [siguiente tema](Contenedores.md) se verá cómo trabajar con
+sistemas *ligeros* de virtualización.
+

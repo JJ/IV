@@ -7,11 +7,19 @@ prev: Uso_de_sistemas
 
 <div class="objetivos" markdown="1">
 
-<h2>Objetivos</h2>
+<h2>Objetivos de la asignatura</h2>
 
-1. Conocer los conceptos relacionados con el proceso de virtualización tanto de software como de hardware. 
-2. Justificar la necesidad de procesamiento virtual frente a real en el contexto de una infraestructura TIC de una organización.
-3. Conocer las diferentes tecnologías y herramientas de virtualización tanto para procesamiento, comunicación y almacenamiento. 
+* Diseñar, construir y analizar las prestaciones de un centro de
+  proceso de datos virtual. 
+  
+* Documentar y mantener una plataforma virtual.
+
+* Realizar tareas de administración en infraestructura virtual.
+
+<h2>Objetivos específicos</h2>
+
+1. Aprender lenguajes de configuración usados en infraestructuras virtuales.
+2. Saber cómo aplicarlos en un caso determinado.
 
 </div>
 

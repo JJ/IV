@@ -323,6 +323,9 @@ fácilmente gestionables y adaptables a un fin determinado.
 Antes, habrá que hacer y entregar la
 [tercera práctica](../practicas/3.MV).
 
+Si lo que necesitas es un sistema ligero de virtualización, puedes
+mirar cómo virtualizar con [contenedores](Contenedores.mv)
+
 
 
 		
