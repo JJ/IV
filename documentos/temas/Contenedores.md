@@ -466,7 +466,7 @@ http://10.0.3.15 nos mostrará la página de inicio de MediaWiki. Al instalar un
 
 1. Instalar `juju`.
 
-2. Usándolo, instalar `MySql` en un táper. 
+2. Usándolo, instalar `MySQL` en un táper. 
 
 </div>
 
@@ -605,3 +605,11 @@ instalaría usando el conector para lxc	una máquina con el nombre indicado, med
 Una vez instalados diferentes contenedores, `virsh` permite trabajar
 con ellos
 
+A dónde ir desde aquí
+-----
+
+En el [siguiente tema](Almacenamiento) veremos cómo crear y configurar el
+almacenamiento virtual que, en general, es independiente de la
+generación de una máquina virtual. También puedes ir directamente al
+[tema de uso de sistemas](Uso_de_sistemas) en el que se trabajará
+con sistemas de virtualización completa. 
