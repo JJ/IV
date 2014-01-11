@@ -404,7 +404,10 @@ y reproducible usando una sola orden.
 Aparentemente,
 [los errores señalados arriba están siendo solucionados](https://bugs.launchpad.net/ubuntu/+source/vm-builder/+bug/1174148)
 pero no se encuentran en las últimas versiones disponibles en los
-repositorios.
+repositorios. Por otro lado
+[esta transcripción de una charla por IRC](http://nicolas.barcet.com/drupal/ubuntu-dev-week-vmbuilder)
+nos da unas pocas más pistas sobre cómo trabajar con VM y responde a
+algunas preguntas. 
 
 </div>
 
