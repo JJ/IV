@@ -313,8 +313,7 @@ configurar máquinas en instantes y personalizarlas de forma
 masiva. Veremos como hacerlo en el
 [siguiente tema](Gestion_de_configuraciones). 
 
-Automatizando la creación de máquinas virtuales
---- 
+##Automatizando la creación de máquinas virtuales
 
 Una máquina virtual es, desde el punto de vista del administrador,
 algo parecido a una máquina real: se arranca con el disco de
@@ -332,7 +331,7 @@ desde él. La ventaja que tiene este tipo de programas es que permite
 automatizar la creación de máquinas virtuales y hacerlo
 masivamente. La desventaja es que, a priori, es específico del sistema
 operativo, aunque veremos más adelante formas de hacerlo
-independiente. 
+independiente.
 
 Hay diferentes herramientas que se pueden usar para este tipo de
 provisionamiento; [Cobbler](http://www.cobblerd.org/) es una de
@@ -348,7 +347,7 @@ imagen virtual con las características que le
 demos. `ubuntu-vm-builder` necesita tener un hipervisor funcionando;
 puede trabajar con Xen, VMWare, kvm y vmserver. Sólo trabaja con una
 distribución: Ubuntu (jolines, que se llama `ubuntu-vm-builder`, ¿qué
-te esperabas?)
+te esperabas?).
 
 Por otro lado, [también puede usar virt-manager](https://help.ubuntu.com/community/KVM/CreateGuests) para gestionar las máquinas
 virtuales creadas, así que habrá que instalar una serie de utilidades
@@ -385,6 +384,8 @@ y trabajar con ella, o directamente con
 
 	sudo qemu-system-x86_64 -hda /que/me/dir/tmpGAPl8O.qcow2
 
+que carga el sistema del disco duro virtual creado.
+
 <div class='ejercicios' markdown='1'>
 
 Instalar una máquina virtual Ubuntu 12.04 para el hipervisor que
@@ -399,7 +400,7 @@ instalar idioma, usuarios y demás), en realidad ubuntu-vm-builder
 todo caso, este programa permite crear configuraciones de forma fácil
 y reproducible usando una sola orden. 
 
-<div class=’nota’ markdown=’1’>
+<div class='nota' markdown='1'>
 
 Aparentemente,
 [los errores señalados arriba están siendo solucionados](https://bugs.launchpad.net/ubuntu/+source/vm-builder/+bug/1174148)
@@ -422,9 +423,5 @@ Antes, habrá que hacer y entregar la
 [tercera práctica](../practicas/3.MV).
 
 Si lo que necesitas es un sistema ligero de virtualización, puedes
-mirar cómo virtualizar con [contenedores](Contenedores.mv)
-
-
-
-		
+mirar cómo virtualizar con [contenedores](Contenedores.mv).
 
