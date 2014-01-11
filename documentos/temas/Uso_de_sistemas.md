@@ -27,7 +27,7 @@ proceso de datos virtual.
 
 3. Documentar y mantener una plataforma virtual.
 
-4. Realizar tareas de administración en infraestructura virtual.
+4. Realizar tareas de administración de infraestructuras virtuales.
 
 </div>
 
@@ -35,7 +35,7 @@ Introducción
 ------------------
 
 El objetivo de las plataformas de virtualización es, eventualmente,
-crear una máquina virtual completa que funcione de forma aislada 
+crear y gestionar una máquina virtual completa que funcione de forma aislada 
 del resto del sistema y que permita trabajar con sistemas
 virtualizados de forma flexible, escalable y adaptada a cualquier
 objetivo. Eventualmente, el objetivo de este este tema es aprender a
@@ -320,6 +320,101 @@ provisionamiento de las mismas de forma que se puedan crear y
 configurar máquinas en instantes y personalizarlas de forma
 masiva. Veremos como hacerlo en el
 [siguiente tema](Gestion_de_configuraciones). 
+
+Automatizando la creación de máquinas virtuales
+--- 
+
+Una máquina virtual es, desde el punto de vista del administrador,
+algo parecido a una máquina real: se arranca con el disco de
+instalación y a partir de ahí se instala manualmente. Sin embargo, se
+puede intentar también crear automáticamente un disco duro con al
+menos parte de las herramientas necesarias y arrancar a partir de
+ahí. A este tipo de actividad se le llama *provisionar* y hay
+muchas herramientas útiles para ello, pero esencialmente todas hacen
+lo mismo: crear un
+[dispositivo virtual de almacenamiento](Almacenamiento) e instalar
+paquetes en él sin necesidad de arrancar la máquina virtual. Este
+almacenamiento, posteriormente, se puede agregar luego a la máquina
+virtual que se desee o bien usarse para arrancar una máquina virtual
+desde él. La ventaja que tiene este tipo de programas es que permite
+automatizar la creación de máquinas virtuales y hacerlo
+masivamente. La desventaja es que, a priori, es específico del sistema
+operativo, aunque veremos más adelante formas de hacerlo
+independiente. 
+
+Hay diferentes herramientas que se pueden usar para este tipo de
+provisionamiento; [Cobbler](http://www.cobblerd.org/) es una de
+ellas. [Cobbler](http://en.wikipedia.org/wiki/Cobbler_%28software%29)
+permite trabajar no sólo con almacenamiento virtual, sino también con
+cualquier dispositivo conectado por red que se pueda acceder desde
+fuera con diferentes protocolos. Sin embargo, esta herramienta es un
+poco más avanzada y, para el propósito de este artículo, vamos a usar
+[`ubuntu-vm-builder`](http://manpages.ubuntu.com/manpages/hardy/man1/ubuntu-vm-builder.1.html)
+(que se llamaba previamente `python-vm-builder`), una herramienta
+escrita en Python que permite, desde la línea de órdenes, crear una
+imagen virtual con las características que le
+demos. `ubuntu-vm-builder` necesita tener un hipervisor funcionando;
+puede trabajar con Xen, VMWare, kvm y vmserver. Sólo trabaja con una
+distribución: Ubuntu (jolines, que se llama `ubuntu-vm-builder`, ¿qué
+te esperabas?)
+
+Por otro lado, [también puede usar virt-manager](https://help.ubuntu.com/community/KVM/CreateGuests) para gestionar las máquinas
+virtuales creadas, así que habrá que instalar una serie de utilidades
+para echarlo a andar:
+
+	sudo ubuntu-vm-builder kvm virt-manager
+	
+Con eso ya podemos crear una imagen para usar
+
+	sudo vmbuilder kvm ubuntu --suite precise --flavour server 
+		 -o --dest /un/directorio/vacío --hostname paraiv --domain paraiv
+
+Esta orden crea, usando el hipervisor kvm, una instalación de Ubuntu
+Precise Pangolin, o sea, 12.04. La versión más moderna que tienen es
+la 12.04, así que no sé yo el futuro que tiene esta herramienta, que
+en todo caso se puede usar para hacer una serie de pruebas. Por otro
+lado, con `flavour` se indica el sabor, que puede ser para distros
+modernas (aunque no demasiado) o `virtual` o la versión *server* que
+es la que elegimos aquí. La siguiente opción `-o` sobreescribe el
+contenido de la imagen si existiera y el resto asigna tanto un nombre
+externo que podamos usar nosotros desde `virt-manager`(`domain`)
+aunque ahora mismo hay un bug que impide usarlo correctamente, como un
+hombre interno para el propio ordenador.
+
+Esta orden creará, tras una buena cantidad de minutos, un fichero de nombre ignoto (algo así como
+`tmpGAPl8O.qcow2`) en el que habrá una distribución Ubuntu instalada
+con un solo usuario, `ubuntu` con la misma clave. Como no se le ha
+indicado ninguna personalización, tendrá el teclado en inglés y la
+hora que le parezca bien. Una vez construido podemos arrancarlo con 
+
+	sudo qemu-system-x86_64 -drive file=/directorio/donde/este/tmpGAPl8O.qcow2,if=none,id=drive-ide0-0-0,format=qcow2
+
+y trabajar con ella, o directamente con 
+
+	sudo qemu-system-x86_64 -hda /que/me/dir/tmpGAPl8O.qcow2
+
+<div class='ejercicios' markdown='1'>
+
+Instalar una máquina virtual Ubuntu 12.04 para el hipervisor que
+tengas instalado.
+
+</div>
+
+Como la máquina creada anteriormente necesita más trabajo todavía que
+una máquina instalada desde una ISO (por aquello de que necesita
+instalar idioma, usuarios y demás), en realidad ubuntu-vm-builder
+[permite configurar el tamaño del disco, la IP, qué mirror se va a usar para descargar los paquetes, usuarios, claves y también qué paquetes se van a instalar, al menos en el caso de los más comunes](https://help.ubuntu.com/community/KVM/CreateGuests). En
+todo caso, este programa permite crear configuraciones de forma fácil
+y reproducible usando una sola orden. 
+
+<div class=’nota’ markdown=’1’>
+
+Aparentemente,
+[los errores señalados arriba están siendo solucionados](https://bugs.launchpad.net/ubuntu/+source/vm-builder/+bug/1174148)
+pero no se encuentran en las últimas versiones disponibles en los
+repositorios.
+
+</div>
 
 A dónde ir desde aquí
 -----
