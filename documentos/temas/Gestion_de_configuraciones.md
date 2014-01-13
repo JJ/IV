@@ -175,3 +175,25 @@ Crear una receta para instalar `nginx`, tu editor favorito y algún
 directorio y fichero que uses de forma habitual. 
 
 </div>
+
+<div class='nota' markdown='1'>
+
+De ninguna manera JSON es un lenguaje universal para gestión de
+configuraciones. Prácticamente todo el resto de los sistemas de
+configuración usan
+[YAML (*yet another markup language*)](http://yaml.org). Recientemente
+se ha
+[publicado una introducción al tema](http://pharalax.com/blog/yaml-introduccion-al-lenguaje-yaml/)
+que será suficiente para el uso que le vamos a dar más adelante
+
+</div>
+
+<div class='ejercicios' markdown='1'>
+
+Escribir en YAML la siguiente estructura de datos en JSON
+
+	{ uno: 'dos',
+      tres: [ 4, 5, 'Seis', { siete: 8, nueve: [Object] } ] }
+	  
+</div>
+
