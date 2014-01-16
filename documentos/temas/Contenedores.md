@@ -773,7 +773,8 @@ commit.
 </div>
 
 Finalmente, `docker` tiene capacidades de provisionamiento similares a
-otros sistemas usando
+otros sistemas (como Vagrant, que veremos en el tema de
+[gestión de configuraciones y provisionamiento](Gestion_de_configuracion.md) usando
 [*Dockerfiles*](http://docs.docker.io/en/latest/use/builder/). Por
 ejemplo, [se
 puede crear fácilmente un Dockerfile para instalar node.js con el
@@ -795,6 +796,3 @@ generación de una máquina virtual. También puedes ir directamente al
 [tema de uso de sistemas](Uso_de_sistemas) en el que se trabajará
 con sistemas de virtualización completa. 
 
-
-	
-	
