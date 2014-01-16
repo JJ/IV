@@ -723,7 +723,7 @@ máquina e instalar lo que se nos ocurra.
 <div class='ejercicios' markdown='1'>
 
 Crear un usuario propio e instalar nginx en el contenedor creado de
-esta forma
+esta forma.
 
 </div>
 
@@ -765,7 +765,7 @@ commit.
 </div>
 
 Finalmente, `docker` tiene capacidades de provisionamiento similares a
-otros sistemas usando
+otros [sistemas (tales como Vagrant, que se verá más adelante](Gestion_de_configuraciones.md) usando
 [*Dockerfiles*](http://docs.docker.io/en/latest/use/builder/). Por
 ejemplo, [se
 puede crear fácilmente un Dockerfile para instalar node.js con el
@@ -786,7 +786,4 @@ almacenamiento virtual que, en general, es independiente de la
 generación de una máquina virtual. También puedes ir directamente al
 [tema de uso de sistemas](Uso_de_sistemas.md) en el que se trabajará
 con sistemas de virtualización completa. 
-
-
-	
 	
