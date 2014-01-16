@@ -605,6 +605,187 @@ instalaría usando el conector para lxc	una máquina con el nombre indicado, med
 Una vez instalados diferentes contenedores, `virsh` permite trabajar
 con ellos
 
+Gestión de contenedores con `docker`
+---
+
+[Docker](http://docker.io) es una herramienta de gestión de
+contenedores que permite no sólo instalarlos, sino trabajar con el
+conjunto de ellos instalados (orquestación) y exportarlos de forma que
+se puedan usar en diferentes instalaciones. La tecnología de
+[Docker](http://en.wikipedia.org/wiki/Docker_%28software%29) es
+relativamente reciente, habiendo sido publicado en marzo de 2013;
+actualmente está sufriendo una gran expansión, sobre todo por su uso
+dentro de [CoreOS](http://coreos.com/), un sistema operativo básico
+basado en Linux para despliegue masivo de servidores.
+
+Por lo pronto,
+[instalar `docker` es fácil, pero no directo](https://www.docker.io/gettingstarted/#h_installation). Por
+ejemplo, para
+[Ubuntu hay que dar de alta una serie de repositorios](http://docs.docker.io/en/latest/installation/ubuntulinux/)
+y no funcionará con versiones más antiguas de la 12.04 (y en este caso
+sólo si se instalan kernels posteriores).
+
+<div class='ejercicios' markdown='1'>
+
+Instalar docker.
+
+</div>
+
+`docker` permite instalar contenedores y trabajar con
+ellos. Normalmente el ciclo de vida de un contenedor pasa por su
+creación y, más adelante, ejecución de algún tipo de programa, por
+ejemplo de instalación de los servicios que queramos; luego se puede
+salvar el estado del táper y clonarlo o realizar cualquier otro tipo
+de tareas. 
+
+Así que comencemos desde el principio:
+[vamos a ejecutar `docker`y trabajar con el contenedor creado](http://docs.docker.io/en/latest/installation/ubuntulinux/).
+
+Primero, se ejecuta como un servicio
+
+	sudo docker -d &
+	
+La línea de órdenes de docker conectará con este daemon, que mantendrá
+el estado de docker y demás. Cada una de las órdenes se ejecutará
+también como superusuario, al tener que contactar con este *daemon*
+usando un socket protegido.
+
+A partir de ahí, podemos crear un contenedor
+
+	sudo docker pull ubuntu
+	
+Esta orden descarga un contenedor básico de ubuntu y lo instala. Hay
+muchas imágenes creadas y se pueden crear y compartir en el sitio web
+de Docker, al estilo de las librerías de Python o los paquetes
+Debian. Se pueden
+[buscar todas las imágenes de un tipo determinado, como Ubuntu](https://index.docker.io/search?q=ubuntu)
+o
+[buscar las imágenes más populares](https://index.docker.io/most_stars). Estas
+imágenes contienen no sólo sistemas operativos *bare bones*, sino
+también otros con una funcionalidad determinada. 
+
+<div class='ejercicios' markdown='1'>
+
+1. Instalar a partir de docker una imagen alternativa de Ubuntu y alguna
+adicional, por ejemplo de CentOS.
+
+2. Buscar e instalar una imagen que incluya MongoDB.
+
+</div>
+
+El contenedor tarda un poco en instalarse, mientras se baja o no la
+imagen. Una vez bajada, se pueden empezar a ejecutar comandos. Lo
+bueno de `docker` es que permite ejecutarlos directamente sin
+necesidad de conectarse a la máquina; la gestión de la conexión y
+demás lo hace ello, al modo de Vagrant (lo que veremos más adelante).
+
+Podemos ejecutar, por ejemplo, un listado de los directorios
+
+	sudo docker run ubuntu ls
+	
+Tras el sudo, hace falta docker; `run` es el comando de docker que
+estamos usando, `ubuntu` es el id de la máquina y finalmente `ls`el
+comando que estamos ejecutando.
+
+La máquina instalada la podemos usar con el nombre del SO, pero cada
+táper tiene un id único que se puede ver con 
+
+	sudo docker ps -a=false
+	
+Obteniendo algo así:
+
+	CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+b76f70b6c5ce        ubuntu:12.04        /bin/bash           About an hour ago   Up About an hour                        sharp_brattain     
+
+El primer número es el ID de la máquina que podemos usar también para
+referirnos a ella en otros comandos. También se puede usar 
+	
+	sudo docker images
+	
+Que devolverá algo así:
+
+	REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+ubuntu              12.04               8dbd9e392a96        9 months ago        128 MB
+ubuntu              latest              8dbd9e392a96        9 months ago        128 MB
+ubuntu              precise             8dbd9e392a96        9 months ago        128 MB
+ubuntu              12.10               b750fe79269d        9 months ago        175.3 MB
+ubuntu              quantal             b750fe79269d        9 months ago        175.3 MB
+
+El *IMAGE ID* es el ID interno del contenedor, que se puede usar para
+trabajar en una u otra máquina igual que antes hemos usado el nombre
+de la imagen:
+
+		sudo docker run b750fe79269d du
+		
+En vez de ejecutar las cosas una a una podemos directamente [ejecutar
+un shell](http://docs.docker.io/en/latest/use/basics/):
+
+	sudo docker run -i -t ubuntu /bin/bash
+
+que [indica](http://docs.docker.io/en/latest/commandline/cli/#run) que
+se está creando un seudo-terminal (`-t`) y se está ejecutando el
+comando interactivamente (`-i`). A partir de ahí sale la línea de
+órdenes, con privilegios de superusuario, y podemos trabajar con la
+máquina e instalar lo que se nos ocurra.
+
+<div class='ejercicios' markdown='1'>
+
+Crear un usuario propio e instalar nginx en el contenedor creado de
+esta forma
+
+</div>
+
+Los contenedores se pueden arrancar de forma independiente con `start`
+
+	sudo docker start	ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
+	
+pero hay que usar el ID largo que se obtiene dando la orden de esta
+forma
+
+	sudo docker images -notrunc
+
+Para entrar en ese contenedor tienes que averiguar qué IP está usando
+y los usuarios y claves y por supuesto tener ejecutándose un cliente
+de `ssh` en la misma. Para averiguar la IP:
+
+	sudo docker inspect	ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
+	
+te dirá toda la información sobre la misma, incluyendo qué es lo que
+está haciendo en un momento determinado. Para finalizar, se puede
+parar usando `stop`. 
+
+Hasta ahora el uso de docker [no es muy diferente del contenedor, pero
+lo interesante](http://stackoverflow.com/questions/17989306/what-does-docker-add-to-just-plain-lxc) es que se puede guardar el estado de un contenedor tal
+como está usando [commit](http://docs.docker.io/en/latest/commandline/cli/#commit)
+
+	sudo docker commit 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c nuevo-nombre
+
+que guadará el estado del contenedor tal como está en ese
+momento. Este `commit` es equivalente al que se hace en un
+repositorio; para enviarlo al repositorio habrá que usar `push` (pero
+sólo si uno se ha dado de alta antes).
+
+<div class='ejercicios' markdown='1'>
+
+Crear a partir del contenedor anterior una imagen persistente con
+commit. 
+
+</div>
+
+Finalmente, `docker` tiene capacidades de provisionamiento similares a
+otros sistemas usando
+[*Dockerfiles*](http://docs.docker.io/en/latest/use/builder/). Por
+ejemplo, [se
+puede crear fácilmente un Dockerfile para instalar node.js con el
+módulo express](http://docs.docker.io/en/latest/examples/nodejs_web_app/). 
+
+<div class='ejercicios' markdown='1'>
+
+Crear una imagen con las herramientas necesarias para DAI sobre un
+sistema operativo de tu elección. 
+
+</div>
+	
 A dónde ir desde aquí
 -----
 
@@ -613,3 +794,7 @@ almacenamiento virtual que, en general, es independiente de la
 generación de una máquina virtual. También puedes ir directamente al
 [tema de uso de sistemas](Uso_de_sistemas) en el que se trabajará
 con sistemas de virtualización completa. 
+
+
+	
+	
