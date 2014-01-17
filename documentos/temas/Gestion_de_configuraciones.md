@@ -101,7 +101,7 @@ Una [forma más rápida de instalar Chef](http://gettingstartedwithchef.com/firs
 
 	curl -L https://www.opscode.com/chef/install.sh | bash
 
-Lo último tendrá que ser `sudo bash` en caso de que se quiera instalar como administrador.
+La última tendrá que ser `sudo bash` en caso de que se quiera instalar como administrador (que será lo normal).
 
 <div class='ejercicios' markdown='1'>
 
