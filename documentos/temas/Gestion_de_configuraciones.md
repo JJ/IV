@@ -26,8 +26,9 @@ prev: Uso_de_sistemas
 Introducción
 ---
 
-Los [contenedores](Contenedores.md) son un ejemplo de máquinas virtuales, pero ya tienen
-ciertas características, como el aislamiento y la gestión
+Los [contenedores](Contenedores.md) son un ejemplo de máquinas
+virtuales que ya tienen
+ciertas características de las mismas, como el aislamiento y la gestión
 independiente, que las asemeja a las máquinas virtuales *reales*. En
 un momento determinado puede hacer falta crear una serie de máquinas
 virtuales con características determinadas y usar un *script* con
@@ -202,4 +203,15 @@ Escribir en YAML la siguiente estructura de datos en JSON
       tres: [ 4, 5, 'Seis', { siete: 8, nueve: [Object] } ] }
 	  
 </div>
+
+Normalmente estas recetas van a estar bajo control de un sistema de
+gestión de fuentes; de esta forma se pueden probar diferentes
+configuraciones, crear nuevas versiones de la misma pero, sobre todo,
+tener claro en cada momento qué configuración es la que se está
+ejecutando en producción, que será habitualmente la que esté en una
+rama designada de la misma. 
+
+Otros sistemas de gestión de configuración
+---
+
 
