@@ -365,3 +365,52 @@ usando un *playbook* de Ansible.
 
 </div>
 
+Orquestación de máquinas virtuales
+---------------
+
+A un nivel superior al provisionamiento de máquinas virtuales está la configuración,
+orquestación y gestión de las mismas, herramientas como
+[Vagrant](http://vagrantup.com) ayudan a hacerlo, aunque también
+Puppet e incluso Juju pueden hacer muchas de las funciones de
+Vagrant. Algunas alternativas son
+[Vortex](http://www.websecurify.com/extra/vortex.html) 
+
+La ventaja de Vagrant es que permite gestionar el ciclo de vida
+completo de una máquina virtual, desde la creación hasta su
+destrucción pasando por el provisionamiento y la monitorización o
+conexión con la misma. Además, permite trabajar con todo tipo de
+hipervisores y provisionadores tales como los que hemos visto
+anteriormente.
+
+Con Vagrant [te puedes descargar directamente](https://gist.github.com/dergachev/3866825)
+[una máquina configurada de esta lista](http://www.vagrantbox.es/). Por
+ejemplo, 
+
+	vagrant box add centos65 https://github.com/2creatives/vagrant-centos/releases/download/v6.5.1/centos65-x86_64-20131205.box
+
+El formato determinará en qué tipo de hipervisor se puede ejecutar; en
+general, Vagrant usa VirtualBox, y los `.box` se ejecutan precisamente
+en ese formato. Otras imágenes están configuradas para trabajar con
+VMWare, pero son las menos. A continuación,
+
+	vagrant init centos65
+	
+crea un fichero `Vagrantfile` (y así te lo dice) que permite trabajar
+y llevar a cabo cualquier configuración adicional. Una vez hecho eso
+ya podemos inicializar la máquina y trabajar con ella (pero antes voy
+a apagar la máquina Azure que tengo ejecutándose desde que empecé a
+contar lo anterior)
+
+	vagrant up
+	
+y se puede empezar a trabajar en ella con 
+
+	vagrant ssh
+	
+<div class='ejercicios' markdown='1'>
+
+	Instalar una máquina virtual Debian y conectar con ella.
+	
+</div>
+
+	
