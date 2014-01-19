@@ -55,7 +55,7 @@ configuración, empezando por Chef. En
 [temas anteriores](Contenedores.md) hemos visto Juju, un ejemplo de
 sistema de configuración también, aunque específico de Ubuntu. 
 
-Usando Chef para gestión de configuración
+Usando Chef para provisionamiento
 -----
 
  [Chef](http://www.getchef.com/chef/) es una herramienta que, en
@@ -96,6 +96,12 @@ siempre como
 [ohai](http://docs.opscode.com/ohai.html) acompaña a `chef` y es usado
 desde el mismo para comprobar características del nodo antes de
 ejecutar cualquier receta.
+
+Una [forma más rápida de instalar Chef](http://gettingstartedwithchef.com/first-steps-with-chef.html) es descargarlo directamente desde la página web:
+
+	curl -L https://www.opscode.com/chef/install.sh | bash
+
+La última tendrá que ser `sudo bash` en caso de que se quiera instalar como administrador (que será lo normal).
 
 <div class='ejercicios' markdown='1'>
 
