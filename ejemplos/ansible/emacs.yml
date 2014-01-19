@@ -1,0 +1,6 @@
+---
+- hosts: azure
+  sudo: yes
+  tasks:
+    - name: Update emacs
+      apt: pkg=emacs state=present

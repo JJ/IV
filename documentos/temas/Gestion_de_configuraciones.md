@@ -184,6 +184,22 @@ directorio y fichero que uses de forma habitual.
 
 </div>
 
+Para usar `chef-solo` hay simplemente que instalar unos cuantos
+programas, pero en gran parte ya está automatizado:
+[aquí explica como usarlo en Ubuntu 12.04](http://www.wolfe.id.au/2012/09/10/how-i-use-chef-solo-with-ubuntu-12.04/),
+por ejemplo basándose en
+[este Gist (programas cortos en GitHug)](https://gist.github.com/wolfeidau/3328844)
+que instala todas las herramientas necesarias para comenzar a ejecutar
+chef. 
+
+<div class='nota' markdown='1'>
+
+Este
+[curso en video](http://nathenharvey.com/blog/2012/12/06/learning-chef-part-1/)
+te enseña también a trabajar con Chef
+
+</div>
+
 <div class='nota' markdown='1'>
 
 De ninguna manera JSON es un lenguaje universal para gestión de
@@ -215,4 +231,137 @@ rama designada de la misma.
 Otros sistemas de gestión de configuración
 ---
 
+Las principales alternativas a Chef son [Ansible](http://ansible.com),
+[Salt]() y [Puppet](http://docs.puppetlabs.com/guides/installation.html). Todos ellos se comparan en
+[este artículo](http://www.infoworld.com/d/data-center/review-puppet-vs-chef-vs-ansible-vs-salt-231308),
+aunque los principales contendientes son
+[Puppet y Chef, sin que ninguno de los dos sea perfecto](http://www.infoworld.com/d/data-center/puppet-or-chef-the-configuration-management-dilemma-215279?source=fssr). 
+
+De todas ellas, vamos a
+[ver Ansible](http://davidwinter.me/articles/2013/11/23/introduction-to-ansible/)
+que parece ser uno de los que se está desarrollando con más intensidad
+últimamente. [Ansible es](http://en.wikipedia.org/wiki/Ansible_%28software%29)
+sistema de gestión remota de configuración que permite gestionar
+simultáneamente miles de sistemas diferenets. Está basado en YAML para
+la descripción de los sistemas y escrito en Python. 
+
+Se instala como un módulo de Python, usando por ejemplo la utilidad de
+instalación de módulos `pip` (que habrá que instalar si no se tiene)
+
+	sudo pip install paramiko PyYAML jinja2 httplib2 ansible
+	
+El resto de las utilidades son también necesarias y en realidad se
+instalan automáticamente al instalar ansible. Estas utilidades se
+tienen que instalar *en el anfitrión*, no hace falta instalarlas en el
+invitado, que lo único que necesitará, en principio, es tener activada
+la conexión por ssh y tener una cuenta válida y forma válida de
+acceder a ella.
+
+Cada máquina que se añada al control de Ansible se tiene que añadir a
+un
+[fichero, llamado inventario](http://docs.ansible.com/intro_inventory.html),
+que contiene las diferentes máquinas controladas por el mismo. Por
+ejemplo
+
+	 $ echo "ansible-iv.cloudapp.net" > ~/ansible_hosts
+	
+se puede ejecutar desde el *shell* para meter (`echo`) una cadena con
+una dirección (en este caso, una máquina virtual de Azure) en el
+fichero `ansible_hosts` situado en mi directorio raíz. El lugar de ese
+fichero es arbitrario, por lo que habrá que avisar a Ansible donde
+está usando una variable de entorno:
+
+	export ANSIBLE_HOSTS=~/ansible_hosts
+	
+Y, con un nodo, ya se puede comprobar si Ansible funciona con 
+
+	$ ansible all -u jjmerelo -m ping
+	
+Esta orden hace un *ping*, es decir, simplemente comprueba si la
+máquina es accesible desde la máquina local. `-u ` incluye el nombre
+del usuario (si es diferente del de la máquina local); habrá que
+añadir `--ask-pass` si no se ha configurado la máquina remota para
+poder acceder a ella sin clave. 
+
+De forma básica, lo que hace Ansible es simplemente ejecutar comandos
+de forma remota y simultáneamente. Para hacerlo, podemos usar el
+[inventario para agrupar los servidores](http://docs.ansible.com/intro_inventory.html), por ejemplo
+
+	[azure]
+	iv-ansible.cloudapp.net
+
+crearía un grupo `azure` (con un solo ordenador), en el cual podemos
+ejecutar comandos de forma remota
+
+	$ ansible azure -u jjmerelo -a df
+	
+nos mostraría en todas las máqunias de azure la organización del
+sistema de ficheros (que es lo que hace el comando `df`). Una vez más,
+`-u` es opcional. 
+
+Esta orden usa un *módulo* de ansible y se puede ejecutar también de
+esta forma:
+
+	$ ansible azure -m shell ls
+	
+haciendo uso del módulo `shell`. Hay muchos
+[más módulos](http://docs.ansible.com/modules.html) a los que se le
+pueden enviar comandos del tipo "variable = valor". Por ejemplo, se
+puede trabajar con servidores web o
+[copiar ficheros](http://docs.ansible.com/intro_adhoc.html#file-transfer)
+o
+[incluso desplegar aplicaciones directamente usando el módulo `git`](http://docs.ansible.com/intro_adhoc.html#managing-packages)
+
+<div class='ejercicios' markdown='1'>
+
+Desplegar los fuentes de la aplicación de  DAI o cualquier otra aplicación que se
+encuentre en un servidor git público en la máquina virtual Azure (o
+una máquina virtual local) usando ansible.
+
+</div>
+
+Finalmente, el concepto similar a las recetas de Chefl son los
+[*playbooks*](http://davidwinter.me/articles/2013/11/23/introduction-to-ansible/),
+ficheros en YAML que le dicen a la máquina virtual qué es lo que hay
+que instalar en *tareas*, de la forma siguiente
+
+	---
+	- hosts: azure
+	  sudo: yes
+	  tasks:
+		- name: Update emacs
+		  apt: pkg=emacs state=present
+
+Esto se guarda en un fichero y se
+[le llama, por ejemplo, emacs.yml](../../ejemplos/ansible/emacs.yml),
+y se ejecuta con 
+
+  ansible-playbook ../../ejemplos/ansible/emacs.yml 
+  
+(recordando siempre el temita del nombre de usuario), lo que dará, si
+todo ha ido bien, un resultado como el siguiente
+
+![Instalación de emacs usando ansible](../img/ansible.png)
+
+En el fichero YAML lo que se está expresando es un array asociativo
+con las claves `hosts`, `sudo` y `tasks`. En el primero ponemos el
+bloque de servidores en el que vamos a actuar, en el segundo si hace
+falta hacer sudo o no y en el tercero las tareas que vamos a ejecutar,
+en este caso una sola. El apartado de tareas es un vector de hashes,
+cada uno de los cuales tiene en `name` el nombre de la tarea, a título
+informativo y en las otras claves lo que se va a hacer; `apt` indicará
+que hay que instalar un paquete (`pkg`) llamado `emacs` y que hay que
+comprobar si está presente o no (`state`). El que se trabaje con
+*estados* y no de forma imperativa hace que los *playbooks* sean
+*idempotentes*, es decir, si se ejecutan varias veces darán el mismo
+resultado que si se ejecutan una sola vez. 
+
+<div class='ejercicios' markdown='1'>
+
+1. Desplegar la aplicación de DAI  con todos los módulos necesarios
+usando un *playbook* de Ansible.
+
+2. [¿Ansible o Chef? ¿O cualquier otro que no hemos usado aquí?](https://github.com/IV-GII/GII-2013/issues/131)
+
+</div>
 
