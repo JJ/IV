@@ -27,6 +27,8 @@ prev: Uso_de_sistemas
 
 1. Aprender lenguajes de configuración usados en infraestructuras virtuales.
 2. Saber cómo aplicarlos en un caso determinado.
+3. Conocer los sistemas de gestión de la configuración,
+provisionamiento y monitorizació más usados hoy en día.
 
 </div>
 
@@ -59,10 +61,10 @@ forma automática y masiva.
 
 A continuación veremos diferentes ejemplos de sistemas de
 configuración, empezando por Chef. En
-[temas anteriores](Contenedores) hemos visto Juju, un ejemplo de
+[temas anteriores](Contenedores) hemos visto `Juju`, un ejemplo de
 sistema de configuración también, aunque específico de Ubuntu. 
 
-Usando Chef para gestión de configuración
+Usando Chef para provisionamiento
 -----
 
  [Chef](http://www.getchef.com/chef/) es una herramienta que, en
@@ -103,6 +105,12 @@ siempre como
 [ohai](http://docs.opscode.com/ohai.html) acompaña a `chef` y es usado
 desde el mismo para comprobar características del nodo antes de
 ejecutar cualquier receta.
+
+Una [forma más rápida de instalar Chef](http://gettingstartedwithchef.com/first-steps-with-chef.html) es descargarlo directamente desde la página web:
+
+	curl -L https://www.opscode.com/chef/install.sh | bash
+
+La última tendrá que ser `sudo bash` en caso de que se quiera instalar como administrador (que será lo normal).
 
 <div class='ejercicios' markdown='1'>
 
@@ -162,13 +170,13 @@ incluirá una referencia a esta receta
 Este fichero hace referencia a un recetario, `emacs` y dado que no se
 especifica nada más se ejecutará la receta por defecto. 
 
-Finalmente, el fichero de configuración incluirá referencias a ambos.
+Finalmente, el [fichero de configuración `solo.rb`](../../ejemplos/solo.rb) incluirá referencias a ambos.
 
 	file_cache_path "/home/jmerelo/chef"
 	cookbook_path "/home/jmerelo/chef/cookbooks"
 	json_attribs "/home/jmerelo/chef/node.json"
 	
-Una vez más, cambiando los caminos por los que correspondan. Para
+Una vez más, *cambiando los caminos por los que correspondan*. Para
 ejecutarlo,
 
 	sudo chef-solo -c chef/solo.rb
@@ -217,7 +225,7 @@ que será suficiente para el uso que le vamos a dar más adelante
 Escribir en YAML la siguiente estructura de datos en JSON
 
 	{ uno: 'dos',
-      tres: [ 4, 5, 'Seis', { siete: 8, nueve: [Object] } ] }
+      tres: [ 4, 5, 'Seis', { siete: 8, nueve: [ 10, 11 ] } ] }
 	  
 </div>
 
@@ -320,7 +328,7 @@ una máquina virtual local) usando ansible.
 
 </div>
 
-Finalmente, el concepto similar a las recetas de Chefl son los
+Finalmente, el concepto similar a las recetas de Chef en Ansible son los
 [*playbooks*](http://davidwinter.me/articles/2013/11/23/introduction-to-ansible/),
 ficheros en YAML que le dicen a la máquina virtual qué es lo que hay
 que instalar en *tareas*, de la forma siguiente
@@ -361,7 +369,7 @@ resultado que si se ejecutan una sola vez.
 1. Desplegar la aplicación de DAI  con todos los módulos necesarios
 usando un *playbook* de Ansible.
 
-2. [¿Ansible o Chef? ¿O cualquier otro que no hemos usado aquí?](https://github.com/IV-GII/GII-2013/issues/131)
+2. [¿Ansible o Chef? ¿O cualquier otro que no hemos usado aquí?](https://github.com/IV-GII/GII-2013/issues/131). 
 
 </div>
 
@@ -409,7 +417,7 @@ y se puede empezar a trabajar en ella con
 	
 <div class='ejercicios' markdown='1'>
 
-	Instalar una máquina virtual Debian y conectar con ella.
+	Instalar una máquina virtual Debian usando Vagrant y conectar con ella.
 	
 </div>
 
