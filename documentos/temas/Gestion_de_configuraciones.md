@@ -161,13 +161,13 @@ incluirá una referencia a esta receta
 Este fichero hace referencia a un recetario, `emacs` y dado que no se
 especifica nada más se ejecutará la receta por defecto. 
 
-Finalmente, el fichero de configuración incluirá referencias a ambos.
+Finalmente, el [fichero de configuración `solo.rb`](../../ejemplos/solo.rb) incluirá referencias a ambos.
 
 	file_cache_path "/home/jmerelo/chef"
 	cookbook_path "/home/jmerelo/chef/cookbooks"
 	json_attribs "/home/jmerelo/chef/node.json"
 	
-Una vez más, cambiando los caminos por los que correspondan. Para
+Una vez más, *cambiando los caminos por los que correspondan*. Para
 ejecutarlo,
 
 	sudo chef-solo -c chef/solo.rb
