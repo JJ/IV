@@ -20,6 +20,8 @@ prev: Uso_de_sistemas
 
 1. Aprender lenguajes de configuración usados en infraestructuras virtuales.
 2. Saber cómo aplicarlos en un caso determinado.
+3. Conocer los sistemas de gestión de la configuración,
+provisionamiento y monitorizació más usados hoy en día.
 
 </div>
 
@@ -52,7 +54,7 @@ forma automática y masiva.
 
 A continuación veremos diferentes ejemplos de sistemas de
 configuración, empezando por Chef. En
-[temas anteriores](Contenedores.md) hemos visto Juju, un ejemplo de
+[temas anteriores](Contenedores.md) hemos visto `Juju`, un ejemplo de
 sistema de configuración también, aunque específico de Ubuntu. 
 
 Usando Chef para provisionamiento
@@ -408,7 +410,7 @@ y se puede empezar a trabajar en ella con
 	
 <div class='ejercicios' markdown='1'>
 
-	Instalar una máquina virtual Debian y conectar con ella.
+	Instalar una máquina virtual Debian usando Vagrant y conectar con ella.
 	
 </div>
 
