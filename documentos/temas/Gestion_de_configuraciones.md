@@ -216,7 +216,7 @@ que será suficiente para el uso que le vamos a dar más adelante
 Escribir en YAML la siguiente estructura de datos en JSON
 
 	{ uno: 'dos',
-      tres: [ 4, 5, 'Seis', { siete: 8, nueve: [Object] } ] }
+      tres: [ 4, 5, 'Seis', { siete: 8, nueve: [ 10, 11 ] } ] }
 	  
 </div>
 
@@ -319,7 +319,7 @@ una máquina virtual local) usando ansible.
 
 </div>
 
-Finalmente, el concepto similar a las recetas de Chefl son los
+Finalmente, el concepto similar a las recetas de Chef en Ansible son los
 [*playbooks*](http://davidwinter.me/articles/2013/11/23/introduction-to-ansible/),
 ficheros en YAML que le dicen a la máquina virtual qué es lo que hay
 que instalar en *tareas*, de la forma siguiente
@@ -360,7 +360,7 @@ resultado que si se ejecutan una sola vez.
 1. Desplegar la aplicación de DAI  con todos los módulos necesarios
 usando un *playbook* de Ansible.
 
-2. [¿Ansible o Chef? ¿O cualquier otro que no hemos usado aquí?](https://github.com/IV-GII/GII-2013/issues/131)
+2. [¿Ansible o Chef? ¿O cualquier otro que no hemos usado aquí?](https://github.com/IV-GII/GII-2013/issues/131). 
 
 </div>
 
