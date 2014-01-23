@@ -415,3 +415,23 @@ y se puede empezar a trabajar en ella con
 </div>
 
 	
+Una vez creada la máquina virtual se puede entrar en ella y
+configurarla e instalar todo lo necesario. Pero, por supuesto,
+sabiendo lo que sabemos sobre provisionamiento, Vagrant permite
+[provisionarla de muchas maneras diferentes](http://docs.vagrantup.com/v2/provisioning/index.html). En
+general, Vagrant usará opciones de configuración diferente dependiendo
+del provisionador, subirá un fichero a un directorio temporal del
+mismo y lo ejecutará (tras ejecutar todo lo necesario para el mismo). 
+
+La provisión tiene lugar cuando se *alza* una máquina virtual (con
+`vagrant up`) o bien explícitamente haciendo `vagrant provision`. En
+cualquier caso se lee del Vagrantfile y se llevan a cabo las acciones
+especificadas en el fichero de configuración. 
+
+En general, trabajar con un provisionador requiere especificar de cuál
+se trata y luego dar una serie de órdenes específicas. Comenzaremos
+por el
+[*shell*](http://docs.vagrantup.com/v2/provisioning/shell.html), que
+es el más simple y, en realidad, equivale a entrar en la máquina y dar
+las órdenes a mano. Instalaremos, como hemos hecho en otras ocasiones,
+el utilísimo editor `emacs`.
