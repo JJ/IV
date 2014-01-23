@@ -47,7 +47,7 @@ Prácticas - Actividades académicas dirigidas
 1. Introducción a la computación virtual: [Platform as a Service](documentos/practicas/1.PaaS).
 2. Técnicas de virtualización [Creación de una jaula](documentos/practicas/2.Jaula).
 3. Diseño de sistemas usando [CPU y almacenamiento virtuales](documentos/practicas/3.MV).
-4. Virtualización de aplicaciones.
+4. [Virtualización de aplicaciones.](documentos/practicas/4.Aplicaciones)
 
 Tutorías virtuales
 ----
@@ -58,7 +58,7 @@ también una
 [lista de correo cerrada para los alumnos de la asignatura](https://groups.google.com/forum/#!forum/iv-ugr-2013)
 que se puede usar para todo lo que no quepa en la anterior (preguntas
 administrativas, principalmente). Finalmente, el profesor está
-disponible por Skype y Google hangout (en ambos casos: `jjmerelo`)
+disponible por Skype y Google Hangouts (en ambos casos: `jjmerelo`)
 previa cita.
 
 Criterios de evaluación
