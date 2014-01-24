@@ -505,7 +505,7 @@ que usa
 puede provisionar, por ejemplo, una máquina CentOS. 
 
 Una vez preinstalado chef (lo que también podíamos haber hecho con
-[una máquina que ya lo tuviera instalado, de las que hay muchas en `vagrantbox.es`](http://www.vagrantbox.es/)
+[una máquina que ya lo tuviera instalado, de las que hay muchas en `vagrantbox.es`](http://www.vagrantbox.es/)git co
 y de hecho es la mejor opción porque chef-solo no se puede instalar en
 la versión 6.5 de Centos fácilmente por no tener una versión
 actualizada de Ruby)
@@ -532,7 +532,9 @@ simplemente `package 'emacs'` que tendrá que estar en un fichero
 	cookbooks/emacs/recipes/default.rb
 	
 Con todo esto se puede configurar emacs. Pero, la verdad, seguro que
-es más fácil hacerlo en Ansible.
+es más fácil hacerlo en Ansible y/o en otro sistema operativo que no
+sea CentOS porque yo, por lo pronto, no he logrado instalar chef-solo
+en ninguna de las máquinas pre-configuradas de VagrantBoxes. 
 
 <div class='ejercicios' markdown='1'>
 
@@ -541,5 +543,23 @@ es más fácil hacerlo en Ansible.
 	
 </div>
 
+Desde Vagrant se puede crear también una
+[caja base](http://docs.vagrantup.com/v2/boxes/base.html) con lo
+mínimo necesario para poder funcionar, incluyendo el soporte para ssh
+y provisionadores como Chef o Puppet. Se puede crear directamente en
+VirtualBox y usar
+[`vagrant package`](http://docs.vagrantup.com/v2/cli/package.html)
+para *empaquetarla* y usarla para su consumo posterior. 
 
+A donde ir desde aquí
+-------
+
+Este es el último tema del curso, pero a partir de aquí se puede
+seguir aprendiendo sobre devops en [el blog](http://devops.com/) o
+[en IBM](http://www.ibm.com/ibm/devops/us/en/). Libros como
+[DevOps for Developers](https://www.amazon.es/dp/B009D6ZB0G?tag=atalaya-21&camp=3634&creative=24822&linkCode=as4&creativeASIN=B009D6ZB0G&adid=0PB61Y2QD9K49W3EP8MN&)
+pueden ser también de ayuda.
+
+Si no lo has hecho ya, es hora de comenzar
+[la última práctica](../practicas/4.Aplicaciones.md). 
 	

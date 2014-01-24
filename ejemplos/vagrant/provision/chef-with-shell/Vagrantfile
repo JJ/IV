@@ -1,7 +1,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "centos65"
+  config.vm.box = "centos63"
 
   config.vm.provision "shell", path: "chef-solo.sh"
 end
