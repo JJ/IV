@@ -5,8 +5,8 @@ Material docente para Infraestructura Virtual
 es una asignatura optativa del primer cuatrimestre del cuarto de Grado
 de Ingeniería Informática.
 
-La asignatura se imparte en el curso 2013-2014 los lunes de 11:30 a
-13:30 en el aula polivalente y los viernes de 9:30 a 11:30 en la 3.2. Se usará
+La asignatura se imparte en el curso 2013-2014 los lunes de 9:30 a
+11:30 en la 3.2 y los martes de 10:30 a 12:30 en la 1.5. Se usará
 [GitHub](http://github.com) para las prácticas y trabajo final.
 
 Estos son los [objetivos de la asignatura](documentos/objetivos.md). 
