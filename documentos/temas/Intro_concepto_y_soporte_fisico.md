@@ -277,14 +277,14 @@ pero a este nivel es suficiente con conocer esto.
 
 <div class='ejercicios' markdown="1">
 1. Crear un proyecto y descargárselo con git. Al crearlo se marca la
-opción de incluir el fichero Readme.
+opción de incluir el fichero `README`.
 2. Modificar el readme y subir el fichero modificado.
 </div>
 
 <div class='nota' markdown='1'>
 
 Este [vídeo de 14 minutos](http://www.youtube.com/watch?v=ygbWIJWe29Y)
-sirve como introducción al uso de git.
+sirve como introducción al uso de `git`.
 
 </div>
 
