@@ -289,7 +289,7 @@ opción de incluir el fichero Readme.
 <div class='nota' markdown='1'>
 
 Este [vídeo de 14 minutos](http://www.youtube.com/watch?v=ygbWIJWe29Y)
-sirve como introducción al uso de git
+sirve como introducción al uso de git.
 
 </div>
 
@@ -300,7 +300,7 @@ Restricción y medición del uso de recursos: `cgroups`
 <div class='nota' markdown='1'>
 
 Este [vídeo de RedHat](http://www.youtube.com/watch?v=KX5QV4LId_c)
-explica cómo y en qué ocasiones usar cgroups para gestionar los
+explica cómo y en qué ocasiones se debe usar `cgroups` para gestionar los
 recursos de un servidor
 
 </div>
@@ -395,7 +395,7 @@ CPU:
 
 	echo 512 > /cgroup/buenos/cpu.shares
 	
-Aunque en este caso lo que hemos hecho ha sido aumentarlo del 1024 que
+Aunque en este caso lo que hemos hecho ha sido aumentarlo del valor 1024 que
 se le asigna por defecto. 
 
 Lo más importante es la *contabilidad* que se hace por separado para
