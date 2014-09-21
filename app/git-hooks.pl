@@ -29,7 +29,7 @@ POST_COMMIT {
 
       if ( $f ne 'README.md' ) {
 	  my ($breadcrumb) = ($file_content =~ /<!--@(.+)-->/gs);
-	  $file_content = $layout_preffix."$breadcrumb\n---\n".$file_content;
+	  $file_content = $layout_preffix."$breadcrumb---\n\n".$file_content;
 	  write_file($f, $file_content);
 	  $git->command('add', $f );
       } else {
@@ -39,7 +39,7 @@ POST_COMMIT {
 	  unlink('README.md');
       }
       $git->command('commit','-am', "Sync $f de master a gh-pages");
-      say "Processing $f";
+      say "Procesando $f";
     }
     $git->command(qw/checkout master/); #back to original
   }
