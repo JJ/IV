@@ -36,7 +36,7 @@ colaborativo y para despliegue de aplicaciones en la nube.
 <div class="nota" markdown="1">
 
 Se puede consultar
-[esta presentación para tener una visión general sobre los servicios en la nube](http://jj.github.io/cloud-computing/#/step-1)
+[esta presentación para tener una visión general sobre los servicios en la nube](http://jj.github.io/cloud-computing/)
 
 </div>
 
@@ -214,7 +214,7 @@ aplicación en diferentes versiones con una sola orden. `virtualenv`, `perlbrew`
 para diferentes lenguajes. 
 
 <div class='ejercicios' markdown="1">
-1. [¿Qué tipo de virtualización usarías en cada caso? Comentar en el foro](https://github.com/IV-GII/GII-2013/issues/1)
+1. [¿Qué tipo de virtualización usarías en cada caso? Comentar en el foro](https://github.com/IV-GII/GII-2014/issues/1)
 
 2. Crear un programa simple en cualquier lenguaje interpretado para
 Linux, empaquetarlo con CDE y probarlo en diferentes distribuciones.
@@ -223,7 +223,7 @@ Linux, empaquetarlo con CDE y probarlo en diferentes distribuciones.
 En realidad, la *contenedorización* de aplicaciones puede usar las
 técnicas que se explican en el resto de la asignatura; de hecho, se
 pueden crear *paquetes* que permiten ejecutar una aplicación con todas
-las dependencias necesarias. Por ejemplo, [docker](http://docker.io)
+las dependencias necesarias. Por ejemplo, [docker](http://www.docker.com)
 es una aplicación que permite crear fácilmente aplicaciones
 *contenidas* desde línea de órdenes para su uso en cualquier tipo de
 contenedor, desde simples contenedores Linux hasta máquinas
@@ -231,7 +231,7 @@ virtuales.
 
 <div class='ejercicios' markdown="1">
 Hacer el
-[tutorial de línea de órdenes de docker](https://www.docker.io/gettingstarted/#)
+[tutorial de línea de órdenes de docker](https://www.docker.com/tryit/)
 para comprender cómo funciona.
 
 *Avanzado* Instalarlo y crear una aplicación contenedorizada
@@ -425,7 +425,7 @@ más sencillo sin necesidad de trabajar directamente con sistemas de
 ficheros virtuales. Con una serie de órdenes o un fichero de
 configuración en `/etc/cgconfig.conf` [se pueden controlar los
 diferentes grupos de control y limitar y contabilizar el uso de
-recursos por parte de los diferentes procesos](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/) que se hayan asignado en
+recursos por parte de los diferentes procesos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/) que se hayan asignado en
 los grupos.
 
 Los grupos se crean con la orden `cgcreate`:
@@ -466,7 +466,7 @@ más prioridad en la CPU o entrada/salida a unos usuarios que a otros.
 
 <div class='ejercicios' markdown="1">
 1. [Discutir diferentes escenarios de limitación de uso de recursos o
-de asignación de los mismos a una u otra CPU](https://github.com/IV-GII/GII-2013/issues/4).
+de asignación de los mismos a una u otra CPU](https://github.com/IV-GII/GII-2014/issues/4).
 2. Implementar usando el fichero de configuración de `cgcreate` una
 política que dé menos prioridad a los procesos de usuario que a los
 procesos del sistema (o viceversa).
@@ -574,7 +574,7 @@ desplegar en el mismo nuestras propias aplicaciones.
 <div class='ejercicios' markdown="1">
 
 [Comentar diferentes soluciones de *Software as a Service* de uso
-habitual.](https://github.com/IV-GII/GII-2013/issues/11)
+habitual. TODO](https://github.com/IV-GII/GII-2014/)
 
 </div>
 
@@ -591,7 +591,7 @@ incluso probar 5.19.
 
 Por eso desde hacer cierto tiempo se han venido usando *entornos
 virtuales de desarrollo* tales como
-[virtualenv para Python](http://www.virtualenv.org/en/latest/),
+[virtualenv para Python](https://virtualenv.pypa.io/en/latest/),
 [nodeenv para node.js](https://pypi.python.org/pypi/nodeenv/)
 [rbenv para Ruby](https://github.com/sstephenson/rbenv) y
 [perlbrew para Perl](http://perlbrew.pl).
@@ -623,8 +623,8 @@ aplicaciones REST.
 Los servicios PaaS son específicos (sólo alojan una solución
 determinada, como [CloudAnt](https://cloudant.com/) que aloja una base
 de datos con CouchDB o genéricos, permitiendo una serie de soluciones
-en general relativamente limitada; [Heroku](http://heroku.com) y
-[OpenShift](http://openshift.com) están entre estos últimos. 
+en general relativamente limitada; [Heroku](http://www.heroku.com) y
+[OpenShift](http://www.openshift.com) están entre estos últimos. 
 
 <div class='ejercicios' markdown="1">
 
