@@ -9,7 +9,6 @@ use File::Slurp qw(read_file write_file);
 my $layout_preffix=<<EOT;
 ---
 layout: index
----
 
 EOT
 
@@ -27,14 +26,17 @@ POST_COMMIT {
       $git->command( 'checkout', 'master', '--', $f );
       my $file_content = read_file( $f );
       $file_content =~ s/\.md\)/\)/g; # Change links
-      $file_content = $layout_preffix.$file_content;
+
       if ( $f ne 'README.md' ) {
-	write_file($f, $file_content);
-	$git->command('add', $f );
+	  my ($breadcrumb) = /<!--@(.+)-->/gs;
+	  $file_content = $layout_preffix."$breadcrumb\n---\n".$file_content;
+	  write_file($f, $file_content);
+	  $git->command('add', $f );
       } else {
-	write_file('index.md', $file_content );
-	$git->command('add', 'index.md' );
-	unlink('README.md');
+	  $file_content = $layout_preffix."\n---\n".$file_content;
+	  write_file('index.md', $file_content );
+	  $git->command('add', 'index.md' );
+	  unlink('README.md');
       }
       $git->command('commit','-am', "Sync $f de master a gh-pages");
       say "Processing $f";
@@ -54,7 +56,7 @@ git-hooks.pl - post-commit hooks to sync markdown pages with GitHub pages
 First you need to install C<Git::Hooks> and C<File::Slurp>. I use say,
 so you will need perl > 5.10. Besides, you need to locate Git.pm and
 copy it where the file can find it. That depends on the OS and perl
-installation you're using (I use perlbrew); in my case it was:
+installation you're using (I use perlbrew), In my case it was:
 
   bash% cp /usr/share/perl5/Git.pm ~/perl5/perlbrew/perls/perl-5.16.1/lib/site_perl/5.16.1/
 

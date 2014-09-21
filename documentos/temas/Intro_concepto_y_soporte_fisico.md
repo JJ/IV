@@ -56,7 +56,7 @@ mecanismos computacionales para funcionar como tal.
 
 Una *nube* o *recurso en la nube* es un recurso al que se puede
 acceder *bajo demanda*, que es *escalable* y que, desde el punto de
-vista dle usuario, se *facturable según uso*, no por acceso.
+vista del usuario, se *facturable según uso*, no por acceso.
 
 El [origen
   de la palabra](http://en.wikipedia.org/wiki/Cloud_computing#Origin_of_the_term) viene de la tradicional representación de recursos
@@ -157,7 +157,7 @@ que tienen todas el mismo objetivo: crear recursos que, desde el punto
 de vista de un programa, sean exclusivos. Cada una de las tecnologías
 necesita una aplicación determinada para usarse y, en muchos casos,
 soporte a nivel de hardware. En todo caso, el sistema operativo o
-aplicación que ejecuta las operaciones necesarias para virtualizr se
+aplicación que ejecuta las operaciones necesarias para virtualizar se
 denomina *anfitrión* y el que se ejecuta *dentro* de la máquina
 virtual *invitado*. 
 
@@ -283,7 +283,7 @@ opción de incluir el fichero Readme.
 
 <div class='nota' markdown='1'>
 
-Este [video de 14 minutos](http://www.youtube.com/watch?v=ygbWIJWe29Y)
+Este [vídeo de 14 minutos](http://www.youtube.com/watch?v=ygbWIJWe29Y)
 sirve como introducción al uso de git
 
 </div>
@@ -294,7 +294,7 @@ Restricción y medición del uso de recursos: `cgroups`
 
 <div class='nota' markdown='1'>
 
-Este [video de RedHat](http://www.youtube.com/watch?v=KX5QV4LId_c)
+Este [vídeo de RedHat](http://www.youtube.com/watch?v=KX5QV4LId_c)
 explica cómo y en qué ocasiones usar cgroups para gestionar los
 recursos de un servidor
 
@@ -393,7 +393,7 @@ CPU:
 Aunque en este caso lo que hemos hecho ha sido aumentarlo del 1024 que
 se le asigna por defecto. 
 
-Lo más importante es la *contabiliad* que se hace por separado para
+Lo más importante es la *contabilidad* que se hace por separado para
 cada uno de los grupos; los ficheros con el prefijo `cpuacct`nos darán
 información sobre uso; por ejemplo:
 
@@ -419,7 +419,7 @@ correspondientes.
 
 </div>
 
-El paguete `cgroup-bin` (`libcgroup` en ArchLinux, puede variar en
+El paquete `cgroup-bin` (`libcgroup` en ArchLinux, puede variar en
 otras distros) [permite un control por línea de órdenes](https://wiki.archlinux.org/index.php/Cgroups) algo
 más sencillo sin necesidad de trabajar directamente con sistemas de
 ficheros virtuales. Con una serie de órdenes o un fichero de
@@ -503,7 +503,7 @@ particular. Para hacerlo se usa este comando en Linux:
 	
 `/proc/cpuinfo` es el fichero del sistema de ficheros virtual `/proc`
 que da acceso mediante "ficheros" a las estructuras de datos del
-núcleo de linux; `cpuinfo` lista las características de la CPU y `vmx`
+núcleo de Linux; `cpuinfo` lista las características de la CPU y `vmx`
 es el *flag* que se usa para indicar que el procesador usa esta
 tecnología; `smd` es el *flag* para AMD-V. `egrep` busca líneas de un
 fichero que contengan la expresión regular indicada, y si aparecen los
@@ -532,7 +532,7 @@ Esta infraestructura en Linux se llama
 (aunque también se ha usado en otros sistemas operativos). Este
 dispositivo se encarga de gestionar la aplicación de memoria del
 invitado al anfitrión, crear los dispositivos virtuales de entrada
-salida y presentar la salida de video del invitado en el anfitrión. En
+salida y presentar la salida de vídeo del invitado en el anfitrión. En
 realidad, KVM tampoco se usa directamente en general (aunque es una
 parte del núcleo con sus características como cualquier otra) sino que
 lo habitual es que se use a través de hipervisores tales como
@@ -560,7 +560,7 @@ servidor. Aunque el desarrollo de las mismas tiene técnicas propias y
 el objetivo de la asignatura es crear una aplicación que se pueda
 vender como un SaaS, el principal foco de la asignatura será los dos
 primeros niveles: Infraestructura como Servicio y Plataforma como
-Servicio. La mayoría de los temas estánd dedicados a la creación,
+Servicio. La mayoría de los temas están dedicados a la creación,
 diseño y mantenimiento de IaaS, por lo que dedicaremos especial
 atención en este tema al nivel PaaS.
 
@@ -583,16 +583,16 @@ Entornos virtuales de desarrollo
 
 Los lenguajes de scripting tales como Perl, Python y Ruby tienen
 ciclos de desarrollo muy rápidos que hacen que a veces convivan en
-producción diferenets versiones de los mismos, incluso *major*
+producción diferentes versiones de los mismos, incluso *major*
 versions. Eso hace complicado desarrollar e incluso probar los
 programas que se desarrollan: si el sistema operativo viene con Perl
 5.14, puede que haga falta probar o desarrollar para 5.16 o 5.18 o
-incluso probar 5.19.
+incluso probar la versión más avanzada.
 
 Por eso desde hacer cierto tiempo se han venido usando *entornos
 virtuales de desarrollo* tales como
 [virtualenv para Python](https://virtualenv.pypa.io/en/latest/),
-[nodeenv para node.js](https://pypi.python.org/pypi/nodeenv/)
+[nodeenv para node.js](https://pypi.python.org/pypi/nodeenv/),
 [rbenv para Ruby](https://github.com/sstephenson/rbenv) y
 [perlbrew para Perl](http://perlbrew.pl).
 
@@ -646,7 +646,7 @@ herramienta de línea de órdenes que permite, para empezar, crear
 fácilmente a partir de una plantilla una aplicación básica con las
 características definidas; en ambos casos habrá que descargar una
 aplicación libre para llevar a cabo ciertas tareas como monitorizar el
-status y hacer tests básicos; una vez creado el fuente de la
+estatus y hacer tests básicos; una vez creado el fuente de la
 aplicación el despliegue en la máquina virtual se hace mediante
 `git` tal como hemos contado anteriormente. 
 
@@ -672,10 +672,10 @@ WordPress.
 <div class='nota' markdown='1'>
 
 Este
-[video explica como usar `heroku` para aplicaciones en Ruby](http://www.youtube.com/watch?v=dqAXmratgzE);
+[vídeo explica como usar `heroku` para aplicaciones en Ruby](http://www.youtube.com/watch?v=dqAXmratgzE);
 en
 [este un poco más extenso y hecho por una persona de Heroku](http://www.youtube.com/watch?v=VZgHItD9bAQ)
-te explica cómo usarlo. No hay muchos videos en español, pero en
+te explica cómo usarlo. No hay muchos vídeos en español, pero en
 [este explica cómo crear una aplicación Django y subirla a Heroku](http://www.youtube.com/watch?v=3k2eg0stnCI)
 
 </div>
