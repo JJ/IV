@@ -28,7 +28,7 @@ POST_COMMIT {
       $file_content =~ s/\.md\)/\)/g; # Change links
 
       if ( $f ne 'README.md' ) {
-	  my ($breadcrumb) = /<!--@(.+)-->/gs;
+	  my ($breadcrumb) = ($file_content =~ /<!--@(.+)-->/gs);
 	  $file_content = $layout_preffix."$breadcrumb\n---\n".$file_content;
 	  write_file($f, $file_content);
 	  $git->command('add', $f );
