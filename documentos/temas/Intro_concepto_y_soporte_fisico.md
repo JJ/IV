@@ -3,8 +3,8 @@ layout: index
 
 
 next: Tecnicas_de_virtualizacion
-
 ---
+
 Introducción a la infraestructura virtual: concepto y soporte físico
 ==
 
@@ -14,8 +14,10 @@ next: Tecnicas_de_virtualizacion
 
 <div class="objetivos" markdown="1">
 
-<h2>Objetivos</h2>
+##Objetivos 
 
+
+### Cubre los siguientes objetivos de la asignatura
 
 1. Conocer la historia de la Computación Virtual, sus orígenes y
 razones de su existencia.
@@ -26,6 +28,8 @@ tanto de software como de hardware y ponerlos en práctica.
 3. Comprender la diferencia entre infraestructura virtual y real. 
 
 4. Justificar la necesidad de procesamiento virtual frente a real en el contexto de una infraestructura TIC de una organización.
+
+### Objetivos específicos
 
 5. Conocer diferentes tecnologías relacionadas con la virtualización
 (Computación nube, *Utility Computing*, *Software as a Service* o Google
@@ -51,19 +55,18 @@ Introducción
 ------------------
 
 En general y en informática, un recurso [virtual](http://en.wikipedia.org/wiki/Virtualization) es un recurso
-*irreal*, es decir, un recurso que no se corresponde exactamente con
-un recursos físico. Así, *memoria virtual* es la memoria que, en
+*irreal*, es decir, un recurso que no tiene equivalente físico directo. Así, *memoria virtual* es la memoria que, en
 realidad, está almacenada en parte en un disco o *realidad virtual* es
 un entorno inmersivo generado por ordenador que imita a la realidad
-(al menos en la inmersión). Una infraestructura virtual será un
-recurso -procesador, memoria, disco, aplicación- que no corresponde
+(al menos en que se puede situar uno *dentro* de ella). Una infraestructura virtual será un
+recurso -procesador, memoria, disco, conjunto de aplicaciones o incluso una sola aplicación- que no corresponde
 exactamente a su equivalente real (no tiene un procesador físico, o un
 disco físico exclusivo) sino que se ha creado a través de una serie de
 mecanismos computacionales para funcionar como tal.
 
-Una *nube* o *recurso en la nube* es un recurso al que se puede
+A partir de esto, un *recurso en la nube* es aquel al que se puede
 acceder *bajo demanda*, que es *escalable* y que, desde el punto de
-vista del usuario, se *facturable según uso*, no por acceso.
+vista del usuario, se *facturable según uso*, no por el hecho de tener acceso.
 
 El [origen
   de la palabra](http://en.wikipedia.org/wiki/Cloud_computing#Origin_of_the_term) viene de la tradicional representación de recursos
