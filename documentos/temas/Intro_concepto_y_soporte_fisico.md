@@ -7,8 +7,10 @@ next: Tecnicas_de_virtualizacion
 
 <div class="objetivos" markdown="1">
 
-<h2>Objetivos</h2>
+##Objetivos 
 
+
+### Cubre los siguientes objetivos de la asignatura
 
 1. Conocer la historia de la Computación Virtual, sus orígenes y
 razones de su existencia.
@@ -20,12 +22,16 @@ tanto de software como de hardware y ponerlos en práctica.
 
 4. Justificar la necesidad de procesamiento virtual frente a real en el contexto de una infraestructura TIC de una organización.
 
+### Objetivos específicos
+
 5. Conocer diferentes tecnologías relacionadas con la virtualización
 (Computación nube, *Utility Computing*, *Software as a Service* o Google
 AppSpot) 
 
 6. Conocer el concepto de software libre y su importancia dentro de la
 computación nube.
+
+6. Entender el concepto de *DevOps* y las técnicas y tecnologías que cubre. 
 
 7. Usar el sistema de control de fuentes `git`para desarrollo
 colaborativo y para despliegue de aplicaciones en la nube.
@@ -36,7 +42,7 @@ colaborativo y para despliegue de aplicaciones en la nube.
 <div class="nota" markdown="1">
 
 Se puede consultar
-[esta presentación para tener una visión general sobre los servicios en la nube](http://jj.github.io/cloud-computing/#/step-1)
+[esta presentación para tener una visión general sobre los servicios en la nube](http://jj.github.io/cloud-computing/)
 
 </div>
 
@@ -44,19 +50,18 @@ Introducción
 ------------------
 
 En general y en informática, un recurso [virtual](http://en.wikipedia.org/wiki/Virtualization) es un recurso
-*irreal*, es decir, un recurso que no se corresponde exactamente con
-un recursos físico. Así, *memoria virtual* es la memoria que, en
+*irreal*, es decir, un recurso que no tiene equivalente físico directo. Así, *memoria virtual* es la memoria que, en
 realidad, está almacenada en parte en un disco o *realidad virtual* es
 un entorno inmersivo generado por ordenador que imita a la realidad
-(al menos en la inmersión). Una infraestructura virtual será un
-recurso -procesador, memoria, disco, aplicación- que no corresponde
+(al menos en que se puede situar uno *dentro* de ella). Una infraestructura virtual será un
+recurso -procesador, memoria, disco, conjunto de aplicaciones o incluso una sola aplicación- que no corresponde
 exactamente a su equivalente real (no tiene un procesador físico, o un
 disco físico exclusivo) sino que se ha creado a través de una serie de
 mecanismos computacionales para funcionar como tal.
 
-Una *nube* o *recurso en la nube* es un recurso al que se puede
+A partir de esto, un *recurso en la nube* es aquel al que se puede
 acceder *bajo demanda*, que es *escalable* y que, desde el punto de
-vista dle usuario, se *facturable según uso*, no por acceso.
+vista del usuario, se *facturable según uso*, no por el hecho de tener acceso.
 
 El [origen
   de la palabra](http://en.wikipedia.org/wiki/Cloud_computing#Origin_of_the_term) viene de la tradicional representación de recursos
@@ -68,6 +73,52 @@ un ordenador tipo servidor y calcular su coste de amortización a
 cuatro y siete años. Consultar
 [este artículo en Infoautónomos sobre el tema](http://www.infoautonomos.com/consultas-a-la-comunidad/988/). 
 </div>
+
+Desde el punto de vista del desarrollo, la creación y gestión de
+infraestructuras virtuales entra dentro del concepto de
+[*DevOps*](http://en.wikipedia.org/wiki/DevOps), un concepto que
+abarca tanto sistemas como desarrollo y que está a caballo de
+ambos. En primer lugar, *DevOps* implica la automatizació de las
+tareas de creación de un puesto de trabajo para desarrollo, pero
+también la sistematización de pruebas, de despliegue y de las tareas
+de configuración relacionadas con la misma, todo ello en un entorno de
+desarrollo ágil. En concreto, *DevOps* comprende
+[los 7 aspectos siguientes, vistos en la página de una herramienta, Rex, usada para ello](http://www.rexify.org/):
+
+1. Automatización de tareas relacionadas con el desarrollo. En
+   resumen, que no haya que recordar comandos para hacer todo tipo de
+   cosas (instalación de librerías o configuración de una máquina)
+   sino que haya *scripts* que lo homogeneicen y automaticen.
+
+2. Virtualización: uso de recursos virtuales para almacenamiento,
+   publicación y, en general, todos los pasos del desarrollo y
+   despliegue de software.
+
+5. Provisionamiento de los servidores: los servidores virtuales a los
+   que se despliegue deben estar preparados con todas las herramientas
+   necesarias para publicar la aplicación.
+
+6. Gestión de configuraciones: la gestión de las configuraciones de
+   los servidores y las órdenes para provisionamiento deben estar
+   controladas por un sistema de gestión de versiones que permita
+   pruebas y también controlar en cada momento el entorno en el que
+   efectivamente se está ejecutando el software.
+
+3. Despliegue en la nube: publicación de aplicaciones en servidores
+   virtuales.
+
+
+4. [Ciclo de vida del software](http://es.slideshare.net/colmbennett/software-rollout)
+   definición de las diferentes fases en la vida de una aplicación,
+   desde el diseño hasta el soporte.
+
+7. Despliegue continuo: el ciclo de vida de una aplicación debe ir
+   ligado a ciclos de desarrollo ágiles en los que cada nueva
+   característica se introduzca tan pronto esté lista y probada; el
+   despliegue continuo implica integración continua de las nuevas
+   características y arreglos, tanto en el software como el hardware. 
+
+
 
 Tecnologías de virtualización: un poco de historia
 ---
@@ -157,7 +208,7 @@ que tienen todas el mismo objetivo: crear recursos que, desde el punto
 de vista de un programa, sean exclusivos. Cada una de las tecnologías
 necesita una aplicación determinada para usarse y, en muchos casos,
 soporte a nivel de hardware. En todo caso, el sistema operativo o
-aplicación que ejecuta las operaciones necesarias para virtualizr se
+aplicación que ejecuta las operaciones necesarias para virtualizar se
 denomina *anfitrión* y el que se ejecuta *dentro* de la máquina
 virtual *invitado*. 
 
@@ -214,7 +265,7 @@ aplicación en diferentes versiones con una sola orden. `virtualenv`, `perlbrew`
 para diferentes lenguajes. 
 
 <div class='ejercicios' markdown="1">
-1. [¿Qué tipo de virtualización usarías en cada caso? Comentar en el foro](https://github.com/IV-GII/GII-2013/issues/1)
+1. [¿Qué tipo de virtualización usarías en cada caso? Comentar en el foro](https://github.com/IV-GII/GII-2014/issues/1)
 
 2. Crear un programa simple en cualquier lenguaje interpretado para
 Linux, empaquetarlo con CDE y probarlo en diferentes distribuciones.
@@ -223,7 +274,7 @@ Linux, empaquetarlo con CDE y probarlo en diferentes distribuciones.
 En realidad, la *contenedorización* de aplicaciones puede usar las
 técnicas que se explican en el resto de la asignatura; de hecho, se
 pueden crear *paquetes* que permiten ejecutar una aplicación con todas
-las dependencias necesarias. Por ejemplo, [docker](http://docker.io)
+las dependencias necesarias. Por ejemplo, [docker](http://www.docker.com)
 es una aplicación que permite crear fácilmente aplicaciones
 *contenidas* desde línea de órdenes para su uso en cualquier tipo de
 contenedor, desde simples contenedores Linux hasta máquinas
@@ -231,7 +282,7 @@ virtuales.
 
 <div class='ejercicios' markdown="1">
 Hacer el
-[tutorial de línea de órdenes de docker](https://www.docker.io/gettingstarted/#)
+[tutorial de línea de órdenes de docker](https://www.docker.com/tryit/)
 para comprender cómo funciona.
 
 *Avanzado* Instalarlo y crear una aplicación contenedorizada
@@ -277,14 +328,14 @@ pero a este nivel es suficiente con conocer esto.
 
 <div class='ejercicios' markdown="1">
 1. Crear un proyecto y descargárselo con git. Al crearlo se marca la
-opción de incluir el fichero Readme.
+opción de incluir el fichero `README`.
 2. Modificar el readme y subir el fichero modificado.
 </div>
 
 <div class='nota' markdown='1'>
 
-Este [video de 14 minutos](http://www.youtube.com/watch?v=ygbWIJWe29Y)
-sirve como introducción al uso de git
+Este [vídeo de 14 minutos](http://www.youtube.com/watch?v=ygbWIJWe29Y)
+sirve como introducción al uso de `git`.
 
 </div>
 
@@ -294,8 +345,8 @@ Restricción y medición del uso de recursos: `cgroups`
 
 <div class='nota' markdown='1'>
 
-Este [video de RedHat](http://www.youtube.com/watch?v=KX5QV4LId_c)
-explica cómo y en qué ocasiones usar cgroups para gestionar los
+Este [vídeo de RedHat](http://www.youtube.com/watch?v=KX5QV4LId_c)
+explica cómo y en qué ocasiones se debe usar `cgroups` para gestionar los
 recursos de un servidor
 
 </div>
@@ -390,10 +441,10 @@ CPU:
 
 	echo 512 > /cgroup/buenos/cpu.shares
 	
-Aunque en este caso lo que hemos hecho ha sido aumentarlo del 1024 que
+Aunque en este caso lo que hemos hecho ha sido aumentarlo del valor 1024 que
 se le asigna por defecto. 
 
-Lo más importante es la *contabiliad* que se hace por separado para
+Lo más importante es la *contabilidad* que se hace por separado para
 cada uno de los grupos; los ficheros con el prefijo `cpuacct`nos darán
 información sobre uso; por ejemplo:
 
@@ -419,13 +470,13 @@ correspondientes.
 
 </div>
 
-El paguete `cgroup-bin` (`libcgroup` en ArchLinux, puede variar en
+El paquete `cgroup-bin` (`libcgroup` en ArchLinux, puede variar en
 otras distros) [permite un control por línea de órdenes](https://wiki.archlinux.org/index.php/Cgroups) algo
 más sencillo sin necesidad de trabajar directamente con sistemas de
 ficheros virtuales. Con una serie de órdenes o un fichero de
 configuración en `/etc/cgconfig.conf` [se pueden controlar los
 diferentes grupos de control y limitar y contabilizar el uso de
-recursos por parte de los diferentes procesos](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/) que se hayan asignado en
+recursos por parte de los diferentes procesos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/) que se hayan asignado en
 los grupos.
 
 Los grupos se crean con la orden `cgcreate`:
@@ -466,7 +517,7 @@ más prioridad en la CPU o entrada/salida a unos usuarios que a otros.
 
 <div class='ejercicios' markdown="1">
 1. [Discutir diferentes escenarios de limitación de uso de recursos o
-de asignación de los mismos a una u otra CPU](https://github.com/IV-GII/GII-2013/issues/4).
+de asignación de los mismos a una u otra CPU](https://github.com/IV-GII/GII-2014/issues/4).
 2. Implementar usando el fichero de configuración de `cgcreate` una
 política que dé menos prioridad a los procesos de usuario que a los
 procesos del sistema (o viceversa).
@@ -503,7 +554,7 @@ particular. Para hacerlo se usa este comando en Linux:
 	
 `/proc/cpuinfo` es el fichero del sistema de ficheros virtual `/proc`
 que da acceso mediante "ficheros" a las estructuras de datos del
-núcleo de linux; `cpuinfo` lista las características de la CPU y `vmx`
+núcleo de Linux; `cpuinfo` lista las características de la CPU y `vmx`
 es el *flag* que se usa para indicar que el procesador usa esta
 tecnología; `smd` es el *flag* para AMD-V. `egrep` busca líneas de un
 fichero que contengan la expresión regular indicada, y si aparecen los
@@ -532,7 +583,7 @@ Esta infraestructura en Linux se llama
 (aunque también se ha usado en otros sistemas operativos). Este
 dispositivo se encarga de gestionar la aplicación de memoria del
 invitado al anfitrión, crear los dispositivos virtuales de entrada
-salida y presentar la salida de video del invitado en el anfitrión. En
+salida y presentar la salida de vídeo del invitado en el anfitrión. En
 realidad, KVM tampoco se usa directamente en general (aunque es una
 parte del núcleo con sus características como cualquier otra) sino que
 lo habitual es que se use a través de hipervisores tales como
@@ -560,7 +611,7 @@ servidor. Aunque el desarrollo de las mismas tiene técnicas propias y
 el objetivo de la asignatura es crear una aplicación que se pueda
 vender como un SaaS, el principal foco de la asignatura será los dos
 primeros niveles: Infraestructura como Servicio y Plataforma como
-Servicio. La mayoría de los temas estánd dedicados a la creación,
+Servicio. La mayoría de los temas están dedicados a la creación,
 diseño y mantenimiento de IaaS, por lo que dedicaremos especial
 atención en este tema al nivel PaaS.
 
@@ -574,25 +625,32 @@ desplegar en el mismo nuestras propias aplicaciones.
 <div class='ejercicios' markdown="1">
 
 [Comentar diferentes soluciones de *Software as a Service* de uso
-habitual.](https://github.com/IV-GII/GII-2013/issues/11)
+habitual. TODO](https://github.com/IV-GII/GII-2014/)
 
 </div>
 
 Entornos virtuales de desarrollo
 ---
 
-Los lenguajes de scripting tales como Perl, Python y Ruby tienen
+Una de las partes esenciales del *DevOps* es primero la gestión de
+configuraciones y luego la automatización. El uso de entornos
+virtuales cubre las dos necesidades: te permite decidir exactamente
+qué versión del lenguaje se va a usar y también automatizar la tarea
+de instalación del mismo mediante el uso de una sola orden que
+seleccione la versión precisa que se va a usar. 
+
+Y estos entornos virtuales vienen del hedo de que los lenguajes de scripting tales como Perl, Python y Ruby tienen
 ciclos de desarrollo muy rápidos que hacen que a veces convivan en
-producción diferenets versiones de los mismos, incluso *major*
+producción diferentes versiones de los mismos, incluso *major*
 versions. Eso hace complicado desarrollar e incluso probar los
 programas que se desarrollan: si el sistema operativo viene con Perl
 5.14, puede que haga falta probar o desarrollar para 5.16 o 5.18 o
-incluso probar 5.19.
+incluso probar la versión más avanzada.
 
 Por eso desde hacer cierto tiempo se han venido usando *entornos
 virtuales de desarrollo* tales como
-[virtualenv para Python](http://www.virtualenv.org/en/latest/),
-[nodeenv para node.js](https://pypi.python.org/pypi/nodeenv/)
+[virtualenv para Python](https://virtualenv.pypa.io/en/latest/),
+[nodeenv para node.js](https://pypi.python.org/pypi/nodeenv/),
 [rbenv para Ruby](https://github.com/sstephenson/rbenv) y
 [perlbrew para Perl](http://perlbrew.pl).
 
@@ -623,8 +681,8 @@ aplicaciones REST.
 Los servicios PaaS son específicos (sólo alojan una solución
 determinada, como [CloudAnt](https://cloudant.com/) que aloja una base
 de datos con CouchDB o genéricos, permitiendo una serie de soluciones
-en general relativamente limitada; [Heroku](http://heroku.com) y
-[OpenShift](http://openshift.com) están entre estos últimos. 
+en general relativamente limitada; [Heroku](http://www.heroku.com) y
+[OpenShift](http://www.openshift.com) están entre estos últimos. 
 
 <div class='ejercicios' markdown="1">
 
@@ -646,7 +704,7 @@ herramienta de línea de órdenes que permite, para empezar, crear
 fácilmente a partir de una plantilla una aplicación básica con las
 características definidas; en ambos casos habrá que descargar una
 aplicación libre para llevar a cabo ciertas tareas como monitorizar el
-status y hacer tests básicos; una vez creado el fuente de la
+estatus y hacer tests básicos; una vez creado el fuente de la
 aplicación el despliegue en la máquina virtual se hace mediante
 `git` tal como hemos contado anteriormente. 
 
@@ -672,10 +730,10 @@ WordPress.
 <div class='nota' markdown='1'>
 
 Este
-[video explica como usar `heroku` para aplicaciones en Ruby](http://www.youtube.com/watch?v=dqAXmratgzE);
+[vídeo explica como usar `heroku` para aplicaciones en Ruby](http://www.youtube.com/watch?v=dqAXmratgzE);
 en
 [este un poco más extenso y hecho por una persona de Heroku](http://www.youtube.com/watch?v=VZgHItD9bAQ)
-te explica cómo usarlo. No hay muchos videos en español, pero en
+te explica cómo usarlo. No hay muchos vídeos en español, pero en
 [este explica cómo crear una aplicación Django y subirla a Heroku](http://www.youtube.com/watch?v=3k2eg0stnCI)
 
 </div>
