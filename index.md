@@ -1,7 +1,8 @@
 ---
 layout: index
----
 
+
+---
 Material docente para Infraestructura Virtual
 ==
 
@@ -13,7 +14,15 @@ La asignatura se imparte en el curso 2013-2014 los lunes de 9:30 a
 11:30 en la 3.2 y los martes de 10:30 a 12:30 en la 1.5. Se usará
 [GitHub](http://github.com) para las prácticas y trabajo final.
 
-Estos son los [objetivos de la asignatura](documentos/objetivos). 
+Estos son los [objetivos de la asignatura](documentos/objetivos).
+
+En resumen, mi intención es que el alumno, al final de la asignatura, sea capaz de hacer lo siguiente:
+
+1. Definir el entorno de trabajo para desarrollo de una aplicación en particular y usarlo en PaaS.
+2. Usar ese entorno para configurar integración continua en una aplicación.
+3. Sea capaz de crear un entorno virtual para desarrollar y alojar la aplicación y comprenda el soporte físico de las técnicas usadas para crear tal entorno virtual.
+4. Entienda las técnicas de configuración automática de entornos virtuales y las sepa aplicar en los entornos anteriores.
+5. Use lo aprendido para despliegue masivo de aplicaciones en la nube. 
 
 Temario - Programa de la asignatura
 ------------------------------------------------------
