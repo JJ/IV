@@ -272,7 +272,7 @@ aplicación en diferentes versiones con una sola orden. `virtualenv`, `perlbrew`
 para diferentes lenguajes. 
 
 <div class='ejercicios' markdown="1">
-1. [¿Qué tipo de virtualización usarías en cada caso? Comentar en el foro](https://github.com/IV-GII/GII-2014/issues/1)
+1. [¿Qué tipo de virtualización usarías en cada caso? Comentar en el foro](https://github.com/JJ/GII-2014/issues/71)
 
 2. Crear un programa simple en cualquier lenguaje interpretado para
 Linux, empaquetarlo con CDE y probarlo en diferentes distribuciones.
