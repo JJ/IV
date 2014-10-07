@@ -562,7 +562,7 @@ fichero que contengan la expresión regular indicada, y si aparecen los
 el procesador no tiene esa funcionalidad o está desactivada.
 
 <div class='ejercicios' markdown="1">
-Comprobar si el procesador o procesadores instalados lo tienen. ¿Qué
+Comprobar si el procesador o procesadores instalados tienen estos *flags*. ¿Qué
 modelo de procesador es? ¿Qué aparece como salida de esa orden?
 </div>
 
@@ -625,7 +625,7 @@ desplegar en el mismo nuestras propias aplicaciones.
 <div class='ejercicios' markdown="1">
 
 [Comentar diferentes soluciones de *Software as a Service* de uso
-habitual. TODO](https://github.com/IV-GII/GII-2014/)
+habitual](https://github.com/JJ/GII-2014/issues/72)
 
 </div>
 

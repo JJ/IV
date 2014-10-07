@@ -8,6 +8,10 @@ infraestructuras virtuales y uso de Platform/Software as a service. El
 objetivo del proyecto es crear un producto mínimamente viable que siga
 sea de uno de los dos tipos descritos a continuación.
 
+En años anteriores se hicieron las siguientes
+[propuestas](propuestas.md). Cada año se irán poniendo las propuestas
+en el repositorio correspondiente. 
+
 En ese sentido, habrá dos tipos de proyectos
 
 ## Proyectos en la nube
@@ -37,4 +41,16 @@ partes
   desplegar la aplicación, incluyendo monitorización de la misma.
 * Configuración de las herramientas de despliegue necesarias para
   automatizar el despliegue de la aplicación usando una sola orden en
-  los ordenadores o sistemas, especialmente nube, en los que se use. 
+  los ordenadores o sistemas, especialmente nube, en los que se use.
+
+## Hitos del proyecto
+
+Los hitos del proyecto corresponderán a las prácticas de la asignatura
+y se listarán a continuación. 
+
+## Concluyendo
+
+Cualquier proyecto que se presente, de los ofertados un año o de los
+que alguna persona proponga, podrán seguir la temática que deseen,
+pero la parte evaluable *en esta asignatura* será la que se haga
+dentro de los dos tipos anteriores.
