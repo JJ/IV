@@ -628,6 +628,14 @@ configurar y usar según necesidad, un PaaS contiene infraestructura y
 una *pila de soluciones* o *solution stack* completa que permita
 desplegar en el mismo nuestras propias aplicaciones.
 
+En realidad, pocos vendedores ofrecen simples *IaaS*. Lo más normal es
+que permitan usarlos a ese nivel, pero a la vez tengan un sistema
+fácil para añadir funcionalidad y combinarla en una pila completa de
+soluciones que incluya el sistema de almacenamiento de datos y el
+marco web de aplicaciones, junto con sistemas de monitorización y de
+análisis de las peticiones. Es difícil hoy en día (año 2014) encontrar un IaaS
+simple, de hecho. 
+
 
 <div class='ejercicios' markdown="1">
 
@@ -685,7 +693,7 @@ muchos, por ejemplo, en torno a [node.js](http://nodejs.org), un
 intérprete de JavaScript asíncrono que permite crear fácilmente
 aplicaciones REST.
 
-Los servicios PaaS son específicos (sólo alojan una solución
+Algunos servicios PaaS son específicos (sólo alojan una solución
 determinada, como [CloudAnt](https://cloudant.com/) que aloja una base
 de datos con CouchDB o genéricos, permitiendo una serie de soluciones
 en general relativamente limitada; [Heroku](http://www.heroku.com) y
@@ -693,7 +701,7 @@ en general relativamente limitada; [Heroku](http://www.heroku.com) y
 
 <div class='ejercicios' markdown="1">
 
-Darse de alta en algún servicio PaaS tal como Heroku, Nodejitsu u OpenShift.
+Darse de alta en algún servicio PaaS tal como Heroku, [Nodejitsu](https://www.nodejitsu.com/) u OpenShift.
 
 </div>
 
