@@ -642,5 +642,5 @@ A dónde ir desde aquí
 -----
 
 En el [siguiente tema](PaaS.md) veremos como usar sistemas de plataforma como servicio. Previamente habrá que [realizar la
-práctica correspondiente a esta materia](../practicas/1.PaaS.md). 
+práctica correspondiente a esta materia](../practicas/1.Infraestructura.md). 
 
