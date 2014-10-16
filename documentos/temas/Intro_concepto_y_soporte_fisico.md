@@ -360,7 +360,7 @@ esto se consigue usando los denominados
 un mecanismo que se implantó por primera vez a principios de los años
 90.
 
-`cgroups` usan un mecanismo común a todos los Linux denominado
+Los [`cgroups`](http://kaivanov.blogspot.com.es/2012/07/setting-up-linux-cgroups-control-groups.html) usan un mecanismo común a todos los Linux denominado
 sistemas de ficheros virtuales, igual que el sistema `/proc` presente
 en todos. En este caso, los que tienen soporte a nivel de kernel
 permiten crear un sistema de ficheros en `/cgroups` o en
@@ -378,7 +378,15 @@ o
 		
 dependiendo de donde esté configurado.
 
-Un listado de ese directorio arrojará algo como esto
+> En Ubuntu 14.04, por ejemplo, se monta por defecto y está en
+> `/sys/fs/cgroup`. Si no, se puede instalar `cgroup-lite` para
+> instalarlos cuando se arranque el sistema. 
+
+<div class='ejercicios' markdown="1">
+Comprobar si en la instalación hecha se ha instalado cgroups y en qué punto está montado, así como qué contiene. 
+</div>
+
+Dependiendo de cómo esté configurado, puede contener algo como esto
 
 	blkio.io_merged                   cpuset.memory_pressure
 	blkio.io_queued                   cpuset.memory_pressure_enabled
@@ -388,9 +396,20 @@ Un listado de ese directorio arrojará algo como esto
 	
 con diferentes ficheros, unos de lectura y escritura y otros de
 lectura, que permiten controlar y monitorizar la actividad de los
-diferentes grupos de control.
+diferentes grupos de control. O bien un simple `systemd` o
 
-Crear un *grupo de control* es tan simple como crear un subdirectorio
+```
+blkio  cpuacct  devices  hugetlb  perf_event
+cpu    cpuset   freezer  memory   systemd
+```
+
+en caso de que `cgroup-lite` se haya instalado y esté funcionando. 
+
+> *Aviso*: lo siguiente puede que no funcione, dependiendo de la
+> configuración. Si se ha configurado con cgroup-lite no va a
+> funcionar y sólo se podrán crear grupos dentro de directorios determinados. 
+
+Dependiendo de la configuración que se haya creado, crear un *grupo de control* es tan simple como crear un subdirectorio
 
 	mkdir /cgroup/buenos
 
@@ -456,6 +475,39 @@ devolverá un valor similar a
 
 que nos dará una idea del uso de cada grupo en particular y nos
 permitirá comparar entre un grupo y otro.
+
+En el caso en que cgroups viniera ya configurado en el sistema
+operativo, se puede trabajar de forma similar, pero limitando recursos
+específicos, por ejemplo, CPU, de esta forma
+
+```
+root@penny:/sys/fs/cgroup/cpu# mkdir alto
+root@penny:/sys/fs/cgroup/cpu# mkdir bajo
+root@penny:/sys/fs/cgroup/cpu# ls alto/
+cgroup.clone_children  cpu.cfs_period_us  cpu.stat
+cgroup.event_control   cpu.cfs_quota_us   notify_on_release
+cgroup.procs           cpu.shares         tasks
+```
+
+Dentro de este directorio se pueden asignar [diferentes procesadores
+mediante `cgroup.procs` o tareas específicas a uno u otro
+grupo](http://kaivanov.blogspot.com.es/2012/07/setting-up-linux-cgroups-control-groups.html). Instalar
+`cgroup-bin` te proporciona diferentes utilidades, como `lscgroup` o
+`cgcreate` que te crea grupos con el mismo nombre en todos los
+controladores que desees:
+
+```
+root@penny:/sys/fs/cgroup# cgcreate -g cpu,cpuacct:/good
+root@penny:/sys/fs/cgroup# find . -name good
+./cpuacct/good
+./cpu/good
+```
+
+Esto se puede usar, entre otras cosas, para medir uso de recursos por
+parte de diferentes usuarios o grupos de aplicaciones. Por supuesto,
+también para aislar recursos y, por tanto, crear infraestructuras
+virtuales, pero esto se verá más adelante.
+
 
 <div class='ejercicios' markdown="1">
 
