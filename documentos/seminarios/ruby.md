@@ -123,7 +123,7 @@ Pero Ruby es un lenguaje orientado a objetos, o más bien empotrado
 
  Lo que consigue este program es escribir una cadena centrada en
  una línea de 20 caracteres y rodeada por dos guiones
-  (`--`). `&lt;&lt;` es el operador de 
+  (`--`). `<<` es el operador de 
  concatenación, que pega una cadena a la siguiente. Pero la 
  parte orientada a objetos está alrededor del 
     `.` .`center` es un método de la 
