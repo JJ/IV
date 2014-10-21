@@ -1,4 +1,4 @@
-Creando aplicaciones en la nube: Uso de PaaS
+Creando aplicaciones en la nube: Uso de PaaS y SaaS
 ==
 
 <!--@
@@ -137,6 +137,50 @@ te explica cómo usarlo. No hay muchos vídeos en español, pero en
 [este explica cómo crear una aplicación Django y subirla a Heroku](http://www.youtube.com/watch?v=3k2eg0stnCI)
 
 </div>
+
+Creando aplicaciones en la nube
+-----
+
+Algunos SaaS como Google Drive o, más propiamente, Google Apps,
+permiten crear también aplicaciones que trabajen con los datos y
+objetos que forman parte del mismo. Todos estos sistemas suelen
+incluir algún lenguaje de *scripting* y, en general, se suele tratar
+de JavaScript.
+
+> Si no sabes JavaScript, es el momento
+> [de aprenderlo](https://github.com/JJ/curso-js). Tras más de 15 años
+> de existencia, JS se ha convertido en un lenguaje emergente e
+> imprescindible para un *full stack programmer*. En particular, es el
+> lenguaje que se usa para trabajar con aplicaciones en la nube.
+
+El nivel de control que tiene uno sobre las aplicaciones es bastante
+variado. Se puede desde usar Google Drive como un PaaS para alojar
+aplicaciones hasta simplemente añadir pequeños *scripts* que lleven a
+cabo alguna labor como [cambiar el interfaz de usuario o añadir
+funcionalidad a alguna aplicación de Google Drive](https://developers.google.com/apps-script/overview).
+
+Crear un *script* para Google Drive es similar a hacer una macro para
+una aplicación. Se hace de la forma siguiente
+
+1. Ir a Herramientas -> Editor de secuencias de comandos. Se abre un
+   entorno de desarrollo para *scripts* en el que ya está prerrellena
+   la función que la añade al menú y a la que se llama.
+
+2. Se edita la función, se guarda y se publica.
+3. Se vuelve a abrir el documento correspondiente. Aparecerá un menú
+   nuevo, *Script Center Menu*, que incluirá un enlace con el nombre
+   de la aplicación.
+4. Cuando se ejecute por primera vez, pedirá que se autorice su uso.
+
+
+<div class='ejercicios' markdown="1">
+
+Crear un *script* para un documento Google y cambiarle el nombre con
+el que aparece en el menú, así como la función a la que llama. 
+
+</div>
+
+
 
 A dónde ir desde aquí
 -----
