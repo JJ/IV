@@ -2,7 +2,7 @@ Técnicas de virtualización
 ==
 
 <!--@
-prev: Intro_concepto_y_soporte_fisico
+prev: PaaS
 next: Contenedores
 -->
 
