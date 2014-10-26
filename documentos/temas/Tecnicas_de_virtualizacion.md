@@ -1,16 +1,16 @@
 ---
 layout: index
 
-prev: Intro_concepto_y_soporte_fisico
-next: Contenedores
 
+prev: PaaS
+next: Contenedores
 ---
 
 Técnicas de virtualización
 ==
 
 <!--@
-prev: Intro_concepto_y_soporte_fisico
+prev: PaaS
 next: Contenedores
 -->
 
