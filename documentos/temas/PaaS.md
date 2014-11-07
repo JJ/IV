@@ -39,7 +39,7 @@ qué versión del lenguaje se va a usar y también automatizar la tarea
 de instalación del mismo mediante el uso de una sola orden que
 seleccione la versión precisa que se va a usar. 
 
-Y estos entornos virtuales vienen del hedo de que los lenguajes de scripting tales como Perl, Python y Ruby tienen
+Y estos entornos virtuales vienen del hecho de que los lenguajes de scripting tales como Perl, Python y Ruby tienen
 ciclos de desarrollo muy rápidos que hacen que a veces convivan en
 producción diferentes versiones de los mismos, incluso *major*
 versions. Eso hace complicado desarrollar e incluso probar los
@@ -281,6 +281,6 @@ A dónde ir desde aquí
 
 En el [siguiente tema](Tecnicas_de_virtualizacion.md) usaremos
 diferentes técnicas de virtualización para la creación de contenedores
-y jaulas que aislan procesos, usuarios y recursos del resto del sistema, creando por tanto máquinas *virtules*. Previamente habrá que [realizar la
+y jaulas que aislan procesos, usuarios y recursos del resto del sistema, creando por tanto máquinas *virtuales*. Previamente habrá que [realizar la
 práctica correspondiente a esta materia](../practicas/2.XaaS.md). 
 
