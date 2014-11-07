@@ -195,6 +195,7 @@ En general, este proceso está [automatizado](http://en.wikipedia.org/wiki/Build
 orden `make` hace ya más de treinta años. `make` automatiza el proceso
 de construcción en un fichero llamado `Makefile` con una sintaxis
 específica que se puede resumir en
+
 * unos *objetivos* que hay que cumplir y que dependen unos de
   otros. Por ejemplo, antes de construir el ejecutable hay que
   construir las librerías.
@@ -257,11 +258,13 @@ que dictan dónde hay que colocar los ficheros y qué salida tienen que
 dar los mismos.
 
 En la práctica, crear tests consiste en
+
 * Escribir una serie de ficheros en un directorio específico (`test` o
   `t`) a veces con una extensión específica (`t` en Perl, por ejemplo)
   que ejecuten las funciones con diferentes entradas y produzcan una
   salida que suele ser OK para una prueba superada y *Not OK* para
   prueba fallida.
+  
 * Uso de algún programa que ejecute todos esos tests y analice las
   salidas, dando un resumen sobre si ha fallado alguna prueba y
   cuantas han fallado. Este programa se llama desde el entorno de
