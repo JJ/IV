@@ -254,16 +254,16 @@ caso de la de Ubuntu; la de Debian sería
 `http://ftp.debian.org/debian/` y en el caso de Guadalinex sería un
 tanto diferente, con diferentes directorios para cada distro, por
 ejemplo `http://ftp.cica.es/Guadalinex/guadalinex-buho/`para Búho, la
-última (aunque ya he probado que no funciona). 
+última (que puede funcionar o no). 
 
 En realidad, `debootstrap` es un conjunto de archivos del shell que
 localizan la descripción de la distro y la descargan, y para hacer eso
 tienen una serie de ficheros con las características de cada distro,
-que en realidad se reducen a unos cuantos ficheros para las distros
+que al final se reducen a unos cuantos ficheros para las distros
 debian y enlaces simbólicos a las mismas. Para cualquier otra distro
 que sea parecida a Debian (por ejemplo, Guadalinex) habrá que buscar
 la más cercana, pero sin garantía de éxito; por ello no se trata de
-una herramienta universal, ni siquiera para todas las *debian-like*
+una herramienta universal, ni siquiera para todas las *debian-like*.
 
 Otras distros tienen herramientas similares, adaptadas a sus
 características y sistemas de paquetes. Por ejemplo,
@@ -273,17 +273,17 @@ sitio) y, aunque también existe en Fedora `febootstrap` lo más
 flexible es usar
 [`mock`](http://fedoraproject.org/wiki/Projects/Mock), aunque de hecho
 `mock`va un poco más allá pudiendo trabajar directamente con las
-jaulas `chroot`; otro sistema se denomina
+jaulas `chroot`. Otro sistema para Fedora se denomina
 [Rinse](http://www.steve.org.uk/Software/rinse/) y se puede usar, en
 principio, en cualquier distribución basada en RPM y desde cualquier
 distribución tipo Debian. Rinse tiene una línea de órdenes similar a
 `debootstrap`, pero permite instalar sistemas tales como Fedora dentro
 de una distro Debian y siempre que compartan el Kernel, como es
-natural.  
+natural.
 
 <div class='ejercicios' markdown="1">
 
-1. Usar debootstrap (o herramienta similar en otra distro) para crear un
+1. Usar `debootstrap` (o herramienta similar en otra distro) para crear un
 sistema mínimo que se pueda ejecutar más adelante. 
 
 2. Experimentar con la creación de un sistema Fedora dentro de Debian
@@ -291,7 +291,7 @@ usando Rinse.
 
 </div>
 
-Una alternativa a `debootstrap` es
+Incluso dentro del mundo Debian, una alternativa a `debootstrap` es
 [`multistrap`](https://wiki.debian.org/Multistrap), una herramienta de
 Debian mucho más flexible que permite, por ejemplo, mezclar diferentes
 repositorios a la hora de crear una instalación a medida. Para que
