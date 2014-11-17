@@ -109,7 +109,7 @@ nos explican como hacerlo, usando el dispositivo *loopback*
 </div>
 
 El mecanismo de espacios de nombres es diferente al usado en 
-[`cgroups`](Intro:concepto_y_soporte_fisico#restriccin_y_medicin_del_uso_de_recursos_),
+[`cgroups`](Intro_concepto_y_soporte_fisico#restriccin_y_medicin_del_uso_de_recursos_),
 tal como se vio en el tema anterior: teóricamente, un PID dentro de un
 CGROUP es visible a todos los demás procesos; sin embargo, es
 complementario porque mientras que uno aisla la visibilidad o el
@@ -254,36 +254,36 @@ caso de la de Ubuntu; la de Debian sería
 `http://ftp.debian.org/debian/` y en el caso de Guadalinex sería un
 tanto diferente, con diferentes directorios para cada distro, por
 ejemplo `http://ftp.cica.es/Guadalinex/guadalinex-buho/`para Búho, la
-última (aunque ya he probado que no funciona). 
+última (que puede funcionar o no). 
 
 En realidad, `debootstrap` es un conjunto de archivos del shell que
 localizan la descripción de la distro y la descargan, y para hacer eso
 tienen una serie de ficheros con las características de cada distro,
-que en realidad se reducen a unos cuantos ficheros para las distros
+que al final se reducen a unos cuantos ficheros para las distros
 debian y enlaces simbólicos a las mismas. Para cualquier otra distro
 que sea parecida a Debian (por ejemplo, Guadalinex) habrá que buscar
 la más cercana, pero sin garantía de éxito; por ello no se trata de
-una herramienta universal, ni siquiera para todas las *debian-like*
+una herramienta universal, ni siquiera para todas las *debian-like*.
 
 Otras distros tienen herramientas similares, adaptadas a sus
 características y sistemas de paquetes. Por ejemplo,
-[`urpmi` se puede usar en Mandriva](http://wiki.mandriva.com/en/Development/Howto/Chroot)
+[`urpmi` se puede usar en Mandriva](http://ext4.wordpress.com/2010/01/08/manual-de-urpmi-para-mandriva/)
 (aunque es más bien un sistema para instalar paquetes en cualquier
 sitio) y, aunque también existe en Fedora `febootstrap` lo más
 flexible es usar
 [`mock`](http://fedoraproject.org/wiki/Projects/Mock), aunque de hecho
 `mock`va un poco más allá pudiendo trabajar directamente con las
-jaulas `chroot`; otro sistema se denomina
+jaulas `chroot`. Otro sistema para Fedora se denomina
 [Rinse](http://www.steve.org.uk/Software/rinse/) y se puede usar, en
 principio, en cualquier distribución basada en RPM y desde cualquier
 distribución tipo Debian. Rinse tiene una línea de órdenes similar a
 `debootstrap`, pero permite instalar sistemas tales como Fedora dentro
 de una distro Debian y siempre que compartan el Kernel, como es
-natural.  
+natural.
 
 <div class='ejercicios' markdown="1">
 
-1. Usar debootstrap (o herramienta similar en otra distro) para crear un
+1. Usar `debootstrap` (o herramienta similar en otra distro) para crear un
 sistema mínimo que se pueda ejecutar más adelante. 
 
 2. Experimentar con la creación de un sistema Fedora dentro de Debian
@@ -291,7 +291,7 @@ usando Rinse.
 
 </div>
 
-Una alternativa a `debootstrap` es
+Incluso dentro del mundo Debian, una alternativa a `debootstrap` es
 [`multistrap`](https://wiki.debian.org/Multistrap), una herramienta de
 Debian mucho más flexible que permite, por ejemplo, mezclar diferentes
 repositorios a la hora de crear una instalación a medida. Para que
@@ -445,7 +445,7 @@ usuarios, no nuevas capacidades.
 <div class='nota' markdown='1'>
 
 En la familia
-[BSD existe Warden](http://wiki.pcbsd.org/index.php/Warden%C2%AE), una
+[BSD existe Warden](http://wiki.pcbsd.org/index.php/Warden), una
 utilidad con interfaz gráfico que permite crear jaulas tanto BSD como
 Linux; con la limitación, por supuesto, de que la versión Linux tenga
 el mismo núcleo.
@@ -490,7 +490,7 @@ las dependencias pertinentes. A estos alias se le denominan
 configuración. 
 
 Esta jaula se puede usar directamente con `chroot`, pero [jailkit
-también permite *enjaular* usuarios](http://www.binarytides.com/setup-a-jail-shell-with-jailkit-on-ubuntu/). Tras
+también permite *enjaular* usuarios](http://www.binarytides.com/setup-jailed-shell-jailkit-ubuntu/). Tras
 crear el usuario de la forma habitual
 en Linux
 

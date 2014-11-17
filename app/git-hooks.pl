@@ -27,14 +27,17 @@ POST_COMMIT {
       my $file_content = read_file( $f );
       $file_content =~ s/\.md\)/\)/g; # Change links
 
-      if ( $f ne 'README.md' ) {
+      if ( $f =~ /temas/ ) {
 	  my ($breadcrumb) = ($file_content =~ /<!--@(.+)-->/gs);
 	  $file_content = $layout_preffix."$breadcrumb---\n\n".$file_content;
 	  write_file($f, $file_content);
 	  $git->command('add', $f );
       } else {
+	  if ( $f eq 'README.md' ) {
+	      $f = 'index.md';
+	  }
 	  $file_content = $layout_preffix."\n---\n".$file_content;
-	  write_file('index.md', $file_content );
+	  write_file($f, $file_content );
 	  $git->command('add', 'index.md' );
 	  unlink('README.md');
       }
