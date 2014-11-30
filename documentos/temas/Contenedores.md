@@ -1,9 +1,9 @@
 ---
 layout: index
 
+
 prev: Tecnicas_de_virtualizacion
 next: Almacenamiento
-
 ---
 
 Virtualización *ligera* usando contenedores
@@ -307,12 +307,12 @@ hacen.
 
 Para instalarlo conviene usar la última versión; la que hay en los
 repositorios de algunas versiones de Ubuntu no tiene todas las
-capacidades. Por tanto:
+capacidades (aunque puedes usarla directamente con `sudo apt-get install juju` en Ubuntu 14.04. Por tanto:
 
 	sudo add-apt-repository ppa:juju/stable
 	sudo apt-get update && sudo apt-get install juju-core
 	
-Si has instalado previamente con sudo apt-get install juju te lo
+Si has instalado previamente con `sudo apt-get install juju` te lo
 desinstalará automáticamente. Esto añade un repositorio PPA (creado
 por el desarrollador); actualiza los contenidos del local e instala
 `juju`, que está basado en Python y por tanto instalará un montón de
@@ -349,7 +349,7 @@ instalado, haz
 
 	sudo apt-get install mongodb-server
 	
-MongoDB reserva una gran cantidad de espacio para sus bases de datos, por lo que tendrás que tener bastantes gigas libres para usarlo. 
+MongoDB reserva una gran cantidad de espacio (del orden de 10 gigas) para sus bases de datos, por lo que tendrás que tener bastantes gigas libres para usarlo. 
 	
 </div>
 
@@ -781,7 +781,7 @@ módulo express](http://docs.docker.io/en/latest/examples/nodejs_web_app/).
 
 <div class='ejercicios' markdown='1'>
 
-Crear una imagen con las herramientas necesarias para DAI sobre un
+Crear una imagen con las herramientas necesarias para el proyecto de la asignatura sobre un
 sistema operativo de tu elección. 
 
 </div>
