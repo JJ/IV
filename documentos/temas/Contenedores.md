@@ -773,7 +773,7 @@ módulo express](http://docs.docker.io/en/latest/examples/nodejs_web_app/).
 
 <div class='ejercicios' markdown='1'>
 
-Crear una imagen con las herramientas necesarias para DAI sobre un
+Crear una imagen con las herramientas necesarias para el proyecto de la asignatura sobre un
 sistema operativo de tu elección. 
 
 </div>
