@@ -1,0 +1,19 @@
+user "jjmerelo"; #Ejecutar con rex -p "password" tarea para que lo tome
+pass_auth;
+
+group fiware => "130.206.127.211";
+
+desc "Install git";
+task "git", group => "fiware", sub {
+    run "sudo apt-get install git";
+};
+
+desc "Install docker";
+task "docker", group => "fiware", sub {
+   install "docker";
+};
+
+desc "Install nodejs";
+task "docker", group => "fiware", sub {
+   install "nodejs";
+};
