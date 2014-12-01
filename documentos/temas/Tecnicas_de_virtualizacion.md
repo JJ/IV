@@ -47,15 +47,13 @@ Introducción
 ------------------
 
 Una vez vista la introducción a la infraestructura virtual y algunas
-técnicas usadas por la misma, en este tema pondremos en práctica lo
-anterior trabajando con diferentes técnicas de virtualización a nivel
-de sistema operativo y a nivel de hardware.
+técnicas usadas por la misma, en este tema las pondremos en práctica trabajando con  virtualización a nivel de sistema operativo y a nivel de hardware.
 
 Comenzaremos por aprender a usar *contenedores*, un entorno de
 virtualización a nivel de sistema operativo que permite trabajar con
 muchas de las técnicas habituales en virtualización sin introducir un
 *overhead* excesivo; previamente veremos los mecanismos incluidos en
-el núcleo que permiten construirlos.
+el núcleo del sistema operativo que permiten construirlos.
 
 Espacios de nombres
 -------------------------------
@@ -69,7 +67,7 @@ coincidir con otro existente en otro espacio de nombres, o se puede
 montar un recurso de forma que sea invisible al resto del sistema o
 simplemente tenga un nombre diferente.
 
-Hay seis tipos de *namespaces*, algunso de los cuales son
+Hay seis tipos de *namespaces*, algunos de los cuales son
 relativamente modernos y otros proceden de las versiones 2.4 y 2.6 del
 núcleo:
 
@@ -249,13 +247,13 @@ usa `debootstrap`.
 
 Una vez instalado, se puede usar de esta forma
 	
-		sudo debootstrap --arch=amd64 quantal /home/jaulas/quantal/	http://archive.ubuntu.com/ubuntu
+		sudo debootstrap --arch=amd64 saucy /home/jaulas/saucy/	http://archive.ubuntu.com/ubuntu
 
 La primera parte indica el tipo de arquitectura que se va a usar. Una
 de las ventajas que tiene `debootstrap` es que puedes crear
 instalaciones de 32 bits (`arch=i386`) dentro de un anfitrión de 64
 bits (al revés, no, claro). El segundo argumento es el nombre de la
-distro que se va a buscar en el repositorio, en este caso Quantal Quetzal. A continuación, el
+distro que se va a buscar en el repositorio, en este caso Saucy Salamander. A continuación, el
 directorio en el que lo vamos a instalar, que habremos creado
 previamente, y finalmente la dirección del repositorio, que en este
 caso de la de Ubuntu; la de Debian sería
@@ -431,9 +429,9 @@ más de la cuenta, pero es más o menos completo.
 Lo primero que hay que hacer es crear una definición para cada uno de
 los entornos en el fichero `/etc/schroot/schroot.conf` tal como esta:
 
-	[quantal]
-	description=Quantal Quetzal (Ubuntu)
-	location=/home/jaulas/quantal
+	[saucy]
+	description=Saucy Lagartija (Ubuntu)
+	location=/home/jaulas/saucy
 	type=directory
 	users=jmerelo
 	root-groups=root
@@ -443,7 +441,7 @@ los entornos en el fichero `/etc/schroot/schroot.conf` tal como esta:
 	run-exec-scripts=true
 	
 [Esta configuración](https://wiki.debian.org/Schroot) define un
-entorno llamado `quantal` con alias `ubuntu1210` que está en el
+entorno llamado `saucy` con alias `ubuntu1210` que está en el
 directorio que se indica y que puede ser usado, aparte de por el
 superusuario, por el usuario
 jmerelo. [Las opciones completas están en la página de manual](http://manpages.ubuntu.com/manpages/maverick/en/man1/schroot.1.html),
