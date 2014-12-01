@@ -61,7 +61,7 @@ coincidir con otro existente en otro espacio de nombres, o se puede
 montar un recurso de forma que sea invisible al resto del sistema o
 simplemente tenga un nombre diferente.
 
-Hay seis tipos de *namespaces*, algunso de los cuales son
+Hay seis tipos de *namespaces*, algunos de los cuales son
 relativamente modernos y otros proceden de las versiones 2.4 y 2.6 del
 núcleo:
 
