@@ -500,7 +500,7 @@ carga.
 <div class='nota' markdown='1'>
 
  [Estas instrucciones](http://svealiden.se/Ceph.html) muestran
-paso a paso como montar CPH en un solo sistema; también
+paso a paso como montar `ceph` en un solo sistema; también
 [una forma alternativa de hacerlo usando las nuevas órdenes](http://svealiden.se/Ceph.html#installnew)
 (aunque la verdad es que no resultan mucho más comprensibles que las
 *clásicas*. Si te animas, puedes seguir
@@ -510,11 +510,10 @@ el sitio oficial de ceph, o
 aunque usan autenticación que aquí no estamos usando (pero hará falta
 en una instalación seria).
 
-
 </div>
 
 Ahora podemos manipular este sistema de ficheros, una vez montado,
-usando diferentes programas o bien una orden llamada `rados` (Reliable
+usando diferentes aplicaciones o bien una orden llamada `rados` (Reliable
 Autonomic Distributed Object Storage). `rados` conecta a la
 configuración que tentamos funcionando en ese momento, con lo que no
 hace falta indicarle los monitores y todas esas cosas. Tal como se ha
@@ -582,7 +581,7 @@ En [Microsoft Azure](http://azure.com), por ejemplo,
 que estará asociada a la cuenta general que se use en el resto de
 Azure. La cuenta se activa en una zona geográfica determinada, lo que
 dependerá de nuestras preferencias o de las disposiciones legales al
-respecto.
+respecto. Se pueden obtener cuentas gratuitas de Azure siempre que no exceda un uso determinado. 
 
 <div class='nota' markdown='1'>
 
