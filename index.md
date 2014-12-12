@@ -56,7 +56,7 @@ Prácticas - Actividades académicas dirigidas
 Las prácticas consisten en la realización de un proyecto a lo largo de la asignatura, con diferentes hitos que correspondan a los objetivos cumplidos hasta ese momento. Los proyectos [siguen dos tipos de perfiles: PaaS/SaaS y DevOps](documentos/practicas/README). A grosso modo, los hitos se organizarán de la forma siguiente.
 
 1. [Organización de los grupos de práctica y creación del proyecto](documentos/practicas/1.Infraestructura)
-2. Introducción a la computación virtual: [Platform as a Service](documentos/practicas/1.PaaS).
+2. Introducción a la computación virtual: [Platform as a Service](documentos/practicas/2.XaaS).
 2. Técnicas de virtualización [Contenedores para pruebas](documentos/practicas/3.Contenedores).
 3. Diseño de sistemas usando [CPU y almacenamiento virtuales](documentos/practicas/3.MV).
 4. [Virtualización de aplicaciones.](documentos/practicas/4.Aplicaciones).
