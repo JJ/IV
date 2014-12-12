@@ -67,7 +67,7 @@ Objetivos
  Cada disco, partición o LUN constituye un volumen físico que tiene
  una serie de bloques llamados *physical extents* (PEs, extensiones
  físicas) y se puede combinar en un [*physical volume group* (PVG,
- grupo de volúmenes físicos)](http://h30499.www3.hp.com/t5/LVM-and-VxVM/what-is-PVG-Physical-Volume-Group/td-p/4675294#.UpuJG0Pzt4w), de forma que un PE de cada volumen en el PVG se usará de forma combinada a la hora de escribir. 
+ grupo de volúmenes físicos)](http://h30499.www3.hp.com/t5/LVM-and-VxVM/what-is-PVG-Physical-Volume-Group/td-p/4675294), de forma que un PE de cada volumen en el PVG se usará de forma combinada a la hora de escribir. 
  
  Esta estructura física se reflejará en la estructura lógica, pero la virtualización lo que hace es transformarla de forma que cada elemento lógico equivalga a uno, varios o ningún elemento físico.  
 
@@ -363,7 +363,7 @@ requieren este tipo de almacenamiento, muchos sistemas de
 almacenamiento en nube, como
 [Google cloud storage](https://developers.google.com/storage/index),
 [Amazon Elastic Block Store (EBS)](http://aws.amazon.com/es/ebs/) o
-[el de SoftLayer](http://www.softlayer.com/cloudlayer/storage/). Todos
+[el de SoftLayer](http://www.softlayer.com/object-storage). Todos
 estos servicios son de pago (o *freemium* con una capa de pago), pero
 también existen soluciones open source que se pueden instalar
 localmente como [CEPH](http://ceph.com) u
@@ -442,7 +442,7 @@ siguiente:
  
  <div class='nota' markdown='1'>
  
- [Esta presentación de Hastexo](http://www.hastexo.com/misc/static/presentations/lceu2012/ceph.html#/step-21)
+ [Esta presentación de Hastexo](http://www.hastexo.com/misc/static/presentations/lceu2012/ceph.html)
  muestra las ventajas de este tipo de almacenamiento frente al clásico
  y explica los conceptos de OSD
  
@@ -576,8 +576,8 @@ estructurando el almacenamiento de una forma determinada, usando
 objetos y los denominados *blobs*, que son simplemente objetos sin
 ningún tipo de almacenamiento interno.
 
-En [Microsoft Azure](http://azure.com), por ejemplo,
-[la creación de almacenamiento virtual requiere una *cuenta*](http://www.windowsazure.com/en-us/documentation/services/storage/?fb=es-es)
+En [Microsoft Azure](http://azure.microsoft.com), por ejemplo,
+[la creación de almacenamiento virtual requiere una *cuenta*](http://www.azure.microsoft.com/en-us/documentation/services/storage/?fb=es-es)
 que estará asociada a la cuenta general que se use en el resto de
 Azure. La cuenta se activa en una zona geográfica determinada, lo que
 dependerá de nuestras preferencias o de las disposiciones legales al
@@ -596,7 +596,7 @@ en la Europa Occidental.
 <div class='ejercicios' markdown='1'>
 
 Tras crear la cuenta de Azure, instalar las
-[herramientas de línea de órdenes (Command line interface, cli) del mismo](http://www.windowsazure.com/en-us/manage/install-and-configure-cli/)
+[herramientas de línea de órdenes (Command line interface, cli) del mismo](http://www.azure.microsoft.com/en-us/manage/install-and-configure-cli/)
 y configurarlas con la cuenta Azure correspondiente
 
 </div>
@@ -624,15 +624,15 @@ copiar en variables de entorno (que tendrás que cargar en tu
 	export	AZURE_STORAGE_ACCESS_KEY=unaclavemuylargaquetieneigualesalfinal==
 	
 Una vez creada la cuenta y establecida la configuración ya [se pueden
-crear cosas en ella](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/?fb=es-es)
+crear cosas en ella](http://www.azure.microsoft.com/en-us/manage/linux/other-resources/command-line-tools/?fb=es-es)
 se puede empezar a manejar la cuenta; una vez más,
 [se
 pueden crear diferentes contenedores desde el panel de
-control](http://www.windowsazure.com/en-us/manage/services/storage/what-is-a-storage-account/?fb=es-es),
+control](http://www.azure.microsoft.com/en-us/manage/services/storage/what-is-a-storage-account/?fb=es-es),
 pero es más práctico hacerlo desde la línea de órdenes.
 
 Azure divide su cuenta en
-[*contenedores* y llama a los objetos almacenados *blobs*](http://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/?fb=es-es#what-is);
+[*contenedores* y llama a los objetos almacenados *blobs*](http://www.azure.microsoft.com/en-us/develop/net/how-to-guides/blob-storage/?fb=es-es#what-is);
 los contenedores son simplemente una forma de agrupar a las *masas* o
 *blobs* y equivalen a los *pools* o piscinas creadas en la sección
 anterior. Los containers se crean de forma más o menos obvia:
@@ -659,8 +659,7 @@ En este caso, se contesta con
 que indica en `publicAccessLevel`el valor `Blob`; dado que el CLI de
 azure es una herramienta en node.js, la contestación a las peticiones
 es en JSON. Los containers creados tienen un URL de la forma
-`http://micuenta.blob.core.windows.net/taper` (por ejemplo,
-[este creado para las imágenes de IV con acceso público](http://paraiv.blob.core.windows.net/imagenes-iv) y si tiene acceso
+`http://micuenta.blob.core.windows.net/taper` y si tiene acceso
 público se puede acceder directamente a ellos o usando el interfaz
 REST; también se pueden hacer
 [otra serie de operaciones](https://github.com/WindowsAzure/azure-sdk-tools-xplat)
@@ -672,9 +671,7 @@ línea de órdenes con `azure storage blob` tal como
  
 que almacenará un fichero png usando como nombre de blob el mismo
 nombre en el contenedor `imagenes-iv`. Estos ficheros, dependiendo del
-acceso definido, podrán estar disponibles públicamente, en este caso
-con la dirección
-[http://paraiv.blob.core.windows.net/imagenes-iv/container-con-acceso-blob.png](http://paraiv.blob.core.windows.net/imagenes-iv/container-con-acceso-blob.png).
+acceso definido, podrán estar disponibles públicamente.
 
 <div class='ejercicios' markdown='1'>
 
