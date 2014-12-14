@@ -144,7 +144,7 @@ cualquier dispositivo.
 Si se ha cortado la instalación o ha habido algún problema el comando
 anterior tratará de arrancar de todas formas del disco duro. Se puede
 cortar la máquina virtual simplemente cerrando al ventana y [tratar de
-arrancar de nuevo empezando por el CD virtual usando](http://www.linux-kvm.com/content/some-new-kvm-options-boot-order-and-process-name)
+arrancar de nuevo empezando por el CD virtual usando](https://doc.opensuse.org/products/draft/SLES/SLES-kvm_sd_draft/cha.qemu.running.html)
 
 	qemu-system-x86_64 -hda otro-disco.img -cdrom picaros-diego-b.iso
 	-boot once=d
@@ -156,11 +156,11 @@ va a ser así esta vez y `d`, como antiguamente, es el CD
 
 <div class='ejercicios' markdown="1">
 
-1. Crear varias máquinas virtuales con algún sistema operativo libre,
+1. Crear varias máquinas virtuales con algún sistema operativo libre tal como
 Linux o BSD. Si se
 quieren distribuciones que ocupen poco espacio con el objetivo
 principalmente de hacer pruebas se puede usar
-[CoreOS](http://coreos.com/) (que sirve como soporte para Docker)
+[CoreOS](https://coreos.com/) (que sirve como soporte para Docker)
 [GALPon Minino](http://minino.galpon.org/en), hecha en Galicia para el
 mundo,
 [Damn Small Linux](http://www.damnsmalllinux.org/download.html),
@@ -388,7 +388,7 @@ que carga el sistema del disco duro virtual creado.
 
 <div class='ejercicios' markdown='1'>
 
-Instalar una máquina virtual Ubuntu 12.04 para el hipervisor que
+Instalar una máquina virtual con Linux Mint para el hipervisor que
 tengas instalado.
 
 </div>
@@ -405,10 +405,7 @@ y reproducible usando una sola orden.
 Aparentemente,
 [los errores señalados arriba están siendo solucionados](https://bugs.launchpad.net/ubuntu/+source/vm-builder/+bug/1174148)
 pero no se encuentran en las últimas versiones disponibles en los
-repositorios. Por otro lado
-[esta transcripción de una charla por IRC](http://nicolas.barcet.com/drupal/ubuntu-dev-week-vmbuilder)
-nos da unas pocas más pistas sobre cómo trabajar con VM y responde a
-algunas preguntas. 
+repositorios. 
 
 </div>
 
@@ -423,5 +420,5 @@ Antes, habrá que hacer y entregar la
 [tercera práctica](../practicas/3.MV).
 
 Si lo que necesitas es un sistema ligero de virtualización, puedes
-mirar cómo virtualizar con [contenedores](Contenedores.mv).
+mirar cómo virtualizar con [contenedores](Contenedores.md).
 
