@@ -233,7 +233,7 @@ Otros sistemas de gestión de configuración
 ---
 
 Las principales alternativas a Chef son [Ansible](http://ansible.com),
-[Salt]() y [Puppet](http://docs.puppetlabs.com/guides/installation.html). Todos ellos se comparan en
+[Salt](http://www.saltstack.com/) y [Puppet](http://docs.puppetlabs.com/guides/installation.html). Todos ellos se comparan en
 [este artículo](http://www.infoworld.com/d/data-center/review-puppet-vs-chef-vs-ansible-vs-salt-231308),
 aunque los principales contendientes son
 [Puppet y Chef, sin que ninguno de los dos sea perfecto](http://www.infoworld.com/d/data-center/puppet-or-chef-the-configuration-management-dilemma-215279?source=fssr). 
