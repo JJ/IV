@@ -74,3 +74,7 @@ Los
 [criterios de evaluación figuran en la ficha de la asignatura en la web del grado](http://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/espti/infraestructuravirtual),
 y
 [se especifican en el repositorio de la clase](https://github.com/JJ/GII-2014/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n.md). 
+
+##Convocatoria de septiembre
+
+Si no se ha superado la asignatura en la convocatoria ordinaria, la extraordinaria consistirá en un examen escrito en septiembre que punturará sobre 8 puntos, siendo el resto proporcional a la nota obtenida en junio. El examen incluirá tanto preguntas de desarrollo como ejercicios prácticos en los que se tendrá que esbozar un programa, script o fichero de configuración o indicar cómo se resolvería un problema con las técnicas aprendidas en la asignatura. Se aconseja al alumno que haga los ejercicios de autoevaluación para alcanzar los objetivos de aprendizaje que se exigen tanto en junio como en septiembre. El método para preguntar dudas será el mismo que en la convocatoria ordinaria: lista de correo e issues de GitHub.
