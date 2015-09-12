@@ -2,13 +2,12 @@ Introducción a la infraestructura virtual: concepto y soporte físico
 ==
 
 <!--@
-next: Aislamiento_de_recursos
+next: Desarrollo_basado_en_pruebas
 -->
 
 <div class="objetivos" markdown="1">
 
 ##Objetivos 
-
 
 ### Cubre los siguientes objetivos de la asignatura
 
@@ -421,7 +420,7 @@ atención en este tema al nivel PaaS.
 
 A diferencia del IaaS, que proporciona algo similar al *bare metal* o capacidades de
 máquina (CPU, almacenamiento, entrada salida y red) que uno puede
-configurar y usar según necesidad, un PaaS contiene infraestructura y
+configurar y usar según la necesidad que haya, un PaaS contiene infraestructura y
 una *pila de soluciones* o *solution stack* completa que permita
 desplegar en el mismo nuestras propias aplicaciones.
 
@@ -430,8 +429,8 @@ que permitan usarlos a ese nivel, pero a la vez tengan un sistema
 fácil para añadir funcionalidad y combinarla en una pila completa de
 soluciones que incluya el sistema de almacenamiento de datos y el
 marco web de aplicaciones, junto con sistemas de monitorización y de
-análisis de las peticiones. Es difícil hoy en día (año 2014) encontrar un IaaS
-simple, de hecho. 
+análisis de las peticiones. Es difícil hoy en día (año 2015) encontrar un IaaS
+simple, de hecho.  
 
 
 <div class='ejercicios' markdown="1">
@@ -445,6 +444,6 @@ habitual](https://github.com/JJ/GII-2014/issues/72)
 A dónde ir desde aquí
 -----
 
-En el [siguiente tema](PaaS.md) veremos como usar sistemas de plataforma como servicio. Previamente habrá que [realizar la
+En el temario se verá a continuación [los ciclos de desarrollo modernos usando desarrollo basado en pruebas, *test-driven development*, TDD](Desarrollo_basado_en_pruebas.md), pero se puede salar direcamente al [tema dedicado a las plataformas como servicio](PaaS.md) veremos como usarlos. Previamente habrá que [realizar la
 práctica correspondiente a esta materia](../practicas/1.Infraestructura.md). 
 
