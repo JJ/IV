@@ -27,13 +27,15 @@ disponibles con una licencia libre. Los fuentes de los mismos están en
 [GitHub](http://github.com/JJ/IV). La
 [temporización de la asignatura y los objetivos de cada sesión figuran en la bitácora de clase](https://github.com/JJ/IV-2015-16/blob/master/sesiones/README.md). 
 
-1. [Introducción: conceptos y soporte físico](documentos/temas/Intro_concepto_y_soporte_fisico.md)
+1. [Introducción: conceptos y soporte físico](documentos/temas/Intro_concepto_y_soporte_fisico.md).
+2. [Iniciación a DevOps: desarrollo basado en pruebas](documentos/temas/Desarrollo_basado_en_pruebas.md).
 2. [Platform as a Service](documentos/temas/PaaS.md).
-2. [Técnicas de virtualización](documentos/temas/Tecnicas_de_virtualizacion.md)
-3. [Usando contenedores](documentos/temas/Contenedores.md)
-4. [Almacenamiento virtual](documentos/temas/Almacenamiento.md)
-5. [Uso de sistemas de virtualización](documentos/temas/Uso_de_sistemas.md)
-6. [Gestión de configuraciones](documentos/temas/Gestion_de_configuraciones.md)
+2. [Técnicas de virtualización](documentos/temas/Tecnicas_de_virtualizacion.md).
+4. [Aislamiento de recursos](documentos/temas/Aislamiento_de_recursos.md).
+3. [Usando contenedores](documentos/temas/Contenedores.md).
+4. [Almacenamiento virtual](documentos/temas/Almacenamiento.md).
+5. [Uso de sistemas de virtualización](documentos/temas/Uso_de_sistemas.md).
+6. [Gestión de configuraciones](documentos/temas/Gestion_de_configuraciones.md).
 
 Seminarios
 ---------------
