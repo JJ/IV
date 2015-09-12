@@ -2,7 +2,7 @@ Creando aplicaciones en la nube: Uso de PaaS y SaaS
 ==
 
 <!--@
-prev: Intro_concepto_y_soporte_fisico
+prev: Aislamiento_de_recursos
 next: Tecnicas_de_virtualizacion
 -->
 
