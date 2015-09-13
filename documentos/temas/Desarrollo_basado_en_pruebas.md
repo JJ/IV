@@ -127,9 +127,13 @@ ejemplo, usar en el entorno de desarrollo local la misma versión y
 librerías que nos vamos a encontrar en un PaaS tal como los que
 veremos a continuación.
 
->Instalar alguno de los entornos virtuales de `node.js` y, con ellos,
->instalar la última versión existente, la versión *minor* más actual
->de la 0.10 y lo mismo para la 0.11.
+<div class='ejercicios' markdown='1'>
+
+Instalar alguno de los entornos virtuales de `node.js` y, con ellos,
+instalar la última versión existente, la versión *minor* más actual
+de la 0.12 y lo mismo para la 0.11 o alguna impar. Si no se usa habitualmente este lenguaje, hacer lo mismo con cualquier otro lenguaje de scripting. 
+
+</div>
 
 Generalmente las librerías asociadas a una aplicación determinada
 siguen un método similar. En vez de instalar en el sistema todas las
@@ -153,21 +157,28 @@ basar la aplicación.
 El objeto básico, por tanto, será la `Apuesta` que irá asociada a un
 `Partido`.
 
->Como ejercicio, algo ligeramente diferente: una web para calificar
->las empresas en las que hacen prácticas los alumnos. Las acciones serían
->crear empresa y listar calificaciones para cada empresa, crear calificación y añadirla
->(comprobando que la persona no la haya añadido ya), borrar calificación
->(si se arrepiente o te denuncia la empresa o algo) y hacer un ránking
->de empresas por calificación, por ejemplo. Crear un repositorio en GitHub para la
->librería y crear un pequeño programa que use algunas de sus
->funcionalidades.
+<div class='ejercicios' markdown='1'>
+
+Como ejercicio, algo ligeramente diferente: una web para calificar
+las empresas en las que hacen prácticas los alumnos. Las acciones serían
+crear empresa y listar calificaciones para cada empresa, crear calificación y añadirla
+(comprobando que la persona no la haya añadido ya), borrar calificación
+(si se arrepiente o te denuncia la empresa o algo) y hacer un ránking
+de empresas por calificación, por ejemplo. Crear un repositorio en GitHub para la
+librería y crear un pequeño programa que use algunas de sus
+funcionalidades. Si se quiere hacer con cualquier otra aplicación, también es válido. 
+
+</div>
 
 La aplicación tendrá más adelante un interfaz web, pero por lo pronto,
 y a efectos de la prueba continua de más adelante, vamos a quedarnos
 sólo con un pequeño programa que sirva para ver que funciona.
 
->Ejecutar el programa en diferentes versiones de node. ¿Funciona en
->todas ellas? 
+
+<div class='ejercicios' markdown='1'>
+Ejecutar el programa en diferentes versiones del lenguaje. ¿Funciona en
+todas ellas?
+</div>
 
 Podemos almacenar esta información en una base de datos como SQLite
 (la clásica). Para instalarla, `npm install sqlite` que es la forma
@@ -214,7 +225,9 @@ Este fichero, además, permite instalar todas las dependencias usando
 sólo `npm install .`. Casi todos los lenguajes habituales tienen algún
 sistema similar: `bundle` para Ruby o `cpanm` para Perl, por ejemplo. 
 
-> Crear una descripción del módulo usando `package.json`.
+<div class='ejercicios' markdown='1'>
+ Crear una descripción del módulo usando `package.json`. En caso de que se trate de otro lenguaje, usar el método correspondiente. 
+</div>
 
 `package.json` nos sirve para llevar un cierto control de qué es lo
 que necesita nuestra aplicación y, por tanto, nos va a ser bastante
@@ -329,9 +342,12 @@ La automatización de Grunt se puede usar tanto para prueba como para
 despliegue. Pero hay también otras formas de probar en la nube, y lo
 veremos a continuación.
 
->Automatizar con `grunt` y `docco` (o algún otro sistema) la generación de documentación de la librería
->que se cree. Previamente, por supuesto, habrá que documentar tal
->librería. 
+<div class='ejercicios' markdown='1'>
+Automatizar con `grunt` y `docco` (o algún otro sistema) la generación de documentación de la librería
+que se cree. Previamente, por supuesto, habrá que documentar tal
+librería.
+</div>
+
 
 ## Desarrollo basado en pruebas
 
@@ -383,7 +399,10 @@ objeto, es decir, si no ha habido ningún error en la carga o creación
 del mismo, y `equal` comprueba que efectivamente la salida que da la
 función `as_string` es la esperada.
 
-> Para la aplicación que se está haciendo, escribir una serie de aserciones y probar que efectivamente no fallan. Añadir tests para una nueva funcionalidad, probar que falla y escribir el código para que no lo haga (vamos, lo que viene siendo TDD).
+<div class='ejercicios' markdown='1'>
+
+ Para la aplicación que se está haciendo, escribir una serie de aserciones y probar que efectivamente no fallan. Añadir tests para una nueva funcionalidad, probar que falla y escribir el código para que no lo haga (vamos, lo que viene siendo TDD).
+</div>
 
 Hay un segundo nivel, el marco de ejecución de los tests. Los marcos
 son programas que, a su vez, ejecutan los programas de test y escriben
@@ -445,9 +464,11 @@ Además, te indica el tiempo que ha tardado lo que te puede servir para
 hacer un *benchmark* de tu código en los diferentes entornos en los
 que se ejecute.
 
-> Convertir los tests unitarios anteriores con assert a programas de
-> test y ejecutarlos desde *mocha*, usando descripciones del test y
-> del grupo de test de forma correcta. Si hasta ahora no has subido el código que has venido realizando a GitHub, es el momento de hacerlo, porque lo vamos a necesitar un poco más adelante. 
+<div class='ejercicios' markdown='1'>
+Convertir los tests unitarios anteriores con assert a programas de
+ test y ejecutarlos desde *mocha*, usando descripciones del test y
+ del grupo de test de forma correcta. Si hasta ahora no has subido el código que has venido realizando a GitHub, es el momento de hacerlo, porque lo vamos a necesitar un poco más adelante. 
+</div>
 
 
 ##Añadiendo integración continua.
@@ -496,7 +517,9 @@ pasos
    integración y añadirlo al repositorio.
 
 
-> *Ejercicio*: Haced los dos primeros pasos antes de pasar al tercero.
+<div class='ejercicios' markdown='1'>
+*Ejercicio*: Haced los dos primeros pasos antes de pasar al tercero.
+</div>
 
 Los ficheros de configuración de las máquinas de integración continua
 corresponden, aproximadamente, a una configuración de una máquina
@@ -561,4 +584,4 @@ para el despliegue continuo, que se verá más adelante.
 
 Una vez visto todo lo necesario para desplegar una aplicación, se
 puede pasar a estudiar los
-[*PaaS*, plataformas como servicio](PaaS.md). 
+[*PaaS*, plataformas como servicio](PaaS.md), donde se pueden desplegar aplicaciones para prototipo o para producción de forma relativamente simple. 
