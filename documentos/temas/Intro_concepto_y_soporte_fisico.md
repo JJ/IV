@@ -48,7 +48,7 @@ Se puede consultar
 Introducción 
 ------------------
 
-En general y en informática, un recurso [virtual](http://en.wikipedia.org/wiki/Virtualization) es un recurso
+En general y en Informática, un recurso [virtual](http://en.wikipedia.org/wiki/Virtualization) es un recurso
 *irreal*, es decir, un recurso que no tiene equivalente físico directo. Así, *memoria virtual* es la memoria que, en
 realidad, está almacenada en parte en un disco o *realidad virtual* es
 un entorno inmersivo generado por ordenador que imita a la realidad
@@ -284,7 +284,6 @@ Hacer el
 [tutorial de línea de órdenes de docker](https://www.docker.com/tryit/)
 para comprender cómo funciona.
 
-*Avanzado* Instalarlo y crear una aplicación contenedorizada
 </div>
 
 
@@ -394,8 +393,10 @@ lo habitual es que se use a través de hipervisores tales como
 puede usar la aceleración por hardware del procesador. 
 
 <div class='ejercicios' markdown="1">
-Comprobar si el núcleo instalado en tu ordenador contiene este módulo
+1. Comprobar si el núcleo instalado en tu ordenador contiene este módulo
 del kernel usando la orden `kvm-ok`.
+
+2. Instalar un hipervisor para gestionar máquinas virtuales, que más adelante se podrá usar en pruebas y ejercicios. 
 </div>
 
 
