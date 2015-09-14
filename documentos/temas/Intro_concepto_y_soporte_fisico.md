@@ -279,57 +279,6 @@ contenedor, desde simples contenedores Linux hasta máquinas
 virtuales. 
 
 
-Desarrollo colaborativo y despliegue de aplicaciones: `git`
-----------------------------------------------------------
-
-[git](https://git-scm.com) es un programa distribuido de gestión de
-control de versiones. Se diseñó originalmente para la gestión de
-fuentes del núcleo de Linux, pero hoy en día se usa también de forma
-extensiva para despliegue de aplicaciones.
-
-Un sistema de control de versiones permite saber a quién corresponde
-cada cambio en un fuente y revertir tales cambios si hay algún
-problema en los mismos. También permite trabajar simultáneamente con
-diferentes versiones y, eventualmente, fusionarlas conservando los
-cambios en las mismas. El hecho de que se puedan revertir los cambios
-y también integrarse en un flujo de desarrollo (que incluya
-integración continua, por ejemplo) es la clave de su popularidad en el
-despliegue de aplicaciones en la nube.
-
-<div class='nota' markdown='1'>
-
-Esta
-[presentación sobre Git y su uso en GitHub](https://www.slideshare.net/jjmerelo/introduccin-al-uso-git-y-github-para-trabajo-colaborativo)
-está más enfocada al uso general, pero las órdenes básicas que se usan
-para desplegar en la nube se tratan también.
-
-</div>
-
-<div class='ejercicios' markdown="1">
-Instala el sistema de gestión de fuentes `git`
-</div>
-
-El ciclo básico de uso de `git` consiste, tras la clonación, en hacer
-`pull` - modificar - `commit` - `push`. Este último sincroniza la
-versión local con la versión remota. Se pueden hacer varios `commits`
-antes de hacer `push`; todos los cambios se subirán al hacerlo. En
-realidad el programa es mucho más complejo y admite múltiples cambios,
-pero a este nivel es suficiente con conocer esto. 
-
-<div class='ejercicios' markdown="1">
-1. Crear un proyecto y descargárselo con git. Al crearlo se marca la
-opción de incluir el fichero `README`.
-2. Modificar el readme y subir el fichero modificado.
-</div>
-
-<div class='nota' markdown='1'>
-
-Este [vídeo de 14 minutos](https://www.youtube.com/watch?v=ygbWIJWe29Y)
-sirve como introducción al uso de `git`.
-
-</div>
-
-
 Virtualización a nivel de *hardware* 
 ----------------------------------
 
@@ -429,6 +378,6 @@ simple, de hecho.
 A dónde ir desde aquí
 -----
 
-En el temario se verá a continuación [los ciclos de desarrollo modernos usando desarrollo basado en pruebas, *test-driven development*, TDD](Desarrollo_basado_en_pruebas.md), pero se puede salar direcamente al [tema dedicado a las plataformas como servicio](PaaS.md) veremos como usarlos. Previamente habrá que [realizar la
+Antes de continuar es [imprescindible que aprendas y configures `git`. Empieza por aquí](http://mini-git.github.io). En el temario se verá a continuación [los ciclos de desarrollo modernos usando desarrollo basado en pruebas, *test-driven development*, TDD](Desarrollo_basado_en_pruebas.md), pero se puede salar direcamente al [tema dedicado a las plataformas como servicio](PaaS.md) veremos como usarlos. Previamente habrá que [realizar la
 práctica correspondiente a esta materia](../practicas/1.Infraestructura.md). 
 
