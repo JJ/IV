@@ -5,8 +5,8 @@ Material docente para Infraestructura Virtual
 es una asignatura optativa del primer cuatrimestre del cuarto del Grado
 de Ingeniería Informática.
 
-La asignatura se imparte en el curso 2015-2016 [los martes  de 10:30 a
-12:30 en la 1.5 y tiene tres grupos de prácticas](http://etsiit.ugr.es/pages/calendario_academico/horarios1516/horariosgii1516/!/download). Se usará
+La asignatura se imparte en el curso 2015-2016 [los miércoles  de 10:30 a
+12:30 en la 1.5 y tiene tres grupos de prácticas los martes, miércoles y viernes](http://etsiit.ugr.es/pages/calendario_academico/horarios1516/horariosgii1516/!/download). Se usará
 [GitHub](http://github.com) para las prácticas y trabajo final. Estos son los [objetivos de la asignatura](documentos/objetivos.md).
 
 En resumen, mi intención es que el alumno al final de la asignatura sea capaz de hacer lo siguiente:
@@ -42,7 +42,7 @@ Material adicional de la asignatura, que se usará en clase pero que el
 alumno tendrá que aprender a su ritmo
 
 1. [Introducción ligera al lenguaje Ruby](documentos/seminarios/ruby.md). 
-2. Visita a las instalaciones de Trevenque.
+2. Visita a las instalaciones de Trevenque el día 14 de octubre.
 
 
 Prácticas - Actividades académicas dirigidas
