@@ -59,9 +59,9 @@ Tutorías virtuales
 ----
 
 Las tutorías virtuales se realizarán preferiblemente a través de
-[la plataforma de trabajo colaborativo GitHub](https://github.com/JJ/GII-2014/issues?state=open). Hay
+[la plataforma de trabajo colaborativo GitHub](https://github.com/JJ/IV-2015-16/issues?state=open). Hay
 también una
-[lista de correo cerrada para los alumnos de la asignatura](https://groups.google.com/forum/#!forum/iv-ugr-2014)
+[lista de correo cerrada para los alumnos de la asignatura](https://groups.google.com/forum/#!forum/iv-ugr-2015)
 que se puede usar para todo lo que no quepa en la anterior (preguntas
 administrativas, principalmente). Finalmente, el profesor está
 disponible por Skype y Google Hangouts (en ambos casos: `jjmerelo`)
