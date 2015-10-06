@@ -135,7 +135,7 @@ de la 0.12 y lo mismo para la 0.11 o alguna impar. Si no se usa habitualmente es
 
 </div>
 
-Generalmente las librerías asociadas a una aplicación determinada
+Generalmente, las librerías asociadas a una aplicación determinada, es decir, las dependencias, 
 siguen un método similar. En vez de instalar en el sistema todas las
 librerías necesarias (o instalar una cada vez que hay algún error),
 la mayor parte de los entornos de programación incluyen alguna forma
@@ -166,7 +166,13 @@ crear empresa y listar calificaciones para cada empresa, crear calificación y a
 (si se arrepiente o te denuncia la empresa o algo) y hacer un ránking
 de empresas por calificación, por ejemplo. Crear un repositorio en GitHub para la
 librería y crear un pequeño programa que use algunas de sus
-funcionalidades. Si se quiere hacer con cualquier otra aplicación, también es válido. 
+funcionalidades. Si se quiere hacer con cualquier otra aplicación, también es válido.
+
+>Se trata de hacer una aplicación simple que se pueda hacer rápidamente
+>con un generador de aplicaciones como los que incluyen diferentes
+>marcos MVC. Si cuesta mucho trabajo, simplemente prepara una
+>aplicación que puedas usar más adelante en el resto de los
+>ejercicios. 
 
 </div>
 
