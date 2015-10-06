@@ -1,11 +1,3 @@
----
-layout: index
-
-
-prev: Intro_concepto_y_soporte_fisico
-next: PaaS
----
-
 Desarrollo basado en pruebas
 =========================
 
@@ -176,7 +168,7 @@ de empresas por calificación, por ejemplo. Crear un repositorio en GitHub para 
 librería y crear un pequeño programa que use algunas de sus
 funcionalidades. Si se quiere hacer con cualquier otra aplicación, también es válido.
 
->Se trata de hacer una aplicación simple que se pueda hacer rápidamente
+>Se trata de hacer una aplicación simple que se pueda crear rápidamente
 >con un generador de aplicaciones como los que incluyen diferentes
 >marcos MVC. Si cuesta mucho trabajo, simplemente prepara una
 >aplicación que puedas usar más adelante en el resto de los
@@ -201,15 +193,15 @@ local. Pero el objeto del desarrollo moderno es asegurarse de que todo
 lo necesario para programar algo está presente. Por eso, se usan
 ficheros que describen qué se usa y, en general, que es necesario
 instalar y tener para ejecutarlo. En node se usa un fichero en formato
-JSON tal como este:
+JSON tal como este, llamado `package.json`:
 
 	{
-	  "author": "J. J. Merelo <jjmerelo@gmail.com> (http://github.com/JJ/desarrollo-basado-pruebas)",
+	  "author": "J. J. Merelo <jjmerelo@gmail.com> (http://github.com/JJ/IV)",
 	  "name": "porrio",
 	  "description": "Apuesta en una porra",
 	  "version": "0.0.1",
 	  "repository": {
-	  "url": "git://github.com/JJ/desarrollo-basado-pruebas.git"
+	  "url": "git://github.com/JJ/IV.git"
 	  },
 	  "main": "./Apuesta.js",
 	  "scripts": {
@@ -225,7 +217,8 @@ JSON tal como este:
 
 
 Las partes que más nos interesan están hacia el final: las
-dependencias diversas (`dependencies`). Es un *hash* que dice qué
+dependencias diversas (`dependencies`). Es un *hash* o matriz
+asociativa que dice qué
 módulo se usan (en este caso, `sqlite` solo) y qué versiones harán
 falta. Al desplegarse, el entorno dependerá de muchas cuestiones y hay 
 que asegurarse de que donde va a acabar el programa tiene todo lo
@@ -240,18 +233,21 @@ sólo `npm install .`. Casi todos los lenguajes habituales tienen algún
 sistema similar: `bundle` para Ruby o `cpanm` para Perl, por ejemplo. 
 
 <div class='ejercicios' markdown='1'>
- Crear una descripción del módulo usando `package.json`. En caso de que se trate de otro lenguaje, usar el método correspondiente. 
+ Crear una descripción del módulo usando `package.json` o el
+ equivalente en otro lenguaje. 
 </div>
 
-`package.json` nos sirve para llevar un cierto control de qué es lo
+El fichero `package.json`, entre otras cosas, nos sirve para llevar un cierto control de qué es lo
 que necesita nuestra aplicación y, por tanto, nos va a ser bastante
-útil cuando digamos de desplegarlo o testearlo en la nube.
+útil cuando digamos de desplegarlo o testearlo en la nube, puesto que
+describe *virtualmente* la *infraestructura* que necesita nuestra
+aplicación para poder ejecutarse. 
 
 No sólo eso, sino que es la referencia para otra serie de
-herramientas, como las herramientas de construcción. Las herramientas
+herramientas, como las [herramientas de automatización de la construcción](https://en.wikipedia.org/wiki/Build_automation). Las herramientas
 de construcción o de control de tareas se vienen usando
 tradicionalmente en todos los entornos de programación. Quién no ha
-usado alguna vez `make` o escrito un Makefile; lo que ocurre es que
+usado alguna vez `make` o escrito un `Makefile`; lo que ocurre es que
 tradicionalmente se dedicaban exclusivamente a la compilación. Hoy en
 día el concepto de *construcción* es más amplio e incluye tareas que
 van desde el uso de diferentes generadores (de hojas CSS a partir de
@@ -357,7 +353,8 @@ despliegue. Pero hay también otras formas de probar en la nube, y lo
 veremos a continuación.
 
 <div class='ejercicios' markdown='1'>
-Automatizar con `grunt` y `docco` (o algún otro sistema) la generación de documentación de la librería
+Automatizar con `grunt` y `docco` (o algún otro sistema para otro
+lenguaje de programación) la generación de documentación de la librería
 que se cree. Previamente, por supuesto, habrá que documentar tal
 librería.
 </div>
@@ -598,4 +595,4 @@ para el despliegue continuo, que se verá más adelante.
 
 Una vez visto todo lo necesario para desplegar una aplicación, se
 puede pasar a estudiar los
-[*PaaS*, plataformas como servicio](PaaS), donde se pueden desplegar aplicaciones para prototipo o para producción de forma relativamente simple. 
+[*PaaS*, plataformas como servicio](PaaS.md), donde se pueden desplegar aplicaciones para prototipo o para producción de forma relativamente simple. 
