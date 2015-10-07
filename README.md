@@ -14,8 +14,6 @@ Hasta el 19 de octubre los grupos de prácticas serán:
  * Miércoles de 8:30 a 10:30, aula 3.10 (hasta el 20 de octubre), -1.2 (a partir de esa fecha).
  * Viernes de 9:30 a 11:30, aula 2.9 (hasta el 19 de octubre), -1.2 (a partir de esa fecha).
 
-Se recuerda al alumno 
-
 En resumen, mi intención es que el alumno al final de la asignatura sea capaz de hacer lo siguiente:
 
 1. Definir el entorno de trabajo para desarrollo de una aplicación en particular y usarlo en PaaS.
