@@ -1,3 +1,11 @@
+---
+layout: index
+
+
+prev: Tecnicas_de_virtualizacion
+next: Almacenamiento
+---
+
 Desarrollo basado en pruebas
 =========================
 
