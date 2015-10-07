@@ -412,7 +412,10 @@ función `as_string` es la esperada.
 
 <div class='ejercicios' markdown='1'>
 
- Para la aplicación que se está haciendo, escribir una serie de aserciones y probar que efectivamente no fallan. Añadir tests para una nueva funcionalidad, probar que falla y escribir el código para que no lo haga (vamos, lo que viene siendo TDD).
+ Para la aplicación que se está haciendo, escribir una serie de
+ aserciones y probar que efectivamente no fallan. Añadir tests para
+ una nueva funcionalidad, probar que falla y escribir el código para
+ que no lo haga (vamos, lo que viene siendo TDD). 
 </div>
 
 Hay un segundo nivel, el marco de ejecución de los tests. Los marcos
@@ -595,4 +598,6 @@ para el despliegue continuo, que se verá más adelante.
 
 Una vez visto todo lo necesario para desplegar una aplicación, se
 puede pasar a estudiar los
-[*PaaS*, plataformas como servicio](PaaS.md), donde se pueden desplegar aplicaciones para prototipo o para producción de forma relativamente simple. 
+[*PaaS*, plataformas como servicio](PaaS.md), donde se pueden
+desplegar aplicaciones para prototipo o para producción de forma
+relativamente simple.  
