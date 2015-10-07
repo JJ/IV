@@ -19,8 +19,6 @@ Hasta el 19 de octubre los grupos de prácticas serán:
  * Miércoles de 8:30 a 10:30, aula 3.10 (hasta el 20 de octubre), -1.2 (a partir de esa fecha).
  * Viernes de 9:30 a 11:30, aula 2.9 (hasta el 19 de octubre), -1.2 (a partir de esa fecha).
 
-Se recuerda al alumno 
-
 En resumen, mi intención es que el alumno al final de la asignatura sea capaz de hacer lo siguiente:
 
 1. Definir el entorno de trabajo para desarrollo de una aplicación en particular y usarlo en PaaS.
@@ -71,9 +69,9 @@ Tutorías virtuales
 ----
 
 Las tutorías virtuales se realizarán preferiblemente a través de
-[la plataforma de trabajo colaborativo GitHub](https://github.com/JJ/GII-2014/issues?state=open). Hay
+[la plataforma de trabajo colaborativo GitHub](https://github.com/JJ/IV-2015-16/issues?state=open). Hay
 también una
-[lista de correo cerrada para los alumnos de la asignatura](https://groups.google.com/forum/#!forum/iv-ugr-2014)
+[lista de correo cerrada para los alumnos de la asignatura](https://groups.google.com/forum/#!forum/iv-ugr-2015)
 que se puede usar para todo lo que no quepa en la anterior (preguntas
 administrativas, principalmente). Finalmente, el profesor está
 disponible por Skype y Google Hangouts (en ambos casos: `jjmerelo`)
