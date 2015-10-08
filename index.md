@@ -49,7 +49,6 @@ Seminarios
 ---------------
 
 Material adicional interesante para la asignatura, que se impartirá fuera del horario lectivo.
-alumno tendrá que aprender a su ritmo
 
 1. [Introducción ligera al lenguaje Ruby](documentos/seminarios/ruby). 
 2. Visita a las instalaciones de Trevenque el día 21 de octubre.
