@@ -33,7 +33,7 @@ Temario - Programa de la asignatura
 Los materiales de la asignatura están enlazados desde aquí y
 disponibles con una licencia libre. Los fuentes de los mismos están en
 [GitHub](http://github.com/JJ/IV). La
-[temporización de la asignatura y los objetivos de cada sesión figuran en la bitácora de clase](https://github.com/JJ/IV-2015-16/blob/master/sesiones/README). 
+[temporización de la asignatura y los objetivos de cada sesión figuran en la bitácora de clase](https://github.com/JJ/IV-2015-16/blob/master/sesiones/README.md). 
 
 1. [Introducción: conceptos y soporte físico](documentos/temas/Intro_concepto_y_soporte_fisico).
 2. [Iniciación a DevOps: desarrollo basado en pruebas](documentos/temas/Desarrollo_basado_en_pruebas).
@@ -57,7 +57,11 @@ Material adicional interesante para la asignatura, que se impartirá fuera del h
 Prácticas - Actividades académicas dirigidas
 -------------
 
-Las prácticas consisten en la realización de un proyecto a lo largo de la asignatura, con diferentes hitos que correspondan a los objetivos cumplidos hasta ese momento. Los proyectos [siguen dos tipos de perfiles: PaaS/SaaS y DevOps](documentos/practicas/README). A grosso modo, los hitos se organizarán de la forma siguiente.
+Las prácticas consisten en la realización de un proyecto a lo largo de
+la asignatura, con diferentes hitos que correspondan a los objetivos
+cumplidos hasta ese momento. Los proyectos
+[consisten en crear la infraestructura virtual de una aplicación desarrollada según el modelo DevOps](documentos/practicas/README.md). A
+grosso modo, los hitos se organizarán de la forma siguiente. 
 
 1. [Organización de los grupos de práctica y creación del proyecto](documentos/practicas/1.Infraestructura)
 2. Introducción a la computación virtual: [Platform as a Service](documentos/practicas/2.XaaS).
