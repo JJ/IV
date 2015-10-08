@@ -43,11 +43,11 @@ disponibles con una licencia libre. Los fuentes de los mismos están en
 Seminarios
 ---------------
 
-Material adicional de la asignatura, que se usará en clase pero que el
+Material adicional interesante para la asignatura, que se impartirá fuera del horario lectivo.
 alumno tendrá que aprender a su ritmo
 
 1. [Introducción ligera al lenguaje Ruby](documentos/seminarios/ruby.md). 
-2. Visita a las instalaciones de Trevenque el día 14 de octubre.
+2. Visita a las instalaciones de Trevenque el día 21 de octubre.
 
 
 Prácticas - Actividades académicas dirigidas
