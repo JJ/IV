@@ -52,7 +52,11 @@ Material adicional interesante para la asignatura, que se impartirá fuera del h
 Prácticas - Actividades académicas dirigidas
 -------------
 
-Las prácticas consisten en la realización de un proyecto a lo largo de la asignatura, con diferentes hitos que correspondan a los objetivos cumplidos hasta ese momento. Los proyectos [siguen dos tipos de perfiles: PaaS/SaaS y DevOps](documentos/practicas/README.md). A grosso modo, los hitos se organizarán de la forma siguiente.
+Las prácticas consisten en la realización de un proyecto a lo largo de
+la asignatura, con diferentes hitos que correspondan a los objetivos
+cumplidos hasta ese momento. Los proyectos
+[consisten en crear la infraestructura virtual de una aplicación desarrollada según el modelo DevOps](documentos/practicas/README.md). A
+grosso modo, los hitos se organizarán de la forma siguiente. 
 
 1. [Organización de los grupos de práctica y creación del proyecto](documentos/practicas/1.Infraestructura.md)
 2. Introducción a la computación virtual: [Platform as a Service](documentos/practicas/2.XaaS.md).
