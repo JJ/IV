@@ -16,9 +16,9 @@ La asignatura se imparte en el curso 2015-2016 [los miércoles  de 10:30 a
 
 Hasta el 19 de octubre los grupos de prácticas serán:
 
- - Martes de 9:30 a 11:30, aula 3.10 (hasta el 20 de octubre), -1.2 (a partir de esa fecha).
- - Miércoles de 8:30 a 10:30, aula 3.10 (hasta el 20 de octubre), -1.2 (a partir de esa fecha).
- - Viernes de 9:30 a 11:30, aula 2.9 (hasta el 19 de octubre), -1.2 (a partir de esa fecha).
+- Martes de 9:30 a 11:30, aula 3.10 (hasta el 20 de octubre), -1.2 (a partir de esa fecha).
+- Miércoles de 8:30 a 10:30, aula 3.10 (hasta el 20 de octubre), -1.2 (a partir de esa fecha).
+- Viernes de 9:30 a 11:30, aula 2.9 (hasta el 19 de octubre), -1.2 (a partir de esa fecha).
 
 En resumen, mi intención es que el alumno al final de la asignatura sea capaz de hacer lo siguiente:
 
@@ -93,7 +93,7 @@ y
 
 Si no se ha superado la asignatura en la convocatoria ordinaria, la
 extraordinaria consistirá en un examen escrito en septiembre que
-puntuará sobre 8 puntos, siendo el resto proporcional a la nota
+puntuará sobre *8 puntos*, siendo el resto proporcional a la nota
 obtenida en junio. El examen incluirá tanto preguntas de desarrollo
 como ejercicios prácticos en los que se tendrá que esbozar un
 programa, script o fichero de configuración o indicar cómo se
