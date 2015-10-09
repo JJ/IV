@@ -1,23 +1,23 @@
-Material docente para Infraestructura Virtual
-==
+#Material docente para Infraestructura Virtual
+
 
 [Infraestructura virtual](http://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/espti/infraestructuravirtual)
 es una asignatura obligatoria de la rama Tecnologías de la Información del primer cuatrimestre del cuarto del Grado
 de Ingeniería Informática.
 
 La asignatura se imparte en el curso 2015-2016 [los miércoles  de 10:30 a
-12:30 en la 1.5 y tiene tres grupos de prácticas los martes, miércoles y viernes en la -1.2 (a partir del 19 de octubre](http://etsiit.ugr.es/pages/calendario_academico/horarios1516/horariosgii1516/!/download)). Se usará
-[GitHub](http://github.com) para las prácticas y trabajo final. Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas sesiones de clase se irán reflejando en [un repositorio de GitHub; este es el de 2015-2016](https://github.com/JJ/IV-2015-16)
+12:30 en la 1.5 y tiene tres grupos de prácticas los martes, miércoles y viernes en la -1.2 (a partir del 19 de octubre)](http://etsiit.ugr.es/pages/calendario_academico/horarios1516/horariosgii1516/!/download). Se usará
+[GitHub](http://github.com) para las prácticas y trabajo final. Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas sesiones de clase se irán reflejando en [un repositorio de GitHub; este es el de 2015-2016](https://github.com/JJ/IV-2015-16). 
 
-Hasta el 19 de octubre los grupos de prácticas serán:
+Las aulas y horarios de los grupos de prácticas son los siguientes:
 
-- Martes de 9:30 a 11:30, aula 3.10 (hasta el 20 de octubre), -1.2 (a partir de esa fecha).
-- Miércoles de 8:30 a 10:30, aula 3.10 (hasta el 20 de octubre), -1.2 (a partir de esa fecha).
-- Viernes de 9:30 a 11:30, aula 2.9 (hasta el 19 de octubre), -1.2 (a partir de esa fecha).
+* Martes de 9:30 a 11:30, aula 3.10 (hasta el 20 de octubre), -1.2 (a partir de esa fecha).
+* Miércoles de 8:30 a 10:30, aula 3.10 (hasta el 20 de octubre), -1.2 (a partir de esa fecha).
+* Viernes de 9:30 a 11:30, aula 2.9 (hasta el 19 de octubre), -1.2 (a partir de esa fecha).
 
-En resumen, mi intención es que el alumno al final de la asignatura sea capaz de hacer lo siguiente:
+En resumen, mi intención es que el alumno al final de la asignatura sea capaz de hacer lo siguiente: 
 
-1. Definir el entorno de trabajo para desarrollo de una aplicación en particular y usarlo en PaaS.
+1. Definir el entorno de trabajo y pruebas para desarrollo de una aplicación en particular y desplegarlo en un PaaS.
 2. Usar ese entorno para configurar integración continua en una aplicación.
 3. Sea capaz de crear un entorno virtual para desarrollar y alojar la aplicación y comprenda el soporte físico de las técnicas usadas para crear tal entorno virtual.
 4. Entienda las técnicas de configuración automática de entornos virtuales y las sepa aplicar en los entornos anteriores.
