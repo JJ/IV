@@ -15,9 +15,9 @@ La asignatura se imparte en el curso 2015-2016 [los miércoles  de 10:30 a
 [GitHub](http://github.com) para las prácticas y trabajo final. Estos son los [objetivos de la asignatura](documentos/objetivos), cuyas sesiones de clase se irán reflejando en [un repositorio de GitHub; este es el de 2015-2016](https://github.com/JJ/IV-2015-16)
 
 Hasta el 19 de octubre los grupos de prácticas serán:
- * Martes de 9:30 a 11:30, aula 3.10 (hasta el 20 de octubre), -1.2 (a partir de esa fecha).
- * Miércoles de 8:30 a 10:30, aula 3.10 (hasta el 20 de octubre), -1.2 (a partir de esa fecha).
- * Viernes de 9:30 a 11:30, aula 2.9 (hasta el 19 de octubre), -1.2 (a partir de esa fecha).
+- Martes de 9:30 a 11:30, aula 3.10 (hasta el 20 de octubre), -1.2 (a partir de esa fecha).
+- Miércoles de 8:30 a 10:30, aula 3.10 (hasta el 20 de octubre), -1.2 (a partir de esa fecha).
+- Viernes de 9:30 a 11:30, aula 2.9 (hasta el 19 de octubre), -1.2 (a partir de esa fecha).
 
 En resumen, mi intención es que el alumno al final de la asignatura sea capaz de hacer lo siguiente:
 
@@ -58,7 +58,7 @@ Prácticas - Actividades académicas dirigidas
 -------------
 
 Las prácticas consisten en la realización de un proyecto a lo largo de
-la asignatura, con diferentes hitos que correspondan a los objetivos
+la asignatura, con diferentes hitos cuyo contenido corresponde a los objetivos de aprendizaje
 cumplidos hasta ese momento. Los proyectos
 [consisten en crear la infraestructura virtual de una aplicación desarrollada según el modelo DevOps](documentos/practicas/README.md). A
 grosso modo, los hitos se organizarán de la forma siguiente. 
@@ -77,7 +77,7 @@ también una
 [lista de correo cerrada para los alumnos de la asignatura](https://groups.google.com/forum/#!forum/iv-ugr-2015)
 que se puede usar para todo lo que no quepa en la anterior (preguntas
 administrativas, principalmente). Finalmente, el profesor está
-disponible por Skype y Google Hangouts (en ambos casos: `jjmerelo`)
+disponible por Telegram, Skype y Google Hangouts (en todos los casos: `jjmerelo`)
 previa cita.
 
 Criterios de evaluación
