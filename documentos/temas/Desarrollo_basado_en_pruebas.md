@@ -17,7 +17,7 @@ tanto de software como de hardware y ponerlos en práctica.
 
 ### Objetivos específicos
 
-1. Entender el concepto de *DevOps*
+1. Entender el concepto de *DevOps*.
 2. Usar herramientas para gestión de los ciclos de desarrollo de una aplicación y entender cuales son estos.
 3. Aprender a usar integración continua en cualquier aplicación.
 
