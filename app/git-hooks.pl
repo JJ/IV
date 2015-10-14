@@ -27,7 +27,7 @@ POST_COMMIT {
       my $file_content = read_file( $f );
       $file_content =~ s/(?<!README)\.md\)/\)/g; # Change links
       if ( $f =~ /practicas/ ) {
-	  $file_content =~ s{/(\d)}{/\1.md}g; # Change back for links to prácticas
+	  $file_content =~ s{/(\d)}{/$1.md}g; # Change back for links to prácticas
       }
       if ( $f =~ /temas/ ) {
 	  my ($breadcrumb) = ($file_content =~ /<!--@(.+)-->/gs);
