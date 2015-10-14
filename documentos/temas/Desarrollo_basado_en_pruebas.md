@@ -12,7 +12,7 @@ next: PaaS
 
 ### Cubre los siguientes objetivos de la asignatura
 
-2. Conocer los conceptos relacionados con el proceso de virtualización
+1. Conocer los conceptos relacionados con el proceso de virtualización
 tanto de software como de hardware y ponerlos en práctica.
 
 ### Objetivos específicos
