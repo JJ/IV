@@ -24,7 +24,7 @@ En resumen, mi intención es que el alumno al final de la asignatura sea capaz d
 
 1. Definir el entorno de trabajo y pruebas para desarrollo de una aplicación en particular y desplegarlo en un PaaS.
 2. Usar ese entorno para configurar integración continua en una aplicación.
-3. Sea capaz de crear un entorno virtual para desarrollar y alojar la aplicación y comprenda el soporte físico de las técnicas usadas para crear tal entorno virtual.
+3. Crear un entorno virtual para desarrollar y alojar la aplicación y comprenda el soporte físico de las técnicas usadas para crear tal entorno virtual.
 4. Entienda las técnicas de configuración automática de entornos virtuales y las sepa aplicar en los entornos anteriores.
 5. Use lo aprendido para despliegue masivo de aplicaciones en la nube. 
 
@@ -65,6 +65,7 @@ cumplidos hasta ese momento. Los proyectos
 grosso modo, los hitos se organizarán de la forma siguiente. 
 
 1. [Organización de los grupos de práctica y creación del proyecto](documentos/practicas/1.Infraestructura)
+2. [Integración continua en el repositorio](documentos/practicas/2.CI)
 2. Introducción a la computación virtual: [Platform as a Service](documentos/practicas/2.XaaS).
 2. Técnicas de virtualización [Contenedores para pruebas](documentos/practicas/3.Contenedores).
 4. [Virtualización de aplicaciones.](documentos/practicas/4.Aplicaciones).
