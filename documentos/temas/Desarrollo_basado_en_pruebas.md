@@ -20,7 +20,7 @@ next: PaaS
 
 ### Cubre los siguientes objetivos de la asignatura
 
-2. Conocer los conceptos relacionados con el proceso de virtualización
+1. Conocer los conceptos relacionados con el proceso de virtualización
 tanto de software como de hardware y ponerlos en práctica.
 
 ### Objetivos específicos
@@ -40,7 +40,9 @@ sea posible todo este ciclo de vida del software debe estar automatizado en
 todo lo posible, para que todas las fases se hagan esencialmente sin
 intervención humana y se minimice la posibilidad de que haya 
 en el proceso errores costosos de arreglar una vez echado a andar un
-sistema. La aparición de la [nube](https://es.wikipedia.org/wiki/Computaci%C3%B3n_en_la_nube) ha hecho que en varias, o en todas,
+sistema. La aparición de la
+[nube](https://es.wikipedia.org/wiki/Computaci%C3%B3n_en_la_nube) ha
+hecho que en varias, o en todas,
 las partes del proceso, aparezcan recursos *elásticos* y disponibles bajo
 demanda, algunos de ellos gratuitos.
 
@@ -137,9 +139,10 @@ veremos a continuación.
 
 <div class='ejercicios' markdown='1'>
 
-Instalar alguno de los entornos virtuales de `node.js` y, con ellos,
+Instalar alguno de los entornos virtuales de `node.js` (o de cualquier
+otro lenguaje con el que se esté familiarizado) y, con ellos,
 instalar la última versión existente, la versión *minor* más actual
-de la 0.12 y lo mismo para la 0.11 o alguna impar. Si no se usa habitualmente este lenguaje, hacer lo mismo con cualquier otro lenguaje de scripting. 
+de la 4.x y lo mismo para la 0.11 o alguna impar (de desarrollo).
 
 </div>
 
