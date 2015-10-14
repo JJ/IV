@@ -25,7 +25,7 @@ POST_COMMIT {
     for my $f ( @mds ) {
       $git->command( 'checkout', 'master', '--', $f );
       my $file_content = read_file( $f );
-      $file_content =~ s/(?<!README)\.md\)/\)/g; # Change links
+      $file_content =~ s/(?<!README|?<!^\d)\.md\)/\)/g; # Change links
 
       if ( $f =~ /temas/ ) {
 	  my ($breadcrumb) = ($file_content =~ /<!--@(.+)-->/gs);
