@@ -262,11 +262,11 @@ cliente REST o sea desde el navegador usando jQuery o JavaScript.
 >estructura de datos del modelo que se viene usando en el curso.
 
 Con el mismo `express` se pueden generar aplicaciones no tan básicas
-ejecutándolo de la forma siguiente:
+instalando [`express-generator`](http://expressjs.com/es/starter/generator.html) o el generador de aplicaciones [`yeoman`](http://yeoman.io)
 
-`node_modules/express/bin/express prueba-rest`
+    express prueba-rest
 
-Se indica el camino completo a la aplicación binaria, que sería el
+Se indica el camino completo a la aplicación, que sería el
 puesto. Con esto se genera un directorio prueba-rest. Cambiándoos al
 mismo y escribiendo simplemente `npm install` se instalarán las
 dependencias necesarias. La aplicación estará en el fichero `index.js`,
