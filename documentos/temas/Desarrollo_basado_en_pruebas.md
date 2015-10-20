@@ -262,9 +262,29 @@ un lenguaje, por ejemplo) hasta la *minificación* o "compresión" de un
 programa hasta que ocupe el mínimo espacio posible, para que sea más
 *amigable* para móviles y otros dispositivos sin mucho ancho de banda.
 
-Todos los lenguajes de programación tienen su propia herramienta de
-construcción, pero en node.js se utilizan principalmente dos:
-[Grunt](http://gruntjs.com) y [Gulp](http://gulpjs.com).
+Todos los lenguajes de programación tienen su propia [herramienta de
+construcción](http://en.wikipedia.org/wiki/Build_automation),  de las
+cuales la más conocida y veterana es la
+orden `make`, introducida [hace casi cuarenta años](https://es.wikipedia.org/wiki/Make). `make` automatiza el proceso
+de construcción en un fichero llamado `Makefile` con una sintaxis
+específica que se puede resumir en
+
+* unos *objetivos* que hay que cumplir y que dependen unos de
+  otros. Por ejemplo, antes de construir el ejecutable hay que
+  construir las librerías.
+
+* unas *tareas* que hay que hacer para cumplir esos objetivos. Por
+  ejemplo, para obtener una librería hay que compilarla a partir del
+  fuente.
+
+Muchos lenguajes de programación, como el propio Perl, usan *make*
+para la automatización de tareas y compilación. Sin embargo, otros lenguajes de programación
+usan diferentes herramientas para ello: Ant, Ivy y Maven para Java, `sbt`
+para Scala, Rake para Ruby y otras muchas.
+
+En node.js se utilizan principalmente dos:
+[Grunt](http://gruntjs.com) y [Gulp](http://gulpjs.com), aunque
+también han (aparecido últimamente Broccoli y mimosa)[http://jpsierens.com/task-runners-a-comparison-between-grunt-gulp-broccoli-and-mimosa/].
 
 >Aquí podíamos hacer una breve disquisición sobre
 >[el código y la configuración](http://coding.abel.nu/2013/06/code-or-configuration-or-configuration-in-code/),
