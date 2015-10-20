@@ -118,43 +118,13 @@ y
 
 </div>
 
-## Automatización de la construcción de una aplicación.
+## Despliegue en un PaaS
 
-Sea un lenguaje compilado o uno interpretado, el paso de código fuente
-a una aplicación requiere un entorno de construcción en el cual se
-disponga todo lo necesario para que la aplicación funcione. En el caso
-del lenguaje compilado el paso obvio es compilarlo y general el código
-fuente; en el caso del lenguaje interpretado consistirá en la
-ejecución en el orden correcto de los servicios necesarios para que se
-ejecute y la comprobación de presencia de todos los elementos
-necesarios.
-
-En general, este proceso está [automatizado](http://en.wikipedia.org/wiki/Build_automation) desde la introducción de la
-orden `make` hace ya más de treinta años. `make` automatiza el proceso
-de construcción en un fichero llamado `Makefile` con una sintaxis
-específica que se puede resumir en
-
-* unos *objetivos* que hay que cumplir y que dependen unos de
-  otros. Por ejemplo, antes de construir el ejecutable hay que
-  construir las librerías.
-
-* unas *tareas* que hay que hacer para cumplir esos objetivos. Por
-  ejemplo, para obtener una librería hay que compilarla a partir del
-  fuente.
-
-Muchos lenguajes de programación, como el propio Perl, usan *make*
-para su automatización. Sin embargo, otros lenguajes de programación
-usan diferentes herramientas para ello: Ant y Maven para Java, `grunt`
-para JavaScript, Rake para Ruby y otras muchas.
-
-<div class='ejercicios' markdown="1">
-
-Buscar un sistema de automatización de la construcción para el lenguaje de programación y
-entorno de desarrollo que usemos habitualmente.
-
-</div>
-
-Cuando se trabaja en un PaaS, normalmente hay que proporcionar este
+El despliegue en un PaaS es un ejemplo de despliegue básico en la nube
+y es en todo similar al despliegue completo, en un IaaS, exceptuando
+las partes en las cuales se crean las máquinas virtuales y se
+configuran, porque en un PaaS ya está todo configurado. Cuando se
+trabaja en un PaaS, normalmente hay que proporcionar este 
 script de automatización al mismo para que construya el entorno una
 vez desplegado. No se suele trabajar directamente con los ficheros *en
 producción*, sino que, para hacerlo de la forma más cercana a como se
@@ -170,58 +140,11 @@ sigue en la misma.
 
 </div>
 
-
-## Introducción al desarrollo basado en pruebas.
-
-En un PaaS o SaaS es sumamente poco práctico probar la aplicación *en
-el propio sistema*. Primero, por la propia dinámica del mismo: hay que
-activar el sistema y empezar a hacer cosas con él. Segundo, por el
-hecho de que *a mano* es prácticamente imposible probar todos los
-aspectos del mismo.
-
-Por eso previo al despliegue en un PaaS hay que trabajar en un entorno
-de
-[desarrollo guiado por pruebas o *Test Driven Development*](http://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas). El
-concepto, en realidad, es simple: antes de desarrollar cualquier nueva
-característica o funcionalidad, escribir un test para que tal
-funcionalidad *falle*. Cuando el test no falle, la característica se
-integra.
-
-Todos los lenguajes de programación tienen entornos de desarrollo
-guiados por pruebas y la mayoría de ellos los requieren para los
-módulos que se publican en los repositorios de los mismos. Muchos se
-basan o en un protocolo similar a [JUnit](http://junit.org/) o en el
-[*Test Anything Protocolo*](http://en.wikipedia.org/wiki/Test_Anything_Protocol),
-que dictan dónde hay que colocar los ficheros y qué salida tienen que
-dar los mismos.
-
-En la práctica, crear tests consiste en
-
-* Escribir una serie de ficheros en un directorio específico (`test` o
-  `t`) a veces con una extensión específica (`t` en Perl, por ejemplo)
-  que ejecuten las funciones con diferentes entradas y produzcan una
-  salida que suele ser OK para una prueba superada y *Not OK* para
-  prueba fallida.
-  
-* Uso de algún programa que ejecute todos esos tests y analice las
-  salidas, dando un resumen sobre si ha fallado alguna prueba y
-  cuantas han fallado. Este programa se llama desde el entorno de
-  construcción de la aplicación.
-
-
-<div class='ejercicios' markdown="1">
-
-Buscar un entorno de pruebas para el lenguaje de programación y
-entorno de desarrollo que usemos habitualmente.
-
-</div>
-
-
 A dónde ir desde aquí
 -----
 
 En el [siguiente tema](Tecnicas_de_virtualizacion.md) usaremos
 diferentes técnicas de virtualización para la creación de contenedores
 y jaulas que aislan procesos, usuarios y recursos del resto del sistema, creando por tanto máquinas *virtuales*. Previamente habrá que [realizar la
-práctica correspondiente a esta materia](../practicas/2.XaaS.md). 
+práctica correspondiente a esta materia](../practicas/2.XaaS.md).
 
