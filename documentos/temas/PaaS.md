@@ -2,15 +2,15 @@
 layout: index
 
 
-prev: Intro_concepto_y_soporte_fisico
+prev: Desarrollo_basado_en_pruebas
 next: Tecnicas_de_virtualizacion
 ---
 
-Creando aplicaciones en la nube: Uso de PaaS y SaaS
+Creando aplicaciones en la nube: Uso de PaaS 
 ==
 
 <!--@
-prev: Intro_concepto_y_soporte_fisico
+prev: Desarrollo_basado_en_pruebas
 next: Tecnicas_de_virtualizacion
 -->
 
@@ -37,54 +37,26 @@ tanto de software como de hardware y ponerlos en práctica.
 
 </div>
 
-Entornos virtuales de desarrollo
----
-
-Una de las partes esenciales del *DevOps* es primero la gestión de
-configuraciones y luego la automatización. El uso de entornos
-virtuales cubre las dos necesidades: te permite decidir exactamente
-qué versión del lenguaje se va a usar y también automatizar la tarea
-de instalación del mismo mediante el uso de una sola orden que
-seleccione la versión precisa que se va a usar. 
-
-Y estos entornos virtuales vienen del hecho de que los lenguajes de scripting tales como Perl, Python y Ruby tienen
-ciclos de desarrollo muy rápidos que hacen que a veces convivan en
-producción diferentes versiones de los mismos, incluso *major*
-versions. Eso hace complicado desarrollar e incluso probar los
-programas que se desarrollan: si el sistema operativo viene con Perl
-5.14, puede que haga falta probar o desarrollar para 5.16 o 5.18 o
-incluso probar la versión más avanzada.
-
-Por eso desde hacer cierto tiempo se han venido usando *entornos
-virtuales de desarrollo* tales como
-[virtualenv para Python](https://virtualenv.pypa.io/en/latest/),
-[nodeenv para node.js](https://pypi.python.org/pypi/nodeenv/),
-[rbenv para Ruby](https://github.com/sstephenson/rbenv) y
-[perlbrew para Perl](http://perlbrew.pl).
-
-Una vez instalados, estos programas permiten instalar fácilmente
-nuevas versiones de tu lenguaje de programación (con las librerías
-asociadas) y probar un programa en todas ellas. Se usan principalmente
-para reflejar localmente los entornos que se usan en producción; por
-ejemplo, usar en el entorno de desarrollo local la misma versión y
-librerías que nos vamos a encontrar en un PaaS tal como los que
-veremos a continuación.
-
-<div class='ejercicios' markdown="1">
-
-Instalar un entorno virtual para tu lenguaje de programación favorito
-(uno de los mencionados arriba, obviamente).
-
-</div>
 
 Usando un servicio PaaS
 -----
+
+Ya se ha visto [en el tema anterior](Desarrollo_basado_en_pruebas)
+cómo configurar una aplicación de forma mínima para que se pueda
+probar automáticamente en un servicio de integración continua. El que
+los servicios funcionen correctamente y que la configuración esté bien
+definida es una condición necesaria para que se pueda desplegar en la
+nube, por ejemplo en un
+[servicio PaaS](http://www.genbetadev.com/programacion-en-la-nube/entendiendo-la-nube-el-significado-de-saas-paas-y-iaas).  
 
 La mayoría de los servicios PaaS están ligados a una pila de
 soluciones determinada o a un vendedor determinado. Han surgido
 muchos, por ejemplo, en torno a [node.js](http://nodejs.org), un
 intérprete de JavaScript asíncrono que permite crear fácilmente
 aplicaciones REST.
+
+>Pila que se ha venido en llamar [MEAN](http://mean.io/#!/) y incluye
+>también Mongo y Express. 
 
 Algunos servicios PaaS son específicos (sólo alojan una solución
 determinada, como [CloudAnt](https://cloudant.com/) que aloja una base
@@ -94,15 +66,19 @@ en general relativamente limitada; [Heroku](http://www.heroku.com) y
 
 <div class='ejercicios' markdown="1">
 
-Darse de alta en algún servicio PaaS tal como Heroku, [Nodejitsu](https://www.nodejitsu.com/) u OpenShift.
+Darse de alta en algún servicio PaaS tal como Heroku,
+[Nodejitsu](https://www.nodejitsu.com/), [BlueMix](https://console.ng.bluemix.net/) u OpenShift.
 
 </div>
 
 Estos servicios proveen un número limitado de máquinas virtuales y
-siguen en general un modelo *freemium*: capacidades básicas son
+siguen en general un modelo *freemium*: las capacidades básicas son
 gratuitas y para conseguir mayores prestaciones o un uso más
 intensivo, o bien capacidades que no entren en el paquete básico, hay
-que pasar al modelo de pago. Estas máquinas virtuales se denominan
+que pasar al modelo de pago.
+
+Las *máquinas virtuales* (que en muchos casos son contenedores)
+reciben diferente denominación: se denominan
 [*dynos*](https://devcenter.heroku.com/articles/dynos) en Heroku y
 simplemente aplicaciones en OpenShift, aunque los *dynos* son mucho
 más flexibles que las aplicaciones de OpenShift.
@@ -114,7 +90,9 @@ características definidas; en ambos casos habrá que descargar una
 aplicación libre para llevar a cabo ciertas tareas como monitorizar el
 estatus y hacer tests básicos; una vez creado el fuente de la
 aplicación el despliegue en la máquina virtual se hace mediante
-`git` tal como hemos contado anteriormente. 
+`git` tal como hemos contado anteriormente, en algunos casos
+*recubierto* de alguna comprobación más integrada en la herramienta de
+la línea de órdenes que se haya descargado. 
 
 Los lenguajes más habituales en las PaaS son los de scripting, que
 permiten crear aplicaciones rápidamente; las bases de datos
@@ -143,48 +121,8 @@ en
 [este un poco más extenso y hecho por una persona de Heroku](http://www.youtube.com/watch?v=VZgHItD9bAQ)
 te explica cómo usarlo. No hay muchos vídeos en español, pero en
 [este explica cómo crear una aplicación Django y subirla a Heroku](http://www.youtube.com/watch?v=3k2eg0stnCI)
-
-</div>
-
-Creando aplicaciones en la nube
------
-
-Algunos SaaS como Google Drive o, más propiamente, Google Apps,
-permiten crear también aplicaciones que trabajen con los datos y
-objetos que forman parte del mismo. Todos estos sistemas suelen
-incluir algún lenguaje de *scripting* y, en general, se suele tratar
-de JavaScript.
-
-> Si no sabes JavaScript, es el momento
-> [de aprenderlo](https://github.com/JJ/curso-js). Tras más de 15 años
-> de existencia, JS se ha convertido en un lenguaje emergente e
-> imprescindible para un *full stack programmer*. En particular, es el
-> lenguaje que se usa para trabajar con aplicaciones en la nube.
-
-El nivel de control que tiene uno sobre las aplicaciones es bastante
-variado. Se puede desde usar Google Drive como un PaaS para alojar
-aplicaciones hasta simplemente añadir pequeños *scripts* que lleven a
-cabo alguna labor como [cambiar el interfaz de usuario o añadir
-funcionalidad a alguna aplicación de Google Drive](https://developers.google.com/apps-script/overview).
-
-Crear un *script* para Google Drive es similar a hacer una macro para
-una aplicación. Se hace de la forma siguiente
-
-1. Ir a Herramientas -> Editor de secuencias de comandos. Se abre un
-   entorno de desarrollo para *scripts* en el que ya está prerrellena
-   la función que la añade al menú y a la que se llama.
-
-2. Se edita la función, se guarda y se publica.
-3. Se vuelve a abrir el documento correspondiente. Aparecerá un menú
-   nuevo, *Script Center Menu*, que incluirá un enlace con el nombre
-   de la aplicación.
-4. Cuando se ejecute por primera vez, pedirá que se autorice su uso.
-
-
-<div class='ejercicios' markdown="1">
-
-Crear un *script* para un documento Google y cambiarle el nombre con
-el que aparece en el menú, así como la función a la que llama. 
+y
+[este es una introducción general con ejemplos de Ruby](https://www.youtube.com/watch?v=ii9G9JMvoXM) 
 
 </div>
 
