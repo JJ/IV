@@ -2,8 +2,8 @@
 layout: index
 
 
-prev: Tecnicas_de_virtualizacion
-next: Almacenamiento
+prev: Intro_concepto_y_soporte_fisico
+next: PaaS
 ---
 
 Desarrollo basado en pruebas
@@ -20,12 +20,12 @@ next: PaaS
 
 ### Cubre los siguientes objetivos de la asignatura
 
-2. Conocer los conceptos relacionados con el proceso de virtualización
+1. Conocer los conceptos relacionados con el proceso de virtualización
 tanto de software como de hardware y ponerlos en práctica.
 
 ### Objetivos específicos
 
-1. Entender el concepto de *DevOps*
+1. Entender el concepto de *DevOps*.
 2. Usar herramientas para gestión de los ciclos de desarrollo de una aplicación y entender cuales son estos.
 3. Aprender a usar integración continua en cualquier aplicación.
 
@@ -40,7 +40,9 @@ sea posible todo este ciclo de vida del software debe estar automatizado en
 todo lo posible, para que todas las fases se hagan esencialmente sin
 intervención humana y se minimice la posibilidad de que haya 
 en el proceso errores costosos de arreglar una vez echado a andar un
-sistema. La aparición de la [nube](https://es.wikipedia.org/wiki/Computaci%C3%B3n_en_la_nube) ha hecho que en varias, o en todas,
+sistema. La aparición de la
+[nube](https://es.wikipedia.org/wiki/Computaci%C3%B3n_en_la_nube) ha
+hecho que en varias, o en todas,
 las partes del proceso, aparezcan recursos *elásticos* y disponibles bajo
 demanda, algunos de ellos gratuitos.
 
@@ -137,9 +139,10 @@ veremos a continuación.
 
 <div class='ejercicios' markdown='1'>
 
-Instalar alguno de los entornos virtuales de `node.js` y, con ellos,
+Instalar alguno de los entornos virtuales de `node.js` (o de cualquier
+otro lenguaje con el que se esté familiarizado) y, con ellos,
 instalar la última versión existente, la versión *minor* más actual
-de la 0.12 y lo mismo para la 0.11 o alguna impar. Si no se usa habitualmente este lenguaje, hacer lo mismo con cualquier otro lenguaje de scripting. 
+de la 4.x y lo mismo para la 0.11 o alguna impar (de desarrollo).
 
 </div>
 
@@ -176,7 +179,7 @@ de empresas por calificación, por ejemplo. Crear un repositorio en GitHub para 
 librería y crear un pequeño programa que use algunas de sus
 funcionalidades. Si se quiere hacer con cualquier otra aplicación, también es válido.
 
->Se trata de hacer una aplicación simple que se pueda crear rápidamente
+>Se trata de hacer una aplicación simple que se pueda hacer rápidamente
 >con un generador de aplicaciones como los que incluyen diferentes
 >marcos MVC. Si cuesta mucho trabajo, simplemente prepara una
 >aplicación que puedas usar más adelante en el resto de los
@@ -201,15 +204,15 @@ local. Pero el objeto del desarrollo moderno es asegurarse de que todo
 lo necesario para programar algo está presente. Por eso, se usan
 ficheros que describen qué se usa y, en general, que es necesario
 instalar y tener para ejecutarlo. En node se usa un fichero en formato
-JSON tal como este, llamado `package.json`:
+JSON tal como este:
 
 	{
-	  "author": "J. J. Merelo <jjmerelo@gmail.com> (http://github.com/JJ/IV)",
+	  "author": "J. J. Merelo <jjmerelo@gmail.com> (http://github.com/JJ/desarrollo-basado-pruebas)",
 	  "name": "porrio",
 	  "description": "Apuesta en una porra",
 	  "version": "0.0.1",
 	  "repository": {
-	  "url": "git://github.com/JJ/IV.git"
+	  "url": "git://github.com/JJ/desarrollo-basado-pruebas.git"
 	  },
 	  "main": "./Apuesta.js",
 	  "scripts": {
@@ -225,8 +228,7 @@ JSON tal como este, llamado `package.json`:
 
 
 Las partes que más nos interesan están hacia el final: las
-dependencias diversas (`dependencies`). Es un *hash* o matriz
-asociativa que dice qué
+dependencias diversas (`dependencies`). Es un *hash* que dice qué
 módulo se usan (en este caso, `sqlite` solo) y qué versiones harán
 falta. Al desplegarse, el entorno dependerá de muchas cuestiones y hay 
 que asegurarse de que donde va a acabar el programa tiene todo lo
@@ -241,21 +243,18 @@ sólo `npm install .`. Casi todos los lenguajes habituales tienen algún
 sistema similar: `bundle` para Ruby o `cpanm` para Perl, por ejemplo. 
 
 <div class='ejercicios' markdown='1'>
- Crear una descripción del módulo usando `package.json` o el
- equivalente en otro lenguaje. 
+ Crear una descripción del módulo usando `package.json`. En caso de que se trate de otro lenguaje, usar el método correspondiente. 
 </div>
 
-El fichero `package.json`, entre otras cosas, nos sirve para llevar un cierto control de qué es lo
+`package.json` nos sirve para llevar un cierto control de qué es lo
 que necesita nuestra aplicación y, por tanto, nos va a ser bastante
-útil cuando digamos de desplegarlo o testearlo en la nube, puesto que
-describe *virtualmente* la *infraestructura* que necesita nuestra
-aplicación para poder ejecutarse. 
+útil cuando digamos de desplegarlo o testearlo en la nube.
 
 No sólo eso, sino que es la referencia para otra serie de
-herramientas, como las [herramientas de automatización de la construcción](https://en.wikipedia.org/wiki/Build_automation). Las herramientas
+herramientas, como las herramientas de construcción. Las herramientas
 de construcción o de control de tareas se vienen usando
 tradicionalmente en todos los entornos de programación. Quién no ha
-usado alguna vez `make` o escrito un `Makefile`; lo que ocurre es que
+usado alguna vez `make` o escrito un Makefile; lo que ocurre es que
 tradicionalmente se dedicaban exclusivamente a la compilación. Hoy en
 día el concepto de *construcción* es más amplio e incluye tareas que
 van desde el uso de diferentes generadores (de hojas CSS a partir de
@@ -263,9 +262,29 @@ un lenguaje, por ejemplo) hasta la *minificación* o "compresión" de un
 programa hasta que ocupe el mínimo espacio posible, para que sea más
 *amigable* para móviles y otros dispositivos sin mucho ancho de banda.
 
-Todos los lenguajes de programación tienen su propia herramienta de
-construcción, pero en node.js se utilizan principalmente dos:
-[Grunt](http://gruntjs.com) y [Gulp](http://gulpjs.com).
+Todos los lenguajes de programación tienen su propia [herramienta de
+construcción](http://en.wikipedia.org/wiki/Build_automation),  de las
+cuales la más conocida y veterana es la
+orden `make`, introducida [hace casi cuarenta años](https://es.wikipedia.org/wiki/Make). `make` automatiza el proceso
+de construcción en un fichero llamado `Makefile` con una sintaxis
+específica que se puede resumir en
+
+* unos *objetivos* que hay que cumplir y que dependen unos de
+  otros. Por ejemplo, antes de construir el ejecutable hay que
+  construir las librerías.
+
+* unas *tareas* que hay que hacer para cumplir esos objetivos. Por
+  ejemplo, para obtener una librería hay que compilarla a partir del
+  fuente.
+
+Muchos lenguajes de programación, como el propio Perl, usan *make*
+para la automatización de tareas y compilación. Sin embargo, otros lenguajes de programación
+usan diferentes herramientas para ello: Ant, Ivy y Maven para Java, `sbt`
+para Scala, Rake para Ruby y otras muchas.
+
+En node.js se utilizan principalmente dos:
+[Grunt](http://gruntjs.com) y [Gulp](http://gulpjs.com), aunque
+también han (aparecido últimamente Broccoli y mimosa)[http://jpsierens.com/task-runners-a-comparison-between-grunt-gulp-broccoli-and-mimosa/].
 
 >Aquí podíamos hacer una breve disquisición sobre
 >[el código y la configuración](http://coding.abel.nu/2013/06/code-or-configuration-or-configuration-in-code/),
@@ -361,8 +380,7 @@ despliegue. Pero hay también otras formas de probar en la nube, y lo
 veremos a continuación.
 
 <div class='ejercicios' markdown='1'>
-Automatizar con `grunt` y `docco` (o algún otro sistema para otro
-lenguaje de programación) la generación de documentación de la librería
+Automatizar con `grunt` y `docco` (o algún otro sistema) la generación de documentación de la librería
 que se cree. Previamente, por supuesto, habrá que documentar tal
 librería.
 </div>
@@ -420,10 +438,7 @@ función `as_string` es la esperada.
 
 <div class='ejercicios' markdown='1'>
 
- Para la aplicación que se está haciendo, escribir una serie de
- aserciones y probar que efectivamente no fallan. Añadir tests para
- una nueva funcionalidad, probar que falla y escribir el código para
- que no lo haga (vamos, lo que viene siendo TDD). 
+ Para la aplicación que se está haciendo, escribir una serie de aserciones y probar que efectivamente no fallan. Añadir tests para una nueva funcionalidad, probar que falla y escribir el código para que no lo haga (vamos, lo que viene siendo TDD).
 </div>
 
 Hay un segundo nivel, el marco de ejecución de los tests. Los marcos
@@ -606,6 +621,4 @@ para el despliegue continuo, que se verá más adelante.
 
 Una vez visto todo lo necesario para desplegar una aplicación, se
 puede pasar a estudiar los
-[*PaaS*, plataformas como servicio](PaaS.md), donde se pueden
-desplegar aplicaciones para prototipo o para producción de forma
-relativamente simple.  
+[*PaaS*, plataformas como servicio](PaaS), donde se pueden desplegar aplicaciones para prototipo o para producción de forma relativamente simple. 
