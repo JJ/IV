@@ -410,9 +410,9 @@ post-`push`, [compilar y ejecutar la aplicación a través de los llamados
 
 <div class='ejercicios' markdown="1">
 
- Instalar y echar a andar tu primera aplicación en heroku.
+ Instalar y echar a andar tu primera aplicación en Heroku.
 
-<div class='ejercicios' markdown="1">
+</div>
 
 
 Sólo hemos, por lo pronto, desplegado la aplicación por defecto.
