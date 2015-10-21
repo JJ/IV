@@ -16,7 +16,8 @@ next: Tecnicas_de_virtualizacion
 2. Conocer los conceptos relacionados con el proceso de virtualización
 tanto de software como de hardware y ponerlos en práctica. 
 
-4. Justificar la necesidad de procesamiento virtual frente a real en el contexto de una infraestructura TIC de una organización.
+4. Justificar la necesidad de procesamiento virtual frente a real en
+   el contexto de una infraestructura TIC de una organización. 
 
 ### Objetivos específicos
 
@@ -199,7 +200,7 @@ interfaz REST.
 Pero primero hay que instalarlo. Node.js tiene un sistema de gestión de
 módulos bastante simple llamado [npm](https://npmjs.org/) que ya hemos usado. Tras seguir las instrucciones en el 
 sitio para instalarlo (o, en el caso de Ubuntu, instalarlo desde
-Synaptic o con apt-get), vamos al directorio en el que vayamos a crear
+Synaptic o con `apt-get`), vamos al directorio en el que vayamos a crear
 el programa y escribimos
 
 `npm install express --save`
