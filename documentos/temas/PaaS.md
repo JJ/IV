@@ -422,10 +422,10 @@ post-`push`, [compilar y ejecutar la aplicación a través de los llamados
 
 </div>
 
+Sólo hemos, por lo pronto, desplegado la aplicación por omisión.
 
-Sólo hemos, por lo pronto, desplegado la aplicación por defecto.
-
->Usando también el *buildpack* que esté programado para tu pila, el de
+>Y en esta aplicación por omisión se ha usado también el *buildpack*,
+>es decir, el proceso y herramientas de construcción, que esté programado para tu pila, el de
 >Node o el que sea. Pero si eres un poco atrevido, puedes
 >[crear tu propio Buildpack](https://devcenter.heroku.com/articles/buildpack-api),
 >que puede estar escrito en cualquier lenguaje y consiste en realidad
@@ -438,7 +438,6 @@ hay que ejecutar? Si miramos el fichero `Procfile` encontraremos algo
 así
 
 	web: node index.js
-
 
 Este [Procfile](https://devcenter.heroku.com/articles/procfile) se usa
 para indicar a heroku qué es lo que tiene que ejecutar. En casi todos
