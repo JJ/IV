@@ -490,7 +490,6 @@ hacer `git push heroku master`; `heroku` aquí no es más que un alias a
 la dirección de tu aplicación, que si miras en `.git/config` estará
 definido de una forma similar a la siguiente
 
-
     [remote "heroku"]
 	   url = git@heroku.com:porrio.git
 	   fetch = +refs/heads/*:refs/remotes/heroku/*
@@ -511,10 +510,10 @@ forma siguiente
 	# Borra el origen inicial, que será el de la aplicación de ejemplo
 	git remote rm origin
 	# Crea el nuevo origin
-	git remote add origin  git@github.com:mi-nick/mi-app.git
+	git remote add origin git@github.com:mi-nick/mi-app.git
 
 Todo esto puedes ahorrártelo si desde el principio haces un *fork* de
-la aplicación de node y trabajas con ese fork; el origen estará ya
+la aplicación de node y trabajas con ese *fork*; el origen estará ya
 definido.
 
 Ahora tienes dos repositorios: el que está efectivamente desplegado y
@@ -526,7 +525,7 @@ integración continua, que se asegure de que todo funciona
 correctamente. 
 
 Para eso, evidentemente, el sitio en el que se despliegue debe estar
-preparado. No es el caso de Heroku
+preparado. No es el caso de Heroku.
 
 >Heroku tiene, sin embargo,
 >[una beta reciente en GitHub y posiblemente funcione en el futuro próximo](https://github.com/github/github-services/tree/master/docs), que necesita un servicio
