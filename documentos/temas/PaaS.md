@@ -448,7 +448,10 @@ que hay que ejecutar para *levantar* la web que hemos creado.
 
 Localmente, se recrea (aproximadamente) el entorno de Heroku usando
 Foreman. Para ejecutar localmente nuestra aplicación ejecutaremos
-`foreman start web`. `foreman` leerá el `Procfile` y ejecutará la
+
+	foreman start web
+
+`foreman` leerá el `Procfile` y ejecutará la
 tarea correspondiente a `web`, en este caso `index.js`.  Podemos
 interrumpirlo simplemente tecleando Ctrl-C.
 
@@ -472,7 +475,6 @@ volver a desplegar en heroku.
 </div>
 
 Si está `package.json` bien configurado, por ejemplo, de esta forma
-
 
     "scripts": {
 	  "test": "mocha",
