@@ -24,7 +24,8 @@ next: Tecnicas_de_virtualizacion
 2. Conocer los conceptos relacionados con el proceso de virtualización
 tanto de software como de hardware y ponerlos en práctica. 
 
-4. Justificar la necesidad de procesamiento virtual frente a real en el contexto de una infraestructura TIC de una organización.
+4. Justificar la necesidad de procesamiento virtual frente a real en
+   el contexto de una infraestructura TIC de una organización. 
 
 ### Objetivos específicos
 
@@ -207,7 +208,7 @@ interfaz REST.
 Pero primero hay que instalarlo. Node.js tiene un sistema de gestión de
 módulos bastante simple llamado [npm](https://npmjs.org/) que ya hemos usado. Tras seguir las instrucciones en el 
 sitio para instalarlo (o, en el caso de Ubuntu, instalarlo desde
-Synaptic o con apt-get), vamos al directorio en el que vayamos a crear
+Synaptic o con `apt-get`), vamos al directorio en el que vayamos a crear
 el programa y escribimos
 
 `npm install express --save`
@@ -418,14 +419,14 @@ post-`push`, [compilar y ejecutar la aplicación a través de los llamados
 
 <div class='ejercicios' markdown="1">
 
- Instalar y echar a andar tu primera aplicación en heroku.
+ Instalar y echar a andar tu primera aplicación en Heroku.
 
-<div class='ejercicios' markdown="1">
+</div>
 
+Sólo hemos, por lo pronto, desplegado la aplicación por omisión.
 
-Sólo hemos, por lo pronto, desplegado la aplicación por defecto.
-
->Usando también el *buildpack* que esté programado para tu pila, el de
+>Y en esta aplicación por omisión se ha usado también el *buildpack*,
+>es decir, el proceso y herramientas de construcción, que esté programado para tu pila, el de
 >Node o el que sea. Pero si eres un poco atrevido, puedes
 >[crear tu propio Buildpack](https://devcenter.heroku.com/articles/buildpack-api),
 >que puede estar escrito en cualquier lenguaje y consiste en realidad
@@ -439,7 +440,6 @@ así
 
 	web: node index.js
 
-
 Este [Procfile](https://devcenter.heroku.com/articles/procfile) se usa
 para indicar a heroku qué es lo que tiene que ejecutar. En casi todos
 los casos se tratará de una aplicación web, y por tanto la parte
@@ -449,7 +449,10 @@ que hay que ejecutar para *levantar* la web que hemos creado.
 
 Localmente, se recrea (aproximadamente) el entorno de Heroku usando
 Foreman. Para ejecutar localmente nuestra aplicación ejecutaremos
-`foreman start web`. `foreman` leerá el `Procfile` y ejecutará la
+
+	foreman start web
+
+`foreman` leerá el `Procfile` y ejecutará la
 tarea correspondiente a `web`, en este caso `index.js`.  Podemos
 interrumpirlo simplemente tecleando Ctrl-C.
 
@@ -474,7 +477,6 @@ volver a desplegar en heroku.
 
 Si está `package.json` bien configurado, por ejemplo, de esta forma
 
-
     "scripts": {
 	  "test": "mocha",
 	  "start": "node index.js"
@@ -497,7 +499,6 @@ hacer `git push heroku master`; `heroku` aquí no es más que un alias a
 la dirección de tu aplicación, que si miras en `.git/config` estará
 definido de una forma similar a la siguiente
 
-
     [remote "heroku"]
 	   url = git@heroku.com:porrio.git
 	   fetch = +refs/heads/*:refs/remotes/heroku/*
@@ -518,10 +519,10 @@ forma siguiente
 	# Borra el origen inicial, que será el de la aplicación de ejemplo
 	git remote rm origin
 	# Crea el nuevo origin
-	git remote add origin  git@github.com:mi-nick/mi-app.git
+	git remote add origin git@github.com:mi-nick/mi-app.git
 
 Todo esto puedes ahorrártelo si desde el principio haces un *fork* de
-la aplicación de node y trabajas con ese fork; el origen estará ya
+la aplicación de node y trabajas con ese *fork*; el origen estará ya
 definido.
 
 Ahora tienes dos repositorios: el que está efectivamente desplegado y
@@ -533,7 +534,7 @@ integración continua, que se asegure de que todo funciona
 correctamente. 
 
 Para eso, evidentemente, el sitio en el que se despliegue debe estar
-preparado. No es el caso de Heroku
+preparado. No es el caso de Heroku.
 
 >Heroku tiene, sin embargo,
 >[una beta reciente en GitHub y posiblemente funcione en el futuro próximo](https://github.com/github/github-services/tree/master/docs), que necesita un servicio
