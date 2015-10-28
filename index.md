@@ -66,8 +66,8 @@ grosso modo, los hitos se organizarán de la forma siguiente.
 
 1. [Organización de los grupos de práctica y creación del proyecto](documentos/practicas/1.Infraestructura)
 2. [Integración continua en el repositorio](documentos/practicas/2.CI)
-2. Introducción a la computación virtual: [Platform as a Service](documentos/practicas/2.XaaS).
-2. Técnicas de virtualización [Contenedores para pruebas](documentos/practicas/3.Contenedores).
+3. Desplegando a la nube: [Platform as a Service](documentos/practicas/3.PaaS).
+4. Técnicas de virtualización [Contenedores para pruebas](documentos/practicas/3.Contenedores).
 4. [Virtualización de aplicaciones.](documentos/practicas/4.Aplicaciones).
 
 Tutorías virtuales
@@ -88,7 +88,7 @@ Criterios de evaluación
 Los
 [criterios de evaluación figuran en la ficha de la asignatura en la web del grado](http://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/espti/infraestructuravirtual),
 y
-[se especifican en el repositorio de la clase](https://github.com/JJ/IV-2015-16/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n). 
+[se especifican en el repositorio de la clase](https://github.com/JJ/IV-2015-16/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n).
 
 ##Convocatoria de septiembre
 
