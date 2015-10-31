@@ -121,13 +121,17 @@ Por eso desde hacer cierto tiempo se han venido usando *entornos
 virtuales de desarrollo* tales como:
 
 *  [virtualenv para Python](https://virtualenv.pypa.io/en/latest/),
-*  [nodeenv](https://pypi.python.org/pypi/nodeenv/), [nvm](https://github.com/creationix/nvm), [`n`](https://github.com/tj/n) y [nave](https://github.com/isaacs/nave) para node.js,
+*  [nvm](https://github.com/creationix/nvm), [`n`](https://github.com/tj/n) y [nave](https://github.com/isaacs/nave) para node.js,
 *  [`phpenv` para, lo adivinaste, PHP](https://github.com/phpenv/phpenv),
 *  [rbenv](https://github.com/sstephenson/rbenv) y [RVM](http://rvm.io)para Ruby
 *  y [plenv](https://github.com/tokuhirom/plenv) y [perlbrew para Perl](http://perlbrew.pl).
 
 Generalmente, estos programa funcionan instalando binarios en
-directorios del usuario y modificando el camino de ejecución para que se usen estas versiones en vez de las instaladas en el sistema. 
+directorios del usuario y modificando el camino de ejecución para que
+se usen estas versiones en vez de las instaladas en el sistema. En la
+mayoría de los casos se coordinan también con el *shell* para mostrar
+la versión que se está ejecutando en la línea de órdenes o para llevar
+a cabo autocompletado. 
 
 Una vez instalados, estos programas permiten instalar fácilmente
 nuevas versiones de tu lenguaje de programación (con las librerías
