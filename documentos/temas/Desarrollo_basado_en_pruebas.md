@@ -42,11 +42,14 @@ Por eso, en esta parte del curso, veremos cómo desarrollar según la
 metodología basada en pruebas con los
 entornos de computación en nube y cómo configurarlos y usarlos para
 hacer más rápida y eficiente el trabajo de un equipo de desarrollo,
-test, y sistemas.
+test y sistemas.
 
 El desarrollo basado en pruebas entra en relación con la computación nube dentro del concepto de
-[*DevOps*](http://en.wikipedia.org/wiki/DevOps), que
-abarca tanto sistemas, es decir, el soporte físico donde se van a ejecutar las aplicaciones, como desarrollo y test y que está a caballo entre los dos primeros. En primer lugar, *DevOps* implica la automatización de las
+[*DevOps*](https://en.wikipedia.org/wiki/DevOps), que
+abarca tanto sistemas, es decir, el soporte físico donde se van a
+ejecutar las aplicaciones, como desarrollo y test y que está a caballo
+entre los dos primeros. En primer lugar, *DevOps* implica la
+automatización de las 
 tareas de creación de un puesto de trabajo para desarrollo, pero
 también la sistematización de pruebas, de despliegue y de las tareas
 de configuración relacionadas con la misma, todo ello en un entorno de
@@ -103,8 +106,8 @@ seleccione la versión precisa que se va a usar.
 
 Y estos entornos virtuales vienen del hecho de que los lenguajes de scripting tales como Perl, Python y Ruby tienen
 ciclos de desarrollo muy rápidos que hacen que a veces convivan en
-producción diferentes versiones de los mismos, incluso *major*
-versions. Eso hace complicado desarrollar e incluso probar los
+producción diferentes versiones de los mismos, incluso versiones
+*major*. Eso hace complicado desarrollar e incluso probar los 
 programas que se desarrollan: si el sistema operativo viene con Perl
 5.14, puede que haga falta probar o desarrollar para 5.16 o 5.18 o
 incluso probar la versión más avanzada.
