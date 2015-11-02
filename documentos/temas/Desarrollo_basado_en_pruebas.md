@@ -41,7 +41,7 @@ demanda, algunos de ellos gratuitos.
 Por eso, en esta parte del curso, veremos cómo desarrollar según la
 metodología basada en pruebas con los
 entornos de computación en nube y cómo configurarlos y usarlos para
-hacer más rápida y eficiente el trabajo de un equipo de desarrollo,
+hacer más rápido y eficiente el trabajo de un equipo de desarrollo,
 test y sistemas.
 
 El desarrollo basado en pruebas entra en relación con la computación nube dentro del concepto de
@@ -54,7 +54,7 @@ tareas de creación de un puesto de trabajo para desarrollo, pero
 también la sistematización de pruebas, de despliegue y de las tareas
 de configuración relacionadas con la misma, todo ello en un entorno de
 desarrollo ágil. En concreto, *DevOps* comprende
-[los 7 aspectos siguientes, vistos en la página de una herramienta, Rex, que es parte de la panoplia usada para esos menesteres](http://www.rexify.org/): 
+[los 7 aspectos siguientes, vistos en la página de Rex, que es parte de la panoplia usada para esos menesteres](http://www.rexify.org/): 
 
 1. Automatización de tareas relacionadas con el desarrollo. En
    resumen, que no haya que recordar o tener apuntados en una libreta comandos para hacer todo tipo de
@@ -372,7 +372,7 @@ defecto simplemente ejecutando `grunt`. También se puede ejecutar con
 	docco: Apuesta.js -> docs/Apuesta.html
 	docco: Gruntfile.js -> docs/Gruntfile.html
 
-y producirá una documentación tal como [esta](src/docs/Apuesta.html).
+y producirá una documentación tal como [esta](src/docs/Apuesta.html). (Link roto)
 
 La automatización de Grunt se puede usar tanto para prueba como para
 despliegue. Pero hay también otras formas de probar en la nube, y lo
