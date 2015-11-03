@@ -2,7 +2,7 @@
 layout: index
 
 
-prev: Tecnicas_de_virtualizacion
+prev: PaaS
 next: Almacenamiento
 ---
 
@@ -10,7 +10,7 @@ Virtualización *ligera* usando contenedores
 ===
 
 <!--@
-prev: Tecnicas_de_virtualizacion
+prev: PaaS
 next: Almacenamiento
 -->
 
