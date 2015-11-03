@@ -2,7 +2,7 @@ Virtualización *ligera* usando contenedores
 ===
 
 <!--@
-prev: Tecnicas_de_virtualizacion
+prev: PaaS
 next: Almacenamiento
 -->
 

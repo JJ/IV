@@ -3,7 +3,7 @@ Creando aplicaciones en la nube: Uso de PaaS
 
 <!--@
 prev: Desarrollo_basado_en_pruebas
-next: Tecnicas_de_virtualizacion
+next: Contenedores
 -->
 
 <div class="objetivos" markdown="1">
