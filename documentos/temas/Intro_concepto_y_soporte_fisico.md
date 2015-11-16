@@ -60,7 +60,7 @@ mecanismos computacionales para funcionar como tal.
 
 A partir de esto, un *recurso en la nube* es aquel al que se puede
 acceder *bajo demanda*, que es *escalable* y que, desde el punto de
-vista del usuario, se *facturable según uso*, no por el hecho de tener acceso.
+vista del usuario, se *facture según uso*, no por el hecho de tener acceso.
 
 El [origen
   de la palabra](https://en.wikipedia.org/wiki/Cloud_computing#Origin_of_the_term) viene de la tradicional representación de recursos
@@ -77,7 +77,7 @@ Desde el punto de vista del desarrollo, la creación y gestión de
 infraestructuras virtuales entra dentro del concepto de
 [*DevOps*](https://en.wikipedia.org/wiki/DevOps), un concepto que
 abarca tanto sistemas como desarrollo y que está a caballo de
-ambos. En primer lugar, *DevOps* implica la automatizació de las
+ambos. En primer lugar, *DevOps* implica la automatización de las
 tareas de creación de un puesto de trabajo para desarrollo, pero
 también la sistematización de pruebas, de despliegue y de las tareas
 de configuración relacionadas con la misma, todo ello en un entorno de
@@ -165,12 +165,12 @@ Tecnológicamente la computación nube se basa en el proceso progresivo
   
   La virtualización de la infraestructura permite:
   
-  * Creación y configuración de la misma bajo demanda. En vez de
+* Creación y configuración de la misma bajo demanda. En vez de
     desplazar a un técnico, o hacerlo remotamente, se puede
     automatizar la creación de un recurso (a base de *recetas* o
     *plantillas*) y llevarse a cabo cuantas veces se necesite.
 	
- * Simplificación del control y despliegue de recursos: permite usar
+* Simplificación del control y despliegue de recursos: permite usar
    diferentes sistemas operativos y en cada caso el más adecuado para
    la tarea que se requiera.
    
@@ -183,7 +183,7 @@ Tecnológicamente la computación nube se basa en el proceso progresivo
     ordenador a otro cuando sea necesario.
 	
 * Ahorro de costes iniciales en un centro de datos frente a una
-      instalación tradicional, aunque eventualmente algunos negocios puedan optar, si tienen un uso intensivo y regular, en volver ella. 
+      instalación tradicional, aunque eventualmente algunos negocios puedan optar, si tienen un uso intensivo y regular, en volver a ella. 
 	  
 Todas estas ventajas hacen que,
 	  [ya en el año 2013, más de la mitad de los negocios americanos usan infraestructura virtual](http://www.forbes.com/sites/reuvencohen/2013/04/16/the-cloud-hits-the-mainstream-more-than-half-of-u-s-businesses-now-use-cloud-computing/). 
@@ -380,4 +380,3 @@ A dónde ir desde aquí
 
 Antes de continuar es [imprescindible que aprendas y configures `git`. Empieza por aquí](http://mini-git.github.io). En el temario se verá a continuación [los ciclos de desarrollo modernos usando desarrollo basado en pruebas, *test-driven development*, TDD](Desarrollo_basado_en_pruebas.md), pero se puede salar direcamente al [tema dedicado a las plataformas como servicio](PaaS.md) veremos como usarlos. Previamente habrá que [realizar la
 práctica correspondiente a esta materia](../practicas/1.Infraestructura.md). 
-

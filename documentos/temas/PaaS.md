@@ -3,7 +3,7 @@ Creando aplicaciones en la nube: Uso de PaaS
 
 <!--@
 prev: Desarrollo_basado_en_pruebas
-next: Tecnicas_de_virtualizacion
+next: Contenedores
 -->
 
 <div class="objetivos" markdown="1">
@@ -327,8 +327,13 @@ principio y cuatro parámetros. Estos parámetros se recuperan dentro de
 la función *callback* como atributos de la variable `req.params`,
 tales como `req.params.local` en las siguientes líneas.
 
-> Realizar u na app en express que incluya variables como en el caso
-> anterior. 
+
+<div class='ejercicios' markdown="1">
+
+Realizar una app en express (o el lenguaje y marco elegido) que
+incluya variables como en el caso anterior.
+
+</div>
 
 ## Probando nuestra aplicación en la nube
 
@@ -354,8 +359,14 @@ Los tests podemos integrarlos, como es natural, en el mismo marco que el resto d
 
 con lo que se exporta la app que se crea; `require` ejecuta el código y recibe la variable que hemos exportado, que podemos usar como si se tratara de parte de esta misma aplicación. `app` en este test, por tanto, contendrá lo mismo que en la aplicación principal, `index.js`. Usamos el mismo estilo de test con `mocha` que [ya se ha visto](http://jj.github.io/desarrollo-basado-pruebas) pero usamos funciones específicas:
 
-* `request` hace una llamada sobre `app` como si la hiciéramos *desde fuera*; `put`, por tanto, llamará a la ruta correspondiente, que crea un partido sobre el que apostar.
-* `expect` expresa qué se puede esperar de la respuesta. Por ejemplo, se puede esperar que sea de tipo JSON (porque es lo que enviamos, un JSON del partido añadido) y además que sea de tipo '200', respuesta correcta. Y como esta es la última de la cadena, llamamos a `done` que es en realidad una función que usa como parámetro el callback.
+* `request` hace una llamada sobre `app` como si la hiciéramos *desde
+  fuera*; `put`, por tanto, llamará a la ruta correspondiente, que
+  crea un partido sobre el que apostar. 
+* `expect` expresa qué se puede esperar de la respuesta. Por ejemplo,
+  se puede esperar que sea de tipo JSON (porque es lo que enviamos, un
+  JSON del partido añadido) y además que sea de tipo '200', respuesta
+  correcta. Y como esta es la última de la cadena, llamamos a `done`
+  que es en realidad una función que usa como parámetro el callback. 
 
 Podemos hacer más pruebas, usando get, por ejemplo. Pero se deja como ejercicio al alumno.
 
@@ -579,13 +590,16 @@ Teniendo en cuenta esto, no es difícil cambiar la aplicación para que pueda fu
 
 En la primera se establece la IP en la que tiene que escuchar la aplicación. En el caso por omisión, el segundo, la dirección `0.0.0.0` indica que Express escuchará en todas las IPs. Sin embargo, eso no es correcto ni posible en OpenShift, que tiene una IP específica, contenida en la variable de entorno `OPENSHIFT_NODEJS_IP` y que será una IP de tipo local (aunque realmente esto no tiene que importarnos salvo por el caso de que no podremos acceder a esa IP directamente).
 
-En cuanto al puerto, en los dos casos hay variables de entorno para definirlo. Simplemente las vamos comprobando con || (OR) y si no está establecida ninguna, se asigna el valor por defecto, que también sirve para la ejecución local.
+En cuanto al puerto, en los dos casos hay variables de entorno para
+definirlo. Simplemente las vamos comprobando con \|\| (OR) y si no está
+establecida ninguna, se asigna el valor por defecto, que también sirve
+para la ejecución local. 
 
 <div class='ejercicios' markdown="1">
  Preparar la aplicación con la que se ha
  venido trabajando hasta este momento para ejecutarse en un PaaS, el
  que se haya elegido. 
-</a>
+</div>
 
 También en OpenShift se puede desplegar automáticamente usando Travis,
 por ejemplo. De hecho, incluso en Heroku se puede trabajar también con
