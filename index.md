@@ -67,7 +67,7 @@ grosso modo, los hitos se organizarán de la forma siguiente.
 1. [Organización de los grupos de práctica y creación del proyecto](documentos/practicas/1.Infraestructura)
 2. [Integración continua en el repositorio](documentos/practicas/2.CI)
 3. Desplegando a la nube: [Platform as a Service](documentos/practicas/3.PaaS).
-4. Técnicas de virtualización [Contenedores para pruebas](documentos/practicas/3.Contenedores).
+4. Técnicas de virtualización [Contenedores para pruebas](documentos/practicas/4.Docker).
 4. [Virtualización de aplicaciones.](documentos/practicas/4.Aplicaciones).
 
 Tutorías virtuales
