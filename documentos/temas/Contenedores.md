@@ -3,7 +3,7 @@ Virtualización *ligera* usando contenedores
 
 <!--@
 prev: PaaS
-next: Almacenamiento
+next: Uso_de_sistemas
 -->
 
 <div class="objetivos" markdown="1">
@@ -441,8 +441,9 @@ sistema operativo de tu elección.
 A dónde ir desde aquí
 -----
 
-En el [siguiente tema](Almacenamiento) veremos cómo crear y configurar el
-almacenamiento virtual que, en general, es independiente de la
+Primero, hay que [llevar a cabo el hito del proyecto correspondiente a este tema](../practicas/4.Docker.md).
+
+Si te interesa, puedes consultar cómo se [virtualiza el almacenamiento](Almacenamiento) que, en general, es independiente de la
 generación de una máquina virtual. También puedes ir directamente al
 [tema de uso de sistemas](Uso_de_sistemas.md) en el que se trabajará
 con sistemas de virtualización completa. 
