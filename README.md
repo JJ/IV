@@ -34,12 +34,16 @@ disponibles con una licencia libre. Los fuentes de los mismos están en
 1. [Introducción: conceptos y soporte físico](documentos/temas/Intro_concepto_y_soporte_fisico.md).
 2. [Iniciación a DevOps: desarrollo basado en pruebas](documentos/temas/Desarrollo_basado_en_pruebas.md).
 2. [Platform as a Service](documentos/temas/PaaS.md).
-2. [Técnicas de virtualización](documentos/temas/Tecnicas_de_virtualizacion.md).
-4. [Aislamiento de recursos](documentos/temas/Aislamiento_de_recursos.md).
 3. [Usando contenedores](documentos/temas/Contenedores.md).
-4. [Almacenamiento virtual](documentos/temas/Almacenamiento.md).
+
 5. [Uso de sistemas de virtualización](documentos/temas/Uso_de_sistemas.md).
 6. [Gestión de configuraciones](documentos/temas/Gestion_de_configuraciones.md).
+
+Estos temas se pueden consultar como material adicional, pero no forman parte este año del temario de la asignatura:
+
+2. [Técnicas de virtualización](documentos/temas/Tecnicas_de_virtualizacion.md).
+4. [Aislamiento de recursos](documentos/temas/Aislamiento_de_recursos.md).
+4. [Almacenamiento virtual](documentos/temas/Almacenamiento.md).
 
 Seminarios
 ---------------
