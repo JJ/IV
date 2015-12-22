@@ -151,8 +151,8 @@ cualquier dispositivo.
 <div class='nota' markdown='1'>
 Si se ha cortado la instalación o ha habido algún problema el comando
 anterior tratará de arrancar de todas formas del disco duro. Se puede
-cortar la máquina virtual simplemente cerrando al ventana y [tratar de
-arrancar de nuevo empezando por el CD virtual usando](https://doc.opensuse.org/products/draft/SLES/SLES-kvm_sd_draft/cha.qemu.running.html)
+cortar la máquina virtual simplemente cerrando la ventana y [tratar de
+arrancar de nuevo empezando por el CD virtual usando](https://doc.opensuse.org/documentation/html/openSUSE_122/opensuse-kvm/cha.qemu.running.html)
 
 	qemu-system-x86_64 -hda otro-disco.img -cdrom picaros-diego-b.iso
 	-boot once=d
@@ -173,7 +173,7 @@ principalmente de hacer pruebas se puede usar
 mundo,
 [Damn Small Linux](http://www.damnsmalllinux.org/download.html),
 [SliTaz](http://www.slitaz.org/en/) (que cabe en 35 megas) y
-[ttylinux](http://ttylinux.net/) (basado en línea de órdenes solo). 
+[ttylinux](http://freecode.com/projects/ttylinux/) (basado en línea de órdenes solo). 
 
 2. Hacer un ejercicio equivalente usando otro hipervisor como Xen, VirtualBox o
 Parallels. 
@@ -301,7 +301,7 @@ En principio, para configurar la máquina virtual hay que hacerlo como
 siempre se ha hecho: trabajando desde línea de órdenes, editando ficheros de configuración e instalando
 los paquetes que hagan falta. Pero
 [conociendo `juju`](Contenedores) tambien
-[se puede trabajar con él](https://juju.ubuntu.com/docs/config-azure.html)
+[se puede trabajar con él](https://jujucharms.com/docs/stable/config-azure)
 para instalar lo que haga falta. Se puede empezar, por ejemplo
 [instalando el GUI de juju](https://juju.ubuntu.com/docs/howto-gui-management.html)
 para poder a partir de ahí manejar despliegues en máquinas virtuales
@@ -342,7 +342,7 @@ operativo, aunque veremos más adelante formas de hacerlo
 independiente.
 
 Hay diferentes herramientas que se pueden usar para este tipo de
-provisionamiento; [Cobbler](http://www.cobblerd.org/) es una de
+provisionamiento; [Cobbler](http://cobbler.github.io/) es una de
 ellas. [Cobbler](http://en.wikipedia.org/wiki/Cobbler_%28software%29)
 permite trabajar no sólo con almacenamiento virtual, sino también con
 cualquier dispositivo conectado por red que se pueda acceder desde
