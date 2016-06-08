@@ -1,0 +1,21 @@
+@import url(https://fonts.googleapis.com/css?family=Biryani|Poppins);
+
+.bkg { 
+       background-color:rgba(86,20,32,0.7);
+       padding: 50px;
+       margin: 20px;
+       border-radius: 30px
+}
+
+.reveal li { font-size:1.75em }
+.reveal li.credits { font-size:0.75em }
+
+.creditcontainer {
+   -webkit-column-count: 2;
+      -moz-column-count: 2;
+           column-count: 2;
+
+   -webkit-column-gap: 20px;
+      -moz-column-gap: 20px;
+           column-gap: 20px;
+}
