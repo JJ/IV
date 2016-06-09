@@ -2,6 +2,8 @@
  * Solarized Dark theme for reveal.js.
  * Author: Achim Staebler
  */
+@import url(https://fonts.googleapis.com/css?family=Biryani|Poppins|Lato);
+
 /**
  * Solarized colors by Ethan Schoonover
  */
@@ -51,11 +53,11 @@ body {
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-face: Biryani, Arial, sans-serif;
+  font-family: Biryani, Arial, sans-serif;
   font-size: 3.77em; }
 
 .reveal h2 {
-             font-face: Poppins, Arial, sans-serif;
+             font-family: Poppins, Arial, sans-serif;
              font-size: 2.11em; }
 
 .reveal h3 {
