@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use LWP::Simple qw(getstore);
+use File::Copy;
 
 use v5.16;
 
@@ -11,12 +11,15 @@ my $dir = shift || ".";
 my $previo = shift || "IV-2015-16";
 
 for my $d ( qw( ejercicios objetivos practicas sesiones ) ) {
-  mkdir("$dir/$d");
-  getstore("https://github.com/JJ/$previo/blob/master/$dir/README.md",
-	   "$dir/README.md")
+    eval {
+	mkdir("$dir/$d");
+    };
+
+    my $url = "http://raw.githubusercontent.com/JJ/$previo/master/$d/README.md";
+    `wget --backups=1  $url`;
+    move( 'README.md', "$dir/$d/" ) || die "Can't write file";
 }
 
 for my $f ( qw (.gitignore LICENSE Metodología_y_criterios_de_evaluación.md README.md)) {
-   getstore("https://github.com/JJ/$previo/blob/master/$f",
-	   $f)
+    `wget  --backups=1 https://raw.githubusercontent.com/JJ/$previo/master/$f`;
 }
