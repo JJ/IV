@@ -6,8 +6,13 @@ es una asignatura obligatoria de la rama Tecnologías de la Información del pri
 de Ingeniería Informática.
 
 La asignatura se imparte en el curso 2016-2017 [los jueves  de 10:30 a
-12:30 en la 1.5 y tiene tres grupos de prácticas los lunes, miércoles y jueves en la -1.2 (a partir del 19 de octubre)](http://etsiit.ugr.es/pages/calendario_academico/horarios1516/horariosgii1516/!/download). Se usará
-[GitHub](http://github.com) para las prácticas y trabajo final. Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas sesiones de clase se irán reflejando en [un repositorio de GitHub; este es el de 2015-2016](https://github.com/JJ/IV-2015-16). 
+12:30 en la 1.5 y tiene tres grupos de prácticas los lunes, miércoles y jueves en la -1.2 (a partir del 19 de octubre)](http://etsiit.ugr.es/pages/calendario_academico/horarios1516/horariosgii1516/!/download).
+Se recuerda a los alumnos que en todas las clases será necesario llevar el portátil, ya que son clases prácticas.
+
+Se usará
+[GitHub](http://github.com) para el proyecto cuyos hitos serán considerados "prácticas".
+
+Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas sesiones de clase se irán reflejando en [un repositorio de GitHub; este es el de 2015-2016](https://github.com/JJ/IV-2015-16). 
 
 Las aulas y horarios de los grupos de prácticas son los siguientes:
 
