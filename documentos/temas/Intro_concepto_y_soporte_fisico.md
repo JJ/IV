@@ -7,6 +7,7 @@ next: Desarrollo_basado_en_pruebas
 
 <div class="objetivos" markdown="1">
 
+
 ##Objetivos 
 
 ### Cubre los siguientes objetivos de la asignatura
@@ -24,7 +25,7 @@ tanto de software como de hardware y ponerlos en práctica.
 ### Objetivos específicos
 
 5. Conocer diferentes tecnologías relacionadas con la virtualización
-(Computación nube, *Utility Computing*, *Software as a Service* o Google
+(Computación nube, *Cloud computing*, *Utility Computing*, *Software as a Service* o Google
 AppSpot) 
 
 6. Conocer el concepto de software libre y su importancia dentro de la
@@ -53,8 +54,9 @@ En general y en Informática, un recurso [virtual](https://en.wikipedia.org/wiki
 realidad, está almacenada en parte en un disco o *realidad virtual* es
 un entorno inmersivo generado por ordenador que imita a la realidad
 (al menos en que se puede situar uno *dentro* de ella). Una infraestructura virtual será un
-recurso -procesador, memoria, disco, conjunto de aplicaciones o incluso una sola aplicación- que no corresponde
-exactamente a su equivalente real (no tiene un procesador físico, o un
+recurso -procesador, memoria, disco, conjunto de aplicaciones o
+incluso una sola aplicación o función- que no está asociado
+directamente a su equivalente real (no tiene un procesador físico, o un
 disco físico exclusivo) sino que se ha creado a través de una serie de
 mecanismos computacionales para funcionar como tal.
 
@@ -70,7 +72,7 @@ El [origen
 Consultar en el catálogo de alguna tienda de informática el precio de
 un ordenador tipo servidor y calcular su coste de amortización a
 cuatro y siete años. Consultar
-[este artículo en Infoautónomos sobre el tema](http://www.infoautonomos.com/consultas-a-la-comunidad/988/). 
+[este artículo en Infoautónomos sobre el tema]( http://infoautonomos.eleconomista.es/consultas-a-la-comunidad/988/).
 </div>
 
 Desde el punto de vista del desarrollo, la creación y gestión de
@@ -263,7 +265,7 @@ aplicación en diferentes versiones con una sola orden. `virtualenv`, `perlbrew`
 para diferentes lenguajes. 
 
 <div class='ejercicios' markdown="1">
-1. [¿Qué tipo de virtualización usarías en cada caso? Comentar en el foro](https://github.com/JJ/IV-2015-16/issues/1)
+1. [¿Qué tipo de virtualización usarías en cada caso? Comentar en el foro](https://github.com/JJ/IV16-17/issues/1)
 
 2. Crear un programa simple en cualquier lenguaje interpretado para
 Linux, empaquetarlo con CDE y probarlo en diferentes distribuciones.
