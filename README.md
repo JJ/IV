@@ -13,7 +13,7 @@ Las aulas y horarios de los grupos de prácticas son los siguientes:
 
 * Lunes de 9:30 a 11:30, aula -1.2.
 * Miércoles de 9:30 a 11:30, aula -1.2.
-* Jueves de 9:30 a 11:30, aula -1.2.
+* Jueves de 8:30 a 10:30, aula -1.2.
 
 En resumen, mi intención es que el alumno al final de la asignatura sea capaz de hacer lo siguiente: 
 
