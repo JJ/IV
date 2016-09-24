@@ -69,7 +69,7 @@ Usando Chef para provisionamiento
  [Chef](http://www.getchef.com/chef/) es una herramienta que, en
  general, se usa en un servidor que se encarga no sólo de gestionar la
  configuración, sino también las versiones. Empezar a usarlo
- [es complicado](http://wiki.opscode.com/display/chef/Documentation).
+ [no es trivial](http://wiki.opscode.com/display/chef/Documentation).
  Sin embargo, como
  introducción a la gestión de configuraciones se puede usar
  [`chef-solo`](http://docs.opscode.com/chef_solo.html), una versión
@@ -91,12 +91,15 @@ Usando Chef para provisionamiento
  </div>
  
  
-En una máquina tipo ubuntu, hay que comenzar instalando Ruby y Ruby
-Gems, el gestor de librerías  
-
-	sudo apt-get install ruby1.9.1 ruby1.9.1-dev rubygems
+En una máquina tipo ubuntu, hay que comenzar instalando los prerrequisitos: Ruby y Ruby
+Gems, el gestor de librerías, usando tu gestor de paquetes favorito,
+aunque para instalar ruby se aconseja que se usen los gestores de
+configurariones `rbenv` o `rvm`. Ver la
+[introducción al lenguaje Ruby](http://jj.github.io/IV/documentos/seminarios/ruby)
+para ver cómo se hace y también para aprender un poco de Ruby, lo
+necesario para trabajar con estas herramientas.
 	
-`chef` se distribuye como una gema, por lo que se puede instalar
+`chef` se distribuye como una *gema*, por lo que se puede instalar
 siempre como
 
 	sudo gem install ohai chef
@@ -109,7 +112,10 @@ Una [forma más rápida de instalar Chef](http://gettingstartedwithchef.com/firs
 
 	curl -L https://www.opscode.com/chef/install.sh | bash
 
-La última tendrá que ser `sudo bash` en caso de que se quiera instalar como administrador (que será lo normal).
+La última tendrá que ser `sudo bash` en caso de que se quiera instalar
+como administrador (que será lo normal). En todo caso, `chef` debe
+estar instalado en la máquina que vayamos a usar, no sólo en la
+máquina anfitrión. 
 
 <div class='ejercicios' markdown='1'>
 
@@ -130,7 +136,7 @@ están escritos en Ruby.
 Vamos a empezar a escribir una recetilla del Chef. Generalmente,
 [escribir una receta es algo más complicado](http://reiddraper.com/first-chef-recipe/),
 pero comenzaremos por una receta muy simple que instale el
-imprescindible `emacs` y le asigne un nombre al nodo. Creamos el
+imprescindible editor `emacs` y le asigne un nombre al nodo. Creamos el
 directorio `chef` en algún sitio conveniente y dentro de ese
 directorio irán diferentes ficheros.
 
@@ -531,21 +537,26 @@ incluimos en el Vagrantfile. las órdenes para usarlo en
 
 Este fichero usa un bloque de Ruby para pasarle variables y
 simplemente declara que se va a usar la receta `emacs`, que
-previamente tendremos que haber creado en un subdirectorio cookbooks
+previamente tendremos que haber creado en un subdirectorio `cookbooks`
 que descienda exactamente del mismo directorio y que contenga
 simplemente `package 'emacs'` que tendrá que estar en un fichero 
 
 	cookbooks/emacs/recipes/default.rb
 	
-Con todo esto se puede configurar emacs. Pero, la verdad, seguro que
+Con todo esto se puede configurar emacs.
+
+<div class='nota' markdown='1'>
+Pero, la verdad, seguro que
 es más fácil hacerlo en Ansible y/o en otro sistema operativo que no
 sea CentOS porque yo, por lo pronto, no he logrado instalar chef-solo
 en ninguna de las máquinas pre-configuradas de VagrantBoxes. 
+</div>
+
 
 <div class='ejercicios' markdown='1'>
 
 	Configurar tu máquina virtual usando vagrant con el provisionador
-	ansible
+	chef.
 	
 </div>
 
