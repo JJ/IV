@@ -1,8 +1,8 @@
 ---
 layout: index
 
-prev: Uso_de_sistemas
 
+prev: Uso_de_sistemas
 ---
 
 Gestión de infraestructuras virtuales
@@ -40,9 +40,8 @@ virtuales que ya tienen
 ciertas características de las mismas, como el aislamiento y la gestión
 independiente, que las asemeja a las máquinas virtuales *reales*. En
 un momento determinado puede hacer falta crear una serie de máquinas
-virtuales con características determinadas y usar un *script* con
-órdenes de `juju` puede llegar a ser un poco molesto. Se hace
-necesario que se usen herramientas para crear y configurar estos
+virtuales con características determinadas, por lo que se hace
+necesario usar herramientas para crear y configurar estos
 entornos.
 
 Estas herramientas se denominan, en general,
@@ -240,7 +239,7 @@ Otros sistemas de gestión de configuración
 ---
 
 Las principales alternativas a Chef son [Ansible](http://ansible.com),
-[Salt]() y [Puppet](http://docs.puppetlabs.com/guides/installation.html). Todos ellos se comparan en
+[Salt](http://www.saltstack.com/) y [Puppet](http://docs.puppetlabs.com/guides/installation.html). Todos ellos se comparan en
 [este artículo](http://www.infoworld.com/d/data-center/review-puppet-vs-chef-vs-ansible-vs-salt-231308),
 aunque los principales contendientes son
 [Puppet y Chef, sin que ninguno de los dos sea perfecto](http://www.infoworld.com/d/data-center/puppet-or-chef-the-configuration-management-dilemma-215279?source=fssr). 
