@@ -65,15 +65,15 @@ Prácticas - Actividades académicas dirigidas
 La parte práctica consiste en la realización de un proyecto a lo largo de
 la asignatura, con diferentes hitos cuyo contenido corresponde a los objetivos de aprendizaje
 cumplidos hasta ese momento. Los proyectos
-[consisten en crear la infraestructura virtual de una aplicación desarrollada según el modelo DevOps](documentos/practicas/README.md). A
+[consisten en crear la infraestructura virtual de una aplicación desarrollada según el modelo DevOps](documentos/proyecto/README.md). A
 grosso modo, los hitos se organizarán de la forma siguiente. 
 
-0. [Práctica cero: Uso básico de herramientas](documentos/practicas/0.Repositorio.md)
-1. [Organización de los grupos de práctica y creación del proyecto](documentos/practicas/1.Infraestructura.md)
-2. [Integración continua en el repositorio](documentos/practicas/2.CI.md)
-3. Desplegando a la nube: [Platform as a Service](documentos/practicas/3.PaaS.md).
-4. Técnicas de virtualización [Contenedores para pruebas](documentos/practicas/4.Docker.md).
-4. [Virtualización de aplicaciones.](documentos/practicas/4.Aplicaciones.md).
+0. [Práctica cero: Uso básico de herramientas](documentos/proyecto/0.Repositorio.md)
+1. [Organización de los grupos de práctica y creación del proyecto](documentos/proyecto/1.Infraestructura.md)
+2. [Integración continua en el repositorio](documentos/proyecto/2.CI.md)
+3. Desplegando a la nube: [Platform as a Service](documentos/proyecto/3.PaaS.md).
+4. Técnicas de virtualización [Contenedores para pruebas](documentos/proyecto/4.Docker.md).
+4. [Virtualización de aplicaciones.](documentos/proyecto/4.Aplicaciones.md).
 
 Tutorías virtuales
 ----
