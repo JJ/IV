@@ -45,7 +45,6 @@ disponibles con una licencia libre. Los fuentes de los mismos están en
 2. [Iniciación a DevOps: desarrollo basado en pruebas](documentos/temas/Desarrollo_basado_en_pruebas).
 2. [Platform as a Service](documentos/temas/PaaS).
 3. [Usando contenedores](documentos/temas/Contenedores).
-
 5. [Uso de sistemas de virtualización](documentos/temas/Uso_de_sistemas).
 6. [Gestión de configuraciones](documentos/temas/Gestion_de_configuraciones).
 
