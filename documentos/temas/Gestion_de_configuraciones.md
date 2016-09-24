@@ -33,9 +33,8 @@ virtuales que ya tienen
 ciertas características de las mismas, como el aislamiento y la gestión
 independiente, que las asemeja a las máquinas virtuales *reales*. En
 un momento determinado puede hacer falta crear una serie de máquinas
-virtuales con características determinadas y usar un *script* con
-órdenes de `juju` puede llegar a ser un poco molesto. Se hace
-necesario que se usen herramientas para crear y configurar estos
+virtuales con características determinadas, por lo que se hace
+necesario usar herramientas para crear y configurar estos
 entornos.
 
 Estas herramientas se denominan, en general,
