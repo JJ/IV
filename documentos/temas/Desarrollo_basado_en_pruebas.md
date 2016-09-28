@@ -6,11 +6,10 @@ prev: Intro_concepto_y_soporte_fisico
 next: PaaS
 -->
 
-<div class="objetivos" markdown="1">
 
-##Objetivos 
+##Objetivos
 
-### Cubre los siguientes objetivos de la asignatura
+###Cubre los siguientes objetivos de la asignatura
 
 1. Conocer los conceptos relacionados con el proceso de virtualización
 tanto de software como de hardware y ponerlos en práctica.
@@ -21,7 +20,6 @@ tanto de software como de hardware y ponerlos en práctica.
 2. Usar herramientas para gestión de los ciclos de desarrollo de una aplicación y entender cuales son estos.
 3. Aprender a usar integración continua en cualquier aplicación.
 
-</div>
 
 ## Introducción
 
@@ -93,10 +91,10 @@ En esta sesión veremos la mayoría; en siguientes sesiones se verá la
 gestión de configuraciones, provisionamiento de los servidores,
 despliegue continuo y virtualización.
 
-## Entornos virtuales de desarrollo.
+## Entornos virtuales de desarrollo
 
 Una de las partes esenciales de la cultura *DevOps* es la gestión de
-configuraciones; a continuación,  la automatización. El uso de entornos
+configuraciones; a continuación, la automatización. El uso de entornos
 virtuales cubre las dos necesidades: te permite independizar la
 versión usada de la que proporcione el sistema, instalarla sin
 necesidad de tener privilegios de superusuario, compartirla entre
@@ -115,11 +113,11 @@ incluso probar la versión más avanzada.
 Por eso desde hacer cierto tiempo se han venido usando *entornos
 virtuales de desarrollo* tales como:
 
-*  [virtualenv para Python](https://virtualenv.pypa.io/en/latest/),
+*  [virtualenv](https://virtualenv.pypa.io/en/latest/) para Python,
 *  [nvm](https://github.com/creationix/nvm), [`n`](https://github.com/tj/n) y [nave](https://github.com/isaacs/nave) para node.js,
 *  [`phpenv` para, lo adivinaste, PHP](https://github.com/phpenv/phpenv),
-*  [rbenv](https://github.com/sstephenson/rbenv) y [RVM](http://rvm.io)para Ruby
-*  y [plenv](https://github.com/tokuhirom/plenv) y [perlbrew para Perl](http://perlbrew.pl).
+*  [rbenv](https://github.com/sstephenson/rbenv) y [RVM](http://rvm.io) para Ruby
+*  y [plenv](https://github.com/tokuhirom/plenv) y [perlbrew](http://perlbrew.pl) para Perl.
 
 Generalmente, estos programa funcionan instalando binarios en
 directorios del usuario y modificando el camino de ejecución para que
@@ -136,14 +134,10 @@ ejemplo, usar en el entorno de desarrollo local la misma versión y
 librerías que nos vamos a encontrar en un PaaS tal como los que
 veremos a continuación.
 
-<div class='ejercicios' markdown='1'>
-
 Instalar alguno de los entornos virtuales de `node.js` (o de cualquier
 otro lenguaje con el que se esté familiarizado) y, con ellos,
 instalar la última versión existente, la versión *minor* más actual
 de la 4.x y lo mismo para la 0.11 o alguna impar (de desarrollo).
-
-</div>
 
 Generalmente, las librerías asociadas a una aplicación determinada, es decir, las dependencias, 
 siguen un método similar. En vez de instalar en el sistema todas las
@@ -152,9 +146,7 @@ la mayor parte de los entornos de programación incluyen alguna forma
 de definir qué librerías (o módulos) necesitan y qué versiones
 mínimas, máximas o exactas deben tener.
 
->Incidentalmente, el hecho de que todo sea software libre ayuda a que
->en ningún paso de este proceso haya que decidir qué licencia o modelo
->de pago o cosas similares hay que usar.
+>Incidentalmente, el hecho de que todo sea software libre ayuda a que en ningún paso de este proceso haya que decidir qué licencia o modelo de pago o cosas similares hay que usar.
 
 ## Vamos a hacer una aplicación: gestionar porras de fútbol
 
@@ -167,8 +159,6 @@ basar la aplicación.
 El objeto básico, por tanto, será la `Apuesta` que irá asociada a un
 `Partido`.
 
-<div class='ejercicios' markdown='1'>
-
 Como ejercicio, algo ligeramente diferente: una web para calificar
 las empresas en las que hacen prácticas los alumnos. Las acciones serían
 crear empresa y listar calificaciones para cada empresa, crear calificación y añadirla
@@ -178,23 +168,14 @@ de empresas por calificación, por ejemplo. Crear un repositorio en GitHub para 
 librería y crear un pequeño programa que use algunas de sus
 funcionalidades. Si se quiere hacer con cualquier otra aplicación, también es válido.
 
->Se trata de hacer una aplicación simple que se pueda hacer rápidamente
->con un generador de aplicaciones como los que incluyen diferentes
->marcos MVC. Si cuesta mucho trabajo, simplemente prepara una
->aplicación que puedas usar más adelante en el resto de los
->ejercicios. 
-
-</div>
+>Se trata de hacer una aplicación simple que se pueda hacer rápidamente con un generador de aplicaciones como los que incluyen diferentes marcos MVC. Si cuesta mucho trabajo, simplemente prepara una aplicación que puedas usar más adelante en el resto de los ejercicios. 
 
 La aplicación tendrá más adelante un interfaz web, pero por lo pronto,
 y a efectos de la prueba continua de más adelante, vamos a quedarnos
 sólo con un pequeño programa que sirva para ver que funciona.
 
-
-<div class='ejercicios' markdown='1'>
 Ejecutar el programa en diferentes versiones del lenguaje. ¿Funciona en
 todas ellas?
-</div>
 
 Podemos almacenar esta información en una base de datos como SQLite
 (la clásica). Para instalarla, `npm install sqlite` que es la forma
@@ -241,9 +222,7 @@ Este fichero, además, permite instalar todas las dependencias usando
 sólo `npm install .`. Casi todos los lenguajes habituales tienen algún
 sistema similar: `bundle` para Ruby o `cpanm` para Perl, por ejemplo. 
 
-<div class='ejercicios' markdown='1'>
  Crear una descripción del módulo usando `package.json`. En caso de que se trate de otro lenguaje, usar el método correspondiente. 
-</div>
 
 `package.json` nos sirve para llevar un cierto control de qué es lo
 que necesita nuestra aplicación y, por tanto, nos va a ser bastante
@@ -283,7 +262,7 @@ para Scala, Rake para Ruby y otras muchas.
 
 En node.js se utilizan principalmente dos:
 [Grunt](http://gruntjs.com) y [Gulp](http://gulpjs.com), aunque
-también han (aparecido últimamente Broccoli y mimosa)[http://jpsierens.com/task-runners-a-comparison-between-grunt-gulp-broccoli-and-mimosa/].
+también han aparecido últimamente [Broccoli y mimosa](http://jpsierens.com/task-runners-a-comparison-between-grunt-gulp-broccoli-and-mimosa/).
 
 >Aquí podíamos hacer una breve disquisición sobre
 >[el código y la configuración](http://coding.abel.nu/2013/06/code-or-configuration-or-configuration-in-code/),
@@ -378,11 +357,9 @@ La automatización de Grunt se puede usar tanto para prueba como para
 despliegue. Pero hay también otras formas de probar en la nube, y lo
 veremos a continuación.
 
-<div class='ejercicios' markdown='1'>
 Automatizar con `grunt` y `docco` (o algún otro sistema) la generación de documentación de la librería
 que se cree. Previamente, por supuesto, habrá que documentar tal
 librería.
-</div>
 
 
 ## Desarrollo basado en pruebas
@@ -478,7 +455,7 @@ Mocha puede usar diferentes librerías de test. En este caso hemos
 escogido la que ya habíamos usado, `assert`. A bajo nivel, los tests
 que funcionen en este marco tendrán que usar una librería de este
 tipo, porque mocha funciona a un nivel superior, con funciones como
-`it` y `describes` que describe, a diferentes niveles, qué hace el
+`it` y `describe` que describe, a diferentes niveles, qué hace el
 test y cuál es el resultado que necesitamos. Se ejecuta con `mocha` y
 el resultado de ejecutarlo será:
 
@@ -500,14 +477,12 @@ Además, te indica el tiempo que ha tardado lo que te puede servir para
 hacer un *benchmark* de tu código en los diferentes entornos en los
 que se ejecute.
 
-<div class='ejercicios' markdown='1'>
 Convertir los tests unitarios anteriores con assert a programas de
  test y ejecutarlos desde *mocha*, usando descripciones del test y
  del grupo de test de forma correcta. Si hasta ahora no has subido el código que has venido realizando a GitHub, es el momento de hacerlo, porque lo vamos a necesitar un poco más adelante. 
-</div>
 
 
-##Añadiendo integración continua.
+##Añadiendo integración continua
 
 A un primer nivel, la integración continua consiste en integrar los
 cambios hechos por un miembro del equipo en el momento que estén y
@@ -537,8 +512,8 @@ por lo que hay otros sistemas como [Travis](http://travis-ci.org) o
 la nube y, además, están preparados para más lenguajes de
 programación.
 
-Para trabajar con estos sistemas, generalmente hay que hacerlo en dos
-pasos
+Para trabajar con estos sistemas, generalmente hay que hacerlo en tres
+pasos:
 
 1. Darse de alta. Muchos están conectados con GitHub por lo que puedes
    usar directamente el usuario ahí. A través de un proceso de
@@ -553,9 +528,7 @@ pasos
    integración y añadirlo al repositorio.
 
 
-<div class='ejercicios' markdown='1'>
 *Ejercicio*: Haced los dos primeros pasos antes de pasar al tercero.
-</div>
 
 Los ficheros de configuración de las máquinas de integración continua
 corresponden, aproximadamente, a una configuración de una máquina
@@ -606,8 +579,7 @@ pronto, todo funciona.
 Si el informe indica que las pruebas son correctas, se puede proceder al despliegue. Pero eso
 ya será en la siguiente clase.
 
-> Configurar integración continua para nuestra aplicación usando
-> Travis o algún otro sitio.
+> Configurar integración continua para nuestra aplicación usando Travis o algún otro sitio.
 
 Esta configuración es esencial por varias razones: primero, porque nos
 permite ser conscientes de todo lo necesario para desplegar nuestra
