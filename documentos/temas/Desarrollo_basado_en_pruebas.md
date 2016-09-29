@@ -166,13 +166,18 @@ El objeto básico, por tanto, será la `Apuesta` que irá asociada a un `Partido
 
 <div class='ejercicios' markdown='1'>
 Como ejercicio, algo ligeramente diferente: una web para calificar
-las empresas en las que hacen prácticas los alumnos. Las acciones serían
-crear empresa y listar calificaciones para cada empresa, crear calificación y añadirla
-(comprobando que la persona no la haya añadido ya), borrar calificación
-(si se arrepiente o te denuncia la empresa o algo) y hacer un ránking
-de empresas por calificación, por ejemplo. Crear un repositorio en GitHub para la
-librería y crear un pequeño programa que use algunas de sus
-funcionalidades. Si se quiere hacer con cualquier otra aplicación, también es válido.
+las empresas en las que hacen prácticas los alumnos.
+
+<h3>Las acciones serían</h3>
+<ul>
+<li>Crear empresa</li>
+<li>Listar calificaciones para cada empresa</li>
+<li>crear calificación y añadirla (comprobando que la persona no la haya añadido ya)</li>
+<li>borrar calificación (si se arrepiente o te denuncia la empresa o algo)</li>
+<li>Hacer un ránking de empresas por calificación, por ejemplo</li>
+<li>Crear un repositorio en GitHub para la librería y crear un pequeño programa que use algunas de sus funcionalidades.
+</ul>
+<p>Si se quiere hacer con cualquier otra aplicación, también es válido.</p>
 </div>
 
 >Se trata de hacer una aplicación simple que se pueda hacer rápidamente con un generador de aplicaciones como los que incluyen diferentes marcos MVC. Si cuesta mucho trabajo, simplemente prepara una aplicación que puedas usar más adelante en el resto de los ejercicios. 
