@@ -58,7 +58,6 @@ Material adicional interesante para la asignatura, que se impartirá fuera del h
 1. [Introducción ligera al lenguaje Ruby](documentos/seminarios/ruby.md). 
 2. Visita a las instalaciones de Trevenque el día 21 de octubre.
 
-
 Prácticas - Actividades académicas dirigidas
 -------------
 
