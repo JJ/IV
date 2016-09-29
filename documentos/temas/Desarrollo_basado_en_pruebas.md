@@ -512,7 +512,7 @@ pasos:
    integración y añadirlo al repositorio.
 
 <div class='ejercicios' markdown='1'>
-<b>Ejercicio</b>: Haced los dos primeros pasos antes de pasar al tercero.
+Haced los dos primeros pasos antes de pasar al tercero.
 </div>
 
 Los ficheros de configuración de las máquinas de integración continua corresponden, aproximadamente, a una configuración de una máquina virtual que hiciera solo y exclusivamente la ejecución de los tests. Para ello se provisiona una máquina virtual (o contenedor), se le carga el sistema operativo y se instala lo necesario, indicado en el fichero de configuración tal como este para Travis.
