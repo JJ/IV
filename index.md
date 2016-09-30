@@ -5,20 +5,26 @@ layout: index
 ---
 #Material docente para Infraestructura Virtual
 
-
 [Infraestructura virtual](http://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/espti/infraestructuravirtual)
-es una asignatura obligatoria de la rama Tecnologías de la Información del primer cuatrimestre del cuarto del Grado
-de Ingeniería Informática.
+es una asignatura obligatoria de la rama Tecnologías de la Información
+del primer cuatrimestre del cuarto del Grado de Ingeniería
+Informática y optativa en otras ramas y el Doble Grado de Informática
+y Matemáticas. 
 
-La asignatura se imparte en el curso 2015-2016 [los miércoles  de 10:30 a
-12:30 en la 1.5 y tiene tres grupos de prácticas los martes, miércoles y viernes en la -1.2 (a partir del 19 de octubre)](http://etsiit.ugr.es/pages/calendario_academico/horarios1516/horariosgii1516/!/download). Se usará
-[GitHub](http://github.com) para las prácticas y trabajo final. Estos son los [objetivos de la asignatura](documentos/objetivos), cuyas sesiones de clase se irán reflejando en [un repositorio de GitHub; este es el de 2015-2016](https://github.com/JJ/IV-2015-16). 
+La asignatura se imparte en el curso 2016-2017 [los jueves de 10:30 a
+12:30 en la 1.5 y tiene tres grupos de prácticas los lunes, miércoles y jueves en la -1.2 (a partir del 19 de octubre)](http://etsiit.ugr.es/pages/calendario_academico/horarios1516/horariosgii1516/!/download).
+Se recuerda a los alumnos que en todas las clases será necesario llevar el portátil, ya que son clases prácticas.
+
+Se usará
+[GitHub](http://github.com) para el proyecto cuyos hitos serán considerados "prácticas".
+
+Estos son los [objetivos de la asignatura](documentos/objetivos), cuyas sesiones de clase se irán reflejando en [un repositorio de GitHub; este es el de 2015-2016](https://github.com/JJ/IV-2015-16). 
 
 Las aulas y horarios de los grupos de prácticas son los siguientes:
 
-* Martes de 9:30 a 11:30, aula 3.10 (hasta el 20 de octubre), -1.2 (a partir de esa fecha).
-* Miércoles de 8:30 a 10:30, aula 3.10 (hasta el 20 de octubre), -1.2 (a partir de esa fecha).
-* Viernes de 9:30 a 11:30, aula 2.9 (hasta el 19 de octubre), -1.2 (a partir de esa fecha).
+* Lunes de 9:30 a 11:30, aula -1.2.
+* Miércoles de 9:30 a 11:30, aula -1.2.
+* Jueves de 8:30 a 10:30, aula -1.2.
 
 En resumen, mi intención es que el alumno al final de la asignatura sea capaz de hacer lo siguiente: 
 
@@ -40,7 +46,6 @@ disponibles con una licencia libre. Los fuentes de los mismos están en
 2. [Iniciación a DevOps: desarrollo basado en pruebas](documentos/temas/Desarrollo_basado_en_pruebas).
 2. [Platform as a Service](documentos/temas/PaaS).
 3. [Usando contenedores](documentos/temas/Contenedores).
-
 5. [Uso de sistemas de virtualización](documentos/temas/Uso_de_sistemas).
 6. [Gestión de configuraciones](documentos/temas/Gestion_de_configuraciones).
 
@@ -62,17 +67,18 @@ Material adicional interesante para la asignatura, que se impartirá fuera del h
 Prácticas - Actividades académicas dirigidas
 -------------
 
-Las prácticas consisten en la realización de un proyecto a lo largo de
+La parte práctica consiste en la realización de un proyecto a lo largo de
 la asignatura, con diferentes hitos cuyo contenido corresponde a los objetivos de aprendizaje
 cumplidos hasta ese momento. Los proyectos
-[consisten en crear la infraestructura virtual de una aplicación desarrollada según el modelo DevOps](documentos/practicas/README.md). A
+[consisten en crear la infraestructura virtual de una aplicación desarrollada según el modelo DevOps](documentos/proyecto/README.md). A
 grosso modo, los hitos se organizarán de la forma siguiente. 
 
-1. [Organización de los grupos de práctica y creación del proyecto](documentos/practicas/1.Infraestructura)
-2. [Integración continua en el repositorio](documentos/practicas/2.CI)
-3. Desplegando a la nube: [Platform as a Service](documentos/practicas/3.PaaS).
-4. Técnicas de virtualización [Contenedores para pruebas](documentos/practicas/4.Docker).
-4. [Virtualización de aplicaciones.](documentos/practicas/4.Aplicaciones).
+0. [Práctica cero: Uso básico de herramientas](documentos/proyecto/0.Repositorio)
+1. [Organización de los grupos de práctica y creación del proyecto](documentos/proyecto/1.Infraestructura)
+2. [Integración continua en el repositorio](documentos/proyecto/2.CI)
+3. Desplegando a la nube: [Platform as a Service](documentos/proyecto/3.PaaS).
+4. Técnicas de virtualización [Contenedores para pruebas](documentos/proyecto/4.Docker).
+4. [Virtualización de aplicaciones.](documentos/proyecto/4.Aplicaciones).
 
 Tutorías virtuales
 ----

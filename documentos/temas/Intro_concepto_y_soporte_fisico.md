@@ -14,6 +14,7 @@ next: Desarrollo_basado_en_pruebas
 
 <div class="objetivos" markdown="1">
 
+
 ##Objetivos 
 
 ### Cubre los siguientes objetivos de la asignatura
@@ -31,7 +32,7 @@ tanto de software como de hardware y ponerlos en práctica.
 ### Objetivos específicos
 
 5. Conocer diferentes tecnologías relacionadas con la virtualización
-(Computación nube, *Utility Computing*, *Software as a Service* o Google
+(Computación nube, *Cloud computing*, *Utility Computing*, *Software as a Service* o Google
 AppSpot) 
 
 6. Conocer el concepto de software libre y su importancia dentro de la
@@ -60,14 +61,15 @@ En general y en Informática, un recurso [virtual](https://en.wikipedia.org/wiki
 realidad, está almacenada en parte en un disco o *realidad virtual* es
 un entorno inmersivo generado por ordenador que imita a la realidad
 (al menos en que se puede situar uno *dentro* de ella). Una infraestructura virtual será un
-recurso -procesador, memoria, disco, conjunto de aplicaciones o incluso una sola aplicación- que no corresponde
-exactamente a su equivalente real (no tiene un procesador físico, o un
+recurso -procesador, memoria, disco, conjunto de aplicaciones o
+incluso una sola aplicación o función- que no está asociado
+directamente a su equivalente real (no tiene un procesador físico, o un
 disco físico exclusivo) sino que se ha creado a través de una serie de
 mecanismos computacionales para funcionar como tal.
 
 A partir de esto, un *recurso en la nube* es aquel al que se puede
 acceder *bajo demanda*, que es *escalable* y que, desde el punto de
-vista del usuario, se *facturable según uso*, no por el hecho de tener acceso.
+vista del usuario, se *facture según uso*, no por el hecho de tener acceso.
 
 El [origen
   de la palabra](https://en.wikipedia.org/wiki/Cloud_computing#Origin_of_the_term) viene de la tradicional representación de recursos
@@ -77,14 +79,14 @@ El [origen
 Consultar en el catálogo de alguna tienda de informática el precio de
 un ordenador tipo servidor y calcular su coste de amortización a
 cuatro y siete años. Consultar
-[este artículo en Infoautónomos sobre el tema](http://www.infoautonomos.com/consultas-a-la-comunidad/988/). 
+[este artículo en Infoautónomos sobre el tema]( http://infoautonomos.eleconomista.es/consultas-a-la-comunidad/988/).
 </div>
 
 Desde el punto de vista del desarrollo, la creación y gestión de
 infraestructuras virtuales entra dentro del concepto de
 [*DevOps*](https://en.wikipedia.org/wiki/DevOps), un concepto que
 abarca tanto sistemas como desarrollo y que está a caballo de
-ambos. En primer lugar, *DevOps* implica la automatizació de las
+ambos. En primer lugar, *DevOps* implica la automatización de las
 tareas de creación de un puesto de trabajo para desarrollo, pero
 también la sistematización de pruebas, de despliegue y de las tareas
 de configuración relacionadas con la misma, todo ello en un entorno de
@@ -172,12 +174,12 @@ Tecnológicamente la computación nube se basa en el proceso progresivo
   
   La virtualización de la infraestructura permite:
   
-  * Creación y configuración de la misma bajo demanda. En vez de
+* Creación y configuración de la misma bajo demanda. En vez de
     desplazar a un técnico, o hacerlo remotamente, se puede
     automatizar la creación de un recurso (a base de *recetas* o
     *plantillas*) y llevarse a cabo cuantas veces se necesite.
 	
- * Simplificación del control y despliegue de recursos: permite usar
+* Simplificación del control y despliegue de recursos: permite usar
    diferentes sistemas operativos y en cada caso el más adecuado para
    la tarea que se requiera.
    
@@ -190,7 +192,7 @@ Tecnológicamente la computación nube se basa en el proceso progresivo
     ordenador a otro cuando sea necesario.
 	
 * Ahorro de costes iniciales en un centro de datos frente a una
-      instalación tradicional, aunque eventualmente algunos negocios puedan optar, si tienen un uso intensivo y regular, en volver ella. 
+      instalación tradicional, aunque eventualmente algunos negocios puedan optar, si tienen un uso intensivo y regular, en volver a ella. 
 	  
 Todas estas ventajas hacen que,
 	  [ya en el año 2013, más de la mitad de los negocios americanos usan infraestructura virtual](http://www.forbes.com/sites/reuvencohen/2013/04/16/the-cloud-hits-the-mainstream-more-than-half-of-u-s-businesses-now-use-cloud-computing/). 
@@ -270,7 +272,7 @@ aplicación en diferentes versiones con una sola orden. `virtualenv`, `perlbrew`
 para diferentes lenguajes. 
 
 <div class='ejercicios' markdown="1">
-1. [¿Qué tipo de virtualización usarías en cada caso? Comentar en el foro](https://github.com/JJ/IV-2015-16/issues/1)
+1. [¿Qué tipo de virtualización usarías en cada caso? Comentar en el foro](https://github.com/JJ/IV16-17/issues/1)
 
 2. Crear un programa simple en cualquier lenguaje interpretado para
 Linux, empaquetarlo con CDE y probarlo en diferentes distribuciones.
@@ -385,11 +387,5 @@ simple, de hecho.
 A dónde ir desde aquí
 -----
 
-Antes de continuar es
-[imprescindible que aprendas y configures `git`. Empieza por aquí](http://mini-git.github.io). En
-el temario se verá a continuación
-[los ciclos de desarrollo modernos usando desarrollo basado en pruebas, *test-driven development*, TDD](Desarrollo_basado_en_pruebas),
-pero se puede salar direcamente al
-[tema dedicado a las plataformas como servicio](PaaS) veremos como
-usarlos. Previamente habrá que [realizar la 
+Antes de continuar es [imprescindible que aprendas y configures `git`. Empieza por aquí](http://mini-git.github.io). En el temario se verá a continuación [los ciclos de desarrollo modernos usando desarrollo basado en pruebas, *test-driven development*, TDD](Desarrollo_basado_en_pruebas), pero se puede salar direcamente al [tema dedicado a las plataformas como servicio](PaaS) veremos como usarlos. Previamente habrá que [realizar la
 práctica correspondiente a esta materia](../practicas/1.Infraestructura). 
