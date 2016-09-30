@@ -7,19 +7,21 @@ next: PaaS
 -->
 
 <div class="objetivos" markdown="1">
+<h2>Objetivos</h2>
 
-##Objetivos 
+<h3>Cubre los siguientes objetivos de la asignatura</h3>
 
-### Cubre los siguientes objetivos de la asignatura
+<ol>
+<li>Conocer los conceptos relacionados con el proceso de virtualización
+tanto de software como de hardware y ponerlos en práctica.</li>
+</ol>
 
-1. Conocer los conceptos relacionados con el proceso de virtualización
-tanto de software como de hardware y ponerlos en práctica.
-
-### Objetivos específicos
-
-1. Entender el concepto de *DevOps*.
-2. Usar herramientas para gestión de los ciclos de desarrollo de una aplicación y entender cuales son estos.
-3. Aprender a usar integración continua en cualquier aplicación.
+<h3>Objetivos específicos</h3>
+<ol>
+<li>Entender el concepto de <i>DevOps</i>.</li>
+<li>Usar herramientas para gestión de los ciclos de desarrollo de una aplicación y entender cuales son estos.</li>
+<li>Aprender a usar integración continua en cualquier aplicación.</li>
+</ol>
 
 </div>
 
@@ -93,10 +95,10 @@ En esta sesión veremos la mayoría; en siguientes sesiones se verá la
 gestión de configuraciones, provisionamiento de los servidores,
 despliegue continuo y virtualización.
 
-## Entornos virtuales de desarrollo.
+## Entornos virtuales de desarrollo
 
 Una de las partes esenciales de la cultura *DevOps* es la gestión de
-configuraciones; a continuación,  la automatización. El uso de entornos
+configuraciones; a continuación, la automatización. El uso de entornos
 virtuales cubre las dos necesidades: te permite independizar la
 versión usada de la que proporcione el sistema, instalarla sin
 necesidad de tener privilegios de superusuario, compartirla entre
@@ -115,11 +117,11 @@ incluso probar la versión más avanzada.
 Por eso desde hacer cierto tiempo se han venido usando *entornos
 virtuales de desarrollo* tales como:
 
-*  [virtualenv para Python](https://virtualenv.pypa.io/en/latest/),
+*  [virtualenv](https://virtualenv.pypa.io/en/latest/) para Python,
 *  [nvm](https://github.com/creationix/nvm), [`n`](https://github.com/tj/n) y [nave](https://github.com/isaacs/nave) para node.js,
 *  [`phpenv` para, lo adivinaste, PHP](https://github.com/phpenv/phpenv),
-*  [rbenv](https://github.com/sstephenson/rbenv) y [RVM](http://rvm.io)para Ruby
-*  y [plenv](https://github.com/tokuhirom/plenv) y [perlbrew para Perl](http://perlbrew.pl).
+*  [rbenv](https://github.com/sstephenson/rbenv) y [RVM](http://rvm.io) para Ruby
+*  y [plenv](https://github.com/tokuhirom/plenv) y [perlbrew](http://perlbrew.pl) para Perl.
 
 Generalmente, estos programa funcionan instalando binarios en
 directorios del usuario y modificando el camino de ejecución para que
@@ -137,12 +139,10 @@ librerías que nos vamos a encontrar en un PaaS tal como los que
 veremos a continuación.
 
 <div class='ejercicios' markdown='1'>
-
-Instalar alguno de los entornos virtuales de `node.js` (o de cualquier
+Instalar alguno de los entornos virtuales de <code>node.js</code> (o de cualquier
 otro lenguaje con el que se esté familiarizado) y, con ellos,
-instalar la última versión existente, la versión *minor* más actual
+instalar la última versión existente, la versión <code>minor</code> más actual
 de la 4.x y lo mismo para la 0.11 o alguna impar (de desarrollo).
-
 </div>
 
 Generalmente, las librerías asociadas a una aplicación determinada, es decir, las dependencias, 
@@ -152,9 +152,7 @@ la mayor parte de los entornos de programación incluyen alguna forma
 de definir qué librerías (o módulos) necesitan y qué versiones
 mínimas, máximas o exactas deben tener.
 
->Incidentalmente, el hecho de que todo sea software libre ayuda a que
->en ningún paso de este proceso haya que decidir qué licencia o modelo
->de pago o cosas similares hay que usar.
+>Incidentalmente, el hecho de que todo sea software libre ayuda a que en ningún paso de este proceso haya que decidir qué licencia o modelo de pago o cosas similares hay que usar.
 
 ## Vamos a hacer una aplicación: gestionar porras de fútbol
 
@@ -164,36 +162,32 @@ y si acaso una fecha o descripción (por ejemplo, *Jaén-Osasuna Copa
 *JJ, 2-1*, por ejemplo. Este sería el *modelo* sobre el que vamos a
 basar la aplicación.
 
-El objeto básico, por tanto, será la `Apuesta` que irá asociada a un
-`Partido`.
+El objeto básico, por tanto, será la `Apuesta` que irá asociada a un `Partido`.
 
 <div class='ejercicios' markdown='1'>
-
 Como ejercicio, algo ligeramente diferente: una web para calificar
-las empresas en las que hacen prácticas los alumnos. Las acciones serían
-crear empresa y listar calificaciones para cada empresa, crear calificación y añadirla
-(comprobando que la persona no la haya añadido ya), borrar calificación
-(si se arrepiente o te denuncia la empresa o algo) y hacer un ránking
-de empresas por calificación, por ejemplo. Crear un repositorio en GitHub para la
-librería y crear un pequeño programa que use algunas de sus
-funcionalidades. Si se quiere hacer con cualquier otra aplicación, también es válido.
+las empresas en las que hacen prácticas los alumnos.
 
->Se trata de hacer una aplicación simple que se pueda hacer rápidamente
->con un generador de aplicaciones como los que incluyen diferentes
->marcos MVC. Si cuesta mucho trabajo, simplemente prepara una
->aplicación que puedas usar más adelante en el resto de los
->ejercicios. 
-
+<h3>Las acciones serían</h3>
+<ul>
+<li>Crear empresa</li>
+<li>Listar calificaciones para cada empresa</li>
+<li>crear calificación y añadirla (comprobando que la persona no la haya añadido ya)</li>
+<li>borrar calificación (si se arrepiente o te denuncia la empresa o algo)</li>
+<li>Hacer un ránking de empresas por calificación, por ejemplo</li>
+<li>Crear un repositorio en GitHub para la librería y crear un pequeño programa que use algunas de sus funcionalidades.
+</ul>
+<p>Si se quiere hacer con cualquier otra aplicación, también es válido.</p>
 </div>
+
+>Se trata de hacer una aplicación simple que se pueda hacer rápidamente con un generador de aplicaciones como los que incluyen diferentes marcos MVC. Si cuesta mucho trabajo, simplemente prepara una aplicación que puedas usar más adelante en el resto de los ejercicios. 
 
 La aplicación tendrá más adelante un interfaz web, pero por lo pronto,
 y a efectos de la prueba continua de más adelante, vamos a quedarnos
 sólo con un pequeño programa que sirva para ver que funciona.
 
-
 <div class='ejercicios' markdown='1'>
-Ejecutar el programa en diferentes versiones del lenguaje. ¿Funciona en
-todas ellas?
+Ejecutar el programa en diferentes versiones del lenguaje. ¿Funciona en todas ellas?
 </div>
 
 Podemos almacenar esta información en una base de datos como SQLite
@@ -229,20 +223,14 @@ JSON tal como este:
 Las partes que más nos interesan están hacia el final: las
 dependencias diversas (`dependencies`). Es un *hash* que dice qué
 módulo se usan (en este caso, `sqlite` solo) y qué versiones harán
-falta. Al desplegarse, el entorno dependerá de muchas cuestiones y hay 
-que asegurarse de que donde va a acabar el programa tiene todo lo
-necesario. En caso de que no lo tuviera, el programa no se instalará.
+falta. Al desplegarse, el entorno dependerá de muchas cuestiones y hay que asegurarse de que donde va a acabar el programa tiene todo lo necesario. En caso de que no lo tuviera, el programa no se instalará.
 
-A este nivel, la descripción del entorno de trabajo ya constituye en
-sí un test: donde se va a desplegar o lo tiene o no lo tiene, en cuyo
-caso no se permitirá la ejecución.
+A este nivel, la descripción del entorno de trabajo ya constituye en sí un test: donde se va a desplegar o lo tiene o no lo tiene, en cuyo caso no se permitirá la ejecución.
 
-Este fichero, además, permite instalar todas las dependencias usando
-sólo `npm install .`. Casi todos los lenguajes habituales tienen algún
-sistema similar: `bundle` para Ruby o `cpanm` para Perl, por ejemplo. 
+Este fichero, además, permite instalar todas las dependencias usando sólo `npm install .`. Casi todos los lenguajes habituales tienen algún sistema similar: `bundle` para Ruby o `cpanm` para Perl, por ejemplo. 
 
 <div class='ejercicios' markdown='1'>
- Crear una descripción del módulo usando `package.json`. En caso de que se trate de otro lenguaje, usar el método correspondiente. 
+Crear una descripción del módulo usando <code>package.json</code>. En caso de que se trate de otro lenguaje, usar el método correspondiente.
 </div>
 
 `package.json` nos sirve para llevar un cierto control de qué es lo
@@ -283,7 +271,7 @@ para Scala, Rake para Ruby y otras muchas.
 
 En node.js se utilizan principalmente dos:
 [Grunt](http://gruntjs.com) y [Gulp](http://gulpjs.com), aunque
-también han (aparecido últimamente Broccoli y mimosa)[http://jpsierens.com/task-runners-a-comparison-between-grunt-gulp-broccoli-and-mimosa/].
+también han aparecido últimamente [Broccoli y mimosa](http://jpsierens.com/task-runners-a-comparison-between-grunt-gulp-broccoli-and-mimosa/).
 
 >Aquí podíamos hacer una breve disquisición sobre
 >[el código y la configuración](http://coding.abel.nu/2013/06/code-or-configuration-or-configuration-in-code/),
@@ -351,21 +339,9 @@ El fichero que se ve arriba tiene tres partes: la definición de la
 tarea (en este caso, la que genera la documentación), la carga de la
 tarea y finalmente el registro de la tarea.
 
-Vayamos con la primera parte. Primero, le indicamos cuál es el fichero
-`package.json` que usamos. Este fichero tiene una serie de variables
-de configuración que podremos usar en el Gruntfile (pero que, por lo
-pronto, no vamos a hacerlo). Luego, definimos la tarea llamada
-`docco`, que a su vez tiene una subtarea llamada `debug`: toma los
-fuentes contenidos en el array indicado y deposita la salida en el
-directorio que le indicamos. No existe en Grunt una forma general de
-expresar este tipo de dependencias como en los Makefiles, sólo una
-buena práctica: usar `src`, por ejemplo, para las fuentes. 
+Vayamos con la primera parte. Primero, le indicamos cuál es el fichero `package.json` que usamos. Este fichero tiene una serie de variables de configuración que podremos usar en el Gruntfile (pero que, por lo pronto, no vamos a hacerlo). Luego, definimos la tarea llamada `docco`, que a su vez tiene una subtarea llamada `debug`: toma los fuentes contenidos en el array indicado y deposita la salida en el directorio que le indicamos. No existe en Grunt una forma general de expresar este tipo de dependencias como en los Makefiles, sólo una buena práctica: usar `src`, por ejemplo, para las fuentes. 
 
-La siguiente parte carga el plugin de `grunt` necesario para ejecutar
-docco. Y finalmente, con `grunt.registerTask('default', ['docco']);`
-indicamos que la tarea que ejecuta docco es la que se ejecutará por
-defecto simplemente ejecutando `grunt`. También se puede ejecutar con
-`grunt docco` o `grunt docco:debug` que sacará esto en el terminal:
+La siguiente parte carga el plugin de `grunt` necesario para ejecutar `docco`. Y finalmente, con `grunt.registerTask('default', ['docco']);` indicamos que la tarea que ejecuta docco es la que se ejecutará por defecto simplemente ejecutando `grunt`. También se puede ejecutar con `grunt docco` o `grunt docco:debug` que sacará esto en el terminal:
 
 	bash$ grunt docco
 	Running "docco:src" (docco) task
@@ -374,16 +350,11 @@ defecto simplemente ejecutando `grunt`. También se puede ejecutar con
 
 y producirá una documentación tal como [esta](src/docs/Apuesta.html). (Link roto)
 
-La automatización de Grunt se puede usar tanto para prueba como para
-despliegue. Pero hay también otras formas de probar en la nube, y lo
-veremos a continuación.
+La automatización de Grunt se puede usar tanto para prueba como para despliegue. Pero hay también otras formas de probar en la nube, y lo veremos a continuación.
 
 <div class='ejercicios' markdown='1'>
-Automatizar con `grunt` y `docco` (o algún otro sistema) la generación de documentación de la librería
-que se cree. Previamente, por supuesto, habrá que documentar tal
-librería.
+Automatizar con <code>grunt</code> y <code>docco</code> (o algún otro sistema) la generación de documentación de la librería que se cree. Previamente, por supuesto, habrá que documentar tal librería.
 </div>
-
 
 ## Desarrollo basado en pruebas
 
@@ -407,10 +378,7 @@ funcionalidades queremos, cómo queremos que respondan y qué
 *contratos* o *aserciones* van a ser verdaderas cuando se ejecute el
 código antes siquiera de escribirlo.
 
-En la mayoría de los entornos de programación y especialmente en node,
-que es en el que nos estamos fijando, hay dos niveles en el test: el
-primero es el marco de pruebas y el segundo la librería de pruebas que
-efectivamente se está usando.
+En la mayoría de los entornos de programación y especialmente en node, que es en el que nos estamos fijando, hay dos niveles en el test: el primero es el marco de pruebas y el segundo la librería de pruebas que efectivamente se está usando.
 
 Vamos a ir al nivel más bajo: el de las aserciones. Hay [múltiples
 librerías que se pueden usar](http://stackoverflow.com/questions/14294567/assertions-library-for-node-js):
@@ -436,8 +404,7 @@ del mismo, y `equal` comprueba que efectivamente la salida que da la
 función `as_string` es la esperada.
 
 <div class='ejercicios' markdown='1'>
-
- Para la aplicación que se está haciendo, escribir una serie de aserciones y probar que efectivamente no fallan. Añadir tests para una nueva funcionalidad, probar que falla y escribir el código para que no lo haga (vamos, lo que viene siendo TDD).
+Para la aplicación que se está haciendo, escribir una serie de aserciones y probar que efectivamente no fallan. Añadir tests para una nueva funcionalidad, probar que falla y escribir el código para que no lo haga (vamos, lo que viene siendo TDD).
 </div>
 
 Hay un segundo nivel, el marco de ejecución de los tests. Los marcos
@@ -478,7 +445,7 @@ Mocha puede usar diferentes librerías de test. En este caso hemos
 escogido la que ya habíamos usado, `assert`. A bajo nivel, los tests
 que funcionen en este marco tendrán que usar una librería de este
 tipo, porque mocha funciona a un nivel superior, con funciones como
-`it` y `describes` que describe, a diferentes niveles, qué hace el
+`it` y `describe` que describe, a diferentes niveles, qué hace el
 test y cuál es el resultado que necesitamos. Se ejecuta con `mocha` y
 el resultado de ejecutarlo será:
 
@@ -501,13 +468,10 @@ hacer un *benchmark* de tu código en los diferentes entornos en los
 que se ejecute.
 
 <div class='ejercicios' markdown='1'>
-Convertir los tests unitarios anteriores con assert a programas de
- test y ejecutarlos desde *mocha*, usando descripciones del test y
- del grupo de test de forma correcta. Si hasta ahora no has subido el código que has venido realizando a GitHub, es el momento de hacerlo, porque lo vamos a necesitar un poco más adelante. 
+Convertir los tests unitarios anteriores con assert a programas de test y ejecutarlos desde <b>mocha</b>, usando descripciones del test y del grupo de test de forma correcta. Si hasta ahora no has subido el código que has venido realizando a GitHub, es el momento de hacerlo, porque lo vamos a necesitar un poco más adelante.
 </div>
 
-
-##Añadiendo integración continua.
+##Añadiendo integración continua
 
 A un primer nivel, la integración continua consiste en integrar los
 cambios hechos por un miembro del equipo en el momento que estén y
@@ -537,8 +501,8 @@ por lo que hay otros sistemas como [Travis](http://travis-ci.org) o
 la nube y, además, están preparados para más lenguajes de
 programación.
 
-Para trabajar con estos sistemas, generalmente hay que hacerlo en dos
-pasos
+Para trabajar con estos sistemas, generalmente hay que hacerlo en tres
+pasos:
 
 1. Darse de alta. Muchos están conectados con GitHub por lo que puedes
    usar directamente el usuario ahí. A través de un proceso de
@@ -552,17 +516,11 @@ pasos
 3. Crear un fichero de configuración para que se ejecute la
    integración y añadirlo al repositorio.
 
-
 <div class='ejercicios' markdown='1'>
-*Ejercicio*: Haced los dos primeros pasos antes de pasar al tercero.
+Haced los dos primeros pasos antes de pasar al tercero.
 </div>
 
-Los ficheros de configuración de las máquinas de integración continua
-corresponden, aproximadamente, a una configuración de una máquina
-virtual que hiciera solo y exclusivamente la ejecución de los
-tests. Para ello se provisiona una máquina virtual (o contenedor), se
-le carga el sistema operativo y se instala lo necesario, indicado en
-el fichero de configuración tal como este para Travis.
+Los ficheros de configuración de las máquinas de integración continua corresponden, aproximadamente, a una configuración de una máquina virtual que hiciera solo y exclusivamente la ejecución de los tests. Para ello se provisiona una máquina virtual (o contenedor), se le carga el sistema operativo y se instala lo necesario, indicado en el fichero de configuración tal como este para Travis.
 
 	language: node_js
 	node_js:
@@ -606,8 +564,7 @@ pronto, todo funciona.
 Si el informe indica que las pruebas son correctas, se puede proceder al despliegue. Pero eso
 ya será en la siguiente clase.
 
-> Configurar integración continua para nuestra aplicación usando
-> Travis o algún otro sitio.
+> Configurar integración continua para nuestra aplicación usando Travis o algún otro sitio.
 
 Esta configuración es esencial por varias razones: primero, porque nos
 permite ser conscientes de todo lo necesario para desplegar nuestra
