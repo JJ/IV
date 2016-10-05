@@ -172,7 +172,8 @@ basar la aplicación.
 
 El objeto básico, por tanto, será la `Apuesta` que irá asociada a un `Partido`.
 
-<div class='ejercicios' markdown='1'>
+<div class='ejercicios'>
+
 Como ejercicio, algo ligeramente diferente: una web para calificar
 las empresas en las que hacen prácticas los alumnos.
 
@@ -186,6 +187,7 @@ las empresas en las que hacen prácticas los alumnos.
 <li>Crear un repositorio en GitHub para la librería y crear un pequeño programa que use algunas de sus funcionalidades.
 </ul>
 <p>Si se quiere hacer con cualquier otra aplicación, también es válido.</p>
+
 </div>
 
 >Se trata de hacer una aplicación simple que se pueda hacer rápidamente con un generador de aplicaciones como los que incluyen diferentes marcos MVC. Si cuesta mucho trabajo, simplemente prepara una aplicación que puedas usar más adelante en el resto de los ejercicios. 
