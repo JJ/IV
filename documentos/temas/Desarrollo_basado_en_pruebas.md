@@ -508,13 +508,13 @@ por lo que hay otros sistemas como [Travis](http://travis-ci.org) o
 la nube y, además, están preparados para más lenguajes de
 programación.
 
-Para trabajar con estos sistemas, generalmente hay que hacerlo en tres
-pasos:
+Para trabajar con estos sistemas, generalmente hay que ejecutar estos
+tres pasos:
 
 1. Darse de alta. Muchos están conectados con GitHub por lo que puedes
-   usar directamente el usuario ahí. A través de un proceso de
-   autorización, acceder al contenido e incluso informar del resultado
-   de los tests.
+  autentificarte directamente desde ahí. A través de un proceso de
+   autorización, puedes acceder al contenido e incluso informar del resultado
+   de los tests a GitHub.
 
 2. Activar el repositorio en el que se vaya a aplicar la
    integración continua. Travis permite hacerlo directamente desde tu
@@ -524,10 +524,17 @@ pasos:
    integración y añadirlo al repositorio.
 
 <div class='ejercicios' markdown='1'>
+
 Haced los dos primeros pasos antes de pasar al tercero.
+
 </div>
 
-Los ficheros de configuración de las máquinas de integración continua corresponden, aproximadamente, a una configuración de una máquina virtual que hiciera solo y exclusivamente la ejecución de los tests. Para ello se provisiona una máquina virtual (o contenedor), se le carga el sistema operativo y se instala lo necesario, indicado en el fichero de configuración tal como este para Travis.
+Los ficheros de configuración de las máquinas de integración continua
+corresponden, aproximadamente, a una configuración de una máquina
+virtual que hiciera solo y exclusivamente la ejecución de los
+tests. Para ello se provisiona una máquina virtual (o contenedor), se
+le carga el sistema operativo y se instala lo necesario, indicado en
+el fichero de configuración tal como este para Travis. 
 
 	language: node_js
 	node_js:
