@@ -169,7 +169,7 @@ El objeto básico, por tanto, será la `Apuesta` que irá asociada a un `Partido
 Como ejercicio, algo ligeramente diferente: una web para calificar
 las empresas en las que hacen prácticas los alumnos.
 
-<h3>Las acciones serían</h3>
+Las acciones serían
 <ul>
 <li>Crear empresa</li>
 <li>Listar calificaciones para cada empresa</li>
@@ -180,9 +180,13 @@ las empresas en las que hacen prácticas los alumnos.
 </ul>
 <p>Si se quiere hacer con cualquier otra aplicación, también es válido.</p>
 
+Se trata de hacer una aplicación simple que se pueda hacer rápidamente
+con un generador de aplicaciones como los que incluyen diferentes
+marcos MVC. Si cuesta mucho trabajo, simplemente prepara una
+aplicación que puedas usar más adelante en el resto de los ejercicios.
+
 </div>
 
->Se trata de hacer una aplicación simple que se pueda hacer rápidamente con un generador de aplicaciones como los que incluyen diferentes marcos MVC. Si cuesta mucho trabajo, simplemente prepara una aplicación que puedas usar más adelante en el resto de los ejercicios. 
 
 La aplicación tendrá más adelante un interfaz web, pero por lo pronto,
 y a efectos de la prueba continua de más adelante, vamos a quedarnos
