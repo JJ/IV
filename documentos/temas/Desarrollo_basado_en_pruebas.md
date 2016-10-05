@@ -184,9 +184,10 @@ Las acciones serían
 <li>crear calificación y añadirla (comprobando que la persona no la haya añadido ya)</li>
 <li>borrar calificación (si se arrepiente o te denuncia la empresa o algo)</li>
 <li>Hacer un ránking de empresas por calificación, por ejemplo</li>
-<li>Crear un repositorio en GitHub para la librería y crear un pequeño programa que use algunas de sus funcionalidades.
+<li>Crear un repositorio en GitHub para la librería y crear un pequeño programa que use algunas de sus funcionalidades.</li>
 </ul>
-<p>Si se quiere hacer con cualquier otra aplicación, también es válido.</p>
+
+Si se quiere hacer con cualquier otra aplicación, también es válido.
 
 Se trata de hacer una aplicación simple que se pueda hacer rápidamente
 con un generador de aplicaciones como los que incluyen diferentes
@@ -200,9 +201,12 @@ La aplicación tendrá más adelante un interfaz web, pero por lo pronto,
 y a efectos de la prueba continua de más adelante, vamos a quedarnos
 sólo con un pequeño programa que sirva para ver que funciona.
 
-<div class='ejercicios' markdown='1'>
+<div class='ejercicios'>
+
 Ejecutar el programa en diferentes versiones del lenguaje. ¿Funciona en todas ellas?
+
 </div>
+
 
 Podemos almacenar esta información en una base de datos como SQLite
 (la clásica). Para instalarla, `npm install sqlite` que es la forma
