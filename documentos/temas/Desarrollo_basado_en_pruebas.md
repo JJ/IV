@@ -468,10 +468,17 @@ hacer un *benchmark* de tu código en los diferentes entornos en los
 que se ejecute.
 
 <div class='ejercicios' markdown='1'>
-Convertir los tests unitarios anteriores con assert a programas de test y ejecutarlos desde <b>mocha</b>, usando descripciones del test y del grupo de test de forma correcta. Si hasta ahora no has subido el código que has venido realizando a GitHub, es el momento de hacerlo, porque lo vamos a necesitar un poco más adelante.
+
+Convertir los tests unitarios anteriores con assert a programas de
+test y ejecutarlos desde `mocha`, usando descripciones del test y del
+grupo de test de forma correcta. Si hasta ahora no has subido el
+código que has venido realizando a GitHub, es el momento de hacerlo,
+porque lo vas a necesitar un poco más adelante. 
+
 </div>
 
-##Añadiendo integración continua
+
+## Añadiendo integración continua
 
 A un primer nivel, la integración continua consiste en integrar los
 cambios hechos por un miembro del equipo en el momento que estén y
