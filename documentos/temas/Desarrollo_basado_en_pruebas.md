@@ -164,31 +164,41 @@ basar la aplicación.
 
 El objeto básico, por tanto, será la `Apuesta` que irá asociada a un `Partido`.
 
-<div class='ejercicios' markdown='1'>
+<div class='ejercicios'>
+
 Como ejercicio, algo ligeramente diferente: una web para calificar
 las empresas en las que hacen prácticas los alumnos.
 
-<h3>Las acciones serían</h3>
+Las acciones serían
 <ul>
 <li>Crear empresa</li>
 <li>Listar calificaciones para cada empresa</li>
 <li>crear calificación y añadirla (comprobando que la persona no la haya añadido ya)</li>
 <li>borrar calificación (si se arrepiente o te denuncia la empresa o algo)</li>
 <li>Hacer un ránking de empresas por calificación, por ejemplo</li>
-<li>Crear un repositorio en GitHub para la librería y crear un pequeño programa que use algunas de sus funcionalidades.
+<li>Crear un repositorio en GitHub para la librería y crear un pequeño programa que use algunas de sus funcionalidades.</li>
 </ul>
-<p>Si se quiere hacer con cualquier otra aplicación, también es válido.</p>
+
+Si se quiere hacer con cualquier otra aplicación, también es válido.
+
+Se trata de hacer una aplicación simple que se pueda hacer rápidamente
+con un generador de aplicaciones como los que incluyen diferentes
+marcos MVC. Si cuesta mucho trabajo, simplemente prepara una
+aplicación que puedas usar más adelante en el resto de los ejercicios.
+
 </div>
 
->Se trata de hacer una aplicación simple que se pueda hacer rápidamente con un generador de aplicaciones como los que incluyen diferentes marcos MVC. Si cuesta mucho trabajo, simplemente prepara una aplicación que puedas usar más adelante en el resto de los ejercicios. 
 
 La aplicación tendrá más adelante un interfaz web, pero por lo pronto,
 y a efectos de la prueba continua de más adelante, vamos a quedarnos
 sólo con un pequeño programa que sirva para ver que funciona.
 
-<div class='ejercicios' markdown='1'>
+<div class='ejercicios'>
+
 Ejecutar el programa en diferentes versiones del lenguaje. ¿Funciona en todas ellas?
+
 </div>
+
 
 Podemos almacenar esta información en una base de datos como SQLite
 (la clásica). Para instalarla, `npm install sqlite` que es la forma
@@ -468,10 +478,17 @@ hacer un *benchmark* de tu código en los diferentes entornos en los
 que se ejecute.
 
 <div class='ejercicios' markdown='1'>
-Convertir los tests unitarios anteriores con assert a programas de test y ejecutarlos desde <b>mocha</b>, usando descripciones del test y del grupo de test de forma correcta. Si hasta ahora no has subido el código que has venido realizando a GitHub, es el momento de hacerlo, porque lo vamos a necesitar un poco más adelante.
+
+Convertir los tests unitarios anteriores con assert a programas de
+test y ejecutarlos desde `mocha`, usando descripciones del test y del
+grupo de test de forma correcta. Si hasta ahora no has subido el
+código que has venido realizando a GitHub, es el momento de hacerlo,
+porque lo vas a necesitar un poco más adelante. 
+
 </div>
 
-##Añadiendo integración continua
+
+## Añadiendo integración continua
 
 A un primer nivel, la integración continua consiste en integrar los
 cambios hechos por un miembro del equipo en el momento que estén y
@@ -501,13 +518,13 @@ por lo que hay otros sistemas como [Travis](http://travis-ci.org) o
 la nube y, además, están preparados para más lenguajes de
 programación.
 
-Para trabajar con estos sistemas, generalmente hay que hacerlo en tres
-pasos:
+Para trabajar con estos sistemas, generalmente hay que ejecutar estos
+tres pasos:
 
 1. Darse de alta. Muchos están conectados con GitHub por lo que puedes
-   usar directamente el usuario ahí. A través de un proceso de
-   autorización, acceder al contenido e incluso informar del resultado
-   de los tests.
+  autentificarte directamente desde ahí. A través de un proceso de
+   autorización, puedes acceder al contenido e incluso informar del resultado
+   de los tests a GitHub.
 
 2. Activar el repositorio en el que se vaya a aplicar la
    integración continua. Travis permite hacerlo directamente desde tu
@@ -517,10 +534,17 @@ pasos:
    integración y añadirlo al repositorio.
 
 <div class='ejercicios' markdown='1'>
+
 Haced los dos primeros pasos antes de pasar al tercero.
+
 </div>
 
-Los ficheros de configuración de las máquinas de integración continua corresponden, aproximadamente, a una configuración de una máquina virtual que hiciera solo y exclusivamente la ejecución de los tests. Para ello se provisiona una máquina virtual (o contenedor), se le carga el sistema operativo y se instala lo necesario, indicado en el fichero de configuración tal como este para Travis.
+Los ficheros de configuración de las máquinas de integración continua
+corresponden, aproximadamente, a una configuración de una máquina
+virtual que hiciera solo y exclusivamente la ejecución de los
+tests. Para ello se provisiona una máquina virtual (o contenedor), se
+le carga el sistema operativo y se instala lo necesario, indicado en
+el fichero de configuración tal como este para Travis. 
 
 	language: node_js
 	node_js:
