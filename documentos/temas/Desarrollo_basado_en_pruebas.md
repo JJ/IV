@@ -63,7 +63,7 @@ desarrollo ágil. En concreto, *DevOps* comprende
    cosas (instalación de librerías o configuración de una máquina)
    sino que haya *scripts* que lo homogeneicen y automaticen.
 
-2. Virtualización: uso de recursos virtuales para almacenamiento,
+2. [Virtualización](https://es.wikipedia.org/wiki/Virtualizaci%C3%B3n): uso de recursos virtuales para almacenamiento,
    publicación y, en general, todos los pasos del desarrollo y
    despliegue de software.
 
@@ -80,11 +80,11 @@ desarrollo ágil. En concreto, *DevOps* comprende
 3. Despliegue en la nube: publicación de aplicaciones en servidores
    virtuales.
 
-4. [Ciclo de vida del software](http://es.slideshare.net/colmbennett/software-rollout)
+4. [Ciclo de vida del software](http://es.slideshare.net/colmbennett/software-rollout):
    definición de las diferentes fases en la vida de una aplicación,
    desde el diseño hasta el soporte.
 
-7. Despliegue continuo: el ciclo de vida de una aplicación debe ir
+7. [Despliegue continuo](https://aws.amazon.com/devops/continuous-delivery/): el ciclo de vida de una aplicación debe ir
    ligado a ciclos de desarrollo ágiles en los que cada nueva
    característica se introduzca tan pronto esté lista y probada; el
    despliegue continuo implica integración continua de las nuevas
