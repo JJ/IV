@@ -493,13 +493,10 @@ sí con las librerías del lenguaje de programación en el que está
 desarrollado.
 
 Un sistema bastante popular de integración continua es
-[Jenkins](http://jenkins-ci.org/), pero está enfocado sobre todo a
-Java. Jenkins lo puedes usar en la nube o instalarte tu propio
-ordenador para hacerlo. Sin embargo, está enfocado sobre todo a Java
-por lo que hay otros sistemas como [Travis](http://travis-ci.org) o
+[Jenkins](http://jenkins-ci.org/). Para usar Jenkins puedes instalarlo en tu propio
+ordenador, en un servidor propio en la nube o en [algún servicio en la nube](https://wiki.jenkins-ci.org/display/JENKINS/Commercial+Support). Sin embargo, hay otros sistemas como [Travis](http://travis-ci.org) o
 [Shippable](https://www.shippable.com/) que podemos usar también desde
-la nube y, además, están preparados para más lenguajes de
-programación.
+la nube.
 
 Para trabajar con estos sistemas, generalmente hay que hacerlo en tres
 pasos:
