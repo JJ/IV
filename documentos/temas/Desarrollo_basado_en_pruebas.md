@@ -366,7 +366,7 @@ pruebas son a diferente nivel, pero las que vamos a usar, pruebas
 unitarias, consisten en llamar a una función con diferentes valores y
 comprobar los resultados esperados con los obtenidos. Los resultados
 pueden ser de todo tipo: desde simples escalares respuesta a una
-función hasta cambio en el DOM de una página cuando se envía un JSON
+función hasta cambio en el DOM ([*Document Object Model*](https://en.wikipedia.org/wiki/Document_Object_Model)) de una página cuando se envía un JSON
 desde una web. Cada uno tiene sus estrategias, pero al final se trata
 de crear una serie de pruebas para que lo que nosotros queremos que
 haga la aplicación efectivamente lo haga.
