@@ -63,7 +63,7 @@ desarrollo ágil. En concreto, *DevOps* comprende
    cosas (instalación de librerías o configuración de una máquina)
    sino que haya *scripts* que lo homogeneicen y automaticen.
 
-2. Virtualización: uso de recursos virtuales para almacenamiento,
+2. [Virtualización](https://es.wikipedia.org/wiki/Virtualizaci%C3%B3n): uso de recursos virtuales para almacenamiento,
    publicación y, en general, todos los pasos del desarrollo y
    despliegue de software.
 
@@ -80,11 +80,11 @@ desarrollo ágil. En concreto, *DevOps* comprende
 3. Despliegue en la nube: publicación de aplicaciones en servidores
    virtuales.
 
-4. [Ciclo de vida del software](http://es.slideshare.net/colmbennett/software-rollout)
+4. [Ciclo de vida del software](http://es.slideshare.net/colmbennett/software-rollout):
    definición de las diferentes fases en la vida de una aplicación,
    desde el diseño hasta el soporte.
 
-7. Despliegue continuo: el ciclo de vida de una aplicación debe ir
+7. [Despliegue continuo](https://aws.amazon.com/devops/continuous-delivery/): el ciclo de vida de una aplicación debe ir
    ligado a ciclos de desarrollo ágiles en los que cada nueva
    característica se introduzca tan pronto esté lista y probada; el
    despliegue continuo implica integración continua de las nuevas
@@ -376,7 +376,7 @@ pruebas son a diferente nivel, pero las que vamos a usar, pruebas
 unitarias, consisten en llamar a una función con diferentes valores y
 comprobar los resultados esperados con los obtenidos. Los resultados
 pueden ser de todo tipo: desde simples escalares respuesta a una
-función hasta cambio en el DOM de una página cuando se envía un JSON
+función hasta cambio en el DOM ([*Document Object Model*](https://en.wikipedia.org/wiki/Document_Object_Model)) de una página cuando se envía un JSON
 desde una web. Cada uno tiene sus estrategias, pero al final se trata
 de crear una serie de pruebas para que lo que nosotros queremos que
 haga la aplicación efectivamente lo haga.
@@ -510,13 +510,10 @@ sí con las librerías del lenguaje de programación en el que está
 desarrollado.
 
 Un sistema bastante popular de integración continua es
-[Jenkins](http://jenkins-ci.org/), pero está enfocado sobre todo a
-Java. Jenkins lo puedes usar en la nube o instalarte tu propio
-ordenador para hacerlo. Sin embargo, está enfocado sobre todo a Java
-por lo que hay otros sistemas como [Travis](http://travis-ci.org) o
+[Jenkins](http://jenkins-ci.org/). Para usar Jenkins puedes instalarlo en tu propio
+ordenador, en un servidor propio en la nube o en [algún servicio en la nube](https://wiki.jenkins-ci.org/display/JENKINS/Commercial+Support). Sin embargo, hay otros sistemas como [Travis](http://travis-ci.org) o
 [Shippable](https://www.shippable.com/) que podemos usar también desde
-la nube y, además, están preparados para más lenguajes de
-programación.
+la nube.
 
 Para trabajar con estos sistemas, generalmente hay que ejecutar estos
 tres pasos:
