@@ -38,6 +38,8 @@ tanto de software como de hardware y ponerlos en práctica.
 
 </div>
 
+>Esta [presentación](http://jj.github.io/pispaas/#/) es un resumen del
+>PaaS y alguna cosa adicional que no viene en este tema.
 
 Cuando uno quiere parte del trabajo de instalación ya hecho, o al menos preparado
 para hacer con la pulsación de un botón, a la vez que tiene
