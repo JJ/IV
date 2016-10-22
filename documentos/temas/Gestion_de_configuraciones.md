@@ -251,7 +251,7 @@ aunque los principales contendientes son
 [Puppet y Chef, sin que ninguno de los dos sea perfecto](http://www.infoworld.com/d/data-center/puppet-or-chef-the-configuration-management-dilemma-215279?source=fssr). 
 
 De todas ellas, vamos a
-[ver Ansible](http://davidwinter.me/articles/2013/11/23/introduction-to-ansible/)
+[ver Ansible](https://davidwinter.me/introduction-to-ansible/)
 que parece ser uno de los que se está desarrollando con más intensidad
 últimamente. [Ansible es](http://en.wikipedia.org/wiki/Ansible_%28software%29)
 sistema de gestión remota de configuración que permite gestionar
