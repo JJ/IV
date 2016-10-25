@@ -363,7 +363,10 @@ y producirá una documentación tal como [esta](src/docs/Apuesta.html). (Link ro
 La automatización de Grunt se puede usar tanto para prueba como para despliegue. Pero hay también otras formas de probar en la nube, y lo veremos a continuación.
 
 <div class='ejercicios' markdown='1'>
-Automatizar con <code>grunt</code> y <code>docco</code> (o algún otro sistema) la generación de documentación de la librería que se cree. Previamente, por supuesto, habrá que documentar tal librería.
+Automatizar con <code>grunt</code>, `gulp` u otra herramienta de gestión de
+tareas en Node la generación de documentación de la librería que se
+cree usando `docco` u otro sistema similar de generación de
+documentatión. . Previamente, por supuesto, habrá que documentar tal librería.
 </div>
 
 ## Desarrollo basado en pruebas
