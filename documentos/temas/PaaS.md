@@ -8,10 +8,9 @@ next: Contenedores
 
 <div class="objetivos" markdown="1">
 
-## Objetivos 
+<h2>Objetivos</h2>
 
-
-### Cubre los siguientes objetivos de la asignatura
+<h3>Cubre los siguientes objetivos de la asignatura</h3>
 
 2. Conocer los conceptos relacionados con el proceso de virtualización
 tanto de software como de hardware y ponerlos en práctica.
@@ -30,13 +29,16 @@ tanto de software como de hardware y ponerlos en práctica.
 
 </div>
 
+>Esta [presentación](http://jj.github.io/pispaas/#/) es un resumen del
+>PaaS y alguna cosa adicional que no viene en este tema.
 
 Cuando uno quiere parte del trabajo de instalación ya hecho, o al menos preparado
 para hacer con la pulsación de un botón, a la vez que tiene
 flexibilidad para trabajar con marcos de aplicaciones más allá de lo
-que ofrece programar *plugins* (como en el SaaS), necesita un
+que ofrece programar *plugins* (como en el *SaaS*), necesita un
 [Platform as a Service o PaaS](http://en.wikipedia.org/wiki/Platform_as_a_service). Un
-PaaS proporciona una pila que incluye, generalmente, almacenamiento de
+PaaS proporciona una pila, es decir, varias capas de servicios
+apilados de forma que cada uno usa al siguiente, que incluye, generalmente, almacenamiento de
 datos, un marco concreto para trabajar (tal como Django o Ruby on
 Rails) y, adicionalmente, un servidor web.
 
@@ -68,8 +70,8 @@ determinada, como [CloudAnt](https://cloudant.com/) que aloja una base
 de datos con CouchDB o genéricos), permitiendo una serie de soluciones
 en general relativamente limitada; [Heroku](https://www.heroku.com) y
 [OpenShift](https://www.openshift.com) están entre estos últimos, pero
-también [hay otros](http://ocdevel.com/blog/nodejs-paas-comparison)
-como [AppFog](https://www.appfog.com/product/) y otros muchos, depende
+también [hay otros](http://www.codediesel.com/nodejs/5-paas-solutions-to-host-your-nodejs-apps/)
+como [AppFog](https://www.ctl.io/appfog/) y otros muchos, depende
 del tipo de pila que quieras alojar; los tres anteriores son los que
 trabajan bien con
 node.js, [igual que nitrous.io](http://blog.blakepatches.me/blog/2013/11/04/comparison-of-node-dot-js-hosting/) o [IBM BlueMix](https://console.ng.bluemix.net/#/pricing/cloudOEPaneId=pricing) (que ofrece un período de prueba gratuito, que no se puede renovar, lo sé por experiencia).
@@ -80,7 +82,7 @@ node.js, [igual que nitrous.io](http://blog.blakepatches.me/blog/2013/11/04/comp
 >solamente. Me falta por probar nitrous.io, pero del resto, al menos
 >los que funcionan con node.js, poco más hay.  
 
-[dotCloud (que ya no se puede usar de forma gratuita)](https://docs.dotcloud.com/services/perl/)
+[AppAgile](https://cloud.telekom.de/infrastruktur/appagile/)
 trabaja con Perl, por ejemplo, como
 [Stackato y otras](http://showmetheco.de/articles/2011/8/three-perl-cloud-hosting-platforms.html).
 
@@ -198,7 +200,9 @@ es reflejar en el código, de la forma más natural posible, el diseño del
 interfaz REST.
 
 Pero primero hay que instalarlo. Node.js tiene un sistema de gestión de
-módulos bastante simple llamado [npm](https://npmjs.org/) que ya hemos usado. Tras seguir las instrucciones en el
+
+módulos bastante simple llamado [npm](https://www.npmjs.org/) que ya hemos usado. Tras seguir las instrucciones en el
+
 sitio para instalarlo (o, en el caso de Ubuntu, instalarlo desde
 Synaptic o con `apt-get`), vamos al directorio en el que vayamos a crear
 el programa y escribimos
@@ -357,7 +361,7 @@ Los tests podemos integrarlos, como es natural, en el mismo marco que el resto d
 
 	module.exports = app;
 
-con lo que se exporta la app que se crea; `require` ejecuta el código y recibe la variable que hemos exportado, que podemos usar como si se tratara de parte de esta misma aplicación. `app` en este test, por tanto, contendrá lo mismo que en la aplicación principal, `index.js`. Usamos el mismo estilo de test con `mocha` que [ya se ha visto](http://jj.github.io/desarrollo-basado-pruebas) pero usamos funciones específicas:
+con lo que se exporta la app que se crea; `require` ejecuta el código y recibe la variable que hemos exportado, que podemos usar como si se tratara de parte de esta misma aplicación. `app` en este test, por tanto, contendrá lo mismo que en la aplicación principal, `index.js`. Usamos el mismo estilo de test con `mocha` que [ya se ha visto](http://jj.github.io/desarrollo-basado-pruebas/) pero usamos funciones específicas:
 
 * `request` hace una llamada sobre `app` como si la hiciéramos *desde
   fuera*; `put`, por tanto, llamará a la ruta correspondiente, que
@@ -558,7 +562,7 @@ adicional: en el menú de Configuración se puede añadir un paso
 adicional tras el de Test, en el que no hay que más que decirle el
 repositorio de Heroku al que se va a desplegar.
 
-![Panel de control de Snap CI con despliegue a Heroku](img/despliegue-snap-ci.png)
+![Panel de control de Snap CI con despliegue a Heroku](despliegue-snap-ci.png)
 
 Con esto, un simple push a una rama determinada, que sería la
 `master`, se hará que se pruebe y, en caso de pasar los tests, se
@@ -611,5 +615,4 @@ A dónde ir desde aquí
 
 En el [siguiente tema](Tecnicas_de_virtualizacion.md) usaremos
 diferentes técnicas de virtualización para la creación de contenedores
-y jaulas que aislan procesos, usuarios y recursos del resto del sistema, creando por tanto máquinas *virtuales*. Previamente habrá que [realizar la
-práctica correspondiente a esta materia](../practicas/2.XaaS.md).
+y jaulas que aislan procesos, usuarios y recursos del resto del sistema, creando por tanto máquinas *virtuales*. Previamente habrá que [realizar la práctica correspondiente a esta materia](../practicas/3.PaaS.md).
