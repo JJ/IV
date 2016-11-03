@@ -16,10 +16,10 @@ next: Contenedores
 
 <div class="objetivos" markdown="1">
 
-##Objetivos 
+<h2>Objetivos</h2>
 
 
-### Cubre los siguientes objetivos de la asignatura
+<h3>Cubre los siguientes objetivos de la asignatura</h3>
 
 2. Conocer los conceptos relacionados con el proceso de virtualización
 tanto de software como de hardware y ponerlos en práctica. 
@@ -38,24 +38,27 @@ tanto de software como de hardware y ponerlos en práctica.
 
 </div>
 
+>Esta [presentación](http://jj.github.io/pispaas/#/) es un resumen del
+>PaaS y alguna cosa adicional que no viene en este tema.
 
-Cuando uno quiere parte del trabajo de instalación ya hecho, o al menos preparado
-para hacer con la pulsación de un botón, a la vez que tiene
+Cuando uno quiere desplegar una aplicación y tener parte del trabajo de instalación ya hecho, o al menos preparado 
+para hacerse con la pulsación de un botón, a la vez que tiene
 flexibilidad para trabajar con marcos de aplicaciones más allá de lo
-que ofrece programar *plugins* (como en el SaaS), necesita un
+que ofrece programar *plugins* (como en el *SaaS*), necesita un
 [Platform as a Service o PaaS](http://en.wikipedia.org/wiki/Platform_as_a_service). Un
-PaaS proporciona una pila que incluye, generalmente, almacenamiento de
+PaaS proporciona una *pila*, es decir, varias capas de servicios
+apilados de forma que cada uno usa al siguiente, que incluye, generalmente, almacenamiento de
 datos, un marco concreto para trabajar (tal como Django o Ruby on
 Rails) y, adicionalmente, un servidor web. 
 
-Esto conlleva una cierta falta de flexibilidad: se pueden usar las
+El elegir un PaaS conlleva una cierta falta de flexibilidad: se pueden usar las
 pilas que proporciona en servicio y el usuario sólo puede subir su
 aplicación que las use, no instalar elementos adicionales que necesiten permisos de
 superusuario. Pero, por otro lado, ofrece la comodidad de tener que
 concentrarse sólo en la aplicación en sí y no en la
 infraestructura si se trata de una aplicación que use los marcos más comunes. Es, por eso, menos *DevOps* que una solución *IaaS*,
 pero por otro lado también tiene una parte que es la configuración y
-despliegue de la aplicación en sí y los tests que se vayan a usar. 
+despliegue de la aplicación en sí y los tests que se vayan a usar. Hay que tener en cuenta que, en general, la definición de la infraestructura depende del PaaS que se use y por eso es bastante menos portable que usar un IaaS. Sin embargo, para un microservicio específico, o para una parte de la aplicación que sea invariable, puede ser bastante útil y conveniente.
 
 Usando un servicio PaaS
 -----
@@ -76,8 +79,8 @@ determinada, como [CloudAnt](https://cloudant.com/) que aloja una base
 de datos con CouchDB o genéricos), permitiendo una serie de soluciones
 en general relativamente limitada; [Heroku](https://www.heroku.com) y
 [OpenShift](https://www.openshift.com) están entre estos últimos, pero
-también [hay otros](http://ocdevel.com/blog/nodejs-paas-comparison)
-como [AppFog](https://www.appfog.com/product/) y otros muchos, depende
+también [hay otros](http://www.codediesel.com/nodejs/5-paas-solutions-to-host-your-nodejs-apps/)
+como [AppFog](https://www.ctl.io/appfog/) y otros muchos, depende
 del tipo de pila que quieras alojar; los tres anteriores son los que
 trabajan bien con
 node.js, [igual que nitrous.io](http://blog.blakepatches.me/blog/2013/11/04/comparison-of-node-dot-js-hosting/) o [IBM BlueMix](https://console.ng.bluemix.net/#/pricing/cloudOEPaneId=pricing) (que ofrece un período de prueba gratuito, que no se puede renovar, lo sé por experiencia).
@@ -85,12 +88,12 @@ node.js, [igual que nitrous.io](http://blog.blakepatches.me/blog/2013/11/04/comp
 >Después de probar casi todos los servicios anteriores, me da la
 >impresión de que poco hay más allá de Heroku y Openshift. AppFog y
 >Nodejitsu, después de la efervescencia inicial, dan 30 días de prueba
->solamente. Me falta por probar nitrous.io, pero del resto, al menos
+>solamente. nitrous.io también da un periodo de prueba y se puede usar como IaaS, pero del resto, al menos
 >los que funcionan con node.js, poco más hay.  
 
-[dotCloud (que ya no se puede usar de forma gratuita)](https://docs.dotcloud.com/services/perl/)
+[AppAgile](https://cloud.telekom.de/infrastruktur/appagile/)
 trabaja con Perl, por ejemplo, como
-[Stackato y otras](http://showmetheco.de/articles/2011/8/three-perl-cloud-hosting-platforms.html). 
+[Stackato y otras](http://showmetheco.de/articles/2011/8/three-perl-cloud-hosting-platforms.html). En general, si necesitas otros lenguajes, tendrás que buscar porque la oferta variará. Los más fiables son OpenShift y Heroku, y los que ofrecen más opciones a la hora de elegir lenguajes. 
 
 <div class='ejercicios' markdown="1">
 
@@ -106,7 +109,9 @@ intensivo, o bien capacidades que no entren en el paquete básico, hay
 que pasar al modelo de pago. Estas máquinas virtuales se denominan
 [*dynos*](https://devcenter.heroku.com/articles/dynos) en Heroku y
 simplemente aplicaciones en OpenShift, aunque los *dynos* son mucho
-más flexibles que las aplicaciones de OpenShift. Generalmente, los
+más flexibles que las aplicaciones de OpenShift. 
+
+Para trabajar con estas configuraciones, generalmente, los
 PaaS proporcionan un *toolbelt* o herramientas de línea de órdenes que
 permiten controlarlos directamente desde nuestra aplicación; estos
 conjuntos de herramientas acceden a un API que también podemos
@@ -154,13 +159,12 @@ enseñanza.
 
 <div class='ejercicios' markdown="1">
 
-Crear una aplicación en OpenShift y dentro de ella instalar
-WordPress. 
+Crear una aplicación en OpenShift o en algún otro PaaS en el que se haya dado uno de alta. Realizar un despliegue de prueba usando alguno de los ejemplos. 
 
 </div>
 
 >En todo caso, no está mal tener disponible una tarjeta de crédito,
->posiblemente virtual o de prepago, para trabajar con todo tipo de
+>preferiblemente virtual o de prepago, para trabajar con todo tipo de
 >infraestructuras de nube en pruebas; puedes acceder a muchos más
 >servicios y posibilidades y, aunque se excedan los límites gratuitos,
 >el coste no suele ser grande. 
@@ -206,7 +210,7 @@ es reflejar en el código, de la forma más natural posible, el diseño del
 interfaz REST.
 
 Pero primero hay que instalarlo. Node.js tiene un sistema de gestión de
-módulos bastante simple llamado [npm](https://npmjs.org/) que ya hemos usado. Tras seguir las instrucciones en el 
+módulos bastante simple llamado [npm](https://www.npmjs.org/) que ya hemos usado. Tras seguir las instrucciones en el 
 sitio para instalarlo (o, en el caso de Ubuntu, instalarlo desde
 Synaptic o con `apt-get`), vamos al directorio en el que vayamos a crear
 el programa y escribimos
@@ -365,7 +369,7 @@ Los tests podemos integrarlos, como es natural, en el mismo marco que el resto d
 
 	module.exports = app;
 
-con lo que se exporta la app que se crea; `require` ejecuta el código y recibe la variable que hemos exportado, que podemos usar como si se tratara de parte de esta misma aplicación. `app` en este test, por tanto, contendrá lo mismo que en la aplicación principal, `index.js`. Usamos el mismo estilo de test con `mocha` que [ya se ha visto](http://jj.github.io/desarrollo-basado-pruebas) pero usamos funciones específicas:
+con lo que se exporta la app que se crea; `require` ejecuta el código y recibe la variable que hemos exportado, que podemos usar como si se tratara de parte de esta misma aplicación. `app` en este test, por tanto, contendrá lo mismo que en la aplicación principal, `index.js`. Usamos el mismo estilo de test con `mocha` que [ya se ha visto](http://jj.github.io/desarrollo-basado-pruebas/) pero usamos funciones específicas:
 
 * `request` hace una llamada sobre `app` como si la hiciéramos *desde
   fuera*; `put`, por tanto, llamará a la ruta correspondiente, que
@@ -566,7 +570,7 @@ adicional: en el menú de Configuración se puede añadir un paso
 adicional tras el de Test, en el que no hay que más que decirle el
 repositorio de Heroku al que se va a desplegar.
 
-![Panel de control de Snap CI con despliegue a Heroku](img/despliegue-snap-ci.png)
+![Panel de control de Snap CI con despliegue a Heroku](despliegue-snap-ci.png)
 
 Con esto, un simple push a una rama determinada, que sería la
 `master`, se hará que se pruebe y, en caso de pasar los tests, se
@@ -620,5 +624,5 @@ A dónde ir desde aquí
 En el [siguiente tema](Tecnicas_de_virtualizacion) usaremos
 diferentes técnicas de virtualización para la creación de contenedores
 y jaulas que aislan procesos, usuarios y recursos del resto del sistema, creando por tanto máquinas *virtuales*. Previamente habrá que [realizar la
-práctica correspondiente a esta materia](../practicas/2.XaaS).
+práctica correspondiente a esta materia](../practicas/3.PaaS).
 
