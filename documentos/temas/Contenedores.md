@@ -41,16 +41,16 @@ Un  paso más hacia la virtualización completa: *contenedores*
 El aislamiento de grupos de procesos formando una *jaula* o
 *contenedor* ha sido una característica de ciertos sistemas operativos
 de la rama Unix desde los años 80, en forma del programa
-[chroot](http://es.wikipedia.org/wiki/Chroot) (creado por Bill Joy, el
+[chroot](https://es.wikipedia.org/wiki/Chroot) (creado por Bill Joy, el
 que más adelante sería uno de los padres de Java). La restricción de
 uso de recursos de las *jaulas `chroot`*, que ya hemos visto, se limitaba a la protección
 del acceso a ciertos recursos del sistema de archivos, aunque son
 relativamente fáciles de superar; incluso así, fue durante mucho
 tiempo la forma principal de configurar servidores de alojamiento
 compartidos y sigue siendo una forma simple de crear virtualizaciones *ligeras*. Las
-[jaulas BSD](http://en.wikipedia.org/wiki/FreeBSD_jail) constituían un
+[jaulas BSD](https://en.wikipedia.org/wiki/FreeBSD_jail) constituían un
 sistema más avanzado, implementando una
-[virtualización a nivel de sistema operativo](http://en.wikipedia.org/wiki/Operating_system-level_virtualization)
+[virtualización a nivel de sistema operativo](https://en.wikipedia.org/wiki/Operating_system-level_virtualization)
 que creaba un entorno virtual prácticamente indistinguible de una
 máquina real (o máquina virtual real). Estas *jaulas* no sólo impiden
 el acceso a ciertas partes del sistema de ficheros, sino que también
@@ -70,9 +70,9 @@ virtualización
 
 
 El mundo Linux no tendría capacidades similares hasta bien entrados los años 90, con
-[vServers, OpenVZ y finalmente LXC](http://en.wikipedia.org/wiki/Operating_system-level_virtualization#Implementations). Este
-último, [LXC](http://lxc.sourceforge.net), se basa en el concepto de
-[grupos de control o CGROUPS](http://en.wikipedia.org/wiki/Cgroups),
+[vServers, OpenVZ y finalmente LXC](https://en.wikipedia.org/wiki/Operating_system-level_virtualization#Implementations). Este
+último, [LXC](https://linuxcontainers.org/), se basa en el concepto de
+[grupos de control o CGROUPS](https://en.wikipedia.org/wiki/Cgroups),
 una capacidad del núcleo de Linux desde la versión 2.6.24 que crea
 *contenedores* de procesos unificando diferentes capacidades del
 sistema operativo que incluyen acceso a recursos, prioridades y
@@ -83,10 +83,10 @@ mismo, creando un entorno mucho más seguro que las anteriores
 
 Dentro de la familia de sistemas operativos Solaris (cuya última
 versión libre se denomina
-[illumos](http://en.wikipedia.org/wiki/Illumos), y tiene también otras
+[illumos](https://en.wikipedia.org/wiki/Illumos), y tiene también otras
 versiones como SmartOS) la tecnología
 correspondiente se denomina
-[zonas](http://en.wikipedia.org/wiki/Solaris_Zones). La principal
+[zonas](https://en.wikipedia.org/wiki/Solaris_Zones). La principal
 diferencia es el bajo *overhead* que le añaden al sistema operativo y
 el hecho de que se les puedan asignar recursos específicos; estas
 diferencias son muy leves al tratarse simplemente de otra
@@ -138,7 +138,7 @@ crea un contenedor denominado `una-caja` e instala Ubuntu en él. Esto
 tardará un rato mientras se bajan una serie de paquetes y se
 instalan. O se
 puede usar una imagen similar a la que se usa en
-[EC2 de Amazon](http://aws.amazon.com/es/ec2/):
+[EC2 de Amazon](https://aws.amazon.com/es/ec2/):
 
 	sudo lxc-create -t ubuntu-cloud -n nubecilla
 
@@ -264,7 +264,7 @@ Gestión de contenedores con `docker`
 contenedores que permite no sólo instalarlos, sino trabajar con el
 conjunto de ellos instalados (orquestación) y exportarlos de forma que
 se puedan usar en diferentes instalaciones. La tecnología de
-[Docker](http://en.wikipedia.org/wiki/Docker_%28software%29) es
+[Docker](https://en.wikipedia.org/wiki/Docker_%28software%29) es
 relativamente reciente, habiendo sido publicado en marzo de 2013;
 actualmente está sufriendo una gran expansión, sobre todo por su uso
 dentro de [CoreOS](http://coreos.com/), un sistema operativo básico
@@ -310,9 +310,9 @@ Esta orden descarga un contenedor básico de ubuntu y lo instala. Hay
 muchas imágenes creadas y se pueden crear y compartir en el sitio web
 de Docker, al estilo de las librerías de Python o los paquetes
 Debian. Se pueden
-[buscar todas las imágenes de un tipo determinado, como Ubuntu](https://index.docker.com/search?q=ubuntu)
+[buscar todas las imágenes de un tipo determinado, como Ubuntu](https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page=1&pullCount=0&q=ubuntu&starCount=0)
 o
-[buscar las imágenes más populares](https://index.docker.com/most_stars). Estas
+[buscar las imágenes más populares](https://hub.docker.com/explore/). Estas
 imágenes contienen no sólo sistemas operativos *bare bones*, sino
 también otros con una funcionalidad determinada. 
 

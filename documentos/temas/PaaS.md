@@ -1,4 +1,4 @@
-Creando aplicaciones en la nube: Uso de PaaS 
+Desplegando aplicaciones en la nube: Uso de PaaS 
 ==
 
 <!--@
