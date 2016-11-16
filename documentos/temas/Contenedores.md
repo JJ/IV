@@ -79,7 +79,7 @@ sistema operativo que incluyen acceso a recursos, prioridades y
 control de los procesos. Los procesos dentro de un contenedor están
 *aislados* de forma que sólo pueden *ver* los procesos dentro del
 mismo, creando un entorno mucho más seguro que las anteriores
-*jaulas*. Estos [CGROUPS han sido ya vistos en el tema anterior](Intro:concepto_y_soporte_fisico.md). 
+*jaulas*. Estos [CGROUPS han sido ya vistos en otro tema](Intro_concepto_y_soporte_fisico.md). 
 
 Dentro de la familia de sistemas operativos Solaris (cuya última
 versión libre se denomina
@@ -192,7 +192,7 @@ acceso a los mismos y pararlos cuando le resulte conveniente.
 	sudo lxc-stop -n nubecilla
 	
 Las
-[órdenes que incluye el paquete](https://help.ubuntu.com/lts/serverguide/lxc.html#lxc-admin)
+[órdenes que incluye el paquete](https://help.ubuntu.com/lts/serverguide/lxc.html)
 permiten administrar las máquinas virtuales, actualizarlas y explican
 cómo usar otras plantillas de las suministradas para crear
 contenedores con otro tipo de sistemas, sean o no debianitas. Se
@@ -260,7 +260,7 @@ mismo servidor en un contenedor. Usar nginx.
 Gestión de contenedores con `docker`
 ---
 
-[Docker](http://docker.io) es una herramienta de gestión de
+[Docker](http://docker.com) es una herramienta de gestión de
 contenedores que permite no sólo instalarlos, sino trabajar con el
 conjunto de ellos instalados (orquestación) y exportarlos de forma que
 se puedan usar en diferentes instalaciones. La tecnología de
@@ -271,9 +271,9 @@ dentro de [CoreOS](http://coreos.com/), un sistema operativo básico
 basado en Linux para despliegue masivo de servidores.
 
 Por lo pronto,
-[instalar `docker` es fácil, pero no directo](https://www.docker.io/gettingstarted/#h_installation). Por
+[instalar `docker` es fácil, pero no directo](https://www.docker.com/). Por
 ejemplo, para
-[Ubuntu hay que dar de alta una serie de repositorios](http://docs.docker.io/en/latest/installation/ubuntulinux/)
+[Ubuntu hay que dar de alta una serie de repositorios](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 y no funcionará con versiones más antiguas de la 12.04 (y en este caso
 sólo si se instalan kernels posteriores).
 
@@ -291,7 +291,7 @@ salvar el estado del táper y clonarlo o realizar cualquier otro tipo
 de tareas. 
 
 Así que comencemos desde el principio:
-[vamos a ejecutar `docker`y trabajar con el contenedor creado](http://docs.docker.io/en/latest/installation/ubuntulinux/).
+[vamos a ejecutar `docker`y trabajar con el contenedor creado](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
 
 Primero, se ejecuta como un servicio
 
@@ -310,9 +310,9 @@ Esta orden descarga un contenedor básico de ubuntu y lo instala. Hay
 muchas imágenes creadas y se pueden crear y compartir en el sitio web
 de Docker, al estilo de las librerías de Python o los paquetes
 Debian. Se pueden
-[buscar todas las imágenes de un tipo determinado, como Ubuntu](https://index.docker.io/search?q=ubuntu)
+[buscar todas las imágenes de un tipo determinado, como Ubuntu](https://index.docker.com/search?q=ubuntu)
 o
-[buscar las imágenes más populares](https://index.docker.io/most_stars). Estas
+[buscar las imágenes más populares](https://index.docker.com/most_stars). Estas
 imágenes contienen no sólo sistemas operativos *bare bones*, sino
 también otros con una funcionalidad determinada. 
 
@@ -370,11 +370,11 @@ de la imagen:
 		sudo docker run b750fe79269d du
 		
 En vez de ejecutar las cosas una a una podemos directamente [ejecutar
-un shell](http://docs.docker.io/en/latest/use/basics/):
+un shell](https://docs.docker.com/engine/getstarted/step_two/):
 
 	sudo docker run -i -t ubuntu /bin/bash
 
-que [indica](http://docs.docker.io/en/latest/commandline/cli/#run) que
+que [indica](https://docs.docker.com/engine/reference/commandline/cli/) que
 se está creando un seudo-terminal (`-t`) y se está ejecutando el
 comando interactivamente (`-i`). A partir de ahí sale la línea de
 órdenes, con privilegios de superusuario, y podemos trabajar con la
@@ -408,7 +408,7 @@ parar usando `stop`.
 
 Hasta ahora el uso de docker [no es muy diferente del contenedor, pero
 lo interesante](http://stackoverflow.com/questions/17989306/what-does-docker-add-to-just-plain-lxc) es que se puede guardar el estado de un contenedor tal
-como está usando [commit](http://docs.docker.io/en/latest/commandline/cli/#commit)
+como está usando [commit](https://docs.docker.com/engine/reference/commandline/cli/#commit)
 
 	sudo docker commit 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c nuevo-nombre
 
@@ -426,10 +426,10 @@ commit.
 
 Finalmente, `docker` tiene capacidades de provisionamiento similares a
 otros [sistemas (tales como Vagrant, que se verá más adelante](Gestion_de_configuraciones.md) usando
-[*Dockerfiles*](http://docs.docker.io/en/latest/use/builder/). Por
+[*Dockerfiles*](https://docs.docker.com/engine/reference/builder/). Por
 ejemplo, [se
 puede crear fácilmente un Dockerfile para instalar node.js con el
-módulo express](http://docs.docker.io/en/latest/examples/nodejs_web_app/). 
+módulo express](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/). 
 
 <div class='ejercicios' markdown='1'>
 
@@ -441,7 +441,7 @@ sistema operativo de tu elección.
 A dónde ir desde aquí
 -----
 
-Primero, hay que [llevar a cabo el hito del proyecto correspondiente a este tema](../practicas/4.Docker.md).
+Primero, hay que [llevar a cabo el hito del proyecto correspondiente a este tema](../proyecto/4.Docker.md).
 
 Si te interesa, puedes consultar cómo se [virtualiza el almacenamiento](Almacenamiento) que, en general, es independiente de la
 generación de una máquina virtual. También puedes ir directamente al
