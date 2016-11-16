@@ -108,11 +108,11 @@ tener el mismo kernel y misma CPU que la máquina anfitriona, pero si
 esto no es un problema, puede resultar una alternativa útil y ligera a
 la misma. A diferencia de las jaulas, combina restricciones en el
 acceso al sistema de ficheros con otras restricciones aprovechando
-espacios de nomgres y grupos de control. `lxc` es la solución de
+espacios de nombres y grupos de control. `lxc` es la solución de
 creación de contenedores más fácil de usar hoy en día en Linux.
 
 <div class='ejercicios' markdown="1">
-Instala LXC en tu versión de Linux favorita. Normalmente la versión en desarrollo, disponible tanto en [GitHub](http://github.com/lxc/lxc) como en el [sitio web](http://linxcontainers.com) está bastante más avanzada; para evitar problemas sobre todo con las herramientas que vamos a ver más adelante, conviene que te instales la última versión y si es posible una igual o mayor a la 1.0.
+Instala LXC en tu versión de Linux favorita. Normalmente la versión en desarrollo, disponible tanto en [GitHub](http://github.com/lxc/lxc) como en el [sitio web](http://linuxcontainers.org) está bastante más avanzada; para evitar problemas sobre todo con las herramientas que vamos a ver más adelante, conviene que te instales la última versión y si es posible una igual o mayor a la 1.0.
 </div>
 
 Esta virtualización *ligera* tiene, entre otras ventajas, una
@@ -202,7 +202,7 @@ acceso a los mismos y pararlos cuando le resulte conveniente.
 Las
 [órdenes que incluye el paquete](https://help.ubuntu.com/lts/serverguide/lxc.html#lxc-admin)
 permiten administrar las máquinas virtuales, actualizarlas y explican
-cómo usar otras plantillas de las suministardas para crear
+cómo usar otras plantillas de las suministradas para crear
 contenedores con otro tipo de sistemas, sean o no debianitas. Se
 pueden crear sistemas basados en Fedora; también clonar contenedores
 existentes para que vaya todo rápidamente. 
@@ -420,7 +420,7 @@ como está usando [commit](http://docs.docker.io/en/latest/commandline/cli/#comm
 
 	sudo docker commit 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c nuevo-nombre
 
-que guadará el estado del contenedor tal como está en ese
+que guardará el estado del contenedor tal como está en ese
 momento. Este `commit` es equivalente al que se hace en un
 repositorio; para enviarlo al repositorio habrá que usar `push` (pero
 sólo si uno se ha dado de alta antes).
