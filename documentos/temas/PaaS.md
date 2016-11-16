@@ -6,7 +6,7 @@ prev: Desarrollo_basado_en_pruebas
 next: Contenedores
 ---
 
-Creando aplicaciones en la nube: Uso de PaaS 
+Desplegando aplicaciones en la nube: Uso de PaaS 
 ==
 
 <!--@
