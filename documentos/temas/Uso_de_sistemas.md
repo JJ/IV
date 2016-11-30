@@ -2,7 +2,7 @@ Virtualización completa: uso de máquinas virtuales
 ==
 
 <!--@
-prev: Almacenamiento
+prev: Contenedores
 next: Gestion_de_configuraciones
 -->
 
@@ -284,26 +284,11 @@ innecesarios.
 
 <div class='ejercicios' markdown='1'>
 
-Crear una máquina virtual ubuntu e instalar en ella un servidor
-nginx para poder acceder mediante web.
+Crear una máquina virtual ubuntu e instalar en ella alguno de los
+servicios que estamos usando en el proyecto de la asignatura.
 
 </div>
 
-En principio, para configurar la máquina virtual hay que hacerlo como
-siempre se ha hecho: trabajando desde línea de órdenes, editando ficheros de configuración e instalando
-los paquetes que hagan falta. Pero
-[conociendo `juju`](Contenedores.md) tambien
-[se puede trabajar con él](https://jujucharms.com/docs/stable/config-azure)
-para instalar lo que haga falta. Se puede empezar, por ejemplo
-[instalando el GUI de juju](https://juju.ubuntu.com/docs/howto-gui-management.html)
-para poder a partir de ahí manejar despliegues en máquinas virtuales
-desde él. 
-
-<div class='ejercicios' markdown='1'>
-
-Usar `juju` para hacer el ejercicio anterior.
-
-</div>
 
 Trabajar con estas máquinas virtuales como se tratara de máquinas
 reales no tiene mucho sentido. El uso de infraestructuras virtuales,
@@ -414,10 +399,9 @@ A dónde ir desde aquí
 
 En el [siguiente tema](Gestion_de_configuraciones) pondremos en
 práctica todos los conceptos aprendidos en este tema y
-[el anterior](Almacenamiento) para crear configuraciones que sean
+[el tema relacionado con el almacenamiento](Almacenamiento) para crear configuraciones que sean
 fácilmente gestionables y adaptables a un fin determinado.
-Antes, habrá que hacer y entregar la
-[tercera práctica](../practicas/3.MV).
+Antes, habrá que hacer y entregar [el último hito](../../proyecto/5.IaaS.md).
 
 Si lo que necesitas es un sistema ligero de virtualización, puedes
 mirar cómo virtualizar con [contenedores](Contenedores.md).
