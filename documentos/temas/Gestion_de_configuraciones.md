@@ -65,7 +65,7 @@ Usando Chef para provisionamiento
  [no es trivial](http://wiki.opscode.com/display/chef/Documentation).
  Sin embargo, como
  introducción a la gestión de configuraciones se puede usar
- [`chef-solo`](http://docs.opscode.com/chef_solo.html), una versión
+ [`chef-solo`](http://docs.chef.io/chef_solo.html), una versión
  aislada que permite trabajar en una máquina desde la misma y que, por
  tanto, se puede usar como introducción y para probar
  configuraciones. 
@@ -97,7 +97,7 @@ siempre como
 
 	sudo gem install ohai chef
 	
-[ohai](http://docs.opscode.com/ohai.html) acompaña a `chef` y es usado
+[ohai](http://docs.chef.io/ohai.html) acompaña a `chef` y es usado
 desde el mismo para comprobar características del nodo antes de
 ejecutar cualquier receta.
 
@@ -168,7 +168,7 @@ incluirá una referencia a esta receta
 Este fichero hace referencia a un recetario, `emacs` y dado que no se
 especifica nada más se ejecutará la receta por defecto. 
 
-Finalmente, el [fichero de configuración `solo.rb`](../../ejemplos/solo.rb) incluirá referencias a ambos.
+Finalmente, el [fichero de configuración `solo.rb`](../../ejemplos/chef/solo.rb) incluirá referencias a ambos.
 
 	file_cache_path "/home/jmerelo/chef"
 	cookbook_path "/home/jmerelo/chef/cookbooks"
