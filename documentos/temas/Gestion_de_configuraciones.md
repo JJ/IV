@@ -192,8 +192,8 @@ tendremos este útil editor instalado.
 
 <div class='ejercicios' markdown='1'>
 
-Crear una receta para instalar `nginx`, tu editor favorito y algún
-directorio y fichero que uses de forma habitual. 
+Crear una receta para instalar la aplicación que se viene creando en
+la asignatura en alguna máquina virtual o servidor en la nube.  
 
 </div>
 
@@ -223,15 +223,6 @@ se ha
 [publicado una introducción al tema](http://pharalax.com/blog/yaml-introduccion-al-lenguaje-yaml/)
 que será suficiente para el uso que le vamos a dar más adelante
 
-</div>
-
-<div class='ejercicios' markdown='1'>
-
-Escribir en YAML la siguiente estructura de datos en JSON
-
-	{ uno: "dos",
-      tres: [ 4, 5, "Seis", { siete: 8, nueve: [ 10, 11 ] } ] }
-	  
 </div>
 
 Normalmente estas recetas van a estar bajo control de un sistema de
@@ -325,14 +316,6 @@ puede trabajar con servidores web o
 o
 [incluso desplegar aplicaciones directamente usando el módulo `git`](http://docs.ansible.com/intro_adhoc.html#managing-packages)
 
-<div class='ejercicios' markdown='1'>
-
-Desplegar los fuentes de la aplicación de  DAI o cualquier otra aplicación que se
-encuentre en un servidor git público en la máquina virtual Azure (o
-una máquina virtual local) usando ansible.
-
-</div>
-
 Finalmente, el concepto similar a las recetas de Chef en Ansible son los
 [*playbooks*](http://davidwinter.me/articles/2013/11/23/introduction-to-ansible/),
 ficheros en YAML que le dicen a la máquina virtual qué es lo que hay
@@ -371,10 +354,8 @@ resultado que si se ejecutan una sola vez.
 
 <div class='ejercicios' markdown='1'>
 
-1. Desplegar la aplicación de DAI  con todos los módulos necesarios
+Desplegar la aplicación de DAI  con todos los módulos necesarios
 usando un *playbook* de Ansible.
-
-2. [¿Ansible o Chef? ¿O cualquier otro que no hemos usado aquí?](https://github.com/IV-GII/GII-2013/issues/131). 
 
 </div>
 
