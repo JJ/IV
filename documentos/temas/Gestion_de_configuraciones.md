@@ -45,13 +45,13 @@ necesario usar herramientas para crear y configurar estos
 entornos.
 
 Estas herramientas se denominan, en general,
-[gestores de configuración](http://en.wikipedia.org/wiki/Configuration_management). [Vagrant](http://en.wikipedia.org/wiki/Vagrant_%28software%29)
+[gestores de configuración](https://en.wikipedia.org/wiki/Configuration_management). [Vagrant](https://en.wikipedia.org/wiki/Vagrant_%28software%29)
 es uno de ellos, pero también hay otros: [Chef](http://www.getchef.com/chef/), Salt y Puppet, por
 ejemplo. Todos son libres, pero
-[tienen características específicas](http://en.wikipedia.org/wiki/Comparison_of_open_source_configuration_management_software)
+[tienen características específicas](https://en.wikipedia.org/wiki/Comparison_of_open_source_configuration_management_software)
 que hay que tener en cuenta a la hora de elegir uno u otro. En el caso
 específico de
-[sistemas operativos](http://en.wikipedia.org/wiki/Configuration_management#Operating_System_configuration_management)
+[sistemas operativos](https://en.wikipedia.org/wiki/Configuration_management#Operating_System_configuration_management)
 se trata de gestionar automáticamente todas las tareas de
 configuración de un sistema, automatizando la edición de ficheros de
 configuración, instalación de software y configuración del mismo,
@@ -66,10 +66,10 @@ sistema de configuración también, aunque específico de Ubuntu.
 Usando Chef para provisionamiento
 -----
 
- [Chef](http://www.getchef.com/chef/) es una herramienta que, en
+ [Chef](http://www.chef.io/chef/) es una herramienta que, en
  general, se usa en un servidor que se encarga no sólo de gestionar la
  configuración, sino también las versiones. Empezar a usarlo
- [no es trivial](http://wiki.opscode.com/display/chef/Documentation).
+ [no es trivial](https://docs.chef.io).
  Sin embargo, como
  introducción a la gestión de configuraciones se puede usar
  [`chef-solo`](http://docs.chef.io/chef_solo.html), una versión
@@ -199,7 +199,7 @@ la asignatura en alguna máquina virtual o servidor en la nube.
 
 Para usar `chef-solo` hay simplemente que instalar unos cuantos
 programas, pero en gran parte ya está automatizado:
-[aquí explica como usarlo en Ubuntu 12.04](http://www.wolfe.id.au/2012/09/10/how-i-use-chef-solo-with-ubuntu-12.04/),
+[aquí explica como usarlo en Ubuntu 12.04](https://www.wolfe.id.au/2012/09/10/how-i-use-chef-solo-with-ubuntu-12.04/),
 por ejemplo basándose en
 [este Gist (programas cortos en GitHug)](https://gist.github.com/wolfeidau/3328844)
 que instala todas las herramientas necesarias para comenzar a ejecutar
@@ -244,7 +244,7 @@ aunque los principales contendientes son
 De todas ellas, vamos a
 [ver Ansible](https://davidwinter.me/introduction-to-ansible/)
 que parece ser uno de los que se está desarrollando con más intensidad
-últimamente. [Ansible es](http://en.wikipedia.org/wiki/Ansible_%28software%29)
+últimamente. [Ansible es](https://en.wikipedia.org/wiki/Ansible_%28software%29)
 sistema de gestión remota de configuración que permite gestionar
 simultáneamente miles de sistemas diferenets. Está basado en YAML para
 la descripción de los sistemas y escrito en Python. 
@@ -317,7 +317,7 @@ o
 [incluso desplegar aplicaciones directamente usando el módulo `git`](http://docs.ansible.com/intro_adhoc.html#managing-packages)
 
 Finalmente, el concepto similar a las recetas de Chef en Ansible son los
-[*playbooks*](http://davidwinter.me/articles/2013/11/23/introduction-to-ansible/),
+[*playbooks*](https://davidwinter.me/articles/2013/11/23/introduction-to-ansible/),
 ficheros en YAML que le dicen a la máquina virtual qué es lo que hay
 que instalar en *tareas*, de la forma siguiente
 
@@ -366,10 +366,7 @@ A un nivel superior al provisionamiento de máquinas virtuales está la configur
 orquestación y gestión de las mismas, herramientas como
 [Vagrant](http://vagrantup.com) ayudan a hacerlo, aunque también
 Puppet e incluso Juju pueden hacer muchas de las funciones de
-Vagrant. Algunas alternativas son
-[Vortex](http://www.websecurify.com/extra/vortex.html) 
-
-La ventaja de Vagrant es que permite gestionar el ciclo de vida
+Vagrant. La ventaja de Vagrant es que permite gestionar el ciclo de vida
 completo de una máquina virtual, desde la creación hasta su
 destrucción pasando por el provisionamiento y la monitorización o
 conexión con la misma. Además, permite trabajar con todo tipo de
@@ -411,7 +408,7 @@ y se puede empezar a trabajar en ella con
 Una vez creada la máquina virtual se puede entrar en ella y
 configurarla e instalar todo lo necesario. Pero, por supuesto,
 sabiendo lo que sabemos sobre provisionamiento, Vagrant permite
-[provisionarla de muchas maneras diferentes](http://docs.vagrantup.com/v2/provisioning/index.html). En
+[provisionarla de muchas maneras diferentes](http://docs.vagrantup.com/provisioning/index.html). En
 general, Vagrant usará opciones de configuración diferente dependiendo
 del provisionador, subirá un fichero a un directorio temporal del
 mismo y lo ejecutará (tras ejecutar todo lo necesario para el mismo). 
@@ -424,7 +421,7 @@ especificadas en el fichero de configuración.
 En general, trabajar con un provisionador requiere especificar de cuál
 se trata y luego dar una serie de órdenes específicas. Comenzaremos
 por el
-[*shell*](http://docs.vagrantup.com/v2/provisioning/shell.html), que
+[*shell*](http://docs.vagrantup.com//provisioning/shell.html), que
 es el más simple y, en realidad, equivale a entrar en la máquina y dar
 las órdenes a mano. Instalaremos, como hemos hecho en otras ocasiones,
 el utilísimo editor `emacs`usando este
@@ -469,7 +466,7 @@ este programa bajándose todas sus dependencias (y tardará un rato).
 <div class='nota' markdown='1'>
 
 El provisionamiento por *shell* admite
-[muchas más opciones](http://docs.vagrantup.com/v2/provisioning/shell.html):
+[muchas más opciones](http://docs.vagrantup.com//provisioning/shell.html):
 se puede usar un fichero externo o incluso alojado en un sitio web
 (por ejemplo, un Gist alojado en Github). Por ejemplo,
 [este para provisionar nginx y node](https://gist.github.com/DamonOehlman/5754302)
@@ -488,7 +485,7 @@ de estos sistemas de más alto nivel es que permiten trabajar
 independientemente del sistema operativo. Cada uno de ellos tendrá sus
 opciones específicas, pero veamos cómo se haría lo anterior usando el
 provisionador
-[chef-solo](http://docs.vagrantup.com/v2/provisioning/chef_solo.html).
+[chef-solo](http://docs.vagrantup.com//provisioning/chef_solo.html).
 
 Para empezar, hay que provisionar la máquina virtual para que funcione
 con chef-solo y hay que hacerlo desde shell o Ansible;
@@ -542,11 +539,11 @@ en ninguna de las máquinas pre-configuradas de VagrantBoxes.
 </div>
 
 Desde Vagrant se puede crear también una
-[caja base](http://docs.vagrantup.com/v2/boxes/base.html) con lo
+[caja base](http://docs.vagrantup.com//boxes/base.html) con lo
 mínimo necesario para poder funcionar, incluyendo el soporte para ssh
 y provisionadores como Chef o Puppet. Se puede crear directamente en
 VirtualBox y usar
-[`vagrant package`](http://docs.vagrantup.com/v2/cli/package.html)
+[`vagrant package`](http://docs.vagrantup.com//cli/package.html)
 para *empaquetarla* y usarla para su consumo posterior. 
 
 A donde ir desde aquí
@@ -554,10 +551,10 @@ A donde ir desde aquí
 
 Este es el último tema del curso, pero a partir de aquí se puede
 seguir aprendiendo sobre devops en [el blog](http://devops.com/) o
-[en IBM](http://www.ibm.com/ibm/devops/us/en/). Libros como
+[en IBM](https://www.ibm.com/cloud-computing/products/devops/). Libros como
 [DevOps for Developers](https://www.amazon.es/dp/B009D6ZB0G?tag=atalaya-21&camp=3634&creative=24822&linkCode=as4&creativeASIN=B009D6ZB0G&adid=0PB61Y2QD9K49W3EP8MN&)
 pueden ser también de ayuda.
 
 Si no lo has hecho ya, es hora de comenzar
-[la última práctica](../practicas/4.Aplicaciones). 
+[la última práctica](../practicas/5.IaaS). 
 	
