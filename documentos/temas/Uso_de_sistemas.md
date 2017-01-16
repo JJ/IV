@@ -35,7 +35,7 @@ crear
 [infraestructura como servicio tal como vimos en el primer tema](Intro_concepto_y_soporte_fisico.md). Para
 ello necesitamos configurar una serie de infraestucturas virtuales,
 especialmente
-[almacenamiento como se vio en el tema anterior](Intro_concepto_y_soporte_fisico).
+[almacenamiento como se vio anteriormente](Intro_concepto_y_soporte_fisico).
 
 Los programas que permiten crear infraestructuras virtuales completas
 se denominan
