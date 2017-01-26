@@ -72,7 +72,7 @@ grosso modo, los hitos se organizarán de la forma siguiente.
 2. [Integración continua en el repositorio](documentos/proyecto/2.CI.md)
 3. Desplegando a la nube: [Platform as a Service](documentos/proyecto/3.PaaS.md).
 4. Técnicas de virtualización [Contenedores para pruebas](documentos/proyecto/4.Docker.md).
-4. [Virtualización de aplicaciones.](documentos/proyecto/4.Aplicaciones.md).
+4. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS.md).
 
 Tutorías virtuales
 ----
@@ -83,8 +83,7 @@ también una
 [lista de correo cerrada para los alumnos de la asignatura](https://groups.google.com/forum/#!forum/iv-ugr-2016)
 que se puede usar para todo lo que no quepa en la anterior (preguntas
 administrativas, principalmente). Finalmente, el profesor está
-disponible por Telegram, Skype y Google Hangouts (en todos los casos: `jjmerelo`)
-previa cita.
+disponible por Telegram, Skype y Google Hangouts (en todos los casos: `jjmerelo`).
 
 Criterios de evaluación
 ---
