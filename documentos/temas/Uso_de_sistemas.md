@@ -401,7 +401,7 @@ En el [siguiente tema](Gestion_de_configuraciones) pondremos en
 práctica todos los conceptos aprendidos en este tema y
 [el tema relacionado con el almacenamiento](Almacenamiento) para crear configuraciones que sean
 fácilmente gestionables y adaptables a un fin determinado.
-Antes, habrá que hacer y entregar [el último hito](../../proyecto/5.IaaS.md).
+Antes, habrá que hacer y entregar [el último hito](../proyecto/5.IaaS.md).
 
 Si lo que necesitas es un sistema ligero de virtualización, puedes
 mirar cómo virtualizar con [contenedores](Contenedores.md).
