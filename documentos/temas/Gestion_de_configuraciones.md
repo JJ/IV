@@ -549,5 +549,5 @@ seguir aprendiendo sobre devops en [el blog](http://devops.com/) o
 pueden ser también de ayuda.
 
 Si no lo has hecho ya, es hora de comenzar
-[la última práctica](../practicas/5.IaaS.md). 
+[la última práctica](../proyecto/5.IaaS.md). 
 	
