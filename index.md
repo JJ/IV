@@ -3,7 +3,7 @@ layout: index
 
 
 ---
-#Material docente para Infraestructura Virtual
+# Material docente para Infraestructura Virtual
 
 [Infraestructura virtual](http://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/espti/infraestructuravirtual)
 es una asignatura obligatoria de la rama Tecnologías de la Información
@@ -98,7 +98,7 @@ Los
 y
 [se especifican en el repositorio de la clase](https://github.com/JJ/IV16-17/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n).
 
-##Convocatoria de septiembre
+## Convocatoria extraordinaria (en julio)
 
 Si no se ha superado la asignatura en la convocatoria ordinaria, la
 extraordinaria consistirá en un examen escrito en septiembre que
