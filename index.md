@@ -18,7 +18,7 @@ Se recuerda a los alumnos que en todas las clases será necesario llevar el port
 Se usará
 [GitHub](http://github.com) para el proyecto cuyos hitos serán considerados "prácticas".
 
-Estos son los [objetivos de la asignatura](documentos/objetivos), cuyas sesiones de clase se irán reflejando en [un repositorio de GitHub; este es el de 2015-2016](https://github.com/JJ/IV-2015-16). 
+Estos son los [objetivos de la asignatura](documentos/objetivos), cuyas sesiones de clase se irán reflejando en [un repositorio de GitHub; este es el de 2016-2017](https://github.com/JJ/IV16-17). 
 
 Las aulas y horarios de los grupos de prácticas son los siguientes:
 
@@ -40,7 +40,7 @@ Temario - Programa de la asignatura
 Los materiales de la asignatura están enlazados desde aquí y
 disponibles con una licencia libre. Los fuentes de los mismos están en
 [GitHub](http://github.com/JJ/IV). La
-[temporización de la asignatura y los objetivos de cada sesión figuran en la bitácora de clase](https://github.com/JJ/IV-2015-16/blob/master/sesiones/README.md). 
+[temporización de la asignatura y los objetivos de cada sesión figuran en la bitácora de clase](https://github.com/JJ/IV16-17/blob/master/sesiones/README.md). 
 
 1. [Introducción: conceptos y soporte físico](documentos/temas/Intro_concepto_y_soporte_fisico).
 2. [Iniciación a DevOps: desarrollo basado en pruebas](documentos/temas/Desarrollo_basado_en_pruebas).
@@ -63,7 +63,6 @@ Material adicional interesante para la asignatura, que se impartirá fuera del h
 1. [Introducción ligera al lenguaje Ruby](documentos/seminarios/ruby). 
 2. Visita a las instalaciones de Trevenque el día 21 de octubre.
 
-
 Prácticas - Actividades académicas dirigidas
 -------------
 
@@ -78,19 +77,18 @@ grosso modo, los hitos se organizarán de la forma siguiente.
 2. [Integración continua en el repositorio](documentos/proyecto/2.CI)
 3. Desplegando a la nube: [Platform as a Service](documentos/proyecto/3.PaaS).
 4. Técnicas de virtualización [Contenedores para pruebas](documentos/proyecto/4.Docker).
-4. [Virtualización de aplicaciones.](documentos/proyecto/4.Aplicaciones).
+4. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS).
 
 Tutorías virtuales
 ----
 
 Las tutorías virtuales se realizarán preferiblemente a través de
-[la plataforma de trabajo colaborativo GitHub](https://github.com/JJ/IV-2015-16/issues?state=open). Hay
+[la plataforma de trabajo colaborativo GitHub](https://github.com/JJ/IV16-17/issues?state=open). Hay
 también una
-[lista de correo cerrada para los alumnos de la asignatura](https://groups.google.com/forum/#!forum/iv-ugr-2015)
+[lista de correo cerrada para los alumnos de la asignatura](https://groups.google.com/forum/#!forum/iv-ugr-2016)
 que se puede usar para todo lo que no quepa en la anterior (preguntas
 administrativas, principalmente). Finalmente, el profesor está
-disponible por Telegram, Skype y Google Hangouts (en todos los casos: `jjmerelo`)
-previa cita.
+disponible por Telegram, Skype y Google Hangouts (en todos los casos: `jjmerelo`).
 
 Criterios de evaluación
 ---
@@ -98,7 +96,7 @@ Criterios de evaluación
 Los
 [criterios de evaluación figuran en la ficha de la asignatura en la web del grado](http://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/espti/infraestructuravirtual),
 y
-[se especifican en el repositorio de la clase](https://github.com/JJ/IV-2015-16/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n).
+[se especifican en el repositorio de la clase](https://github.com/JJ/IV16-17/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n).
 
 ##Convocatoria de septiembre
 
