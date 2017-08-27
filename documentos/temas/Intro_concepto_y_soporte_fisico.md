@@ -183,7 +183,7 @@ Tecnológicamente la computación nube se basa en el proceso progresivo
    diferentes sistemas operativos y en cada caso el más adecuado para
    la tarea que se requiera.
    
-* Permite que el *vendor* aproveche mejor el hardware, usando la
+* Permite que el *vendor* (distribuidor o vendedor con valor añadido) aproveche mejor el hardware, usando la
   capacidad para servir a diferentes clientes a lo largo del día o de
   la semana y creando tanta infraestructura virtual como la física
   pueda soportar. Esto también reduce la cantidad de energía consumida.
@@ -199,7 +199,7 @@ Todas estas ventajas hacen que,
   
 <div class='ejercicios' markdown="1">
 Usando las tablas de precios de servicios de alojamiento en Internet y
-de proveedores de servicios en la nube, Comparar el coste durante un
+de proveedores de servicios en la nube, comparar el coste durante un
 año de un ordenador con un procesador estándar (escogerlo de forma que
 sea el mismo tipo de procesador en los dos vendedores) y con el resto
 de las características similares (tamaño de disco duro equivalente a
@@ -313,8 +313,10 @@ fichero que contengan la expresión regular indicada, y si aparecen los
 el procesador no tiene esa funcionalidad o está desactivada.
 
 <div class='ejercicios' markdown="1">
-Comprobar si el procesador o procesadores instalados tienen estos *flags*. ¿Qué
-modelo de procesador es? ¿Qué aparece como salida de esa orden?
+En general, cualquier ordenador con menos de 5 o 6 años tendrá estos *flags*. ¿Qué
+modelo de procesador es? ¿Qué aparece como salida de esa orden? Si
+usas una máquina virtual, ¿qué resultado da? ¿Y en una Raspberry Pi o,
+si tienes acceso, [el procesador del móvil](https://stackoverflow.com/questions/26239956/how-to-get-specific-information-of-an-android-device-from-proc-cpuinfo-flie)?
 </div>
 
 Lo que implementan estas tecnologías son una serie de instrucciones
