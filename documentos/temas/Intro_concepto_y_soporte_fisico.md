@@ -195,7 +195,7 @@ Tecnológicamente la computación nube se basa en el proceso progresivo
       instalación tradicional, aunque eventualmente algunos negocios puedan optar, si tienen un uso intensivo y regular, en volver a ella. 
 	  
 Todas estas ventajas hacen que,
-	  [ya en el año 2013, más de la mitad de los negocios americanos usan infraestructura virtual](http://www.forbes.com/sites/reuvencohen/2013/04/16/the-cloud-hits-the-mainstream-more-than-half-of-u-s-businesses-now-use-cloud-computing/). 
+	  [ya en el año 2013, más de la mitad de los negocios americanos usan infraestructura virtual](https://www.forbes.com/sites/reuvencohen/2013/04/16/the-cloud-hits-the-mainstream-more-than-half-of-u-s-businesses-now-use-cloud-computing/). 
   
 <div class='ejercicios' markdown="1">
 Usando las tablas de precios de servicios de alojamiento en Internet y
@@ -229,11 +229,10 @@ virtual *invitado*.
   tal como
   [reescritura binaria y *ensombrecimiento* de estructuras de datos](https://en.wikipedia.org/wiki/X86_virtualization). La
   mayoría de los procesadores modernos de Intel y AMD tienen este tipo
-  de soporte. 
-  
-* La
-   [virtualización parcial](https://en.wikipedia.org/wiki/Hardware_virtualization#Partial_virtualization)
-   sólo virtualiza algún recurso: la memoria, por ejemplo.
+  de soporte. A veces, con soporte de hardware, se
+  puede
+  [virtualizar algún recurso](https://en.wikipedia.org/wiki/Hardware-assisted_virtualization),
+  tal como la memoria. 
    
 * La
   [paravirtualización](https://en.wikipedia.org/wiki/Paravirtualization)
@@ -260,7 +259,9 @@ los mismos.
   aunque en este caso las aplicaciones se tienen que
   recompilar. Programas como [CDE](https://github.com/pgbovine/CDE/) en Linux
   permiten empaquetar aplicaciones para que se ejecuten de forma
-  independiente en cualquier sistema operativo Linux.
+  independiente en cualquier sistema operativo Linux, aunque hoy en
+  día sistemas de empaquetado mucho más modernos como Docker hacen que
+  CDE se haya quedado prácticamente obsoleto.
 
 * La *virtualización de entornos de desarrollo* es una práctica
 habitual en lenguajes de scripting tales como Perl, Python o Ruby. Se
@@ -274,8 +275,6 @@ para diferentes lenguajes.
 <div class='ejercicios' markdown="1">
 1. [¿Qué tipo de virtualización usarías en cada caso? Comentar en el foro](https://github.com/JJ/IV16-17/issues/1)
 
-2. Crear un programa simple en cualquier lenguaje interpretado para
-Linux, empaquetarlo con CDE y probarlo en diferentes distribuciones.
 </div>
 
 En realidad, la *contenedorización* de aplicaciones puede usar las
@@ -380,12 +379,18 @@ que permitan usarlos a ese nivel, pero a la vez tengan un sistema
 fácil para añadir funcionalidad y combinarla en una pila completa de
 soluciones que incluya el sistema de almacenamiento de datos y el
 marco web de aplicaciones, junto con sistemas de monitorización y de
-análisis de las peticiones. Es difícil hoy en día (año 2015) encontrar un IaaS
-simple, de hecho.  
+análisis de las peticiones.
 
 
 A dónde ir desde aquí
 -----
 
-Antes de continuar es [imprescindible que aprendas y configures `git`. Empieza por aquí](http://mini-git.github.io). En el temario se verá a continuación [los ciclos de desarrollo modernos usando desarrollo basado en pruebas, *test-driven development*, TDD](Desarrollo_basado_en_pruebas), pero se puede salar direcamente al [tema dedicado a las plataformas como servicio](PaaS) veremos como usarlos. Previamente habrá que [realizar la
-práctica correspondiente a esta materia](../proyecto/1.Infraestructura). 
+Antes de continuar
+es
+[imprescindible que aprendas y configures `git`. Empieza por aquí](http://mini-git.github.io). En
+el temario se verá a
+continuación
+[los ciclos de desarrollo modernos usando desarrollo basado en pruebas, *test-driven development*, TDD](Desarrollo_basado_en_pruebas),
+pero se puede salar direcamente
+al [tema dedicado a las plataformas como servicio](PaaS) veremos
+como usarlos. Previamente habrá que [realizar la práctica correspondiente a esta materia](../proyecto/1.Infraestructura). 
