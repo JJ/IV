@@ -197,7 +197,9 @@ Todas estas ventajas hacen que,
 	  [ya en el año 2013, más de la mitad de los negocios americanos usan infraestructura virtual](https://www.forbes.com/sites/reuvencohen/2013/04/16/the-cloud-hits-the-mainstream-more-than-half-of-u-s-businesses-now-use-cloud-computing/). 
   
 <div class='ejercicios' markdown="1">
-Usando las tablas de precios de servicios de alojamiento en Internet y
+Usando las tablas de precios de servicios de alojamiento en Internet
+"clásicos", es decir, que ofrezcan *Virtual Private Servers* o
+servidores físicos, y
 de proveedores de servicios en la nube, comparar el coste durante un
 año de un ordenador con un procesador estándar (escogerlo de forma que
 sea el mismo tipo de procesador en los dos vendedores) y con el resto
