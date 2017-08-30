@@ -4,12 +4,12 @@ package main
 import (
 
     "time"
-//    "os"
+    "os"
     "fmt"
     "strings"
 	"strconv"
 	"log"
-//    "net/http"
+    "net/http"
     "encoding/json"
     "io/ioutil"
     "bytes"
@@ -32,6 +32,7 @@ var opcionesText bytes.Buffer
 var opcionesNumberText bytes.Buffer
 var ahora = time.Now()
 var fechas []time.Time
+var hitos_data Data
 
 func init() {
 
@@ -40,7 +41,6 @@ func init() {
 	if e != nil {
 		log.Fatal("No se puede leer fichero de hitos")
 	}
-	var hitos_data Data
 	if err := json.Unmarshal(file,&hitos_data); err != nil {
 		log.Fatal("Error en el JSON de hitos →", err)
 	}
@@ -65,8 +65,26 @@ func init() {
 }
 
 func main() {
-	fmt.Printf("%v", hitos)
-	
-
+	http.HandleFunc("/", dame_hitos)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "31415"
+	}
+	bind := fmt.Sprintf(":%s", port)
+	fmt.Printf("Escucha en %s...", bind)
+	err := http.ListenAndServe(bind, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
+func dame_hitos(res http.ResponseWriter, req *http.Request) {
+	este_hito, _ := strconv.ParseInt(req.URL.Query().Get("hito"), 10, 64)
+	js,err := json.Marshal( hitos_data.Hitos[este_hito])
+	if ( err != nil ) {
+		fmt.Fprintf( res, "Error %s", err )
+	} else {
+		res.Header().Set("Content-Type", "application/json")
+		res.Write(js)
+	}
+}
