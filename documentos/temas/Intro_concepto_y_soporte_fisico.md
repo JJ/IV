@@ -115,7 +115,6 @@ desarrollo ágil. En concreto, *DevOps* comprende
 3. Despliegue en la nube: publicación de aplicaciones en servidores
    virtuales.
 
-
 4. [Ciclo de vida del software](https://es.slideshare.net/colmbennett/software-rollout)
    definición de las diferentes fases en la vida de una aplicación,
    desde el diseño hasta el soporte.
@@ -215,7 +214,8 @@ que tienen todas el mismo objetivo: crear recursos que, desde el punto
 de vista de un programa, sean exclusivos. Cada una de las tecnologías
 necesita una aplicación determinada para usarse y, en muchos casos,
 soporte a nivel de hardware. En todo caso, el sistema operativo o
-aplicación que ejecuta las operaciones necesarias para virtualizar se
+aplicación que ejecuta las operaciones necesarias para llevar a cabo
+la virtualización se
 denomina *anfitrión* y el que se ejecuta *dentro* de la máquina
 virtual *invitado*. 
 
@@ -261,7 +261,13 @@ los mismos.
   permiten empaquetar aplicaciones para que se ejecuten de forma
   independiente en cualquier sistema operativo Linux, aunque hoy en
   día sistemas de empaquetado mucho más modernos como Docker hacen que
-  CDE se haya quedado prácticamente obsoleto.
+  CDE se haya quedado prácticamente obsoleto. En realidad, la *contenedorización* de aplicaciones puede usar las
+técnicas que se explican en el resto de la asignatura; de hecho, se
+pueden crear *paquetes* que permiten ejecutar una aplicación con todas
+las dependencias necesarias. Por ejemplo, [*docker*](https://www.docker.com)
+es una aplicación que permite crear fácilmente aplicaciones
+*contenidas* desde línea de órdenes para su uso en cualquier tipo de
+infraestructura virtual. 
 
 * La *virtualización de entornos de desarrollo* es una práctica
 habitual en lenguajes de scripting tales como Perl, Python o Ruby. Se
@@ -272,19 +278,11 @@ aplicación en diferentes versiones con una sola orden. `virtualenv`, `perlbrew`
 `rbenv` o `RVM` son diferentes aplicaciones que permiten realizarlo
 para diferentes lenguajes. 
 
-<div class='ejercicios' markdown="1">
-1. [¿Qué tipo de virtualización usarías en cada caso? Comentar en el foro](https://github.com/JJ/IV16-17/issues/1)
-
-</div>
-
-En realidad, la *contenedorización* de aplicaciones puede usar las
-técnicas que se explican en el resto de la asignatura; de hecho, se
-pueden crear *paquetes* que permiten ejecutar una aplicación con todas
-las dependencias necesarias. Por ejemplo, [*docker*](https://www.docker.com)
-es una aplicación que permite crear fácilmente aplicaciones
-*contenidas* desde línea de órdenes para su uso en cualquier tipo de
-contenedor, desde simples contenedores Linux hasta máquinas
-virtuales. 
+En general, en esta asignatura hablaremos, sobre todo, de
+virtualización plena, aunque en realidad lo interesante de la
+infraestructura virtual es poder definir por software los recursos que
+se van a usar para desplegar una aplicación, independientemente de la
+tecnología que se use. 
 
 
 Virtualización a nivel de *hardware* 
@@ -354,8 +352,9 @@ del kernel usando la orden `kvm-ok`.
 Niveles de infraestructura virtual
 -----
 
-Ya se ha visto en este tema dos niveles de virtualización diferentes,
-pero desde el punto de vista comercial se habla de
+A nivel de tecnología se aprecian diferentes niveles de de
+virtualización, pero hasta no hace demasiado tiempo se solía hablar,
+desde el punto de vista comercial se habla de
 [tres niveles: *Infrastructure*, *Platform* y *Software* *as a service*](https://en.wikipedia.org/wiki/Cloud_computing)
 
 ![Capas de computación nube](https://upload.wikimedia.org/wikipedia/commons/3/3c/Cloud_computing_layers.png)
@@ -376,12 +375,7 @@ configurar y usar según la necesidad que haya, un PaaS contiene infraestructura
 una *pila de soluciones* o *solution stack* completa que permita
 desplegar en el mismo nuestras propias aplicaciones.
 
-En realidad, pocos vendedores ofrecen simples *IaaS*. Lo más normal es
-que permitan usarlos a ese nivel, pero a la vez tengan un sistema
-fácil para añadir funcionalidad y combinarla en una pila completa de
-soluciones que incluya el sistema de almacenamiento de datos y el
-marco web de aplicaciones, junto con sistemas de monitorización y de
-análisis de las peticiones.
+
 
 
 A dónde ir desde aquí
