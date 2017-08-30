@@ -69,6 +69,25 @@ Las aplicaciones modernas se basan en la concatenación de servicios
 web. Es imprescindible entender el concepto para comprender cómo
 funciona el desarrollo en infraestructuras virtuales. 
 
+<div class='nota' markdown='1'>
+
+Un
+[tutorial de unos 10 minutos sobre servicios Web](https://www.youtube.com/watch?v=KU3V25XABgg). 
+</div>
+
+Aunque durante muchos años se han usado extensivamente servicios web
+basados en protocolos tales como SOAP u OSGi, hoy en día se usan,
+sobre todo, los llamados sistemas RESTful, que usan exclusivamente
+órdenes HTTP estándar y codifican las peticiones en URIs y las
+respuestas usando, generalmente, JSON. 
+
+
+<div class='nota' markdown='1'>
+
+[Un tutorial breve sobre como construir APIs RESTful](https://www.codementor.io/olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd)
+
+</div>
+
 A dónde ir desde aquí
 -----
 
