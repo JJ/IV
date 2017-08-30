@@ -167,7 +167,8 @@ Tecnológicamente la computación nube se basa en el proceso progresivo
   La virtualización de la infraestructura permite:
   
 * Creación y configuración de la misma bajo demanda. En vez de
-    desplazar a un técnico, o hacerlo remotamente, se puede
+    desplazar a un técnico al centro de datos para que instale un
+    sistema operativo y las aplicaciones necesarias, o hacerlo remotamente, se puede
     automatizar la creación de un recurso (a base de *recetas* o
     *plantillas*) y llevarse a cabo cuantas veces se necesite.
 	
@@ -183,7 +184,7 @@ Tecnológicamente la computación nube se basa en el proceso progresivo
 * Portabilidad: una máquina virtual se puede mover físicamente de un
     ordenador a otro cuando sea necesario.
 	
-* Ahorro de costes iniciales en un centro de datos frente a una
+* Ahorro de costes de arranque en un centro de datos frente a una
       instalación tradicional, aunque eventualmente algunos negocios puedan optar, si tienen un uso intensivo y regular, en volver a ella. 
 	  
 Todas estas ventajas hacen que,
@@ -363,7 +364,7 @@ del kernel usando la orden `kvm-ok`.
 </div>
 
 
-Niveles de infraestructura virtual
+Niveles y tipos de infraestructura virtual
 -----
 
 A nivel de tecnología se aprecian diferentes niveles de de
@@ -448,6 +449,34 @@ tipos de almacenes de datos y de canales de comunicación entre ellos.
 
 </div>
 
+Por otro lado, dependiendo de quién posea físicamente el centro de
+datos y lo administre, se suele hablar de nube pública o privada; los
+servicios en nube públicos son los que puedes adquirir, y los privados
+son los que pertenecen a la propia institución. Dado que la naturaleza
+de los servicios nube hace que se contraten bajo demanda, en general
+las nubes privadas suelen ser *híbridas*, contando con recursos
+contratados para responder a picos de demanda. Mediante aplicaciones
+de monitorización se puede configurar el sistema para que de forma
+eficiente responda a estos picos de demanda.
+
+Para implementar nubes privadas se usan general mente sistemas libres
+como [OpenStack](http://openstack.org); OpenStack permite proveer
+servicios nube a una empresa, aunque hay también empresas privadas que
+basan su oferta en este tipo de
+infraestructura; [CloudStack](https://cloudstack.apache.org/) es otra
+alternativa que se puede instalar *in situ*. En cualquier caso, esto
+indica que cualquier organización o empresa, con cualquier cantidad de
+recursos disponible, puede acceder al despliegue de sus aplicaciones
+en la nube, y de hecho así es. Otros sistemas cloud
+son
+[Eucalyptus y OpenNebula](https://www.researchgate.net/publication/303838237_Cloud_Computing_Comparative_Study_-_OpenStack_vs_OpenNebula),
+pero no tienen una comunidad tan activa como este. 
+
+<div class='ejercicios' markdown="1">
+1. Darse de alta en una web que permita hacer pruebas con alguno de
+   los sistemas de gestión de nube anteriores. 
+
+</div>
 
 A dónde ir desde aquí
 -----
