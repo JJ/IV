@@ -438,12 +438,11 @@ tipos de almacenes de datos y de canales de comunicación entre ellos.
 A dónde ir desde aquí
 -----
 
-Antes de continuar
-es
+Antes de continuar (y, de hecho, antes de empezar) es
 [imprescindible que aprendas y configures `git`. Empieza por aquí](http://mini-git.github.io). En
 el temario se verá a
 continuación
 [los ciclos de desarrollo modernos usando desarrollo basado en pruebas, *test-driven development*, TDD](Desarrollo_basado_en_pruebas),
 pero se puede salar direcamente
 al [tema dedicado a las plataformas como servicio](PaaS) veremos
-como usarlos. Previamente habrá que [realizar la práctica correspondiente a esta materia](../proyecto/1.Infraestructura). 
+como usarlos. Previamente habrá que [realizar la práctica correspondiente a esta materia](../proyecto/0.Repositorio). 
