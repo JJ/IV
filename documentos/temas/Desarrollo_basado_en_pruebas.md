@@ -44,62 +44,21 @@ Por eso, en esta parte del curso, veremos cómo desarrollar según la
 metodología basada en pruebas con los
 entornos de computación en nube y cómo configurarlos y usarlos para
 hacer más rápido y eficiente el trabajo de un equipo de desarrollo,
-test y sistemas.
-
-El desarrollo basado en pruebas entra en relación con la computación nube dentro del concepto de
-[*DevOps*](https://en.wikipedia.org/wiki/DevOps), que
-abarca tanto sistemas, es decir, el soporte físico donde se van a
-ejecutar las aplicaciones, como desarrollo y test y que está a caballo
-entre los dos primeros. En primer lugar, *DevOps* implica la
-automatización de las 
-tareas de creación de un puesto de trabajo para desarrollo, pero
-también la sistematización de pruebas, de despliegue y de las tareas
-de configuración relacionadas con la misma, todo ello en un entorno de
-desarrollo ágil. En concreto, *DevOps* comprende
-[los 7 aspectos siguientes, vistos en la página de Rex, que es parte de la panoplia usada para esos menesteres](http://www.rexify.org/): 
-
-1. Automatización de tareas relacionadas con el desarrollo. En
-   resumen, que no haya que recordar o tener apuntados en una libreta comandos para hacer todo tipo de
-   cosas (instalación de librerías o configuración de una máquina)
-   sino que haya *scripts* que lo homogeneicen y automaticen.
-
-2. [Virtualización](https://es.wikipedia.org/wiki/Virtualizaci%C3%B3n): uso de recursos virtuales para almacenamiento,
-   publicación y, en general, todos los pasos del desarrollo y
-   despliegue de software.
-
-5. Provisionamiento de los servidores: los servidores virtuales a los
-   que se despliegue deben estar preparados con todas las herramientas
-   necesarias para publicar la aplicación.
-
-6. Gestión de configuraciones: la gestión de las configuraciones de
-   los servidores y las órdenes para provisionamiento deben estar
-   controladas por un sistema de gestión de versiones que permita
-   pruebas y también controlar en cada momento el entorno en el que
-   efectivamente se está ejecutando el software.
-
-3. Despliegue en la nube: publicación de aplicaciones en servidores
-   virtuales.
-
-4. [Ciclo de vida del software](http://es.slideshare.net/colmbennett/software-rollout):
-   definición de las diferentes fases en la vida de una aplicación,
-   desde el diseño hasta el soporte.
-
-7. [Despliegue continuo](https://aws.amazon.com/devops/continuous-delivery/): el ciclo de vida de una aplicación debe ir
-   ligado a ciclos de desarrollo ágiles en los que cada nueva
-   característica se introduzca tan pronto esté lista y probada; el
-   despliegue continuo implica integración continua de las nuevas
-   características y arreglos, tanto en el software como el hardware. 
-
-
-En esta sesión veremos la mayoría; en siguientes sesiones se verá la
+test y sistemas. En otros capítulos se han descrito las diferentes fases
+del ciclo de vida de una aplicación en la nube; en este capítulo veremos
+como se llevan a cabo la mayoría de ellas. En siguientes capítulos se verá la
 gestión de configuraciones, provisionamiento de los servidores,
-despliegue continuo y virtualización.
+despliegue continuo y virtualización. 
 
-## Entornos virtuales de desarrollo
+## Gestores de versiones de lenguajes y bibliotecas.
 
-Una de las partes esenciales de la cultura *DevOps* es la gestión de
-configuraciones; a continuación, la automatización. El uso de entornos
-virtuales cubre las dos necesidades: te permite independizar la
+Una de las partes esenciales de la cultura *DevOps* es la definición y
+gestión de configuraciones que permite la automatización y
+replicabilidad de la misma desde el entorno de desarrollo hasta el
+entorno de ensayo o el de producción. El uso de *entornos
+virtuales* o *gestores de versiones*, que permite instalar desde el
+usuario la versión del lenguaje de programación y herramientas que uno
+desee, cubre las dos necesidades: te permite independizar la
 versión usada de la que proporcione el sistema, instalarla sin
 necesidad de tener privilegios de superusuario, compartirla entre
 todos los miembros del equipo y también automatizar la tarea 
