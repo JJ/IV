@@ -12,7 +12,7 @@ import (
     "net/http"
     "encoding/json"
     "io/ioutil"
-    "bytes"
+//    "bytes"
 
 )
 
@@ -28,8 +28,6 @@ type Data struct {
 }
 
 var hitos []Hito
-var opcionesText bytes.Buffer
-var opcionesNumberText bytes.Buffer
 var ahora = time.Now()
 var fechas []time.Time
 var hitos_data Data
@@ -45,11 +43,7 @@ func init() {
 		log.Fatal("Error en el JSON de hitos →", err)
 	}
 
-	for i,hito := range hitos_data.Hitos {
-
-		//adding opciones to choose 
-		opcionesText.WriteString(strconv.Itoa(i) + "-" + hito.Title + "\r\n")
-		opcionesNumberText.WriteString(strconv.Itoa(i) + "\r\n")
+	for _,hito := range hitos_data.Hitos {
 
 //		this_url := strings.Join( []string{"https://jj.github.io/IV/documentos/proyecto/",hito.File}, "/")
 		d := strings.Split(hito.Date,"/")
