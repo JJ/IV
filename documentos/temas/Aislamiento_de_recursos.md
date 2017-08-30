@@ -8,7 +8,7 @@ next: PaaS
 
 <div class="objetivos" markdown="1">
 
-##Objetivos 
+## Objetivos 
 
 
 ### Cubre los siguientes objetivos de la asignatura
@@ -25,7 +25,6 @@ tanto de software como de hardware y ponerlos en práctica.
 6. Entender el soporte lógico del aislamiento de recursos.
 
 </div>
-
 
 
 Restricción y medición del uso de recursos: `cgroups`
