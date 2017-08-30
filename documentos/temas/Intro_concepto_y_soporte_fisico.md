@@ -368,7 +368,64 @@ configurar y usar según la necesidad que haya, un PaaS contiene infraestructura
 una *pila de soluciones* o *solution stack* completa que permita
 desplegar en el mismo nuestras propias aplicaciones.
 
+En realidad, a estas alturas del siglo no está tan clara esa división
+en capas. Mientras que el sufijo *as a service* o *aaS* se mantiene,
+no existe una división tan clara entre las tres "capas" ni los
+vendedores las ofrecen de esa forma. Hay tres grandes empresas que
+ofrecen servicios en nube, Microsoft con su Azure, Google con su Cloud
+y por supuesto Amazon Web Services. Cualquiera de ellos ofrece una
+cantidad de servicios virtualizados a todos los niveles, que van desde
+virtualización de recursos computacionales hasta virtualización de
+almacenamiento de todo tipo. En general, lo que hacen los servicios en
+la nube es abstraer los recursos de forma que el usuario sólo tenga
+que describir en un lenguaje de alto nivel específico de la plataforma
+o genérico para cualquier plataforma qué se quiere ejecutar y cómo es
+el flujo de datos en la ejecución; todas las tareas de asignación de
+recursos y escalado de los mismos es gestionado por la propia
+plataforma. 
 
+
+Hay especialmente dos servicios que han
+surgido a partir del año 2015 que no encajan nada bien dentro de esas
+capas anteriores
+
+* *Contenedores como servicio* son servicios que permiten subir a la
+  nube directamente contenedores o descripciones de los mismos, así
+  como funciones de orden superior como conexión u
+  orquestación. Evidentemente, empezó
+  con
+  [Docker](https://blog.docker.com/2016/02/containers-as-a-service-caas/) pero
+  empresas
+  como
+  [Microsoft](https://azure.microsoft.com/es-es/services/container-service/) o
+  Amazon lo ofrecen como parte de sus servicios en la nube. La gran
+  ventaja que poseen los contenedores es que pueden desplegarse,
+  usando las mismas herramientas estándar y libres, en cualquier
+  servicio, una ventaja que no poseen ni las máquinas virtuales ni las
+  plataformas como servicio que, de hecho, ahora usan también
+  contenedores.
+  
+* *Funciones como servicio* dentro de lo que se ha venido en
+  llamar
+  [*serverless*](https://en.wikipedia.org/wiki/Serverless_computing),
+  la virtualización se reduce a la mínima expresión usando simples
+  funciones que están conectadas de forma ligera al resto de la
+  aplicación a base de canales de eventos. Estas funciones se activan
+  sólo cuando se las necesita y por tanto se cobra sólo por la
+  ejecución, que además está limitada y se cobra por
+  milisegundos. Amazon Lambda o Google o Azure Functions son los
+  nombres de los productos comerciales, que cuentan con marcos libres
+  como [OpenWhisk](https://en.wikipedia.org/wiki/Bluemix).
+  
+En general, estos dos servicios necesitan a su vez de otros productos
+en la nube, especialmente definición de redes virtuales y diferentes
+tipos de almacenes de datos y de canales de comunicación entre ellos. 
+
+<div class='ejercicios' markdown="1">
+1. Darse de alta en servicios de nube usando ofertas gratuitas o
+   cupones que pueda proporcionar el profesor. 
+
+</div>
 
 
 A dónde ir desde aquí
