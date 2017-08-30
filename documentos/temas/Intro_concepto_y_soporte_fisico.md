@@ -251,8 +251,10 @@ los mismos.
   [virtualización de aplicaciones](https://en.wikipedia.org/wiki/Application_virtualization)
   empaqueta aplicaciones de forma que se ejecuten en un entorno que
   las aísla del resto del sistema operativo; una parte es el uso de
-  [virtualización de escritorio](https://en.wikipedia.org/wiki/Desktop_virtualization) que permite aplicar una serie de aplicaciones
-  generalmente desde un navegador. En general, los programas
+  [virtualización de escritorio](https://en.wikipedia.org/wiki/Desktop_virtualization) que
+  permite aplicar una serie de aplicaciones generalmente desde un
+  navegador (y que en realidad tiene que tener por debajo una máquina
+  virtual, en un servidor, que sea quien en realidad ejecuta las mismas). En general, los programas
   necesarios se denominan *emuladores*; WINE (Windows Emulator)
   permite, por ejemplo, ejecutar aplicaciones de Windows sin
   modificación en Linux y CygWin crea un entorno similar para Windows,
@@ -261,13 +263,30 @@ los mismos.
   permiten empaquetar aplicaciones para que se ejecuten de forma
   independiente en cualquier sistema operativo Linux, aunque hoy en
   día sistemas de empaquetado mucho más modernos como Docker hacen que
-  CDE se haya quedado prácticamente obsoleto. En realidad, la *contenedorización* de aplicaciones puede usar las
+  CDE se haya quedado prácticamente obsoleto; sistemas más modernos,
+  como [FlatPak](http://flatpak.org/hello-world.html), permiten
+  empaquetar aplicaciones para que se ejecuten en cualquier
+  distribución de Linux, empaquetando todas las dependencias en un
+  solo fichero que, además, se puede distribuir desde la web, evitando
+  tener que descargar dependencias e instalarlas usando privilegios de
+  administrador. Esta virtualización de aplicaciones, aunque se puede
+  usar para desplegarlas en infraestructura virtual, en realidad está
+  fuera de los conceptos de infraestructura cloud que son la clave de
+  esta asignatura. 
+  
+  
+*  La *contenedorización* de aplicaciones va un poco más allá,
+empaquetando un entorno de ejecución completo de una o varias
+aplicaciones o servicios (aunque se aconseja que sea sólo uno) y aislándolo del resto
+del sistema operativo. Se pueden usar las
 técnicas que se explican en el resto de la asignatura; de hecho, se
 pueden crear *paquetes* que permiten ejecutar una aplicación con todas
 las dependencias necesarias. Por ejemplo, [*docker*](https://www.docker.com)
 es una aplicación que permite crear fácilmente aplicaciones
 *contenidas* desde línea de órdenes para su uso en cualquier tipo de
-infraestructura virtual. 
+infraestructura virtual. A bajo nivel, la contenedorización es en
+realidad un sistema de aislamiento de aplicaciones que permite crear
+seudo-máquinas virtuales de *usar y tirar*. 
 
 * La *virtualización de entornos de desarrollo* es una práctica
 habitual en lenguajes de scripting tales como Perl, Python o Ruby. Se
