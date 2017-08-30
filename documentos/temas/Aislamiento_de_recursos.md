@@ -6,7 +6,7 @@ prev: Intro_concepto_y_soporte_fisico
 next: PaaS
 ---
 
-Introducción a la infraestructura virtual: concepto y soporte físico
+Aislamiento de recursos
 ==
 
 <!--@
