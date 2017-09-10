@@ -89,8 +89,10 @@ ejemplo, podemos cambiar el nombre de la máquina:
 
 Primero, se ha usado
 
-	sudo unshare -u /bin/bash
-   
+```
+sudo unshare -u /bin/bash
+``` 
+
 En este caso, `-u` indica que vamos a crear un nuevo *namespace* UTS,
 que nos permite cambiar el nombre de la máquina. Eso es lo que
 hacemos: cambiamos el nombre de la máquina, y comprobamos que al salir
@@ -145,30 +147,40 @@ dependencias) denominado `bridge-utils`](http://www.linuxfromscratch.org/blfs/vi
 La principal orden que provee este paquete es [`brctl` que podemos usar
 directamente](https://wiki.debian.org/BridgeNetworkConnections) para crear este puente.
 
-	sudo brctl addbr alcantara
+```
+sudo brctl addbr alcantara
+```
 
 Hace falta privilegios de superusuario para crear este nuevo interfaz;
 una vez creado, 
 
-	 ip addr show
+```
+ ip addr show
+```
 
 nos mostrará, entre otras cosas
 
-	alcantara: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN 
-    link/ether 0a:f5:42:80:e7:09 brd ff:ff:ff:ff:ff:ff
-	
+```
+alcantara: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN 
+link/ether 0a:f5:42:80:e7:09 brd ff:ff:ff:ff:ff:ff```
+```
+
 en este instante ni está activado ni, en realidad, hace nada: no tiene
 dirección ethernet, aunque sí un MAC propio. Este puente podemos, por
 ejemplo, añadirlo a otro interfaz como el eth0 típico de cualquier
 ordenador:
 
-	sudo brctl addif alcantara eth0
-	
+```
+sudo brctl addif alcantara eth0
+```
+
 Si mostramos de nuevo los interfaces con `ip addr show`, ahora
 mostrará:
 
-	eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast	master alcantara state UP qlen 1000
-	
+```
+eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast	master alcantara state UP qlen 1000
+```
+
 es decir, el nombre del puente aparecerá en la descripción del mismo y
 en el estado del puente aparecerá la MAC del interfaz al que está
 conectada.
@@ -181,11 +193,13 @@ usar. Es posible que si hemos instalado algún paquete de
 virtualización ya tengamos alguna creada, `brctl show` muestra todos
 los puentes que existen en una máquina, por ejemplo:
 
+```
 	bridge name	bridge id		STP enabled	interfaces
 	alcantara		8000.1c6f65a40690	no		eth2
 	lxcbr0		8000.000000000000	no		
 	virbr0		8000.000000000000	yes		
-	
+```
+
 Que muestra los puentes creados por `lxc` (que veremos más adelante) y
 por VirtualBox.
 
@@ -238,8 +252,10 @@ fácil. En el mundo Debian (que incluye Debian, Ubuntu y Guadalinex) se
 usa `debootstrap`.
 
 Una vez instalado, se puede usar de esta forma
-	
-		sudo debootstrap --arch=amd64 saucy /home/jaulas/saucy/	http://archive.ubuntu.com/ubuntu
+
+```
+sudo debootstrap --arch=amd64 saucy /home/jaulas/saucy/	http://archive.ubuntu.com/ubuntu
+```
 
 La primera parte indica el tipo de arquitectura que se va a usar. Una
 de las ventajas que tiene `debootstrap` es que puedes crear
@@ -325,23 +341,31 @@ software o para empaquetado de recursos.
 Una vez creada la instalación del sistema operativo, para *entrar* en
 la jaula se usa `chroot`
 
-	sudo chroot /home/jaulas/raring
-	
+```
+sudo chroot /home/jaulas/raring
+```
+
 indicándole el directorio donde se encuentra. Nos encontraremos con
 una línea de órdenes como esta:
-	
-	root@penny:/# 
 
+```
+root@penny:/# 
+```
+	
 que, al listar el contenido nos mostrará
 
+```
 	bin   dev  home  lib64	mnt  proc  run	 selinux  sys  usr
 	boot  etc  lib	 media	opt  root  sbin  srv	  tmp  var
+```
 
 La máquina tal como está es usable, pero no está completa. Por
 ejemplo, `top` dará un error:
 
+```
 	Error, do this: mount -t proc proc /proc
-	
+```
+
 Así que [una de las cosas que hay que hacer](https://help.ubuntu.com/community/BasicChroot) es montar el filesystem
 virtual `/proc` exactamente como dice ahí. Lo que se está montando es
 el filesystem tipo proc (el primero) en el subdirectorio proc (el
@@ -354,8 +378,10 @@ comandos darán un error indicando que no está
 establecido. [Otros pasos resolverán este tema, incluyendo la instalación de los Locales necesarios](https://wiki.ubuntu.com/DebootstrapChroot). Habrá
 que actualizar la distribución, los locales, y configurarlos. 
 
-	apt-get install language-pack-es
-	
+```
+apt-get install language-pack-es
+```
+
 Esto instala el paquete español que básicamente evita que nos dé una
 serie de errores. Puede que haya que instalar alguna cosa más, pero
 con esto evitamos los errores más comunes.
@@ -372,8 +398,10 @@ Para añadir un usuario que trabaje dentro de esta jaula hay que usar
 un . en su directorio home; automáticamente cuando se conecte
 "aparecerá" dentro de la misma:
 
-	sudo useradd -s /bin/bash -m -d /home/jaulas/raring/./home/rjmerelo -c "Raring jmerelo" -g users rjmerelo
-	
+```
+sudo useradd -s /bin/bash -m -d /home/jaulas/raring/./home/rjmerelo -c "Raring jmerelo" -g users rjmerelo
+```
+
 Sin necesidad de usar el comando chroot, al conectarte como ese
 usuario (abriendo un terminal o bien con `su - rjmerelo`) se ejecutará
 directamente dentro de la misma. Esto se puede usar para crear
@@ -421,6 +449,7 @@ más de la cuenta, pero es más o menos completo.
 Lo primero que hay que hacer es crear una definición para cada uno de
 los entornos en el fichero `/etc/schroot/schroot.conf` tal como esta:
 
+```
 	[saucy]
 	description=Saucy Lagartija (Ubuntu)
 	location=/home/jaulas/saucy
@@ -431,7 +460,8 @@ los entornos en el fichero `/etc/schroot/schroot.conf` tal como esta:
 	aliases=ubuntu1210
 	run-setup-scripts=true
 	run-exec-scripts=true
-	
+```
+
 [Esta configuración](https://wiki.debian.org/Schroot) define un
 entorno llamado `saucy` con alias `ubuntu1210` que está en el
 directorio que se indica y que puede ser usado, aparte de por el
@@ -472,12 +502,16 @@ que se pueden usar, pero para el resto hay que editar ese fichero
 incluyendo las dependencias o ficheros necesarios. Para usarlo, por
 tanto, hay que crear un sistema de ficheros *poseído* por `root`:
 
+```
 	mkdir -p /seguro/jaulas/dorada
 	chown -R root:root /seguro
+```	
 	
 Y a partir de ahí 
 
-	jk_init -v -j /seguro/jaulas/dorada jk_lsh basicshell netutils editors
+```
+jk_init -v -j /seguro/jaulas/dorada jk_lsh basicshell netutils editors
+```
 
 En esta orden `-v` indica que se muestren todos los mensajes (para que
 se vea que se está haciendo) y `-j` indica el directorio donde se
@@ -492,8 +526,10 @@ también permite *enjaular* usuarios](http://www.binarytides.com/setup-jailed-sh
 crear el usuario de la forma habitual
 en Linux
 
-	sudo jk_jailuser -m -j /seguro/jaulas/dorada alguien
-	
+```
+sudo jk_jailuser -m -j /seguro/jaulas/dorada alguien
+```
+
 Todavía no queda la cosa ahí, porque aunque este usuario existe en la
 jaula, no se podrá conectar con el shell limitado que tiene. Habrá que
 editar la configuración del usuario (que estará en
