@@ -76,17 +76,18 @@ Un
 </div>
 
 Aunque durante muchos años se han usado extensivamente servicios web
-basados en protocolos tales como SOAP u OSGi, hoy en día se usan,
-sobre todo, los llamados sistemas RESTful, que usan exclusivamente
+basados en protocolos tales como SOAP (*Simple Object Access Protocol*) u [OSGi](https://www.linkedin.com/pulse/20140903145139-12717948-qu%C3%A9-es-osgi), hoy en día se usan
+sobre todo, los llamados [sistemas RESTful](https://elbauldelprogramador.com/buenas-practicas-para-el-diseno-de-una-api-restful-pragmatica/), que usan exclusivamente
 órdenes HTTP estándar y codifican las peticiones en URIs y las
 respuestas usando, generalmente, JSON. 
-
 
 <div class='nota' markdown='1'>
 
 [Un tutorial breve sobre como construir APIs RESTful](https://www.codementor.io/olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd)
 
 </div>
+
+
 
 A dónde ir desde aquí
 -----
