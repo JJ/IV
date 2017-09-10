@@ -492,11 +492,12 @@ volver a desplegar en heroku.
 
 Si está `package.json` bien configurado, por ejemplo, de esta forma
 
+```
     "scripts": {
 	  "test": "mocha",
 	  "start": "node index.js"
 	},
-
+```
 
 se puede arrancar también la aplicación, sin ningún tipo de
 envoltorio, simplemente con `npm start`, que ejecutará lo que hay a su
@@ -514,13 +515,17 @@ hacer `git push heroku master`; `heroku` aquí no es más que un alias a
 la dirección de tu aplicación, que si miras en `.git/config` estará
 definido de una forma similar a la siguiente
 
-    [remote "heroku"]
-	   url = git@heroku.com:porrio.git
-	   fetch = +refs/heads/*:refs/remotes/heroku/*
+```
+[remote "heroku"]
+   url = git@heroku.com:porrio.git
+   fetch = +refs/heads/*:refs/remotes/heroku/*
+```
 
 Es el mismo resultado que si hubiéramos dado la orden
 
-    git remote add heroku git@heroku.com:porrio.git
+```
+git remote add heroku git@heroku.com:porrio.git
+```
 
 es decir, crear un alias para la dirección real del repositorio en
 Heroku (que puedes consultar desde tu panel de control; será algo
@@ -531,10 +536,12 @@ de GitHub y seguido las instrucciones anteriores, tendrás que crear un
 repositorio vacío propio en GitHub y añadirle este como `origin` de la
 forma siguiente
 
+```
 	# Borra el origen inicial, que será el de la aplicación de ejemplo
 	git remote rm origin
 	# Crea el nuevo origin
 	git remote add origin git@github.com:mi-nick/mi-app.git
+```
 
 Todo esto puedes ahorrártelo si desde el principio haces un *fork* de
 la aplicación de node y trabajas con ese *fork*; el origen estará ya
@@ -542,8 +549,7 @@ definido.
 
 Ahora tienes dos repositorios: el que está efectivamente desplegado y
 el que contiene los fuentes. ¿No sería una buena idea que se trabajara
-con uno sólo? Efectivamente, [GitHub permite desplegar directamente a
-Heroku cuando se hace un `push` a la rama `master`](http://stackoverflow.com/questions/17558007/deploy-to-heroku-directly-from-my-github-repository),
+con uno sólo? Efectivamente, [GitHub permite desplegar directamente a Heroku cuando se hace un `push` a la rama `master`](http://stackoverflow.com/questions/17558007/deploy-to-heroku-directly-from-my-github-repository),
 aunque no es inmediato, sino que pasa por usar un servicio de
 integración continua, que se asegure de que todo funciona
 correctamente. 
@@ -557,7 +563,7 @@ preparado. No es el caso de Heroku.
 >[se puede probar ahora mismo en beta](https://devcenter.heroku.com/articles/github-integration)
 
 Otros sistemas, como
-[ AWS CodeDeploy de Amazon pueden desplegar a una instancia en la nube de esta empresa](https://medium.com/aws-activate-startup-blog/simplify-code-deployments-with-aws-codedeploy-e95599091304). Sin
+[AWS CodeDeploy de Amazon pueden desplegar a una instancia en la nube de esta empresa](https://medium.com/aws-activate-startup-blog/simplify-code-deployments-with-aws-codedeploy-e95599091304). Sin
 embargo,
 [no es complicado configurar un servicio de integración continua como Snap CI](http://stackoverflow.com/questions/17558007/deploy-to-heroku-directly-from-my-github-repository). Después
 de [darte de alta en el Snap CI](https://snap-ci.com/), la
@@ -594,11 +600,13 @@ Hay que dar un paso atrás y ver qué es necesario para desplegar en Heroku, apa
 
 Teniendo en cuenta esto, no es difícil cambiar la aplicación para que pueda funcionar correctamente al menos en esos dos PaaS, que son los más populares. En Openshift, en realidad, no hace falta `Procfile`. Como no tiene el concepto de diferentes tipos de dynos, usa directamente `package.json` para iniciar la aplicación. Por otro lado, los requisitos específicos de puerto e IP se tienen en cuenta en estas dos órdenes:
 
-	var server_ip_address = process.env.OPENSHIFT_NODEJS_IP
+```
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP
 	                          || '0.0.0.0';
-	app.set('port', (process.env.PORT
+app.set('port', (process.env.PORT
 	                 || process.env.OPENSHIFT_NODEJS_PORT
 					 || 5000));
+```
 
 En la primera se establece la IP en la que tiene que escuchar la aplicación. En el caso por omisión, el segundo, la dirección `0.0.0.0` indica que Express escuchará en todas las IPs. Sin embargo, eso no es correcto ni posible en OpenShift, que tiene una IP específica, contenida en la variable de entorno `OPENSHIFT_NODEJS_IP` y que será una IP de tipo local (aunque realmente esto no tiene que importarnos salvo por el caso de que no podremos acceder a esa IP directamente).
 
