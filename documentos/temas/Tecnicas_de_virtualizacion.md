@@ -71,7 +71,7 @@ Hay seis tipos de *namespaces*, algunos de los cuales son
 relativamente modernos y otros proceden de las versiones 2.4 y 2.6 del
 núcleo:
 
-* De montaje, aislan los recursos declarados con `mount`.
+* De montaje, aíslan los recursos declarados con `mount`.
 * UTS (el acrónimo viene de *Unix Time Sharing System*, sistemas de
   virtualización tempranos), básicamente los nombres del ordenador y
   su dominio.
@@ -120,8 +120,8 @@ El mecanismo de espacios de nombres es diferente al usado en
 [`cgroups`](Intro_concepto_y_soporte_fisico#restriccin_y_medicin_del_uso_de_recursos_),
 tal como se vio en el tema anterior: teóricamente, un PID dentro de un
 CGROUP es visible a todos los demás procesos; sin embargo, es
-complementario porque mientras que uno aisla la visibilidad o el
-ámbito otro aisla o limita el uso de recursos. Por ello constituyen la
+complementario porque mientras que uno aísla la visibilidad o el
+ámbito otro aísla o limita el uso de recursos. Por ello constituyen la
 base de los contenedores que se verán en este tema. 
 
 `unshare`tiene sus limitaciones, y la principal es que sólo se puede
@@ -335,7 +335,7 @@ Un
 
 Una vez que la imagen está lista, los ordenadores con Linux permiten
 crear una [jaula `chroot`](http://es.wikipedia.org/wiki/Chroot) , que
-simplemente aisla a una serie de procesos en una parte del sistema de
+simplemente aísla a una serie de procesos en una parte del sistema de
 ficheros, el `root` o raíz al que se cambia la jaula. En ese sentido,
 es un mecanismo de virtualización menos seguro que otros, porque se
 sigue teniendo acceso al resto de los recursos (dispositivos,
