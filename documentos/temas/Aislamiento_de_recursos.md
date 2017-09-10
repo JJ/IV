@@ -198,9 +198,9 @@ cgroup.event_control   cpu.cfs_quota_us   notify_on_release
 cgroup.procs           cpu.shares         tasks
 ```
 
-Dentro de este directorio se pueden asignar [diferentes procesadores
-mediante `cgroup.procs` o tareas específicas a uno u otro
-grupo](http://kaivanov.blogspot.com.es/2012/07/setting-up-linux-cgroups-control-groups.html). Instalar
+Dentro de este directorio se pueden
+asignar
+[diferentes procesadores mediante `cgroup.procs` o tareas específicas a uno u otro grupo](http://kaivanov.blogspot.com.es/2012/07/setting-up-linux-cgroups-control-groups.html). Instalar
 `cgroup-bin` te proporciona diferentes utilidades, como `lscgroup` o
 `cgcreate` que te crea grupos con el mismo nombre en todos los
 controladores que desees:
@@ -235,15 +235,16 @@ El paquete `cgroup-bin` (`libcgroup` en ArchLinux, puede variar en
 otras distros) [permite un control por línea de órdenes](https://wiki.archlinux.org/index.php/Cgroups) algo
 más sencillo sin necesidad de trabajar directamente con sistemas de
 ficheros virtuales. Con una serie de órdenes o un fichero de
-configuración en `/etc/cgconfig.conf` [se pueden controlar los
-diferentes grupos de control y limitar y contabilizar el uso de
-recursos por parte de los diferentes procesos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/) que se hayan asignado en
+configuración en
+`/etc/cgconfig.conf`
+[se pueden controlar los diferentes grupos de control y limitar y contabilizar el uso de recursos por parte de los diferentes procesos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/) que
+se hayan asignado en
 los grupos.
 
 Los grupos se crean con la orden `cgcreate`:
 
 ```
-	sudo cgcreate -a un_usuario -g memory,cpu,cpuacct:teestoyviendo
+sudo cgcreate -a un_usuario -g memory,cpu,cpuacct:teestoyviendo
 ```
 
 Esta orden crea un grupo `teestoyviendo` que se encarga de controlar
@@ -283,8 +284,7 @@ más prioridad en la CPU o entrada/salida a unos usuarios que a otros.
 
 
 <div class='ejercicios' markdown="1">
-1. [Discutir diferentes escenarios de limitación de uso de recursos o
-de asignación de los mismos a una u otra CPU](https://github.com/IV-GII/GII-2014/issues/4).
+1. [Discutir diferentes escenarios de limitación de uso de recursos o de asignación de los mismos a una u otra CPU](https://github.com/IV-GII/GII-2014/issues/4).
 2. Implementar usando el fichero de configuración de `cgcreate` una
 política que dé menos prioridad a los procesos de usuario que a los
 procesos del sistema (o viceversa).
