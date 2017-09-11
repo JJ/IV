@@ -674,8 +674,7 @@ azure storage container create taper
 ```
 
 pero esto crea un contenedor de acceso privado; los contenedores
-pueden ser públicos o privados y por defecto se crean privados; [los
-niveles de permisos existentes son](http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx):
+pueden ser públicos o privados y por defecto se crean privados; [los niveles de permisos existentes son](http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx):
 
  * Públicos para que se vean los contenidos.
  * Blobs públicos sólo.
@@ -707,7 +706,7 @@ línea de órdenes con `azure storage blob` tal como
 azure storage blob upload container-con-acceso-blob.png imagenes-iv container-con-acceso-blob.png
 ```
 
-que almacenará un fichero png usando como nombre de blob el mismo
+que almacenará un fichero PNG usando como nombre de blob el mismo
 nombre en el contenedor `imagenes-iv`. Estos ficheros, dependiendo del
 acceso definido, podrán estar disponibles públicamente.
 
