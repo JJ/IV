@@ -454,7 +454,7 @@ siguiente:
  o wollowitz o el que sea). 
  
  El dispositivo que se use en `devs` debe estar formateado con el
- formato XFS; en el caso de usar otro distema de ficheros (btrfs
+ formato XFS; en el caso de usar otro sistema de ficheros (btrfs
  principalmente) se indica previamente (como se indica en las
  instrucciones que se han enlazado anteriormente. 
  
@@ -666,12 +666,9 @@ export AZURE_STORAGE_ACCOUNT=esacuenta
 export	AZURE_STORAGE_ACCESS_KEY=unaclavemuylargaquetieneigualesalfinal==
 ```
 	
-Una vez creada la cuenta y establecida la configuración ya [se pueden
-crear cosas en ella](http://www.azure.microsoft.com/en-us/manage/linux/other-resources/command-line-tools/?fb=es-es)
+Una vez creada la cuenta y establecida la configuración ya [se pueden crear cosas en ella](http://www.azure.microsoft.com/en-us/manage/linux/other-resources/command-line-tools/?fb=es-es)
 se puede empezar a manejar la cuenta; una vez más,
-[se
-pueden crear diferentes contenedores desde el panel de
-control](http://www.azure.microsoft.com/en-us/manage/services/storage/what-is-a-storage-account/?fb=es-es),
+[se pueden crear diferentes contenedores desde el panel de control](http://www.azure.microsoft.com/en-us/manage/services/storage/what-is-a-storage-account/?fb=es-es),
 pero es más práctico hacerlo desde la línea de órdenes.
 
 Azure divide su cuenta en
@@ -685,8 +682,7 @@ azure storage container create taper
 ```
 
 pero esto crea un contenedor de acceso privado; los contenedores
-pueden ser públicos o privados y por defecto se crean privados; [los
-niveles de permisos existentes son](http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx):
+pueden ser públicos o privados y por defecto se crean privados; [los niveles de permisos existentes son](http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx):
 
  * Públicos para que se vean los contenidos.
  * Blobs públicos sólo.
@@ -695,8 +691,10 @@ niveles de permisos existentes son](http://msdn.microsoft.com/en-us/library/wind
  Este último es el permiso por defecto, pero si queremos que se acceda
  a los *blobs* se crea con
  
-	 azure storage container create otrotaper -p blob
-	 
+```
+azure storage container create otrotaper -p blob
+```
+
 En este caso, se contesta con
 
 ![Contestación a una creación de contenedor con acceso a nivel de blob](../img/container-con-acceso-blob.png)
@@ -716,7 +714,7 @@ línea de órdenes con `azure storage blob` tal como
 azure storage blob upload container-con-acceso-blob.png imagenes-iv container-con-acceso-blob.png
 ```
 
-que almacenará un fichero png usando como nombre de blob el mismo
+que almacenará un fichero PNG usando como nombre de blob el mismo
 nombre en el contenedor `imagenes-iv`. Estos ficheros, dependiendo del
 acceso definido, podrán estar disponibles públicamente.
 
@@ -738,8 +736,10 @@ son libres. Dado que hemos hecho un
 pero hay SDKs para muchos otros lenguajes: node.js, Java y por
 supuesto los propios de Microsoft. Instalemos la [gema para Azure](https://github.com/WindowsAzure/azure-sdk-for-ruby/blob/master/README.md)
 
- sudo gem install azure
- 
+```
+sudo gem install azure
+```
+
 y vamos a usar
 [este programa](https://github.com/JJ/IV/tree/master/ejemplos/blob-azure.rb)
 para crear un contenedor y almacenar algo
