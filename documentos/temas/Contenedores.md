@@ -301,7 +301,7 @@ salvar el estado del táper y clonarlo o realizar cualquier otro tipo
 de tareas. 
 
 Así que comencemos desde el principio:
-[vamos a ejecutar `docker`y trabajar con el contenedor creado](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
+[vamos a ejecutar `docker` y trabajar con el contenedor creado](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
 
 Primero, se ejecuta como un servicio
 
@@ -395,8 +395,7 @@ de la imagen:
 sudo docker run b750fe79269d du
 ```
 
-En vez de ejecutar las cosas una a una podemos directamente [ejecutar
-un shell](https://docs.docker.com/engine/getstarted/step_two/):
+En vez de ejecutar las cosas una a una podemos directamente [ejecutar un shell](https://docs.docker.com/engine/getstarted/step_two/):
 
 ```
 sudo docker run -i -t ubuntu /bin/bash
