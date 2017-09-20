@@ -15,21 +15,19 @@ next: PaaS
 -->
 
 <div class="objetivos" markdown="1">
-<h2>Objetivos</h2>
 
-<h3>Cubre los siguientes objetivos de la asignatura</h3>
+## Objetivos
 
-<ol>
-<li>Conocer los conceptos relacionados con el proceso de virtualización
-tanto de software como de hardware y ponerlos en práctica.</li>
-</ol>
+### Cubre los siguientes objetivos de la asignatura
 
-<h3>Objetivos específicos</h3>
-<ol>
-<li>Entender el concepto de <i>DevOps</i>.</li>
-<li>Usar herramientas para gestión de los ciclos de desarrollo de una aplicación y entender cuales son estos.</li>
-<li>Aprender a usar integración continua en cualquier aplicación.</li>
-</ol>
+* Conocer los conceptos relacionados con el proceso de virtualización tanto de software como de hardware y ponerlos en práctica.
+
+
+### Objetivos específicos
+
+* Entender el concepto de <i>DevOps</i>.
+* Usar herramientas para gestión de los ciclos de desarrollo de una aplicación y entender cuales son estos.
+* Aprender a usar integración continua en cualquier aplicación.
 
 </div>
 
@@ -131,20 +129,19 @@ basar la aplicación.
 
 El objeto básico, por tanto, será la `Apuesta` que irá asociada a un `Partido`.
 
-<div class='ejercicios'>
+<div class='ejercicios'  markdown="1">
 
 Como ejercicio, algo ligeramente diferente: una web para calificar
 las empresas en las que hacen prácticas los alumnos.
 
 Las acciones serían
-<ul>
-<li>Crear empresa</li>
-<li>Listar calificaciones para cada empresa</li>
-<li>crear calificación y añadirla (comprobando que la persona no la haya añadido ya)</li>
-<li>borrar calificación (si se arrepiente o te denuncia la empresa o algo)</li>
-<li>Hacer un ránking de empresas por calificación, por ejemplo</li>
-<li>Crear un repositorio en GitHub para la librería y crear un pequeño programa que use algunas de sus funcionalidades.</li>
-</ul>
+
+* Crear empresa
+* Listar calificaciones para cada empresa
+* crear calificación y añadirla (comprobando que la persona no la haya añadido ya)
+* borrar calificación (si se arrepiente o te denuncia la empresa o algo)
+* Hacer un ránking de empresas por calificación, por ejemplo
+* Crear un repositorio en GitHub para la librería y crear un pequeño programa que use algunas de sus funcionalidades.
 
 Si se quiere hacer con cualquier otra aplicación, también es válido.
 
@@ -176,6 +173,7 @@ ficheros que describen qué se usa y, en general, que es necesario
 instalar y tener para ejecutarlo. En node se usa un fichero en formato
 JSON tal como este:
 
+```
 	{
 	  "author": "J. J. Merelo <jjmerelo@gmail.com> (http://github.com/JJ/desarrollo-basado-pruebas)",
 	  "name": "porrio",
@@ -195,6 +193,7 @@ JSON tal como este:
 	  "node": ">=0.8"
 	  }
 	}
+```
 
 
 Las partes que más nos interesan están hacia el final: las
@@ -263,7 +262,9 @@ vamos a usar `grunt` para documentar el código. Tras la instalación de
 `grunt`, que no viene instalado por defecto en nodejs, se puede usar
 directamente.
 
-	sudo npm install -g grunt-cli
+```
+sudo npm install -g grunt-cli
+```
 
 `-g` indica que se trata de una instalación global, aunque también se
 puede instalar localmente. 
@@ -271,6 +272,7 @@ puede instalar localmente.
 Igual que make usa
 Makefiles, `grunt` usa `Gruntfile.js` tal como este
 
+```Javascript
     'use strict';
 
     module.exports = function(grunt) {
@@ -294,6 +296,7 @@ Makefiles, `grunt` usa `Gruntfile.js` tal como este
 	  // Tarea por omisión: generar la documentación
 	  grunt.registerTask('default', ['docco']);
     };
+```
 
 Para empezar, tenemos que instalar `docco` si queremos que funcione. Y
 `grunt` enfoca las tareas como una serie de *plugins* que hay que
@@ -302,15 +305,19 @@ herramienta habitual de instalación en node, `npm`, pero una vez que
 usamos `package.json`, `npm` puede editarlo y cambiar la configuración
 automáticamente si lo usamos de esta forma
 
+```
 	npm install docco grunt-docco --save-dev
+```
 
 El `--save-dev` indica que se guarde la configuración correspondiente
 en `package.json`, donde efectivamente se puede ver:
 
+```
 	"devDependencies": {
 	  "docco": "~0.6",
 	  "grunt-docco": "~0.3.3"
 	},
+```
 
 El fichero que se ve arriba tiene tres partes: la definición de la
 tarea (en este caso, la que genera la documentación), la carga de la
@@ -320,10 +327,12 @@ Vayamos con la primera parte. Primero, le indicamos cuál es el fichero `package
 
 La siguiente parte carga el plugin de `grunt` necesario para ejecutar `docco`. Y finalmente, con `grunt.registerTask('default', ['docco']);` indicamos que la tarea que ejecuta docco es la que se ejecutará por defecto simplemente ejecutando `grunt`. También se puede ejecutar con `grunt docco` o `grunt docco:debug` que sacará esto en el terminal:
 
+```
 	bash$ grunt docco
 	Running "docco:src" (docco) task
 	docco: Apuesta.js -> docs/Apuesta.html
 	docco: Gruntfile.js -> docs/Gruntfile.html
+```
 
 y producirá una documentación tal como [esta](src/docs/Apuesta.html). (Link roto)
 
@@ -369,6 +378,7 @@ librerías que se pueden usar](http://stackoverflow.com/questions/14294567/asser
 forma parte de la estándar de JS, y por tanto la que vamos a usar. Se
 usa de la forma siguiente
 
+```
 	var apuesta = require("./Apuesta.js"),
 	assert= require("assert");
 
@@ -376,6 +386,7 @@ usa de la forma siguiente
 	assert(nueva_apuesta, "Creada apuesta");
 	assert.equal(nueva_apuesta.as_string(), "Polopos: Alhama - 2-3","Creado");
 	console.log("Si has llegado aquí, han pasado todos los tests");
+```
 
 Este programa usa `assert` directamente y como se ve por la línea del
 final, no hace nada salvo que falle. `assert` no da error si existe el
@@ -402,6 +413,7 @@ que consiste en describir el comportamiento de un sistema más o menos
 de alto nivel. Como hay que escoger uno y parece que Mocha es más
 popular, nos quedamos con este para escribir este programa de test.
 
+```
     var assert = require("assert"),
 		apuesta = require(__dirname+"/../Apuesta.js");
 
@@ -420,6 +432,7 @@ popular, nos quedamos con este para escribir este programa de test.
 		});
 		});
 	});
+```
 
 Mocha puede usar diferentes librerías de test. En este caso hemos
 escogido la que ya habíamos usado, `assert`. A bajo nivel, los tests
@@ -430,6 +443,7 @@ test y cuál es el resultado que necesitamos. Se ejecuta con `mocha` y
 el resultado de ejecutarlo será:
 
 
+```
     Apuesta
       Carga
         ✓ should be loaded 
@@ -438,6 +452,7 @@ el resultado de ejecutarlo será:
 
 
     2 passing (6ms)
+```
 
 (pero con más colorines)
 
@@ -513,6 +528,7 @@ tests. Para ello se provisiona una máquina virtual (o contenedor), se
 le carga el sistema operativo y se instala lo necesario, indicado en
 el fichero de configuración tal como este para Travis. 
 
+```
 	language: node_js
 	node_js:
 	  - "0.10"
@@ -521,6 +537,7 @@ el fichero de configuración tal como este para Travis.
 	  - npm install -g mocha
 	  - cd src; npm install .
 	script: cd src; mocha
+```
 
 Este fichero, denominado `.travis.yml`, contiene lo siguiente:
 
