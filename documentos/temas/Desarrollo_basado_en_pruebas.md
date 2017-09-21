@@ -96,9 +96,10 @@ librerías que nos vamos a encontrar en un PaaS tal como los que
 veremos a continuación.
 
 <div class='ejercicios' markdown='1'>
-Instalar alguno de los entornos virtuales de <code>node.js</code> (o de cualquier
+
+Instalar alguno de los entornos virtuales de `node.js` (o de cualquier
 otro lenguaje con el que se esté familiarizado) y, con ellos,
-instalar la última versión existente, la versión <code>minor</code> más actual
+instalar la última versión existente, la versión `minor` más actual
 de la 4.x y lo mismo para la 0.11 o alguna impar (de desarrollo).
 </div>
 
@@ -198,7 +199,9 @@ A este nivel, la descripción del entorno de trabajo ya constituye en sí un tes
 Este fichero, además, permite instalar todas las dependencias usando sólo `npm install .`. Casi todos los lenguajes habituales tienen algún sistema similar: `bundle` para Ruby o `cpanm` para Perl, por ejemplo. 
 
 <div class='ejercicios' markdown='1'>
-Crear una descripción del módulo usando <code>package.json</code>. En caso de que se trate de otro lenguaje, usar el método correspondiente.
+
+Crear una descripción del módulo usando `package.json`. En caso de que se trate de otro lenguaje, usar el método correspondiente.
+
 </div>
 
 `package.json` nos sirve para llevar un cierto control de qué es lo
@@ -217,8 +220,7 @@ un lenguaje, por ejemplo) hasta la *minificación* o "compresión" de un
 programa hasta que ocupe el mínimo espacio posible, para que sea más
 *amigable* para móviles y otros dispositivos sin mucho ancho de banda.
 
-Todos los lenguajes de programación tienen su propia [herramienta de
-construcción](http://en.wikipedia.org/wiki/Build_automation),  de las
+Todos los lenguajes de programación tienen su propia [herramienta de construcción](http://en.wikipedia.org/wiki/Build_automation),  de las
 cuales la más conocida y veterana es la
 orden `make`, introducida [hace casi cuarenta años](https://es.wikipedia.org/wiki/Make). `make` automatiza el proceso
 de construcción en un fichero llamado `Makefile` con una sintaxis
@@ -331,10 +333,12 @@ y producirá una documentación tal como [esta](src/docs/Apuesta.html). (Link ro
 La automatización de Grunt se puede usar tanto para prueba como para despliegue. Pero hay también otras formas de probar en la nube, y lo veremos a continuación.
 
 <div class='ejercicios' markdown='1'>
-Automatizar con <code>grunt</code>, `gulp` u otra herramienta de gestión de
+
+Automatizar con `grunt`, `gulp` u otra herramienta de gestión de
 tareas en Node la generación de documentación de la librería que se
 cree usando `docco` u otro sistema similar de generación de
-documentatión. . Previamente, por supuesto, habrá que documentar tal librería.
+documentación. Previamente, por supuesto, habrá que documentar tal librería.
+
 </div>
 
 ## Desarrollo basado en pruebas
@@ -361,8 +365,7 @@ código antes siquiera de escribirlo.
 
 En la mayoría de los entornos de programación y especialmente en node, que es en el que nos estamos fijando, hay dos niveles en el test: el primero es el marco de pruebas y el segundo la librería de pruebas que efectivamente se está usando.
 
-Vamos a ir al nivel más bajo: el de las aserciones. Hay [múltiples
-librerías que se pueden usar](http://stackoverflow.com/questions/14294567/assertions-library-for-node-js):
+Vamos a ir al nivel más bajo: el de las aserciones. Hay [múltiples bibliotecas que se pueden usar](http://stackoverflow.com/questions/14294567/assertions-library-for-node-js):
 [Chai](http://chaijs.com/),
 [Should.js](https://github.com/visionmedia/should.js),
 [Must.js](https://github.com/moll/js-must) y
