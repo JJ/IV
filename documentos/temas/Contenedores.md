@@ -140,15 +140,19 @@ todas están *enabled* se puede
 [usar lxc con relativa facilidad](http://www.stgraber.org/2012/05/04/lxc-in-ubuntu-12-04-lts/)
 siempre que tengamos una distro como Ubuntu relativamente moderna:
 
-	sudo lxc-create -t ubuntu -n una-caja
-	
+```
+sudo lxc-create -t ubuntu -n una-caja
+```
+
 crea un contenedor denominado `una-caja` e instala Ubuntu en él. Esto
 tardará un rato mientras se bajan una serie de paquetes y se
 instalan. O se
 puede usar una imagen similar a la que se usa en
 [EC2 de Amazon](https://aws.amazon.com/es/ec2/):
 
-	sudo lxc-create -t ubuntu-cloud -n nubecilla
+```
+sudo lxc-create -t ubuntu-cloud -n nubecilla
+```
 
 que funciona de forma ligeramente diferente, porque se descarga un
 fichero `.tar.gz` usando `wget` (y tarda también un rato). Podemos
@@ -158,8 +162,10 @@ en este momento cualquier contenedor debería estar en estado
 
 Para arrancar el contenedor y conectarse a él, 
 
-	sudo lxc-start -n nubecilla
-	
+```
+sudo lxc-start -n nubecilla
+```
+
 Dependiendo del contenedor que se arranque, habrá una configuración
 inicial; en este caso, se configuran una serie de cosas y
 eventualmente sale el login, que será para todas las máquinas creadas
@@ -178,6 +184,7 @@ Comprobar qué interfaces puente se han creado y explicarlos.
 Una vez arrancados los
 contenedores, si se lista desde fuera aparecerá de esta forma:
 
+```
 	jmerelo@penny:~/txt/docencia/infraestructuras-virtuales/IV/documentos$ sudo lxc-list
 	RUNNING
 		contenedor
@@ -186,7 +193,8 @@ contenedores, si se lista desde fuera aparecerá de esta forma:
 	FROZEN
 
 	STOPPED
-	
+```
+
 Y, dentro de la misma, tendremos una máquina virtual con estas
 apariencias:
 
@@ -197,8 +205,10 @@ cualquier otro ordenador: será una máquina virtual que, salvo error o
 brecha de seguridad, no tendrá acceso al anfitrión, que sí podrá tener
 acceso a los mismos y pararlos cuando le resulte conveniente. 
 
-	sudo lxc-stop -n nubecilla
-	
+```
+sudo lxc-stop -n nubecilla
+```	
+
 Las
 [órdenes que incluye el paquete](https://help.ubuntu.com/lts/serverguide/lxc.html)
 permiten administrar las máquinas virtuales, actualizarlas y explican
@@ -299,12 +309,14 @@ salvar el estado del táper y clonarlo o realizar cualquier otro tipo
 de tareas. 
 
 Así que comencemos desde el principio:
-[vamos a ejecutar `docker`y trabajar con el contenedor creado](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
+[vamos a ejecutar `docker` y trabajar con el contenedor creado](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
 
 Primero, se ejecuta como un servicio
 
-	sudo docker -d &
-	
+```
+sudo docker -d &
+```
+
 La línea de órdenes de docker conectará con este daemon, que mantendrá
 el estado de docker y demás. Cada una de las órdenes se ejecutará
 también como superusuario, al tener que contactar con este *daemon*
@@ -312,8 +324,10 @@ usando un socket protegido.
 
 A partir de ahí, podemos crear un contenedor
 
-	sudo docker pull ubuntu
-	
+```
+sudo docker pull ubuntu
+```
+
 Esta orden descarga un contenedor básico de ubuntu y lo instala. Hay
 muchas imágenes creadas y se pueden crear y compartir en el sitio web
 de Docker, al estilo de las librerías de Python o los paquetes
@@ -341,8 +355,10 @@ demás lo hace ello, al modo de Vagrant (lo que veremos más adelante).
 
 Podemos ejecutar, por ejemplo, un listado de los directorios
 
-	sudo docker run ubuntu ls
-	
+```
+sudo docker run ubuntu ls
+```
+
 Tras el sudo, hace falta docker; `run` es el comando de docker que
 estamos usando, `ubuntu` es el id de la máquina y finalmente `ls`el
 comando que estamos ejecutando.
@@ -350,37 +366,48 @@ comando que estamos ejecutando.
 La máquina instalada la podemos usar con el nombre del SO, pero cada
 táper tiene un id único que se puede ver con 
 
-	sudo docker ps -a=false
-	
+```
+sudo docker ps -a=false
+```
+
 Obteniendo algo así:
 
+```
 	CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 b76f70b6c5ce        ubuntu:12.04        /bin/bash           About an hour ago   Up About an hour                        sharp_brattain     
+```
 
 El primer número es el ID de la máquina que podemos usar también para
 referirnos a ella en otros comandos. También se puede usar 
-	
-	sudo docker images
-	
+
+```	
+sudo docker images
+```
+
 Que devolverá algo así:
 
+```
 	REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
 ubuntu              12.04               8dbd9e392a96        9 months ago        128 MB
 ubuntu              latest              8dbd9e392a96        9 months ago        128 MB
 ubuntu              precise             8dbd9e392a96        9 months ago        128 MB
 ubuntu              12.10               b750fe79269d        9 months ago        175.3 MB
 ubuntu              quantal             b750fe79269d        9 months ago        175.3 MB
+```
 
 El *IMAGE ID* es el ID interno del contenedor, que se puede usar para
 trabajar en una u otra máquina igual que antes hemos usado el nombre
 de la imagen:
 
-		sudo docker run b750fe79269d du
-		
-En vez de ejecutar las cosas una a una podemos directamente [ejecutar
-un shell](https://docs.docker.com/engine/getstarted/step_two/):
+```
+sudo docker run b750fe79269d du
+```
 
-	sudo docker run -i -t ubuntu /bin/bash
+En vez de ejecutar las cosas una a una podemos directamente [ejecutar un shell](https://docs.docker.com/engine/getstarted/step_two/):
+
+```
+sudo docker run -i -t ubuntu /bin/bash
+```
 
 que [indica](https://docs.docker.com/engine/reference/commandline/cli/) que
 se está creando un seudo-terminal (`-t`) y se está ejecutando el
@@ -397,28 +424,36 @@ esta forma.
 
 Los contenedores se pueden arrancar de forma independiente con `start`
 
-	sudo docker start	ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
-	
+```
+sudo docker start	ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
+```
+
 pero hay que usar el ID largo que se obtiene dando la orden de esta
 forma
 
-	sudo docker images -notrunc
+```
+sudo docker images -notrunc
+```
 
 Para entrar en ese contenedor tienes que averiguar qué IP está usando
 y los usuarios y claves y por supuesto tener ejecutándose un cliente
 de `ssh` en la misma. Para averiguar la IP:
 
-	sudo docker inspect	ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
-	
+```
+sudo docker inspect	ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
+```	
+
 te dirá toda la información sobre la misma, incluyendo qué es lo que
 está haciendo en un momento determinado. Para finalizar, se puede
 parar usando `stop`. 
 
-Hasta ahora el uso de docker [no es muy diferente del contenedor, pero
-lo interesante](http://stackoverflow.com/questions/17989306/what-does-docker-add-to-just-plain-lxc) es que se puede guardar el estado de un contenedor tal
+Hasta ahora el uso de
+docker [no es muy diferente del contenedor, pero lo interesante](http://stackoverflow.com/questions/17989306/what-does-docker-add-to-just-plain-lxc) es que se puede guardar el estado de un contenedor tal
 como está usando [commit](https://docs.docker.com/engine/reference/commandline/cli/#commit)
 
-	sudo docker commit 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c nuevo-nombre
+```
+sudo docker commit 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c nuevo-nombre
+```
 
 que guardará el estado del contenedor tal como está en ese
 momento. Este `commit` es equivalente al que se hace en un
@@ -435,9 +470,8 @@ commit.
 Finalmente, `docker` tiene capacidades de provisionamiento similares a
 otros [sistemas (tales como Vagrant, que se verá más adelante](Gestion_de_configuraciones) usando
 [*Dockerfiles*](https://docs.docker.com/engine/reference/builder/). Por
-ejemplo, [se
-puede crear fácilmente un Dockerfile para instalar node.js con el
-módulo express](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/). 
+ejemplo,
+[se puede crear fácilmente un Dockerfile para instalar node.js con el módulo express](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/). 
 
 <div class='ejercicios' markdown='1'>
 

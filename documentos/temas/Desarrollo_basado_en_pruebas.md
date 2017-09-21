@@ -15,21 +15,19 @@ next: PaaS
 -->
 
 <div class="objetivos" markdown="1">
-<h2>Objetivos</h2>
 
-<h3>Cubre los siguientes objetivos de la asignatura</h3>
+## Objetivos
 
-<ol>
-<li>Conocer los conceptos relacionados con el proceso de virtualización
-tanto de software como de hardware y ponerlos en práctica.</li>
-</ol>
+### Cubre los siguientes objetivos de la asignatura
 
-<h3>Objetivos específicos</h3>
-<ol>
-<li>Entender el concepto de <i>DevOps</i>.</li>
-<li>Usar herramientas para gestión de los ciclos de desarrollo de una aplicación y entender cuales son estos.</li>
-<li>Aprender a usar integración continua en cualquier aplicación.</li>
-</ol>
+* Conocer los conceptos relacionados con el proceso de virtualización tanto de software como de hardware y ponerlos en práctica.
+
+
+### Objetivos específicos
+
+* Entender el concepto de <i>DevOps</i>.
+* Usar herramientas para gestión de los ciclos de desarrollo de una aplicación y entender cuales son estos.
+* Aprender a usar integración continua en cualquier aplicación.
 
 </div>
 
@@ -52,62 +50,21 @@ Por eso, en esta parte del curso, veremos cómo desarrollar según la
 metodología basada en pruebas con los
 entornos de computación en nube y cómo configurarlos y usarlos para
 hacer más rápido y eficiente el trabajo de un equipo de desarrollo,
-test y sistemas.
-
-El desarrollo basado en pruebas entra en relación con la computación nube dentro del concepto de
-[*DevOps*](https://en.wikipedia.org/wiki/DevOps), que
-abarca tanto sistemas, es decir, el soporte físico donde se van a
-ejecutar las aplicaciones, como desarrollo y test y que está a caballo
-entre los dos primeros. En primer lugar, *DevOps* implica la
-automatización de las 
-tareas de creación de un puesto de trabajo para desarrollo, pero
-también la sistematización de pruebas, de despliegue y de las tareas
-de configuración relacionadas con la misma, todo ello en un entorno de
-desarrollo ágil. En concreto, *DevOps* comprende
-[los 7 aspectos siguientes, vistos en la página de Rex, que es parte de la panoplia usada para esos menesteres](http://www.rexify.org/): 
-
-1. Automatización de tareas relacionadas con el desarrollo. En
-   resumen, que no haya que recordar o tener apuntados en una libreta comandos para hacer todo tipo de
-   cosas (instalación de librerías o configuración de una máquina)
-   sino que haya *scripts* que lo homogeneicen y automaticen.
-
-2. [Virtualización](https://es.wikipedia.org/wiki/Virtualizaci%C3%B3n): uso de recursos virtuales para almacenamiento,
-   publicación y, en general, todos los pasos del desarrollo y
-   despliegue de software.
-
-5. Provisionamiento de los servidores: los servidores virtuales a los
-   que se despliegue deben estar preparados con todas las herramientas
-   necesarias para publicar la aplicación.
-
-6. Gestión de configuraciones: la gestión de las configuraciones de
-   los servidores y las órdenes para provisionamiento deben estar
-   controladas por un sistema de gestión de versiones que permita
-   pruebas y también controlar en cada momento el entorno en el que
-   efectivamente se está ejecutando el software.
-
-3. Despliegue en la nube: publicación de aplicaciones en servidores
-   virtuales.
-
-4. [Ciclo de vida del software](http://es.slideshare.net/colmbennett/software-rollout):
-   definición de las diferentes fases en la vida de una aplicación,
-   desde el diseño hasta el soporte.
-
-7. [Despliegue continuo](https://aws.amazon.com/devops/continuous-delivery/): el ciclo de vida de una aplicación debe ir
-   ligado a ciclos de desarrollo ágiles en los que cada nueva
-   característica se introduzca tan pronto esté lista y probada; el
-   despliegue continuo implica integración continua de las nuevas
-   características y arreglos, tanto en el software como el hardware. 
-
-
-En esta sesión veremos la mayoría; en siguientes sesiones se verá la
+test y sistemas. En otros capítulos se han descrito las diferentes fases
+del ciclo de vida de una aplicación en la nube; en este capítulo veremos
+como se llevan a cabo la mayoría de ellas. En siguientes capítulos se verá la
 gestión de configuraciones, provisionamiento de los servidores,
-despliegue continuo y virtualización.
+despliegue continuo y virtualización. 
 
-## Entornos virtuales de desarrollo
+## Gestores de versiones de lenguajes y bibliotecas.
 
-Una de las partes esenciales de la cultura *DevOps* es la gestión de
-configuraciones; a continuación, la automatización. El uso de entornos
-virtuales cubre las dos necesidades: te permite independizar la
+Una de las partes esenciales de la cultura *DevOps* es la definición y
+gestión de configuraciones que permite la automatización y
+replicabilidad de la misma desde el entorno de desarrollo hasta el
+entorno de ensayo o el de producción. El uso de *entornos
+virtuales* o *gestores de versiones*, que permite instalar desde el
+usuario la versión del lenguaje de programación y herramientas que uno
+desee, cubre las dos necesidades: te permite independizar la
 versión usada de la que proporcione el sistema, instalarla sin
 necesidad de tener privilegios de superusuario, compartirla entre
 todos los miembros del equipo y también automatizar la tarea 
@@ -147,9 +104,10 @@ librerías que nos vamos a encontrar en un PaaS tal como los que
 veremos a continuación.
 
 <div class='ejercicios' markdown='1'>
-Instalar alguno de los entornos virtuales de <code>node.js</code> (o de cualquier
+
+Instalar alguno de los entornos virtuales de `node.js` (o de cualquier
 otro lenguaje con el que se esté familiarizado) y, con ellos,
-instalar la última versión existente, la versión <code>minor</code> más actual
+instalar la última versión existente, la versión `minor` más actual
 de la 4.x y lo mismo para la 0.11 o alguna impar (de desarrollo).
 </div>
 
@@ -172,20 +130,19 @@ basar la aplicación.
 
 El objeto básico, por tanto, será la `Apuesta` que irá asociada a un `Partido`.
 
-<div class='ejercicios'>
+<div class='ejercicios'  markdown="1">
 
 Como ejercicio, algo ligeramente diferente: una web para calificar
 las empresas en las que hacen prácticas los alumnos.
 
 Las acciones serían
-<ul>
-<li>Crear empresa</li>
-<li>Listar calificaciones para cada empresa</li>
-<li>crear calificación y añadirla (comprobando que la persona no la haya añadido ya)</li>
-<li>borrar calificación (si se arrepiente o te denuncia la empresa o algo)</li>
-<li>Hacer un ránking de empresas por calificación, por ejemplo</li>
-<li>Crear un repositorio en GitHub para la librería y crear un pequeño programa que use algunas de sus funcionalidades.</li>
-</ul>
+
+* Crear empresa
+* Listar calificaciones para cada empresa
+* crear calificación y añadirla (comprobando que la persona no la haya añadido ya)
+* borrar calificación (si se arrepiente o te denuncia la empresa o algo)
+* Hacer un ránking de empresas por calificación, por ejemplo
+* Crear un repositorio en GitHub para la librería y crear un pequeño programa que use algunas de sus funcionalidades.
 
 Si se quiere hacer con cualquier otra aplicación, también es válido.
 
@@ -217,6 +174,7 @@ ficheros que describen qué se usa y, en general, que es necesario
 instalar y tener para ejecutarlo. En node se usa un fichero en formato
 JSON tal como este:
 
+```
 	{
 	  "author": "J. J. Merelo <jjmerelo@gmail.com> (http://github.com/JJ/desarrollo-basado-pruebas)",
 	  "name": "porrio",
@@ -236,6 +194,7 @@ JSON tal como este:
 	  "node": ">=0.8"
 	  }
 	}
+```
 
 
 Las partes que más nos interesan están hacia el final: las
@@ -248,7 +207,9 @@ A este nivel, la descripción del entorno de trabajo ya constituye en sí un tes
 Este fichero, además, permite instalar todas las dependencias usando sólo `npm install .`. Casi todos los lenguajes habituales tienen algún sistema similar: `bundle` para Ruby o `cpanm` para Perl, por ejemplo. 
 
 <div class='ejercicios' markdown='1'>
-Crear una descripción del módulo usando <code>package.json</code>. En caso de que se trate de otro lenguaje, usar el método correspondiente.
+
+Crear una descripción del módulo usando `package.json`. En caso de que se trate de otro lenguaje, usar el método correspondiente.
+
 </div>
 
 `package.json` nos sirve para llevar un cierto control de qué es lo
@@ -267,8 +228,7 @@ un lenguaje, por ejemplo) hasta la *minificación* o "compresión" de un
 programa hasta que ocupe el mínimo espacio posible, para que sea más
 *amigable* para móviles y otros dispositivos sin mucho ancho de banda.
 
-Todos los lenguajes de programación tienen su propia [herramienta de
-construcción](http://en.wikipedia.org/wiki/Build_automation),  de las
+Todos los lenguajes de programación tienen su propia [herramienta de construcción](http://en.wikipedia.org/wiki/Build_automation),  de las
 cuales la más conocida y veterana es la
 orden `make`, introducida [hace casi cuarenta años](https://es.wikipedia.org/wiki/Make). `make` automatiza el proceso
 de construcción en un fichero llamado `Makefile` con una sintaxis
@@ -304,7 +264,9 @@ vamos a usar `grunt` para documentar el código. Tras la instalación de
 `grunt`, que no viene instalado por defecto en nodejs, se puede usar
 directamente.
 
-	sudo npm install -g grunt-cli
+```
+sudo npm install -g grunt-cli
+```
 
 `-g` indica que se trata de una instalación global, aunque también se
 puede instalar localmente. 
@@ -312,6 +274,7 @@ puede instalar localmente.
 Igual que make usa
 Makefiles, `grunt` usa `Gruntfile.js` tal como este
 
+```Javascript
     'use strict';
 
     module.exports = function(grunt) {
@@ -335,6 +298,7 @@ Makefiles, `grunt` usa `Gruntfile.js` tal como este
 	  // Tarea por omisión: generar la documentación
 	  grunt.registerTask('default', ['docco']);
     };
+```
 
 Para empezar, tenemos que instalar `docco` si queremos que funcione. Y
 `grunt` enfoca las tareas como una serie de *plugins* que hay que
@@ -343,15 +307,19 @@ herramienta habitual de instalación en node, `npm`, pero una vez que
 usamos `package.json`, `npm` puede editarlo y cambiar la configuración
 automáticamente si lo usamos de esta forma
 
+```
 	npm install docco grunt-docco --save-dev
+```
 
 El `--save-dev` indica que se guarde la configuración correspondiente
 en `package.json`, donde efectivamente se puede ver:
 
+```
 	"devDependencies": {
 	  "docco": "~0.6",
 	  "grunt-docco": "~0.3.3"
 	},
+```
 
 El fichero que se ve arriba tiene tres partes: la definición de la
 tarea (en este caso, la que genera la documentación), la carga de la
@@ -361,20 +329,24 @@ Vayamos con la primera parte. Primero, le indicamos cuál es el fichero `package
 
 La siguiente parte carga el plugin de `grunt` necesario para ejecutar `docco`. Y finalmente, con `grunt.registerTask('default', ['docco']);` indicamos que la tarea que ejecuta docco es la que se ejecutará por defecto simplemente ejecutando `grunt`. También se puede ejecutar con `grunt docco` o `grunt docco:debug` que sacará esto en el terminal:
 
+```
 	bash$ grunt docco
 	Running "docco:src" (docco) task
 	docco: Apuesta.js -> docs/Apuesta.html
 	docco: Gruntfile.js -> docs/Gruntfile.html
+```
 
 y producirá una documentación tal como [esta](src/docs/Apuesta.html). (Link roto)
 
 La automatización de Grunt se puede usar tanto para prueba como para despliegue. Pero hay también otras formas de probar en la nube, y lo veremos a continuación.
 
 <div class='ejercicios' markdown='1'>
-Automatizar con <code>grunt</code>, `gulp` u otra herramienta de gestión de
+
+Automatizar con `grunt`, `gulp` u otra herramienta de gestión de
 tareas en Node la generación de documentación de la librería que se
 cree usando `docco` u otro sistema similar de generación de
-documentatión. . Previamente, por supuesto, habrá que documentar tal librería.
+documentación. Previamente, por supuesto, habrá que documentar tal librería.
+
 </div>
 
 ## Desarrollo basado en pruebas
@@ -401,8 +373,7 @@ código antes siquiera de escribirlo.
 
 En la mayoría de los entornos de programación y especialmente en node, que es en el que nos estamos fijando, hay dos niveles en el test: el primero es el marco de pruebas y el segundo la librería de pruebas que efectivamente se está usando.
 
-Vamos a ir al nivel más bajo: el de las aserciones. Hay [múltiples
-librerías que se pueden usar](http://stackoverflow.com/questions/14294567/assertions-library-for-node-js):
+Vamos a ir al nivel más bajo: el de las aserciones. Hay [múltiples bibliotecas que se pueden usar](http://stackoverflow.com/questions/14294567/assertions-library-for-node-js):
 [Chai](http://chaijs.com/),
 [Should.js](https://github.com/visionmedia/should.js),
 [Must.js](https://github.com/moll/js-must) y
@@ -410,6 +381,7 @@ librerías que se pueden usar](http://stackoverflow.com/questions/14294567/asser
 forma parte de la estándar de JS, y por tanto la que vamos a usar. Se
 usa de la forma siguiente
 
+```
 	var apuesta = require("./Apuesta.js"),
 	assert= require("assert");
 
@@ -417,6 +389,7 @@ usa de la forma siguiente
 	assert(nueva_apuesta, "Creada apuesta");
 	assert.equal(nueva_apuesta.as_string(), "Polopos: Alhama - 2-3","Creado");
 	console.log("Si has llegado aquí, han pasado todos los tests");
+```
 
 Este programa usa `assert` directamente y como se ve por la línea del
 final, no hace nada salvo que falle. `assert` no da error si existe el
@@ -443,6 +416,7 @@ que consiste en describir el comportamiento de un sistema más o menos
 de alto nivel. Como hay que escoger uno y parece que Mocha es más
 popular, nos quedamos con este para escribir este programa de test.
 
+```
     var assert = require("assert"),
 		apuesta = require(__dirname+"/../Apuesta.js");
 
@@ -461,6 +435,7 @@ popular, nos quedamos con este para escribir este programa de test.
 		});
 		});
 	});
+```
 
 Mocha puede usar diferentes librerías de test. En este caso hemos
 escogido la que ya habíamos usado, `assert`. A bajo nivel, los tests
@@ -471,6 +446,7 @@ test y cuál es el resultado que necesitamos. Se ejecuta con `mocha` y
 el resultado de ejecutarlo será:
 
 
+```
     Apuesta
       Carga
         ✓ should be loaded 
@@ -479,6 +455,7 @@ el resultado de ejecutarlo será:
 
 
     2 passing (6ms)
+```
 
 (pero con más colorines)
 
@@ -554,6 +531,7 @@ tests. Para ello se provisiona una máquina virtual (o contenedor), se
 le carga el sistema operativo y se instala lo necesario, indicado en
 el fichero de configuración tal como este para Travis. 
 
+```
 	language: node_js
 	node_js:
 	  - "0.10"
@@ -562,6 +540,7 @@ el fichero de configuración tal como este para Travis.
 	  - npm install -g mocha
 	  - cd src; npm install .
 	script: cd src; mocha
+```
 
 Este fichero, denominado `.travis.yml`, contiene lo siguiente:
 
