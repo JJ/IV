@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Creando aplicaciones en la nube: Uso de PaaS
+=======
+Desplegando aplicaciones en la nube: Uso de PaaS 
+>>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4
 ==
 
 <!--@
@@ -32,24 +36,28 @@ tanto de software como de hardware y ponerlos en práctica.
 >Esta [presentación](http://jj.github.io/pispaas/#/) es un resumen del
 >PaaS y alguna cosa adicional que no viene en este tema.
 
-Cuando uno quiere parte del trabajo de instalación ya hecho, o al menos preparado
-para hacer con la pulsación de un botón, a la vez que tiene
+Cuando uno quiere desplegar una aplicación y tener parte del trabajo de instalación ya hecho, o al menos preparado 
+para hacerse con la pulsación de un botón, a la vez que tiene
 flexibilidad para trabajar con marcos de aplicaciones más allá de lo
 que ofrece programar *plugins* (como en el *SaaS*), necesita un
 [Platform as a Service o PaaS](http://en.wikipedia.org/wiki/Platform_as_a_service). Un
-PaaS proporciona una pila, es decir, varias capas de servicios
+PaaS proporciona una *pila*, es decir, varias capas de servicios
 apilados de forma que cada uno usa al siguiente, que incluye, generalmente, almacenamiento de
 datos, un marco concreto para trabajar (tal como Django o Ruby on
 Rails) y, adicionalmente, un servidor web.
 
-Esto conlleva una cierta falta de flexibilidad: se pueden usar las
+El elegir un PaaS conlleva una cierta falta de flexibilidad: se pueden usar las
 pilas que proporciona en servicio y el usuario sólo puede subir su
 aplicación que las use, no instalar elementos adicionales que necesiten permisos de
 superusuario. Pero, por otro lado, ofrece la comodidad de tener que
 concentrarse sólo en la aplicación en sí y no en la
 infraestructura si se trata de una aplicación que use los marcos más comunes. Es, por eso, menos *DevOps* que una solución *IaaS*,
 pero por otro lado también tiene una parte que es la configuración y
+<<<<<<< HEAD
 despliegue de la aplicación en sí y los tests que se vayan a usar.
+=======
+despliegue de la aplicación en sí y los tests que se vayan a usar. Hay que tener en cuenta que, en general, la definición de la infraestructura depende del PaaS que se use y por eso es bastante menos portable que usar un IaaS. Sin embargo, para un microservicio específico, o para una parte de la aplicación que sea invariable, puede ser bastante útil y conveniente.
+>>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4
 
 Usando un servicio PaaS
 -----
@@ -79,12 +87,16 @@ node.js, [igual que nitrous.io](http://blog.blakepatches.me/blog/2013/11/04/comp
 >Después de probar casi todos los servicios anteriores, me da la
 >impresión de que poco hay más allá de Heroku y Openshift. AppFog y
 >Nodejitsu, después de la efervescencia inicial, dan 30 días de prueba
->solamente. Me falta por probar nitrous.io, pero del resto, al menos
+>solamente. nitrous.io también da un periodo de prueba y se puede usar como IaaS, pero del resto, al menos
 >los que funcionan con node.js, poco más hay.  
 
 [AppAgile](https://cloud.telekom.de/infrastruktur/appagile/)
 trabaja con Perl, por ejemplo, como
+<<<<<<< HEAD
 [Stackato y otras](http://showmetheco.de/articles/2011/8/three-perl-cloud-hosting-platforms.html).
+=======
+[Stackato y otras](http://showmetheco.de/articles/2011/8/three-perl-cloud-hosting-platforms.html). En general, si necesitas otros lenguajes, tendrás que buscar porque la oferta variará. Los más fiables son OpenShift y Heroku, y los que ofrecen más opciones a la hora de elegir lenguajes. 
+>>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4
 
 <div class='ejercicios' markdown="1">
 
@@ -100,7 +112,9 @@ intensivo, o bien capacidades que no entren en el paquete básico, hay
 que pasar al modelo de pago. Estas máquinas virtuales se denominan
 [*dynos*](https://devcenter.heroku.com/articles/dynos) en Heroku y
 simplemente aplicaciones en OpenShift, aunque los *dynos* son mucho
-más flexibles que las aplicaciones de OpenShift. Generalmente, los
+más flexibles que las aplicaciones de OpenShift. 
+
+Para trabajar con estas configuraciones, generalmente, los
 PaaS proporcionan un *toolbelt* o herramientas de línea de órdenes que
 permiten controlarlos directamente desde nuestra aplicación; estos
 conjuntos de herramientas acceden a un API que también podemos
@@ -148,13 +162,17 @@ enseñanza.
 
 <div class='ejercicios' markdown="1">
 
+<<<<<<< HEAD
 Crear una aplicación en OpenShift y dentro de ella instalar
 WordPress.
+=======
+Crear una aplicación en OpenShift o en algún otro PaaS en el que se haya dado uno de alta. Realizar un despliegue de prueba usando alguno de los ejemplos. 
+>>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4
 
 </div>
 
 >En todo caso, no está mal tener disponible una tarjeta de crédito,
->posiblemente virtual o de prepago, para trabajar con todo tipo de
+>preferiblemente virtual o de prepago, para trabajar con todo tipo de
 >infraestructuras de nube en pruebas; puedes acceder a muchos más
 >servicios y posibilidades y, aunque se excedan los límites gratuitos,
 >el coste no suele ser grande.
@@ -484,11 +502,12 @@ volver a desplegar en heroku.
 
 Si está `package.json` bien configurado, por ejemplo, de esta forma
 
+```
     "scripts": {
 	  "test": "mocha",
 	  "start": "node index.js"
 	},
-
+```
 
 se puede arrancar también la aplicación, sin ningún tipo de
 envoltorio, simplemente con `npm start`, que ejecutará lo que hay a su
@@ -506,13 +525,17 @@ hacer `git push heroku master`; `heroku` aquí no es más que un alias a
 la dirección de tu aplicación, que si miras en `.git/config` estará
 definido de una forma similar a la siguiente
 
-    [remote "heroku"]
-	   url = git@heroku.com:porrio.git
-	   fetch = +refs/heads/*:refs/remotes/heroku/*
+```
+[remote "heroku"]
+   url = git@heroku.com:porrio.git
+   fetch = +refs/heads/*:refs/remotes/heroku/*
+```
 
 Es el mismo resultado que si hubiéramos dado la orden
 
-    git remote add heroku git@heroku.com:porrio.git
+```
+git remote add heroku git@heroku.com:porrio.git
+```
 
 es decir, crear un alias para la dirección real del repositorio en
 Heroku (que puedes consultar desde tu panel de control; será algo
@@ -523,10 +546,12 @@ de GitHub y seguido las instrucciones anteriores, tendrás que crear un
 repositorio vacío propio en GitHub y añadirle este como `origin` de la
 forma siguiente
 
+```
 	# Borra el origen inicial, que será el de la aplicación de ejemplo
 	git remote rm origin
 	# Crea el nuevo origin
 	git remote add origin git@github.com:mi-nick/mi-app.git
+```
 
 Todo esto puedes ahorrártelo si desde el principio haces un *fork* de
 la aplicación de node y trabajas con ese *fork*; el origen estará ya
@@ -534,8 +559,7 @@ definido.
 
 Ahora tienes dos repositorios: el que está efectivamente desplegado y
 el que contiene los fuentes. ¿No sería una buena idea que se trabajara
-con uno sólo? Efectivamente, [GitHub permite desplegar directamente a
-Heroku cuando se hace un `push` a la rama `master`](http://stackoverflow.com/questions/17558007/deploy-to-heroku-directly-from-my-github-repository),
+con uno sólo? Efectivamente, [GitHub permite desplegar directamente a Heroku cuando se hace un `push` a la rama `master`](http://stackoverflow.com/questions/17558007/deploy-to-heroku-directly-from-my-github-repository),
 aunque no es inmediato, sino que pasa por usar un servicio de
 integración continua, que se asegure de que todo funciona
 correctamente.
@@ -549,7 +573,7 @@ preparado. No es el caso de Heroku.
 >[se puede probar ahora mismo en beta](https://devcenter.heroku.com/articles/github-integration)
 
 Otros sistemas, como
-[ AWS CodeDeploy de Amazon pueden desplegar a una instancia en la nube de esta empresa](https://medium.com/aws-activate-startup-blog/simplify-code-deployments-with-aws-codedeploy-e95599091304). Sin
+[AWS CodeDeploy de Amazon pueden desplegar a una instancia en la nube de esta empresa](https://medium.com/aws-activate-startup-blog/simplify-code-deployments-with-aws-codedeploy-e95599091304). Sin
 embargo,
 [no es complicado configurar un servicio de integración continua como Snap CI](http://stackoverflow.com/questions/17558007/deploy-to-heroku-directly-from-my-github-repository). Después
 de [darte de alta en el Snap CI](https://snap-ci.com/), la
@@ -586,11 +610,13 @@ Hay que dar un paso atrás y ver qué es necesario para desplegar en Heroku, apa
 
 Teniendo en cuenta esto, no es difícil cambiar la aplicación para que pueda funcionar correctamente al menos en esos dos PaaS, que son los más populares. En Openshift, en realidad, no hace falta `Procfile`. Como no tiene el concepto de diferentes tipos de dynos, usa directamente `package.json` para iniciar la aplicación. Por otro lado, los requisitos específicos de puerto e IP se tienen en cuenta en estas dos órdenes:
 
-	var server_ip_address = process.env.OPENSHIFT_NODEJS_IP
+```
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP
 	                          || '0.0.0.0';
-	app.set('port', (process.env.PORT
+app.set('port', (process.env.PORT
 	                 || process.env.OPENSHIFT_NODEJS_PORT
 					 || 5000));
+```
 
 En la primera se establece la IP en la que tiene que escuchar la aplicación. En el caso por omisión, el segundo, la dirección `0.0.0.0` indica que Express escuchará en todas las IPs. Sin embargo, eso no es correcto ni posible en OpenShift, que tiene una IP específica, contenida en la variable de entorno `OPENSHIFT_NODEJS_IP` y que será una IP de tipo local (aunque realmente esto no tiene que importarnos salvo por el caso de que no podremos acceder a esa IP directamente).
 
@@ -615,4 +641,10 @@ A dónde ir desde aquí
 
 En el [siguiente tema](Tecnicas_de_virtualizacion.md) usaremos
 diferentes técnicas de virtualización para la creación de contenedores
+<<<<<<< HEAD
 y jaulas que aislan procesos, usuarios y recursos del resto del sistema, creando por tanto máquinas *virtuales*. Previamente habrá que [realizar la práctica correspondiente a esta materia](../practicas/3.PaaS.md).
+=======
+y jaulas que aíslan procesos, usuarios y recursos del resto del sistema, creando por tanto máquinas *virtuales*. Previamente habrá que [realizar la
+práctica correspondiente a esta materia](../practicas/3.PaaS.md).
+
+>>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4

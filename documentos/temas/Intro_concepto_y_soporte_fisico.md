@@ -108,7 +108,6 @@ desarrollo ágil. En concreto, *DevOps* comprende
 3. Despliegue en la nube: publicación de aplicaciones en servidores
    virtuales.
 
-
 4. [Ciclo de vida del software](https://es.slideshare.net/colmbennett/software-rollout)
    definición de las diferentes fases en la vida de una aplicación,
    desde el diseño hasta el soporte.
@@ -168,21 +167,28 @@ Tecnológicamente la computación nube se basa en el proceso progresivo
   La virtualización de la infraestructura permite:
 
 * Creación y configuración de la misma bajo demanda. En vez de
-    desplazar a un técnico, o hacerlo remotamente, se puede
+    desplazar a un técnico al centro de datos para que instale un
+    sistema operativo y las aplicaciones necesarias, o hacerlo remotamente, se puede
     automatizar la creación de un recurso (a base de *recetas* o
     *plantillas*) y llevarse a cabo cuantas veces se necesite.
 
 * Simplificación del control y despliegue de recursos: permite usar
    diferentes sistemas operativos y en cada caso el más adecuado para
    la tarea que se requiera.
+<<<<<<< HEAD
 
 * Permite que el *vendor* aproveche mejor el hardware, usando la
+=======
+   
+* Permite que el *vendor* (distribuidor o vendedor con valor añadido) aproveche mejor el hardware, usando la
+>>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4
   capacidad para servir a diferentes clientes a lo largo del día o de
   la semana y creando tanta infraestructura virtual como la física
   pueda soportar. Esto también reduce la cantidad de energía consumida.
 
 * Portabilidad: una máquina virtual se puede mover físicamente de un
     ordenador a otro cuando sea necesario.
+<<<<<<< HEAD
 
 * Ahorro de costes iniciales en un centro de datos frente a una
       instalación tradicional, aunque eventualmente algunos negocios puedan optar, si tienen un uso intensivo y regular, en volver a ella.
@@ -190,9 +196,20 @@ Tecnológicamente la computación nube se basa en el proceso progresivo
 Todas estas ventajas hacen que,
 	  [ya en el año 2013, más de la mitad de los negocios americanos usan infraestructura virtual](http://www.forbes.com/sites/reuvencohen/2013/04/16/the-cloud-hits-the-mainstream-more-than-half-of-u-s-businesses-now-use-cloud-computing/).
 
+=======
+	
+* Ahorro de costes de arranque en un centro de datos frente a una
+      instalación tradicional, aunque eventualmente algunos negocios puedan optar, si tienen un uso intensivo y regular, en volver a ella. 
+	  
+Todas estas ventajas hacen que,
+	  [ya en el año 2013, más de la mitad de los negocios americanos usan infraestructura virtual](https://www.forbes.com/sites/reuvencohen/2013/04/16/the-cloud-hits-the-mainstream-more-than-half-of-u-s-businesses-now-use-cloud-computing/). 
+  
+>>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4
 <div class='ejercicios' markdown="1">
-Usando las tablas de precios de servicios de alojamiento en Internet y
-de proveedores de servicios en la nube, Comparar el coste durante un
+Usando las tablas de precios de servicios de alojamiento en Internet
+"clásicos", es decir, que ofrezcan *Virtual Private Servers* o
+servidores físicos, y
+de proveedores de servicios en la nube, comparar el coste durante un
 año de un ordenador con un procesador estándar (escogerlo de forma que
 sea el mismo tipo de procesador en los dos vendedores) y con el resto
 de las características similares (tamaño de disco duro equivalente a
@@ -208,7 +225,8 @@ que tienen todas el mismo objetivo: crear recursos que, desde el punto
 de vista de un programa, sean exclusivos. Cada una de las tecnologías
 necesita una aplicación determinada para usarse y, en muchos casos,
 soporte a nivel de hardware. En todo caso, el sistema operativo o
-aplicación que ejecuta las operaciones necesarias para virtualizar se
+aplicación que ejecuta las operaciones necesarias para llevar a cabo
+la virtualización se
 denomina *anfitrión* y el que se ejecuta *dentro* de la máquina
 virtual *invitado*.
 
@@ -222,12 +240,20 @@ virtual *invitado*.
   tal como
   [reescritura binaria y *ensombrecimiento* de estructuras de datos](https://en.wikipedia.org/wiki/X86_virtualization). La
   mayoría de los procesadores modernos de Intel y AMD tienen este tipo
+<<<<<<< HEAD
   de soporte.
 
 * La
    [virtualización parcial](https://en.wikipedia.org/wiki/Hardware_virtualization#Partial_virtualization)
    sólo virtualiza algún recurso: la memoria, por ejemplo.
 
+=======
+  de soporte. A veces, con soporte de hardware, se
+  puede
+  [virtualizar algún recurso](https://en.wikipedia.org/wiki/Hardware-assisted_virtualization),
+  tal como la memoria. 
+   
+>>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4
 * La
   [paravirtualización](https://en.wikipedia.org/wiki/Paravirtualization)
   requiere modificación de los sistemas operativos    
@@ -245,15 +271,42 @@ los mismos.
   [virtualización de aplicaciones](https://en.wikipedia.org/wiki/Application_virtualization)
   empaqueta aplicaciones de forma que se ejecuten en un entorno que
   las aísla del resto del sistema operativo; una parte es el uso de
-  [virtualización de escritorio](https://en.wikipedia.org/wiki/Desktop_virtualization) que permite aplicar una serie de aplicaciones
-  generalmente desde un navegador. En general, los programas
+  [virtualización de escritorio](https://en.wikipedia.org/wiki/Desktop_virtualization) que
+  permite aplicar una serie de aplicaciones generalmente desde un
+  navegador (y que en realidad tiene que tener por debajo una máquina
+  virtual, en un servidor, que sea quien en realidad ejecuta las mismas). En general, los programas
   necesarios se denominan *emuladores*; WINE (Windows Emulator)
   permite, por ejemplo, ejecutar aplicaciones de Windows sin
   modificación en Linux y CygWin crea un entorno similar para Windows,
   aunque en este caso las aplicaciones se tienen que
   recompilar. Programas como [CDE](https://github.com/pgbovine/CDE/) en Linux
   permiten empaquetar aplicaciones para que se ejecuten de forma
-  independiente en cualquier sistema operativo Linux.
+  independiente en cualquier sistema operativo Linux, aunque hoy en
+  día sistemas de empaquetado mucho más modernos como Docker hacen que
+  CDE se haya quedado prácticamente obsoleto; sistemas más modernos,
+  como [FlatPak](http://flatpak.org/hello-world.html), permiten
+  empaquetar aplicaciones para que se ejecuten en cualquier
+  distribución de Linux, empaquetando todas las dependencias en un
+  solo fichero que, además, se puede distribuir desde la web, evitando
+  tener que descargar dependencias e instalarlas usando privilegios de
+  administrador. Esta virtualización de aplicaciones, aunque se puede
+  usar para desplegarlas en infraestructura virtual, en realidad está
+  fuera de los conceptos de infraestructura cloud que son la clave de
+  esta asignatura. 
+  
+  
+*  La *contenedorización* de aplicaciones va un poco más allá,
+empaquetando un entorno de ejecución completo de una o varias
+aplicaciones o servicios (aunque se aconseja que sea sólo uno) y aislándolo del resto
+del sistema operativo. Se pueden usar las
+técnicas que se explican en el resto de la asignatura; de hecho, se
+pueden crear *paquetes* que permiten ejecutar una aplicación con todas
+las dependencias necesarias. Por ejemplo, [*docker*](https://www.docker.com)
+es una aplicación que permite crear fácilmente aplicaciones
+*contenidas* desde línea de órdenes para su uso en cualquier tipo de
+infraestructura virtual. A bajo nivel, la contenedorización es en
+realidad un sistema de aislamiento de aplicaciones que permite crear
+seudo-máquinas virtuales de *usar y tirar*. 
 
 * La *virtualización de entornos de desarrollo* es una práctica
 habitual en lenguajes de scripting tales como Perl, Python o Ruby. Se
@@ -264,6 +317,7 @@ aplicación en diferentes versiones con una sola orden. `virtualenv`, `perlbrew`
 `rbenv` o `RVM` son diferentes aplicaciones que permiten realizarlo
 para diferentes lenguajes.
 
+<<<<<<< HEAD
 <div class='ejercicios' markdown="1">
 1. [¿Qué tipo de virtualización usarías en cada caso? Comentar en el foro](https://github.com/JJ/IV16-17/issues/1)
 
@@ -279,6 +333,13 @@ es una aplicación que permite crear fácilmente aplicaciones
 *contenidas* desde línea de órdenes para su uso en cualquier tipo de
 contenedor, desde simples contenedores Linux hasta máquinas
 virtuales.
+=======
+En general, en esta asignatura hablaremos, sobre todo, de
+virtualización plena, aunque en realidad lo interesante de la
+infraestructura virtual es poder definir por software los recursos que
+se van a usar para desplegar una aplicación, independientemente de la
+tecnología que se use. 
+>>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4
 
 
 Virtualización a nivel de *hardware*
@@ -307,8 +368,10 @@ fichero que contengan la expresión regular indicada, y si aparecen los
 el procesador no tiene esa funcionalidad o está desactivada.
 
 <div class='ejercicios' markdown="1">
-Comprobar si el procesador o procesadores instalados tienen estos *flags*. ¿Qué
-modelo de procesador es? ¿Qué aparece como salida de esa orden?
+En general, cualquier ordenador con menos de 5 o 6 años tendrá estos *flags*. ¿Qué
+modelo de procesador es? ¿Qué aparece como salida de esa orden? Si
+usas una máquina virtual, ¿qué resultado da? ¿Y en una Raspberry Pi o,
+si tienes acceso, [el procesador del móvil](https://stackoverflow.com/questions/26239956/how-to-get-specific-information-of-an-android-device-from-proc-cpuinfo-flie)?
 </div>
 
 Lo que implementan estas tecnologías son una serie de instrucciones
@@ -343,11 +406,12 @@ del kernel usando la orden `kvm-ok`.
 </div>
 
 
-Niveles de infraestructura virtual
+Niveles y tipos de infraestructura virtual
 -----
 
-Ya se ha visto en este tema dos niveles de virtualización diferentes,
-pero desde el punto de vista comercial se habla de
+A nivel de tecnología se aprecian diferentes niveles de de
+virtualización, pero hasta no hace demasiado tiempo se solía hablar,
+desde el punto de vista comercial se habla de
 [tres niveles: *Infrastructure*, *Platform* y *Software* *as a service*](https://en.wikipedia.org/wiki/Cloud_computing)
 
 ![Capas de computación nube](https://upload.wikimedia.org/wikipedia/commons/3/3c/Cloud_computing_layers.png)
@@ -368,17 +432,107 @@ configurar y usar según la necesidad que haya, un PaaS contiene infraestructura
 una *pila de soluciones* o *solution stack* completa que permita
 desplegar en el mismo nuestras propias aplicaciones.
 
-En realidad, pocos vendedores ofrecen simples *IaaS*. Lo más normal es
-que permitan usarlos a ese nivel, pero a la vez tengan un sistema
-fácil para añadir funcionalidad y combinarla en una pila completa de
-soluciones que incluya el sistema de almacenamiento de datos y el
-marco web de aplicaciones, junto con sistemas de monitorización y de
-análisis de las peticiones. Es difícil hoy en día (año 2015) encontrar un IaaS
-simple, de hecho.  
+En realidad, a estas alturas del siglo no está tan clara esa división
+en capas. Mientras que el sufijo *as a service* o *aaS* se mantiene,
+no existe una división tan clara entre las tres "capas" ni los
+vendedores las ofrecen de esa forma. Hay tres grandes empresas que
+ofrecen servicios en nube, Microsoft con su Azure, Google con su Cloud
+y por supuesto Amazon Web Services. Cualquiera de ellos ofrece una
+cantidad de servicios virtualizados a todos los niveles, que van desde
+virtualización de recursos computacionales hasta virtualización de
+almacenamiento de todo tipo. En general, lo que hacen los servicios en
+la nube es abstraer los recursos de forma que el usuario sólo tenga
+que describir en un lenguaje de alto nivel específico de la plataforma
+o genérico para cualquier plataforma qué se quiere ejecutar y cómo es
+el flujo de datos en la ejecución; todas las tareas de asignación de
+recursos y escalado de los mismos es gestionado por la propia
+plataforma. 
 
+
+Hay especialmente dos servicios que han
+surgido a partir del año 2015 que no encajan nada bien dentro de esas
+capas anteriores
+
+* *Contenedores como servicio* son servicios que permiten subir a la
+  nube directamente contenedores o descripciones de los mismos, así
+  como funciones de orden superior como conexión u
+  orquestación. Evidentemente, empezó
+  con
+  [Docker](https://blog.docker.com/2016/02/containers-as-a-service-caas/) pero
+  empresas
+  como
+  [Microsoft](https://azure.microsoft.com/es-es/services/container-service/) o
+  Amazon lo ofrecen como parte de sus servicios en la nube. La gran
+  ventaja que poseen los contenedores es que pueden desplegarse,
+  usando las mismas herramientas estándar y libres, en cualquier
+  servicio, una ventaja que no poseen ni las máquinas virtuales ni las
+  plataformas como servicio que, de hecho, ahora usan también
+  contenedores.
+  
+* *Funciones como servicio* dentro de lo que se ha venido en
+  llamar
+  [*serverless*](https://en.wikipedia.org/wiki/Serverless_computing),
+  la virtualización se reduce a la mínima expresión usando simples
+  funciones que están conectadas de forma ligera al resto de la
+  aplicación a base de canales de eventos. Estas funciones se activan
+  sólo cuando se las necesita y por tanto se cobra sólo por la
+  ejecución, que además está limitada y se cobra por
+  milisegundos. Amazon Lambda o Google o Azure Functions son los
+  nombres de los productos comerciales, que cuentan con marcos libres
+  como [OpenWhisk](https://en.wikipedia.org/wiki/Bluemix).
+  
+En general, estos dos servicios necesitan a su vez de otros productos
+en la nube, especialmente definición de redes virtuales y diferentes
+tipos de almacenes de datos y de canales de comunicación entre ellos. 
+
+<div class='ejercicios' markdown="1">
+1. Darse de alta en servicios de nube usando ofertas gratuitas o
+   cupones que pueda proporcionar el profesor. 
+
+</div>
+
+Por otro lado, dependiendo de quién posea físicamente el centro de
+datos y lo administre, se suele hablar de nube pública o privada; los
+servicios en nube públicos son los que puedes adquirir, y los privados
+son los que pertenecen a la propia institución. Dado que la naturaleza
+de los servicios nube hace que se contraten bajo demanda, en general
+las nubes privadas suelen ser *híbridas*, contando con recursos
+contratados para responder a picos de demanda. Mediante aplicaciones
+de monitorización se puede configurar el sistema para que de forma
+eficiente responda a estos picos de demanda.
+
+Para implementar nubes privadas se usan general mente sistemas libres
+como [OpenStack](http://openstack.org); OpenStack permite proveer
+servicios nube a una empresa, aunque hay también empresas privadas que
+basan su oferta en este tipo de
+infraestructura; [CloudStack](https://cloudstack.apache.org/) es otra
+alternativa que se puede instalar *in situ*. En cualquier caso, esto
+indica que cualquier organización o empresa, con cualquier cantidad de
+recursos disponible, puede acceder al despliegue de sus aplicaciones
+en la nube, y de hecho así es. Otros sistemas cloud
+son
+[Eucalyptus y OpenNebula](https://www.researchgate.net/publication/303838237_Cloud_Computing_Comparative_Study_-_OpenStack_vs_OpenNebula),
+pero no tienen una comunidad tan activa como este. 
+
+<div class='ejercicios' markdown="1">
+1. Darse de alta en una web que permita hacer pruebas con alguno de
+   los sistemas de gestión de nube anteriores. 
+
+</div>
 
 A dónde ir desde aquí
 -----
 
+<<<<<<< HEAD
 Antes de continuar es [imprescindible que aprendas y configures `git`. Empieza por aquí](http://mini-git.github.io). En el temario se verá a continuación [los ciclos de desarrollo modernos usando desarrollo basado en pruebas, *test-driven development*, TDD](Desarrollo_basado_en_pruebas.md), pero se puede salar direcamente al [tema dedicado a las plataformas como servicio](PaaS.md) veremos como usarlos. Previamente habrá que [realizar la
 práctica correspondiente a esta materia](../proyecto/1.Infraestructura.md).
+=======
+Antes de continuar (y, de hecho, antes de empezar) es
+[imprescindible que aprendas y configures `git`. Empieza por aquí](http://mini-git.github.io). En
+el temario se verá a
+continuación
+[los ciclos de desarrollo modernos usando desarrollo basado en pruebas, *test-driven development*, TDD](Desarrollo_basado_en_pruebas.md),
+pero se puede salar direcamente
+al [tema dedicado a las plataformas como servicio](PaaS.md) veremos
+como usarlos. Previamente habrá que [realizar la práctica correspondiente a esta materia](../proyecto/0.Repositorio.md). 
+>>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4

@@ -10,7 +10,7 @@ use v5.16;
 my $dir = shift || ".";
 my $previo = shift || "IV-2015-16";
 
-for my $d ( qw( ejercicios objetivos practicas sesiones ) ) {
+for my $d ( qw( objetivos practicas sesiones ) ) {
     eval {
 	mkdir("$dir/$d");
     };

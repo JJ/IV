@@ -41,16 +41,16 @@ Un  paso más hacia la virtualización completa: *contenedores*
 El aislamiento de grupos de procesos formando una *jaula* o
 *contenedor* ha sido una característica de ciertos sistemas operativos
 de la rama Unix desde los años 80, en forma del programa
-[chroot](http://es.wikipedia.org/wiki/Chroot) (creado por Bill Joy, el
+[chroot](https://es.wikipedia.org/wiki/Chroot) (creado por Bill Joy, el
 que más adelante sería uno de los padres de Java). La restricción de
 uso de recursos de las *jaulas `chroot`*, que ya hemos visto, se limitaba a la protección
 del acceso a ciertos recursos del sistema de archivos, aunque son
 relativamente fáciles de superar; incluso así, fue durante mucho
 tiempo la forma principal de configurar servidores de alojamiento
 compartidos y sigue siendo una forma simple de crear virtualizaciones *ligeras*. Las
-[jaulas BSD](http://en.wikipedia.org/wiki/FreeBSD_jail) constituían un
+[jaulas BSD](https://en.wikipedia.org/wiki/FreeBSD_jail) constituían un
 sistema más avanzado, implementando una
-[virtualización a nivel de sistema operativo](http://en.wikipedia.org/wiki/Operating_system-level_virtualization)
+[virtualización a nivel de sistema operativo](https://en.wikipedia.org/wiki/Operating_system-level_virtualization)
 que creaba un entorno virtual prácticamente indistinguible de una
 máquina real (o máquina virtual real). Estas *jaulas* no sólo impiden
 el acceso a ciertas partes del sistema de ficheros, sino que también
@@ -70,23 +70,23 @@ virtualización
 
 
 El mundo Linux no tendría capacidades similares hasta bien entrados los años 90, con
-[vServers, OpenVZ y finalmente LXC](http://en.wikipedia.org/wiki/Operating_system-level_virtualization#Implementations). Este
-último, [LXC](http://lxc.sourceforge.net), se basa en el concepto de
-[grupos de control o CGROUPS](http://en.wikipedia.org/wiki/Cgroups),
+[vServers, OpenVZ y finalmente LXC](https://en.wikipedia.org/wiki/Operating_system-level_virtualization#Implementations). Este
+último, [LXC](https://linuxcontainers.org/), se basa en el concepto de
+[grupos de control o CGROUPS](https://en.wikipedia.org/wiki/Cgroups),
 una capacidad del núcleo de Linux desde la versión 2.6.24 que crea
 *contenedores* de procesos unificando diferentes capacidades del
 sistema operativo que incluyen acceso a recursos, prioridades y
 control de los procesos. Los procesos dentro de un contenedor están
 *aislados* de forma que sólo pueden *ver* los procesos dentro del
 mismo, creando un entorno mucho más seguro que las anteriores
-*jaulas*. Estos [CGROUPS han sido ya vistos en el tema anterior](Intro:concepto_y_soporte_fisico.md). 
+*jaulas*. Estos [CGROUPS han sido ya vistos en otro tema](Intro_concepto_y_soporte_fisico.md). 
 
 Dentro de la familia de sistemas operativos Solaris (cuya última
 versión libre se denomina
-[illumos](http://en.wikipedia.org/wiki/Illumos), y tiene también otras
+[illumos](https://en.wikipedia.org/wiki/Illumos), y tiene también otras
 versiones como SmartOS) la tecnología
 correspondiente se denomina
-[zonas](http://en.wikipedia.org/wiki/Solaris_Zones). La principal
+[zonas](https://en.wikipedia.org/wiki/Solaris_Zones). La principal
 diferencia es el bajo *overhead* que le añaden al sistema operativo y
 el hecho de que se les puedan asignar recursos específicos; estas
 diferencias son muy leves al tratarse simplemente de otra
@@ -100,7 +100,7 @@ tener el mismo kernel y misma CPU que la máquina anfitriona, pero si
 esto no es un problema, puede resultar una alternativa útil y ligera a
 la misma. A diferencia de las jaulas, combina restricciones en el
 acceso al sistema de ficheros con otras restricciones aprovechando
-espacios de nomgres y grupos de control. `lxc` es la solución de
+espacios de nombres y grupos de control. `lxc` es la solución de
 creación de contenedores más fácil de usar hoy en día en Linux.
 
 <div class='ejercicios' markdown="1">
@@ -132,15 +132,19 @@ todas están *enabled* se puede
 [usar lxc con relativa facilidad](http://www.stgraber.org/2012/05/04/lxc-in-ubuntu-12-04-lts/)
 siempre que tengamos una distro como Ubuntu relativamente moderna:
 
-	sudo lxc-create -t ubuntu -n una-caja
-	
+```
+sudo lxc-create -t ubuntu -n una-caja
+```
+
 crea un contenedor denominado `una-caja` e instala Ubuntu en él. Esto
 tardará un rato mientras se bajan una serie de paquetes y se
 instalan. O se
 puede usar una imagen similar a la que se usa en
-[EC2 de Amazon](http://aws.amazon.com/es/ec2/):
+[EC2 de Amazon](https://aws.amazon.com/es/ec2/):
 
-	sudo lxc-create -t ubuntu-cloud -n nubecilla
+```
+sudo lxc-create -t ubuntu-cloud -n nubecilla
+```
 
 que funciona de forma ligeramente diferente, porque se descarga un
 fichero `.tar.gz` usando `wget` (y tarda también un rato). Podemos
@@ -150,8 +154,10 @@ en este momento cualquier contenedor debería estar en estado
 
 Para arrancar el contenedor y conectarse a él, 
 
-	sudo lxc-start -n nubecilla
-	
+```
+sudo lxc-start -n nubecilla
+```
+
 Dependiendo del contenedor que se arranque, habrá una configuración
 inicial; en este caso, se configuran una serie de cosas y
 eventualmente sale el login, que será para todas las máquinas creadas
@@ -170,6 +176,7 @@ Comprobar qué interfaces puente se han creado y explicarlos.
 Una vez arrancados los
 contenedores, si se lista desde fuera aparecerá de esta forma:
 
+```
 	jmerelo@penny:~/txt/docencia/infraestructuras-virtuales/IV/documentos$ sudo lxc-list
 	RUNNING
 		contenedor
@@ -178,7 +185,8 @@ contenedores, si se lista desde fuera aparecerá de esta forma:
 	FROZEN
 
 	STOPPED
-	
+```
+
 Y, dentro de la misma, tendremos una máquina virtual con estas
 apariencias:
 
@@ -189,12 +197,14 @@ cualquier otro ordenador: será una máquina virtual que, salvo error o
 brecha de seguridad, no tendrá acceso al anfitrión, que sí podrá tener
 acceso a los mismos y pararlos cuando le resulte conveniente. 
 
-	sudo lxc-stop -n nubecilla
-	
+```
+sudo lxc-stop -n nubecilla
+```	
+
 Las
-[órdenes que incluye el paquete](https://help.ubuntu.com/lts/serverguide/lxc.html#lxc-admin)
+[órdenes que incluye el paquete](https://help.ubuntu.com/lts/serverguide/lxc.html)
 permiten administrar las máquinas virtuales, actualizarlas y explican
-cómo usar otras plantillas de las suministardas para crear
+cómo usar otras plantillas de las suministradas para crear
 contenedores con otro tipo de sistemas, sean o no debianitas. Se
 pueden crear sistemas basados en Fedora; también clonar contenedores
 existentes para que vaya todo rápidamente. 
@@ -260,20 +270,20 @@ mismo servidor en un contenedor. Usar nginx.
 Gestión de contenedores con `docker`
 ---
 
-[Docker](http://docker.io) es una herramienta de gestión de
+[Docker](http://docker.com) es una herramienta de gestión de
 contenedores que permite no sólo instalarlos, sino trabajar con el
 conjunto de ellos instalados (orquestación) y exportarlos de forma que
 se puedan usar en diferentes instalaciones. La tecnología de
-[Docker](http://en.wikipedia.org/wiki/Docker_%28software%29) es
+[Docker](https://en.wikipedia.org/wiki/Docker_%28software%29) es
 relativamente reciente, habiendo sido publicado en marzo de 2013;
 actualmente está sufriendo una gran expansión, sobre todo por su uso
 dentro de [CoreOS](http://coreos.com/), un sistema operativo básico
 basado en Linux para despliegue masivo de servidores.
 
 Por lo pronto,
-[instalar `docker` es fácil, pero no directo](https://www.docker.io/gettingstarted/#h_installation). Por
+[instalar `docker` es fácil, pero no directo](https://www.docker.com/). Por
 ejemplo, para
-[Ubuntu hay que dar de alta una serie de repositorios](http://docs.docker.io/en/latest/installation/ubuntulinux/)
+[Ubuntu hay que dar de alta una serie de repositorios](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 y no funcionará con versiones más antiguas de la 12.04 (y en este caso
 sólo si se instalan kernels posteriores).
 
@@ -291,12 +301,14 @@ salvar el estado del táper y clonarlo o realizar cualquier otro tipo
 de tareas. 
 
 Así que comencemos desde el principio:
-[vamos a ejecutar `docker`y trabajar con el contenedor creado](http://docs.docker.io/en/latest/installation/ubuntulinux/).
+[vamos a ejecutar `docker` y trabajar con el contenedor creado](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
 
 Primero, se ejecuta como un servicio
 
-	sudo docker -d &
-	
+```
+sudo docker -d &
+```
+
 La línea de órdenes de docker conectará con este daemon, que mantendrá
 el estado de docker y demás. Cada una de las órdenes se ejecutará
 también como superusuario, al tener que contactar con este *daemon*
@@ -304,15 +316,17 @@ usando un socket protegido.
 
 A partir de ahí, podemos crear un contenedor
 
-	sudo docker pull ubuntu
-	
+```
+sudo docker pull ubuntu
+```
+
 Esta orden descarga un contenedor básico de ubuntu y lo instala. Hay
 muchas imágenes creadas y se pueden crear y compartir en el sitio web
 de Docker, al estilo de las librerías de Python o los paquetes
 Debian. Se pueden
-[buscar todas las imágenes de un tipo determinado, como Ubuntu](https://index.docker.io/search?q=ubuntu)
+[buscar todas las imágenes de un tipo determinado, como Ubuntu](https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page=1&pullCount=0&q=ubuntu&starCount=0)
 o
-[buscar las imágenes más populares](https://index.docker.io/most_stars). Estas
+[buscar las imágenes más populares](https://hub.docker.com/explore/). Estas
 imágenes contienen no sólo sistemas operativos *bare bones*, sino
 también otros con una funcionalidad determinada. 
 
@@ -333,8 +347,10 @@ demás lo hace ello, al modo de Vagrant (lo que veremos más adelante).
 
 Podemos ejecutar, por ejemplo, un listado de los directorios
 
-	sudo docker run ubuntu ls
-	
+```
+sudo docker run ubuntu ls
+```
+
 Tras el sudo, hace falta docker; `run` es el comando de docker que
 estamos usando, `ubuntu` es el id de la máquina y finalmente `ls`el
 comando que estamos ejecutando.
@@ -342,39 +358,50 @@ comando que estamos ejecutando.
 La máquina instalada la podemos usar con el nombre del SO, pero cada
 táper tiene un id único que se puede ver con 
 
-	sudo docker ps -a=false
-	
+```
+sudo docker ps -a=false
+```
+
 Obteniendo algo así:
 
+```
 	CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 b76f70b6c5ce        ubuntu:12.04        /bin/bash           About an hour ago   Up About an hour                        sharp_brattain     
+```
 
 El primer número es el ID de la máquina que podemos usar también para
 referirnos a ella en otros comandos. También se puede usar 
-	
-	sudo docker images
-	
+
+```	
+sudo docker images
+```
+
 Que devolverá algo así:
 
+```
 	REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
 ubuntu              12.04               8dbd9e392a96        9 months ago        128 MB
 ubuntu              latest              8dbd9e392a96        9 months ago        128 MB
 ubuntu              precise             8dbd9e392a96        9 months ago        128 MB
 ubuntu              12.10               b750fe79269d        9 months ago        175.3 MB
 ubuntu              quantal             b750fe79269d        9 months ago        175.3 MB
+```
 
 El *IMAGE ID* es el ID interno del contenedor, que se puede usar para
 trabajar en una u otra máquina igual que antes hemos usado el nombre
 de la imagen:
 
-		sudo docker run b750fe79269d du
-		
-En vez de ejecutar las cosas una a una podemos directamente [ejecutar
-un shell](http://docs.docker.io/en/latest/use/basics/):
+```
+sudo docker run b750fe79269d du
+```
 
-	sudo docker run -i -t ubuntu /bin/bash
+En vez de ejecutar las cosas una a una podemos directamente [ejecutar un shell](https://docs.docker.com/engine/getstarted/step_two/):
 
-que [indica](http://docs.docker.io/en/latest/commandline/cli/#run) que
+```
+sudo docker run -i -t ubuntu /bin/bash
+```
+
+que [indica](https://docs.docker.com/engine/reference/commandline/cli/) que
 se está creando un seudo-terminal (`-t`) y se está ejecutando el
 comando interactivamente (`-i`). A partir de ahí sale la línea de
 órdenes, con privilegios de superusuario, y podemos trabajar con la
@@ -389,30 +416,38 @@ esta forma.
 
 Los contenedores se pueden arrancar de forma independiente con `start`
 
-	sudo docker start	ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
-	
+```
+sudo docker start	ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
+```
+
 pero hay que usar el ID largo que se obtiene dando la orden de esta
 forma
 
-	sudo docker images -notrunc
+```
+sudo docker images -notrunc
+```
 
 Para entrar en ese contenedor tienes que averiguar qué IP está usando
 y los usuarios y claves y por supuesto tener ejecutándose un cliente
 de `ssh` en la misma. Para averiguar la IP:
 
-	sudo docker inspect	ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
-	
+```
+sudo docker inspect	ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
+```	
+
 te dirá toda la información sobre la misma, incluyendo qué es lo que
 está haciendo en un momento determinado. Para finalizar, se puede
 parar usando `stop`. 
 
-Hasta ahora el uso de docker [no es muy diferente del contenedor, pero
-lo interesante](http://stackoverflow.com/questions/17989306/what-does-docker-add-to-just-plain-lxc) es que se puede guardar el estado de un contenedor tal
-como está usando [commit](http://docs.docker.io/en/latest/commandline/cli/#commit)
+Hasta ahora el uso de
+docker [no es muy diferente del contenedor, pero lo interesante](http://stackoverflow.com/questions/17989306/what-does-docker-add-to-just-plain-lxc) es que se puede guardar el estado de un contenedor tal
+como está usando [commit](https://docs.docker.com/engine/reference/commandline/cli/#commit)
 
-	sudo docker commit 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c nuevo-nombre
+```
+sudo docker commit 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c nuevo-nombre
+```
 
-que guadará el estado del contenedor tal como está en ese
+que guardará el estado del contenedor tal como está en ese
 momento. Este `commit` es equivalente al que se hace en un
 repositorio; para enviarlo al repositorio habrá que usar `push` (pero
 sólo si uno se ha dado de alta antes).
@@ -426,10 +461,9 @@ commit.
 
 Finalmente, `docker` tiene capacidades de provisionamiento similares a
 otros [sistemas (tales como Vagrant, que se verá más adelante](Gestion_de_configuraciones.md) usando
-[*Dockerfiles*](http://docs.docker.io/en/latest/use/builder/). Por
-ejemplo, [se
-puede crear fácilmente un Dockerfile para instalar node.js con el
-módulo express](http://docs.docker.io/en/latest/examples/nodejs_web_app/). 
+[*Dockerfiles*](https://docs.docker.com/engine/reference/builder/). Por
+ejemplo,
+[se puede crear fácilmente un Dockerfile para instalar node.js con el módulo express](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/). 
 
 <div class='ejercicios' markdown='1'>
 
@@ -441,7 +475,7 @@ sistema operativo de tu elección.
 A dónde ir desde aquí
 -----
 
-Primero, hay que [llevar a cabo el hito del proyecto correspondiente a este tema](../practicas/4.Docker.md).
+Primero, hay que [llevar a cabo el hito del proyecto correspondiente a este tema](../proyecto/4.Docker.md).
 
 Si te interesa, puedes consultar cómo se [virtualiza el almacenamiento](Almacenamiento) que, en general, es independiente de la
 generación de una máquina virtual. También puedes ir directamente al

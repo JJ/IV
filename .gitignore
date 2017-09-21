@@ -1,3 +1,5 @@
 *~
 .vagrant
 node_modules/
+examenes/*.pdf
+examenes/*.html

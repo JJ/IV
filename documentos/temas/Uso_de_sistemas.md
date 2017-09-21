@@ -2,7 +2,7 @@ Virtualización completa: uso de máquinas virtuales
 ==
 
 <!--@
-prev: Almacenamiento
+prev: Contenedores
 next: Gestion_de_configuraciones
 -->
 
@@ -35,11 +35,11 @@ crear
 [infraestructura como servicio tal como vimos en el primer tema](Intro_concepto_y_soporte_fisico.md). Para
 ello necesitamos configurar una serie de infraestucturas virtuales,
 especialmente
-[almacenamiento como se vio en el tema anterior](Intro_concepto_y_soporte_fisico).
+[almacenamiento como se vio anteriormente](Intro_concepto_y_soporte_fisico).
 
 Los programas que permiten crear infraestructuras virtuales completas
 se denominan
-[hipervisores](http://en.wikipedia.org/wiki/Hypervisor). Un hipervisor
+[hipervisores](https://en.wikipedia.org/wiki/Hypervisor). Un hipervisor
 permite manejar las diferentes infraestructuras desde línea de órdenes
 o mediante un programa, y a su vez se habla de dos tipos de
 hipervisores: los de *tipo I* o *bare metal* que se ejecutan
@@ -58,23 +58,23 @@ hipervisores alojados que se ejecutan desde un sistema operativo.
 
 Para apoyar la virtualización, casi todos los procesadores actuales y
 especialmente [los de las líneas más populares basadas en la
-arquitectura x86 tienen una serie de instrucciones que permiten usarla de manera segura y eficiente](http://en.wikipedia.org/wiki/X86_virtualization). Esta
+arquitectura x86 tienen una serie de instrucciones que permiten usarla de manera segura y eficiente](https://en.wikipedia.org/wiki/X86_virtualization). Esta
 arquitectura tiene dos ramas: la Intel y la AMD, cada uno de los
 cuales tiene un conjunto de instrucciones diferentes para llevarla a
 cabo. Aunque la mayoría de los procesadores lo incluyen, los
 portátiles de gama baja y algunos ordenadores de sobremesa antiguos no
 la incluyen, por lo que habrá que comprobar si nuestro procesador lo
 hace. Si no lo hiciera, se habla de
-[paravirtualización](http://en.wikipedia.org/wiki/Paravirtualization)
+[paravirtualización](https://en.wikipedia.org/wiki/Paravirtualization)
 en la que los hipervisores tienen que *interpretar* cada imagen del
 sistema operativo que alojan (llamado *invitado*) y convertirla en
 instrucciones del que aloja (llamado *anfitrión* o *host*). La mayor
 parte de los hipervisores, como
-[Xen](http://en.wikipedia.org/wiki/Xen) o [KVM](
-http://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine) incluyen
+[Xen](https://en.wikipedia.org/wiki/Xen) o [KVM](
+https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine) incluyen
 también la capacidad de paravirtualizar ciertos sistemas operativos en
 caso de que los anfitriones no tengan soporte; por ejemplo, KVM se ha
-asociado con [QEMU](http://en.wikipedia.org/wiki/QEMU) que lo usa en
+asociado con [QEMU](https://en.wikipedia.org/wiki/QEMU) que lo usa en
 caso de que el procesador tenga soporte. 
 
 A continuación veremos el uso básico de estos sistemas de
@@ -143,8 +143,8 @@ cualquier dispositivo.
 <div class='nota' markdown='1'>
 Si se ha cortado la instalación o ha habido algún problema el comando
 anterior tratará de arrancar de todas formas del disco duro. Se puede
-cortar la máquina virtual simplemente cerrando la ventana y [tratar de
-arrancar de nuevo empezando por el CD virtual usando](https://doc.opensuse.org/documentation/html/openSUSE_122/opensuse-kvm/cha.qemu.running.html)
+cortar la máquina virtual simplemente cerrando la ventana y tratar de
+arrancar de nuevo empezando por el CD virtual usando
 
 	qemu-system-x86_64 -hda otro-disco.img -cdrom picaros-diego-b.iso
 	-boot once=d
@@ -207,7 +207,7 @@ Cuando se tienen varias máquinas funcionando no hace falta que se
 abran ventanas para cada una de ellas, pero el problema es
 interaccionar con las mismas. Lo podemos hacer de diferentes formas,
 pero una de ellas es arrancarlas dentro de un
-[servidor VNC](http://en.wikipedia.org/wiki/Virtual_Network_Computing)
+[servidor VNC](https://en.wikipedia.org/wiki/Virtual_Network_Computing)
 con una orden como esta
 
 		qemu-system-x86_64 -hda /media/Backup/Isos/discovirtual.img -vnc :1
@@ -284,26 +284,11 @@ innecesarios.
 
 <div class='ejercicios' markdown='1'>
 
-Crear una máquina virtual ubuntu e instalar en ella un servidor
-nginx para poder acceder mediante web.
+Crear una máquina virtual ubuntu e instalar en ella alguno de los
+servicios que estamos usando en el proyecto de la asignatura.
 
 </div>
 
-En principio, para configurar la máquina virtual hay que hacerlo como
-siempre se ha hecho: trabajando desde línea de órdenes, editando ficheros de configuración e instalando
-los paquetes que hagan falta. Pero
-[conociendo `juju`](Contenedores.md) tambien
-[se puede trabajar con él](https://jujucharms.com/docs/stable/config-azure)
-para instalar lo que haga falta. Se puede empezar, por ejemplo
-[instalando el GUI de juju](https://juju.ubuntu.com/docs/howto-gui-management.html)
-para poder a partir de ahí manejar despliegues en máquinas virtuales
-desde él. 
-
-<div class='ejercicios' markdown='1'>
-
-Usar `juju` para hacer el ejercicio anterior.
-
-</div>
 
 Trabajar con estas máquinas virtuales como se tratara de máquinas
 reales no tiene mucho sentido. El uso de infraestructuras virtuales,
@@ -335,12 +320,12 @@ independiente.
 
 Hay diferentes herramientas que se pueden usar para este tipo de
 provisionamiento; [Cobbler](http://cobbler.github.io/) es una de
-ellas. [Cobbler](http://en.wikipedia.org/wiki/Cobbler_%28software%29)
+ellas. [Cobbler](https://en.wikipedia.org/wiki/Cobbler_%28software%29)
 permite trabajar no sólo con almacenamiento virtual, sino también con
 cualquier dispositivo conectado por red que se pueda acceder desde
 fuera con diferentes protocolos. Sin embargo, esta herramienta es un
 poco más avanzada y, para el propósito de este artículo, vamos a usar
-[`ubuntu-vm-builder`](http://manpages.ubuntu.com/manpages/hardy/man1/ubuntu-vm-builder.1.html)
+[`ubuntu-vm-builder`](https://launchpad.net/vmbuilder)
 (que se llamaba previamente `python-vm-builder`), una herramienta
 escrita en Python que permite, desde la línea de órdenes, crear una
 imagen virtual con las características que le
@@ -414,10 +399,9 @@ A dónde ir desde aquí
 
 En el [siguiente tema](Gestion_de_configuraciones) pondremos en
 práctica todos los conceptos aprendidos en este tema y
-[el anterior](Almacenamiento) para crear configuraciones que sean
+[el tema relacionado con el almacenamiento](Almacenamiento) para crear configuraciones que sean
 fácilmente gestionables y adaptables a un fin determinado.
-Antes, habrá que hacer y entregar la
-[tercera práctica](../practicas/3.MV).
+Antes, habrá que hacer y entregar [el último hito](../proyecto/5.IaaS.md).
 
 Si lo que necesitas es un sistema ligero de virtualización, puedes
 mirar cómo virtualizar con [contenedores](Contenedores.md).

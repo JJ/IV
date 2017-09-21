@@ -1,4 +1,4 @@
-#Material docente para Infraestructura Virtual
+# Material docente para Infraestructura Virtual
 
 [Infraestructura virtual](http://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/espti/infraestructuravirtual)
 es una asignatura obligatoria de la rama Tecnologías de la Información
@@ -6,20 +6,14 @@ del primer cuatrimestre del cuarto del Grado de Ingeniería
 Informática y optativa en otras ramas y el Doble Grado de Informática
 y Matemáticas. 
 
-La asignatura se imparte en el curso 2016-2017 [los jueves de 10:30 a
-12:30 en la 1.5 y tiene tres grupos de prácticas los lunes, miércoles y jueves en la -1.2 (a partir del 19 de octubre)](http://etsiit.ugr.es/pages/calendario_academico/horarios1516/horariosgii1516/!/download).
+La asignatura se imparte en el curso 2017-2018 [los jueves de 11:30 a
+13:30 en la 1.5 y tiene dos grupos de *prácticas* los martes y jueves de de 9:30 a 11:30 en la -1.2](http://etsiit.ugr.es/pages/calendario_academico/horarios1718/horariosgii1718/!/download).
 Se recuerda a los alumnos que en todas las clases será necesario llevar el portátil, ya que son clases prácticas.
 
 Se usará
 [GitHub](http://github.com) para el proyecto cuyos hitos serán considerados "prácticas".
 
-Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas sesiones de clase se irán reflejando en [un repositorio de GitHub; este es el de 2016-2017](https://github.com/JJ/IV16-17). 
-
-Las aulas y horarios de los grupos de prácticas son los siguientes:
-
-* Lunes de 9:30 a 11:30, aula -1.2.
-* Miércoles de 9:30 a 11:30, aula -1.2.
-* Jueves de 8:30 a 10:30, aula -1.2.
+Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas sesiones de clase se irán reflejando en [un repositorio de GitHub; este es el de 2017-2018](https://github.com/JJ/IV-17-18). 
 
 En resumen, mi intención es que el alumno al final de la asignatura sea capaz de hacer lo siguiente: 
 
@@ -56,7 +50,6 @@ Seminarios
 Material adicional interesante para la asignatura, que se impartirá fuera del horario lectivo.
 
 1. [Introducción ligera al lenguaje Ruby](documentos/seminarios/ruby.md). 
-2. Visita a las instalaciones de Trevenque el día 21 de octubre.
 
 Prácticas - Actividades académicas dirigidas
 -------------
@@ -72,19 +65,16 @@ grosso modo, los hitos se organizarán de la forma siguiente.
 2. [Integración continua en el repositorio](documentos/proyecto/2.CI.md)
 3. Desplegando a la nube: [Platform as a Service](documentos/proyecto/3.PaaS.md).
 4. Técnicas de virtualización [Contenedores para pruebas](documentos/proyecto/4.Docker.md).
-4. [Virtualización de aplicaciones.](documentos/proyecto/4.Aplicaciones.md).
+4. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS.md).
 
 Tutorías virtuales
 ----
 
 Las tutorías virtuales se realizarán preferiblemente a través de
-[la plataforma de trabajo colaborativo GitHub](https://github.com/JJ/IV16-17/issues?state=open). Hay
-también una
-[lista de correo cerrada para los alumnos de la asignatura](https://groups.google.com/forum/#!forum/iv-ugr-2016)
-que se puede usar para todo lo que no quepa en la anterior (preguntas
-administrativas, principalmente). Finalmente, el profesor está
-disponible por Telegram, Skype y Google Hangouts (en todos los casos: `jjmerelo`)
-previa cita.
+[la plataforma de trabajo colaborativo GitHub](https://github.com/JJ/IV17-18/issues?state=open) y
+a través del grupo de Telegram; habrá que solicitar al profesor ser
+añadido. Finalmente, el profesor está disponible por Telegram, Skype y
+Google Hangouts (en todos los casos: `jjmerelo`). 
 
 Criterios de evaluación
 ---
@@ -92,9 +82,9 @@ Criterios de evaluación
 Los
 [criterios de evaluación figuran en la ficha de la asignatura en la web del grado](http://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/espti/infraestructuravirtual),
 y
-[se especifican en el repositorio de la clase](https://github.com/JJ/IV16-17/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n.md).
+[se especifican en el repositorio de la clase](https://github.com/JJ/IV-17-18/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n.md).
 
-##Convocatoria de septiembre
+## Convocatoria extraordinaria (en julio)
 
 Si no se ha superado la asignatura en la convocatoria ordinaria, la
 extraordinaria consistirá en un examen escrito en septiembre que
