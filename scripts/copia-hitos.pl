@@ -1,4 +1,4 @@
-#1/usr/bin/env perl
+#!/usr/bin/env perl
 
 use strict;
 use warnings;
@@ -6,7 +6,7 @@ use File::Slurper qw(read_lines);
 
 use v5.14;
 
-my $file_name = shift || "hitos-0.md";
+my $file_name = shift || "hito-0.md";
 
 my @lines = read_lines($file_name);
 
