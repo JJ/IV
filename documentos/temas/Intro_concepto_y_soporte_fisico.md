@@ -64,15 +64,14 @@ A partir de esto, un *recurso en la nube* es aquel al que se puede
 acceder *bajo demanda*, que es *escalable* y que, desde el punto de
 vista del usuario, se *facture según uso*, no por el hecho de tener acceso.
 
-El [origen
-  de la palabra](https://en.wikipedia.org/wiki/Cloud_computing#Origin_of_the_term) viene de la tradicional representación de recursos
+El [origen de la palabra](https://en.wikipedia.org/wiki/Cloud_computing#Origin_of_the_term) viene de la tradicional representación de recursos
   en la red como una nube. 
 
 <div class='ejercicios' markdown='1'>
 Consultar en el catálogo de alguna tienda de informática el precio de
 un ordenador tipo servidor y calcular su coste de amortización a
 cuatro y siete años. Consultar
-[este artículo en Infoautónomos sobre el tema]( http://infoautonomos.eleconomista.es/consultas-a-la-comunidad/988/).
+[este artículo en Infoautónomos sobre el tema](http://infoautonomos.eleconomista.es/consultas-a-la-comunidad/988/).
 </div>
 
 Desde el punto de vista del desarrollo, la creación y gestión de
@@ -488,6 +487,6 @@ Antes de continuar (y, de hecho, antes de empezar) es
 el temario se verá a
 continuación
 [los ciclos de desarrollo modernos usando desarrollo basado en pruebas, *test-driven development*, TDD](Desarrollo_basado_en_pruebas.md),
-pero se puede salar direcamente
+pero se puede salar directamente
 al [tema dedicado a las plataformas como servicio](PaaS.md) veremos
 como usarlos. Previamente habrá que [realizar la práctica correspondiente a esta materia](../proyecto/0.Repositorio.md). 
