@@ -33,7 +33,7 @@ tanto de software como de hardware y ponerlos en práctica.
 
 5. Conocer diferentes tecnologías relacionadas con la virtualización
 (Computación nube, *Cloud computing*, *Utility Computing*, *Software as a Service* o Google
-AppSpot) 
+AppSpot).
 
 6. Conocer el concepto de software libre y su importancia dentro de la
 computación nube.
@@ -321,8 +321,10 @@ algunos casos, esta tecnología está desactivada en la BIOS, por lo que
 habrá que comprobar si está activada o no en nuestro caso
 particular. Para hacerlo se usa este comando en Linux:
 
-    egrep '^flags.*(vmx|svm)' /proc/cpuinfo
-	
+```
+egrep '^flags.*(vmx|svm)' /proc/cpuinfo
+```
+
 `/proc/cpuinfo` es el fichero del sistema de ficheros virtual `/proc`
 que da acceso mediante "ficheros" a las estructuras de datos del
 núcleo de Linux; `cpuinfo` lista las características de la CPU y `vmx`
