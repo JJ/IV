@@ -253,14 +253,14 @@ De todas ellas, vamos a
 que parece ser uno de los que se está desarrollando con más intensidad
 últimamente. [Ansible es](https://en.wikipedia.org/wiki/Ansible_%28software%29)
 sistema de gestión remota de configuración que permite gestionar
-simultáneamente miles de sistemas diferenets. Está basado en YAML para
+simultáneamente miles de sistemas diferentes. Está basado en YAML para
 la descripción de los sistemas y escrito en Python. 
 
 Se instala como un módulo de Python, usando por ejemplo la utilidad de
 instalación de módulos `pip` (que habrá que instalar si no se tiene)
 
 ```
-	sudo pip install paramiko PyYAML jinja2 httplib2 ansible
+sudo pip install paramiko PyYAML jinja2 httplib2 ansible
 ```
 
 El resto de las utilidades son también necesarias y en realidad se
@@ -318,7 +318,7 @@ ejecutar comandos de forma remota
 	$ ansible azure -u jjmerelo -a df
 ```
 
-nos mostraría en todas las máqunias de azure la organización del
+nos mostraría en todas las máquinas de Azure la organización del
 sistema de ficheros (que es lo que hace el comando `df`). Una vez más,
 `-u` es opcional. 
 
@@ -481,7 +481,7 @@ parte en la que efectivamente se hace la provisión va justamente a
 continuación. La orden `config.vm.provision` indica que se va a usar
 el sistema de provisión del `shell`, es decir, órdenes de la línea de
 comandos; se le pasa un hash en Ruby  (variable: valor, tal como en
-javascript, separados por comas) en el que la clave `inline` indica el
+JavaScript, separados por comas) en el que la clave `inline` indica el
 comando que se va a ejecutar, en este caso `yum`, el programa para
 instalar paquetes en CentOS, y al que se le indica `-y` para que
 conteste *Yes* a todas las preguntas sobre la instalación. 
@@ -503,19 +503,19 @@ web que pueda ser útil para alguna otra práctica
 El provisionamiento por *shell* admite
 [muchas más opciones](http://docs.vagrantup.com//provisioning/shell.html):
 se puede usar un fichero externo o incluso alojado en un sitio web
-(por ejemplo, un Gist alojado en Github). Por ejemplo,
+(por ejemplo, un Gist alojado en GitHub). Por ejemplo,
 [este para provisionar nginx y node](https://gist.github.com/DamonOehlman/5754302)
 (no leer hasta después de hacer el ejercicio anterior).
 
 </div>
 
-El poblema con los guiones de *shell* (y no sé por qué diablos pongo
-guiones si pongo shell, podía poner scripts de shell directametne y
+El problema con los guiones de *shell* (y no sé por qué diablos pongo
+guiones si pongo *shell*, podía poner scripts de *shell* directamente y
 todo el mundo me entendería, o guiones de la concha y nadie me
 entendería) es que son específicos de una máquina. Por eso Vagrant
 permite muchas otras formas de configuración, incluyendo casi todos
 los sistemas de provisionamiento populares (Chef, Puppet, Ansible,
-Salt) y otros sistemas com Docker, que también hemos visto. La ventaja
+Salt) y otros sistemas con Docker, que también hemos visto. La ventaja
 de estos sistemas de más alto nivel es que permiten trabajar
 independientemente del sistema operativo. Cada uno de ellos tendrá sus
 opciones específicas, pero veamos cómo se haría lo anterior usando el
@@ -530,9 +530,9 @@ que usa
 puede provisionar, por ejemplo, una máquina CentOS. 
 
 Una vez preinstalado chef (lo que también podíamos haber hecho con
-[una máquina que ya lo tuviera instalado, de las que hay muchas en `vagrantbox.es`](http://www.vagrantbox.es/)git co
+[una máquina que ya lo tuviera instalado, de las que hay muchas en `vagrantbox.es`](http://www.vagrantbox.es/) 
 y de hecho es la mejor opción porque chef-solo no se puede instalar en
-la versión 6.5 de Centos fácilmente por no tener una versión
+la versión 6.5 de CentOS fácilmente por no tener una versión
 actualizada de Ruby)
 incluimos en el Vagrantfile. las órdenes para usarlo en
 [este Vagrantfile](../../ejemplos/vagrant/provision/chef/Vagrantfile) 
@@ -589,9 +589,9 @@ A donde ir desde aquí
 -------
 
 Este es el último tema del curso, pero a partir de aquí se puede
-seguir aprendiendo sobre devops en [el blog](http://devops.com/) o
+seguir aprendiendo sobre DevOps en [el blog](http://devops.com/) o
 [en IBM](https://www.ibm.com/cloud-computing/products/devops/). Libros como
-[DevOps for Developers](https://www.amazon.es/dp/B009D6ZB0G?tag=atalaya-21&camp=3634&creative=24822&linkCode=as4&creativeASIN=B009D6ZB0G&adid=0PB61Y2QD9K49W3EP8MN&)
+[*DevOps for Developers*](https://www.amazon.es/dp/B009D6ZB0G?tag=atalaya-21&camp=3634&creative=24822&linkCode=as4&creativeASIN=B009D6ZB0G&adid=0PB61Y2QD9K49W3EP8MN&)
 pueden ser también de ayuda.
 
 Si no lo has hecho ya, es hora de comenzar
