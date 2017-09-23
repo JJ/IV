@@ -181,16 +181,16 @@ especifica nada más se ejecutará la receta por defecto.
 Finalmente, el [fichero de configuración `solo.rb`](../../ejemplos/chef/solo.rb) incluirá referencias a ambos.
 
 ```
-	file_cache_path "/home/jmerelo/chef"
-	cookbook_path "/home/jmerelo/chef/cookbooks"
-	json_attribs "/home/jmerelo/chef/node.json"
+file_cache_path "/home/jmerelo/chef"
+cookbook_path "/home/jmerelo/chef/cookbooks"
+json_attribs "/home/jmerelo/chef/node.json"
 ```
 
 Una vez más, *cambiando los caminos por los que correspondan*. Para
 ejecutarlo,
 
 ```
-	sudo chef-solo -c chef/solo.rb
+sudo chef-solo -c chef/solo.rb
 ```
 
 (si se ejecuta desde el directorio raíz). Esta orden producirá una
@@ -277,7 +277,7 @@ que contiene las diferentes máquinas controladas por el mismo. Por
 ejemplo
 
 ```
-	 $ echo "ansible-iv.cloudapp.net" > ~/ansible_hosts
+$ echo "ansible-iv.cloudapp.net" > ~/ansible_hosts
 ```
 
 se puede ejecutar desde el *shell* para meter (`echo`) una cadena con
