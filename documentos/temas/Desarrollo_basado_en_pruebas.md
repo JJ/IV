@@ -48,6 +48,7 @@ como se llevan a cabo la mayoría de ellas. En siguientes capítulos se verá la
 gestión de configuraciones, provisionamiento de los servidores,
 despliegue continuo y virtualización. 
 
+
 ## Gestores de versiones de lenguajes y bibliotecas.
 
 Una de las partes esenciales de la cultura *DevOps* es la definición y
@@ -409,24 +410,24 @@ de alto nivel. Como hay que escoger uno y parece que Mocha es más
 popular, nos quedamos con este para escribir este programa de test.
 
 ```
-    var assert = require("assert"),
+var assert = require("assert"),
 		apuesta = require(__dirname+"/../Apuesta.js");
 
-	describe('Apuesta', function(){
-		// Testea que se haya cargado bien la librería
-		describe('Carga', function(){
-		it('should be loaded', function(){
-			assert(apuesta, "Cargado");
-		});
+describe('Apuesta', function(){
+	// Testea que se haya cargado bien la librería
+	describe('Carga', function(){
+	it('should be loaded', function(){
+		assert(apuesta, "Cargado");
+	});
+});
 
-		});
-		describe('Crea', function(){
-		it('should create apuestas correctly', function(){
-			var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama','2-3');
-			assert.equal(nueva_apuesta.as_string(), "Polopos: Alhama - 2-3","Creado");
-		});
+describe('Crea', function(){
+	it('should create apuestas correctly', function(){
+		var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama','2-3');
+		assert.equal(nueva_apuesta.as_string(), "Polopos: Alhama - 2-3","Creado");
 		});
 	});
+});
 ```
 
 Mocha puede usar diferentes librerías de test. En este caso hemos
@@ -524,14 +525,14 @@ le carga el sistema operativo y se instala lo necesario, indicado en
 el fichero de configuración tal como este para Travis. 
 
 ```
-	language: node_js
-	node_js:
-	  - "0.10"
-	  - "0.11"
-	before_install:
-	  - npm install -g mocha
-	  - cd src; npm install .
-	script: cd src; mocha
+language: node_js
+node_js:
+  - "0.10"
+  - "0.11"
+before_install:
+  - npm install -g mocha
+  - cd src; npm install .
+script: cd src; mocha
 ```
 
 Este fichero, denominado `.travis.yml`, contiene lo siguiente:
