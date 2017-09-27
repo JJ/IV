@@ -56,6 +56,210 @@ como se llevan a cabo la mayoría de ellas. En siguientes capítulos se verá la
 gestión de configuraciones, provisionamiento de los servidores,
 despliegue continuo y virtualización. 
 
+## Desarrollo basado en pruebas
+
+El desarrollo basado en pruebas es una metodología que se integra con
+el desarrollo en la nube que hemos venido viendo de forma inconsútil
+(en inglés esto queda mejor; *seamless*). Hace falta pasar las pruebas
+para hacer el despliegue, pero también para integrar código. Las
+pruebas son a diferente nivel, pero las que vamos a usar, pruebas
+unitarias, consisten en llamar a una función con diferentes valores y
+comprobar los resultados esperados con los obtenidos. Los resultados
+pueden ser de todo tipo: desde simples escalares respuesta a una
+función hasta cambio en el DOM ([*Document Object Model*](https://en.wikipedia.org/wiki/Document_Object_Model)) de una página cuando se envía un JSON
+desde una web. Cada uno tiene sus estrategias, pero al final se trata
+de crear una serie de pruebas para que lo que nosotros queremos que
+haga la aplicación efectivamente lo haga.
+
+El desarrollo basado en pruebas consiste en escribir los tests antes
+que el código que hace que esos tests *no* fallen. No siempre se hace
+así, claro, pero el trabajar así permite tener claro qué
+funcionalidades queremos, cómo queremos que respondan y qué
+*contratos* o *aserciones* van a ser verdaderas cuando se ejecute el
+código antes siquiera de escribirlo.
+
+En la mayoría de los entornos de programación y especialmente en node,
+que es en el que nos estamos fijando, hay dos niveles en el test: el
+primero es el marco de pruebas y el segundo la librería de pruebas que
+efectivamente se está usando. 
+
+Algunos lenguajes, como Go, integran este marco de pruebas en el
+propio lenguaje, por lo que nos permite fijarnos exclusivamente en la
+biblioteca de pruebas con la que estamos trabajando.
+
+Por ejemplo, vamos a fijarnos
+en
+[esta pequeña biblioteca que lee de un fichero en JSON los hitos de la asignatura](https://github.com/JJ/HitosIV) escrita
+en ese lenguaje, Go. La biblioteca
+tiene
+[dos funciones, una que devuelve un hito a partir de su ID y otra que te dice cuantos hay](https://github.com/JJ/HitosIV/blob/master/HitosIV.go). [Go](https://golang.org/) es
+un lenguaje que pretende evitar lo peor de C++ para crear un lenguaje
+concurrente, de sintaxis simple y con más seguridad; además, Go provee
+también un entorno de programación con una serie de herramientas
+(*toolbelt*) de serie. Son funciones simples, estructuradas en un
+paquete o *package*. 
+
+Para testear un paquete en Go simplemente se crea un fichero con el
+mismo nombre y el sufijo `_test`
+como
+[el siguiente](https://github.com/JJ/HitosIV/blob/master/HitosIV_test.go):
+
+```Go
+package HitosIV
+
+import (
+	"testing"
+	"reflect"
+)
+
+func TestHitos (t *testing.T){
+	t.Log("Test Id");
+	if CuantosHitos() <= 0 {
+		t.Error("No milestones")
+	}
+}
+
+func TestTodosHitos (t *testing.T){
+	t.Log("Test Todos");
+	these_milestones := Hitos()
+	if reflect.TypeOf(these_milestones).String() == "Data" {
+		t.Error("No milestones here")
+	}
+}
+```
+
+> Te puedes descargar todo el proyecto con `git clone
+> https://github.com/JJ/HitosIV` o hacerle *fork*, es software libre.
+
+La sintaxis no es excesivamente complicada. Se importan las
+bibliotecas para testear (`testing`) y para averiguar de qué tipo es
+algo (`reflect`) y se crean dos funciones, una por cada función que
+queremos probar. De este fichero se ejecutarán todas las funciones al
+ejecutar desde la línea de órdenes `go test`, que devolverá algo así:
+
+```
+PASS
+ok  	_/home/jmerelo/Asignaturas/infraestructura-virtual/HitosIV	0.017s
+```
+
+En vez de aserciones, Go simplifica el interfaz de test haciendo que
+se devuelva un error (con `t.Error()`) cuando el test no funcione. Si
+todos funcionan, no hay ningún problema. Adicionalmente, `t.Log()`
+(siendo `t` una estructura de datos que se le tiene que pasar a todos
+los tests). En este caso, uno de los tests comprueba que efectivamente
+haya hitos, y el segundo comprueba que el tipo que se devuelve cuando
+se solicita un hito es el correcto. Estos tests no están completos;
+generalmente hay que llamar a todas las funciones.
+
+<div class='ejercicios' markdown='1'>
+Hacer un pull request a este proyecto con tests adicionales, si es que
+faltan (en el momento que se lea este tema)
+</div>
+
+Go valora la simplicidad y además incluye de serie todo lo necesario
+para llevar a cabo los tests. 
+Vamos a ir al nivel más bajo: el de las aserciones. Hay [múltiples bibliotecas que se pueden usar](http://stackoverflow.com/questions/14294567/assertions-library-for-node-js):
+[Chai](http://chaijs.com/),
+[Should.js](https://github.com/visionmedia/should.js),
+[Must.js](https://github.com/moll/js-must) y
+[`assert`](http://nodejs.org/api/assert.html) que es la librería que
+forma parte de la estándar de JS, y por tanto la que vamos a usar. Se
+usa de la forma siguiente
+
+```
+var apuesta = require("./Apuesta.js"),
+assert= require("assert");
+
+var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama','2-3');
+assert(nueva_apuesta, "Creada apuesta");
+assert.equal(nueva_apuesta.as_string(), "Polopos: Alhama - 2-3","Creado");
+console.log("Si has llegado aquí, han pasado todos los tests");
+```
+
+Este programa usa `assert` directamente y como se ve por la línea del
+final, no hace nada salvo que falle. `assert` no da error si existe el
+objeto, es decir, si no ha habido ningún error en la carga o creación
+del mismo, y `equal` comprueba que efectivamente la salida que da la
+función `as_string` es la esperada.
+
+<div class='ejercicios' markdown='1'>
+Para la aplicación que se está haciendo, escribir una serie de aserciones y probar que efectivamente no fallan. Añadir tests para una nueva funcionalidad, probar que falla y escribir el código para que no lo haga (vamos, lo que viene siendo TDD).
+</div>
+
+Hay un segundo nivel, el marco de ejecución de los tests. Los marcos
+son programas que, a su vez, ejecutan los programas de test y escriben
+un informe sobre cuáles han fallado y cuáles no con más o menos
+parafernalia y farfolla. Una vez más, [hay varios marcos de testeo](http://stackoverflow.com/questions/4308786/what-is-the-best-testing-framework-to-use-with-node-js) para
+nodejs (y, por supuesto, uno propio para cada uno de los lenguajes de
+programación, aunque en algunos están realmente estandarizados).
+
+Cada uno de ellos tendrá sus promotores y detractores, pero
+[Mocha](http://mochajs.org/) y [Jasmine](http://jasmine.github.io/)
+parecen ser los más populares. Los dos usan un sistema denominado
+[Behavior Driven Development](http://en.wikipedia.org/wiki/Behavior-driven_development),
+que consiste en describir el comportamiento de un sistema más o menos
+de alto nivel. Como hay que escoger uno y parece que Mocha es más
+popular, nos quedamos con este para escribir este programa de test.
+
+```
+var assert = require("assert"),
+		apuesta = require(__dirname+"/../Apuesta.js");
+
+describe('Apuesta', function(){
+	// Testea que se haya cargado bien la librería
+	describe('Carga', function(){
+	it('should be loaded', function(){
+		assert(apuesta, "Cargado");
+	});
+});
+
+describe('Crea', function(){
+	it('should create apuestas correctly', function(){
+		var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama','2-3');
+		assert.equal(nueva_apuesta.as_string(), "Polopos: Alhama - 2-3","Creado");
+		});
+	});
+});
+```
+
+Mocha puede usar diferentes librerías de test. En este caso hemos
+escogido la que ya habíamos usado, `assert`. A bajo nivel, los tests
+que funcionen en este marco tendrán que usar una librería de este
+tipo, porque mocha funciona a un nivel superior, con funciones como
+`it` y `describe` que describe, a diferentes niveles, qué hace el
+test y cuál es el resultado que necesitamos. Se ejecuta con `mocha` y
+el resultado de ejecutarlo será:
+
+
+```
+    Apuesta
+      Carga
+        ✓ should be loaded 
+      Crea
+        ✓ should create apuestas correctly 
+
+
+    2 passing (6ms)
+```
+
+(pero con más colorines)
+
+>Y la verdad es que debería haber puesto los mensajes en español.
+
+Además, te indica el tiempo que ha tardado lo que te puede servir para
+hacer un *benchmark* de tu código en los diferentes entornos en los
+que se ejecute.
+
+<div class='ejercicios' markdown='1'>
+
+Convertir los tests unitarios anteriores con assert a programas de
+test y ejecutarlos desde `mocha`, usando descripciones del test y del
+grupo de test de forma correcta. Si hasta ahora no has subido el
+código que has venido realizando a GitHub, es el momento de hacerlo,
+porque lo vas a necesitar un poco más adelante. 
+
+</div>
+
 
 ## Gestores de versiones de lenguajes y bibliotecas.
 
@@ -347,132 +551,6 @@ Automatizar con `grunt`, `gulp` u otra herramienta de gestión de
 tareas en Node la generación de documentación de la librería que se
 cree usando `docco` u otro sistema similar de generación de
 documentación. Previamente, por supuesto, habrá que documentar tal librería.
-
-</div>
-
-## Desarrollo basado en pruebas
-
-El desarrollo basado en pruebas es una metodología que se integra con
-el desarrollo en la nube que hemos venido viendo de forma inconsútil
-(en inglés esto queda mejor; *seamless*). Hace falta pasar las pruebas
-para hacer el despliegue, pero también para integrar código. Las
-pruebas son a diferente nivel, pero las que vamos a usar, pruebas
-unitarias, consisten en llamar a una función con diferentes valores y
-comprobar los resultados esperados con los obtenidos. Los resultados
-pueden ser de todo tipo: desde simples escalares respuesta a una
-función hasta cambio en el DOM ([*Document Object Model*](https://en.wikipedia.org/wiki/Document_Object_Model)) de una página cuando se envía un JSON
-desde una web. Cada uno tiene sus estrategias, pero al final se trata
-de crear una serie de pruebas para que lo que nosotros queremos que
-haga la aplicación efectivamente lo haga.
-
-El desarrollo basado en pruebas consiste en escribir los tests antes
-que el código que hace que esos tests *no* fallen. No siempre se hace
-así, claro, pero el trabajar así permite tener claro qué
-funcionalidades queremos, cómo queremos que respondan y qué
-*contratos* o *aserciones* van a ser verdaderas cuando se ejecute el
-código antes siquiera de escribirlo.
-
-En la mayoría de los entornos de programación y especialmente en node, que es en el que nos estamos fijando, hay dos niveles en el test: el primero es el marco de pruebas y el segundo la librería de pruebas que efectivamente se está usando.
-
-Vamos a ir al nivel más bajo: el de las aserciones. Hay [múltiples bibliotecas que se pueden usar](http://stackoverflow.com/questions/14294567/assertions-library-for-node-js):
-[Chai](http://chaijs.com/),
-[Should.js](https://github.com/visionmedia/should.js),
-[Must.js](https://github.com/moll/js-must) y
-[`assert`](http://nodejs.org/api/assert.html) que es la librería que
-forma parte de la estándar de JS, y por tanto la que vamos a usar. Se
-usa de la forma siguiente
-
-```
-	var apuesta = require("./Apuesta.js"),
-	assert= require("assert");
-
-	var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama','2-3');
-	assert(nueva_apuesta, "Creada apuesta");
-	assert.equal(nueva_apuesta.as_string(), "Polopos: Alhama - 2-3","Creado");
-	console.log("Si has llegado aquí, han pasado todos los tests");
-```
-
-Este programa usa `assert` directamente y como se ve por la línea del
-final, no hace nada salvo que falle. `assert` no da error si existe el
-objeto, es decir, si no ha habido ningún error en la carga o creación
-del mismo, y `equal` comprueba que efectivamente la salida que da la
-función `as_string` es la esperada.
-
-<div class='ejercicios' markdown='1'>
-Para la aplicación que se está haciendo, escribir una serie de aserciones y probar que efectivamente no fallan. Añadir tests para una nueva funcionalidad, probar que falla y escribir el código para que no lo haga (vamos, lo que viene siendo TDD).
-</div>
-
-Hay un segundo nivel, el marco de ejecución de los tests. Los marcos
-son programas que, a su vez, ejecutan los programas de test y escriben
-un informe sobre cuáles han fallado y cuáles no con más o menos
-parafernalia y farfolla. Una vez más, [hay varios marcos de testeo](http://stackoverflow.com/questions/4308786/what-is-the-best-testing-framework-to-use-with-node-js) para
-nodejs (y, por supuesto, uno propio para cada uno de los lenguajes de
-programación, aunque en algunos están realmente estandarizados).
-
-Cada uno de ellos tendrá sus promotores y detractores, pero
-[Mocha](http://mochajs.org/) y [Jasmine](http://jasmine.github.io/)
-parecen ser los más populares. Los dos usan un sistema denominado
-[Behavior Driven Development](http://en.wikipedia.org/wiki/Behavior-driven_development),
-que consiste en describir el comportamiento de un sistema más o menos
-de alto nivel. Como hay que escoger uno y parece que Mocha es más
-popular, nos quedamos con este para escribir este programa de test.
-
-```
-var assert = require("assert"),
-		apuesta = require(__dirname+"/../Apuesta.js");
-
-describe('Apuesta', function(){
-	// Testea que se haya cargado bien la librería
-	describe('Carga', function(){
-	it('should be loaded', function(){
-		assert(apuesta, "Cargado");
-	});
-});
-
-describe('Crea', function(){
-	it('should create apuestas correctly', function(){
-		var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama','2-3');
-		assert.equal(nueva_apuesta.as_string(), "Polopos: Alhama - 2-3","Creado");
-		});
-	});
-});
-```
-
-Mocha puede usar diferentes librerías de test. En este caso hemos
-escogido la que ya habíamos usado, `assert`. A bajo nivel, los tests
-que funcionen en este marco tendrán que usar una librería de este
-tipo, porque mocha funciona a un nivel superior, con funciones como
-`it` y `describe` que describe, a diferentes niveles, qué hace el
-test y cuál es el resultado que necesitamos. Se ejecuta con `mocha` y
-el resultado de ejecutarlo será:
-
-
-```
-    Apuesta
-      Carga
-        ✓ should be loaded 
-      Crea
-        ✓ should create apuestas correctly 
-
-
-    2 passing (6ms)
-```
-
-(pero con más colorines)
-
->Y la verdad es que debería haber puesto los mensajes en español.
-
-Además, te indica el tiempo que ha tardado lo que te puede servir para
-hacer un *benchmark* de tu código en los diferentes entornos en los
-que se ejecute.
-
-<div class='ejercicios' markdown='1'>
-
-Convertir los tests unitarios anteriores con assert a programas de
-test y ejecutarlos desde `mocha`, usando descripciones del test y del
-grupo de test de forma correcta. Si hasta ahora no has subido el
-código que has venido realizando a GitHub, es el momento de hacerlo,
-porque lo vas a necesitar un poco más adelante. 
 
 </div>
 
