@@ -95,8 +95,8 @@ Esta orden escribe en el subdirectorio `~/.juju`, que también crea, el
 fichero `environments.yaml`, que contiene información sobre los
 *entornos* con los que suele trabajar: proveedores de servicios de
 nube y el local, que es el que vamos a probar. Por omisión, el fichero
-trabajará con Amazon EC2. Tenemos que cambiarlo a `local` [si queremos
-trabajar con contenedores LXC](https://juju.ubuntu.com/docs/config-local.html) editando el
+trabajará con Amazon EC2. Tenemos que cambiarlo a
+`local` [si queremos trabajar con contenedores LXC](https://juju.ubuntu.com/docs/config-local.html) editando el
 fichero y cambiando la línea 
 
 ```
@@ -173,8 +173,7 @@ juju deploy mysql
 ```
 
 No sólo eso, sino que habrá que indicar que mediawiki va a usar
-precisamente mysql como base de datos. Se trata de añadir [una
-*relación*](https://juju.ubuntu.com/docs/charms-relations.html) con 
+precisamente mysql como base de datos. Se trata de añadir [una *relación*](https://juju.ubuntu.com/docs/charms-relations.html) con 
 
 ```	
 juju add-relation mediawiki mysql
@@ -287,7 +286,7 @@ sudo juju add-machine
 se creará una con número posterior al último utilizado:
 
 ```
-	environment: local
+environment: local
   machines:
     "0":
       agent-state: started
@@ -303,7 +302,7 @@ se creará una con número posterior al último utilizado:
 La nueva máquina aparecerá inicialmente de esta forma, porque la orden regresa antes de que se complete la orden. Posteriormente, si todo ha ido bien, aparecerá el estado completo de esta nueva máquina. Si ha ido mal, aparecerá algo como:
 
 ```
-	 agent-state-info: '(error: error executing "lxc-create": No such file or directory
+	agent-state-info: '(error: error executing "lxc-create": No such file or directory
       - bad template: ubuntu-cloud; bad template: ubuntu-cloud)'
     instance-id: pending
     series: precise
@@ -402,8 +401,10 @@ Instalar un contenedor usando `virt-install`.
 
 De hecho, también se pueden usar contenedores que hayan sido instalados usando `lxc` (como no podía ser de otra forma, por otro lado). Por [ejemplo](http://wiki.centos.org/HowTos/LXC-on-CentOS6), esta orden 
 
-    virt-install --connect lxc:/// --name esa_maquina --ram 512 --vcpu 1 --filesystem /var/lib/libvirt/lxc/taper --noautoconsole
-	
+```
+virt-install --connect lxc:/// --name esa_maquina --ram 512 --vcpu 1 --filesystem /var/lib/libvirt/lxc/taper --noautoconsole
+```
+
 instalaría usando el conector para lxc	una máquina con el nombre indicado, medio giga de RAM, una sola CPU virtual y un filesystem ya instalado previamente en el subdirectorio `taper`. 
 
 Una vez instalados diferentes contenedores, `virsh` permite trabajar

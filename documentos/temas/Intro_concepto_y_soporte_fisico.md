@@ -26,7 +26,11 @@ tanto de software como de hardware y ponerlos en práctica.
 
 5. Conocer diferentes tecnologías relacionadas con la virtualización
 (Computación nube, *Cloud computing*, *Utility Computing*, *Software as a Service* o Google
+<<<<<<< HEAD
 AppSpot)
+=======
+AppSpot).
+>>>>>>> aed268f5eeffd7d3be2adcbe340be252826e2023
 
 6. Conocer el concepto de software libre y su importancia dentro de la
 computación nube.
@@ -64,15 +68,20 @@ A partir de esto, un *recurso en la nube* es aquel al que se puede
 acceder *bajo demanda*, que es *escalable* y que, desde el punto de
 vista del usuario, se *facture según uso*, no por el hecho de tener acceso.
 
+<<<<<<< HEAD
 El [origen
   de la palabra](https://en.wikipedia.org/wiki/Cloud_computing#Origin_of_the_term) viene de la tradicional representación de recursos
   en la red como una nube.
+=======
+El [origen de la palabra](https://en.wikipedia.org/wiki/Cloud_computing#Origin_of_the_term) viene de la tradicional representación de recursos
+  en la red como una nube. 
+>>>>>>> aed268f5eeffd7d3be2adcbe340be252826e2023
 
 <div class='ejercicios' markdown='1'>
 Consultar en el catálogo de alguna tienda de informática el precio de
 un ordenador tipo servidor y calcular su coste de amortización a
 cuatro y siete años. Consultar
-[este artículo en Infoautónomos sobre el tema]( http://infoautonomos.eleconomista.es/consultas-a-la-comunidad/988/).
+[este artículo en Infoautónomos sobre el tema](http://infoautonomos.eleconomista.es/consultas-a-la-comunidad/988/).
 </div>
 
 Desde el punto de vista del desarrollo, la creación y gestión de
@@ -356,7 +365,13 @@ algunos casos, esta tecnología está desactivada en la BIOS, por lo que
 habrá que comprobar si está activada o no en nuestro caso
 particular. Para hacerlo se usa este comando en Linux:
 
+<<<<<<< HEAD
     egrep '^flags.*(vmx|svm)' /proc/cpuinfo
+=======
+```
+egrep '^flags.*(vmx|svm)' /proc/cpuinfo
+```
+>>>>>>> aed268f5eeffd7d3be2adcbe340be252826e2023
 
 `/proc/cpuinfo` es el fichero del sistema de ficheros virtual `/proc`
 que da acceso mediante "ficheros" a las estructuras de datos del
@@ -532,7 +547,7 @@ Antes de continuar (y, de hecho, antes de empezar) es
 el temario se verá a
 continuación
 [los ciclos de desarrollo modernos usando desarrollo basado en pruebas, *test-driven development*, TDD](Desarrollo_basado_en_pruebas.md),
-pero se puede salar direcamente
+pero se puede salar directamente
 al [tema dedicado a las plataformas como servicio](PaaS.md) veremos
 como usarlos. Previamente habrá que [realizar la práctica correspondiente a esta materia](../proyecto/0.Repositorio.md). 
 >>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4
