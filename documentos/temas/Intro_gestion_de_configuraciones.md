@@ -82,9 +82,11 @@ Para instalarlo conviene usar la última versión; la que hay en los
 repositorios de algunas versiones de Ubuntu no tiene todas las
 capacidades (aunque puedes usarla directamente con `sudo apt-get install juju` en Ubuntu 14.04. Por tanto:
 
-	sudo add-apt-repository ppa:juju/stable
-	sudo apt-get update && sudo apt-get install juju-core
-	
+```
+sudo add-apt-repository ppa:juju/stable
+sudo apt-get update && sudo apt-get install juju-core
+```
+
 Si has instalado previamente con `sudo apt-get install juju` te lo
 desinstalará automáticamente. Esto añade un repositorio PPA (creado
 por el desarrollador); actualiza los contenidos del local e instala
@@ -93,26 +95,34 @@ librerías del mismo, inclusive Twisted y varias más.
 
 Para empezar a trabajar con él, se escribe
 
-	juju init
+```
+juju init
+```
 
 Esta orden escribe en el subdirectorio `~/.juju`, que también crea, el
 fichero `environments.yaml`, que contiene información sobre los
 *entornos* con los que suele trabajar: proveedores de servicios de
 nube y el local, que es el que vamos a probar. Por omisión, el fichero
-trabajará con Amazon EC2. Tenemos que cambiarlo a `local` [si queremos
-trabajar con contenedores LXC](https://juju.ubuntu.com/docs/config-local.html) editando el
+trabajará con Amazon EC2. Tenemos que cambiarlo a
+`local` [si queremos trabajar con contenedores LXC](https://juju.ubuntu.com/docs/config-local.html) editando el
 fichero y cambiando la línea 
-	
-	#default: amazon
-	
+
+```
+#default: amazon
+```
+
 comentándola de esta forma, por ejemplo, y añadiendo 
 
-	default: local
+```
+default: local
+```
 
 Este es el entorno con el que se va a trabajar por omisión; usando
 
-	juju switch amazon
-	
+```
+juju switch amazon
+```
+
 por ejemplo, se puede cambiar a ese entorno. 
 
 <div class='nota' markdown='1'>
@@ -120,8 +130,10 @@ por ejemplo, se puede cambiar a ese entorno.
 Para [trabajar en local hace falta instalar MongoDB](http://marcoceppi.com/2013/07/compiling-juju-and-the-local-provider/). Si no lo tienes
 instalado, haz
 
-	sudo apt-get install mongodb-server
-	
+```
+sudo apt-get install mongodb-server
+```	
+
 MongoDB reserva una gran cantidad de espacio (del orden de 10 gigas) para sus bases de datos, por lo que tendrás que tener bastantes gigas libres para usarlo. 
 	
 </div>
@@ -130,15 +142,19 @@ Si tienes ya algún táper creado, te fastidias. A `juju`,
 aparentemente, le gustan los suyos propios. Pero la verdad es que es
 fácil crearlo, simplemente
 
-	juju bootstrap
-	
+```
+juju bootstrap
+```
+
 te creará un táper con su propia configuración, algo así como 
 
-	bash$ lxc-ls 
+```
+bash$ lxc-ls 
 	
-	contenedor  jmerelo-local-machine-1  jmerelo-local-machine-2
-	nubecilla
-	
+contenedor  jmerelo-local-machine-1  jmerelo-local-machine-2
+nubecilla
+```
+
 Es decir, `usuario-machine-número`. A estas alturas no tengo muy claro
 como se puede entrar a través de lxc, pero usando `juju` se puede
 hacer fácilmente. Lo vemos más adelante.
@@ -150,35 +166,45 @@ basado en YAML, pero ya hay *charms* para las tareas más comunes:
 instalar servicios web o lenguajes de programación. Por ejemplo, para
 instalar mediawiki simplemente se escribiría 
 
-	juju deploy mediawiki
-	
+```
+juju deploy mediawiki
+```
+
 No hace falta que indiquemos la máquina en principio, porque en todo
 momento se trabaja con la máquina por defecto (en mi caso
 `jmerelo-machine-1`). Lo que ocurre es que con esto no se consigue
 gran cosa. Mediawiki usa mysql, por lo que habrá que instalarlo
 también
 
-	juju deploy mysql
-	
-No sólo eso, sino que habrá que indicar que mediawiki va a usar
-precisamente mysql como base de datos. Se trata de añadir [una
-*relación*](https://juju.ubuntu.com/docs/charms-relations.html) con 
+```
+juju deploy mysql
+```
 
-	juju add-relation mediawiki mysql
-	
+No sólo eso, sino que habrá que indicar que mediawiki va a usar
+precisamente mysql como base de datos. Se trata de añadir [una *relación*](https://juju.ubuntu.com/docs/charms-relations.html) con 
+
+```	
+juju add-relation mediawiki mysql
+```
+
 Una vez hecho esto, se tiene que
 [exponer](https://juju.ubuntu.com/docs/charms-exposing.html) el
 servicio para que pueda ser usado por el público, lo que implicará que
 se enganche al servidor web, por ejemplo
 
-	juju expose mediawiki
-	
+```
+juju expose mediawiki
+```
+
 Con esto se puede mostar ya el estado de la máquina:
 
-	juju status
+```
+juju status
+```
 
 que mostrará algo así:
 
+```
 	machines:
 	"0":
     agent-state: started
@@ -227,6 +253,7 @@ que mostrará algo así:
     agent-version: 1.12.0.1
     machine: "2"
     public-address: 10.0.3.23
+```
 
 `0` es la máquina anfitriona; en este caso muestro un ejemplo en el
 que se ha instalado wordpress; en el mismo se muestra la relación con
@@ -245,22 +272,29 @@ http://10.0.3.15 nos mostrará la página de inicio de MediaWiki. Al instalar un
 
 Para desmontar los servicios se tiene que hacer en orden inverso a su creación: primero hay que destruir las unidades, de esta forma: 
 
-	sudo juju destroy-unit mysql/0
+```
+sudo juju destroy-unit mysql/0
+```
 
 La destrucción de las máquinas sólo se puede hacer una vez que todas las unidades hayan dejado de funcionar, de esta forma:
 
-	sudo juju destroy-machine 2
-	
+```
+sudo juju destroy-machine 2
+```
+
 donde 2 es el número de la máquina que aparecería en status. La máquina `0` siempre es la máquina anfitriona, que no se puede destruir a no ser que queramos ver el fin del universo conocido. 
 
 
 Los números de máquina no se reutilizan, y cuando se ejecuta 
 
-	sudo juju add-machine
-	
+```
+sudo juju add-machine
+```	
+
 se creará una con número posterior al último utilizado:
 
-	environment: local
+```
+environment: local
   machines:
     "0":
       agent-state: started
@@ -271,21 +305,26 @@ se creará una con número posterior al último utilizado:
     "4":
       instance-id: pending
       series: precise
+```
 
 La nueva máquina aparecerá inicialmente de esta forma, porque la orden regresa antes de que se complete la orden. Posteriormente, si todo ha ido bien, aparecerá el estado completo de esta nueva máquina. Si ha ido mal, aparecerá algo como:
 
-	 agent-state-info: '(error: error executing "lxc-create": No such file or directory
+```
+	agent-state-info: '(error: error executing "lxc-create": No such file or directory
       - bad template: ubuntu-cloud; bad template: ubuntu-cloud)'
     instance-id: pending
     series: precise
+```
 
 Cuando algo va mal en `juju`, hay que echar mano de los logs. En algún momento funcionará `juju debug-log`, pero por lo pronto hay que apañarse con el registro de errores del mismo, que se puede consultar (y se debe borrar con cierta frecuencia, porque engorda que da gusto), en `~/.juju/local/log/machine-0.log`; en este caso sería el de la máquina anfitriona, pero cada una de las máquinas tendrá su propio registro. 
 
-	2013-11-21 21:28:16 DEBUG juju.rpc.jsoncodec codec.go:107 <- {"RequestId":110,"Type":"Provisioner","Request":"SetStatus","Params":{"Entities":[{"Tag":"machine-4","Status":"error","Info":"error executing \"lxc-create\": No such file or directory - bad template: ubuntu-cloud; bad template: ubuntu-cloud","Data":null}],"Machines":null}}
-	
-	Lo que indica que falta una plantilla del tipo de máquina que se
-	ha usado, por algún error en la instalación de `lxc-templates`,
-	seguramente. 
+```
+2013-11-21 21:28:16 DEBUG juju.rpc.jsoncodec codec.go:107 <- {"RequestId":110,"Type":"Provisioner","Request":"SetStatus","Params":{"Entities":[{"Tag":"machine-4","Status":"error","Info":"error executing \"lxc-create\": No such file or directory - bad template: ubuntu-cloud; bad template: ubuntu-cloud","Data":null}],"Machines":null}}
+```
+
+Lo que indica que falta una plantilla del tipo de máquina que se
+ha usado, por algún error en la instalación de `lxc-templates`,
+seguramente. 
 	
 	
 
@@ -312,8 +351,7 @@ sistema operativo en sí) o Tipo 2 si se arranca como una aplicación
 del sistema operativo; VirtualBox sería un ejemplo de este último.
 
 Un hipervisor denomina *dominios* a las máquinas virtuales con las que
-trabaja, siendo él mismo también un dominio denominado [*dominio
-0*](http://wiki.xen.org/wiki/Dom0). Las MVs alojadas son *dominios de usuario* o *DomU*.
+trabaja, siendo él mismo también un dominio denominado [*dominio 0*](http://wiki.xen.org/wiki/Dom0). Las MVs alojadas son *dominios de usuario* o *DomU*.
 
 Usando los hipervisores de forma uniforme
 ---
@@ -371,8 +409,10 @@ Instalar un contenedor usando `virt-install`.
 
 De hecho, también se pueden usar contenedores que hayan sido instalados usando `lxc` (como no podía ser de otra forma, por otro lado). Por [ejemplo](http://wiki.centos.org/HowTos/LXC-on-CentOS6), esta orden 
 
-    virt-install --connect lxc:/// --name esa_maquina --ram 512 --vcpu 1 --filesystem /var/lib/libvirt/lxc/taper --noautoconsole
-	
+```
+virt-install --connect lxc:/// --name esa_maquina --ram 512 --vcpu 1 --filesystem /var/lib/libvirt/lxc/taper --noautoconsole
+```
+
 instalaría usando el conector para lxc	una máquina con el nombre indicado, medio giga de RAM, una sola CPU virtual y un filesystem ya instalado previamente en el subdirectorio `taper`. 
 
 Una vez instalados diferentes contenedores, `virsh` permite trabajar

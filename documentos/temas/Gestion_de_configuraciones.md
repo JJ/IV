@@ -14,7 +14,7 @@ prev: Uso_de_sistemas
 
 <div class="objetivos" markdown="1">
 
-<h2>Objetivos de la asignatura</h2>
+## Objetivos de la asignatura
 
 * Diseñar, construir y analizar las prestaciones de un centro de
   proceso de datos virtual. 
@@ -23,12 +23,12 @@ prev: Uso_de_sistemas
 
 * Realizar tareas de administración en infraestructura virtual.
 
-<h2>Objetivos específicos</h2>
+## Objetivos específicos
 
 1. Aprender lenguajes de configuración usados en infraestructuras virtuales.
 2. Saber cómo aplicarlos en un caso determinado.
 3. Conocer los sistemas de gestión de la configuración,
-provisionamiento y monitorizació más usados hoy en día.
+provisionamiento y monitorización más usados hoy en día.
 
 </div>
 
@@ -94,7 +94,7 @@ Usando Chef para provisionamiento
 En una máquina tipo ubuntu, hay que comenzar instalando los prerrequisitos: Ruby y Ruby
 Gems, el gestor de librerías, usando tu gestor de paquetes favorito,
 aunque para instalar ruby se aconseja que se usen los gestores de
-configurariones `rbenv` o `rvm`. Ver la
+configuraciones `rbenv` o `rvm`. Ver la
 [introducción al lenguaje Ruby](http://jj.github.io/IV/documentos/seminarios/ruby)
 para ver cómo se hace y también para aprender un poco de Ruby, lo
 necesario para trabajar con estas herramientas.
@@ -102,15 +102,19 @@ necesario para trabajar con estas herramientas.
 `chef` se distribuye como una *gema*, por lo que se puede instalar
 siempre como
 
-	sudo gem install ohai chef
-	
+```
+sudo gem install ohai chef
+```
+
 [ohai](http://docs.chef.io/ohai.html) acompaña a `chef` y es usado
 desde el mismo para comprobar características del nodo antes de
 ejecutar cualquier receta.
 
 Una [forma más rápida de instalar Chef](http://gettingstartedwithchef.com/first-steps-with-chef.html) es descargarlo directamente desde la página web:
 
-	curl -L https://www.opscode.com/chef/install.sh | bash
+```
+curl -L https://www.opscode.com/chef/install.sh | bash
+```
 
 La última tendrá que ser `sudo bash` en caso de que se quiera instalar
 como administrador (que será lo normal). En todo caso, `chef` debe
@@ -143,6 +147,7 @@ directorio irán diferentes ficheros.
 El fichero que contendrá efectivamente la receta se
 llamará [`default.rb`](../../ejemplos/chef/default.rb)
 
+```
 	package 'emacs'
 	directory '/home/jmerelo/Documentos'
 	file "/home/jmerelo/Documentos/LEEME" do
@@ -152,12 +157,15 @@ llamará [`default.rb`](../../ejemplos/chef/default.rb)
 		action :create
 		content "Directorio para documentos diversos"
 	end
+```
 
 El nombre del fichero indica que se trata de la receta por omisión,
 pero el nombre de la receta viene determinado por el directorio en el
 que se meta, que podemos crear de un tirón con
 
+```
 	mkdir -p chef/cookbooks/emacs/recipes
+```
 
 Este fichero tiene tres partes: instala el paquete `emacs`, crea un
 directorio para documentos y dentro de él un fichero que explica, por
@@ -168,23 +176,29 @@ máquina virtual que estemos configurando.
 El siguiente fichero, [`node.json`](../../ejemplos/chef/node.json),
 incluirá una referencia a esta receta
 
+```
 	{
 		"run_list": [ "recipe[emacs]" ]
 	}
+```
 
 Este fichero hace referencia a un recetario, `emacs` y dado que no se
 especifica nada más se ejecutará la receta por defecto. 
 
 Finalmente, el [fichero de configuración `solo.rb`](../../ejemplos/chef/solo.rb) incluirá referencias a ambos.
 
-	file_cache_path "/home/jmerelo/chef"
-	cookbook_path "/home/jmerelo/chef/cookbooks"
-	json_attribs "/home/jmerelo/chef/node.json"
-	
+```
+file_cache_path "/home/jmerelo/chef"
+cookbook_path "/home/jmerelo/chef/cookbooks"
+json_attribs "/home/jmerelo/chef/node.json"
+```
+
 Una vez más, *cambiando los caminos por los que correspondan*. Para
 ejecutarlo,
 
-	sudo chef-solo -c chef/solo.rb
+```
+sudo chef-solo -c chef/solo.rb
+```
 
 (si se ejecuta desde el directorio raíz). Esta orden producirá una
 serie de mensajes para cada una de las órdenes y, si todo va bien,
@@ -201,7 +215,7 @@ Para usar `chef-solo` hay simplemente que instalar unos cuantos
 programas, pero en gran parte ya está automatizado:
 [aquí explica como usarlo en Ubuntu 12.04](https://www.wolfe.id.au/2012/09/10/how-i-use-chef-solo-with-ubuntu-12.04/),
 por ejemplo basándose en
-[este Gist (programas cortos en GitHug)](https://gist.github.com/wolfeidau/3328844)
+[este Gist (programas cortos en GitHub)](https://gist.github.com/wolfeidau/3328844)
 que instala todas las herramientas necesarias para comenzar a ejecutar
 chef. 
 
@@ -246,14 +260,16 @@ De todas ellas, vamos a
 que parece ser uno de los que se está desarrollando con más intensidad
 últimamente. [Ansible es](https://en.wikipedia.org/wiki/Ansible_%28software%29)
 sistema de gestión remota de configuración que permite gestionar
-simultáneamente miles de sistemas diferenets. Está basado en YAML para
+simultáneamente miles de sistemas diferentes. Está basado en YAML para
 la descripción de los sistemas y escrito en Python. 
 
 Se instala como un módulo de Python, usando por ejemplo la utilidad de
 instalación de módulos `pip` (que habrá que instalar si no se tiene)
 
-	sudo pip install paramiko PyYAML jinja2 httplib2 ansible
-	
+```
+sudo pip install paramiko PyYAML jinja2 httplib2 ansible
+```
+
 El resto de las utilidades son también necesarias y en realidad se
 instalan automáticamente al instalar ansible. Estas utilidades se
 tienen que instalar *en el anfitrión*, no hace falta instalarlas en el
@@ -267,20 +283,26 @@ un
 que contiene las diferentes máquinas controladas por el mismo. Por
 ejemplo
 
-	 $ echo "ansible-iv.cloudapp.net" > ~/ansible_hosts
-	
+```
+$ echo "ansible-iv.cloudapp.net" > ~/ansible_hosts
+```
+
 se puede ejecutar desde el *shell* para meter (`echo`) una cadena con
 una dirección (en este caso, una máquina virtual de Azure) en el
 fichero `ansible_hosts` situado en mi directorio raíz. El lugar de ese
 fichero es arbitrario, por lo que habrá que avisar a Ansible donde
 está usando una variable de entorno:
 
+```
 	export ANSIBLE_HOSTS=~/ansible_hosts
-	
+```
+
 Y, con un nodo, ya se puede comprobar si Ansible funciona con 
 
+```
 	$ ansible all -u jjmerelo -m ping
-	
+```
+
 Esta orden hace un *ping*, es decir, simplemente comprueba si la
 máquina es accesible desde la máquina local. `-u ` incluye el nombre
 del usuario (si es diferente del de la máquina local); habrá que
@@ -291,23 +313,29 @@ De forma básica, lo que hace Ansible es simplemente ejecutar comandos
 de forma remota y simultáneamente. Para hacerlo, podemos usar el
 [inventario para agrupar los servidores](http://docs.ansible.com/intro_inventory.html), por ejemplo
 
+```
 	[azure]
 	iv-ansible.cloudapp.net
+```
 
 crearía un grupo `azure` (con un solo ordenador), en el cual podemos
 ejecutar comandos de forma remota
 
+```
 	$ ansible azure -u jjmerelo -a df
-	
-nos mostraría en todas las máqunias de azure la organización del
+```
+
+nos mostraría en todas las máquinas de Azure la organización del
 sistema de ficheros (que es lo que hace el comando `df`). Una vez más,
 `-u` es opcional. 
 
 Esta orden usa un *módulo* de ansible y se puede ejecutar también de
 esta forma:
 
+```
 	$ ansible azure -m shell ls
-	
+```
+
 haciendo uso del módulo `shell`. Hay muchos
 [más módulos](http://docs.ansible.com/modules.html) a los que se le
 pueden enviar comandos del tipo "variable = valor". Por ejemplo, se
@@ -321,19 +349,23 @@ Finalmente, el concepto similar a las recetas de Chef en Ansible son los
 ficheros en YAML que le dicen a la máquina virtual qué es lo que hay
 que instalar en *tareas*, de la forma siguiente
 
+```
 	---
 	- hosts: azure
 	  sudo: yes
 	  tasks:
 		- name: Update emacs
 		  apt: pkg=emacs state=present
+```
 
 Esto se guarda en un fichero y se
 [le llama, por ejemplo, emacs.yml](../../ejemplos/ansible/emacs.yml),
 y se ejecuta con 
 
-  ansible-playbook ../../ejemplos/ansible/emacs.yml 
-  
+```
+ansible-playbook ../../ejemplos/ansible/emacs.yml 
+```
+
 (recordando siempre el temita del nombre de usuario), lo que dará, si
 todo ha ido bien, un resultado como el siguiente
 
@@ -377,30 +409,38 @@ Con Vagrant [te puedes descargar directamente](https://gist.github.com/dergachev
 [una máquina configurada de esta lista](http://www.vagrantbox.es/). Por
 ejemplo, 
 
+```
 	vagrant box add centos65 https://github.com/2creatives/vagrant-centos/releases/download/v6.5.1/centos65-x86_64-20131205.box
+```
 
 El formato determinará en qué tipo de hipervisor se puede ejecutar; en
 general, Vagrant usa VirtualBox, y los `.box` se ejecutan precisamente
 en ese formato. Otras imágenes están configuradas para trabajar con
 VMWare, pero son las menos. A continuación,
 
+```
 	vagrant init centos65
-	
+```
+
 crea un fichero `Vagrantfile` (y así te lo dice) que permite trabajar
 y llevar a cabo cualquier configuración adicional. Una vez hecho eso
 ya podemos inicializar la máquina y trabajar con ella (pero antes voy
 a apagar la máquina Azure que tengo ejecutándose desde que empecé a
 contar lo anterior)
 
+```
 	vagrant up
-	
+```
+
 y se puede empezar a trabajar en ella con 
 
-	vagrant ssh
-	
+```
+vagrant ssh
+```
+
 <div class='ejercicios' markdown='1'>
 
-	Instalar una máquina virtual Debian usando Vagrant y conectar con ella.
+Instalar una máquina virtual Debian usando Vagrant y conectar con ella.
 	
 </div>
 
@@ -427,6 +467,7 @@ las órdenes a mano. Instalaremos, como hemos hecho en otras ocasiones,
 el utilísimo editor `emacs`usando este
 [`Vagrantfile`](../../ejemplos/vagrant/provision/Vagrantfile):
 
+```
 	VAGRANTFILE_API_VERSION = "2"
 
 	Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -435,6 +476,7 @@ el utilísimo editor `emacs`usando este
 	    config.vm.provision "shell",
 			inline: "yum install -y emacs"
 	end
+```
 
 Recordemos que se trata de un programa en Ruby en el cual configuramos
 la máquina virtual. La 4ª línea indica el nombre de la máquina con la
@@ -446,7 +488,7 @@ parte en la que efectivamente se hace la provisión va justamente a
 continuación. La orden `config.vm.provision` indica que se va a usar
 el sistema de provisión del `shell`, es decir, órdenes de la línea de
 comandos; se le pasa un hash en Ruby  (variable: valor, tal como en
-javascript, separados por comas) en el que la clave `inline` indica el
+JavaScript, separados por comas) en el que la clave `inline` indica el
 comando que se va a ejecutar, en este caso `yum`, el programa para
 instalar paquetes en CentOS, y al que se le indica `-y` para que
 conteste *Yes* a todas las preguntas sobre la instalación. 
@@ -458,8 +500,8 @@ este programa bajándose todas sus dependencias (y tardará un rato).
 
 <div class='ejercicios' markdown='1'>
 
-	Crear un script para provisionar `nginx` o cualquier otro servidor
-	web que pueda ser útil para alguna otra práctica
+Crear un script para provisionar `nginx` o cualquier otro servidor
+web que pueda ser útil para alguna otra práctica
 	
 </div>
 
@@ -468,19 +510,19 @@ este programa bajándose todas sus dependencias (y tardará un rato).
 El provisionamiento por *shell* admite
 [muchas más opciones](http://docs.vagrantup.com//provisioning/shell.html):
 se puede usar un fichero externo o incluso alojado en un sitio web
-(por ejemplo, un Gist alojado en Github). Por ejemplo,
+(por ejemplo, un Gist alojado en GitHub). Por ejemplo,
 [este para provisionar nginx y node](https://gist.github.com/DamonOehlman/5754302)
 (no leer hasta después de hacer el ejercicio anterior).
 
 </div>
 
-El poblema con los guiones de *shell* (y no sé por qué diablos pongo
-guiones si pongo shell, podía poner scripts de shell directametne y
+El problema con los guiones de *shell* (y no sé por qué diablos pongo
+guiones si pongo *shell*, podía poner scripts de *shell* directamente y
 todo el mundo me entendería, o guiones de la concha y nadie me
 entendería) es que son específicos de una máquina. Por eso Vagrant
 permite muchas otras formas de configuración, incluyendo casi todos
 los sistemas de provisionamiento populares (Chef, Puppet, Ansible,
-Salt) y otros sistemas com Docker, que también hemos visto. La ventaja
+Salt) y otros sistemas con Docker, que también hemos visto. La ventaja
 de estos sistemas de más alto nivel es que permiten trabajar
 independientemente del sistema operativo. Cada uno de ellos tendrá sus
 opciones específicas, pero veamos cómo se haría lo anterior usando el
@@ -495,13 +537,14 @@ que usa
 puede provisionar, por ejemplo, una máquina CentOS. 
 
 Una vez preinstalado chef (lo que también podíamos haber hecho con
-[una máquina que ya lo tuviera instalado, de las que hay muchas en `vagrantbox.es`](http://www.vagrantbox.es/)git co
+[una máquina que ya lo tuviera instalado, de las que hay muchas en `vagrantbox.es`](http://www.vagrantbox.es/) 
 y de hecho es la mejor opción porque chef-solo no se puede instalar en
-la versión 6.5 de Centos fácilmente por no tener una versión
+la versión 6.5 de CentOS fácilmente por no tener una versión
 actualizada de Ruby)
 incluimos en el Vagrantfile. las órdenes para usarlo en
 [este Vagrantfile](../../ejemplos/vagrant/provision/chef/Vagrantfile) 
 
+```
 	VAGRANTFILE_API_VERSION = "2"
 
 	Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -512,6 +555,7 @@ incluimos en el Vagrantfile. las órdenes para usarlo en
 		end
 
 	end
+```
 
 Este fichero usa un bloque de Ruby para pasarle variables y
 simplemente declara que se va a usar la receta `emacs`, que
@@ -519,8 +563,10 @@ previamente tendremos que haber creado en un subdirectorio `cookbooks`
 que descienda exactamente del mismo directorio y que contenga
 simplemente `package 'emacs'` que tendrá que estar en un fichero 
 
+```
 	cookbooks/emacs/recipes/default.rb
-	
+```
+
 Con todo esto se puede configurar emacs.
 
 <div class='nota' markdown='1'>
@@ -533,7 +579,7 @@ en ninguna de las máquinas pre-configuradas de VagrantBoxes.
 
 <div class='ejercicios' markdown='1'>
 
-	Configurar tu máquina virtual usando vagrant con el provisionador
+Configurar tu máquina virtual usando vagrant con el provisionador
 	chef.
 	
 </div>
@@ -550,11 +596,11 @@ A donde ir desde aquí
 -------
 
 Este es el último tema del curso, pero a partir de aquí se puede
-seguir aprendiendo sobre devops en [el blog](http://devops.com/) o
+seguir aprendiendo sobre DevOps en [el blog](http://devops.com/) o
 [en IBM](https://www.ibm.com/cloud-computing/products/devops/). Libros como
-[DevOps for Developers](https://www.amazon.es/dp/B009D6ZB0G?tag=atalaya-21&camp=3634&creative=24822&linkCode=as4&creativeASIN=B009D6ZB0G&adid=0PB61Y2QD9K49W3EP8MN&)
+[*DevOps for Developers*](https://www.amazon.es/dp/B009D6ZB0G?tag=atalaya-21&camp=3634&creative=24822&linkCode=as4&creativeASIN=B009D6ZB0G&adid=0PB61Y2QD9K49W3EP8MN&)
 pueden ser también de ayuda.
 
 Si no lo has hecho ya, es hora de comenzar
-[la última práctica](../practicas/5.IaaS). 
+[la última práctica](../proyecto/5.IaaS). 
 	
