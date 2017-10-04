@@ -182,8 +182,10 @@ una herramienta gráfica que trabaja sobre KVM
 La máquina virtual, una vez instalada, se puede arrancar directamente
 desde el fichero en el que la hemos instalado, usando una orden [tal como esta](https://wiki.archlinux.org/index.php/QEMU#Creating_new_virtualized_system) 
 
-	qemu-system-x86_64 -boot order=c -drive	file=/media/Backup/Isos/discovirtual.img,if=virtio
-	
+```
+qemu-system-x86_64 -boot order=c -drive	file=/media/Backup/Isos/discovirtual.img,if=virtio
+```
+
 En este caso no necesitamos *pegarle* el CD, sino que le indicamos en
 qué orden tienen que arrancar (usando el DD, en este caso) y mediante
 `-drive` le indicamos que use `virtio`, una paravirtualización de la
