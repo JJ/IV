@@ -77,9 +77,11 @@ Un
 
 Aunque durante muchos años se han usado extensivamente servicios web
 basados en protocolos tales como SOAP (*Simple Object Access Protocol*) u [OSGi](https://www.linkedin.com/pulse/20140903145139-12717948-qu%C3%A9-es-osgi), hoy en día se usan
-sobre todo, los llamados [sistemas RESTful](https://elbauldelprogramador.com/buenas-practicas-para-el-diseno-de-una-api-restful-pragmatica/), que usan exclusivamente
+sobre todo los llamados [sistemas RESTful](https://elbauldelprogramador.com/buenas-practicas-para-el-diseno-de-una-api-restful-pragmatica/), que usan exclusivamente
 órdenes HTTP estándar y codifican las peticiones en URIs y las
-respuestas usando, generalmente, JSON. 
+respuestas usando,
+generalmente, [JSON](https://es.wikipedia.org/wiki/JSON), un formato
+que permite transmitir estructuras de datos generales. 
 
 <div class='nota' markdown='1'>
 
@@ -87,7 +89,21 @@ respuestas usando, generalmente, JSON.
 
 </div>
 
+## Marcos RESTful
 
+Las órdenes en un servicio basado en REST se reciben en un servidor
+HTTP y consisten en varias partes, el URL que se esté usando, que el
+servidor tendrá que decodificar y convertir en una orden, y la
+*carga*, generalmente escrita en JSON. En general, tendrán que
+decodificarse las dos cosas para interpretar la orden y sus
+parámetros, por lo que se suelen usar generalmente bibliotecas,
+denominadas *frameworks* o *microframeworks*. Estas bibliotecas se
+encargan de activar un bucle que va recibiendo peticiones y
+encaminándolas o enrutándolas a las funciones que se encarguen de cada
+una de ellas. 
+
+Por ejemplo, vamos a crear un pequeño servicio web que sirva los hitos
+de la asignatura, basándose en la [biblioteca que los lee de un fichero en JSON](https://github.com/JJ/HitosIV)
 
 A dónde ir desde aquí
 -----
