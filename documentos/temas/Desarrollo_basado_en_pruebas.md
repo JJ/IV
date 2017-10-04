@@ -151,9 +151,98 @@ haya hitos, y el segundo comprueba que el tipo que se devuelve cuando
 se solicita un hito es el correcto. Estos tests no están completos;
 generalmente hay que llamar a todas las funciones.
 
+En otros lenguajes de programación como Python pasar las pruebas
+consiste simplemente en ejecutar un programa, situado en cualquier
+directorio y con cualquier nombre, que use alguna librería estándar de
+aserciones como `unittest`. Por ejemplo,
+en [el programa siguiente](https://github.com/JJ/tdd-gdg). 
+
+```
+import unittest
+
+def devuelveTrue():
+    return True
+
+def sumaPositivos( a, b):
+    if ( not (type(a) is int) ):
+        return -1
+    if ( not (type(b) is int) ):
+        return -1
+    if ( a >= 0 and b >= 0): 
+        return a + b
+
+def multiplo3o5o15( numero ):
+    if numero % 15 == 0:
+        return 3
+    if numero % 3 == 0:
+        return 1
+    if numero % 5 == 0:
+        return 2
+    return 0
+    
+class SoloTest(unittest.TestCase):
+    
+    def testTrue(self):
+        self.assertTrue(devuelveTrue(), "Tiene que fallar")
+
+    def testSuma(self):
+        self.assertEqual(sumaPositivos("cadena",3),-1, "Suma correcta")
+        self.assertEqual(12,sumaPositivos(4,8), "Suma correcta")
+
+    def testMultiplos(self):
+        self.assertEqual(multiplo3o5o15(3),1,"Multiplo de 3")
+        self.assertEqual(multiplo3o5o15(5),2,u"Multiplo de 5")
+        self.assertEqual(multiplo3o5o15(15),3,u"Multiplo de 15")
+        self.assertEqual(multiplo3o5o15(7),0,u"No es multiplo")
+        
+
+if __name__ == '__main__':
+unittest.main()
+```
+
+Tenemos tres funciones, que podrían estar en una clase o no, que vamos
+a testear; en caso de pertenecer a una clase tendremos que instanciar
+un objeto, pero lo dejamos así por lo pronto; se pueden testear
+funciones individuales tales como estas. Para testearlas sí tenemos
+que crear una clase, y esa clase `SoloTest` tiene que ser una subclase
+de `unittest.TestCase`, es decir, un único caso de test. En esta clase
+definimos tres métodos, cada uno de los cuales tiene una serie de
+aserciones de este tipo:
+
+```Python
+self.assertTrue(devuelveTrue(), "Tiene que fallar")
+```
+
+Todas las aserciones tienen al final un mensaje que se imprimirá
+funcione o no, y que debe ser más o menos descriptivo. Es decir, lo
+contrario de lo que es en este caso, pero bueno, está así en el
+original así que se queda. Antes de esto está un test; en este caso
+una llamada a una función. `assertTrue` fallará sólo si no se
+devuelve `True` (o equivalente), y `assertEqual` lo hará si los dos
+primeros argumentos no lo son. 
+
+<div class='notes' markdown='1'>
+
+No sólo se puede y debe probar el código,
+también
+[la documentación](http://docs.python-guide.org/en/latest/writing/tests/) y
+todo tipo de cosas. Se puede usar también `pytest`, un programa que
+tiene una sintaxis un poco más simple para los tests, o `nose`. Cada
+lenguaje tiene sus múltiples modos de testear, y este tema pretende
+ser solamente una introducción. 
+
+</div>
+
+En este caso, para ejecutar el programa se ejecuta como otro
+cualquiera, `python test.py`, presentando un informe de los tests que
+se han pasado, todos en este caso. 
+
 <div class='ejercicios' markdown='1'>
-Hacer un pull request a este proyecto con tests adicionales, si es que
-faltan (en el momento que se lea este tema)
+
+Descargar y ejecutar las pruebas de alguno de los proyectos anteriores, y si sale todo
+bien, hacer un pull request a este proyecto con tests adicionales, si es que
+faltan (en el momento que se lea este tema).
+
 </div>
 
 Go valora la simplicidad y además incluye de serie todo lo necesario
