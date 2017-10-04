@@ -65,8 +65,7 @@ hipervisores alojados que se ejecutan desde un sistema operativo.
 ![Ilustración de los dos tipos de hipervisores (alojada en la Wikipedia)](http://upload.wikimedia.org/wikipedia/commons/e/e1/Hyperviseur.png)
 
 Para apoyar la virtualización, casi todos los procesadores actuales y
-especialmente [los de las líneas más populares basadas en la
-arquitectura x86 tienen una serie de instrucciones que permiten usarla de manera segura y eficiente](https://en.wikipedia.org/wiki/X86_virtualization). Esta
+especialmente [los de las líneas más populares basadas en la arquitectura x86 tienen una serie de instrucciones que permiten usarla de manera segura y eficiente](https://en.wikipedia.org/wiki/X86_virtualization). Esta
 arquitectura tiene dos ramas: la Intel y la AMD, cada uno de los
 cuales tiene un conjunto de instrucciones diferentes para llevarla a
 cabo. Aunque la mayoría de los procesadores lo incluyen, los
@@ -189,8 +188,7 @@ una herramienta gráfica que trabaja sobre KVM
 </div>
 
 La máquina virtual, una vez instalada, se puede arrancar directamente
-desde el fichero en el que la hemos instalado, usando una orden [tal
-como esta](https://wiki.archlinux.org/index.php/QEMU#Creating_new_virtualized_system) 
+desde el fichero en el que la hemos instalado, usando una orden [tal como esta](https://wiki.archlinux.org/index.php/QEMU#Creating_new_virtualized_system) 
 
 	qemu-system-x86_64 -boot order=c -drive	file=/media/Backup/Isos/discovirtual.img,if=virtio
 	
@@ -278,7 +276,7 @@ muestra las máquinas virtuales que tenemos y el nombre que se le ha
 asignado y finalmente con `azure vm start` se arranca la máquina y
 podemos conectarnos con ella usando `ssh` Una de las primeras cosas
 que hay que hacer cuando se arranque es actualizar el sistema para
-evitar problemas de seguridad. A partir de ahi, podemos instalar lo
+evitar problemas de seguridad. A partir de ahí, podemos instalar lo
 que queramos. El arranque tarda cierto tiempo y dependerá de la
 disponibilidad de recursos; evidentemente, mientras no esté arrancada
 no se puede usar, pero conviene de todas formas apagarla con 
