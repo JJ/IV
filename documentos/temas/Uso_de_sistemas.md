@@ -70,8 +70,7 @@ en la que los hipervisores tienen que *interpretar* cada imagen del
 sistema operativo que alojan (llamado *invitado*) y convertirla en
 instrucciones del que aloja (llamado *anfitrión* o *host*). La mayor
 parte de los hipervisores, como
-[Xen](https://en.wikipedia.org/wiki/Xen) o [KVM](
-https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine) incluyen
+[Xen](https://en.wikipedia.org/wiki/Xen) o [KVM](https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine) incluyen
 también la capacidad de paravirtualizar ciertos sistemas operativos en
 caso de que los anfitriones no tengan soporte; por ejemplo, KVM se ha
 asociado con [QEMU](https://en.wikipedia.org/wiki/QEMU) que lo usa en
@@ -232,15 +231,15 @@ Trabajando con máquinas virtuales en la nube
 Azure permite,
 [tras la creación de almacenamiento virtual](Almacenamiento.md), la
 creación de máquinas virtuales, como es natural. Se puede crear una
-máquina virtual desde el panel de control, pero también desde la [línea
-de órdenes](https://github.com/WindowsAzure/azure-sdk-tools-xplat). Primero
+máquina virtual desde el panel de control, pero también desde
+la [línea de órdenes](https://github.com/WindowsAzure/azure-sdk-tools-xplat). Primero
 hay que saber qué imágenes hay disponibles:
 
 	azure vm image list
 
 Por ejemplo, se puede escoger la imagen
 `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu_DAILY_BUILD-trusty-14_04-LTS-amd64-server-20131221-en-us-30GB`
-de la última versión de Ubuntu (para salir dentro de cuator meses) o
+de la última versión de Ubuntu (para salir dentro de cuatro meses) o
 alguna más probada como la
 `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131215-en-us-30GB`
 Con
