@@ -219,7 +219,12 @@ contrario de lo que es en este caso, pero bueno, está así en el
 original así que se queda. Antes de esto está un test; en este caso
 una llamada a una función. `assertTrue` fallará sólo si no se
 devuelve `True` (o equivalente), y `assertEqual` lo hará si los dos
-primeros argumentos no lo son. 
+primeros argumentos no lo
+son. Otras
+[aserciones](https://docs.python.org/3/library/unittest.html) permiten
+probar el tipo de excepción que se lanza o el tipo de un objeto
+determinado. Conviene consultar la documentación enlazada
+anteriormente para saber qué orden se debe usar. 
 
 <div class='notes' markdown='1'>
 

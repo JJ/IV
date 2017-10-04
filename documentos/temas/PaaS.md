@@ -429,8 +429,8 @@ Esto crea una aplicación en la web de Heroku, que al hacer `git push
 heroku master` se pondrá en marcha. La mayoría de los PaaS usa `git
 push` como modo de despliegue, que permite tener controlada la versión
 de todos los ficheros que hay en el mismo y además, con los *ganchos*
-post-`push`, [compilar y ejecutar la aplicación a través de los llamados
-*Buildpacks*](http://www.jamesward.com/2012/07/18/the-magic-behind-herokus-git-push-deployment).  
+post-`push`,
+[compilar y ejecutar la aplicación a través de los llamados *Buildpacks*](http://www.jamesward.com/2012/07/18/the-magic-behind-herokus-git-push-deployment).  
 
 <div class='ejercicios' markdown="1">
 

@@ -126,7 +126,7 @@ base de los contenedores que se verán en este tema.
 
 `unshare`tiene sus limitaciones, y la principal es que sólo se puede
 *entrar* en un *namespace* ejecutando un comando, no "desde fuera". A
-partir de la versión 2.23 de util-linux (la versión en mi Ubuntu 12.04
+partir de la versión 2.23 de `util-linux` (la versión en mi Ubuntu 12.04
 es la 2.20) [un nuevo comando `nsenter`](http://karelzak.blogspot.com.es/2013/04/umount8-mount8-and-nsenter1.html) permitirá entrar dando el
 PID del proceso dentro del que se haya creado. 
 
@@ -498,8 +498,7 @@ cuya principal intención es crear jaulas con usuarios o servicios
 limitados a las mismas. 
 
 `jailkit` no tiene paquetes "oficiales" para ninguna distro pero se
-puede descargar de la página e instalarse fácilmente con `./configure
-&& make && sudo make install`
+puede descargar de la página e instalarse fácilmente con `./configure && make && sudo make install`
 
 La idea principal de `jailkit` es realizar una jaula de la forma más
 segura posible, por eso se basa en copiar sólo y exclusivamente los
@@ -528,8 +527,7 @@ las dependencias pertinentes. A estos alias se le denominan
 *secciones* y se refieren a la parte correspondiente del fichero de
 configuración. 
 
-Esta jaula se puede usar directamente con `chroot`, pero [jailkit
-también permite *enjaular* usuarios](http://www.binarytides.com/setup-jailed-shell-jailkit-ubuntu/). Tras
+Esta jaula se puede usar directamente con `chroot`, pero [jailkit también permite *enjaular* usuarios](http://www.binarytides.com/setup-jailed-shell-jailkit-ubuntu/). Tras
 crear el usuario de la forma habitual
 en Linux
 
