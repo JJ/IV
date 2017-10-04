@@ -169,7 +169,7 @@ nos mostrará, entre otras cosas
 
 ```
 alcantara: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN 
-link/ether 0a:f5:42:80:e7:09 brd ff:ff:ff:ff:ff:ff```
+link/ether 0a:f5:42:80:e7:09 brd ff:ff:ff:ff:ff:ff
 ```
 
 en este instante ni está activado ni, en realidad, hace nada: no tiene
@@ -510,8 +510,8 @@ incluyendo las dependencias o ficheros necesarios. Para usarlo, por
 tanto, hay que crear un sistema de ficheros *poseído* por `root`:
 
 ```
-	mkdir -p /seguro/jaulas/dorada
-	chown -R root:root /seguro
+mkdir -p /seguro/jaulas/dorada
+chown -R root:root /seguro
 ```	
 	
 Y a partir de ahí 
