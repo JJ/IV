@@ -73,7 +73,7 @@ Tutorías virtuales
 ----
 
 Las tutorías virtuales se realizarán preferiblemente a través de
-[la plataforma de trabajo colaborativo GitHub](https://github.com/JJ/IV17-18/issues?state=open) y
+[la plataforma de trabajo colaborativo GitHub](https://github.com/JJ/IV-17-18/issues?state=open) y
 a través del grupo de Telegram; habrá que solicitar al profesor ser
 añadido. Finalmente, el profesor está disponible por Telegram, Skype y
 Google Hangouts (en todos los casos: `jjmerelo`). 
