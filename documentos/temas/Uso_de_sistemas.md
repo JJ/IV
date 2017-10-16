@@ -65,8 +65,7 @@ hipervisores alojados que se ejecutan desde un sistema operativo.
 ![Ilustración de los dos tipos de hipervisores (alojada en la Wikipedia)](http://upload.wikimedia.org/wikipedia/commons/e/e1/Hyperviseur.png)
 
 Para apoyar la virtualización, casi todos los procesadores actuales y
-especialmente [los de las líneas más populares basadas en la
-arquitectura x86 tienen una serie de instrucciones que permiten usarla de manera segura y eficiente](https://en.wikipedia.org/wiki/X86_virtualization). Esta
+especialmente [los de las líneas más populares basadas en la arquitectura x86 tienen una serie de instrucciones que permiten usarla de manera segura y eficiente](https://en.wikipedia.org/wiki/X86_virtualization). Esta
 arquitectura tiene dos ramas: la Intel y la AMD, cada uno de los
 cuales tiene un conjunto de instrucciones diferentes para llevarla a
 cabo. Aunque la mayoría de los procesadores lo incluyen, los
@@ -78,8 +77,7 @@ en la que los hipervisores tienen que *interpretar* cada imagen del
 sistema operativo que alojan (llamado *invitado*) y convertirla en
 instrucciones del que aloja (llamado *anfitrión* o *host*). La mayor
 parte de los hipervisores, como
-[Xen](https://en.wikipedia.org/wiki/Xen) o [KVM](
-https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine) incluyen
+[Xen](https://en.wikipedia.org/wiki/Xen) o [KVM](https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine) incluyen
 también la capacidad de paravirtualizar ciertos sistemas operativos en
 caso de que los anfitriones no tengan soporte; por ejemplo, KVM se ha
 asociado con [QEMU](https://en.wikipedia.org/wiki/QEMU) que lo usa en
@@ -190,11 +188,12 @@ una herramienta gráfica que trabaja sobre KVM
 </div>
 
 La máquina virtual, una vez instalada, se puede arrancar directamente
-desde el fichero en el que la hemos instalado, usando una orden [tal
-como esta](https://wiki.archlinux.org/index.php/QEMU#Creating_new_virtualized_system) 
+desde el fichero en el que la hemos instalado, usando una orden [tal como esta](https://wiki.archlinux.org/index.php/QEMU#Creating_new_virtualized_system) 
 
-	qemu-system-x86_64 -boot order=c -drive	file=/media/Backup/Isos/discovirtual.img,if=virtio
-	
+```
+qemu-system-x86_64 -boot order=c -drive	file=/media/Backup/Isos/discovirtual.img,if=virtio
+```
+
 En este caso no necesitamos *pegarle* el CD, sino que le indicamos en
 qué orden tienen que arrancar (usando el DD, en este caso) y mediante
 `-drive` le indicamos que use `virtio`, una paravirtualización de la
@@ -240,15 +239,15 @@ Trabajando con máquinas virtuales en la nube
 Azure permite,
 [tras la creación de almacenamiento virtual](Almacenamiento), la
 creación de máquinas virtuales, como es natural. Se puede crear una
-máquina virtual desde el panel de control, pero también desde la [línea
-de órdenes](https://github.com/WindowsAzure/azure-sdk-tools-xplat). Primero
+máquina virtual desde el panel de control, pero también desde
+la [línea de órdenes](https://github.com/WindowsAzure/azure-sdk-tools-xplat). Primero
 hay que saber qué imágenes hay disponibles:
 
 	azure vm image list
 
 Por ejemplo, se puede escoger la imagen
 `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu_DAILY_BUILD-trusty-14_04-LTS-amd64-server-20131221-en-us-30GB`
-de la última versión de Ubuntu (para salir dentro de cuator meses) o
+de la última versión de Ubuntu (para salir dentro de cuatro meses) o
 alguna más probada como la
 `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131215-en-us-30GB`
 Con
@@ -279,7 +278,7 @@ muestra las máquinas virtuales que tenemos y el nombre que se le ha
 asignado y finalmente con `azure vm start` se arranca la máquina y
 podemos conectarnos con ella usando `ssh` Una de las primeras cosas
 que hay que hacer cuando se arranque es actualizar el sistema para
-evitar problemas de seguridad. A partir de ahi, podemos instalar lo
+evitar problemas de seguridad. A partir de ahí, podemos instalar lo
 que queramos. El arranque tarda cierto tiempo y dependerá de la
 disponibilidad de recursos; evidentemente, mientras no esté arrancada
 no se puede usar, pero conviene de todas formas apagarla con 
@@ -409,7 +408,7 @@ En el [siguiente tema](Gestion_de_configuraciones) pondremos en
 práctica todos los conceptos aprendidos en este tema y
 [el tema relacionado con el almacenamiento](Almacenamiento) para crear configuraciones que sean
 fácilmente gestionables y adaptables a un fin determinado.
-Antes, habrá que hacer y entregar [el último hito](../../proyecto/5.IaaS).
+Antes, habrá que hacer y entregar [el último hito](../proyecto/5.IaaS).
 
 Si lo que necesitas es un sistema ligero de virtualización, puedes
 mirar cómo virtualizar con [contenedores](Contenedores).

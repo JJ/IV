@@ -164,7 +164,7 @@ cosas. `juju` usa [*encantos*](https://jujucharms.com/), scripts que expresan qu
 provee cada aplicación. Son simplemente *scripts* que usan un lenguaje
 basado en YAML, pero ya hay *charms* para las tareas más comunes:
 instalar servicios web o lenguajes de programación. Por ejemplo, para
-instalar mediawiki simplemente se escribiría 
+instalar Mediawiki simplemente se escribiría 
 
 ```
 juju deploy mediawiki

@@ -204,8 +204,8 @@ y
 
 ## Creando una aplicación para su despliegue en un PaaS
 
-Para diseñar interfaces REST de forma bastante simple, hay un [módulo de
-node.js llamado express](http://expressjs.com/). La idea de este módulo
+Para diseñar interfaces REST de forma bastante simple, hay
+un [módulo de node.js llamado express](http://expressjs.com/). La idea de este módulo
 es reflejar en el código, de la forma más natural posible, el diseño del
 interfaz REST.
 
@@ -224,6 +224,7 @@ que se esté trabajando. `--save` guarda la dependencia en `package.json` siempr
 Tras la instalación, el programa que hemos visto más arriba se
 transforma en el siguiente:
 
+```
 	#!/usr/bin/env node
 
 	var express=require('express');
@@ -240,6 +241,7 @@ transforma en el siguiente:
 
 	app.listen(port); 
 	console.log('Server running at http://127.0.0.1:'+port+'/');
+```
 
 
 Para empezar, `express` nos evita todas las molestias de tener que
@@ -285,6 +287,7 @@ precedidos por `:`. Por ejemplo, si queremos tener diferentes contadores
 podríamos usar el [programa
 siguiente](https://github.com/JJ/node-app-cc/blob/master/index.js):
 
+```
 	var express = require('express');
 	var app = express();
 
@@ -312,6 +315,7 @@ siguiente](https://github.com/JJ/node-app-cc/blob/master/index.js):
 	app.listen(app.get('port'), function() {
 	  console.log("Node app is running at localhost:" + app.get('port'));
 	});
+```
 
 
 Este [programa
@@ -353,6 +357,7 @@ Porque esté en la nube no significa que no tengamos que testearla como cualquie
 
 Los tests podemos integrarlos, como es natural, en el mismo marco que el resto de la aplicación, sólo que tendremos que usar librerías de aserciones ligeramente diferentes, en este caso `supertest`
 
+```
 	var request = require('supertest'), 
 	app = require('../index.js');
 
@@ -364,10 +369,13 @@ Los tests podemos integrarlos, como es natural, en el mismo marco que el resto d
 			.expect(200,done);
 		});
 	});
+```
 
 (que tendrá que estar incluido en el directorio `test/`, como el resto). En vez de ejecutar la aplicación (que también podríamos hacerlo), lo que hacemos es que añadimos al final de `index.js` la línea:
 
-	module.exports = app;
+```
+module.exports = app;
+```
 
 con lo que se exporta la app que se crea; `require` ejecuta el código y recibe la variable que hemos exportado, que podemos usar como si se tratara de parte de esta misma aplicación. `app` en este test, por tanto, contendrá lo mismo que en la aplicación principal, `index.js`. Usamos el mismo estilo de test con `mocha` que [ya se ha visto](http://jj.github.io/desarrollo-basado-pruebas/) pero usamos funciones específicas:
 
@@ -429,8 +437,8 @@ Esto crea una aplicación en la web de Heroku, que al hacer `git push
 heroku master` se pondrá en marcha. La mayoría de los PaaS usa `git
 push` como modo de despliegue, que permite tener controlada la versión
 de todos los ficheros que hay en el mismo y además, con los *ganchos*
-post-`push`, [compilar y ejecutar la aplicación a través de los llamados
-*Buildpacks*](http://www.jamesward.com/2012/07/18/the-magic-behind-herokus-git-push-deployment).  
+post-`push`,
+[compilar y ejecutar la aplicación a través de los llamados *Buildpacks*](http://www.jamesward.com/2012/07/18/the-magic-behind-herokus-git-push-deployment).  
 
 <div class='ejercicios' markdown="1">
 
@@ -453,7 +461,9 @@ efectivamente, el que se ejecute. Pero ¿cómo sabe Heroku qué es lo que
 hay que ejecutar? Si miramos el fichero `Procfile` encontraremos algo
 así
 
+```
 	web: node index.js
+```
 
 Este [Procfile](https://devcenter.heroku.com/articles/procfile) se usa
 para indicar a heroku qué es lo que tiene que ejecutar. En casi todos
@@ -465,7 +475,9 @@ que hay que ejecutar para *levantar* la web que hemos creado.
 Localmente, se recrea (aproximadamente) el entorno de Heroku usando
 Foreman. Para ejecutar localmente nuestra aplicación ejecutaremos
 
+```
 	foreman start web
+```
 
 `foreman` leerá el `Procfile` y ejecutará la
 tarea correspondiente a `web`, en este caso `index.js`.  Podemos
@@ -537,10 +549,10 @@ repositorio vacío propio en GitHub y añadirle este como `origin` de la
 forma siguiente
 
 ```
-	# Borra el origen inicial, que será el de la aplicación de ejemplo
-	git remote rm origin
-	# Crea el nuevo origin
-	git remote add origin git@github.com:mi-nick/mi-app.git
+# Borra el origen inicial, que será el de la aplicación de ejemplo
+git remote rm origin
+# Crea el nuevo origin
+git remote add origin git@github.com:mi-nick/mi-app.git
 ```
 
 Todo esto puedes ahorrártelo si desde el principio haces un *fork* de

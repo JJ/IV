@@ -5,6 +5,8 @@ layout: index
 ---
 # Material docente para Infraestructura Virtual
 
+[![Build Status](https://travis-ci.org/JJ/IV.svg?branch=master)](https://travis-ci.org/JJ/IV)
+
 [Infraestructura virtual](http://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/espti/infraestructuravirtual)
 es una asignatura obligatoria de la rama Tecnologías de la Información
 del primer cuatrimestre del cuarto del Grado de Ingeniería
