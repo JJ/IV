@@ -636,5 +636,5 @@ A dónde ir desde aquí
 En el [siguiente tema](Tecnicas_de_virtualizacion.md) usaremos
 diferentes técnicas de virtualización para la creación de contenedores
 y jaulas que aíslan procesos, usuarios y recursos del resto del sistema, creando por tanto máquinas *virtuales*. Previamente habrá que [realizar la
-práctica correspondiente a esta materia](../practicas/3.PaaS.md).
+práctica correspondiente a esta materia](../proyecto/3.PaaS.md).
 
