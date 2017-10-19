@@ -78,8 +78,7 @@ trabajan bien con
 node.js, [igual que nitrous.io](http://blog.blakepatches.me/blog/2013/11/04/comparison-of-node-dot-js-hosting/) o [IBM BlueMix](https://console.ng.bluemix.net/#/pricing/cloudOEPaneId=pricing) (que ofrece un período de prueba gratuito, que no se puede renovar, lo sé por experiencia).
 
 >Después de probar casi todos los servicios anteriores, me da la
->impresión de que poco hay más allá de Heroku y Openshift. AppFog y
->Nodejitsu, después de la efervescencia inicial, dan 30 días de prueba
+>impresión de que poco hay más allá de Heroku y Openshift. AppFog, después de la efervescencia inicial, dan 30 días de prueba
 >solamente. nitrous.io también da un periodo de prueba y se puede usar como IaaS, pero del resto, al menos
 >los que funcionan con node.js, poco más hay.  
 
@@ -90,7 +89,7 @@ trabaja con Perl, por ejemplo, como
 <div class='ejercicios' markdown="1">
 
 Darse de alta en algún servicio PaaS tal como Heroku,
-[Nodejitsu](https://www.nodejitsu.com/), [BlueMix](https://console.ng.bluemix.net/) u OpenShift.
+[zeit](https://zeit.co), [BlueMix](https://console.ng.bluemix.net/) u OpenShift.
 
 </div>
 
