@@ -39,7 +39,7 @@ tanto de software como de hardware y ponerlos en práctica.
 </div>
 
 >Esta [presentación](http://jj.github.io/pispaas/#/) es un resumen del
->PaaS y alguna cosa adicional que no viene en este tema.
+>PaaS y alguna cosa adicional que no está incluida en este tema pero que conviene conocer de todas formas. 
 
 Cuando uno quiere desplegar una aplicación y tener parte del trabajo de instalación ya hecho, o al menos preparado 
 para hacerse con la pulsación de un botón, a la vez que tiene
@@ -158,7 +158,9 @@ enseñanza.
 
 <div class='ejercicios' markdown="1">
 
-Crear una aplicación en OpenShift o en algún otro PaaS en el que se haya dado uno de alta. Realizar un despliegue de prueba usando alguno de los ejemplos. 
+Crear una aplicación en OpenShift o en algún otro PaaS en el que se
+haya dado uno de alta. Realizar un despliegue de prueba usando alguno
+de los ejemplos incluidos con el PaaS.  
 
 </div>
 
@@ -203,8 +205,16 @@ y
 
 ## Creando una aplicación para su despliegue en un PaaS
 
-Para diseñar interfaces REST de forma bastante simple, hay
-un [módulo de node.js llamado express](http://expressjs.com/). La idea de este módulo
+> Un PaaS sirve para desplegar todo tipo de aplicaciones, pero estamos
+> especialmente interesados en el despliegue de servicios web. En
+> [esta presentación sobre servicios web en Python](https://jj.github.io/tests-python/ws.html)
+> se da una introducción a los servicios web y cómo desplegarlos
+> usando el micromarco de aplicaciones Hug. 
+
+Se pueden diseñar servicios web en cualquier lenguaje de programación;
+pero en este apartado optaremos inicialmente por Node.js/Javascript;
+que para diseñar interfaces REST de forma bastante simple, tiene
+un [módulo llamado express](http://expressjs.com/). La idea de este módulo
 es reflejar en el código, de la forma más natural posible, el diseño del
 interfaz REST.
 
