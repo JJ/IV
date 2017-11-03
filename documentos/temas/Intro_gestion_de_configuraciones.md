@@ -188,7 +188,7 @@ se enganche al servidor web, por ejemplo
 juju expose mediawiki
 ```
 
-Con esto se puede mostar ya el estado de la máquina:
+Con esto se puede mostrar ya el estado de la máquina:
 
 ```
 juju status

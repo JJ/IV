@@ -34,7 +34,7 @@ tanto de software como de hardware y ponerlos en práctica.
 </div>
 
 >Esta [presentación](http://jj.github.io/pispaas/#/) es un resumen del
->PaaS y alguna cosa adicional que no viene en este tema.
+>PaaS y alguna cosa adicional que no está incluida en este tema pero que conviene conocer de todas formas. 
 
 Cuando uno quiere desplegar una aplicación y tener parte del trabajo de instalación ya hecho, o al menos preparado 
 para hacerse con la pulsación de un botón, a la vez que tiene
@@ -85,8 +85,7 @@ trabajan bien con
 node.js, [igual que nitrous.io](http://blog.blakepatches.me/blog/2013/11/04/comparison-of-node-dot-js-hosting/) o [IBM BlueMix](https://console.ng.bluemix.net/#/pricing/cloudOEPaneId=pricing) (que ofrece un período de prueba gratuito, que no se puede renovar, lo sé por experiencia).
 
 >Después de probar casi todos los servicios anteriores, me da la
->impresión de que poco hay más allá de Heroku y Openshift. AppFog y
->Nodejitsu, después de la efervescencia inicial, dan 30 días de prueba
+>impresión de que poco hay más allá de Heroku y Openshift. AppFog, después de la efervescencia inicial, dan 30 días de prueba
 >solamente. nitrous.io también da un periodo de prueba y se puede usar como IaaS, pero del resto, al menos
 >los que funcionan con node.js, poco más hay.  
 
@@ -101,7 +100,7 @@ trabaja con Perl, por ejemplo, como
 <div class='ejercicios' markdown="1">
 
 Darse de alta en algún servicio PaaS tal como Heroku,
-[Nodejitsu](https://www.nodejitsu.com/), [BlueMix](https://console.ng.bluemix.net/) u OpenShift.
+[zeit](https://zeit.co), [BlueMix](https://console.ng.bluemix.net/) u OpenShift.
 
 </div>
 
@@ -162,12 +161,7 @@ enseñanza.
 
 <div class='ejercicios' markdown="1">
 
-<<<<<<< HEAD
-Crear una aplicación en OpenShift y dentro de ella instalar
-WordPress.
-=======
 Crear una aplicación en OpenShift o en algún otro PaaS en el que se haya dado uno de alta. Realizar un despliegue de prueba usando alguno de los ejemplos. 
->>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4
 
 </div>
 
@@ -212,8 +206,16 @@ y
 
 ## Creando una aplicación para su despliegue en un PaaS
 
-Para diseñar interfaces REST de forma bastante simple, hay un [módulo de
-node.js llamado express](http://expressjs.com/). La idea de este módulo
+> Un PaaS sirve para desplegar todo tipo de aplicaciones, pero estamos
+> especialmente interesados en el despliegue de servicios web. En
+> [esta presentación sobre servicios web en Python](https://jj.github.io/tests-python/ws.html)
+> se da una introducción a los servicios web y cómo desplegarlos
+> usando el micromarco de aplicaciones Hug. 
+
+Se pueden diseñar servicios web en cualquier lenguaje de programación;
+pero en este apartado optaremos inicialmente por Node.js/Javascript;
+que para diseñar interfaces REST de forma bastante simple, tiene
+un [módulo llamado express](http://expressjs.com/). La idea de este módulo
 es reflejar en el código, de la forma más natural posible, el diseño del
 interfaz REST.
 
@@ -234,6 +236,7 @@ que se esté trabajando. `--save` guarda la dependencia en `package.json` siempr
 Tras la instalación, el programa que hemos visto más arriba se
 transforma en el siguiente:
 
+```
 	#!/usr/bin/env node
 
 	var express=require('express');
@@ -250,6 +253,7 @@ transforma en el siguiente:
 
 	app.listen(port);
 	console.log('Server running at http://127.0.0.1:'+port+'/');
+```
 
 
 Para empezar, `express` nos evita todas las molestias de tener que
@@ -295,6 +299,7 @@ precedidos por `:`. Por ejemplo, si queremos tener diferentes contadores
 podríamos usar el [programa
 siguiente](https://github.com/JJ/node-app-cc/blob/master/index.js):
 
+```
 	var express = require('express');
 	var app = express();
 
@@ -322,6 +327,7 @@ siguiente](https://github.com/JJ/node-app-cc/blob/master/index.js):
 	app.listen(app.get('port'), function() {
 	  console.log("Node app is running at localhost:" + app.get('port'));
 	});
+```
 
 
 Este [programa
@@ -363,7 +369,7 @@ Porque esté en la nube no significa que no tengamos que testearla como cualquie
 
 Los tests podemos integrarlos, como es natural, en el mismo marco que el resto de la aplicación, sólo que tendremos que usar librerías de aserciones ligeramente diferentes, en este caso `supertest`
 
-	var request = require('supertest'),
+	var request = require('supertest'), 
 	app = require('../index.js');
 
 	describe( "PUT porra", function() {
@@ -374,10 +380,13 @@ Los tests podemos integrarlos, como es natural, en el mismo marco que el resto d
 			.expect(200,done);
 		});
 	});
+```
 
 (que tendrá que estar incluido en el directorio `test/`, como el resto). En vez de ejecutar la aplicación (que también podríamos hacerlo), lo que hacemos es que añadimos al final de `index.js` la línea:
 
-	module.exports = app;
+```
+module.exports = app;
+```
 
 con lo que se exporta la app que se crea; `require` ejecuta el código y recibe la variable que hemos exportado, que podemos usar como si se tratara de parte de esta misma aplicación. `app` en este test, por tanto, contendrá lo mismo que en la aplicación principal, `index.js`. Usamos el mismo estilo de test con `mocha` que [ya se ha visto](http://jj.github.io/desarrollo-basado-pruebas/) pero usamos funciones específicas:
 
@@ -439,8 +448,8 @@ Esto crea una aplicación en la web de Heroku, que al hacer `git push
 heroku master` se pondrá en marcha. La mayoría de los PaaS usa `git
 push` como modo de despliegue, que permite tener controlada la versión
 de todos los ficheros que hay en el mismo y además, con los *ganchos*
-post-`push`, [compilar y ejecutar la aplicación a través de los llamados
-*Buildpacks*](http://www.jamesward.com/2012/07/18/the-magic-behind-herokus-git-push-deployment).  
+post-`push`,
+[compilar y ejecutar la aplicación a través de los llamados *Buildpacks*](http://www.jamesward.com/2012/07/18/the-magic-behind-herokus-git-push-deployment).  
 
 <div class='ejercicios' markdown="1">
 
@@ -463,7 +472,9 @@ efectivamente, el que se ejecute. Pero ¿cómo sabe Heroku qué es lo que
 hay que ejecutar? Si miramos el fichero `Procfile` encontraremos algo
 así
 
+```
 	web: node index.js
+```
 
 Este [Procfile](https://devcenter.heroku.com/articles/procfile) se usa
 para indicar a heroku qué es lo que tiene que ejecutar. En casi todos
@@ -475,7 +486,9 @@ que hay que ejecutar para *levantar* la web que hemos creado.
 Localmente, se recrea (aproximadamente) el entorno de Heroku usando
 Foreman. Para ejecutar localmente nuestra aplicación ejecutaremos
 
+```
 	foreman start web
+```
 
 `foreman` leerá el `Procfile` y ejecutará la
 tarea correspondiente a `web`, en este caso `index.js`.  Podemos
@@ -547,10 +560,10 @@ repositorio vacío propio en GitHub y añadirle este como `origin` de la
 forma siguiente
 
 ```
-	# Borra el origen inicial, que será el de la aplicación de ejemplo
-	git remote rm origin
-	# Crea el nuevo origin
-	git remote add origin git@github.com:mi-nick/mi-app.git
+# Borra el origen inicial, que será el de la aplicación de ejemplo
+git remote rm origin
+# Crea el nuevo origin
+git remote add origin git@github.com:mi-nick/mi-app.git
 ```
 
 Todo esto puedes ahorrártelo si desde el principio haces un *fork* de
@@ -645,6 +658,6 @@ diferentes técnicas de virtualización para la creación de contenedores
 y jaulas que aislan procesos, usuarios y recursos del resto del sistema, creando por tanto máquinas *virtuales*. Previamente habrá que [realizar la práctica correspondiente a esta materia](../practicas/3.PaaS.md).
 =======
 y jaulas que aíslan procesos, usuarios y recursos del resto del sistema, creando por tanto máquinas *virtuales*. Previamente habrá que [realizar la
-práctica correspondiente a esta materia](../practicas/3.PaaS.md).
+práctica correspondiente a esta materia](../proyecto/3.PaaS.md).
 
 >>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4

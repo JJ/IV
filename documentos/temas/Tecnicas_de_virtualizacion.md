@@ -118,7 +118,7 @@ base de los contenedores que se verán en este tema.
 
 `unshare`tiene sus limitaciones, y la principal es que sólo se puede
 *entrar* en un *namespace* ejecutando un comando, no "desde fuera". A
-partir de la versión 2.23 de util-linux (la versión en mi Ubuntu 12.04
+partir de la versión 2.23 de `util-linux` (la versión en mi Ubuntu 12.04
 es la 2.20) [un nuevo comando `nsenter`](http://karelzak.blogspot.com.es/2013/04/umount8-mount8-and-nsenter1.html) permitirá entrar dando el
 PID del proceso dentro del que se haya creado. 
 
@@ -161,7 +161,7 @@ nos mostrará, entre otras cosas
 
 ```
 alcantara: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN 
-link/ether 0a:f5:42:80:e7:09 brd ff:ff:ff:ff:ff:ff```
+link/ether 0a:f5:42:80:e7:09 brd ff:ff:ff:ff:ff:ff
 ```
 
 en este instante ni está activado ni, en realidad, hace nada: no tiene
@@ -186,7 +186,7 @@ conectada.
 
 Ahora este interfaz actuará como cualquier otro a la hora de
 configurarlo: podemos asignarle una IP fija o asignársela con DHCP
-cuando se *levante*, pero en cuanlquier caso podremos usarlo como una
+cuando se *levante*, pero en cualquier caso podremos usarlo como una
 tarjeta de red virtual para las máquinas virtuales que vayamos a
 usar. Es posible que si hemos instalado algún paquete de
 virtualización ya tengamos alguna creada, `brctl show` muestra todos
@@ -244,7 +244,7 @@ sistema operativo, como las que vamos a ver, hay partes del sistema
 órdenes mínimas para dotar a la *máquina* de una serie de recursos
 para funcionar.
 
-por supuesto, una de las formas de hacerlo es simplemente ir copiendo
+por supuesto, una de las formas de hacerlo es simplemente ir copiando
 las partes necesarias del sistema de ficheros raíz al nuevo
 sistema. Pero hay una serie de utilidades en Linux que lo hacen más
 fácil. En el mundo Debian (que incluye Debian, Ubuntu y Guadalinex) se
@@ -502,8 +502,8 @@ incluyendo las dependencias o ficheros necesarios. Para usarlo, por
 tanto, hay que crear un sistema de ficheros *poseído* por `root`:
 
 ```
-	mkdir -p /seguro/jaulas/dorada
-	chown -R root:root /seguro
+mkdir -p /seguro/jaulas/dorada
+chown -R root:root /seguro
 ```	
 	
 Y a partir de ahí 
@@ -520,8 +520,7 @@ las dependencias pertinentes. A estos alias se le denominan
 *secciones* y se refieren a la parte correspondiente del fichero de
 configuración. 
 
-Esta jaula se puede usar directamente con `chroot`, pero [jailkit
-también permite *enjaular* usuarios](http://www.binarytides.com/setup-jailed-shell-jailkit-ubuntu/). Tras
+Esta jaula se puede usar directamente con `chroot`, pero [`jailkit` también permite *enjaular* usuarios](http://www.binarytides.com/setup-jailed-shell-jailkit-ubuntu/). Tras
 crear el usuario de la forma habitual
 en Linux
 
@@ -538,7 +537,7 @@ conectar por ssh a tu propia máquina usando el nombre de usuario y
 clave creada o bien sacar un terminal con Ctrl-Alt-F1 o Ctrl-Alt-F2
 usando este nombre de usuario.
 
-<div class='ejercicios' mardown='1'>
+<div class='ejercicios' markdown='1'>
 
 Crear una jaula y enjaular un usuario usando `jailkit`, que previamente se habrá tenido que instalar. 
 
