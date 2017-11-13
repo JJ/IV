@@ -6,8 +6,8 @@ prev: Desarrollo_basado_en_pruebas
 next: Contenedores
 ---
 
-Desplegando aplicaciones en la nube: Uso de PaaS 
-==
+# Desplegando aplicaciones en la nube: Uso de PaaS 
+
 
 <!--@
 prev: Desarrollo_basado_en_pruebas
@@ -38,8 +38,10 @@ tanto de software como de hardware y ponerlos en práctica.
 
 </div>
 
+## Introducción 
+
 >Esta [presentación](http://jj.github.io/pispaas/#/) es un resumen del
->PaaS y alguna cosa adicional que no viene en este tema.
+>PaaS y alguna cosa adicional que no está incluida en este tema pero que conviene conocer de todas formas. 
 
 Cuando uno quiere desplegar una aplicación y tener parte del trabajo de instalación ya hecho, o al menos preparado 
 para hacerse con la pulsación de un botón, a la vez que tiene
@@ -60,8 +62,7 @@ infraestructura si se trata de una aplicación que use los marcos más comunes. 
 pero por otro lado también tiene una parte que es la configuración y
 despliegue de la aplicación en sí y los tests que se vayan a usar. Hay que tener en cuenta que, en general, la definición de la infraestructura depende del PaaS que se use y por eso es bastante menos portable que usar un IaaS. Sin embargo, para un microservicio específico, o para una parte de la aplicación que sea invariable, puede ser bastante útil y conveniente.
 
-Usando un servicio PaaS
------
+## Usando un servicio PaaS
 
 La mayoría de los servicios PaaS están ligados a una *pila* de
 soluciones determinada o a un vendedor determinado, es decir, a una
@@ -86,8 +87,7 @@ trabajan bien con
 node.js, [igual que nitrous.io](http://blog.blakepatches.me/blog/2013/11/04/comparison-of-node-dot-js-hosting/) o [IBM BlueMix](https://console.ng.bluemix.net/#/pricing/cloudOEPaneId=pricing) (que ofrece un período de prueba gratuito, que no se puede renovar, lo sé por experiencia).
 
 >Después de probar casi todos los servicios anteriores, me da la
->impresión de que poco hay más allá de Heroku y Openshift. AppFog y
->Nodejitsu, después de la efervescencia inicial, dan 30 días de prueba
+>impresión de que poco hay más allá de Heroku y Openshift. AppFog, después de la efervescencia inicial, dan 30 días de prueba
 >solamente. nitrous.io también da un periodo de prueba y se puede usar como IaaS, pero del resto, al menos
 >los que funcionan con node.js, poco más hay.  
 
@@ -98,7 +98,7 @@ trabaja con Perl, por ejemplo, como
 <div class='ejercicios' markdown="1">
 
 Darse de alta en algún servicio PaaS tal como Heroku,
-[Nodejitsu](https://www.nodejitsu.com/), [BlueMix](https://console.ng.bluemix.net/) u OpenShift.
+[zeit](https://zeit.co), [BlueMix](https://console.ng.bluemix.net/) u OpenShift.
 
 </div>
 
@@ -159,7 +159,9 @@ enseñanza.
 
 <div class='ejercicios' markdown="1">
 
-Crear una aplicación en OpenShift o en algún otro PaaS en el que se haya dado uno de alta. Realizar un despliegue de prueba usando alguno de los ejemplos. 
+Crear una aplicación en OpenShift o en algún otro PaaS en el que se
+haya dado uno de alta. Realizar un despliegue de prueba usando alguno
+de los ejemplos incluidos con el PaaS.  
 
 </div>
 
@@ -204,8 +206,16 @@ y
 
 ## Creando una aplicación para su despliegue en un PaaS
 
-Para diseñar interfaces REST de forma bastante simple, hay
-un [módulo de node.js llamado express](http://expressjs.com/). La idea de este módulo
+> Un PaaS sirve para desplegar todo tipo de aplicaciones, pero estamos
+> especialmente interesados en el despliegue de servicios web. En
+> [esta presentación sobre servicios web en Python](https://jj.github.io/tests-python/ws.html)
+> se da una introducción a los servicios web y cómo desplegarlos
+> usando el micromarco de aplicaciones Hug. 
+
+Se pueden diseñar servicios web en cualquier lenguaje de programación;
+pero en este apartado optaremos inicialmente por Node.js/Javascript;
+que para diseñar interfaces REST de forma bastante simple, tiene
+un [módulo llamado express](http://expressjs.com/). La idea de este módulo
 es reflejar en el código, de la forma más natural posible, el diseño del
 interfaz REST.
 
@@ -638,11 +648,11 @@ por ejemplo. De hecho, incluso en Heroku se puede trabajar también con
 Travis para el despliegue automático, aunque es mucho más simple
 hacerlo con Snap CI como se ha indicado más arriba.
 
-A dónde ir desde aquí
------
+## A dónde ir desde aquí
+
 
 En el [siguiente tema](Tecnicas_de_virtualizacion) usaremos
 diferentes técnicas de virtualización para la creación de contenedores
 y jaulas que aíslan procesos, usuarios y recursos del resto del sistema, creando por tanto máquinas *virtuales*. Previamente habrá que [realizar la
-práctica correspondiente a esta materia](../practicas/3.PaaS).
+práctica correspondiente a esta materia](../proyecto/3.PaaS).
 
