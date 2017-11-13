@@ -43,8 +43,8 @@ Objetivos
 
 </div>
 
-## Un  paso más hacia la virtualización completa: *contenedores*
 
+## Un paso más hacia la virtualización completa: *contenedores*
 
 El aislamiento de grupos de procesos formando una *jaula* o
 *contenedor* ha sido una característica de ciertos sistemas operativos
@@ -121,10 +121,14 @@ Esta virtualización *ligera* tiene, entre otras ventajas, una
 segundos y, además, tienes mayor control desde fuera (desde el anfitrión) del que se pueda
 tener usando máquinas virtuales. 
 
-Usando `lxc`
---
+## Usando `lxc`
 
-No todos los núcleos del sistema operativo pueden usar este tipo de container; para empezar,
+> Esta sección tiene principalmente un interés histórico y desde el
+> punto de vista de la creación de aplicaciones que manejen
+> contenedors. En la empresa se usará principalmente Docker.
+
+No todos los núcleos del sistema operativo pueden usar este tipo de
+contenedor ligero; para empezar,
 dependerá de cómo esté compilado, pero también del soporte que tenga
 el hardware. `lxc-checkconfig` permite comprobar si está preparado
 para usar este tipo de tecnología y también si se ha configurado correctamente. Parte de la configuración se
@@ -170,7 +174,7 @@ Dependiendo del contenedor que se arranque, habrá una configuración
 inicial; en este caso, se configuran una serie de cosas y
 eventualmente sale el login, que será para todas las máquinas creadas
 de esta forma `ubuntu` (también clave). Lo que hace esta orden es
-automatizar una serie de tareas tales como asignar los CGROUPS, crear
+automatizar una serie de tareas tales como asignar los `CGROUPS`, crear
 los namespaces que sean necesarios, y crear un puente de red tal como
 hemos visto anteriormente. En general, creará un puente llamado
 `lxcbr0` y otro con el prefijo `veth`. 
@@ -250,15 +254,6 @@ instalados y desde ella se pueden arrancar o parar.
 
 ![Página inicial de LXC-Webpanel](../img/Overview-lxc.png)
 
-<div class='ejercicios' markdown='1'>
-
-1. Instalar `lxc-webpanel` y usarlo para arrancar, parar y visualizar las
-máquinas virtuales que se tengan instaladas.
-
-2. Desde el panel restringir los recursos que pueden usar: CPU
-*shares*, CPUs que se pueden usar (en sistemas multinúcleo) o cantidad
-de memoria.
-</div>
 
 Cada solución de virtualización tiene sus ventajas e
 inconvenientes. La principal ventaja de los contenedores son el
@@ -275,8 +270,8 @@ mismo servidor en un contenedor. Usar nginx.
 
 </div>
 
-Gestión de contenedores con `docker`
----
+## Gestión de contenedores con `docker`
+
 
 [Docker](http://docker.com) es una herramienta de gestión de
 contenedores que permite no sólo instalarlos, sino trabajar con el
@@ -480,8 +475,7 @@ sistema operativo de tu elección.
 
 </div>
 	
-A dónde ir desde aquí
------
+## A dónde ir desde aquí
 
 Primero, hay que [llevar a cabo el hito del proyecto correspondiente a este tema](../proyecto/4.Docker).
 
