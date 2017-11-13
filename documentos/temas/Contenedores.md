@@ -125,7 +125,7 @@ tener usando máquinas virtuales.
 
 > Esta sección tiene principalmente un interés histórico y desde el
 > punto de vista de la creación de aplicaciones que manejen
-> contenedors. En la empresa se usará principalmente Docker.
+> contenedores. En la empresa se usará principalmente Docker.
 
 No todos los núcleos del sistema operativo pueden usar este tipo de
 contenedor ligero; para empezar,
@@ -179,24 +179,18 @@ los namespaces que sean necesarios, y crear un puente de red tal como
 hemos visto anteriormente. En general, creará un puente llamado
 `lxcbr0` y otro con el prefijo `veth`. 
 
-<div class='ejercicios' markdown='1'>
-
-Comprobar qué interfaces puente se han creado y explicarlos.
-
-</div>
-
 Una vez arrancados los
 contenedores, si se lista desde fuera aparecerá de esta forma:
 
 ```
-	jmerelo@penny:~/txt/docencia/infraestructuras-virtuales/IV/documentos$ sudo lxc-list
-	RUNNING
-		contenedor
-		nubecilla
+jmerelo@penny:~/txt/docencia/infraestructuras-virtuales/IV/documentos$ sudo lxc-list
+RUNNING
+	contenedor
+	nubecilla
 
-	FROZEN
+FROZEN
 
-	STOPPED
+STOPPED
 ```
 
 Y, dentro de la misma, tendremos una máquina virtual con estas
@@ -211,7 +205,7 @@ acceso a los mismos y pararlos cuando le resulte conveniente.
 
 ```
 sudo lxc-stop -n nubecilla
-```	
+```
 
 Las
 [órdenes que incluye el paquete](https://help.ubuntu.com/lts/serverguide/lxc.html)
@@ -375,14 +369,14 @@ b76f70b6c5ce        ubuntu:12.04        /bin/bash           About an hour ago   
 El primer número es el ID de la máquina que podemos usar también para
 referirnos a ella en otros comandos. También se puede usar 
 
-```	
+```
 sudo docker images
 ```
 
 Que devolverá algo así:
 
 ```
-	REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
 ubuntu              12.04               8dbd9e392a96        9 months ago        128 MB
 ubuntu              latest              8dbd9e392a96        9 months ago        128 MB
 ubuntu              precise             8dbd9e392a96        9 months ago        128 MB
@@ -436,7 +430,7 @@ de `ssh` en la misma. Para averiguar la IP:
 
 ```
 sudo docker inspect	ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
-```	
+```
 
 te dirá toda la información sobre la misma, incluyendo qué es lo que
 está haciendo en un momento determinado. Para finalizar, se puede
@@ -474,7 +468,7 @@ Crear una imagen con las herramientas necesarias para el proyecto de la asignatu
 sistema operativo de tu elección. 
 
 </div>
-	
+
 ## A dónde ir desde aquí
 
 Primero, hay que [llevar a cabo el hito del proyecto correspondiente a este tema](../proyecto/4.Docker).
@@ -483,4 +477,4 @@ Si te interesa, puedes consultar cómo se [virtualiza el almacenamiento](Almacen
 generación de una máquina virtual. También puedes ir directamente al
 [tema de uso de sistemas](Uso_de_sistemas) en el que se trabajará
 con sistemas de virtualización completa. 
-	
+
