@@ -6,8 +6,8 @@ prev: PaaS
 next: Uso_de_sistemas
 ---
 
-Virtualización *ligera* usando contenedores
-===
+# Virtualización *ligera* usando contenedores
+
 
 <!--@
 prev: PaaS
@@ -43,8 +43,8 @@ Objetivos
 
 </div>
 
-Un  paso más hacia la virtualización completa: *contenedores*
--------
+## Un  paso más hacia la virtualización completa: *contenedores*
+
 
 El aislamiento de grupos de procesos formando una *jaula* o
 *contenedor* ha sido una característica de ciertos sistemas operativos
