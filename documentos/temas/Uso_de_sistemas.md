@@ -1,5 +1,4 @@
-Virtualización completa: uso de máquinas virtuales
-==
+# Virtualización completa: uso de máquinas virtuales
 
 <!--@
 prev: Contenedores
@@ -23,8 +22,7 @@ proceso de datos virtual.
 
 </div>
 
-Introducción
-------------------
+## Introducción
 
 El objetivo de las plataformas de virtualización es, eventualmente,
 crear y gestionar una máquina virtual completa que funcione de forma aislada 
@@ -35,7 +33,7 @@ crear
 [infraestructura como servicio tal como vimos en el primer tema](Intro_concepto_y_soporte_fisico.md). Para
 ello necesitamos configurar una serie de infraestucturas virtuales,
 especialmente
-[almacenamiento como se vio anteriormente](Intro_concepto_y_soporte_fisico).
+[almacenamiento](Almacenamiento.md).
 
 Los programas que permiten crear infraestructuras virtuales completas
 se denominan
@@ -78,8 +76,7 @@ caso de que el procesador tenga soporte.
 A continuación veremos el uso básico de estos sistemas de
 virtualización basándonos, sobre todo, en uno de ellos KVM.
 
-Creando máquinas virtuales desde la línea de órdenes.
-------
+## Creando máquinas virtuales desde la línea de órdenes.
 
 Crear una máquina virtual requiere seguir un proceso similar a la
 construcción e instalación del sistema operativo de un ordenador por
@@ -113,19 +110,23 @@ Dado que KVM es un módulo del kernel, puede que no esté cargado por
 defecto. Dependiendo del procesador que usemos,
 [lo cargamos](http://www.linux-kvm.org/page/HOWTO1) con 
 
-	sudo modprobe kvm-amd
-	
+```
+sudo modprobe kvm-amd
+```	
 o
 
-	sudo modprobe kvm-intel
-	
+```
+sudo modprobe kvm-intel
+```	
 	
 Con los ficheros de almacenamiento virtual y una ISO para poder
 arrancar el sistema ya podemos arrancar KVM para instalarlo usando,
 por ejemplo
 
-	qemu-system-x86_64 -hda /media/Backup/Isos/discovirtual.img -cdrom	~/tmp/debian-7.3.0-i386-netinst.iso
-	
+```
+qemu-system-x86_64 -hda /media/Backup/Isos/discovirtual.img -cdrom	~/tmp/debian-7.3.0-i386-netinst.iso
+```
+
 La opción `-hda` indica el fichero en el que se va a alojar el sistema
 operativo instalado y `-cdrom` recibe el camino a la ISO en la que
 está el sistema que se va a instalar, en este caso la versión
@@ -225,8 +226,7 @@ LXDE a la que se pueda acceder mediante VNC y `ssh`.
 
 </div>
 
-Trabajando con máquinas virtuales en la nube
-----
+## Trabajando con máquinas virtuales en la nube
 
 Azure permite,
 [tras la creación de almacenamiento virtual](Almacenamiento.md), la
@@ -244,13 +244,17 @@ alguna más probada como la
 `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131215-en-us-30GB`
 Con
 
-	azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131215-en-us-30GB
-	
+```
+azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131215-en-us-30GB
+```
+
 nos muestra detalles sobre la imagen; entre otras cosas dónde está
 disponible y sobre si es Premium o no (en este caso no lo es). Con
 esta (o con otra) podemos crear una máquina virtual
 
-	azure vm create peasomaquina b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131215-en-us-30GB peasousuario PeasoD2clav= --location "West Europe" --ssh
+```
+azure vm create peasomaquina b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131215-en-us-30GB peasousuario PeasoD2clav= --location "West Europe" --ssh
+```
 
 En esta clave tenemos que asignar un nombre de máquina (que se
 convertirá en un nombre de dominio `peasomaquina.cloudapp.net`, un
@@ -297,7 +301,7 @@ configurar máquinas en instantes y personalizarlas de forma
 masiva. Veremos como hacerlo en el
 [siguiente tema](Gestion_de_configuraciones). 
 
-##Automatizando la creación de máquinas virtuales
+## Automatizando la creación de máquinas virtuales
 
 Una máquina virtual es, desde el punto de vista del administrador,
 algo parecido a una máquina real: se arranca con el disco de
@@ -341,8 +345,10 @@ para echarlo a andar:
 	
 Con eso ya podemos crear una imagen para usar
 
-	sudo vmbuilder kvm ubuntu --suite precise --flavour server 
-		 -o --dest /un/directorio/vacío --hostname paraiv --domain paraiv
+```
+sudo vmbuilder kvm ubuntu --suite precise --flavour server 
+	 -o --dest /un/directorio/vacío --hostname paraiv --domain paraiv
+```
 
 Esta orden crea, usando el hipervisor kvm, una instalación de Ubuntu
 Precise Pangolin, o sea, 12.04. La versión más moderna que tienen es
@@ -393,8 +399,8 @@ repositorios.
 
 </div>
 
-A dónde ir desde aquí
------
+## A dónde ir desde aquí
+
 
 En el [siguiente tema](Gestion_de_configuraciones) pondremos en
 práctica todos los conceptos aprendidos en este tema y
