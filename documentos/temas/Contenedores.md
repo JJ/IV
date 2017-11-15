@@ -509,18 +509,24 @@ de órdenes, en este caso, tratándose del intérprete de Perl 6, se
 comportará exactamente como él. Para que esto funcione también se ha
 definido una variable de entorno en:
 
-	ENV PATH="/root/.rakudobrew/bin:${PATH}"
+```
+ENV PATH="/root/.rakudobrew/bin:${PATH}"
+```
 
 que añade al `PATH` el directorio donde se encuentra. Con estas dos
 características se puede ejecutar el contenedor con:
 
-    sudo docker run -t jjmerelo/alpine-perl6 -e "say π  - 4 * ([+]  <1 -1> <</<<  (1,3,5,7,9...10000))  "
+```
+sudo docker run -t jjmerelo/alpine-perl6 -e "say π  - 4 * ([+]  <1 -1> <</<<  (1,3,5,7,9...10000))  "
+```
 
 Si tuviéramos perl6 instalado en local, se podría escribir
 directamente 
 
-	perl6 -e "say π  - 4 * ([+]  <1 -1> <</<<  (1,3,5,7,9...10000))  "
-	
+```
+perl6 -e "say π  - 4 * ([+]  <1 -1> <</<<  (1,3,5,7,9...10000))  "
+```	
+
 o algún
 otro
 [*one-liner* de Perl6](https://gist.github.com/JJ/9953ba0a98800fed205eaae5b5a6410a). 
@@ -529,8 +535,10 @@ En caso de que se trate de un servicio o algún otro tipo de programa
 de ejecución continua, se puede usar directamente `CMD`. En este caso,
 `ENTRYPOINT` da más flexibilidad e incluso de puede evitar usando 
 
-	sudo docker run -it --entrypoint "sh -l -c" jjmerelo/alpine-perl6
-	
+```
+sudo docker run -it --entrypoint "sh -l -c" jjmerelo/alpine-perl6
+```
+
 que accederá directamente a la línea de órdenes, en este caso
 `busybox`, que es el *shell* que provee Alpine. 
 
@@ -556,6 +564,46 @@ En este caso, además, usamos `--rm` para borrar el contenedor una vez
 se haya usado y `-t` en vez de `-it` para indicar que sólo estamos
 interesados en que se asigne un terminal y la salida del mismo, no
 vamos a interaccionar con él. 
+
+En muchos casos el `Dockerfile` estará dentro de un repositorio y
+usará los mismos ficheros que hay en el mismo. Por ejemplo, este que
+se usa para el servicio web que hemos venido usando en la asignatura:
+
+```
+FROM python:3
+
+WORKDIR /usr/src/app
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+ENV PORT 80
+CMD [ "hug",  "-p 80", "-f","hugitos.py" ]
+
+EXPOSE 80
+```
+
+Aparte de usar las imágenes oficiales para la versión 3 de Python,
+copia todo a el directorio de trabajo definido y finalmente *expone*
+un puerto; este puerto es el puerto de la propia imagen y en caso de
+desplegarse directamente es el que se usará, pero si se está
+ejecutando localmente habrá que probarlo de esta forma
+
+```
+sudo docker run -p 80:8000 -it --rm minick/mitag
+```
+
+donde `minick/mitag` es nuestro prefijo y tag elegidos para este caso
+en particular.
+
+<div class='ejercicios' markdown='1'>
+
+Crear un Dockerfile para el servicio web que se ha venido
+desarrollando en el proyecto de la asignatura.
+
+</div>
 
 
 ## Provisión de contenedores docker con herramientas estándar
