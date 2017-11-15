@@ -262,7 +262,7 @@ en ciertas circunstancias.
 [Docker](http://docker.com) es una herramienta de gestión de
 contenedores que permite no sólo instalarlos, sino trabajar con el
 conjunto de ellos instalados (orquestación) y exportarlos de forma que
-se puedan usar en diferentes instalaciones. La tecnología de
+se puedan desplegar en diferentes servicios en la nube. La tecnología de
 [Docker](https://en.wikipedia.org/wiki/Docker_%28software%29) es
 relativamente reciente, habiendo sido publicado en marzo de 2013;
 actualmente está sufriendo una gran expansión, sobre todo por su uso
@@ -297,6 +297,8 @@ Primero, se ejecuta como un servicio
 ```
 sudo docker -d &
 ```
+> En las últimas instalaciones se activa este servicio durante la
+> instalación.
 
 La línea de órdenes de docker conectará con este daemon, que mantendrá
 el estado de docker y demás. Cada una de las órdenes se ejecutará
@@ -448,8 +450,118 @@ commit.
 
 </div>
 
-Finalmente, `docker` tiene capacidades de provisionamiento similares a
-otros [sistemas (tales como Vagrant, que se verá más adelante](Gestion_de_configuraciones.md) usando
+## Diseñando infraestructura virtual usando Docker: Dockerfiles
+
+Se pueden construir contenedores más complejos. Una funcionalidad interesante
+de los contenedores es la posibilidad de usarlos como *sustitutos* de
+una orden, de forma que sea mucho más fácil trabajar con alguna
+configuración específica de una aplicación o de un lenguaje de
+programación determinado. 
+
+Por
+ejemplo,
+[esta, llamada `alpine-perl6`](https://hub.docker.com/r/jjmerelo/alpine-perl6/) que
+se puede usar en lugar del intérprete de Perl6 y usa como base la
+distro ligera Alpine:
+
+~~~
+FROM alpine:latest
+MAINTAINER JJ Merelo <jjmerelo@GMail.com>
+WORKDIR /root
+ENTRYPOINT ["perl6"]
+
+#Basic setup
+RUN apk update
+RUN apk upgrade
+
+#Add basic programs
+RUN apk add gcc git linux-headers make musl-dev perl
+
+#Download and install rakudo
+RUN git clone https://github.com/tadzik/rakudobrew ~/.rakudobrew
+RUN echo 'export PATH=~/.rakudobrew/bin:$PATH' >> /etc/profile
+RUN echo 'eval "$(/root/.rakudobrew/bin/rakudobrew init -)"' >> /etc/profile
+ENV PATH="/root/.rakudobrew/bin:${PATH}"
+RUN rakudobrew init
+
+#Build moar
+RUN rakudobrew build moar
+
+#Build other utilities
+RUN rakudobrew build panda
+RUN panda install Linenoise
+
+#Mount point
+RUN mkdir /app
+VOLUME /app
+~~~
+
+Como ya hemos visto anteriormente, usa `apk`, la orden de Alpine para
+instalar paquetes e instala lo necesario para que eche a andar el
+gestor de intérpretes de Perl6 llamado `rakudobrew`. Este gestor tarda
+un buen rato, hasta minutos, en construir el intérprete a través de
+diferentes fases de compilación, por eso este contenedor sustituye eso
+por la simple descarga del mismo. Instala además alguna utilidad
+relativamente común, pero lo que lo hace trabajar "como" el intérprete
+es la orden `ENTRYPOINT ["perl6"]`. `ENTRYPOINT` se usa para señalar
+a qué orden se va a concatenar el resto de los argumentos en la línea
+de órdenes, en este caso, tratándose del intérprete de Perl 6, se
+comportará exactamente como él. Para que esto funcione también se ha
+definido una variable de entorno en:
+
+	ENV PATH="/root/.rakudobrew/bin:${PATH}"
+
+que añade al `PATH` el directorio donde se encuentra. Con estas dos
+características se puede ejecutar el contenedor con:
+
+    sudo docker run -t jjmerelo/alpine-perl6 -e "say π  - 4 * ([+]  <1 -1> <</<<  (1,3,5,7,9...10000))  "
+
+Si tuviéramos perl6 instalado en local, se podría escribir
+directamente 
+
+	perl6 -e "say π  - 4 * ([+]  <1 -1> <</<<  (1,3,5,7,9...10000))  "
+	
+o algún
+otro
+[*one-liner* de Perl6](https://gist.github.com/JJ/9953ba0a98800fed205eaae5b5a6410a). 
+
+En caso de que se trate de un servicio o algún otro tipo de programa
+de ejecución continua, se puede usar directamente `CMD`. En este caso,
+`ENTRYPOINT` da más flexibilidad e incluso de puede evitar usando 
+
+	sudo docker run -it --entrypoint "sh -l -c" jjmerelo/alpine-perl6
+	
+que accederá directamente a la línea de órdenes, en este caso
+`busybox`, que es el *shell* que provee Alpine. 
+
+Por otro lado, otra característica que tiene este contenedor es que, a
+través de `VOLUME`, hemos creado un directorio sobre el que podemos
+*montar* un directorio externo, tal como hacemos aquí:
+
+```
+sudo docker run --rm -t -v `pwd`:/app  \
+	    jjmerelo/alpine-perl6 /app/horadam.p6 100 3 7 0.25 0.33
+``` 
+
+En realidad, usando `-v` se puede montar cualquier directorio externo
+en cualquier directorio interno. `VOLUME` únicamente *marca* un
+directorio específico para ese tipo de labor, de forma que se pueda
+usar de forma genérica para interaccionar con el contenedor a través
+de ficheros externos o para *copiar* (en realidad, simplemente hacer
+accesibles) estos ficheros al contenedor. En el caso anterior,
+podíamos haber sustituido `/app` en los dos lugares donde aparece por
+cualquier otro valor y habría funcionado igualmente. 
+
+En este caso, además, usamos `--rm` para borrar el contenedor una vez
+se haya usado y `-t` en vez de `-it` para indicar que sólo estamos
+interesados en que se asigne un terminal y la salida del mismo, no
+vamos a interaccionar con él. 
+
+
+## Provisión de contenedores docker con herramientas estándar
+
+`docker` tiene capacidades de provisionamiento similares a
+otros [sistemas (tales como Vagrant](Gestion_de_configuraciones) usando
 [*Dockerfiles*](https://docs.docker.com/engine/reference/builder/). Por
 ejemplo,
 [se puede crear fácilmente un Dockerfile para instalar node.js con el módulo express](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/). 
