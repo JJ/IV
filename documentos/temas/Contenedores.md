@@ -104,7 +104,14 @@ espacios de nombres y grupos de control. `lxc` es la solución de
 creación de contenedores más fácil de usar hoy en día en Linux.
 
 <div class='ejercicios' markdown="1">
-Instala LXC en tu versión de Linux favorita. Normalmente la versión en desarrollo, disponible tanto en [GitHub](http://github.com/lxc/lxc) como en el [sitio web](http://linuxcontainers.org) está bastante más avanzada; para evitar problemas sobre todo con las herramientas que vamos a ver más adelante, conviene que te instales la última versión y si es posible una igual o mayor a la 1.0.
+
+Instala LXC en tu versión de Linux favorita. Normalmente la versión en
+desarrollo, disponible tanto en [GitHub](http://github.com/lxc/lxc)
+como en el [sitio web](http://linuxcontainers.org) está bastante más
+avanzada; para evitar problemas sobre todo con las herramientas que
+vamos a ver más adelante, conviene que te instales la última versión y
+si es posible una igual o mayor a la 1.0. 
+
 </div>
 
 Esta virtualización *ligera* tiene, entre otras ventajas, una
@@ -209,14 +216,14 @@ existentes para que vaya todo rápidamente.
 
 <div class='ejercicios' markdown='1'>
 
-1. Crear y ejecutar un contenedor basado en Debian.
-
-2. Crear y ejecutar un contenedor basado en otra distribución, tal
+Crear y ejecutar un contenedor basado en tu distribución y otro basado en otra distribución, tal
 como Fedora. *Nota* En general, crear un contenedor basado en *tu*
-distribución y otro basado en otra que no sea la tuya.  Fedora, al
-parecer, tiene problemas si estás en Ubuntu 13.04 o superior, así que
-en tal caso usa cualquier otra distro. Por ejemplo,
-[Óscar Zafra ha logrado instalar Gentoo usando un script descargado desde su sitio, como indica en este comentario en el issue](https://github.com/IV-GII/GII-2013/issues/87#issuecomment-28639976). 
+distribución y otro basado en otra que no sea la tuya.  
+
+>Fedora, al
+>parecer, tiene problemas si estás en Ubuntu 13.04 o superior, así que
+>en tal caso usa cualquier otra distro. Por ejemplo,
+>[Óscar Zafra ha logrado instalar Gentoo usando un script descargado desde su sitio, como indica en este comentario en el issue](https://github.com/IV-GII/GII-2013/issues/87#issuecomment-28639976). 
 
 </div>
 
@@ -248,13 +255,6 @@ que se use de forma habitual en proveedores de infraestructuras
 virtuales. El hecho de que se virtualicen los recursos también implica
 que haya una diferencia en las prestaciones, que puede ser apreciable
 en ciertas circunstancias.
-
-<div class='ejercicios' markdown='1'>
-
-1. Comparar las prestaciones de un servidor web en una jaula y el
-mismo servidor en un contenedor. Usar nginx.
-
-</div>
 
 ## Gestión de contenedores con `docker`
 
