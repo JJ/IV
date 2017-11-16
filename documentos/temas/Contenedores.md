@@ -608,7 +608,9 @@ sudo docker run -p 80:8000 -it --rm minick/mitag
 ```
 
 donde `minick/mitag` es nuestro prefijo y tag elegidos para este caso
-en particular.
+en particular. Este contenedor, por ejemplo, está alojado en Docker
+Hub como
+[`jjmerelo/tests-python`](https://hub.docker.com/r/jjmerelo/tests-python/). 
 
 <div class='ejercicios' markdown='1'>
 
@@ -625,7 +627,9 @@ subir imágenes desde la línea de órdenes o bien dar de altas
 repositorios para que se *construya* una nueva imagen Docker cada vez
 que se haga pull a un repositorio en GitHub. Aparte de dejar
 disponibles herramientas útiles, Docker Hub también sirve para alojar
-imágenes que queramos desplegar en algún otro servicio.
+imágenes que queramos desplegar en algún otro servicio. Se pueden
+subir todas las imágenes públicas que se desee, aunque hay un servicio
+de pago que permite tener imágenes privadas. 
 
 Dado que Docker es simplemente una herramienta que se puede desplegar
 en cualquier sistema operativo, desplegar contenedores es tan sencillo
