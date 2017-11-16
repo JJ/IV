@@ -415,7 +415,7 @@ pero hay que usar el ID largo que se obtiene dando la orden de esta
 forma
 
 ```
-sudo docker images -notrunc
+sudo docker images --no-trunc
 ```
 
 Para entrar en ese contenedor tienes que averiguar qué IP está usando
