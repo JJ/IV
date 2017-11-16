@@ -402,14 +402,14 @@ sudo docker run -i -t ubuntu /bin/bash
 
 que [indica](https://docs.docker.com/engine/reference/commandline/cli/) que
 se está creando un seudo-terminal (`-t`) y se está ejecutando el
-comando interactivamente (`-i`). A partir de ahí sale la línea de
+comando interactivamente (`-i`); estad dos opciones se pueden unir en `-it`. A partir de ahí sale la línea de
 órdenes, con privilegios de superusuario, y podemos trabajar con la
 máquina e instalar lo que se nos ocurra.
 
 <div class='ejercicios' markdown='1'>
 
-Crear un usuario propio e instalar nginx en el contenedor creado de
-esta forma.
+Crear un usuario propio e instalar alguna aplicación tal como `nginx` en el contenedor creado de
+esta forma, usando las órdenes propias del sistema operativo con el que se haya inicializado el contenedor. 
 
 </div>
 
@@ -593,9 +593,21 @@ CMD [ "hug",  "-p 80", "-f","hugitos.py" ]
 EXPOSE 80
 ```
 
+En este caso estamos usando `FROM python:3`, la imagen *oficial* de
+python mantenida por el mismo equipo que crea Python. El usar imágenes
+oficiales de un lenguaje es mucho más conveniente que usar la de un
+sistema operativo y posteriormente instalar el lenguaje y cualquier
+otra cosa que necesite; en este caso, la imagen lleva también
+`pip`. Para algunas bibliotecas puede haber también imágenes
+oficiales; siempre nos ahorrará trabajo usar esas imágenes, sean
+oficiales o no, porque en muchos casos están optimizadas con sólo las
+partes del sistema operativo necesarias y ocupan mucho menos espacio
+siendo, por tanto, más rápidas para descargar. 
+
 Aparte de usar las imágenes oficiales para la versión 3 de Python,
 copia todo a el directorio de trabajo definido y finalmente *expone*
-un puerto; este puerto es el puerto de la propia imagen y en caso de
+(usando `EXPOSE`)
+un puerto; este puerto es el puerto del propio contenedor y en caso de
 desplegarse directamente es el que se usará, pero si se está
 ejecutando localmente habrá que probarlo de esta forma
 
