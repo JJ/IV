@@ -613,19 +613,43 @@ desarrollando en el proyecto de la asignatura.
 
 </div>
 
+## Desplegando directamente contenedores.
 
-## Provisión de contenedores docker con herramientas estándar
+Docker tiene un repositorio público de contenedores llamado
+[Docker Hub](https://hub.docker.com). En este repositorio se pueden
+subir imágenes desde la línea de órdenes o bien dar de altas
+repositorios para que se *construya* una nueva imagen Docker cada vez
+que se haga pull a un repositorio en GitHub. Aparte de dejar
+disponibles herramientas útiles, Docker Hub también sirve para alojar
+imágenes que queramos desplegar en algún otro servicio.
 
-`docker` tiene capacidades de provisionamiento similares a
-otros [sistemas (tales como Vagrant](Gestion_de_configuraciones) usando
-[*Dockerfiles*](https://docs.docker.com/engine/reference/builder/). Por
-ejemplo,
-[se puede crear fácilmente un Dockerfile para instalar node.js con el módulo express](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/). 
+Dado que Docker es simplemente una herramienta que se puede desplegar
+en cualquier sistema operativo, desplegar contenedores es tan sencillo
+como simplemente subirlos junto con una imagen que lo tenga
+instalado. Sin embargo, desplegar contenedores es tan común que en los
+últimos años han surgido una serie de
+[servicios de despliegue de contenedores](https://blog.codeship.com/the-shortlist-of-docker-hosting/);
+aparte de los diferentes servicios de *cloud* que ofrecen una opción
+para trabajar con contenedores. Estos servicios permiten desplegar
+directamente o desde GitHub o desde Docker Hub, a partir de imágenes
+públicas o privadas alojadas allí.
+
+Que sepamos, [Now](https://zeit.co) es el único servicio que permite
+despliegues gratuitos simplemente con la restricción de que debe ser
+público el contenedor con los datos que pueda contener.
+
+También se pueden desplegar contenedores directamente en una serie de
+servicios de pago, incluyendo todos los proveedores de cloud y algunos
+específicos como [Quay.io](https://quay.io). Este último permite
+cuenta gratuita de un mes, que se puede usar como prueba. Otros
+servicios específicos como [Dokkur](https://dokkur.com/pricing)
+ofrecen alojamiento económico de contenedores, sin opción gratuita. En
+todo caso, hay muchas opciones que se pueden usar.
 
 <div class='ejercicios' markdown='1'>
 
-Crear una imagen con las herramientas necesarias para el proyecto de la asignatura sobre un
-sistema operativo de tu elección. 
+Desplegar un contenedor en alguno de estos servicios, de prueba
+gratuita o gratuitos. 
 
 </div>
 
