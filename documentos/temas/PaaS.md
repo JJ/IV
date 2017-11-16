@@ -6,8 +6,8 @@ prev: Desarrollo_basado_en_pruebas
 next: Contenedores
 ---
 
-Desplegando aplicaciones en la nube: Uso de PaaS 
-==
+# Desplegando aplicaciones en la nube: Uso de PaaS 
+
 
 <!--@
 prev: Desarrollo_basado_en_pruebas
@@ -38,6 +38,8 @@ tanto de software como de hardware y ponerlos en práctica.
 
 </div>
 
+## Introducción 
+
 >Esta [presentación](http://jj.github.io/pispaas/#/) es un resumen del
 >PaaS y alguna cosa adicional que no está incluida en este tema pero que conviene conocer de todas formas. 
 
@@ -60,8 +62,7 @@ infraestructura si se trata de una aplicación que use los marcos más comunes. 
 pero por otro lado también tiene una parte que es la configuración y
 despliegue de la aplicación en sí y los tests que se vayan a usar. Hay que tener en cuenta que, en general, la definición de la infraestructura depende del PaaS que se use y por eso es bastante menos portable que usar un IaaS. Sin embargo, para un microservicio específico, o para una parte de la aplicación que sea invariable, puede ser bastante útil y conveniente.
 
-Usando un servicio PaaS
------
+## Usando un servicio PaaS
 
 La mayoría de los servicios PaaS están ligados a una *pila* de
 soluciones determinada o a un vendedor determinado, es decir, a una
@@ -647,8 +648,8 @@ por ejemplo. De hecho, incluso en Heroku se puede trabajar también con
 Travis para el despliegue automático, aunque es mucho más simple
 hacerlo con Snap CI como se ha indicado más arriba.
 
-A dónde ir desde aquí
------
+## A dónde ir desde aquí
+
 
 En el [siguiente tema](Tecnicas_de_virtualizacion) usaremos
 diferentes técnicas de virtualización para la creación de contenedores
