@@ -8,7 +8,7 @@ next: Desarrollo_basado_en_pruebas
 <div class="objetivos" markdown="1">
 
 
-## Objetivos 
+## Objetivos
 
 ### Cubre los siguientes objetivos de la asignatura
 
@@ -26,11 +26,7 @@ tanto de software como de hardware y ponerlos en práctica.
 
 5. Conocer diferentes tecnologías relacionadas con la virtualización
 (Computación nube, *Cloud computing*, *Utility Computing*, *Software as a Service* o Google
-<<<<<<< HEAD
-AppSpot)
-=======
 AppSpot).
->>>>>>> aed268f5eeffd7d3be2adcbe340be252826e2023
 
 6. Conocer el concepto de software libre y su importancia dentro de la
 computación nube.
@@ -68,14 +64,8 @@ A partir de esto, un *recurso en la nube* es aquel al que se puede
 acceder *bajo demanda*, que es *escalable* y que, desde el punto de
 vista del usuario, se *facture según uso*, no por el hecho de tener acceso.
 
-<<<<<<< HEAD
-El [origen
-  de la palabra](https://en.wikipedia.org/wiki/Cloud_computing#Origin_of_the_term) viene de la tradicional representación de recursos
-  en la red como una nube.
-=======
 El [origen de la palabra](https://en.wikipedia.org/wiki/Cloud_computing#Origin_of_the_term) viene de la tradicional representación de recursos
-  en la red como una nube. 
->>>>>>> aed268f5eeffd7d3be2adcbe340be252826e2023
+  en la red como una nube.
 
 <div class='ejercicios' markdown='1'>
 Consultar en el catálogo de alguna tienda de informática el precio de
@@ -184,36 +174,21 @@ Tecnológicamente la computación nube se basa en el proceso progresivo
 * Simplificación del control y despliegue de recursos: permite usar
    diferentes sistemas operativos y en cada caso el más adecuado para
    la tarea que se requiera.
-<<<<<<< HEAD
 
-* Permite que el *vendor* aproveche mejor el hardware, usando la
-=======
-   
 * Permite que el *vendor* (distribuidor o vendedor con valor añadido) aproveche mejor el hardware, usando la
->>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4
   capacidad para servir a diferentes clientes a lo largo del día o de
   la semana y creando tanta infraestructura virtual como la física
   pueda soportar. Esto también reduce la cantidad de energía consumida.
 
 * Portabilidad: una máquina virtual se puede mover físicamente de un
     ordenador a otro cuando sea necesario.
-<<<<<<< HEAD
 
-* Ahorro de costes iniciales en un centro de datos frente a una
+* Ahorro de costes de arranque en un centro de datos frente a una
       instalación tradicional, aunque eventualmente algunos negocios puedan optar, si tienen un uso intensivo y regular, en volver a ella.
 
 Todas estas ventajas hacen que,
-	  [ya en el año 2013, más de la mitad de los negocios americanos usan infraestructura virtual](http://www.forbes.com/sites/reuvencohen/2013/04/16/the-cloud-hits-the-mainstream-more-than-half-of-u-s-businesses-now-use-cloud-computing/).
+	  [ya en el año 2013, más de la mitad de los negocios americanos usan infraestructura virtual](https://www.forbes.com/sites/reuvencohen/2013/04/16/the-cloud-hits-the-mainstream-more-than-half-of-u-s-businesses-now-use-cloud-computing/).
 
-=======
-	
-* Ahorro de costes de arranque en un centro de datos frente a una
-      instalación tradicional, aunque eventualmente algunos negocios puedan optar, si tienen un uso intensivo y regular, en volver a ella. 
-	  
-Todas estas ventajas hacen que,
-	  [ya en el año 2013, más de la mitad de los negocios americanos usan infraestructura virtual](https://www.forbes.com/sites/reuvencohen/2013/04/16/the-cloud-hits-the-mainstream-more-than-half-of-u-s-businesses-now-use-cloud-computing/). 
-  
->>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4
 <div class='ejercicios' markdown="1">
 Usando las tablas de precios de servicios de alojamiento en Internet
 "clásicos", es decir, que ofrezcan *Virtual Private Servers* o
@@ -249,20 +224,11 @@ virtual *invitado*.
   tal como
   [reescritura binaria y *ensombrecimiento* de estructuras de datos](https://en.wikipedia.org/wiki/X86_virtualization). La
   mayoría de los procesadores modernos de Intel y AMD tienen este tipo
-<<<<<<< HEAD
-  de soporte.
-
-* La
-   [virtualización parcial](https://en.wikipedia.org/wiki/Hardware_virtualization#Partial_virtualization)
-   sólo virtualiza algún recurso: la memoria, por ejemplo.
-
-=======
   de soporte. A veces, con soporte de hardware, se
   puede
   [virtualizar algún recurso](https://en.wikipedia.org/wiki/Hardware-assisted_virtualization),
-  tal como la memoria. 
-   
->>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4
+  tal como la memoria.
+
 * La
   [paravirtualización](https://en.wikipedia.org/wiki/Paravirtualization)
   requiere modificación de los sistemas operativos    
@@ -301,9 +267,9 @@ los mismos.
   administrador. Esta virtualización de aplicaciones, aunque se puede
   usar para desplegarlas en infraestructura virtual, en realidad está
   fuera de los conceptos de infraestructura cloud que son la clave de
-  esta asignatura. 
-  
-  
+  esta asignatura.
+
+
 *  La *contenedorización* de aplicaciones va un poco más allá,
 empaquetando un entorno de ejecución completo de una o varias
 aplicaciones o servicios (aunque se aconseja que sea sólo uno) y aislándolo del resto
@@ -315,7 +281,7 @@ es una aplicación que permite crear fácilmente aplicaciones
 *contenidas* desde línea de órdenes para su uso en cualquier tipo de
 infraestructura virtual. A bajo nivel, la contenedorización es en
 realidad un sistema de aislamiento de aplicaciones que permite crear
-seudo-máquinas virtuales de *usar y tirar*. 
+seudo-máquinas virtuales de *usar y tirar*.
 
 * La *virtualización de entornos de desarrollo* es una práctica
 habitual en lenguajes de scripting tales como Perl, Python o Ruby. Se
@@ -326,29 +292,11 @@ aplicación en diferentes versiones con una sola orden. `virtualenv`, `perlbrew`
 `rbenv` o `RVM` son diferentes aplicaciones que permiten realizarlo
 para diferentes lenguajes.
 
-<<<<<<< HEAD
-<div class='ejercicios' markdown="1">
-1. [¿Qué tipo de virtualización usarías en cada caso? Comentar en el foro](https://github.com/JJ/IV16-17/issues/1)
-
-2. Crear un programa simple en cualquier lenguaje interpretado para
-Linux, empaquetarlo con CDE y probarlo en diferentes distribuciones.
-</div>
-
-En realidad, la *contenedorización* de aplicaciones puede usar las
-técnicas que se explican en el resto de la asignatura; de hecho, se
-pueden crear *paquetes* que permiten ejecutar una aplicación con todas
-las dependencias necesarias. Por ejemplo, [*docker*](https://www.docker.com)
-es una aplicación que permite crear fácilmente aplicaciones
-*contenidas* desde línea de órdenes para su uso en cualquier tipo de
-contenedor, desde simples contenedores Linux hasta máquinas
-virtuales.
-=======
 En general, en esta asignatura hablaremos, sobre todo, de
 virtualización plena, aunque en realidad lo interesante de la
 infraestructura virtual es poder definir por software los recursos que
 se van a usar para desplegar una aplicación, independientemente de la
-tecnología que se use. 
->>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4
+tecnología que se use.
 
 
 Virtualización a nivel de *hardware*
@@ -365,13 +313,9 @@ algunos casos, esta tecnología está desactivada en la BIOS, por lo que
 habrá que comprobar si está activada o no en nuestro caso
 particular. Para hacerlo se usa este comando en Linux:
 
-<<<<<<< HEAD
-    egrep '^flags.*(vmx|svm)' /proc/cpuinfo
-=======
 ```
 egrep '^flags.*(vmx|svm)' /proc/cpuinfo
 ```
->>>>>>> aed268f5eeffd7d3be2adcbe340be252826e2023
 
 `/proc/cpuinfo` es el fichero del sistema de ficheros virtual `/proc`
 que da acceso mediante "ficheros" a las estructuras de datos del
@@ -461,7 +405,7 @@ que describir en un lenguaje de alto nivel específico de la plataforma
 o genérico para cualquier plataforma qué se quiere ejecutar y cómo es
 el flujo de datos en la ejecución; todas las tareas de asignación de
 recursos y escalado de los mismos es gestionado por la propia
-plataforma. 
+plataforma.
 
 
 Hay especialmente dos servicios que han
@@ -483,7 +427,7 @@ capas anteriores
   servicio, una ventaja que no poseen ni las máquinas virtuales ni las
   plataformas como servicio que, de hecho, ahora usan también
   contenedores.
-  
+
 * *Funciones como servicio* dentro de lo que se ha venido en
   llamar
   [*serverless*](https://en.wikipedia.org/wiki/Serverless_computing),
@@ -495,14 +439,14 @@ capas anteriores
   milisegundos. Amazon Lambda o Google o Azure Functions son los
   nombres de los productos comerciales, que cuentan con marcos libres
   como [OpenWhisk](https://en.wikipedia.org/wiki/Bluemix).
-  
+
 En general, estos dos servicios necesitan a su vez de otros productos
 en la nube, especialmente definición de redes virtuales y diferentes
-tipos de almacenes de datos y de canales de comunicación entre ellos. 
+tipos de almacenes de datos y de canales de comunicación entre ellos.
 
 <div class='ejercicios' markdown="1">
 1. Darse de alta en servicios de nube usando ofertas gratuitas o
-   cupones que pueda proporcionar el profesor. 
+   cupones que pueda proporcionar el profesor.
 
 </div>
 
@@ -527,21 +471,17 @@ recursos disponible, puede acceder al despliegue de sus aplicaciones
 en la nube, y de hecho así es. Otros sistemas cloud
 son
 [Eucalyptus y OpenNebula](https://www.researchgate.net/publication/303838237_Cloud_Computing_Comparative_Study_-_OpenStack_vs_OpenNebula),
-pero no tienen una comunidad tan activa como este. 
+pero no tienen una comunidad tan activa como este.
 
 <div class='ejercicios' markdown="1">
 1. Darse de alta en una web que permita hacer pruebas con alguno de
-   los sistemas de gestión de nube anteriores. 
+   los sistemas de gestión de nube anteriores.
 
 </div>
 
 A dónde ir desde aquí
 -----
 
-<<<<<<< HEAD
-Antes de continuar es [imprescindible que aprendas y configures `git`. Empieza por aquí](http://mini-git.github.io). En el temario se verá a continuación [los ciclos de desarrollo modernos usando desarrollo basado en pruebas, *test-driven development*, TDD](Desarrollo_basado_en_pruebas.md), pero se puede salar direcamente al [tema dedicado a las plataformas como servicio](PaaS.md) veremos como usarlos. Previamente habrá que [realizar la
-práctica correspondiente a esta materia](../proyecto/1.Infraestructura.md).
-=======
 Antes de continuar (y, de hecho, antes de empezar) es
 [imprescindible que aprendas y configures `git`. Empieza por aquí](http://mini-git.github.io). En
 el temario se verá a
@@ -549,5 +489,4 @@ continuación
 [los ciclos de desarrollo modernos usando desarrollo basado en pruebas, *test-driven development*, TDD](Desarrollo_basado_en_pruebas.md),
 pero se puede salar directamente
 al [tema dedicado a las plataformas como servicio](PaaS.md) veremos
-como usarlos. Previamente habrá que [realizar la práctica correspondiente a esta materia](../proyecto/0.Repositorio.md). 
->>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4
+como usarlos. Previamente habrá que [realizar la práctica correspondiente a esta materia](../proyecto/0.Repositorio.md).

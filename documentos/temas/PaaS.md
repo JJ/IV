@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-Creando aplicaciones en la nube: Uso de PaaS
-=======
-Desplegando aplicaciones en la nube: Uso de PaaS 
->>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4
-==
+# Desplegando aplicaciones en la nube: Uso de PaaS
+
 
 <!--@
 prev: Desarrollo_basado_en_pruebas
@@ -13,6 +9,7 @@ next: Contenedores
 <div class="objetivos" markdown="1">
 
 <h2>Objetivos</h2>
+
 
 <h3>Cubre los siguientes objetivos de la asignatura</h3>
 
@@ -33,10 +30,12 @@ tanto de software como de hardware y ponerlos en práctica.
 
 </div>
 
->Esta [presentación](http://jj.github.io/pispaas/#/) es un resumen del
->PaaS y alguna cosa adicional que no está incluida en este tema pero que conviene conocer de todas formas. 
+## Introducción
 
-Cuando uno quiere desplegar una aplicación y tener parte del trabajo de instalación ya hecho, o al menos preparado 
+>Esta [presentación](http://jj.github.io/pispaas/#/) es un resumen del
+>PaaS y alguna cosa adicional que no está incluida en este tema pero que conviene conocer de todas formas.
+
+Cuando uno quiere desplegar una aplicación y tener parte del trabajo de instalación ya hecho, o al menos preparado
 para hacerse con la pulsación de un botón, a la vez que tiene
 flexibilidad para trabajar con marcos de aplicaciones más allá de lo
 que ofrece programar *plugins* (como en el *SaaS*), necesita un
@@ -53,14 +52,9 @@ superusuario. Pero, por otro lado, ofrece la comodidad de tener que
 concentrarse sólo en la aplicación en sí y no en la
 infraestructura si se trata de una aplicación que use los marcos más comunes. Es, por eso, menos *DevOps* que una solución *IaaS*,
 pero por otro lado también tiene una parte que es la configuración y
-<<<<<<< HEAD
-despliegue de la aplicación en sí y los tests que se vayan a usar.
-=======
 despliegue de la aplicación en sí y los tests que se vayan a usar. Hay que tener en cuenta que, en general, la definición de la infraestructura depende del PaaS que se use y por eso es bastante menos portable que usar un IaaS. Sin embargo, para un microservicio específico, o para una parte de la aplicación que sea invariable, puede ser bastante útil y conveniente.
->>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4
 
-Usando un servicio PaaS
------
+## Usando un servicio PaaS
 
 La mayoría de los servicios PaaS están ligados a una *pila* de
 soluciones determinada o a un vendedor determinado, es decir, a una
@@ -91,11 +85,7 @@ node.js, [igual que nitrous.io](http://blog.blakepatches.me/blog/2013/11/04/comp
 
 [AppAgile](https://cloud.telekom.de/infrastruktur/appagile/)
 trabaja con Perl, por ejemplo, como
-<<<<<<< HEAD
-[Stackato y otras](http://showmetheco.de/articles/2011/8/three-perl-cloud-hosting-platforms.html).
-=======
-[Stackato y otras](http://showmetheco.de/articles/2011/8/three-perl-cloud-hosting-platforms.html). En general, si necesitas otros lenguajes, tendrás que buscar porque la oferta variará. Los más fiables son OpenShift y Heroku, y los que ofrecen más opciones a la hora de elegir lenguajes. 
->>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4
+[Stackato y otras](http://showmetheco.de/articles/2011/8/three-perl-cloud-hosting-platforms.html). En general, si necesitas otros lenguajes, tendrás que buscar porque la oferta variará. Los más fiables son OpenShift y Heroku, y los que ofrecen más opciones a la hora de elegir lenguajes.
 
 <div class='ejercicios' markdown="1">
 
@@ -111,7 +101,7 @@ intensivo, o bien capacidades que no entren en el paquete básico, hay
 que pasar al modelo de pago. Estas máquinas virtuales se denominan
 [*dynos*](https://devcenter.heroku.com/articles/dynos) en Heroku y
 simplemente aplicaciones en OpenShift, aunque los *dynos* son mucho
-más flexibles que las aplicaciones de OpenShift. 
+más flexibles que las aplicaciones de OpenShift.
 
 Para trabajar con estas configuraciones, generalmente, los
 PaaS proporcionan un *toolbelt* o herramientas de línea de órdenes que
@@ -161,7 +151,9 @@ enseñanza.
 
 <div class='ejercicios' markdown="1">
 
-Crear una aplicación en OpenShift o en algún otro PaaS en el que se haya dado uno de alta. Realizar un despliegue de prueba usando alguno de los ejemplos. 
+Crear una aplicación en OpenShift o en algún otro PaaS en el que se
+haya dado uno de alta. Realizar un despliegue de prueba usando alguno
+de los ejemplos incluidos con el PaaS.  
 
 </div>
 
@@ -210,7 +202,7 @@ y
 > especialmente interesados en el despliegue de servicios web. En
 > [esta presentación sobre servicios web en Python](https://jj.github.io/tests-python/ws.html)
 > se da una introducción a los servicios web y cómo desplegarlos
-> usando el micromarco de aplicaciones Hug. 
+> usando el micromarco de aplicaciones Hug.
 
 Se pueden diseñar servicios web en cualquier lenguaje de programación;
 pero en este apartado optaremos inicialmente por Node.js/Javascript;
@@ -220,9 +212,7 @@ es reflejar en el código, de la forma más natural posible, el diseño del
 interfaz REST.
 
 Pero primero hay que instalarlo. Node.js tiene un sistema de gestión de
-
 módulos bastante simple llamado [npm](https://www.npmjs.org/) que ya hemos usado. Tras seguir las instrucciones en el
-
 sitio para instalarlo (o, en el caso de Ubuntu, instalarlo desde
 Synaptic o con `apt-get`), vamos al directorio en el que vayamos a crear
 el programa y escribimos
@@ -369,7 +359,8 @@ Porque esté en la nube no significa que no tengamos que testearla como cualquie
 
 Los tests podemos integrarlos, como es natural, en el mismo marco que el resto de la aplicación, sólo que tendremos que usar librerías de aserciones ligeramente diferentes, en este caso `supertest`
 
-	var request = require('supertest'), 
+```
+	var request = require('supertest'),
 	app = require('../index.js');
 
 	describe( "PUT porra", function() {
@@ -649,15 +640,10 @@ por ejemplo. De hecho, incluso en Heroku se puede trabajar también con
 Travis para el despliegue automático, aunque es mucho más simple
 hacerlo con Snap CI como se ha indicado más arriba.
 
-A dónde ir desde aquí
------
+## A dónde ir desde aquí
+
 
 En el [siguiente tema](Tecnicas_de_virtualizacion.md) usaremos
 diferentes técnicas de virtualización para la creación de contenedores
-<<<<<<< HEAD
-y jaulas que aislan procesos, usuarios y recursos del resto del sistema, creando por tanto máquinas *virtuales*. Previamente habrá que [realizar la práctica correspondiente a esta materia](../practicas/3.PaaS.md).
-=======
 y jaulas que aíslan procesos, usuarios y recursos del resto del sistema, creando por tanto máquinas *virtuales*. Previamente habrá que [realizar la
 práctica correspondiente a esta materia](../proyecto/3.PaaS.md).
-
->>>>>>> 82ff9037346f103e9b1d92321b1648ae110fc8e4
