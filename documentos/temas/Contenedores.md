@@ -264,9 +264,10 @@ contenedores que permite no sólo instalarlos, sino trabajar con el
 conjunto de ellos instalados (orquestación) y exportarlos de forma que
 se puedan desplegar en diferentes servicios en la nube. La tecnología de
 [Docker](https://en.wikipedia.org/wiki/Docker_%28software%29) es
-relativamente reciente, habiendo sido publicado en marzo de 2013;
-actualmente está sufriendo una gran expansión, sobre todo por su uso
-dentro de [CoreOS](http://coreos.com/), un sistema operativo básico
+relativamente reciente, habiendo sido publicada su primera versión en marzo de 2013;
+actualmente está sufriendo una gran expansión que ha hecho que tenga
+soporte en todos los servicios en la nube y que se hayan creado
+sistemas operativos específicos, tales como [CoreOS](http://coreos.com/), un sistema operativo básico
 basado en Linux para despliegue masivo de servidores.
 
 Por lo pronto,
@@ -282,7 +283,8 @@ Instalar docker.
 
 </div>
 
-`docker` permite instalar contenedores y trabajar con
+`docker` permite instalar contenedores, que son conjuntos de procesos
+y sistema de ficheros aislados, y trabajar con
 ellos. Normalmente el ciclo de vida de un contenedor pasa por su
 creación y, más adelante, ejecución de algún tipo de programa, por
 ejemplo de instalación de los servicios que queramos; luego se puede
@@ -305,13 +307,14 @@ el estado de docker y demás. Cada una de las órdenes se ejecutará
 también como superusuario, al tener que contactar con este *daemon*
 usando un socket protegido.
 
-A partir de ahí, podemos crear un contenedor
+A partir de ahí, podemos crear un contenedor descargándolo del
+repositorio oficial
 
 ```
 sudo docker pull ubuntu
 ```
 
-Esta orden descarga un contenedor básico de ubuntu y lo instala. Hay
+Esta orden, `pull`,  descarga un contenedor básico de Ubuntu y lo instala. Hay
 muchas imágenes creadas y se pueden crear y compartir en el sitio web
 de Docker, al estilo de las librerías de Python o los paquetes
 Debian. Se pueden
@@ -331,7 +334,8 @@ adicional, por ejemplo de CentOS.
 </div>
 
 El contenedor tarda un poco en instalarse, mientras se baja o no la
-imagen. Una vez bajada, se pueden empezar a ejecutar comandos. Lo
+imagen; esta imagen se compone de *capas*, por eso se ve cómo se van
+instalando estas capas, a veces simultáneamente. Una vez bajada, se pueden empezar a ejecutar comandos. Lo
 bueno de `docker` es que permite ejecutarlos directamente sin
 necesidad de conectarse a la máquina; la gestión de la conexión y
 demás lo hace ello, al modo de Vagrant (lo que veremos más adelante).
@@ -346,7 +350,8 @@ Tras el sudo, hace falta docker; `run` es el comando de docker que
 estamos usando, `ubuntu` es el id de la máquina y finalmente `ls`el
 comando que estamos ejecutando.
 
-La máquina instalada la podemos usar con el nombre del SO, pero cada
+La máquina instalada la podemos usar con el nombre de la imagen con
+que la hayamos descargado, pero cada
 táper tiene un id único que se puede ver con 
 
 ```
@@ -453,7 +458,7 @@ commit.
 ## Diseñando infraestructura virtual usando Docker: Dockerfiles
 
 Se pueden construir contenedores más complejos. Una funcionalidad interesante
-de los contenedores es la posibilidad de usarlos como *sustitutos* de
+de los mismos es la posibilidad de usarlos como *sustitutos* de
 una orden, de forma que sea mucho más fácil trabajar con alguna
 configuración específica de una aplicación o de un lenguaje de
 programación determinado. 
@@ -670,3 +675,7 @@ generación de una máquina virtual. También puedes ir directamente al
 [tema de uso de sistemas](Uso_de_sistemas) en el que se trabajará
 con sistemas de virtualización completa. 
 
+Aunque inicialmente iguales, el
+[tema equivalente de Cloud Computing](https://jj.github.io/CC/documentos/Contenedores)
+ha ido divergiendo y en este momento es más completo en algunos
+aspectos. 
