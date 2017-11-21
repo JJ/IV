@@ -159,7 +159,7 @@ sudo lxc-create -t ubuntu-cloud -n nubecilla
 
 que funciona de forma ligeramente diferente, porque se descarga un
 fichero `.tar.gz` usando `wget` (y tarda también un rato). Podemos
-listar los contenedores que tenemos disponibles con `lxc-list`, aunque
+listar los contenedores que tenemos disponibles con `lxc-ls -f`, aunque
 en este momento cualquier contenedor debería estar en estado
 `STOPPED`.
 
