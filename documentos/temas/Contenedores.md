@@ -79,7 +79,7 @@ sistema operativo que incluyen acceso a recursos, prioridades y
 control de los procesos. Los procesos dentro de un contenedor están
 *aislados* de forma que sólo pueden *ver* los procesos dentro del
 mismo, creando un entorno mucho más seguro que las anteriores
-*jaulas*. Estos [CGROUPS han sido ya vistos en otro tema](Intro_concepto_y_soporte_fisico.md). 
+*jaulas*. Estos [CGROUPS han sido ya vistos en otro tema](Intro_concepto_y_soporte_fisico). 
 
 Dentro de la familia de sistemas operativos Solaris (cuya última
 versión libre se denomina
@@ -159,7 +159,7 @@ sudo lxc-create -t ubuntu-cloud -n nubecilla
 
 que funciona de forma ligeramente diferente, porque se descarga un
 fichero `.tar.gz` usando `wget` (y tarda también un rato). Podemos
-listar los contenedores que tenemos disponibles con `lxc-list`, aunque
+listar los contenedores que tenemos disponibles con `lxc-ls -f`, aunque
 en este momento cualquier contenedor debería estar en estado
 `STOPPED`.
 
@@ -264,9 +264,10 @@ contenedores que permite no sólo instalarlos, sino trabajar con el
 conjunto de ellos instalados (orquestación) y exportarlos de forma que
 se puedan desplegar en diferentes servicios en la nube. La tecnología de
 [Docker](https://en.wikipedia.org/wiki/Docker_%28software%29) es
-relativamente reciente, habiendo sido publicado en marzo de 2013;
-actualmente está sufriendo una gran expansión, sobre todo por su uso
-dentro de [CoreOS](http://coreos.com/), un sistema operativo básico
+relativamente reciente, habiendo sido publicada su primera versión en marzo de 2013;
+actualmente está sufriendo una gran expansión que ha hecho que tenga
+soporte en todos los servicios en la nube y que se hayan creado
+sistemas operativos específicos, tales como [CoreOS](http://coreos.com/), un sistema operativo básico
 basado en Linux para despliegue masivo de servidores.
 
 Por lo pronto,
@@ -282,7 +283,8 @@ Instalar docker.
 
 </div>
 
-`docker` permite instalar contenedores y trabajar con
+`docker` permite instalar contenedores, que son conjuntos de procesos
+y sistema de ficheros aislados, y trabajar con
 ellos. Normalmente el ciclo de vida de un contenedor pasa por su
 creación y, más adelante, ejecución de algún tipo de programa, por
 ejemplo de instalación de los servicios que queramos; luego se puede
@@ -305,13 +307,14 @@ el estado de docker y demás. Cada una de las órdenes se ejecutará
 también como superusuario, al tener que contactar con este *daemon*
 usando un socket protegido.
 
-A partir de ahí, podemos crear un contenedor
+A partir de ahí, podemos crear un contenedor descargándolo del
+repositorio oficial
 
 ```
 sudo docker pull ubuntu
 ```
 
-Esta orden descarga un contenedor básico de ubuntu y lo instala. Hay
+Esta orden, `pull`,  descarga un contenedor básico de Ubuntu y lo instala. Hay
 muchas imágenes creadas y se pueden crear y compartir en el sitio web
 de Docker, al estilo de las librerías de Python o los paquetes
 Debian. Se pueden
@@ -331,7 +334,8 @@ adicional, por ejemplo de CentOS.
 </div>
 
 El contenedor tarda un poco en instalarse, mientras se baja o no la
-imagen. Una vez bajada, se pueden empezar a ejecutar comandos. Lo
+imagen; esta imagen se compone de *capas*, por eso se ve cómo se van
+instalando estas capas, a veces simultáneamente. Una vez bajada, se pueden empezar a ejecutar comandos. Lo
 bueno de `docker` es que permite ejecutarlos directamente sin
 necesidad de conectarse a la máquina; la gestión de la conexión y
 demás lo hace ello, al modo de Vagrant (lo que veremos más adelante).
@@ -346,7 +350,8 @@ Tras el sudo, hace falta docker; `run` es el comando de docker que
 estamos usando, `ubuntu` es el id de la máquina y finalmente `ls`el
 comando que estamos ejecutando.
 
-La máquina instalada la podemos usar con el nombre del SO, pero cada
+La máquina instalada la podemos usar con el nombre de la imagen con
+que la hayamos descargado, pero cada
 táper tiene un id único que se puede ver con 
 
 ```
@@ -394,14 +399,14 @@ sudo docker run -i -t ubuntu /bin/bash
 
 que [indica](https://docs.docker.com/engine/reference/commandline/cli/) que
 se está creando un seudo-terminal (`-t`) y se está ejecutando el
-comando interactivamente (`-i`). A partir de ahí sale la línea de
+comando interactivamente (`-i`); estad dos opciones se pueden unir en `-it`. A partir de ahí sale la línea de
 órdenes, con privilegios de superusuario, y podemos trabajar con la
 máquina e instalar lo que se nos ocurra.
 
 <div class='ejercicios' markdown='1'>
 
-Crear un usuario propio e instalar nginx en el contenedor creado de
-esta forma.
+Crear un usuario propio e instalar alguna aplicación tal como `nginx` en el contenedor creado de
+esta forma, usando las órdenes propias del sistema operativo con el que se haya inicializado el contenedor. 
 
 </div>
 
@@ -415,7 +420,7 @@ pero hay que usar el ID largo que se obtiene dando la orden de esta
 forma
 
 ```
-sudo docker images -notrunc
+sudo docker images --no-trunc
 ```
 
 Para entrar en ese contenedor tienes que averiguar qué IP está usando
@@ -453,7 +458,7 @@ commit.
 ## Diseñando infraestructura virtual usando Docker: Dockerfiles
 
 Se pueden construir contenedores más complejos. Una funcionalidad interesante
-de los contenedores es la posibilidad de usarlos como *sustitutos* de
+de los mismos es la posibilidad de usarlos como *sustitutos* de
 una orden, de forma que sea mucho más fácil trabajar con alguna
 configuración específica de una aplicación o de un lenguaje de
 programación determinado. 
@@ -585,9 +590,21 @@ CMD [ "hug",  "-p 80", "-f","hugitos.py" ]
 EXPOSE 80
 ```
 
+En este caso estamos usando `FROM python:3`, la imagen *oficial* de
+python mantenida por el mismo equipo que crea Python. El usar imágenes
+oficiales de un lenguaje es mucho más conveniente que usar la de un
+sistema operativo y posteriormente instalar el lenguaje y cualquier
+otra cosa que necesite; en este caso, la imagen lleva también
+`pip`. Para algunas bibliotecas puede haber también imágenes
+oficiales; siempre nos ahorrará trabajo usar esas imágenes, sean
+oficiales o no, porque en muchos casos están optimizadas con sólo las
+partes del sistema operativo necesarias y ocupan mucho menos espacio
+siendo, por tanto, más rápidas para descargar. 
+
 Aparte de usar las imágenes oficiales para la versión 3 de Python,
 copia todo a el directorio de trabajo definido y finalmente *expone*
-un puerto; este puerto es el puerto de la propia imagen y en caso de
+(usando `EXPOSE`)
+un puerto; este puerto es el puerto del propio contenedor y en caso de
 desplegarse directamente es el que se usará, pero si se está
 ejecutando localmente habrá que probarlo de esta forma
 
@@ -596,7 +613,9 @@ sudo docker run -p 80:8000 -it --rm minick/mitag
 ```
 
 donde `minick/mitag` es nuestro prefijo y tag elegidos para este caso
-en particular.
+en particular. Este contenedor, por ejemplo, está alojado en Docker
+Hub como
+[`jjmerelo/tests-python`](https://hub.docker.com/r/jjmerelo/tests-python/). 
 
 <div class='ejercicios' markdown='1'>
 
@@ -605,28 +624,58 @@ desarrollando en el proyecto de la asignatura.
 
 </div>
 
+## Desplegando directamente contenedores.
 
-## Provisión de contenedores docker con herramientas estándar
+Docker tiene un repositorio público de contenedores llamado
+[Docker Hub](https://hub.docker.com). En este repositorio se pueden
+subir imágenes desde la línea de órdenes o bien dar de altas
+repositorios para que se *construya* una nueva imagen Docker cada vez
+que se haga pull a un repositorio en GitHub. Aparte de dejar
+disponibles herramientas útiles, Docker Hub también sirve para alojar
+imágenes que queramos desplegar en algún otro servicio. Se pueden
+subir todas las imágenes públicas que se desee, aunque hay un servicio
+de pago que permite tener imágenes privadas. 
 
-`docker` tiene capacidades de provisionamiento similares a
-otros [sistemas (tales como Vagrant](Gestion_de_configuraciones) usando
-[*Dockerfiles*](https://docs.docker.com/engine/reference/builder/). Por
-ejemplo,
-[se puede crear fácilmente un Dockerfile para instalar node.js con el módulo express](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/). 
+Dado que Docker es simplemente una herramienta que se puede desplegar
+en cualquier sistema operativo, desplegar contenedores es tan sencillo
+como simplemente subirlos junto con una imagen que lo tenga
+instalado. Sin embargo, desplegar contenedores es tan común que en los
+últimos años han surgido una serie de
+[servicios de despliegue de contenedores](https://blog.codeship.com/the-shortlist-of-docker-hosting/);
+aparte de los diferentes servicios de *cloud* que ofrecen una opción
+para trabajar con contenedores. Estos servicios permiten desplegar
+directamente o desde GitHub o desde Docker Hub, a partir de imágenes
+públicas o privadas alojadas allí.
+
+Que sepamos, [Now](https://zeit.co) es el único servicio que permite
+despliegues gratuitos simplemente con la restricción de que debe ser
+público el contenedor con los datos que pueda contener.
+
+También se pueden desplegar contenedores directamente en una serie de
+servicios de pago, incluyendo todos los proveedores de cloud y algunos
+específicos como [Quay.io](https://quay.io). Este último permite
+cuenta gratuita de un mes, que se puede usar como prueba. Otros
+servicios específicos como [Dokkur](https://dokkur.com/pricing)
+ofrecen alojamiento económico de contenedores, sin opción gratuita. En
+todo caso, hay muchas opciones que se pueden usar.
 
 <div class='ejercicios' markdown='1'>
 
-Crear una imagen con las herramientas necesarias para el proyecto de la asignatura sobre un
-sistema operativo de tu elección. 
+Desplegar un contenedor en alguno de estos servicios, de prueba
+gratuita o gratuitos. 
 
 </div>
 
 ## A dónde ir desde aquí
 
-Primero, hay que [llevar a cabo el hito del proyecto correspondiente a este tema](../proyecto/4.Docker.md).
+Primero, hay que [llevar a cabo el hito del proyecto correspondiente a este tema](../proyecto/4.Docker).
 
 Si te interesa, puedes consultar cómo se [virtualiza el almacenamiento](Almacenamiento) que, en general, es independiente de la
 generación de una máquina virtual. También puedes ir directamente al
-[tema de uso de sistemas](Uso_de_sistemas.md) en el que se trabajará
+[tema de uso de sistemas](Uso_de_sistemas) en el que se trabajará
 con sistemas de virtualización completa. 
 
+Aunque inicialmente iguales, el
+[tema equivalente de Cloud Computing](https://jj.github.io/CC/documentos/Contenedores)
+ha ido divergiendo y en este momento es más completo en algunos
+aspectos. 
