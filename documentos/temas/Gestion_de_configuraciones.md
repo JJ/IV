@@ -591,7 +591,7 @@ Configurar tu máquina virtual usando vagrant con el provisionador
 </div>
 
 Desde Vagrant se puede crear también una
-[caja base](http://docs.vagrantup.com//boxes/base.html) con lo
+[caja base](http://docs.vagrantup.com/boxes/base.html) con lo
 mínimo necesario para poder funcionar, incluyendo el soporte para ssh
 y provisionadores como Chef o Puppet. Se puede crear directamente en
 VirtualBox y usar
