@@ -35,19 +35,18 @@ provisionamiento y monitorización más usados hoy en día.
 Introducción
 ---
 
-Los [contenedores](Contenedores) son un ejemplo de máquinas
-virtuales que ya tienen
-ciertas características de las mismas, como el aislamiento y la gestión
-independiente, que las asemeja a las máquinas virtuales *reales*. En
-un momento determinado puede hacer falta crear una serie de máquinas
-virtuales con características determinadas, por lo que se hace
+Los [contenedores](Contenedores) son un ejemplo de virtualización que ya tienen
+ciertas características de las máquinas virtuales, como el aislamiento y la gestión
+independiente. Pero en general, un contenedor aisla un solo servicio y en arquitecturas de aplicaciones modernas es muchas veces necesario crear máquinas 
+virtuales con características determinadas tales como diferentes sistemas operativos o diferentes características del sistema de ficheros o kernel, por lo que se hace
 necesario usar herramientas para crear y configurar estos
 entornos.
 
 Estas herramientas se denominan, en general,
 [gestores de configuración](https://en.wikipedia.org/wiki/Configuration_management). [Vagrant](https://en.wikipedia.org/wiki/Vagrant_%28software%29)
-es uno de ellos, pero también hay otros: [Chef](http://www.getchef.com/chef/), Salt y Puppet, por
-ejemplo. Todos son libres, pero
+es uno de ellos y se sitúa al nivel más alto, pero también hay otros: [Chef](http://www.getchef.com/chef/), Salt y Puppet, por
+ejemplo, que se pueden usar desde Vagrant pero que también se usan para gestionar configuraciones complejas de sistemas en la nube.
+Todos son libres, pero
 [tienen características específicas](https://en.wikipedia.org/wiki/Comparison_of_open_source_configuration_management_software)
 que hay que tener en cuenta a la hora de elegir uno u otro. En el caso
 específico de
@@ -59,9 +58,7 @@ creación de usuarios y autenticación, de forma que se pueda hacer de
 forma automática y masiva. 
 
 A continuación veremos diferentes ejemplos de sistemas de
-configuración, empezando por Chef. En
-[temas anteriores](Contenedores) hemos visto `Juju`, un ejemplo de
-sistema de configuración también, aunque específico de Ubuntu. 
+configuración, empezando por Chef. 
 
 Usando Chef para provisionamiento
 -----
@@ -91,7 +88,7 @@ Usando Chef para provisionamiento
  </div>
  
  
-En una máquina tipo ubuntu, hay que comenzar instalando los prerrequisitos: Ruby y Ruby
+En una máquina que se haya arrancado con el sistema operativo Ubuntu, hay que comenzar instalando los prerrequisitos: Ruby y Ruby
 Gems, el gestor de librerías, usando tu gestor de paquetes favorito,
 aunque para instalar ruby se aconseja que se usen los gestores de
 configuraciones `rbenv` o `rvm`. Ver la
