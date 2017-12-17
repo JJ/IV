@@ -35,19 +35,18 @@ provisionamiento y monitorización más usados hoy en día.
 Introducción
 ---
 
-Los [contenedores](Contenedores) son un ejemplo de máquinas
-virtuales que ya tienen
-ciertas características de las mismas, como el aislamiento y la gestión
-independiente, que las asemeja a las máquinas virtuales *reales*. En
-un momento determinado puede hacer falta crear una serie de máquinas
-virtuales con características determinadas, por lo que se hace
+Los [contenedores](Contenedores) son un ejemplo de virtualización que ya tienen
+ciertas características de las máquinas virtuales, como el aislamiento y la gestión
+independiente. Pero en general, un contenedor aisla un solo servicio y en arquitecturas de aplicaciones modernas es muchas veces necesario crear máquinas 
+virtuales con características determinadas tales como diferentes sistemas operativos o diferentes características del sistema de ficheros o kernel, por lo que se hace
 necesario usar herramientas para crear y configurar estos
 entornos.
 
 Estas herramientas se denominan, en general,
 [gestores de configuración](https://en.wikipedia.org/wiki/Configuration_management). [Vagrant](https://en.wikipedia.org/wiki/Vagrant_%28software%29)
-es uno de ellos, pero también hay otros: [Chef](http://www.getchef.com/chef/), Salt y Puppet, por
-ejemplo. Todos son libres, pero
+es uno de ellos y se sitúa al nivel más alto, pero también hay otros: [Chef](http://www.getchef.com/chef/), Salt y Puppet, por
+ejemplo, que se pueden usar desde Vagrant pero que también se usan para gestionar configuraciones complejas de sistemas en la nube.
+Todos son libres, pero
 [tienen características específicas](https://en.wikipedia.org/wiki/Comparison_of_open_source_configuration_management_software)
 que hay que tener en cuenta a la hora de elegir uno u otro. En el caso
 específico de
@@ -59,9 +58,7 @@ creación de usuarios y autenticación, de forma que se pueda hacer de
 forma automática y masiva. 
 
 A continuación veremos diferentes ejemplos de sistemas de
-configuración, empezando por Chef. En
-[temas anteriores](Contenedores) hemos visto `Juju`, un ejemplo de
-sistema de configuración también, aunque específico de Ubuntu. 
+configuración, empezando por Chef. 
 
 Usando Chef para provisionamiento
 -----
@@ -83,7 +80,7 @@ Usando Chef para provisionamiento
  a trabajar con Chef-solo en un servidor;
  [este te proporciona una serie de ficheros que puedes usar](http://www.opinionatedprogrammer.com/2011/06/chef-solo-tutorial-managing-a-single-server-with-chef/)
  y
- [este otro es más directo, dando una serie de órdenes](http://www.mechanicalrobotfish.com/blog/2013/01/01/configure-a-server-with-chef-solo-in-five-minutes/). En
+ [este otro es más directo, dando una serie de órdenes](http://www.mechanicalfish.com/blog/2013/01/01/configure-a-server-with-chef-solo-in-five-minutes/). En
  todo caso, se trata básicamente tener acceso a un servidor o máquina
  virtual, instalar una serie de aplicaciones en él y ejecutarlas sobre
  un fichero de configuración
@@ -91,7 +88,7 @@ Usando Chef para provisionamiento
  </div>
  
  
-En una máquina tipo ubuntu, hay que comenzar instalando los prerrequisitos: Ruby y Ruby
+En una máquina que se haya arrancado con el sistema operativo Ubuntu, hay que comenzar instalando los prerrequisitos: Ruby y Ruby
 Gems, el gestor de librerías, usando tu gestor de paquetes favorito,
 aunque para instalar ruby se aconseja que se usen los gestores de
 configuraciones `rbenv` o `rvm`. Ver la
@@ -106,36 +103,44 @@ siempre como
 sudo gem install ohai chef
 ```
 
-[ohai](http://docs.chef.io/ohai.html) acompaña a `chef` y es usado
-desde el mismo para comprobar características del nodo antes de
-ejecutar cualquier receta.
-
-Una [forma más rápida de instalar Chef](http://gettingstartedwithchef.com/first-steps-with-chef.html) es descargarlo directamente desde la página web:
+En [esta página](https://downloads.chef.io/chefdk#ubuntu) indican como
+ descargar Chef para todo tipo de distribuciones. Vamos a usar
+ principalmente `chef-solo`, una herramienta que se tiene que ejecutar
+ desde el ordenador que queramos provisionar. 
+ 
+<div class='note' markdown='1'>
+La forma que se aconseja usar es esta, pero se instala el programa en
+un lugar no estándar, `/opt/chefdk/bin`. Habrá que añadirlo al `PATH`
+o tenerlo en cuenta a la hora de ejecutarlo. 
 
 ```
-curl -L https://www.opscode.com/chef/install.sh | bash
+$ /opt/chefdk/bin/chef-solo --version 
+Chef: 13.4.19
 ```
 
-La última tendrá que ser `sudo bash` en caso de que se quiera instalar
-como administrador (que será lo normal). En todo caso, `chef` debe
-estar instalado en la máquina que vayamos a usar, no sólo en la
-máquina anfitrión. 
+Esta es la versión actual a fecha de octubre de 2017.
 
 <div class='ejercicios' markdown='1'>
 
-Instalar chef en la máquina virtual que vayamos a usar
+Instalar `chef-solo` en la máquina virtual que vayamos a usar
 
 </div>
 
 Una *receta* de Chef
-[consiste en crear una serie de ficheros](http://www.mechanicalrobotfish.com/blog/2013/01/01/configure-a-server-with-chef-solo-in-five-minutes/):
+[consiste en crear una serie de ficheros](http://www.mechanicalfish.net/configure-a-server-with-chef-solo-in-five-minutes/):
 una *lista de ejecución* que especifica qué es lo que se va a
 configurar; esta lista se incluye en un fichero `node.json`, 
 o *recetario* (*cookbook*) que incluye una serie de *recetas* que
 configuran, efectivamente, los recursos y, finalmente, un fichero de
 configuración que dice dónde están los dos ficheros anteriores y
 cualquier otro recursos que haga falta. Estos últimos dos ficheros
-están escritos en Ruby. 
+están escritos en Ruby. La estructura de directorios se puede generar
+[directamente en las últimas versiones](https://docs.chef.io/quick_start.html) con 
+
+```
+chef generate app first_cookbook
+```
+
 
 Vamos a empezar a escribir una recetilla del Chef. Generalmente,
 [escribir una receta es algo más complicado](http://reiddraper.com/first-chef-recipe/),
@@ -164,7 +169,7 @@ pero el nombre de la receta viene determinado por el directorio en el
 que se meta, que podemos crear de un tirón con
 
 ```
-	mkdir -p chef/cookbooks/emacs/recipes
+mkdir -p chef/cookbooks/emacs/recipes
 ```
 
 Este fichero tiene tres partes: instala el paquete `emacs`, crea un
@@ -177,9 +182,9 @@ El siguiente fichero, [`node.json`](../../ejemplos/chef/node.json),
 incluirá una referencia a esta receta
 
 ```
-	{
-		"run_list": [ "recipe[emacs]" ]
-	}
+{
+	"run_list": [ "recipe[emacs]" ]
+}
 ```
 
 Este fichero hace referencia a un recetario, `emacs` y dado que no se
@@ -222,8 +227,9 @@ chef.
 <div class='nota' markdown='1'>
 
 Este
-[curso en video](http://nathenharvey.com/blog/2012/12/06/learning-chef-part-1/)
-te enseña también a trabajar con Chef
+[curso en vídeo](http://nathenharvey.com/blog/2012/12/06/learning-chef-part-1/)
+te enseña también a trabajar con Chef, aunque con la edad que tiene es
+posible que esté un poco obsoleto.
 
 </div>
 
@@ -585,7 +591,7 @@ Configurar tu máquina virtual usando vagrant con el provisionador
 </div>
 
 Desde Vagrant se puede crear también una
-[caja base](http://docs.vagrantup.com//boxes/base.html) con lo
+[caja base](http://docs.vagrantup.com/boxes/base.html) con lo
 mínimo necesario para poder funcionar, incluyendo el soporte para ssh
 y provisionadores como Chef o Puppet. Se puede crear directamente en
 VirtualBox y usar
