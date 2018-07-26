@@ -8,9 +8,9 @@ use File::Copy;
 use v5.16;
 
 my $dir = shift || ".";
-my $previo = shift || "IV-2015-16";
+my $previo = shift || "IV-17-18";
 
-for my $d ( qw( objetivos practicas sesiones ) ) {
+for my $d ( qw( objetivos proyectos sesiones ) ) {
     eval {
 	mkdir("$dir/$d");
     };

@@ -2,12 +2,13 @@
 
 
 Diferentes scripts para crear infraestructura de nuevos repos, por
-ejemplo. Es una vez al año, pero viene bien.
+ejemplo. Es una vez al año, pero viene bien tenerlo ahí.
 
-## `crea-asignatura.pl` 
+## Para crear la estructura dle repo de la asignatura `crea-asignatura.pl` 
 
 Se ejecuta al principio del año para generar los ficheros
-correspondientes. 
+correspondientes. Primero se crea el repo en GitHub. Luego, se cambia
+uno al repo y ...
 
 
 	/path/to/crea-asignatura.pl <este-directorio> <directorio-a-copiar>
