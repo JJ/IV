@@ -15,7 +15,7 @@ Se recuerda a los alumnos que en todas las clases será necesario llevar el port
 Se usará
 [GitHub](http://github.com) para el proyecto cuyos hitos serán considerados "prácticas".
 
-Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas sesiones de clase se irán reflejando en [un repositorio de GitHub; este es el de 2017-2018](https://github.com/JJ/IV-17-18).
+Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas sesiones de clase se irán reflejando en [un repositorio de GitHub; este es el de 2018-2019](https://github.com/JJ/IV-18-19).
 
 En resumen, mi intención es que el alumno al final de la asignatura sea capaz de hacer lo siguiente:
 
@@ -31,7 +31,7 @@ Temario - Programa de la asignatura
 Los materiales de la asignatura están enlazados desde aquí y
 disponibles con una licencia libre. Los fuentes de los mismos están en
 [GitHub](http://github.com/JJ/IV). La
-[temporización de la asignatura y los objetivos de cada sesión figuran en la bitácora de clase](https://github.com/JJ/IV16-17/blob/master/sesiones/README.md).
+[temporización de la asignatura y los objetivos de cada sesión figuran en la bitácora de clase](https://github.com/JJ/IV18-19/blob/master/sesiones/README.md).
 
 1. [Introducción: conceptos y soporte físico](documentos/temas/Intro_concepto_y_soporte_fisico.md).
 2. [Iniciación a DevOps: desarrollo basado en pruebas](documentos/temas/Desarrollo_basado_en_pruebas.md).
@@ -73,7 +73,7 @@ Tutorías virtuales
 ----
 
 Las tutorías virtuales se realizarán preferiblemente a través de
-[la plataforma de trabajo colaborativo GitHub](https://github.com/JJ/IV-17-18/issues?state=open) y
+[la plataforma de trabajo colaborativo GitHub](https://github.com/JJ/IV-18-19/issues?state=open) y
 a través del grupo de Telegram; habrá que solicitar al profesor ser
 añadido. Finalmente, el profesor está disponible por Telegram, Skype y
 Google Hangouts (en todos los casos: `jjmerelo`).
@@ -84,7 +84,7 @@ Criterios de evaluación
 Los
 [criterios de evaluación figuran en la ficha de la asignatura en la web del grado](http://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/espti/infraestructuravirtual),
 y
-[se especifican en el repositorio de la clase](https://github.com/JJ/IV-17-18/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n.md).
+[se especifican en el repositorio de la clase](https://github.com/JJ/IV-18-19/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n.md).
 
 ## Convocatoria extraordinaria (en julio)
 
