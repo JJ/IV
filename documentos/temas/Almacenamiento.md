@@ -66,7 +66,7 @@ Objetivos
  
 Los
 [volúmenes lógicos](http://en.wikipedia.org/wiki/Logical_volume_management)
-son una tipo de recurso virtual habitual en los sistemas operativos.  Un
+son un tipo de recurso virtual habitual en los sistemas operativos.  Un
 volumen lógico crea un LE (*logical extent*) a partir de uno PE o
 varios en el caso de que se haga *mirroring* transparente. Los LEs se
 agrupan en volúmenes lógicos, que aparecen desde el punto de vista del
@@ -103,7 +103,7 @@ Sistemas de ficheros en espacio de usuario
 -----------------------
 
 Los
-[FUSE o sistemas de ficheros en espacio de usuario](http://en.wikipedia.org/wiki/Thin_provisioning)
+[FUSE o sistemas de ficheros en espacio de usuario (*filesystems in userspace*)](http://en.wikipedia.org/wiki/Thin_provisioning)
 son *drivers* que permiten proyectar sobre el sistema local recursos
 remotos como si se trataran de sistemas de ficheros locales y sin
 necesidad de usar órdenes privilegiadas para montarlos. Un ejemplo muy
