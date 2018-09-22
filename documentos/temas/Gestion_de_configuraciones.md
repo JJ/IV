@@ -57,7 +57,7 @@ Usando Chef para provisionamiento
 -----
 
  [Chef](http://www.chef.io/chef/) es una herramienta que, en
- general, se usa en un servidor que se encarga no sólo de gestionar la
+ general, se usa en un servidor que se encarga no solo de gestionar la
  configuración, sino también las versiones. Empezar a usarlo
  [no es trivial](https://docs.chef.io).
  Sin embargo, como

@@ -46,10 +46,10 @@ datos, un marco concreto para trabajar (tal como Django o Ruby on
 Rails) y, adicionalmente, un servidor web.
 
 El elegir un PaaS conlleva una cierta falta de flexibilidad: se pueden usar las
-pilas que proporciona en servicio y el usuario sólo puede subir su
+pilas que proporciona en servicio y el usuario solo puede subir su
 aplicación que las use, no instalar elementos adicionales que necesiten permisos de
 superusuario. Pero, por otro lado, ofrece la comodidad de tener que
-concentrarse sólo en la aplicación en sí y no en la
+concentrarse solo en la aplicación en sí y no en la
 infraestructura si se trata de una aplicación que use los marcos más comunes. Es, por eso, menos *DevOps* que una solución *IaaS*,
 pero por otro lado también tiene una parte que es la configuración y
 despliegue de la aplicación en sí y los tests que se vayan a usar. Hay que tener en cuenta que, en general, la definición de la infraestructura depende del PaaS que se use y por eso es bastante menos portable que usar un IaaS. Sin embargo, para un microservicio específico, o para una parte de la aplicación que sea invariable, puede ser bastante útil y conveniente.
@@ -67,7 +67,7 @@ aplicaciones REST.
 >Pila que se ha venido en llamar [MEAN](http://mean.io/#!/) y incluye
 >también Mongo y Express.
 
-Algunos servicios PaaS son específicos (sólo alojan una solución
+Algunos servicios PaaS son específicos (solo alojan una solución
 determinada, como [CloudAnt](https://cloudant.com/) que aloja una base
 de datos con CouchDB o genéricos), permitiendo una serie de soluciones
 en general relativamente limitada; [Heroku](https://www.heroku.com) y
@@ -120,7 +120,7 @@ la carga
 
 entre los diferentes nodos que uno tenga. La ventaja es que te ofrece
 un PaaS es que, aunque evidentemente haya que pagar por lo que se
-consume, sólo hay que hacerlo mientras se necesita; una vez pasado el
+consume, solo hay que hacerlo mientras se necesita; una vez pasado el
 pico, se puede escalar *hacia abajo* eliminando los nodos que uno no
 necesite; por supuesto, el propio PaaS suele proveer de herramientas
 que hagan esto de forma más o menos automática.
@@ -219,7 +219,7 @@ el programa y escribimos
 
 `npm install express --save`
 
-en general, no hace falta tener permiso de administrador, sólo el
+en general, no hace falta tener permiso de administrador, solo el
 necesario para crear, leer y ejecutar ficheros en el directorio en el
 que se esté trabajando. `--save` guarda la dependencia en `package.json` siempre que esté en el mismo directorio, que convendría que estuviera, así no tenemos que recordar qué es lo que está instalado.
 
@@ -357,7 +357,7 @@ incluya variables como en el caso anterior.
 
 Porque esté en la nube no significa que no tengamos que testearla como cualquier hija de vecina. En este caso no vamos a usar tests unitarios, sino test funcionales (o como se llamen); de lo que se trata es que tenemos que levantar la web y que vaya todo medianamente bien.
 
-Los tests podemos integrarlos, como es natural, en el mismo marco que el resto de la aplicación, sólo que tendremos que usar librerías de aserciones ligeramente diferentes, en este caso `supertest`
+Los tests podemos integrarlos, como es natural, en el mismo marco que el resto de la aplicación, solo que tendremos que usar librerías de aserciones ligeramente diferentes, en este caso `supertest`
 
 ```
 	var request = require('supertest'),
@@ -448,7 +448,7 @@ post-`push`,
 
 </div>
 
-Sólo hemos, por lo pronto, desplegado la aplicación por omisión.
+Solo hemos, por lo pronto, desplegado la aplicación por omisión.
 
 >Y en esta aplicación por omisión se ha usado también el *buildpack*,
 >es decir, el proceso y herramientas de construcción, que esté programado para tu pila, el de
@@ -487,7 +487,7 @@ interrumpirlo simplemente tecleando Ctrl-C.
 
 [`foreman`](http://blog.daviddollar.org/2011/05/06/introducing-foreman.html)
 actúa como un envoltorio de tu aplicación, ejecutando todo lo
-necesario para que funcione (no sólo la web, sino bases de datos o
+necesario para que funcione (no solo la web, sino bases de datos o
 cualquier otra cosa que haya que levantar antes) codificando por
 colores la salida correspondiente a cada proceso y presentando también
 el registro o *log* de la misma de forma más amigable.
@@ -563,7 +563,7 @@ definido.
 
 Ahora tienes dos repositorios: el que está efectivamente desplegado y
 el que contiene los fuentes. ¿No sería una buena idea que se trabajara
-con uno sólo? Efectivamente, [GitHub permite desplegar directamente a Heroku cuando se hace un `push` a la rama `master`](http://stackoverflow.com/questions/17558007/deploy-to-heroku-directly-from-my-github-repository),
+con uno solo? Efectivamente, [GitHub permite desplegar directamente a Heroku cuando se hace un `push` a la rama `master`](http://stackoverflow.com/questions/17558007/deploy-to-heroku-directly-from-my-github-repository),
 aunque no es inmediato, sino que pasa por usar un servicio de
 integración continua, que se asegure de que todo funciona
 correctamente.
