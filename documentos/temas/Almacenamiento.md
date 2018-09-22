@@ -39,7 +39,7 @@ Objetivos
    para
    máquinas virtuales.
    
- * Saber usar diferentes órdenes y utilidades para crearlas.
+ * Saber usar diferentes órdenes de terminal y utilidades para crearlas.
  
  </div>
 
@@ -64,15 +64,9 @@ Objetivos
  primeros pero el segundo se usa en todo centro de datos que se
  precie. 
  
- Cada disco, partición o LUN constituye un volumen físico que tiene
- una serie de bloques llamados *physical extents* (PEs, extensiones
- físicas) y se puede combinar en un [*physical volume group* (PVG,  grupo de volúmenes físicos)](http://h30499.www3.hp.com/t5/LVM-and-VxVM/what-is-PVG-Physical-Volume-Group/td-p/4675294), de forma que un PE de cada volumen en el PVG se usará de forma combinada a la hora de escribir. 
- 
- Esta estructura física se reflejará en la estructura lógica, pero la virtualización lo que hace es transformarla de forma que cada elemento lógico equivalga a uno, varios o ningún elemento físico.  
-
 Los
 [volúmenes lógicos](http://en.wikipedia.org/wiki/Logical_volume_management)
-son una virtualización habitual en los sistemas operativos.  Un
+son una tipo de recurso virtual habitual en los sistemas operativos.  Un
 volumen lógico crea un LE (*logical extent*) a partir de uno PE o
 varios en el caso de que se haga *mirroring* transparente. Los LEs se
 agrupan en volúmenes lógicos, que aparecen desde el punto de vista del
