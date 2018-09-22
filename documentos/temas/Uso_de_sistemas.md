@@ -148,7 +148,7 @@ arrancar de nuevo empezando por el CD virtual usando
 	qemu-system-x86_64 -hda otro-disco.img -cdrom picaros-diego-b.iso
 	-boot once=d
 	
-con `-boot` se le indica el orden de arranque; `once` indica que sólo
+con `-boot` se le indica el orden de arranque; `once` indica que solo
 va a ser así esta vez y `d`, como antiguamente, es el CD
 
 </div>
@@ -324,7 +324,7 @@ independiente.
 Hay diferentes herramientas que se pueden usar para este tipo de
 provisionamiento; [Cobbler](http://cobbler.github.io/) es una de
 ellas. [Cobbler](https://en.wikipedia.org/wiki/Cobbler_%28software%29)
-permite trabajar no sólo con almacenamiento virtual, sino también con
+permite trabajar no solo con almacenamiento virtual, sino también con
 cualquier dispositivo conectado por red que se pueda acceder desde
 fuera con diferentes protocolos. Sin embargo, esta herramienta es un
 poco más avanzada y, para el propósito de este artículo, vamos a usar
@@ -333,7 +333,7 @@ poco más avanzada y, para el propósito de este artículo, vamos a usar
 escrita en Python que permite, desde la línea de órdenes, crear una
 imagen virtual con las características que le
 demos. `ubuntu-vm-builder` necesita tener un hipervisor funcionando;
-puede trabajar con Xen, VMWare, kvm y vmserver. Sólo trabaja con una
+puede trabajar con Xen, VMWare, kvm y vmserver. Solo trabaja con una
 distribución: Ubuntu (jolines, que se llama `ubuntu-vm-builder`, ¿qué
 te esperabas?).
 

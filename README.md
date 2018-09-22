@@ -8,7 +8,7 @@ del primer cuatrimestre del cuarto del Grado de Ingeniería
 Informática y optativa en otras ramas y el Doble Grado de Informática
 y Matemáticas.
 
-La asignatura se imparte en el curso 2018-2019 en la -1.2 (aula po), [los lunes de 11:30 a 13:30 y miércoles y viernes de 9:30 a 11:30](http://etsiit.ugr.es/pages/calendario_academico/horarios-curso-20182019/horariosgii1819).
+La asignatura se imparte en el curso 2018-2019 en la -1.2 (aula polivalente), [los lunes de 11:30 a 13:30 y miércoles y viernes de 9:30 a 11:30](http://etsiit.ugr.es/pages/calendario_academico/horarios-curso-20182019/horariosgii1819).
 Se recuerda a los alumnos que en todas las clases será necesario llevar el portátil, ya que son clases prácticas.
 
 Se usará

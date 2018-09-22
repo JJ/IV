@@ -209,13 +209,13 @@ Todas las aserciones tienen al final un mensaje que se imprimirá
 funcione o no, y que debe ser más o menos descriptivo. Es decir, lo
 contrario de lo que es en este caso, pero bueno, está así en el
 original así que se queda. Antes de esto está un test; en este caso
-una llamada a una función. `assertTrue` fallará sólo si no se
+una llamada a una función. `assertTrue` fallará solo si no se
 devuelve `True` (o equivalente), y `assertEqual` lo hará si los dos
 primeros argumentos no lo son. 
 
 <div class='notes' markdown='1'>
 
-No sólo se puede y debe probar el código,
+No solo se puede y debe probar el código,
 también
 [la documentación](http://docs.python-guide.org/en/latest/writing/tests/) y
 todo tipo de cosas. Se puede usar también `pytest`, un programa que
@@ -442,7 +442,7 @@ aplicación que puedas usar más adelante en el resto de los ejercicios.
 
 La aplicación tendrá más adelante un interfaz web, pero por lo pronto,
 y a efectos de la prueba continua de más adelante, vamos a quedarnos
-sólo con un pequeño programa que sirva para ver que funciona.
+solo con un pequeño programa que sirva para ver que funciona.
 
 <div class='ejercicios'>
 
@@ -490,7 +490,7 @@ falta. Al desplegarse, el entorno dependerá de muchas cuestiones y hay que aseg
 
 A este nivel, la descripción del entorno de trabajo ya constituye en sí un test: donde se va a desplegar o lo tiene o no lo tiene, en cuyo caso no se permitirá la ejecución.
 
-Este fichero, además, permite instalar todas las dependencias usando sólo `npm install .`. Casi todos los lenguajes habituales tienen algún sistema similar: `bundle` para Ruby o `cpanm` para Perl, por ejemplo. 
+Este fichero, además, permite instalar todas las dependencias usando solo `npm install .`. Casi todos los lenguajes habituales tienen algún sistema similar: `bundle` para Ruby o `cpanm` para Perl, por ejemplo. 
 
 <div class='ejercicios' markdown='1'>
 
@@ -502,7 +502,7 @@ Crear una descripción del módulo usando `package.json`. En caso de que se trat
 que necesita nuestra aplicación y, por tanto, nos va a ser bastante
 útil cuando digamos de desplegarlo o testearlo en la nube.
 
-No sólo eso, sino que es la referencia para otra serie de
+No solo eso, sino que es la referencia para otra serie de
 herramientas, como las herramientas de construcción. Las herramientas
 de construcción o de control de tareas se vienen usando
 tradicionalmente en todos los entornos de programación. Quién no ha
@@ -611,7 +611,7 @@ El fichero que se ve arriba tiene tres partes: la definición de la
 tarea (en este caso, la que genera la documentación), la carga de la
 tarea y finalmente el registro de la tarea.
 
-Vayamos con la primera parte. Primero, le indicamos cuál es el fichero `package.json` que usamos. Este fichero tiene una serie de variables de configuración que podremos usar en el Gruntfile (pero que, por lo pronto, no vamos a hacerlo). Luego, definimos la tarea llamada `docco`, que a su vez tiene una subtarea llamada `debug`: toma los fuentes contenidos en el array indicado y deposita la salida en el directorio que le indicamos. No existe en Grunt una forma general de expresar este tipo de dependencias como en los Makefiles, sólo una buena práctica: usar `src`, por ejemplo, para las fuentes. 
+Vayamos con la primera parte. Primero, le indicamos cuál es el fichero `package.json` que usamos. Este fichero tiene una serie de variables de configuración que podremos usar en el Gruntfile (pero que, por lo pronto, no vamos a hacerlo). Luego, definimos la tarea llamada `docco`, que a su vez tiene una subtarea llamada `debug`: toma los fuentes contenidos en el array indicado y deposita la salida en el directorio que le indicamos. No existe en Grunt una forma general de expresar este tipo de dependencias como en los Makefiles, solo una buena práctica: usar `src`, por ejemplo, para las fuentes. 
 
 La siguiente parte carga el plugin de `grunt` necesario para ejecutar `docco`. Y finalmente, con `grunt.registerTask('default', ['docco']);` indicamos que la tarea que ejecuta docco es la que se ejecutará por defecto simplemente ejecutando `grunt`. También se puede ejecutar con `grunt docco` o `grunt docco:debug` que sacará esto en el terminal:
 
