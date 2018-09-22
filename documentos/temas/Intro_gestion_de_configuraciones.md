@@ -164,7 +164,7 @@ cosas. `juju` usa [*encantos*](https://jujucharms.com/), scripts que expresan qu
 provee cada aplicación. Son simplemente *scripts* que usan un lenguaje
 basado en YAML, pero ya hay *charms* para las tareas más comunes:
 instalar servicios web o lenguajes de programación. Por ejemplo, para
-instalar Mediawiki simplemente se escribiría 
+instalar mediawiki simplemente se escribiría 
 
 ```
 juju deploy mediawiki
@@ -180,7 +180,7 @@ también
 juju deploy mysql
 ```
 
-No sólo eso, sino que habrá que indicar que mediawiki va a usar
+No solo eso, sino que habrá que indicar que mediawiki va a usar
 precisamente mysql como base de datos. Se trata de añadir [una *relación*](https://juju.ubuntu.com/docs/charms-relations.html) con 
 
 ```	
@@ -196,7 +196,7 @@ se enganche al servidor web, por ejemplo
 juju expose mediawiki
 ```
 
-Con esto se puede mostar ya el estado de la máquina:
+Con esto se puede mostrar ya el estado de la máquina:
 
 ```
 juju status
@@ -276,7 +276,7 @@ Para desmontar los servicios se tiene que hacer en orden inverso a su creación:
 sudo juju destroy-unit mysql/0
 ```
 
-La destrucción de las máquinas sólo se puede hacer una vez que todas las unidades hayan dejado de funcionar, de esta forma:
+La destrucción de las máquinas solo se puede hacer una vez que todas las unidades hayan dejado de funcionar, de esta forma:
 
 ```
 sudo juju destroy-machine 2
@@ -377,7 +377,7 @@ Instalar `libvirt`. Te puede ayudar
 `libvirt` ofrece un interfaz de aplicación usable desde un programa,
 pero también un *shell*, `virsh`, para gestión desde línea de
 órdenes. Si tienes hipervisores instalados, puedes usar `libvirt`
-directamente, pero si tienes sólo los contenedores anteriores, tendrás
+directamente, pero si tienes solo los contenedores anteriores, tendrás
 que usar el [driver para `lxc`](http://libvirt.org/drvlxc.html). Lo
 que permite `libvirt` es independizar la gestión de las máquinas
 virtuales de la implementación física de las mismas: desde un
@@ -416,8 +416,8 @@ virt-install --connect lxc:/// --name esa_maquina --ram 512 --vcpu 1 --filesyste
 instalaría usando el conector para lxc	una máquina con el nombre indicado, medio giga de RAM, una sola CPU virtual y un filesystem ya instalado previamente en el subdirectorio `taper`. 
 
 Una vez instalados diferentes contenedores, `virsh` permite trabajar
-con ellos
-	
+con ellos.
+
 A dónde ir desde aquí
 -----
 
@@ -425,5 +425,4 @@ En el [siguiente tema](Almacenamiento) veremos cómo crear y configurar el
 almacenamiento virtual que, en general, es independiente de la
 generación de una máquina virtual. También puedes ir directamente al
 [tema de uso de sistemas](Uso_de_sistemas) en el que se trabajará
-con sistemas de virtualización completa. 
-	
+con sistemas de virtualización completa.
