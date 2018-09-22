@@ -9,7 +9,7 @@ next: Gestion_de_configuraciones
 
 <h2>Objetivos</h2>
 
-1.   Conocer las diferentes tecnologías y herramientas de
+1. Conocer las diferentes tecnologías y herramientas de
 virtualización tanto para procesamiento, comunicación y
 almacenamiento. 
 
@@ -337,7 +337,7 @@ puede trabajar con Xen, VMWare, kvm y vmserver. Solo trabaja con una
 distribución: Ubuntu (jolines, que se llama `ubuntu-vm-builder`, ¿qué
 te esperabas?).
 
-Por otro lado, [también puede usar virt-manager](https://help.ubuntu.com/community/KVM/CreateGuests) para gestionar las máquinas
+Por otro lado, [también puede usar `virt-manager`](https://help.ubuntu.com/community/KVM/CreateGuests) para gestionar las máquinas
 virtuales creadas, así que habrá que instalar una serie de utilidades
 para echarlo a andar:
 
