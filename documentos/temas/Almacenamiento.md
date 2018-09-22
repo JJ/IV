@@ -21,9 +21,9 @@ Objetivos
 
 ### Cubre los siguientes objetivos de la asignatura
 
-* Conocer las diferentes tecnologías y herramientas de virtualización
-  tanto para procesamiento, comunicación y almacenamiento. 
-  
+ * Conocer las diferentes tecnologías y herramientas de virtualización
+  tanto para procesamiento, comunicación y almacenamiento.
+
  * Configurar los diferentes dispositivos físicos para acceso a los
   servidores virtuales: acceso de usuarios, redes de comunicaciones o
   entrada/salida
@@ -42,12 +42,12 @@ Objetivos
  * Saber usar diferentes órdenes y utilidades para crearlas.
  
  </div>
- 
- 
+
+
 ## La parte verdadera: un disco físico.
  
- Aunque en principio esté claro que un disco es un disco, en la
- práctica no tiene que ser así. El soporte físico del almacenamiento
+ Aunque en principio esté claro que un disco es un disco físico, en la
+ práctica y en la nube no tiene que ser así. El soporte físico del almacenamiento
  puede ser un disco duro de cualquier formato (rotatorio, SSD), pero
  también una
  [partición](http://en.wikipedia.org/wiki/Partition_%28computing%29)
@@ -56,7 +56,7 @@ Objetivos
  [LUN (*Logical Unit Number*)](http://en.wikipedia.org/wiki/Logical_Unit_Number),
  un dispositivo al que se accede usando el protocolo SCSI, un
  protocolo veterano de acceso a discos que permitía conectar varios
- discos cuando nuestro querido SATA sólo podía tener un maestro y un
+ discos cuando nuestro querido SATA solo podía tener un maestro y un
  esclavo y que se ha licenciado como protocolo para sistemas de discos
  accesibles desde la red, es decir,
  [Storage Area Networks](http://en.wikipedia.org/wiki/Storage_area_network). En
@@ -120,7 +120,7 @@ repositorio remoto de `git` podría usarse de esa forma, accediendo a
 ficheros en el mismo como si se tratara de ficheros locales (y, de
 hecho, eso es lo que hace
 [este programa, `gitfuse`](https://github.com/davesque/gitfuse)), que
-sólo permite visualizarlos y que está escrito en Python. 
+solo permite visualizarlos y que está escrito en Python. 
 
 En Linux se usa la librería [FUSE](http://fuse.sourceforge.net/) para
 implementarlo. Se puede usar directamente o mediante alguna adaptación
@@ -151,7 +151,7 @@ estructura de datos remota, o compleja, o simplemente extraña, en una
 serie de operaciones perfectamente familiares como leer y escribir en
 ficheros o navegar por directorios. Se puede usar tanto
 pedagógicamente como para convertir recursos muy diferentes en algo
-que pueda ser manejado desde un programa que sólo, o principalmente,
+que pueda ser manejado desde un programa que solo, o principalmente,
 sepa manejar ficheros. En cualquier caso, se trata de un ejemplo
 estupendo de virtualización de recursos y de un tipo de recurso que,
 también, se puede usar dentro de máquinas virtuales. 
@@ -377,7 +377,7 @@ almacenamiento en nube, como
 [Amazon Elastic Block Store (EBS)](http://aws.amazon.com/es/ebs/) o
 [el de SoftLayer](http://www.softlayer.com/object-storage). Todos
 estos servicios son de pago (o *freemium* con una capa de pago), pero
-también existen soluciones open source que se pueden instalar
+también existen soluciones de software libre que se pueden instalar
 localmente como [CEPH](http://ceph.com) u
 [OpenStack Cinder](http://en.wikipedia.org/wiki/Openstack#Object_Storage_.28Swift.29). También
 se pueden comprar dispositivos físicos que utilizan este tipo de
@@ -596,7 +596,7 @@ misma. Se verá más adelante cuando usemos este tipo de sistemas. En
 concreto,
 [el servicio de almacenamiento de objetos en OpenStack se llama Swift](http://en.wikipedia.org/wiki/Openstack#Object_Storage_.28Swift.29)
 y se
-[usa principalmente almacenamiento de imágenes (discos duros completos) y *snapshots* (estado de un disco duro en un momento determinado](http://www.openstack.org/software/openstack-storage/). En
+[usa principalmente almacenamiento de imágenes (discos duros completos) y *snapshots* (estado de un disco duro en un momento determinado)](http://www.openstack.org/software/openstack-storage/). En
 Amazon, [Elastic Block Storage](http://aws.amazon.com/es/ebs/) forma
 parte de las ofertas de servicios web del mismo y permite trabajar con
 bloques desde las instancias EC2. 
@@ -649,7 +649,7 @@ azure account storage create esacuenta
 te presentará una lista de las localizaciones y habrá que elegir la
 más conveniente (según lo indicado antes). El nombre de la cuenta no
 admite guiones. Dependiendo del tipo de suscripción te permitirá crear
-una o más cuentas, pero seguramente sólo una.
+una o más cuentas, pero seguramente solo una.
 
 Para manejar esta cuenta se necesitan una serie de claves. Con 
 
@@ -685,7 +685,7 @@ pero esto crea un contenedor de acceso privado; los contenedores
 pueden ser públicos o privados y por defecto se crean privados; [los niveles de permisos existentes son](http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx):
 
  * Públicos para que se vean los contenidos.
- * Blobs públicos sólo.
+ * Blobs públicos solo.
  * Sin acceso público.
  
  Este último es el permiso por defecto, pero si queremos que se acceda
