@@ -217,7 +217,7 @@ primeros argumentos no lo son.
 
 No solo se puede y debe probar el código,
 también
-[la documentación](http://docs.python-guide.org/en/latest/writing/tests/) y
+[la documentación](https://docs.python-guide.org/en/latest/writing/tests/) y
 todo tipo de cosas. Se puede usar también `pytest`, un programa que
 tiene una sintaxis un poco más simple para los tests, o `nose`. Cada
 lenguaje tiene sus múltiples modos de testear, y este tema pretende
@@ -239,11 +239,11 @@ faltan (en el momento que se lea este tema).
 
 Go valora la simplicidad y además incluye de serie todo lo necesario
 para llevar a cabo los tests. 
-Vamos a ir al nivel más bajo: el de las aserciones. Hay [múltiples bibliotecas que se pueden usar](http://stackoverflow.com/questions/14294567/assertions-library-for-node-js):
-[Chai](http://chaijs.com/),
+Vamos a ir al nivel más bajo: el de las aserciones. Hay [múltiples bibliotecas que se pueden usar](https://stackoverflow.com/questions/14294567/assertions-library-for-node-js):
+[Chai](https://chaijs.com/),
 [Should.js](https://github.com/visionmedia/should.js),
 [Must.js](https://github.com/moll/js-must) y
-[`assert`](http://nodejs.org/api/assert.html) que es la librería que
+[`assert`](https://nodejs.org/api/assert.html) que es la librería que
 forma parte de la estándar de JS, y por tanto la que vamos a usar. Se
 usa de la forma siguiente
 
@@ -270,14 +270,14 @@ Para la aplicación que se está haciendo, escribir una serie de aserciones y pr
 Hay un segundo nivel, el marco de ejecución de los tests. Los marcos
 son programas que, a su vez, ejecutan los programas de test y escriben
 un informe sobre cuáles han fallado y cuáles no con más o menos
-parafernalia y farfolla. Una vez más, [hay varios marcos de testeo](http://stackoverflow.com/questions/4308786/what-is-the-best-testing-framework-to-use-with-node-js) para
+parafernalia y farfolla. Una vez más, [hay varios marcos de testeo](https://stackoverflow.com/questions/4308786/what-is-the-best-testing-framework-to-use-with-node-js) para
 nodejs (y, por supuesto, uno propio para cada uno de los lenguajes de
 programación, aunque en algunos están realmente estandarizados).
 
 Cada uno de ellos tendrá sus promotores y detractores, pero
-[Mocha](http://mochajs.org/) y [Jasmine](http://jasmine.github.io/)
+[Mocha](https://mochajs.org/) y [Jasmine](https://jasmine.github.io/)
 parecen ser los más populares. Los dos usan un sistema denominado
-[Behavior Driven Development](http://en.wikipedia.org/wiki/Behavior-driven_development),
+[Behavior Driven Development](https://en.wikipedia.org/wiki/Behavior-driven_development),
 que consiste en describir el comportamiento de un sistema más o menos
 de alto nivel. Como hay que escoger uno y parece que Mocha es más
 popular, nos quedamos con este para escribir este programa de test.
@@ -371,8 +371,8 @@ virtuales de desarrollo* tales como:
 *  [virtualenv](https://virtualenv.pypa.io/en/latest/) para Python,
 *  [nvm](https://github.com/creationix/nvm), [`n`](https://github.com/tj/n) y [nave](https://github.com/isaacs/nave) para node.js,
 *  [`phpenv` para, lo adivinaste, PHP](https://github.com/phpenv/phpenv),
-*  [rbenv](https://github.com/sstephenson/rbenv) y [RVM](http://rvm.io) para Ruby
-*  y [plenv](https://github.com/tokuhirom/plenv) y [perlbrew](http://perlbrew.pl) para Perl.
+*  [rbenv](https://github.com/sstephenson/rbenv) y [RVM](https://rvm.io) para Ruby
+*  y [plenv](https://github.com/tokuhirom/plenv) y [perlbrew](https://perlbrew.pl) para Perl.
 
 Generalmente, estos programa funcionan instalando binarios en
 directorios del usuario y modificando el camino de ejecución para que
@@ -462,7 +462,7 @@ JSON tal como este:
 
 ```
 	{
-	  "author": "J. J. Merelo <jjmerelo@gmail.com> (http://github.com/JJ/desarrollo-basado-pruebas)",
+	  "author": "J. J. Merelo <jjmerelo@gmail.com> (https://github.com/JJ/desarrollo-basado-pruebas)",
 	  "name": "porrio",
 	  "description": "Apuesta en una porra",
 	  "version": "0.0.1",
@@ -514,7 +514,7 @@ un lenguaje, por ejemplo) hasta la *minificación* o "compresión" de un
 programa hasta que ocupe el mínimo espacio posible, para que sea más
 *amigable* para móviles y otros dispositivos sin mucho ancho de banda.
 
-Todos los lenguajes de programación tienen su propia [herramienta de construcción](http://en.wikipedia.org/wiki/Build_automation),  de las
+Todos los lenguajes de programación tienen su propia [herramienta de construcción](https://en.wikipedia.org/wiki/Build_automation),  de las
 cuales la más conocida y veterana es la
 orden `make`, introducida [hace casi cuarenta años](https://es.wikipedia.org/wiki/Make). `make` automatiza el proceso
 de construcción en un fichero llamado `Makefile` con una sintaxis
@@ -534,11 +534,11 @@ usan diferentes herramientas para ello: Ant, Ivy y Maven para Java, `sbt`
 para Scala, Rake para Ruby y otras muchas.
 
 En node.js se utilizan principalmente dos:
-[Grunt](http://gruntjs.com) y [Gulp](http://gulpjs.com), aunque
-también han aparecido últimamente [Broccoli y mimosa](http://jpsierens.com/task-runners-a-comparison-between-grunt-gulp-broccoli-and-mimosa/).
+[Grunt](https://gruntjs.com) y [Gulp](https://gulpjs.com), aunque
+también han aparecido últimamente [Broccoli y mimosa](https://jpsierens.com/task-runners-a-comparison-between-grunt-gulp-broccoli-and-mimosa/).
 
 >Aquí podíamos hacer una breve disquisición sobre
->[el código y la configuración](http://coding.abel.nu/2013/06/code-or-configuration-or-configuration-in-code/),
+>[el código y la configuración](https://coding.abel.nu/2013/06/code-or-configuration-or-configuration-in-code/),
 >algo a lo que nos vamos a enfrentar repetidamente en la nube. ¿Un
 >fichero de construcción es, o debe ser, configuración o código?
 >Diferentes herramientas toman diferentes aproximaciones al tema:
@@ -658,8 +658,8 @@ sí con las librerías del lenguaje de programación en el que está
 desarrollado.
 
 Un sistema bastante popular de integración continua es
-[Jenkins](http://jenkins-ci.org/). Para usar Jenkins puedes instalarlo en tu propio
-ordenador, en un servidor propio en la nube o en [algún servicio en la nube](https://wiki.jenkins-ci.org/display/JENKINS/Commercial+Support). Sin embargo, hay otros sistemas como [Travis](http://travis-ci.org) o
+[Jenkins](https://jenkins-ci.org/). Para usar Jenkins puedes instalarlo en tu propio
+ordenador, en un servidor propio en la nube o en [algún servicio en la nube](https://wiki.jenkins-ci.org/display/JENKINS/Commercial+Support). Sin embargo, hay otros sistemas como [Travis](https://travis-ci.org) o
 [Shippable](https://www.shippable.com/) que podemos usar también desde
 la nube.
 
@@ -705,7 +705,7 @@ script: cd src; mocha
 Este fichero, denominado `.travis.yml`, contiene lo siguiente:
 
 - `language` indica qué lenguaje se va a usar. Travis tiene
-  [varios lenguajes](http://docs.travis-ci.com/user/getting-started/),
+  [varios lenguajes](https://docs.travis-ci.com/user/getting-started/),
   incluyendo por supuesto nodejs. Las máquinas virtuales no suelen
   estar configuradas para lenguajes arbitrarios, aunque por supuesto
   se puede poner un lenguaje tal como C y luego descargar lo necesario
