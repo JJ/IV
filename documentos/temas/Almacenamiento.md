@@ -13,9 +13,9 @@ Objetivos
 
 ### Cubre los siguientes objetivos de la asignatura
 
-* Conocer las diferentes tecnologías y herramientas de virtualización
-  tanto para procesamiento, comunicación y almacenamiento. 
-  
+ * Conocer las diferentes tecnologías y herramientas de virtualización
+  tanto para procesamiento, comunicación y almacenamiento.
+
  * Configurar los diferentes dispositivos físicos para acceso a los
   servidores virtuales: acceso de usuarios, redes de comunicaciones o
   entrada/salida
@@ -34,12 +34,12 @@ Objetivos
  * Saber usar diferentes órdenes y utilidades para crearlas.
  
  </div>
- 
- 
+
+
 ## La parte verdadera: un disco físico.
  
- Aunque en principio esté claro que un disco es un disco, en la
- práctica no tiene que ser así. El soporte físico del almacenamiento
+ Aunque en principio esté claro que un disco es un disco físico, en la
+ práctica y en la nube no tiene que ser así. El soporte físico del almacenamiento
  puede ser un disco duro de cualquier formato (rotatorio, SSD), pero
  también una
  [partición](http://en.wikipedia.org/wiki/Partition_%28computing%29)
