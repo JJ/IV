@@ -543,7 +543,10 @@ para Scala, Rake para Ruby y otras muchas.
 
 En node.js se utilizan principalmente dos:
 [Grunt](https://gruntjs.com) y [Gulp](https://gulpjs.com), aunque
-también han aparecido últimamente [Broccoli y mimosa](https://jpsierens.com/task-runners-a-comparison-between-grunt-gulp-broccoli-and-mimosa/).
+también han aparecido
+últimamente
+[Broccoli y mimosa](https://www.freelancinggig.com/blog/2017/05/18/grunt-vs-cake-vs-gulp-vs-broccoli-js-task-runners-comparison-2017/),
+así como [Brunch y webpack](https://brunch.io/docs/why-brunch).
 
 >Aquí podíamos hacer una breve disquisición sobre
 >[el código y la configuración](https://coding.abel.nu/2013/06/code-or-configuration-or-configuration-in-code/),
@@ -666,8 +669,8 @@ sí con las librerías del lenguaje de programación en el que está
 desarrollado.
 
 Un sistema bastante popular de integración continua es
-[Jenkins](https://jenkins-ci.org/). Para usar Jenkins puedes instalarlo en tu propio
-ordenador, en un servidor propio en la nube o en [algún servicio en la nube](https://wiki.jenkins-ci.org/display/JENKINS/Commercial+Support). Sin embargo, hay otros sistemas como [Travis](https://travis-ci.org) o
+[Jenkins](https://jenkins.io/). Para usar Jenkins puedes instalarlo en tu propio
+ordenador, en un servidor propio en la nube o en [algún servicio en la nube](https://wiki.jenkins.io/display/JENKINS/Commercial+Support). Sin embargo, hay otros sistemas como [Travis](https://travis-ci.org) o
 [Shippable](https://www.shippable.com/) que podemos usar también desde
 la nube.
 
