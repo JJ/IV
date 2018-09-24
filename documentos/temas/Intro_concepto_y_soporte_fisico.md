@@ -198,7 +198,7 @@ año de un ordenador con un procesador estándar (escogerlo de forma que
 sea el mismo tipo de procesador en los dos vendedores) y con el resto
 de las características similares (tamaño de disco duro equivalente a
 transferencia de disco duro) en el caso de que la infraestructura comprada se usa
-sólo el 1% o el 10% del tiempo.
+solo el 1% o el 10% del tiempo.
 </div>
 
 Tipos de virtualización
@@ -235,7 +235,7 @@ virtual *invitado*.
 
 * La
 [virtualización a nivel de sistema operativo](https://en.wikipedia.org/wiki/Operating_system-level_virtualization)
-sólo permite que anfitrión y cliente usen el mismo sistema operativo
+solo permite que anfitrión y cliente usen el mismo sistema operativo
 pero con invitados aislados del anfitrión y entre sí. En este caso, en
 vez de hablarse de máquinas virtuales se habla de *jaulas*, *zonas* o
 *contenedores*; generalmente se trata de aplicaciones de un sistema
@@ -272,7 +272,7 @@ los mismos.
 
 *  La *contenedorización* de aplicaciones va un poco más allá,
 empaquetando un entorno de ejecución completo de una o varias
-aplicaciones o servicios (aunque se aconseja que sea sólo uno) y aislándolo del resto
+aplicaciones o servicios (aunque se aconseja que sea solo uno) y aislándolo del resto
 del sistema operativo. Se pueden usar las
 técnicas que se explican en el resto de la asignatura; de hecho, se
 pueden crear *paquetes* que permiten ejecutar una aplicación con todas
@@ -354,7 +354,7 @@ salida y presentar la salida de vídeo del invitado en el anfitrión. En
 realidad, KVM tampoco se usa directamente en general (aunque es una
 parte del núcleo con sus características como cualquier otra) sino que
 lo habitual es que se use a través de hipervisores tales como
-[QEMU](https://en.wikipedia.org/wiki/QEMU). KVM sólo está activado si
+[QEMU](https://en.wikipedia.org/wiki/QEMU). KVM solo está activado si
 puede usar la aceleración por hardware del procesador.
 
 <div class='ejercicios' markdown="1">
@@ -400,7 +400,7 @@ y por supuesto Amazon Web Services. Cualquiera de ellos ofrece una
 cantidad de servicios virtualizados a todos los niveles, que van desde
 virtualización de recursos computacionales hasta virtualización de
 almacenamiento de todo tipo. En general, lo que hacen los servicios en
-la nube es abstraer los recursos de forma que el usuario sólo tenga
+la nube es abstraer los recursos de forma que el usuario solo tenga
 que describir en un lenguaje de alto nivel específico de la plataforma
 o genérico para cualquier plataforma qué se quiere ejecutar y cómo es
 el flujo de datos en la ejecución; todas las tareas de asignación de
@@ -434,7 +434,7 @@ capas anteriores
   la virtualización se reduce a la mínima expresión usando simples
   funciones que están conectadas de forma ligera al resto de la
   aplicación a base de canales de eventos. Estas funciones se activan
-  sólo cuando se las necesita y por tanto se cobra sólo por la
+  solo cuando se las necesita y por tanto se cobra solo por la
   ejecución, que además está limitada y se cobra por
   milisegundos. Amazon Lambda o Google o Azure Functions son los
   nombres de los productos comerciales, que cuentan con marcos libres

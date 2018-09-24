@@ -100,7 +100,7 @@ en caso de que `cgroup-lite` se haya instalado y esté funcionando.
 
 > *Aviso*: lo siguiente puede que no funcione, dependiendo de la
 > configuración. Si se ha configurado con cgroup-lite no va a
-> funcionar y sólo se podrán crear grupos dentro de directorios determinados. 
+> funcionar y solo se podrán crear grupos dentro de directorios determinados. 
 
 Dependiendo de la configuración que se haya creado, crear un *grupo de control* es tan simple como crear un subdirectorio
 

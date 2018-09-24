@@ -116,7 +116,7 @@ complementario porque mientras que uno aísla la visibilidad o el
 ámbito otro aísla o limita el uso de recursos. Por ello constituyen la
 base de los contenedores que se verán en este tema. 
 
-`unshare`tiene sus limitaciones, y la principal es que sólo se puede
+`unshare`tiene sus limitaciones, y la principal es que solo se puede
 *entrar* en un *namespace* ejecutando un comando, no "desde fuera". A
 partir de la versión 2.23 de `util-linux` (la versión en mi Ubuntu 12.04
 es la 2.20) [un nuevo comando `nsenter`](http://karelzak.blogspot.com.es/2013/04/umount8-mount8-and-nsenter1.html) permitirá entrar dando el
@@ -214,9 +214,9 @@ wifi, si se tiene, o del fijo, si no se tiene.
 La utilidad de la creación de puentes no se limita a su uso por
 máquinas virtuales. Se puede usar, por ejemplo, para
 [equilibrar la carga entre dos interfaces](http://archive09.linux.com/feature/133849)
-o simplemente crear un sólo interfaz virtual que contenga los dos
+o simplemente crear un solo interfaz virtual que contenga los dos
 interfaces reales presentes en el ordenador; también para simular
-redes dentro de un sólo ordenador. 
+redes dentro de un solo ordenador. 
 
 <div class="nota" markdown="1">
 
@@ -238,9 +238,9 @@ es muy difícil que una instalación no necesite una parte interactiva
 controlar el proceso fácilmente desde otro sistema.
 
 Además, en muchos casos no hace falta instalar un sistema completo,
-sino sólo una parte; en alternativas de virtualización a nivel de
+sino solo una parte; en alternativas de virtualización a nivel de
 sistema operativo, como las que vamos a ver, hay partes del sistema
-(núcleo, dispositivos) que se comparten y sólo hace falta instalar las
+(núcleo, dispositivos) que se comparten y solo hace falta instalar las
 órdenes mínimas para dotar a la *máquina* de una serie de recursos
 para funcionar.
 
@@ -315,7 +315,7 @@ un poco avanzada, pero conviene al menos conocer que existe, igual que
 [`cdebootstrap`](https://wiki.debian.org/cdebootstrap), una
 implementación en C (en vez de scripts del shell, lo que tiene que
 haber sido todo un infierno) de `debootstrap` y que en realidad se usa
-sólo en imágenes de DebianInstaller. 
+solo en imágenes de DebianInstaller. 
 
 <div class="nota" markdown="1">
 
@@ -466,7 +466,7 @@ entorno llamado `saucy` con alias `ubuntu1210` que está en el
 directorio que se indica y que puede ser usado, aparte de por el
 superusuario, por el usuario
 jmerelo. [Las opciones completas están en la página de manual](http://manpages.ubuntu.com/manpages/maverick/en/man1/schroot.1.html),
-pero, en general, `schroot` añade sólo un poco de conveniencia para
+pero, en general, `schroot` añade solo un poco de conveniencia para
 usuarios, no nuevas capacidades.
 
 <div class='nota' markdown='1'>
@@ -494,7 +494,7 @@ puede descargar de la página e instalarse fácilmente con `./configure
 && make && sudo make install`
 
 La idea principal de `jailkit` es realizar una jaula de la forma más
-segura posible, por eso se basa en copiar sólo y exclusivamente los
+segura posible, por eso se basa en copiar solo y exclusivamente los
 ficheros necesarios para ejecutar lo que se quiera ejecutar. En el
 fichero de configuración tiene una serie de configuraciones comunes
 que se pueden usar, pero para el resto hay que editar ese fichero

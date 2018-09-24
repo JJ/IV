@@ -52,7 +52,7 @@ compartidos y sigue siendo una forma simple de crear virtualizaciones *ligeras*.
 sistema más avanzado, implementando una
 [virtualización a nivel de sistema operativo](https://en.wikipedia.org/wiki/Operating_system-level_virtualization)
 que creaba un entorno virtual prácticamente indistinguible de una
-máquina real (o máquina virtual real). Estas *jaulas* no sólo impiden
+máquina real (o máquina virtual real). Estas *jaulas* no solo impiden
 el acceso a ciertas partes del sistema de ficheros, sino que también
 restringían lo que los procesos podían hacer en relación con el resto
 del sistema. Tiene como limitación, sin embargo, la obligación de
@@ -77,7 +77,7 @@ una capacidad del núcleo de Linux desde la versión 2.6.24 que crea
 *contenedores* de procesos unificando diferentes capacidades del
 sistema operativo que incluyen acceso a recursos, prioridades y
 control de los procesos. Los procesos dentro de un contenedor están
-*aislados* de forma que sólo pueden *ver* los procesos dentro del
+*aislados* de forma que solo pueden *ver* los procesos dentro del
 mismo, creando un entorno mucho más seguro que las anteriores
 *jaulas*. Estos [CGROUPS han sido ya vistos en otro tema](Intro_concepto_y_soporte_fisico). 
 
@@ -229,7 +229,7 @@ distribución y otro basado en otra que no sea la tuya.
 
 Los contenedores son la implementación de todas las tecnologías vistas
 anteriormente: espacios de nombres, CGroups y puentes de red y como
-tales pueden ser configurados para usar sólo una cantidad determinada
+tales pueden ser configurados para usar solo una cantidad determinada
 de recursos, por ejemplo
 [la CPU](http://www.slideshare.net/dotCloud/scale11x-lxc-talk-16766275). Para
 ello se usan los ficheros de configuración de cada una de las máquinas
@@ -260,7 +260,7 @@ en ciertas circunstancias.
 
 
 [Docker](http://docker.com) es una herramienta de gestión de
-contenedores que permite no sólo instalarlos, sino trabajar con el
+contenedores que permite no solo instalarlos, sino trabajar con el
 conjunto de ellos instalados (orquestación) y exportarlos de forma que
 se puedan desplegar en diferentes servicios en la nube. La tecnología de
 [Docker](https://en.wikipedia.org/wiki/Docker_%28software%29) es
@@ -275,7 +275,7 @@ Por lo pronto,
 ejemplo, para
 [Ubuntu hay que dar de alta una serie de repositorios](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 y no funcionará con versiones más antiguas de la 12.04 (y en este caso
-sólo si se instalan kernels posteriores).
+solo si se instalan kernels posteriores).
 
 <div class='ejercicios' markdown='1'>
 
@@ -321,7 +321,7 @@ Debian. Se pueden
 [buscar todas las imágenes de un tipo determinado, como Ubuntu](https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page=1&pullCount=0&q=ubuntu&starCount=0)
 o
 [buscar las imágenes más populares](https://hub.docker.com/explore/). Estas
-imágenes contienen no sólo sistemas operativos *bare bones*, sino
+imágenes contienen no solo sistemas operativos *bare bones*, sino
 también otros con una funcionalidad determinada. 
 
 <div class='ejercicios' markdown='1'>
@@ -446,7 +446,7 @@ sudo docker commit 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318
 que guardará el estado del contenedor tal como está en ese
 momento. Este `commit` es equivalente al que se hace en un
 repositorio; para enviarlo al repositorio habrá que usar `push` (pero
-sólo si uno se ha dado de alta antes).
+solo si uno se ha dado de alta antes).
 
 <div class='ejercicios' markdown='1'>
 
@@ -566,7 +566,7 @@ podíamos haber sustituido `/app` en los dos lugares donde aparece por
 cualquier otro valor y habría funcionado igualmente. 
 
 En este caso, además, usamos `--rm` para borrar el contenedor una vez
-se haya usado y `-t` en vez de `-it` para indicar que sólo estamos
+se haya usado y `-t` en vez de `-it` para indicar que solo estamos
 interesados en que se asigne un terminal y la salida del mismo, no
 vamos a interaccionar con él. 
 
@@ -597,7 +597,7 @@ sistema operativo y posteriormente instalar el lenguaje y cualquier
 otra cosa que necesite; en este caso, la imagen lleva también
 `pip`. Para algunas bibliotecas puede haber también imágenes
 oficiales; siempre nos ahorrará trabajo usar esas imágenes, sean
-oficiales o no, porque en muchos casos están optimizadas con sólo las
+oficiales o no, porque en muchos casos están optimizadas con solo las
 partes del sistema operativo necesarias y ocupan mucho menos espacio
 siendo, por tanto, más rápidas para descargar. 
 
