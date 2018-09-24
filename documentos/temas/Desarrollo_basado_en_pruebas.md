@@ -68,14 +68,14 @@ que el código que hace que esos tests *no* fallen. No siempre se hace
 así, claro, pero el trabajar así permite tener claro qué
 funcionalidades queremos, cómo queremos que respondan y qué
 *contratos* o *aserciones* van a ser verdaderas cuando se ejecute el
-código antes siquiera de escribirlo.
+código antes siquiera de escribirlo; una aserción es simplemente una afirmación sobre los valores que devuelve una función para una entrada determinada.
 
 En la mayoría de los entornos de programación y especialmente en node,
 que es en el que nos estamos fijando, hay dos niveles en el test: el
 primero es el marco de pruebas y el segundo la librería de pruebas que
 efectivamente se está usando. 
 
-Algunos lenguajes, como Go, integran este marco de pruebas en el
+Algunos lenguajes, como [Go](https://golang.org), integran este marco de pruebas en el
 propio lenguaje, por lo que nos permite fijarnos exclusivamente en la
 biblioteca de pruebas con la que estamos trabajando.
 
@@ -88,10 +88,10 @@ tiene
 un lenguaje que pretende evitar lo peor de C++ para crear un lenguaje
 concurrente, de sintaxis simple y con más seguridad; además, Go provee
 también un entorno de programación con una serie de herramientas
-(*toolbelt*) de serie. Son funciones simples, estructuradas en un
-paquete o *package*. 
+(*toolbelt*) de serie.
 
-Para testear un paquete en Go simplemente se crea un fichero con el
+Los módulos en Go incluyen funciones simples, estructuradas en un
+paquete o *package*, y para testear un paquete en Go simplemente se crea un fichero con el
 mismo nombre y el sufijo `_test`
 como
 [el siguiente](https://github.com/JJ/HitosIV/blob/master/HitosIV_test.go):
@@ -125,7 +125,7 @@ func TestTodosHitos (t *testing.T){
 
 La sintaxis no es excesivamente complicada. Se importan las
 bibliotecas para testear (`testing`) y para averiguar de qué tipo es
-algo (`reflect`) y se crean dos funciones, una por cada función que
+algo (`reflect`) y se crean dos funciones de test, una por cada función que
 queremos probar. De este fichero se ejecutarán todas las funciones al
 ejecutar desde la línea de órdenes `go test`, que devolverá algo así:
 
@@ -134,16 +134,17 @@ PASS
 ok  	_/home/jmerelo/Asignaturas/infraestructura-virtual/HitosIV	0.017s
 ```
 
-En vez de aserciones, Go simplifica el interfaz de test haciendo que
-se devuelva un error (con `t.Error()`) cuando el test no funcione. Si
-todos funcionan, no hay ningún problema. Adicionalmente, `t.Log()`
+En vez de aserciones como funciones específicas, Go simplifica el interfaz de test haciendo que
+se devuelva un error (con `t.Error()`) cuando el test no pasa. Si
+todos funcionan, no hay ningún problema y se imprime `PASS` como se muestra arriba. Adicionalmente, `t.Log()`
 (siendo `t` una estructura de datos que se le tiene que pasar a todos
-los tests). En este caso, uno de los tests comprueba que efectivamente
-haya hitos, y el segundo comprueba que el tipo que se devuelve cuando
+los tests) se usa para mostrar algún mensaje sobre qué está ocurriendo en el test. En este caso, uno de los tests comprueba que efectivamente
+haya hitos en el fichero JSON que se ha pasado, y el segundo comprueba que el tipo que se devuelve cuando
 se solicita un hito es el correcto. Estos tests no están completos;
-generalmente hay que llamar a todas las funciones.
+generalmente hay que escribir una función de test para todas las funciones del módulo. Se muestran sólo estos para ilustrar cómo funciona en un lenguaje determinado.
 
-En otros lenguajes de programación como Python pasar las pruebas
+
+Go busca módulos con un nombre específico y en el mismo directorio que el módulo que se quiere probar; sin embargo, en otros lenguajes de programación como Python pasar las pruebas
 consiste simplemente en ejecutar un programa, situado en cualquier
 directorio y con cualquier nombre, que use alguna librería estándar de
 aserciones como `unittest`. Por ejemplo,
@@ -194,7 +195,7 @@ unittest.main()
 
 Tenemos tres funciones, que podrían estar en una clase o no, que vamos
 a testear; en caso de pertenecer a una clase tendremos que instanciar
-un objeto, pero lo dejamos así por lo pronto; se pueden testear
+un objeto, pero lo dejamos así por lo pronto porque con lo que hay se pueden testear
 funciones individuales tales como estas. Para testearlas sí tenemos
 que crear una clase, y esa clase `SoloTest` tiene que ser una subclase
 de `unittest.TestCase`, es decir, un único caso de test. En esta clase
@@ -205,7 +206,7 @@ aserciones de este tipo:
 self.assertTrue(devuelveTrue(), "Tiene que fallar")
 ```
 
-Todas las aserciones tienen al final un mensaje que se imprimirá
+A diferencia de Go, en Python sí existen [aserciones explícitas](https://docs.python.org/3/library/unittest.html). Todas las aserciones tienen al final un mensaje que se imprimirá
 funcione o no, y que debe ser más o menos descriptivo. Es decir, lo
 contrario de lo que es en este caso, pero bueno, está así en el
 original así que se queda. Antes de esto está un test; en este caso
@@ -232,7 +233,7 @@ se han pasado, todos en este caso.
 <div class='ejercicios' markdown='1'>
 
 Descargar y ejecutar las pruebas de alguno de los proyectos anteriores, y si sale todo
-bien, hacer un pull request a este proyecto con tests adicionales, si es que
+bien, hacer un pull request a alguno de esos proyectos con tests adicionales, si es que
 faltan (en el momento que se lea este tema).
 
 </div>
