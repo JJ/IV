@@ -13,16 +13,15 @@ del primer cuatrimestre del cuarto del Grado de Ingeniería
 Informática y optativa en otras ramas y el Doble Grado de Informática
 y Matemáticas.
 
-La asignatura se imparte en el curso 2018-2019 en la 1.2 (por
-confirmar), [los lunes de 11:30 a 13:30 y miércoles y viernes de 9:30 a 11:30](http://etsiit.ugr.es/pages/calendario_academico/horarios-curso-20182019/horariosgii1819).
-Se recuerda a los alumnos que en todas las clases será necesario llevar el portátil, ya que son clases prácticas.
+La asignatura se imparte en el curso 2018-2019 en la -1.2 (aula po), [los lunes de 11:30 a 13:30 y miércoles y viernes de 9:30 a 11:30](http://etsiit.ugr.es/pages/calendario_academico/horarios-curso-20182019/horariosgii1819).
+Se recuerda a los estudiantes que en todas las clases será necesario llevar el portátil, ya que son clases prácticas.
 
 Se usará
 [GitHub](http://github.com) para el proyecto cuyos hitos serán considerados "prácticas".
 
 Estos son los [objetivos de la asignatura](documentos/objetivos), cuyas sesiones de clase se irán reflejando en [un repositorio de GitHub; este es el de 2018-2019](https://github.com/JJ/IV-18-19).
 
-En resumen, mi intención es que el alumno al final de la asignatura sea capaz de hacer lo siguiente:
+En resumen, mi intención es que el estudiante al final de la asignatura sea capaz de hacer lo siguiente:
 
 1. Definir el entorno de trabajo y pruebas para desarrollo de una aplicación en particular y desplegarlo en un PaaS.
 2. Usar ese entorno para configurar integración continua en una aplicación.
@@ -100,7 +99,7 @@ obtenida en junio. El examen incluirá tanto preguntas de desarrollo
 como ejercicios prácticos en los que se tendrá que esbozar un
 programa, script o fichero de configuración o indicar cómo se
 resolvería un problema con las técnicas aprendidas en la
-asignatura. Se aconseja al alumno que haga los ejercicios de
+asignatura. Se aconseja al estudiante que haga los ejercicios de
 autoevaluación para alcanzar los objetivos de aprendizaje que se
 exigen tanto en junio como en septiembre. El método para preguntar
 dudas será el mismo que en la convocatoria ordinaria: lista de correo
