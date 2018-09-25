@@ -141,10 +141,10 @@ todos funcionan, no hay ningún problema y se imprime `PASS` como se muestra arr
 los tests) se usa para mostrar algún mensaje sobre qué está ocurriendo en el test. En este caso, uno de los tests comprueba que efectivamente
 haya hitos en el fichero JSON que se ha pasado, y el segundo comprueba que el tipo que se devuelve cuando
 se solicita un hito es el correcto. Estos tests no están completos;
-generalmente hay que escribir una función de test para todas las funciones del módulo. Se muestran sólo estos para ilustrar cómo funciona en un lenguaje determinado.
+generalmente hay que escribir una función de test para todas las funciones del módulo. Se muestran solo estos para ilustrar cómo funciona en un lenguaje determinado.
 
 
-Go busca módulos con un nombre específico y en el mismo directorio que el módulo que se quiere probar; sin embargo, en otros lenguajes de programación como Python pasar las pruebas
+Para llevar a cabo los tests, Go busca módulos con un nombre específico y en el mismo directorio que el módulo que se quiere probar; sin embargo, en otros lenguajes de programación como Python pasar las pruebas
 consiste simplemente en ejecutar un programa, situado en cualquier
 directorio y con cualquier nombre, que use alguna librería estándar de
 aserciones como `unittest`. Por ejemplo,
