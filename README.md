@@ -82,7 +82,7 @@ Criterios de evaluación
 ---
 
 Los
-[criterios de evaluación figuran en la ficha de la asignatura en la web del grado](http://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/espti/infraestructuravirtual),
+[criterios de evaluación figuran en la ficha de la asignatura en la web del grado](http://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/curso_actual/cuarto/tecnologiasdelainformacion/gii_infraestructura_virtual_20172018_firmada),
 y
 [se especifican en el repositorio de la clase](https://github.com/JJ/IV-18-19/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n.md).
 
