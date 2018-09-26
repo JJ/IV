@@ -265,7 +265,8 @@ En los dos casos, las peticiones devuelven JSON. Una aplicación de
 este tipo puede devolver cualquier cosa, HTML o texto, pero conviene
 acostumbrarse a pensar en estas aplicaciones como servidores a los
 cuales se va a acceder desde un cliente, sea un programa que use un
-cliente REST o sea desde el navegador usando AJAX.
+cliente REST o el mismo cliente REST usando el navegador, es decir,
+mediante JavaScript.
 
 >Realizar una aplicación básica que use `express` para devolver alguna
 >estructura de datos del modelo que se viene usando en el curso.
