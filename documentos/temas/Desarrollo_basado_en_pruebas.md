@@ -176,11 +176,11 @@ def multiplo3o5o15( numero ):
 class SoloTest(unittest.TestCase):
     
     def testTrue(self):
-        self.assertTrue(devuelveTrue(), "Tiene que fallar")
+        self.assertTrue(devuelveTrue(), "devuelveTrue devuelve True")
 
     def testSuma(self):
-        self.assertEqual(sumaPositivos("cadena",3),-1, "Suma correcta")
-        self.assertEqual(12,sumaPositivos(4,8), "Suma correcta")
+        self.assertEqual(sumaPositivos("cadena",3),-1, "Suma correcta con argumento incorrecto")
+        self.assertEqual(sumaPositivos(4,8), 12, "Suma correcta con argumento correcto")
 
     def testMultiplos(self):
         self.assertEqual(multiplo3o5o15(3),1,"Multiplo de 3")
@@ -268,7 +268,7 @@ función `as_string` es la esperada.
 Para la aplicación que se está haciendo, escribir una serie de aserciones y probar que efectivamente no fallan. Añadir tests para una nueva funcionalidad, probar que falla y escribir el código para que no lo haga (vamos, lo que viene siendo TDD).
 </div>
 
-Hay un segundo nivel, el marco de ejecución de los tests. Los marcos
+Hay un segundo nivel, el marco de ejecución de los tests. Estos marcos
 son programas que, a su vez, ejecutan los programas de test y escriben
 un informe sobre cuáles han fallado y cuáles no con más o menos
 parafernalia y farfolla. Una vez más, [hay varios marcos de testeo](https://stackoverflow.com/questions/4308786/what-is-the-best-testing-framework-to-use-with-node-js) para
