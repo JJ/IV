@@ -250,11 +250,10 @@ los mismos.
   permite aplicar una serie de aplicaciones generalmente desde un
   navegador (y que en realidad tiene que tener por debajo una máquina
   virtual, en un servidor, que sea quien en realidad ejecuta las mismas). En general, los programas
-  necesarios se denominan *emuladores*; WINE (Windows Emulator)
-  permite, por ejemplo, ejecutar aplicaciones de Windows sin
-  modificación en Linux y CygWin crea un entorno similar para Windows,
-  aunque en este caso las aplicaciones se tienen que
-  recompilar. Programas como [CDE](https://github.com/pgbovine/CDE/) en Linux
+  necesarios se denominan *emuladores*; CygWin, por ejemplo,
+  permite ejecutar aplicaciones de UNIX en Windows,
+  aunque se tienen que recompilar.
+  Programas como [CDE](https://github.com/pgbovine/CDE/) en Linux
   permiten empaquetar aplicaciones para que se ejecuten de forma
   independiente en cualquier sistema operativo Linux, aunque hoy en
   día sistemas de empaquetado mucho más modernos como Docker hacen que
