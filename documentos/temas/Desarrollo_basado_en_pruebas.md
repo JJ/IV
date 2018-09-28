@@ -351,14 +351,39 @@ Además, te indica el tiempo que ha tardado lo que te puede servir para
 hacer un *benchmark* de tu código en los diferentes entornos en los
 que se ejecute.
 
+### Otros lenguages
+
+En general, en todos los lenguajes habrá dos niveles para llevar a
+cabo  los tests: las aserciones, que permiten ejecutar código y
+examinar el resultado del mismo, comparándolo con la salida deseada, y
+generalmente un programa, que se encargará de buscar los ficheros de
+tests siguiendo una convención determinada (nombre del fichero,
+directorio en el que se encuentre), ejecutarlos, examinar la salida
+(que, como hemos indicado arriba, sigue un protocolo determinado) y
+decir si se han pasado todos los tests o no, en cuyo caso se indicará
+alguna información adicional como qué scripts de tests no se ha
+pasado o el mensaje de la misma. Algunos programas usados en otros
+lenguajes son:
+
+* Ruby usa [RSpec](http://rspec.info/), que además está basado en el
+  comportamiento deseado, lo que permite tener descripciones mucho más
+  informativas del test y el resultado del fallo.
+  
+* Perl usa [prove](https://perldoc.perl.org/prove.html), con múltiples
+  opciones de configuración. De hecho, es el que se usa en el test de
+  la asignatura.
+  
+* JUnit es el más cercano en Java.
+
+Cada lenguajge incluye este tipo de marcos, sea como parte de su
+distribución base o como parte de alguna biblioteca popular.
+
 
 <div class='ejercicios' markdown='1'>
 
-Convertir los tests unitarios anteriores con assert a programas de
-test y ejecutarlos desde `mocha`, usando descripciones del test y del
-grupo de test de forma correcta. Si hasta ahora no has subido el
-código que has venido realizando a GitHub, es el momento de hacerlo,
-porque lo vas a necesitar un poco más adelante. 
+Crear algún conjunto de scripts de tests, usando tu lenguaje favorito,
+y ejecutarlos desde el marco de test más adecuado (o el que más te
+guste) para ese lenguaje.
 
 </div>
 
