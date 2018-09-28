@@ -356,9 +356,24 @@ lo habitual es que se use a través de hipervisores tales como
 [QEMU](https://en.wikipedia.org/wiki/QEMU). KVM solo está activado si
 puede usar la aceleración por hardware del procesador.
 
+Alternativamente, se puede usar la orden `lscpu`, también presente en
+todos los Linux, para ver si las órdenes de virtualización están
+presentes. Como se
+indica
+[en este artículo](https://www.fosslinux.com/2484/how-to-install-virtual-machine-manager-kvm-in-manjaro-and-arch-linux.htm/),
+en Manjaro, ArchLinux y distros similares (y en realidad en todas), se
+puede usar:
+
+    LC_ALL=C lscpu | grep Virtualization
+    
+La definición de la variable `LC_ALL` se debe simplemente a que
+cambia el formato para que se pueda hacer `grep` (búsqueda)
+correctamente sobre él.
+
 <div class='ejercicios' markdown="1">
 1. Comprobar si el núcleo instalado en tu ordenador contiene este módulo
-del kernel usando la orden `kvm-ok`.
+del kernel usando la orden `kvm-ok`. Alternativamente (o además), usar `lscpu`
+como se indica arriba.
 
 2. Instalar un hipervisor para gestionar máquinas virtuales, que más adelante se podrá usar en pruebas y ejercicios.
 </div>
