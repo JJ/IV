@@ -34,11 +34,11 @@ tanto de software como de hardware y ponerlos en práctica.
 En general el desarrollo de aplicaciones moderno está basado en la
 [separación de intereses](https://es.wikipedia.org/wiki/Separaci%C3%B3n_de_intereses),
 de forma que diferentes partes del programa se puedan desarrollar de
-forma independiente y sin afectar a cómo van el resto de las
-partes. Esto, en la práctica, se pone en práctica en la creación de
-una serie de módulos, cada uno de ellos con un interfaz o API
+forma independiente y sin afectar a cómo se desarrolla el resto de las
+partes. Esto, en la práctica, se lleva a cabo en la creación de
+una serie de módulos o servicios, cada uno de ellos con un interfaz o API
 (*application programming interface*) bien definido, de forma que sea
-fácil para los desarrolladores de cada módulo cambiar el código o
+fácil para los desarrolladores de cada uno de ellos cambiar el código o
 refactorizarlo, siempre que el API se mantenga invariable. 
 
 La *separación de intereses* más directa es la división entre
@@ -108,5 +108,4 @@ de la asignatura, basándose en la [biblioteca que los lee de un fichero en JSON
 A dónde ir desde aquí
 -----
 
-
-
+A la charla de [servicios web](https://jj.github.io/pilas/#/), por ejemplo.
