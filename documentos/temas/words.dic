@@ -1,4 +1,4 @@
-1650
+1660
 AMD
 API
 APIs
@@ -49,6 +49,7 @@ BlueMix
 Box
 BridgeNetworkConnections
 Broccoli
+Brunch
 Build
 Building
 Buildpack
@@ -141,6 +142,7 @@ Dockerfile
 Dockerfiles
 Dockerfiles
 Document
+Dokkur
 DomU
 Domain
 Downloaded
@@ -201,6 +203,7 @@ Hastexo
 Heroku
 Heroku
 Hotmail
+Hug
 I
 IBM
 IBM
@@ -231,6 +234,7 @@ JJ
 JJ
 JSON
 JSON
+JUnit
 Janeiro
 Jasmine
 Jasmine
@@ -283,6 +287,7 @@ Makefile
 Makefiles
 Makefiles
 Mandriva
+Manjaro
 Mark
 Math
 Maven
@@ -312,6 +317,7 @@ NoSQL
 Nodejitsu
 Nodejitsu
 Nodester
+Now
 Number
 Number
 ODS
@@ -381,6 +387,7 @@ Python
 Python
 QEMU
 QEMU
+Quay
 RAM
 RAM
 RBEnv
@@ -390,6 +397,7 @@ REST
 REST
 RESTful
 RPM
+RSpec
 RVM
 RVM
 Rails
@@ -534,6 +542,7 @@ YAML
 Yahoo
 ZFS
 ZFS
+Zafra
 aaS
 account
 acervo
@@ -672,8 +681,6 @@ colorines
 colorines
 com
 commit
-commit
-common
 common
 communication
 compartimentalización
@@ -748,6 +755,7 @@ desplegarla
 desplegarlas
 desplegarlo
 desplegarlo
+desplegarlos
 desplegándolas
 desplegándolas
 dest
@@ -863,6 +871,8 @@ ff
 fgrehm
 filesystem
 filesystem
+filesystem
+filesystems
 find
 first
 fizzy
@@ -959,6 +969,7 @@ infraestructuras
 infraestucturas
 infrastructure
 inicialización
+inicializado
 inicializar
 inicializar
 init
@@ -1097,6 +1108,7 @@ media
 mediawiki
 megabytes
 memory
+merge
 merges
 metadata
 metadatos
@@ -1106,6 +1118,8 @@ metiéndolos
 metutils
 microframeworks
 microkernel
+micromarco
+micromarcos
 microservices
 microservicio
 microservicios
@@ -1307,6 +1321,7 @@ procesándolos
 programming
 programáticamente
 prototipado
+prove
 provider
 provision
 provisiona
@@ -1572,6 +1587,7 @@ usable
 usable
 useradd
 users
+userspace
 usr
 utils
 utilísimo
@@ -1618,6 +1634,7 @@ vmserver
 vnc
 volume
 volume
+webpack
 webpanel
 westeurope
 whatever
@@ -1637,26 +1654,7 @@ yet
 yml
 yml
 yum
+zeit
 zipi
 zuuz
 π
-zeit
-micromarcos
-micromarco
-Hug
-desplegarlos
-Dokkur
-Quay
-Now
-inicializado
-Zafra
-filesystem
-userspace
-filesystems
-Brunch
-webpack
-Manjaro
-RSpec
-JUnit
-prove
-
