@@ -343,7 +343,7 @@ Además, te indica el tiempo que ha tardado lo que te puede servir para
 hacer un *benchmark* de tu código en los diferentes entornos en los
 que se ejecute.
 
-### Otros lenguages
+### Otros lenguajes
 
 En general, en todos los lenguajes habrá dos niveles para llevar a
 cabo  los tests: las aserciones, que permiten ejecutar código y
@@ -367,7 +367,7 @@ lenguajes son:
   
 * JUnit es el más cercano en Java.
 
-Cada lenguajge incluye este tipo de marcos, sea como parte de su
+Cada lenguaje incluye este tipo de marcos, sea como parte de su
 distribución base o como parte de alguna biblioteca popular.
 
 

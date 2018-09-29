@@ -364,8 +364,10 @@ indica
 en Manjaro, ArchLinux y distros similares (y en realidad en todas), se
 puede usar:
 
-    LC_ALL=C lscpu | grep Virtualization
-    
+```
+LC_ALL=C lscpu | grep Virtualization
+```
+
 La definición de la variable `LC_ALL` se debe simplemente a que
 cambia el formato para que se pueda hacer `grep` (búsqueda)
 correctamente sobre él.
