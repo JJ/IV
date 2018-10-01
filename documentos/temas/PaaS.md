@@ -64,7 +64,7 @@ muchos, por ejemplo, en torno a [node.js](http://nodejs.org), un
 intérprete de JavaScript asíncrono que permite crear fácilmente
 aplicaciones REST.
 
->Pila que se ha venido en llamar [MEAN](http://mean.io/#!/) y incluye
+>Pila que se ha venido en llamar [MEAN](http://mean.io/#!/) e incluye
 >también Mongo y Express.
 
 Algunos servicios PaaS son específicos (solo alojan una solución
