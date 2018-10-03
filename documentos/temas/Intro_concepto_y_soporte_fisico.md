@@ -15,7 +15,7 @@ next: Desarrollo_basado_en_pruebas
 <div class="objetivos" markdown="1">
 
 
-## Objetivos 
+## Objetivos
 
 ### Cubre los siguientes objetivos de la asignatura
 
@@ -23,9 +23,9 @@ next: Desarrollo_basado_en_pruebas
 razones de su existencia.
 
 2. Conocer los conceptos relacionados con el proceso de virtualización
-tanto de software como de hardware y ponerlos en práctica. 
+tanto de software como de hardware y ponerlos en práctica.
 
-3. Comprender la diferencia entre infraestructura virtual y real. 
+3. Comprender la diferencia entre infraestructura virtual y real.
 
 4. Justificar la necesidad de procesamiento virtual frente a real en el contexto de una infraestructura TIC de una organización.
 
@@ -38,7 +38,7 @@ AppSpot).
 6. Conocer el concepto de software libre y su importancia dentro de la
 computación nube.
 
-6. Entender el concepto de *DevOps* y las técnicas y tecnologías que cubre. 
+6. Entender el concepto de *DevOps* y las técnicas y tecnologías que cubre.
 
 7. Usar el sistema de control de fuentes `git`para desarrollo
 colaborativo y para despliegue de aplicaciones en la nube.
@@ -53,7 +53,7 @@ Se puede consultar
 
 </div>
 
-Introducción 
+Introducción
 ------------------
 
 En general y en Informática, un recurso [virtual](https://en.wikipedia.org/wiki/Virtualization) es un recurso
@@ -72,7 +72,7 @@ acceder *bajo demanda*, que es *escalable* y que, desde el punto de
 vista del usuario, se *facture según uso*, no por el hecho de tener acceso.
 
 El [origen de la palabra](https://en.wikipedia.org/wiki/Cloud_computing#Origin_of_the_term) viene de la tradicional representación de recursos
-  en la red como una nube. 
+  en la red como una nube.
 
 <div class='ejercicios' markdown='1'>
 Consultar en el catálogo de alguna tienda de informática el precio de
@@ -122,7 +122,7 @@ desarrollo ágil. En concreto, *DevOps* comprende
    ligado a ciclos de desarrollo ágiles en los que cada nueva
    característica se introduzca tan pronto esté lista y probada; el
    despliegue continuo implica integración continua de las nuevas
-   características y arreglos, tanto en el software como el hardware. 
+   características y arreglos, tanto en el software como el hardware.
 
 
 
@@ -133,27 +133,27 @@ Tecnológicamente la computación nube se basa en el proceso progresivo
   de virtualización de recursos computacionales que ha tenido lugar
   prácticamente desde que se empezaron a usar los sistemas de tiempo
   compartido o *time-share* en los años 50. Estos sistemas convertían una sola máquina real en
-  diversas *máquinas virtuales*, una por usuario. A estos sistemas se 
+  diversas *máquinas virtuales*, una por usuario. A estos sistemas se
   accedía mediante terminales *tontos*, con usuarios *percibiendo* un
   uso exclusivo de los recursos, es decir, teniendo acceso a un
   *ordenador virtual*.
-  
+
   En realidad en estos sistemas la protección de memoria o de CPU era
   relativa; la virtualización de recursos en el sentido que la
-  conocemos ahora tiene su origen en los 
+  conocemos ahora tiene su origen en los
   *mainframes* de los 60. La
   [línea temporal de tecnologías de virtualización](https://en.wikipedia.org/wiki/Timeline_of_virtualization_development)
   sitúa en los años 60 el desarrollo de los primeros sistemas de
   [memoria virtual](https://en.wikipedia.org/wiki/Virtual_memory) por parte de IBM, con el primer monitor de máquinas virtuales hecho
   en los años 80 sobre el procesador 80286.  
-  
+
   El concepto de *red privada virtual* o VPN (*virtual private
   network*) es posterior y comenzó a usarse en los años noventa,
   simultáneamente a lo que se puede considerar las primeras
   aplicaciones virtuales, los [servicios de correo web](https://en.wikipedia.org/wiki/Webmail) tales como Yahoo
   o Hotmail, que son en realidad una virtualización de las
   aplicaciones de lectura del correo electrónico.  
-  
+
   Todos los conceptos, por lo tanto, tienen origen en el pasado
   pero la computación nube tal como la conocemos resurge a principios
   de siglo por la potencia alcanzada por los
@@ -161,41 +161,41 @@ Tecnológicamente la computación nube se basa en el proceso progresivo
   mismos para llevar a cabo virtualización de diferentes recursos
   tales como CPU, memoria, almacenamiento y red. Productos privativos como VMWare
   existen desde principios de siglo y otros libres, como [Xen](https://en.wikipedia.org/wiki/Xen), desde el
-  año 2003. 
-  
+  año 2003.
+
   El primer servicio en
   tener esa denominación fue el
   [*Elastic Compute Cloud*, EC2](https://en.wikipedia.org/wiki/Amazon_EC2),
   de Amazon, un servicio de creación de máquinas virtuales bajo
   demanda surgido en 2006. A partir de ese momento, se lanzaron
   diferentes servicios similares.
-  
+
   La virtualización de la infraestructura permite:
-  
+
 * Creación y configuración de la misma bajo demanda. En vez de
     desplazar a un técnico al centro de datos para que instale un
     sistema operativo y las aplicaciones necesarias, o hacerlo remotamente, se puede
     automatizar la creación de un recurso (a base de *recetas* o
     *plantillas*) y llevarse a cabo cuantas veces se necesite.
-	
+
 * Simplificación del control y despliegue de recursos: permite usar
    diferentes sistemas operativos y en cada caso el más adecuado para
    la tarea que se requiera.
-   
+
 * Permite que el *vendor* (distribuidor o vendedor con valor añadido) aproveche mejor el hardware, usando la
   capacidad para servir a diferentes clientes a lo largo del día o de
   la semana y creando tanta infraestructura virtual como la física
   pueda soportar. Esto también reduce la cantidad de energía consumida.
-  
+
 * Portabilidad: una máquina virtual se puede mover físicamente de un
     ordenador a otro cuando sea necesario.
-	
+
 * Ahorro de costes de arranque en un centro de datos frente a una
-      instalación tradicional, aunque eventualmente algunos negocios puedan optar, si tienen un uso intensivo y regular, en volver a ella. 
-	  
+      instalación tradicional, aunque eventualmente algunos negocios puedan optar, si tienen un uso intensivo y regular, en volver a ella.
+
 Todas estas ventajas hacen que,
-	  [ya en el año 2013, más de la mitad de los negocios americanos usan infraestructura virtual](https://www.forbes.com/sites/reuvencohen/2013/04/16/the-cloud-hits-the-mainstream-more-than-half-of-u-s-businesses-now-use-cloud-computing/). 
-  
+	  [ya en el año 2013, más de la mitad de los negocios americanos usan infraestructura virtual](https://www.forbes.com/sites/reuvencohen/2013/04/16/the-cloud-hits-the-mainstream-more-than-half-of-u-s-businesses-now-use-cloud-computing/).
+
 <div class='ejercicios' markdown="1">
 Usando las tablas de precios de servicios de alojamiento en Internet
 "clásicos", es decir, que ofrezcan *Virtual Private Servers* o
@@ -205,7 +205,7 @@ año de un ordenador con un procesador estándar (escogerlo de forma que
 sea el mismo tipo de procesador en los dos vendedores) y con el resto
 de las características similares (tamaño de disco duro equivalente a
 transferencia de disco duro) en el caso de que la infraestructura comprada se usa
-sólo el 1% o el 10% del tiempo.
+solo el 1% o el 10% del tiempo.
 </div>
 
 Tipos de virtualización
@@ -219,7 +219,7 @@ soporte a nivel de hardware. En todo caso, el sistema operativo o
 aplicación que ejecuta las operaciones necesarias para llevar a cabo
 la virtualización se
 denomina *anfitrión* y el que se ejecuta *dentro* de la máquina
-virtual *invitado*. 
+virtual *invitado*.
 
 * La
   [virtualización plena](https://en.wikipedia.org/wiki/Full_virtualization)
@@ -234,20 +234,20 @@ virtual *invitado*.
   de soporte. A veces, con soporte de hardware, se
   puede
   [virtualizar algún recurso](https://en.wikipedia.org/wiki/Hardware-assisted_virtualization),
-  tal como la memoria. 
-   
+  tal como la memoria.
+
 * La
   [paravirtualización](https://en.wikipedia.org/wiki/Paravirtualization)
   requiere modificación de los sistemas operativos    
 
 * La
 [virtualización a nivel de sistema operativo](https://en.wikipedia.org/wiki/Operating_system-level_virtualization)
-sólo permite que anfitrión y cliente usen el mismo sistema operativo
+solo permite que anfitrión y cliente usen el mismo sistema operativo
 pero con invitados aislados del anfitrión y entre sí. En este caso, en
 vez de hablarse de máquinas virtuales se habla de *jaulas*, *zonas* o
 *contenedores*; generalmente se trata de aplicaciones de un sistema
 operativo determinado y el soporte suele estar a nivel del núcleo de
-los mismos. 
+los mismos.
 
 * La
   [virtualización de aplicaciones](https://en.wikipedia.org/wiki/Application_virtualization)
@@ -257,11 +257,10 @@ los mismos.
   permite aplicar una serie de aplicaciones generalmente desde un
   navegador (y que en realidad tiene que tener por debajo una máquina
   virtual, en un servidor, que sea quien en realidad ejecuta las mismas). En general, los programas
-  necesarios se denominan *emuladores*; WINE (Windows Emulator)
-  permite, por ejemplo, ejecutar aplicaciones de Windows sin
-  modificación en Linux y CygWin crea un entorno similar para Windows,
-  aunque en este caso las aplicaciones se tienen que
-  recompilar. Programas como [CDE](https://github.com/pgbovine/CDE/) en Linux
+  necesarios se denominan *emuladores*; CygWin, por ejemplo,
+  permite ejecutar aplicaciones de UNIX en Windows,
+  aunque se tienen que recompilar.
+  Programas como [CDE](https://github.com/pgbovine/CDE/) en Linux
   permiten empaquetar aplicaciones para que se ejecuten de forma
   independiente en cualquier sistema operativo Linux, aunque hoy en
   día sistemas de empaquetado mucho más modernos como Docker hacen que
@@ -274,12 +273,12 @@ los mismos.
   administrador. Esta virtualización de aplicaciones, aunque se puede
   usar para desplegarlas en infraestructura virtual, en realidad está
   fuera de los conceptos de infraestructura cloud que son la clave de
-  esta asignatura. 
-  
-  
+  esta asignatura.
+
+
 *  La *contenedorización* de aplicaciones va un poco más allá,
 empaquetando un entorno de ejecución completo de una o varias
-aplicaciones o servicios (aunque se aconseja que sea sólo uno) y aislándolo del resto
+aplicaciones o servicios (aunque se aconseja que sea solo uno) y aislándolo del resto
 del sistema operativo. Se pueden usar las
 técnicas que se explican en el resto de la asignatura; de hecho, se
 pueden crear *paquetes* que permiten ejecutar una aplicación con todas
@@ -288,7 +287,7 @@ es una aplicación que permite crear fácilmente aplicaciones
 *contenidas* desde línea de órdenes para su uso en cualquier tipo de
 infraestructura virtual. A bajo nivel, la contenedorización es en
 realidad un sistema de aislamiento de aplicaciones que permite crear
-seudo-máquinas virtuales de *usar y tirar*. 
+seudo-máquinas virtuales de *usar y tirar*.
 
 * La *virtualización de entornos de desarrollo* es una práctica
 habitual en lenguajes de scripting tales como Perl, Python o Ruby. Se
@@ -297,16 +296,16 @@ posible, incluyendo las versiones de intérpretes y librerías usadas en
 el entorno de producción. Esta práctica permite también probar una
 aplicación en diferentes versiones con una sola orden. `virtualenv`, `perlbrew`
 `rbenv` o `RVM` son diferentes aplicaciones que permiten realizarlo
-para diferentes lenguajes. 
+para diferentes lenguajes.
 
 En general, en esta asignatura hablaremos, sobre todo, de
 virtualización plena, aunque en realidad lo interesante de la
 infraestructura virtual es poder definir por software los recursos que
 se van a usar para desplegar una aplicación, independientemente de la
-tecnología que se use. 
+tecnología que se use.
 
 
-Virtualización a nivel de *hardware* 
+Virtualización a nivel de *hardware*
 ----------------------------------
 
 Los sistemas operativos modernos ofrecen *puentes* para poder usar las
@@ -342,7 +341,7 @@ si tienes acceso, [el procesador del móvil](https://stackoverflow.com/questions
 
 Lo que implementan estas tecnologías son una serie de instrucciones
 para proteger zonas de memoria, crear máquinas virtuales *anidadas* y
-facilitar la virtualización de los buses de entrada/salida. 
+facilitar la virtualización de los buses de entrada/salida.
 
 Normalmente esta aceleración hardware de la virtualización no se
 expone directamente al usuario, sino que se añade una capa de
@@ -350,7 +349,7 @@ abstracción en el sistema operativo que, habitualmente, no distingue
 entre la aceleración de hardware usada. Esta capa se incluye en el
 núcleo del sistema operativo y se expone de alguna forma (a través
 de un dispositivo virtual, por ejemplo) para que los *hipervisores* o
-aplicaciones para gestionar máquinas virtuales puedan usarlo. 
+aplicaciones para gestionar máquinas virtuales puedan usarlo.
 
 Esta infraestructura en Linux se llama
 [KVM, Kernel-based Virtual Machine](https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine)
@@ -361,14 +360,31 @@ salida y presentar la salida de vídeo del invitado en el anfitrión. En
 realidad, KVM tampoco se usa directamente en general (aunque es una
 parte del núcleo con sus características como cualquier otra) sino que
 lo habitual es que se use a través de hipervisores tales como
-[QEMU](https://en.wikipedia.org/wiki/QEMU). KVM sólo está activado si
-puede usar la aceleración por hardware del procesador. 
+[QEMU](https://en.wikipedia.org/wiki/QEMU). KVM solo está activado si
+puede usar la aceleración por hardware del procesador.
+
+Alternativamente, se puede usar la orden `lscpu`, también presente en
+todos los Linux, para ver si las órdenes de virtualización están
+presentes. Como se
+indica
+[en este artículo](https://www.fosslinux.com/2484/how-to-install-virtual-machine-manager-kvm-in-manjaro-and-arch-linux.htm/),
+en Manjaro, ArchLinux y distros similares (y en realidad en todas), se
+puede usar:
+
+```
+LC_ALL=C lscpu | grep Virtualization
+```
+
+La definición de la variable `LC_ALL` se debe simplemente a que
+cambia el formato para que se pueda hacer `grep` (búsqueda)
+correctamente sobre él.
 
 <div class='ejercicios' markdown="1">
 1. Comprobar si el núcleo instalado en tu ordenador contiene este módulo
-del kernel usando la orden `kvm-ok`.
+del kernel usando la orden `kvm-ok`. Alternativamente (o además), usar `lscpu`
+como se indica arriba.
 
-2. Instalar un hipervisor para gestionar máquinas virtuales, que más adelante se podrá usar en pruebas y ejercicios. 
+2. Instalar un hipervisor para gestionar máquinas virtuales, que más adelante se podrá usar en pruebas y ejercicios.
 </div>
 
 
@@ -407,12 +423,12 @@ y por supuesto Amazon Web Services. Cualquiera de ellos ofrece una
 cantidad de servicios virtualizados a todos los niveles, que van desde
 virtualización de recursos computacionales hasta virtualización de
 almacenamiento de todo tipo. En general, lo que hacen los servicios en
-la nube es abstraer los recursos de forma que el usuario sólo tenga
+la nube es abstraer los recursos de forma que el usuario solo tenga
 que describir en un lenguaje de alto nivel específico de la plataforma
 o genérico para cualquier plataforma qué se quiere ejecutar y cómo es
 el flujo de datos en la ejecución; todas las tareas de asignación de
 recursos y escalado de los mismos es gestionado por la propia
-plataforma. 
+plataforma.
 
 
 Hay especialmente dos servicios que han
@@ -434,26 +450,26 @@ capas anteriores
   servicio, una ventaja que no poseen ni las máquinas virtuales ni las
   plataformas como servicio que, de hecho, ahora usan también
   contenedores.
-  
+
 * *Funciones como servicio* dentro de lo que se ha venido en
   llamar
   [*serverless*](https://en.wikipedia.org/wiki/Serverless_computing),
   la virtualización se reduce a la mínima expresión usando simples
   funciones que están conectadas de forma ligera al resto de la
   aplicación a base de canales de eventos. Estas funciones se activan
-  sólo cuando se las necesita y por tanto se cobra sólo por la
+  solo cuando se las necesita y por tanto se cobra solo por la
   ejecución, que además está limitada y se cobra por
   milisegundos. Amazon Lambda o Google o Azure Functions son los
   nombres de los productos comerciales, que cuentan con marcos libres
   como [OpenWhisk](https://en.wikipedia.org/wiki/Bluemix).
-  
+
 En general, estos dos servicios necesitan a su vez de otros productos
 en la nube, especialmente definición de redes virtuales y diferentes
-tipos de almacenes de datos y de canales de comunicación entre ellos. 
+tipos de almacenes de datos y de canales de comunicación entre ellos.
 
 <div class='ejercicios' markdown="1">
 1. Darse de alta en servicios de nube usando ofertas gratuitas o
-   cupones que pueda proporcionar el profesor. 
+   cupones que pueda proporcionar el profesor.
 
 </div>
 
@@ -478,11 +494,11 @@ recursos disponible, puede acceder al despliegue de sus aplicaciones
 en la nube, y de hecho así es. Otros sistemas cloud
 son
 [Eucalyptus y OpenNebula](https://www.researchgate.net/publication/303838237_Cloud_Computing_Comparative_Study_-_OpenStack_vs_OpenNebula),
-pero no tienen una comunidad tan activa como este. 
+pero no tienen una comunidad tan activa como este.
 
 <div class='ejercicios' markdown="1">
 1. Darse de alta en una web que permita hacer pruebas con alguno de
-   los sistemas de gestión de nube anteriores. 
+   los sistemas de gestión de nube anteriores.
 
 </div>
 
@@ -496,4 +512,4 @@ continuación
 [los ciclos de desarrollo modernos usando desarrollo basado en pruebas, *test-driven development*, TDD](Desarrollo_basado_en_pruebas),
 pero se puede salar directamente
 al [tema dedicado a las plataformas como servicio](PaaS) veremos
-como usarlos. Previamente habrá que [realizar la práctica correspondiente a esta materia](../proyecto/0.Repositorio). 
+como usarlos. Previamente habrá que [realizar la práctica correspondiente a esta materia](../proyecto/0.Repositorio).

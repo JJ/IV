@@ -83,6 +83,8 @@ que es en el que nos estamos fijando, hay dos niveles en el test: el
 primero es el marco de pruebas y el segundo la librería de pruebas que
 efectivamente se está usando. 
 
+### Escribiendo tests en Go
+
 Algunos lenguajes, como [Go](https://golang.org), integran este marco de pruebas en el
 propio lenguaje, por lo que nos permite fijarnos exclusivamente en la
 biblioteca de pruebas con la que estamos trabajando.
@@ -152,11 +154,15 @@ se solicita un hito es el correcto. Estos tests no están completos;
 generalmente hay que escribir una función de test para todas las funciones del módulo. Se muestran solo estos para ilustrar cómo funciona en un lenguaje determinado.
 
 
-Para llevar a cabo los tests, Go busca módulos con un nombre específico y en el mismo directorio que el módulo que se quiere probar; sin embargo, en otros lenguajes de programación como Python pasar las pruebas
-consiste simplemente en ejecutar un programa, situado en cualquier
-directorio y con cualquier nombre, que use alguna librería estándar de
-aserciones como `unittest`. Por ejemplo,
-en [el programa siguiente](https://github.com/JJ/tdd-gdg). 
+## Escribiendo tests en Python
+
+Para llevar a cabo los tests, Go busca módulos con un nombre
+específico y en el mismo directorio que el módulo que se quiere
+probar; sin embargo, en otros lenguajes de programación como Python
+pasar las pruebas consiste simplemente en ejecutar un programa,
+situado en cualquier directorio y con cualquier nombre, que use alguna
+librería estándar de aserciones como `unittest`. Por ejemplo,
+en [el programa siguiente](https://github.com/JJ/tdd-gdg).
 
 ```
 import unittest
@@ -246,9 +252,14 @@ faltan (en el momento que se lea este tema).
 
 </div>
 
+### Escribiendo tests en Javascript
+
 Go valora la simplicidad y además incluye de serie todo lo necesario
-para llevar a cabo los tests. 
-Vamos a ir al nivel más bajo: el de las aserciones. Hay [múltiples bibliotecas que se pueden usar](https://stackoverflow.com/questions/14294567/assertions-library-for-node-js):
+para llevar a cabo los tests.
+Vamos a ir al nivel más bajo: el de las aserciones; ya hemos visto
+como se usan en Python, en esta sección veremos otro lenguaje:
+JavaScript. Hay
+[múltiples bibliotecas que se pueden usar](https://stackoverflow.com/questions/14294567/assertions-library-for-node-js): 
 [Chai](https://chaijs.com/),
 [Should.js](https://github.com/visionmedia/should.js),
 [Must.js](https://github.com/moll/js-must) y
@@ -340,13 +351,39 @@ Además, te indica el tiempo que ha tardado lo que te puede servir para
 hacer un *benchmark* de tu código en los diferentes entornos en los
 que se ejecute.
 
+### Otros lenguajes
+
+En general, en todos los lenguajes habrá dos niveles para llevar a
+cabo  los tests: las aserciones, que permiten ejecutar código y
+examinar el resultado del mismo, comparándolo con la salida deseada, y
+generalmente un programa, que se encargará de buscar los ficheros de
+tests siguiendo una convención determinada (nombre del fichero,
+directorio en el que se encuentre), ejecutarlos, examinar la salida
+(que, como hemos indicado arriba, sigue un protocolo determinado) y
+decir si se han pasado todos los tests o no, en cuyo caso se indicará
+alguna información adicional como qué scripts de tests no se ha
+pasado o el mensaje de la misma. Algunos programas usados en otros
+lenguajes son:
+
+* Ruby usa [RSpec](http://rspec.info/), que además está basado en el
+  comportamiento deseado, lo que permite tener descripciones mucho más
+  informativas del test y el resultado del fallo.
+  
+* Perl usa [prove](https://perldoc.perl.org/prove.html), con múltiples
+  opciones de configuración. De hecho, es el que se usa en el test de
+  la asignatura.
+  
+* JUnit es el más cercano en Java.
+
+Cada lenguaje incluye este tipo de marcos, sea como parte de su
+distribución base o como parte de alguna biblioteca popular.
+
+
 <div class='ejercicios' markdown='1'>
 
-Convertir los tests unitarios anteriores con assert a programas de
-test y ejecutarlos desde `mocha`, usando descripciones del test y del
-grupo de test de forma correcta. Si hasta ahora no has subido el
-código que has venido realizando a GitHub, es el momento de hacerlo,
-porque lo vas a necesitar un poco más adelante. 
+Crear algún conjunto de scripts de tests, usando tu lenguaje favorito,
+y ejecutarlos desde el marco de test más adecuado (o el que más te
+guste) para ese lenguaje.
 
 </div>
 
@@ -357,7 +394,8 @@ Una de las partes esenciales de la cultura *DevOps* es la definición y
 gestión de configuraciones que permite la automatización y
 replicabilidad de la misma desde el entorno de desarrollo hasta el
 entorno de ensayo o el de producción. El uso de *entornos
-virtuales* o *gestores de versiones*, que permite instalar desde el
+virtuales* (llamados así por uno de los primeros en Python, llamado
+`virtualenv`) o *gestores de versiones*, que permite instalar desde el 
 usuario la versión del lenguaje de programación y herramientas que uno
 desee, cubre las dos necesidades: te permite independizar la
 versión usada de la que proporcione el sistema, instalarla sin
