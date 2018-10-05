@@ -32,14 +32,14 @@ tanto de software como de hardware y ponerlos en práctica.
 
 ## Introducción
 
->Esta [presentación](http://jj.github.io/pispaas/#/) es un resumen del concepto de Plataforma como Servicio
+>Esta [presentación](https://jj.github.io/pispaas/#/) es un resumen del concepto de Plataforma como Servicio
 >(PaaS) y alguna cosa adicional que no está incluida en este tema pero que conviene conocer de todas formas.
 
 Cuando uno quiere desplegar una aplicación sobre una infraestructura ya definida y que no va a cambiar, teniendo parte del trabajo de instalación ya hecho, o al menos preparado
 para hacerse con la pulsación de un botón, a la vez que tiene
 flexibilidad para trabajar con marcos de aplicaciones más allá de lo
 que ofrece programar *plugins* (como en el *SaaS*), necesita un
-[*Platform as a Service* o PaaS](http://en.wikipedia.org/wiki/Platform_as_a_service). Un
+[*Platform as a Service* o PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service). Un
 PaaS proporciona una *pila*, es decir, varias capas de servicios
 apilados de forma que cada uno usa al siguiente, que incluye, generalmente, almacenamiento de
 datos, un marco concreto para trabajar (tal como Django o Ruby on
@@ -60,37 +60,36 @@ La mayoría de los servicios PaaS están ligados a una *pila* de
 soluciones determinada o a un vendedor determinado, es decir, a una
 serie de aplicaciones que trabajan unas sobre otras cada una usando el
 servicio de la anterior. Han surgido
-muchos, por ejemplo, en torno a [node.js](http://nodejs.org), un
+muchos, por ejemplo, en torno a [node.js](https://nodejs.org), un
 intérprete de JavaScript asíncrono que permite crear fácilmente
 aplicaciones REST.
 
->Pila que se ha venido en llamar [MEAN](http://mean.io/#!/) e incluye
+>Pila que se ha venido en llamar [MEAN](https://mean.io/) e incluye
 >también Mongo y Express.
 
 Algunos servicios PaaS son específicos (solo alojan una solución
-determinada, como [CloudAnt](https://cloudant.com/) que aloja una base
+determinada, como [CloudAnt](https://www.ibm.com/cloud/cloudant) que aloja una base
 de datos con CouchDB o genéricos), permitiendo una serie de soluciones
 en general relativamente limitada; [Heroku](https://www.heroku.com) y
 [OpenShift](https://www.openshift.com) están entre estos últimos, pero
-también [hay otros](http://www.codediesel.com/nodejs/5-paas-solutions-to-host-your-nodejs-apps/)
-como [AppFog](https://www.ctl.io/appfog/) y otros muchos, depende
+también [hay otros](https://www.codediesel.com/nodejs/5-paas-solutions-to-host-your-nodejs-apps/), dependiendo
 del tipo de pila que quieras alojar; los tres anteriores son los que
 trabajan bien con
-node.js, [igual que nitrous.io](http://blog.blakepatches.me/blog/2013/11/04/comparison-of-node-dot-js-hosting/) o [IBM BlueMix](https://console.ng.bluemix.net/#/pricing/cloudOEPaneId=pricing) (que ofrece un período de prueba gratuito, que no se puede renovar, lo sé por experiencia).
+node.js, [igual que nitrous.io](https://blog.blakepatches.me/blog/2013/11/04/comparison-of-node-dot-js-hosting/) o [IBM BlueMix](https://console.ng.bluemix.net/#/pricing/cloudOEPaneId=pricing) (que ofrece un período de prueba gratuito, que no se puede renovar, lo sé por experiencia).
 
 >Después de probar casi todos los servicios anteriores, me da la
 >impresión de que poco hay más allá de Heroku y Openshift. AppFog, después de la efervescencia inicial, dan 30 días de prueba
 >solamente. nitrous.io también da un periodo de prueba y se puede usar como IaaS, pero del resto, al menos
 >los que funcionan con node.js, poco más hay.  
 
-[AppAgile](https://cloud.telekom.de/infrastruktur/appagile/)
+[AppAgile](https://cloud.telekom.de/de/infrastruktur/appagile/)
 trabaja con Perl, por ejemplo, como lo hacía 
 Stackato y otras. En general, si necesitas otros lenguajes, tendrás que buscar porque la oferta variará. Los más fiables son OpenShift y Heroku, y los que ofrecen más opciones a la hora de elegir lenguajes.
 
 <div class='ejercicios' markdown="1">
 
 Darse de alta en algún servicio PaaS tal como Heroku,
-[zeit](https://zeit.co), [BlueMix](https://console.ng.bluemix.net/) u OpenShift.
+[zeit](https://zeit.co), [BlueMix](https://console.bluemix.net/) u OpenShift.
 
 </div>
 
@@ -114,7 +113,7 @@ aplicación. El propio *middleware* del PaaS se encarga de equilibrar
 la carga
 
 > Aunque
-> [no necesariamente lo hace de la mejor forma](http://genius.com/James-somers-herokus-ugly-secret-annotated). Heroku
+> [no necesariamente lo hace de la mejor forma](https://genius.com/James-somers-herokus-ugly-secret-annotated). Heroku
 > cambió el enrutado de forma que ya no funciona tan bien como lo
 > hacía 5 años atrás.
 
@@ -186,11 +185,11 @@ protocolo HTTP.
 <div class='nota' markdown='1'>
 
 Este
-[vídeo explica como usar `heroku` para aplicaciones en Ruby](http://www.youtube.com/watch?v=dqAXmratgzE);
+[vídeo explica como usar `heroku` para aplicaciones en Ruby](https://www.youtube.com/watch?v=dqAXmratgzE);
 en
-[este un poco más extenso y hecho por una persona de Heroku](http://www.youtube.com/watch?v=VZgHItD9bAQ)
+[este un poco más extenso y hecho por una persona de Heroku](https://www.youtube.com/watch?v=VZgHItD9bAQ)
 te explica cómo usarlo. No hay muchos vídeos en español, pero en
-[este explica cómo crear una aplicación Django y subirla a Heroku](http://www.youtube.com/watch?v=3k2eg0stnCI)
+[este explica cómo crear una aplicación Django y subirla a Heroku](https://www.youtube.com/watch?v=3k2eg0stnCI)
 y
 [este es una introducción general con ejemplos de Ruby](https://www.youtube.com/watch?v=ii9G9JMvoXM)
 
@@ -207,7 +206,7 @@ y
 Se pueden diseñar servicios web en cualquier lenguaje de programación;
 pero en este apartado optaremos inicialmente por Node.js/Javascript;
 que para diseñar interfaces REST de forma bastante simple, tiene
-un [módulo llamado express](http://expressjs.com/). La idea de este módulo
+un [módulo llamado express](https://expressjs.com/). La idea de este módulo
 es reflejar en el código, de la forma más natural posible, el diseño del
 interfaz REST.
 
@@ -255,7 +254,7 @@ otro lado se pone directamente la función para cada una de ellas. Dentro
 de cada función de respuesta podemos procesar las órdenes que queramos.
 
 Por otro lado, se usa `send`  para enviar el resultado,
-[una orden más flexible](http://expressjs.com/api.html#res.send)
+[una orden más flexible](https://expressjs.com/en/api.html#res.send)
 que admite todo
 tipo de datos que son procesados para enviar al cliente la respuesta
 correcta. Tampoco hace falta establecer explícitamente el tipo MIME que
@@ -272,7 +271,7 @@ mediante JavaScript.
 >estructura de datos del modelo que se viene usando en el curso.
 
 Con el mismo `express` se pueden generar aplicaciones no tan básicas
-instalando [`express-generator`](http://expressjs.com/es/starter/generator.html) o el generador de aplicaciones [`yeoman`](http://yeoman.io)
+instalando [`express-generator`](https://expressjs.com/es/starter/generator.html) o el generador de aplicaciones [`yeoman`](https://yeoman.io)
 
     express prueba-rest
 
@@ -338,7 +337,7 @@ en formato JSON todo lo que hayamos almacenado hasta el momento.
 
 Todas las órdenes definen una *ruta*, que es como se denominan cada
 una de las funciones del API REST. Las
-[rutas](https://www.packtpub.com/books/content/understanding-express-routes)
+[rutas](https://hub.packtpub.com/understanding-express-routes)
 pueden ser simples cadenas (como `/porras` en el caso de `get`) o
 incluir parámetros, como en el caso de `put`:
 `/porra/:local/:visitante/:competition/:year` incluye una orden al
@@ -380,7 +379,7 @@ Los tests podemos integrarlos, como es natural, en el mismo marco que el resto d
 module.exports = app;
 ```
 
-con lo que se exporta la app que se crea; `require` ejecuta el código y recibe la variable que hemos exportado, que podemos usar como si se tratara de parte de esta misma aplicación. `app` en este test, por tanto, contendrá lo mismo que en la aplicación principal, `index.js`. Usamos el mismo estilo de test con `mocha` que [ya se ha visto](http://jj.github.io/desarrollo-basado-pruebas/) pero usamos funciones específicas:
+con lo que se exporta la app que se crea; `require` ejecuta el código y recibe la variable que hemos exportado, que podemos usar como si se tratara de parte de esta misma aplicación. `app` en este test, por tanto, contendrá lo mismo que en la aplicación principal, `index.js`. Usamos el mismo estilo de test con `mocha` que [ya se ha visto](https://jj.github.io/desarrollo-basado-pruebas/) pero usamos funciones específicas:
 
 * `request` hace una llamada sobre `app` como si la hiciéramos *desde
   fuera*; `put`, por tanto, llamará a la ruta correspondiente, que
@@ -441,7 +440,7 @@ heroku master` se pondrá en marcha. La mayoría de los PaaS usa `git
 push` como modo de despliegue, que permite tener controlada la versión
 de todos los ficheros que hay en el mismo y además, con los *ganchos*
 post-`push`,
-[compilar y ejecutar la aplicación a través de los llamados *Buildpacks*](http://www.jamesward.com/2012/07/18/the-magic-behind-herokus-git-push-deployment).  
+[compilar y ejecutar la aplicación a través de los llamados *Buildpacks*](https://www.jamesward.com/2012/07/18/the-magic-behind-herokus-git-push-deployment).  
 
 <div class='ejercicios' markdown="1">
 
@@ -486,7 +485,7 @@ Foreman. Para ejecutar localmente nuestra aplicación ejecutaremos
 tarea correspondiente a `web`, en este caso `index.js`.  Podemos
 interrumpirlo simplemente tecleando Ctrl-C.
 
-[`foreman`](http://blog.daviddollar.org/2011/05/06/introducing-foreman.html)
+[`foreman`](https://blog.daviddollar.org/2011/05/06/introducing-foreman.html)
 actúa como un envoltorio de tu aplicación, ejecutando todo lo
 necesario para que funcione (no solo la web, sino bases de datos o
 cualquier otra cosa que haya que levantar antes) codificando por
@@ -564,7 +563,7 @@ definido.
 
 Ahora tienes dos repositorios: el que está efectivamente desplegado y
 el que contiene los fuentes. ¿No sería una buena idea que se trabajara
-con uno solo? Efectivamente, [GitHub permite desplegar directamente a Heroku cuando se hace un `push` a la rama `master`](http://stackoverflow.com/questions/17558007/deploy-to-heroku-directly-from-my-github-repository),
+con uno solo? Efectivamente, [GitHub permite desplegar directamente a Heroku cuando se hace un `push` a la rama `master`](https://stackoverflow.com/questions/17558007/deploy-to-heroku-directly-from-my-github-repository),
 aunque no es inmediato, sino que pasa por usar un servicio de
 integración continua, que se asegure de que todo funciona
 correctamente.
@@ -580,7 +579,7 @@ preparado. No es el caso de Heroku.
 Otros sistemas, como
 [AWS CodeDeploy de Amazon pueden desplegar a una instancia en la nube de esta empresa](https://medium.com/aws-activate-startup-blog/simplify-code-deployments-with-aws-codedeploy-e95599091304). Sin
 embargo,
-[no es complicado configurar un servicio de integración continua como Snap CI](http://stackoverflow.com/questions/17558007/deploy-to-heroku-directly-from-my-github-repository). Después
+[no es complicado configurar un servicio de integración continua como Snap CI](https://stackoverflow.com/questions/17558007/deploy-to-heroku-directly-from-my-github-repository). Después
 de [darte de alta en el Snap CI](https://snap-ci.com/), la
 configuración se hace desde un panel de control y, si ya lo tienes
 configurado para Travis (como deberías) el propio sitio detecta la
@@ -602,7 +601,7 @@ despliegue automáticamente en Heroku.
  Haz alguna modificación a tu aplicación en node.js para Heroku, sin
  olvidar añadir los tests para la nueva funcionalidad, y configura el
  despliegue automático a Heroku usando Snap CI o
- [alguno de los otros servicios, como Codeship, mencionados en StackOverflow](http://stackoverflow.com/questions/17558007/deploy-to-heroku-directly-from-my-github-repository)
+ [alguno de los otros servicios, como Codeship, mencionados en StackOverflow](https://stackoverflow.com/questions/17558007/deploy-to-heroku-directly-from-my-github-repository)
  </div>
 
 En principio se ha preparado [a la aplicación](https://github.com/JJ/node-app-cc/blob/master/index.js) para su despliegue en un solo PaaS, Heroku. Pero, ¿se podría desplegar en otro PaaS también?
