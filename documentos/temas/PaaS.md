@@ -32,14 +32,14 @@ tanto de software como de hardware y ponerlos en práctica.
 
 ## Introducción
 
->Esta [presentación](http://jj.github.io/pispaas/#/) es un resumen del
->PaaS y alguna cosa adicional que no está incluida en este tema pero que conviene conocer de todas formas.
+>Esta [presentación](http://jj.github.io/pispaas/#/) es un resumen del concepto de Plataforma como Servicio
+>(PaaS) y alguna cosa adicional que no está incluida en este tema pero que conviene conocer de todas formas.
 
-Cuando uno quiere desplegar una aplicación y tener parte del trabajo de instalación ya hecho, o al menos preparado
+Cuando uno quiere desplegar una aplicación sobre una infraestructura ya definida y que no va a cambiar, teniendo parte del trabajo de instalación ya hecho, o al menos preparado
 para hacerse con la pulsación de un botón, a la vez que tiene
 flexibilidad para trabajar con marcos de aplicaciones más allá de lo
 que ofrece programar *plugins* (como en el *SaaS*), necesita un
-[Platform as a Service o PaaS](http://en.wikipedia.org/wiki/Platform_as_a_service). Un
+[*Platform as a Service* o PaaS](http://en.wikipedia.org/wiki/Platform_as_a_service). Un
 PaaS proporciona una *pila*, es decir, varias capas de servicios
 apilados de forma que cada uno usa al siguiente, que incluye, generalmente, almacenamiento de
 datos, un marco concreto para trabajar (tal como Django o Ruby on
@@ -84,8 +84,8 @@ node.js, [igual que nitrous.io](http://blog.blakepatches.me/blog/2013/11/04/comp
 >los que funcionan con node.js, poco más hay.  
 
 [AppAgile](https://cloud.telekom.de/infrastruktur/appagile/)
-trabaja con Perl, por ejemplo, como
-[Stackato y otras](http://showmetheco.de/articles/2011/8/three-perl-cloud-hosting-platforms.html). En general, si necesitas otros lenguajes, tendrás que buscar porque la oferta variará. Los más fiables son OpenShift y Heroku, y los que ofrecen más opciones a la hora de elegir lenguajes.
+trabaja con Perl, por ejemplo, como lo hacía 
+Stackato y otras. En general, si necesitas otros lenguajes, tendrás que buscar porque la oferta variará. Los más fiables son OpenShift y Heroku, y los que ofrecen más opciones a la hora de elegir lenguajes.
 
 <div class='ejercicios' markdown="1">
 
