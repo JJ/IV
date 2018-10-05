@@ -249,7 +249,7 @@ faltan (en el momento que se lea este tema).
 Go valora la simplicidad y además incluye de serie todo lo necesario
 para llevar a cabo los tests.
 Vamos a ir al nivel más bajo: el de las aserciones; ya hemos visto
-como se usan en Python, en esta sección veremos otro lenguaje:
+cómo se usan en Python, en esta sección veremos otro lenguaje:
 JavaScript. Hay
 [múltiples bibliotecas que se pueden usar](https://stackoverflow.com/questions/14294567/assertions-library-for-node-js): 
 [Chai](https://chaijs.com/),
@@ -685,7 +685,7 @@ cambios hechos por un miembro del equipo en el momento que estén y
 pasen los tests. Pero eso, efectivamente, significa que deben pasar
 los tests y para nosotros, consiste en crear una configuración para
 una máquina externa que ejecute esos tests y nos diga cuáles han
-pasado o cuales no. Estas máquinas más adelante se combinan con las de
+pasado o cuáles no. Estas máquinas más adelante se combinan con las de
 despliegue continuo, no permitiendo el mismo si algún test no ha
 pasado.
 
