@@ -287,8 +287,8 @@ nodejs (y, por supuesto, uno propio para cada uno de los lenguajes de
 programación, aunque en algunos están realmente estandarizados).
 
 Cada uno de ellos tendrá sus promotores y detractores, pero
-[Mocha](https://mochajs.org/) y [Jasmine](https://jasmine.github.io/)
-parecen ser los más populares. Los dos usan un sistema denominado
+[Mocha](https://mochajs.org/), [Jasmine](https://jasmine.github.io/) y [Jest](https://github.com/facebook/jest)
+parecen ser los más populares. Los tres usan un sistema denominado
 [Behavior Driven Development](https://en.wikipedia.org/wiki/Behavior-driven_development),
 que consiste en describir el comportamiento de un sistema más o menos
 de alto nivel. Como hay que escoger uno y parece que Mocha es más
