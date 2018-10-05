@@ -591,7 +591,7 @@ adicional: en el menú de Configuración se puede añadir un paso
 adicional tras el de Test, en el que no hay que más que decirle el
 repositorio de Heroku al que se va a desplegar.
 
-![Panel de control de Snap CI con despliegue a Heroku](despliegue-snap-ci.png)
+![Panel de control de Snap CI con despliegue a Heroku](/documentos/img/despliegue-snap-ci.png)
 
 Con esto, un simple push a una rama determinada, que sería la
 `master`, se hará que se pruebe y, en caso de pasar los tests, se
