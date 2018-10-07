@@ -1,4 +1,4 @@
-# MarkDown
+# Mini-tutorial de Markdown
 
 MarkDown nació como un lenguaje de marcado que facilita aplicar un cierto formato a un texto plano. Para ello se utilizar distintos caracteres de forma especial.
 
@@ -9,7 +9,7 @@ Hoy en día es una forma ágil y sencilla de tomar apuntes, documentar un trabaj
 La extensión propia de MarkDown es ".md" y la conversión a PDF se realiza mediante algun pluggin que tengamos en nuestro editor, en mi caso utilizo: "MarkDown to PDF"
 ## Sintaxis de MarkDown:
 
-#### 1. Encabezados(#):
+### 1. Encabezados(#):
 
 Para integrar un encabezado en nuestro texto utilizamos el caracter "#" al principio de este, pudiendo agregar más almohadillas podemos variar de nivel el encabezado, cuantas más almohadillas más pequeño será el encabezado:
 
@@ -20,7 +20,7 @@ Para integrar un encabezado en nuestro texto utilizamos el caracter "#" al princ
 ....
 ~~~~
 
-#### 2. Cursiva y negrita:
+### 2. Cursiva y negrita:
 
 Hay distintas formas de conseguir que nuestro texto se vea en _cursiva_, __negrita__ o ___ambos___, aquí se reflejarán dos de ellas:
 
@@ -30,7 +30,7 @@ Negrita: __a__ ó **a**
 Ambos: ___a___ ó ***a***
 ~~~~
 
-#### 3. Listas enumeradas y no enumeradas:
+### 3. Listas enumeradas y no enumeradas:
 
 Para conseguir una lista enumerada basta con agregar un número delante del texto junto a un punto y un espacio:
 
@@ -60,7 +60,7 @@ Para realizar la lista sin numerar cambiaríamos los números por `*`:
  * Segundo
  * Tercero
 
-#### 4. Crear enlaces:
+### 4. Crear enlaces:
 
 Si queremos crear un enlace hacia una una página escribimos esta estructura:
 
@@ -72,7 +72,7 @@ Se vería así:
 
 [Enlace a Google](https://google.com)
 
-#### 5. Añadir imágenes:
+### 5. Añadir imágenes:
 
 La estructura para añadir imágenes es similar a la de los enlaces pero añadiendo '!' al principio:
 
@@ -89,7 +89,7 @@ Y se vería así:
 
 ![IconoMD](../img/iconMD.png)
 
-#### 6. Escapar caracteres:
+### 6. Escapar caracteres:
 
 Si te estás preguntando cómo se escapan caracteres o como se están creando esos mágicos cuadraditos tan bonitos este es el truco, basta con utilizar: **`** ,(escapar caracteres) o repetir ~ cuatro veces para abrir y cuatro veces para cerrar, viendolo en un ejemplo quedará más claro:
 
