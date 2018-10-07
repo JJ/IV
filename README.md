@@ -51,6 +51,7 @@ Seminarios
 
 Material adicional interesante para la asignatura, que se impartirá fuera del horario lectivo.
 
+1. [Mini-tutorial de Markdown, por Justo Javier Galera (JotaGalera)](documentos/seminarios/tutorial.md).
 1. [Introducción ligera al lenguaje Ruby](documentos/seminarios/ruby.md).
 
 Prácticas - Actividades académicas dirigidas
