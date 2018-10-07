@@ -87,10 +87,13 @@ Los
 y
 [se especifican en el repositorio de la clase](https://github.com/JJ/IV-18-19/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n.md).
 
-## Convocatoria extraordinaria (en julio)
+## Convocatoria extraordinaria (AL FINAL DEL CUATRIMESTRE)
 
-Si no se ha superado la asignatura en la convocatoria ordinaria, la
-extraordinaria consistirá en un examen escrito en septiembre que
+Si no se ha superado la asignatura en la convocatoria ordinaria, en la
+extraordinaria habrá que entregar los diferentes hitos del proyecto no
+entregados, con los plazos que se anunciarán cuando se pongan las
+notas de la convocatoria ordinaria. Excepcionalmente, la
+extraordinaria *podrá* consistir en un examen escrito en septiembre que
 puntuará sobre *8 puntos*, siendo el resto proporcional a la nota
 obtenida en junio. El examen incluirá tanto preguntas de desarrollo
 como ejercicios prácticos en los que se tendrá que esbozar un
