@@ -194,7 +194,7 @@ te explica cómo usarlo. No hay muchos vídeos en español, pero en
 y
 [este es una introducción general con ejemplos de Ruby](https://www.youtube.com/watch?v=ii9G9JMvoXM).
 En 
-[este otro encuentras cómo hacer un deploy de Python y Flask en Heroku](https://www.youtube.com/watch?v=pmRT8QQLIqk).
+[este otro encuentras cómo hacer un despliegue de Python y Flask en Heroku](https://www.youtube.com/watch?v=pmRT8QQLIqk).
 
 </div>
 
