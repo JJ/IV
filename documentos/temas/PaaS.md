@@ -192,7 +192,9 @@ en
 te explica cómo usarlo. No hay muchos vídeos en español, pero en
 [este explica cómo crear una aplicación Django y subirla a Heroku](http://www.youtube.com/watch?v=3k2eg0stnCI)
 y
-[este es una introducción general con ejemplos de Ruby](https://www.youtube.com/watch?v=ii9G9JMvoXM)
+[este es una introducción general con ejemplos de Ruby](https://www.youtube.com/watch?v=ii9G9JMvoXM).
+En 
+[este otro encuentras como hacer un deploy de Python y Flask en Heroku](https://www.youtube.com/watch?v=pmRT8QQLIqk).
 
 </div>
 
