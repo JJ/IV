@@ -1,4 +1,4 @@
-Instrucciones para reenviar cada hito
+Instrucciones para reenviar un hito
 =====================================
 
 Descripción
@@ -22,5 +22,6 @@ Valoración
 Cada reenvío puntuará sobre un punto menos que la nota máxima,
 multiplicado por el número de semanas desde corrección de la misma. Es
 decir, primera semana, un eenvío, -1 punto; segunda semana, -2 puntos
-y así sucesivamente. 
+y así sucesivamente.
 
+No hay compromiso de fecha de corrección para reenvíos. En general, se tratarán de tener en una semana desde el envío, pero podría retrasarse dependiendo de la carga de trabajo.
