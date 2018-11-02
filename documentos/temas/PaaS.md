@@ -329,11 +329,11 @@ mismo resultado) y además GET. Esa orden la vamos a usar para crear
 contadores a los que posteriormente accederemos con `get`. PUT no es una
 orden a la que se pueda acceder desde el navegador, así que para usarla
 necesitaremos hacer algo así desde la línea de órdenes:
-`curl -X PUT http://127.0.0.1:8080/porra/local/visitante/Copa/2013` para lo que
+`curl -X PUT http://127.0.0.1:5000/porra/local/visitante/Copa/2013` para lo que
 previamente habrá que haber instalado `curl`, claro. Esta orden llama a
 PUT sobre el programa, y crea un partido con esas características. Una
 vez creado, podemos acceder a él desde la línea de órdenes o desde el
-navegador; la dirección `http://127.0.0.1:8080/porras` nos devolverá
+navegador; la dirección `http://127.0.0.1:5000/porras` nos devolverá
 en formato JSON todo lo que hayamos almacenado hasta el momento.
 
 Todas las órdenes definen una *ruta*, que es como se denominan cada
