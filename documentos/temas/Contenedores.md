@@ -60,7 +60,7 @@ compartidos y sigue siendo una forma simple de crear virtualizaciones *ligeras*.
 sistema más avanzado, implementando una
 [virtualización a nivel de sistema operativo](https://en.wikipedia.org/wiki/Operating_system-level_virtualization)
 que creaba un entorno virtual prácticamente indistinguible de una
-máquina real (o máquina virtual real). Estas *jaulas* no sólo impiden
+máquina real (o máquina virtual real). Estas *jaulas* no solo impiden
 el acceso a ciertas partes del sistema de ficheros, sino que también
 restringían lo que los procesos podían hacer en relación con el resto
 del sistema. Tiene como limitación, sin embargo, la obligación de
@@ -85,7 +85,7 @@ una capacidad del núcleo de Linux desde la versión 2.6.24 que crea
 *contenedores* de procesos unificando diferentes capacidades del
 sistema operativo que incluyen acceso a recursos, prioridades y
 control de los procesos. Los procesos dentro de un contenedor están
-*aislados* de forma que sólo pueden *ver* los procesos dentro del
+*aislados* de forma que solo pueden *ver* los procesos dentro del
 mismo, creando un entorno mucho más seguro que las anteriores
 *jaulas*. Estos [CGROUPS han sido ya vistos en otro tema](Intro_concepto_y_soporte_fisico). 
 
@@ -148,7 +148,7 @@ con la red y el sistema de ficheros.
 Hay que tener en cuenta que si no aparece alguno de esas capacidades
 como activada, LXC no va a funcionar. Pero si no hay ningún problema y
 todas están *enabled* se puede
-[usar lxc con relativa facilidad](http://www.stgraber.org/2012/05/04/lxc-in-ubuntu-12-04-lts/)
+[usar lxc con relativa facilidad](https://stgraber.org/2012/05/04/lxc-in-ubuntu-12-04-lts/)
 siempre que tengamos una distro como Ubuntu relativamente moderna:
 
 ```
@@ -167,7 +167,7 @@ sudo lxc-create -t ubuntu-cloud -n nubecilla
 
 que funciona de forma ligeramente diferente, porque se descarga un
 fichero `.tar.gz` usando `wget` (y tarda también un rato). Podemos
-listar los contenedores que tenemos disponibles con `lxc-list`, aunque
+listar los contenedores que tenemos disponibles con `lxc-ls -f`, aunque
 en este momento cualquier contenedor debería estar en estado
 `STOPPED`.
 
@@ -237,13 +237,13 @@ distribución y otro basado en otra que no sea la tuya.
 
 Los contenedores son la implementación de todas las tecnologías vistas
 anteriormente: espacios de nombres, CGroups y puentes de red y como
-tales pueden ser configurados para usar sólo una cantidad determinada
+tales pueden ser configurados para usar solo una cantidad determinada
 de recursos, por ejemplo
-[la CPU](http://www.slideshare.net/dotCloud/scale11x-lxc-talk-16766275). Para
+[la CPU](https://www.slideshare.net/dotCloud/scale11x-lxc-talk-16766275). Para
 ello se usan los ficheros de configuración de cada una de las máquinas
 virtuales. Sin embargo, tanto para controlar como para visualizar los
 tápers (que así vamos a llamar a los contenedores a partir de ahora)
-es más fácil usar [lxc-webpanel](http://lxc-webpanel.github.io/), un
+es más fácil usar [lxc-webpanel](https://lxc-webpanel.github.io/), un
 centro de control por web que permite iniciar y parar las máquinas
 virtuales, aparte de controlar los recursos asignados a cada una de
 ellas y visualizarlos, tal como se muestra a continuación.
@@ -267,15 +267,15 @@ en ciertas circunstancias.
 ## Gestión de contenedores con `docker`
 
 
-[Docker](http://docker.com) es una herramienta de gestión de
-contenedores que permite no sólo instalarlos, sino trabajar con el
+[Docker](https://www.docker.com) es una herramienta de gestión de
+contenedores que permite no solo instalarlos, sino trabajar con el
 conjunto de ellos instalados (orquestación) y exportarlos de forma que
 se puedan desplegar en diferentes servicios en la nube. La tecnología de
 [Docker](https://en.wikipedia.org/wiki/Docker_%28software%29) es
 relativamente reciente, habiendo sido publicada su primera versión en marzo de 2013;
 actualmente está sufriendo una gran expansión que ha hecho que tenga
 soporte en todos los servicios en la nube y que se hayan creado
-sistemas operativos específicos, tales como [CoreOS](http://coreos.com/), un sistema operativo básico
+sistemas operativos específicos, tales como [CoreOS](https://coreos.com/), un sistema operativo básico
 basado en Linux para despliegue masivo de servidores.
 
 Por lo pronto,
@@ -283,7 +283,7 @@ Por lo pronto,
 ejemplo, para
 [Ubuntu hay que dar de alta una serie de repositorios](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 y no funcionará con versiones más antiguas de la 12.04 (y en este caso
-sólo si se instalan kernels posteriores).
+solo si se instalan kernels posteriores).
 
 <div class='ejercicios' markdown='1'>
 
@@ -329,7 +329,7 @@ Debian. Se pueden
 [buscar todas las imágenes de un tipo determinado, como Ubuntu](https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page=1&pullCount=0&q=ubuntu&starCount=0)
 o
 [buscar las imágenes más populares](https://hub.docker.com/explore/). Estas
-imágenes contienen no sólo sistemas operativos *bare bones*, sino
+imágenes contienen no solo sistemas operativos *bare bones*, sino
 también otros con una funcionalidad determinada. 
 
 <div class='ejercicios' markdown='1'>
@@ -444,8 +444,8 @@ está haciendo en un momento determinado. Para finalizar, se puede
 parar usando `stop`. 
 
 Hasta ahora el uso de
-docker [no es muy diferente del contenedor, pero lo interesante](http://stackoverflow.com/questions/17989306/what-does-docker-add-to-just-plain-lxc) es que se puede guardar el estado de un contenedor tal
-como está usando [commit](https://docs.docker.com/engine/reference/commandline/cli/#commit)
+docker [no es muy diferente del contenedor, pero lo interesante](https://stackoverflow.com/questions/17989306/what-does-docker-add-to-just-plain-lxc) es que se puede guardar el estado de un contenedor tal
+como está usando [commit](https://docs.docker.com/engine/reference/commandline/commit)
 
 ```
 sudo docker commit 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c nuevo-nombre
@@ -454,7 +454,7 @@ sudo docker commit 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318
 que guardará el estado del contenedor tal como está en ese
 momento. Este `commit` es equivalente al que se hace en un
 repositorio; para enviarlo al repositorio habrá que usar `push` (pero
-sólo si uno se ha dado de alta antes).
+solo si uno se ha dado de alta antes).
 
 <div class='ejercicios' markdown='1'>
 
@@ -574,7 +574,7 @@ podíamos haber sustituido `/app` en los dos lugares donde aparece por
 cualquier otro valor y habría funcionado igualmente. 
 
 En este caso, además, usamos `--rm` para borrar el contenedor una vez
-se haya usado y `-t` en vez de `-it` para indicar que sólo estamos
+se haya usado y `-t` en vez de `-it` para indicar que solo estamos
 interesados en que se asigne un terminal y la salida del mismo, no
 vamos a interaccionar con él. 
 
@@ -605,7 +605,7 @@ sistema operativo y posteriormente instalar el lenguaje y cualquier
 otra cosa que necesite; en este caso, la imagen lleva también
 `pip`. Para algunas bibliotecas puede haber también imágenes
 oficiales; siempre nos ahorrará trabajo usar esas imágenes, sean
-oficiales o no, porque en muchos casos están optimizadas con sólo las
+oficiales o no, porque en muchos casos están optimizadas con solo las
 partes del sistema operativo necesarias y ocupan mucho menos espacio
 siendo, por tanto, más rápidas para descargar. 
 
@@ -662,10 +662,7 @@ público el contenedor con los datos que pueda contener.
 También se pueden desplegar contenedores directamente en una serie de
 servicios de pago, incluyendo todos los proveedores de cloud y algunos
 específicos como [Quay.io](https://quay.io). Este último permite
-cuenta gratuita de un mes, que se puede usar como prueba. Otros
-servicios específicos como [Dokkur](https://dokkur.com/pricing)
-ofrecen alojamiento económico de contenedores, sin opción gratuita. En
-todo caso, hay muchas opciones que se pueden usar.
+cuenta gratuita de un mes, que se puede usar como prueba.
 
 <div class='ejercicios' markdown='1'>
 
@@ -684,6 +681,6 @@ generación de una máquina virtual. También puedes ir directamente al
 con sistemas de virtualización completa. 
 
 Aunque inicialmente iguales, el
-[tema equivalente de Cloud Computing](https://jj.github.io/CC/documentos/Contenedores)
+[tema equivalente de Cloud Computing](https://jj.github.io/CC/documentos/temas/Contenedores)
 ha ido divergiendo y en este momento es más completo en algunos
 aspectos. 
