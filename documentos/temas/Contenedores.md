@@ -140,7 +140,7 @@ con la red y el sistema de ficheros.
 Hay que tener en cuenta que si no aparece alguno de esas capacidades
 como activada, LXC no va a funcionar. Pero si no hay ningún problema y
 todas están *enabled* se puede
-[usar lxc con relativa facilidad](http://www.stgraber.org/2012/05/04/lxc-in-ubuntu-12-04-lts/)
+[usar lxc con relativa facilidad](https://stgraber.org/2012/05/04/lxc-in-ubuntu-12-04-lts/)
 siempre que tengamos una distro como Ubuntu relativamente moderna:
 
 ```
@@ -231,11 +231,11 @@ Los contenedores son la implementación de todas las tecnologías vistas
 anteriormente: espacios de nombres, CGroups y puentes de red y como
 tales pueden ser configurados para usar solo una cantidad determinada
 de recursos, por ejemplo
-[la CPU](http://www.slideshare.net/dotCloud/scale11x-lxc-talk-16766275). Para
+[la CPU](https://www.slideshare.net/dotCloud/scale11x-lxc-talk-16766275). Para
 ello se usan los ficheros de configuración de cada una de las máquinas
 virtuales. Sin embargo, tanto para controlar como para visualizar los
 tápers (que así vamos a llamar a los contenedores a partir de ahora)
-es más fácil usar [lxc-webpanel](http://lxc-webpanel.github.io/), un
+es más fácil usar [lxc-webpanel](https://lxc-webpanel.github.io/), un
 centro de control por web que permite iniciar y parar las máquinas
 virtuales, aparte de controlar los recursos asignados a cada una de
 ellas y visualizarlos, tal como se muestra a continuación.
@@ -259,7 +259,7 @@ en ciertas circunstancias.
 ## Gestión de contenedores con `docker`
 
 
-[Docker](http://docker.com) es una herramienta de gestión de
+[Docker](https://www.docker.com) es una herramienta de gestión de
 contenedores que permite no solo instalarlos, sino trabajar con el
 conjunto de ellos instalados (orquestación) y exportarlos de forma que
 se puedan desplegar en diferentes servicios en la nube. La tecnología de
@@ -267,7 +267,7 @@ se puedan desplegar en diferentes servicios en la nube. La tecnología de
 relativamente reciente, habiendo sido publicada su primera versión en marzo de 2013;
 actualmente está sufriendo una gran expansión que ha hecho que tenga
 soporte en todos los servicios en la nube y que se hayan creado
-sistemas operativos específicos, tales como [CoreOS](http://coreos.com/), un sistema operativo básico
+sistemas operativos específicos, tales como [CoreOS](https://coreos.com/), un sistema operativo básico
 basado en Linux para despliegue masivo de servidores.
 
 Por lo pronto,
@@ -436,8 +436,8 @@ está haciendo en un momento determinado. Para finalizar, se puede
 parar usando `stop`. 
 
 Hasta ahora el uso de
-docker [no es muy diferente del contenedor, pero lo interesante](http://stackoverflow.com/questions/17989306/what-does-docker-add-to-just-plain-lxc) es que se puede guardar el estado de un contenedor tal
-como está usando [commit](https://docs.docker.com/engine/reference/commandline/cli/#commit)
+docker [no es muy diferente del contenedor, pero lo interesante](https://stackoverflow.com/questions/17989306/what-does-docker-add-to-just-plain-lxc) es que se puede guardar el estado de un contenedor tal
+como está usando [commit](https://docs.docker.com/engine/reference/commandline/commit)
 
 ```
 sudo docker commit 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c nuevo-nombre
@@ -654,10 +654,7 @@ público el contenedor con los datos que pueda contener.
 También se pueden desplegar contenedores directamente en una serie de
 servicios de pago, incluyendo todos los proveedores de cloud y algunos
 específicos como [Quay.io](https://quay.io). Este último permite
-cuenta gratuita de un mes, que se puede usar como prueba. Otros
-servicios específicos como [Dokkur](https://dokkur.com/pricing)
-ofrecen alojamiento económico de contenedores, sin opción gratuita. En
-todo caso, hay muchas opciones que se pueden usar.
+cuenta gratuita de un mes, que se puede usar como prueba.
 
 <div class='ejercicios' markdown='1'>
 
@@ -676,6 +673,6 @@ generación de una máquina virtual. También puedes ir directamente al
 con sistemas de virtualización completa. 
 
 Aunque inicialmente iguales, el
-[tema equivalente de Cloud Computing](https://jj.github.io/CC/documentos/Contenedores)
+[tema equivalente de Cloud Computing](https://jj.github.io/CC/documentos/temas/Contenedores)
 ha ido divergiendo y en este momento es más completo en algunos
 aspectos. 
