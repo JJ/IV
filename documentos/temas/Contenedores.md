@@ -403,6 +403,29 @@ comando interactivamente (`-i`); estad dos opciones se pueden unir en `-it`. A p
 órdenes, con privilegios de superusuario, y podemos trabajar con la
 máquina e instalar lo que se nos ocurra.
 
+*Recuerda que la orden `run` de docker ejecuta dicho comando en un
+contenedor nuevo*
+
+Si quieres “reutilizar” un contenedor y usar alguna
+orden en él tendrás que buscar su nombre:
+
+```sudo docker ps -a```
+
+Posteriormente arrancar el contenedor:
+
+```sudo start <nombre>```
+
+Para finalmente ejecutar el comando deseado:
+
+```sudo docker exec <nombre> <comando>```
+
+Igual que hacíamos con la opción `run`.
+
+Por supuesto una vez se termine de usar es importante detenerlo para
+que no siga en segundo plano:
+
+```sudo docker stop <nombre>```
+
 <div class='ejercicios' markdown='1'>
 
 Crear un usuario propio e instalar alguna aplicación tal como `nginx` en el contenedor creado de
