@@ -52,7 +52,7 @@ y en todo caso la distinción es más académica que funcional; en la
 práctica, en la mayoría de los casos nos vamos a encontrar con
 hipervisores alojados que se ejecutan desde un sistema operativo.
 
-![Ilustración de los dos tipos de hipervisores (alojada en la Wikipedia)](http://upload.wikimedia.org/wikipedia/commons/e/e1/Hyperviseur.png)
+![Ilustración de los dos tipos de hipervisores (alojada en la Wikipedia)](https://upload.wikimedia.org/wikipedia/commons/e/e1/Hyperviseur.png)
 
 Para apoyar la virtualización, casi todos los procesadores actuales y
 especialmente [los de las líneas más populares basadas en la arquitectura x86 tienen una serie de instrucciones que permiten usarla de manera segura y eficiente](https://en.wikipedia.org/wiki/X86_virtualization). Esta
@@ -160,7 +160,7 @@ Linux o BSD. Si se
 quieren distribuciones que ocupen poco espacio con el objetivo
 principalmente de hacer pruebas se puede usar
 [CoreOS](https://coreos.com/) (que sirve como soporte para Docker)
-[GALPon Minino](http://minino.galpon.org/en), hecha en Galicia para el
+[GALPon Minino](https://minino.galpon.org/en), hecha en Galicia para el
 mundo,
 [Damn Small Linux](http://www.damnsmalllinux.org/download.html),
 [SliTaz](http://www.slitaz.org/en/) (que cabe en 35 megas) y
@@ -174,7 +174,7 @@ Parallels.
 
 <div class='nota' markdown='1'>
 
-En [esta guía](http://www.dedoimedo.com/computers/kvm-intro.html) se
+En [esta guía](https://www.dedoimedo.com/computers/kvm-intro.html) se
 explica cómo trabajar con KVM usando VMM, o *virtual machine manager*,
 una herramienta gráfica que trabaja sobre KVM
 
