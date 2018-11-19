@@ -67,7 +67,7 @@ grosso modo, los hitos se organizarán de la forma siguiente.
 1. [Organización de los grupos de práctica y creación del proyecto](documentos/proyecto/1.Infraestructura.md)
 2. [Integración continua en el repositorio](documentos/proyecto/2.CI.md)
 3. Desplegando a la nube: [Platform as a Service](documentos/proyecto/3.PaaS.md).
-4. Técnicas de virtualización [Contenedores para pruebas](documentos/proyecto/4.Docker.md).
+4. Técnicas de virtualización [Contenedores](documentos/proyecto/4.Docker.md) para despliegue de microservicios.
 4. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS.md).
 
 Tutorías virtuales
