@@ -17,7 +17,7 @@ next: Gestion_de_configuraciones
 
 <h2>Objetivos</h2>
 
-1.   Conocer las diferentes tecnologías y herramientas de
+1. Conocer las diferentes tecnologías y herramientas de
 virtualización tanto para procesamiento, comunicación y
 almacenamiento. 
 
@@ -60,7 +60,7 @@ y en todo caso la distinción es más académica que funcional; en la
 práctica, en la mayoría de los casos nos vamos a encontrar con
 hipervisores alojados que se ejecutan desde un sistema operativo.
 
-![Ilustración de los dos tipos de hipervisores (alojada en la Wikipedia)](http://upload.wikimedia.org/wikipedia/commons/e/e1/Hyperviseur.png)
+![Ilustración de los dos tipos de hipervisores (alojada en la Wikipedia)](https://upload.wikimedia.org/wikipedia/commons/e/e1/Hyperviseur.png)
 
 Para apoyar la virtualización, casi todos los procesadores actuales y
 especialmente [los de las líneas más populares basadas en la arquitectura x86 tienen una serie de instrucciones que permiten usarla de manera segura y eficiente](https://en.wikipedia.org/wiki/X86_virtualization). Esta
@@ -156,7 +156,7 @@ arrancar de nuevo empezando por el CD virtual usando
 	qemu-system-x86_64 -hda otro-disco.img -cdrom picaros-diego-b.iso
 	-boot once=d
 	
-con `-boot` se le indica el orden de arranque; `once` indica que sólo
+con `-boot` se le indica el orden de arranque; `once` indica que solo
 va a ser así esta vez y `d`, como antiguamente, es el CD
 
 </div>
@@ -168,7 +168,7 @@ Linux o BSD. Si se
 quieren distribuciones que ocupen poco espacio con el objetivo
 principalmente de hacer pruebas se puede usar
 [CoreOS](https://coreos.com/) (que sirve como soporte para Docker)
-[GALPon Minino](http://minino.galpon.org/en), hecha en Galicia para el
+[GALPon Minino](https://minino.galpon.org/en), hecha en Galicia para el
 mundo,
 [Damn Small Linux](http://www.damnsmalllinux.org/download.html),
 [SliTaz](http://www.slitaz.org/en/) (que cabe en 35 megas) y
@@ -182,7 +182,7 @@ Parallels.
 
 <div class='nota' markdown='1'>
 
-En [esta guía](http://www.dedoimedo.com/computers/kvm-intro.html) se
+En [esta guía](https://www.dedoimedo.com/computers/kvm-intro.html) se
 explica cómo trabajar con KVM usando VMM, o *virtual machine manager*,
 una herramienta gráfica que trabaja sobre KVM
 
@@ -332,7 +332,7 @@ independiente.
 Hay diferentes herramientas que se pueden usar para este tipo de
 provisionamiento; [Cobbler](http://cobbler.github.io/) es una de
 ellas. [Cobbler](https://en.wikipedia.org/wiki/Cobbler_%28software%29)
-permite trabajar no sólo con almacenamiento virtual, sino también con
+permite trabajar no solo con almacenamiento virtual, sino también con
 cualquier dispositivo conectado por red que se pueda acceder desde
 fuera con diferentes protocolos. Sin embargo, esta herramienta es un
 poco más avanzada y, para el propósito de este artículo, vamos a usar
@@ -341,11 +341,11 @@ poco más avanzada y, para el propósito de este artículo, vamos a usar
 escrita en Python que permite, desde la línea de órdenes, crear una
 imagen virtual con las características que le
 demos. `ubuntu-vm-builder` necesita tener un hipervisor funcionando;
-puede trabajar con Xen, VMWare, kvm y vmserver. Sólo trabaja con una
+puede trabajar con Xen, VMWare, kvm y vmserver. Solo trabaja con una
 distribución: Ubuntu (jolines, que se llama `ubuntu-vm-builder`, ¿qué
 te esperabas?).
 
-Por otro lado, [también puede usar virt-manager](https://help.ubuntu.com/community/KVM/CreateGuests) para gestionar las máquinas
+Por otro lado, [también puede usar `virt-manager`](https://help.ubuntu.com/community/KVM/CreateGuests) para gestionar las máquinas
 virtuales creadas, así que habrá que instalar una serie de utilidades
 para echarlo a andar:
 
