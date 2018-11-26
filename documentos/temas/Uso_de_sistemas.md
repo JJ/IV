@@ -25,7 +25,7 @@ proceso de datos virtual.
 ## Introducción
 
 El objetivo de las plataformas de virtualización es, eventualmente,
-crear y gestionar una máquina virtual completa que funcione de forma aislada 
+crear y gestionar máquinas virtual completas que funcione de forma aislada 
 del resto del sistema y que permita trabajar con sistemas
 virtualizados de forma flexible, escalable y adaptada a cualquier
 objetivo. Eventualmente, el objetivo de este este tema es aprender a
@@ -287,7 +287,7 @@ innecesarios.
 
 <div class='ejercicios' markdown='1'>
 
-Crear una máquina virtual ubuntu e instalar en ella alguno de los
+Crear una máquina virtual Ubuntu e instalar en ella alguno de los
 servicios que estamos usando en el proyecto de la asignatura.
 
 </div>
