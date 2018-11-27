@@ -59,8 +59,7 @@ Usando Chef para provisionamiento
 En el año 2018, Chef ha introducido una nueva versión
 denominada
 [Chef Workstation](https://blog.chef.io/2018/05/23/introducing-chef-workstation/) que
-hace más simple trabajar de forma local o remota. Consultad [los
-recursos de la misma](https://www.chef.sh/docs/chef-workstation/getting-started/) para
+hace más simple trabajar de forma local o remota. Consultad [los recursos de la misma](https://www.chef.sh/docs/chef-workstation/getting-started/) para
 saber más
 
 > Mientras tengo tiempo de preparar algunos apuntes sobre el tema.
