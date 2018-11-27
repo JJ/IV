@@ -66,8 +66,7 @@ Usando Chef para provisionamiento
 En el año 2018, Chef ha introducido una nueva versión
 denominada
 [Chef Workstation](https://blog.chef.io/2018/05/23/introducing-chef-workstation/) que
-hace más simple trabajar de forma local o remota. Consultad [los
-recursos de la misma](https://www.chef.sh/docs/chef-workstation/getting-started/) para
+hace más simple trabajar de forma local o remota. Consultad [los recursos de la misma](https://www.chef.sh/docs/chef-workstation/getting-started/) para
 saber más
 
 > Mientras tengo tiempo de preparar algunos apuntes sobre el tema.
@@ -267,10 +266,10 @@ vagrant ssh
 <div class='ejercicios' markdown='1'>
 
 Instalar una máquina virtual Debian usando Vagrant y conectar con ella.
-	
+​	
 </div>
 
-	
+
 Una vez creada la máquina virtual se puede entrar en ella y
 configurarla e instalar todo lo necesario. Pero, por supuesto,
 sabiendo lo que sabemos sobre provisionamiento, Vagrant permite
@@ -328,7 +327,7 @@ este programa bajándose todas sus dependencias (y tardará un rato).
 
 Crear un script para provisionar `nginx` o cualquier otro servidor
 web que pueda ser útil para alguna otra práctica
-	
+​	
 </div>
 
 <div class='nota' markdown='1'>
@@ -353,7 +352,7 @@ de estos sistemas de más alto nivel es que permiten trabajar
 independientemente del sistema operativo. Cada uno de ellos tendrá sus
 opciones específicas, pero veamos cómo se haría lo anterior usando el
 provisionador
-[chef-solo](http://docs.vagrantup.com//provisioning/chef_solo.html).
+[chef-solo](http://docs.vagrantup.com/provisioning/chef_solo.html).
 
 Para empezar, hay que provisionar la máquina virtual para que funcione
 con chef-solo y hay que hacerlo desde shell o Ansible;
@@ -406,8 +405,8 @@ en ninguna de las máquinas pre-configuradas de VagrantBoxes.
 <div class='ejercicios' markdown='1'>
 
 Configurar tu máquina virtual usando vagrant con el provisionador
-	chef.
-	
+​	chef.
+​	
 </div>
 
 Desde Vagrant se puede crear también una
@@ -429,4 +428,4 @@ pueden ser también de ayuda.
 
 Si no lo has hecho ya, es hora de comenzar
 [la última práctica](../proyecto/5.IaaS). 
-	
+​	
