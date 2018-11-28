@@ -404,7 +404,7 @@ repositorios.
 A pesar de que Vagrant es parte de la materia del siguiente tema, es conveniente conocerlo brevemente antes de estudiarlo en profundidad. Para ello, puedes ver el siguiente vídeo:  
 - [Vagrant in 5 minutes](https://opensource.com/business/16/1/lightning-talk-quick-introduction-vagrant)
 
-Si quieres ir más allá, esta es su [documentación oficial](https://www.vagrantup.com/docs/)
+Si quieres ir más allá, ésta es su [documentación oficial](https://www.vagrantup.com/docs/)
 
 
 ## A dónde ir desde aquí
