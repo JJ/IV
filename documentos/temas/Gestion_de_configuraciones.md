@@ -85,11 +85,13 @@ sistema de gestión remota de configuración que permite gestionar
 simultáneamente miles de sistemas diferentes. Está basado en YAML para
 la descripción de los sistemas y escrito en Python. 
 
-Se instala como un módulo de Python, usando por ejemplo la utilidad de
-instalación de módulos `pip` (que habrá que instalar si no se tiene)
+Se puede instalar como un módulo de Python, usando por ejemplo la utilidad de
+instalación de módulos `pip` (que habrá que instalar si no se tiene);
+también se puede instalar directamente desde su repositorio PPA en Ubuntu
 
 ```
-sudo pip install paramiko PyYAML jinja2 httplib2 ansible
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get install ansible
 ```
 
 El resto de las utilidades son también necesarias y en realidad se
