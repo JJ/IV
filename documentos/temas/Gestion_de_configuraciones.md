@@ -69,7 +69,11 @@ denominada
 hace más simple trabajar de forma local o remota. Consultad [los recursos de la misma](https://www.chef.sh/docs/chef-workstation/getting-started/) para
 saber más
 
-> Mientras tengo tiempo de preparar algunos apuntes sobre el tema.
+> [Este vídeo](https://www.youtube.com/watch?v=dTIyS816dOA) es una
+> introducción a Chef Workstation, a la vez que explica los conceptos
+> básicos para trabajar con los cookbooks de Chef. 
+> El [repositorio de la presentación](https://github.com/JJ/chef)
+> incluye varios *cookbooks* de ejemplo.
 
 Otros sistemas de gestión de configuración
 ---
