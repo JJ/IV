@@ -35,21 +35,24 @@ provisionamiento y monitorización más usados hoy en día.
 Introducción
 ---
 
-Los [contenedores](Contenedores) son un ejemplo de virtualización que ya tienen
-ciertas características de las máquinas virtuales, como el aislamiento y la gestión
-independiente. Pero en general, un contenedor aisla un solo servicio y en arquitecturas de aplicaciones modernas es muchas veces necesario crear máquinas 
-virtuales con características determinadas tales como diferentes sistemas operativos o diferentes características del sistema de ficheros o kernel, por lo que se hace
+Los [contenedores](Contenedores) son un ejemplo de virtualización
+que ya tienen ciertas características de las máquinas virtuales, como
+el aislamiento y la gestión independiente. Pero en general, un
+contenedor aisla un solo servicio y en arquitecturas de aplicaciones
+modernas es muchas veces necesario crear máquinas virtuales con
+características determinadas tales como diferentes sistemas operativos o diferentes características del sistema de ficheros o kernel, por lo que se hace
 necesario usar herramientas para crear y configurar estos
 entornos.
 
 Estas herramientas se denominan, en general,
-[gestores de configuración](https://en.wikipedia.org/wiki/Configuration_management). [Vagrant](https://en.wikipedia.org/wiki/Vagrant_%28software%29)
+[gestores de configuración](https://en.wikipedia.org/wiki/Configuration_management)
+o sistemas de orquestación. [Vagrant](https://en.wikipedia.org/wiki/Vagrant_%28software%29)
 es uno de ellos y se sitúa al nivel más alto, pero también hay otros: [Chef](http://www.getchef.com/chef/), Salt y Puppet, por
 ejemplo, que se pueden usar desde Vagrant pero que también se usan para gestionar configuraciones complejas de sistemas en la nube.
 Todos son libres, pero
 [tienen características específicas](https://en.wikipedia.org/wiki/Comparison_of_open_source_configuration_management_software)
 que hay que tener en cuenta a la hora de elegir uno u otro. En el caso
-específico de
+específico de gestión de configuraciones de
 [sistemas operativos](https://en.wikipedia.org/wiki/Configuration_management#Operating_System_configuration_management)
 se trata de gestionar automáticamente todas las tareas de
 configuración de un sistema, automatizando la edición de ficheros de
@@ -63,194 +66,17 @@ configuración, empezando por Chef.
 Usando Chef para provisionamiento
 -----
 
- [Chef](http://www.chef.io/chef/) es una herramienta que, en
- general, se usa en un servidor que se encarga no sólo de gestionar la
- configuración, sino también las versiones. Empezar a usarlo
- [no es trivial](https://docs.chef.io).
- Sin embargo, como
- introducción a la gestión de configuraciones se puede usar
- [`chef-solo`](http://docs.chef.io/chef_solo.html), una versión
- aislada que permite trabajar en una máquina desde la misma y que, por
- tanto, se puede usar como introducción y para probar
- configuraciones. 
- 
- <div class='nota' markdown='1'>
- 
- Hay varios tutoriales que te permiten, con relativa rapidez, comenzar
- a trabajar con Chef-solo en un servidor;
- [este te proporciona una serie de ficheros que puedes usar](http://www.opinionatedprogrammer.com/2011/06/chef-solo-tutorial-managing-a-single-server-with-chef/)
- y
- [este otro es más directo, dando una serie de órdenes](http://www.mechanicalfish.com/blog/2013/01/01/configure-a-server-with-chef-solo-in-five-minutes/). En
- todo caso, se trata básicamente tener acceso a un servidor o máquina
- virtual, instalar una serie de aplicaciones en él y ejecutarlas sobre
- un fichero de configuración
- 
- </div>
- 
- 
-En una máquina que se haya arrancado con el sistema operativo Ubuntu, hay que comenzar instalando los prerrequisitos: Ruby y Ruby
-Gems, el gestor de librerías, usando tu gestor de paquetes favorito,
-aunque para instalar ruby se aconseja que se usen los gestores de
-configuraciones `rbenv` o `rvm`. Ver la
-[introducción al lenguaje Ruby](http://jj.github.io/IV/documentos/seminarios/ruby)
-para ver cómo se hace y también para aprender un poco de Ruby, lo
-necesario para trabajar con estas herramientas.
-	
-`chef` se distribuye como una *gema*, por lo que se puede instalar
-siempre como
+En el año 2018, Chef ha introducido una nueva versión
+denominada
+[Chef Workstation](https://blog.chef.io/2018/05/23/introducing-chef-workstation/) que
+hace más simple trabajar de forma local o remota. Consultad [los recursos de la misma](https://www.chef.sh/docs/chef-workstation/getting-started/) para
+saber más
 
-```
-sudo gem install ohai chef
-```
-
-En [esta página](https://downloads.chef.io/chefdk#ubuntu) indican como
- descargar Chef para todo tipo de distribuciones. Vamos a usar
- principalmente `chef-solo`, una herramienta que se tiene que ejecutar
- desde el ordenador que queramos provisionar. 
- 
-<div class='note' markdown='1'>
-La forma que se aconseja usar es esta, pero se instala el programa en
-un lugar no estándar, `/opt/chefdk/bin`. Habrá que añadirlo al `PATH`
-o tenerlo en cuenta a la hora de ejecutarlo. 
-
-```
-$ /opt/chefdk/bin/chef-solo --version 
-Chef: 13.4.19
-```
-
-Esta es la versión actual a fecha de octubre de 2017.
-
-<div class='ejercicios' markdown='1'>
-
-Instalar `chef-solo` en la máquina virtual que vayamos a usar
-
-</div>
-
-Una *receta* de Chef
-[consiste en crear una serie de ficheros](http://www.mechanicalfish.net/configure-a-server-with-chef-solo-in-five-minutes/):
-una *lista de ejecución* que especifica qué es lo que se va a
-configurar; esta lista se incluye en un fichero `node.json`, 
-o *recetario* (*cookbook*) que incluye una serie de *recetas* que
-configuran, efectivamente, los recursos y, finalmente, un fichero de
-configuración que dice dónde están los dos ficheros anteriores y
-cualquier otro recursos que haga falta. Estos últimos dos ficheros
-están escritos en Ruby. La estructura de directorios se puede generar
-[directamente en las últimas versiones](https://docs.chef.io/quick_start.html) con 
-
-```
-chef generate app first_cookbook
-```
-
-
-Vamos a empezar a escribir una recetilla del Chef. Generalmente,
-[escribir una receta es algo más complicado](http://reiddraper.com/first-chef-recipe/),
-pero comenzaremos por una receta muy simple que instale el
-imprescindible editor `emacs` y le asigne un nombre al nodo. Creamos el
-directorio `chef` en algún sitio conveniente y dentro de ese
-directorio irán diferentes ficheros.
-
-El fichero que contendrá efectivamente la receta se
-llamará [`default.rb`](../../ejemplos/chef/default.rb)
-
-```
-	package 'emacs'
-	directory '/home/jmerelo/Documentos'
-	file "/home/jmerelo/Documentos/LEEME" do
-		owner "jmerelo"
-		group "jmerelo"
-		mode 00544
-		action :create
-		content "Directorio para documentos diversos"
-	end
-```
-
-El nombre del fichero indica que se trata de la receta por omisión,
-pero el nombre de la receta viene determinado por el directorio en el
-que se meta, que podemos crear de un tirón con
-
-```
-mkdir -p chef/cookbooks/emacs/recipes
-```
-
-Este fichero tiene tres partes: instala el paquete `emacs`, crea un
-directorio para documentos y dentro de él un fichero que explica, por
-si hubiera duda, de qué se trata. Evidentemente, tanto caminos como
-nombres de usuario se deben cambiar a los correspondientes en la
-máquina virtual que estemos configurando.
-
-El siguiente fichero, [`node.json`](../../ejemplos/chef/node.json),
-incluirá una referencia a esta receta
-
-```
-{
-	"run_list": [ "recipe[emacs]" ]
-}
-```
-
-Este fichero hace referencia a un recetario, `emacs` y dado que no se
-especifica nada más se ejecutará la receta por defecto. 
-
-Finalmente, el [fichero de configuración `solo.rb`](../../ejemplos/chef/solo.rb) incluirá referencias a ambos.
-
-```
-file_cache_path "/home/jmerelo/chef"
-cookbook_path "/home/jmerelo/chef/cookbooks"
-json_attribs "/home/jmerelo/chef/node.json"
-```
-
-Una vez más, *cambiando los caminos por los que correspondan*. Para
-ejecutarlo,
-
-```
-sudo chef-solo -c chef/solo.rb
-```
-
-(si se ejecuta desde el directorio raíz). Esta orden producirá una
-serie de mensajes para cada una de las órdenes y, si todo va bien,
-tendremos este útil editor instalado.
-
-<div class='ejercicios' markdown='1'>
-
-Crear una receta para instalar la aplicación que se viene creando en
-la asignatura en alguna máquina virtual o servidor en la nube.  
-
-</div>
-
-Para usar `chef-solo` hay simplemente que instalar unos cuantos
-programas, pero en gran parte ya está automatizado:
-[aquí explica como usarlo en Ubuntu 12.04](https://www.wolfe.id.au/2012/09/10/how-i-use-chef-solo-with-ubuntu-12.04/),
-por ejemplo basándose en
-[este Gist (programas cortos en GitHub)](https://gist.github.com/wolfeidau/3328844)
-que instala todas las herramientas necesarias para comenzar a ejecutar
-chef. 
-
-<div class='nota' markdown='1'>
-
-Este
-[curso en vídeo](http://nathenharvey.com/blog/2012/12/06/learning-chef-part-1/)
-te enseña también a trabajar con Chef, aunque con la edad que tiene es
-posible que esté un poco obsoleto.
-
-</div>
-
-<div class='nota' markdown='1'>
-
-De ninguna manera JSON es un lenguaje universal para gestión de
-configuraciones. Prácticamente todo el resto de los sistemas de
-configuración usan
-[YAML (*yet another markup language*)](http://yaml.org). Recientemente
-se ha
-[publicado una introducción al tema](http://pharalax.com/blog/yaml-introduccion-al-lenguaje-yaml/)
-que será suficiente para el uso que le vamos a dar más adelante
-
-</div>
-
-Normalmente estas recetas van a estar bajo control de un sistema de
-gestión de fuentes; de esta forma se pueden probar diferentes
-configuraciones, crear nuevas versiones de la misma pero, sobre todo,
-tener claro en cada momento qué configuración es la que se está
-ejecutando en producción, que será habitualmente la que esté en una
-rama designada de la misma. 
+> [Este vídeo](https://www.youtube.com/watch?v=dTIyS816dOA) es una
+> introducción a Chef Workstation, a la vez que explica los conceptos
+> básicos para trabajar con los cookbooks de Chef. 
+> El [repositorio de la presentación](https://github.com/JJ/chef)
+> incluye varios *cookbooks* de ejemplo.
 
 Otros sistemas de gestión de configuración
 ---
@@ -269,15 +95,17 @@ sistema de gestión remota de configuración que permite gestionar
 simultáneamente miles de sistemas diferentes. Está basado en YAML para
 la descripción de los sistemas y escrito en Python. 
 
-Se instala como un módulo de Python, usando por ejemplo la utilidad de
-instalación de módulos `pip` (que habrá que instalar si no se tiene)
+Se puede instalar como un módulo de Python, usando por ejemplo la utilidad de
+instalación de módulos `pip` (que habrá que instalar si no se tiene);
+también se puede instalar directamente desde su repositorio PPA en Ubuntu
 
 ```
-sudo pip install paramiko PyYAML jinja2 httplib2 ansible
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get install ansible
 ```
 
 El resto de las utilidades son también necesarias y en realidad se
-instalan automáticamente al instalar ansible. Estas utilidades se
+instalan automáticamente al instalar Ansible. Estas utilidades se
 tienen que instalar *en el anfitrión*, no hace falta instalarlas en el
 invitado, que lo único que necesitará, en principio, es tener activada
 la conexión por ssh y tener una cuenta válida y forma válida de
@@ -300,13 +128,13 @@ fichero es arbitrario, por lo que habrá que avisar a Ansible donde
 está usando una variable de entorno:
 
 ```
-	export ANSIBLE_HOSTS=~/ansible_hosts
+export ANSIBLE_HOSTS=~/ansible_hosts
 ```
 
 Y, con un nodo, ya se puede comprobar si Ansible funciona con 
 
 ```
-	$ ansible all -u jjmerelo -m ping
+$ ansible all -u jjmerelo -m ping
 ```
 
 Esta orden hace un *ping*, es decir, simplemente comprueba si la
@@ -320,8 +148,8 @@ de forma remota y simultáneamente. Para hacerlo, podemos usar el
 [inventario para agrupar los servidores](http://docs.ansible.com/intro_inventory.html), por ejemplo
 
 ```
-	[azure]
-	iv-ansible.cloudapp.net
+[azure]
+iv-ansible.cloudapp.net
 ```
 
 crearía un grupo `azure` (con un solo ordenador), en el cual podemos
@@ -356,12 +184,12 @@ ficheros en YAML que le dicen a la máquina virtual qué es lo que hay
 que instalar en *tareas*, de la forma siguiente
 
 ```
-	---
-	- hosts: azure
-	  sudo: yes
-	  tasks:
-		- name: Update emacs
-		  apt: pkg=emacs state=present
+---
+- hosts: azure
+  sudo: yes
+  tasks:
+	- name: Update emacs
+	  apt: pkg=emacs state=present
 ```
 
 Esto se guarda en un fichero y se
@@ -404,9 +232,10 @@ A un nivel superior al provisionamiento de máquinas virtuales está la configur
 orquestación y gestión de las mismas, herramientas como
 [Vagrant](http://vagrantup.com) ayudan a hacerlo, aunque también
 Puppet e incluso Juju pueden hacer muchas de las funciones de
-Vagrant. La ventaja de Vagrant es que permite gestionar el ciclo de vida
-completo de una máquina virtual, desde la creación hasta su
-destrucción pasando por el provisionamiento y la monitorización o
+Vagrant (no todas, y por eso hoy en día es la herramienta estándar
+para configuración de máquinas virtuales). La ventaja de Vagrant es que permite gestionar el ciclo de vida
+completo de un conjunto de máquinas virtuales, desde la creación hasta su
+destrucción pasando por el provisionamiento, la interconexión entre ellas, y la monitorización o
 conexión con la misma. Además, permite trabajar con todo tipo de
 hipervisores y provisionadores tales como los que hemos visto
 anteriormente.
@@ -416,7 +245,7 @@ Con Vagrant [te puedes descargar directamente](https://gist.github.com/dergachev
 ejemplo, 
 
 ```
-	vagrant box add centos65 https://github.com/2creatives/vagrant-centos/releases/download/v6.5.1/centos65-x86_64-20131205.box
+vagrant box add centos65 https://github.com/2creatives/vagrant-centos/releases/download/v6.5.1/centos65-x86_64-20131205.box
 ```
 
 El formato determinará en qué tipo de hipervisor se puede ejecutar; en
@@ -425,7 +254,7 @@ en ese formato. Otras imágenes están configuradas para trabajar con
 VMWare, pero son las menos. A continuación,
 
 ```
-	vagrant init centos65
+vagrant init centos65
 ```
 
 crea un fichero `Vagrantfile` (y así te lo dice) que permite trabajar
@@ -435,7 +264,7 @@ a apagar la máquina Azure que tengo ejecutándose desde que empecé a
 contar lo anterior)
 
 ```
-	vagrant up
+vagrant up
 ```
 
 y se puede empezar a trabajar en ella con 
@@ -447,17 +276,17 @@ vagrant ssh
 <div class='ejercicios' markdown='1'>
 
 Instalar una máquina virtual Debian usando Vagrant y conectar con ella.
-	
+​
 </div>
 
-	
+
 Una vez creada la máquina virtual se puede entrar en ella y
 configurarla e instalar todo lo necesario. Pero, por supuesto,
 sabiendo lo que sabemos sobre provisionamiento, Vagrant permite
 [provisionarla de muchas maneras diferentes](http://docs.vagrantup.com/provisioning/index.html). En
 general, Vagrant usará opciones de configuración diferente dependiendo
 del provisionador, subirá un fichero a un directorio temporal del
-mismo y lo ejecutará (tras ejecutar todo lo necesario para el mismo). 
+mismo y lo ejecutará (tras ejecutar todo lo necesario para el mismo).
 
 La provisión tiene lugar cuando se *alza* una máquina virtual (con
 `vagrant up`) o bien explícitamente haciendo `vagrant provision`. En
@@ -508,7 +337,7 @@ este programa bajándose todas sus dependencias (y tardará un rato).
 
 Crear un script para provisionar `nginx` o cualquier otro servidor
 web que pueda ser útil para alguna otra práctica
-	
+​	
 </div>
 
 <div class='nota' markdown='1'>
@@ -533,7 +362,7 @@ de estos sistemas de más alto nivel es que permiten trabajar
 independientemente del sistema operativo. Cada uno de ellos tendrá sus
 opciones específicas, pero veamos cómo se haría lo anterior usando el
 provisionador
-[chef-solo](http://docs.vagrantup.com//provisioning/chef_solo.html).
+[chef-solo](http://docs.vagrantup.com/provisioning/chef_solo.html).
 
 Para empezar, hay que provisionar la máquina virtual para que funcione
 con chef-solo y hay que hacerlo desde shell o Ansible;
@@ -586,8 +415,8 @@ en ninguna de las máquinas pre-configuradas de VagrantBoxes.
 <div class='ejercicios' markdown='1'>
 
 Configurar tu máquina virtual usando vagrant con el provisionador
-	chef.
-	
+​	chef.
+​	
 </div>
 
 Desde Vagrant se puede crear también una
@@ -609,4 +438,4 @@ pueden ser también de ayuda.
 
 Si no lo has hecho ya, es hora de comenzar
 [la última práctica](../proyecto/5.IaaS). 
-	
+​	
