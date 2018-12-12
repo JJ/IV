@@ -59,11 +59,14 @@ Usando Chef para provisionamiento
 En el año 2018, Chef ha introducido una nueva versión
 denominada
 [Chef Workstation](https://blog.chef.io/2018/05/23/introducing-chef-workstation/) que
-hace más simple trabajar de forma local o remota. Consultad [los
-recursos de la misma](https://www.chef.sh/docs/chef-workstation/getting-started/) para
+hace más simple trabajar de forma local o remota. Consultad [los recursos de la misma](https://www.chef.sh/docs/chef-workstation/getting-started/) para
 saber más
 
-> Mientras tengo tiempo de preparar algunos apuntes sobre el tema.
+> [Este vídeo](https://www.youtube.com/watch?v=dTIyS816dOA) es una
+> introducción a Chef Workstation, a la vez que explica los conceptos
+> básicos para trabajar con los cookbooks de Chef. 
+> El [repositorio de la presentación](https://github.com/JJ/chef)
+> incluye varios *cookbooks* de ejemplo.
 
 Otros sistemas de gestión de configuración
 ---
@@ -82,11 +85,13 @@ sistema de gestión remota de configuración que permite gestionar
 simultáneamente miles de sistemas diferentes. Está basado en YAML para
 la descripción de los sistemas y escrito en Python. 
 
-Se instala como un módulo de Python, usando por ejemplo la utilidad de
-instalación de módulos `pip` (que habrá que instalar si no se tiene)
+Se puede instalar como un módulo de Python, usando por ejemplo la utilidad de
+instalación de módulos `pip` (que habrá que instalar si no se tiene);
+también se puede instalar directamente desde su repositorio PPA en Ubuntu
 
 ```
-sudo pip install paramiko PyYAML jinja2 httplib2 ansible
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get install ansible
 ```
 
 El resto de las utilidades son también necesarias y en realidad se
