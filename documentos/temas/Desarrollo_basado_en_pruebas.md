@@ -232,7 +232,7 @@ primeros argumentos no lo son.
 
 No solo se puede y debe probar el código,
 también
-[la documentación](https://docs.python-guide.org/en/latest/writing/tests/) y
+[la documentación](https://docs.python-guide.org/writing/tests/) y
 todo tipo de cosas. Se puede usar también `pytest`, un programa que
 tiene una sintaxis un poco más simple para los tests, o `nose`. Cada
 lenguaje tiene sus múltiples modos de testear, y este tema pretende
@@ -257,10 +257,10 @@ faltan (en el momento que se lea este tema).
 Go valora la simplicidad y además incluye de serie todo lo necesario
 para llevar a cabo los tests.
 Vamos a ir al nivel más bajo: el de las aserciones; ya hemos visto
-como se usan en Python, en esta sección veremos otro lenguaje:
+cómo se usan en Python, en esta sección veremos otro lenguaje:
 JavaScript. Hay
 [múltiples bibliotecas que se pueden usar](https://stackoverflow.com/questions/14294567/assertions-library-for-node-js): 
-[Chai](https://chaijs.com/),
+[Chai](https://www.chaijs.com/),
 [Should.js](https://github.com/visionmedia/should.js),
 [Must.js](https://github.com/moll/js-must) y
 [`assert`](https://nodejs.org/api/assert.html) que es la librería que
@@ -295,8 +295,8 @@ nodejs (y, por supuesto, uno propio para cada uno de los lenguajes de
 programación, aunque en algunos están realmente estandarizados).
 
 Cada uno de ellos tendrá sus promotores y detractores, pero
-[Mocha](https://mochajs.org/) y [Jasmine](https://jasmine.github.io/)
-parecen ser los más populares. Los dos usan un sistema denominado
+[Mocha](https://mochajs.org/), [Jasmine](https://jasmine.github.io/) y [Jest](https://github.com/facebook/jest)
+parecen ser los más populares. Los tres usan un sistema denominado
 [Behavior Driven Development](https://en.wikipedia.org/wiki/Behavior-driven_development),
 que consiste en describir el comportamiento de un sistema más o menos
 de alto nivel. Como hay que escoger uno y parece que Mocha es más
@@ -672,7 +672,7 @@ La siguiente parte carga el plugin de `grunt` necesario para ejecutar `docco`. Y
 	docco: Gruntfile.js -> docs/Gruntfile.html
 ```
 
-y producirá una documentación tal como [esta](src/docs/Apuesta.html). (Link roto)
+y producirá una documentación tal como [esta](http://jj.github.io/desarrollo-basado-pruebas/src/docs/Apuesta.html).
 
 La automatización de Grunt se puede usar tanto para prueba como para despliegue. Pero hay también otras formas de probar en la nube, y lo veremos a continuación.
 
@@ -693,7 +693,7 @@ cambios hechos por un miembro del equipo en el momento que estén y
 pasen los tests. Pero eso, efectivamente, significa que deben pasar
 los tests y para nosotros, consiste en crear una configuración para
 una máquina externa que ejecute esos tests y nos diga cuáles han
-pasado o cuales no. Estas máquinas más adelante se combinan con las de
+pasado o cuáles no. Estas máquinas más adelante se combinan con las de
 despliegue continuo, no permitiendo el mismo si algún test no ha
 pasado.
 
