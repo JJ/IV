@@ -224,7 +224,7 @@ primeros argumentos no lo son.
 
 No solo se puede y debe probar el código,
 también
-[la documentación](https://docs.python-guide.org/en/latest/writing/tests/) y
+[la documentación](https://docs.python-guide.org/writing/tests/) y
 todo tipo de cosas. Se puede usar también `pytest`, un programa que
 tiene una sintaxis un poco más simple para los tests, o `nose`. Cada
 lenguaje tiene sus múltiples modos de testear, y este tema pretende
@@ -252,7 +252,7 @@ Vamos a ir al nivel más bajo: el de las aserciones; ya hemos visto
 cómo se usan en Python, en esta sección veremos otro lenguaje:
 JavaScript. Hay
 [múltiples bibliotecas que se pueden usar](https://stackoverflow.com/questions/14294567/assertions-library-for-node-js): 
-[Chai](https://chaijs.com/),
+[Chai](https://www.chaijs.com/),
 [Should.js](https://github.com/visionmedia/should.js),
 [Must.js](https://github.com/moll/js-must) y
 [`assert`](https://nodejs.org/api/assert.html) que es la librería que
@@ -664,7 +664,7 @@ La siguiente parte carga el plugin de `grunt` necesario para ejecutar `docco`. Y
 	docco: Gruntfile.js -> docs/Gruntfile.html
 ```
 
-y producirá una documentación tal como [esta](src/docs/Apuesta.html). (Link roto)
+y producirá una documentación tal como [esta](http://jj.github.io/desarrollo-basado-pruebas/src/docs/Apuesta.html).
 
 La automatización de Grunt se puede usar tanto para prueba como para despliegue. Pero hay también otras formas de probar en la nube, y lo veremos a continuación.
 
