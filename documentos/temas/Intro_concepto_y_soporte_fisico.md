@@ -71,8 +71,8 @@ A partir de esto, un *recurso en la nube* es aquel al que se puede
 acceder *bajo demanda*, que es *escalable* y que, desde el punto de
 vista del usuario, se *facture según uso*, no por el hecho de tener acceso.
 
-El [origen de la palabra](https://en.wikipedia.org/wiki/Cloud_computing#Origin_of_the_term) viene de la tradicional representación de recursos
-  en la red como una nube.
+El [origen de la palabra](https://en.wikipedia.org/wiki/Cloud_computing#History) viene de la tradicional representación de recursos
+  en la red como una nube en ilustraciones.
 
 <div class='ejercicios' markdown='1'>
 Consultar en el catálogo de alguna tienda de informática el precio de
@@ -265,7 +265,7 @@ los mismos.
   independiente en cualquier sistema operativo Linux, aunque hoy en
   día sistemas de empaquetado mucho más modernos como Docker hacen que
   CDE se haya quedado prácticamente obsoleto; sistemas más modernos,
-  como [FlatPak](http://flatpak.org/hello-world.html), permiten
+  como [FlatPak](http://docs.flatpak.org/en/latest/getting-started.html), permiten
   empaquetar aplicaciones para que se ejecuten en cualquier
   distribución de Linux, empaquetando todas las dependencias en un
   solo fichero que, además, se puede distribuir desde la web, evitando
@@ -336,7 +336,7 @@ el procesador no tiene esa funcionalidad o está desactivada.
 En general, cualquier ordenador con menos de 5 o 6 años tendrá estos *flags*. ¿Qué
 modelo de procesador es? ¿Qué aparece como salida de esa orden? Si
 usas una máquina virtual, ¿qué resultado da? ¿Y en una Raspberry Pi o,
-si tienes acceso, [el procesador del móvil](https://stackoverflow.com/questions/26239956/how-to-get-specific-information-of-an-android-device-from-proc-cpuinfo-flie)?
+si tienes acceso, [el procesador del móvil](https://stackoverflow.com/questions/26239956/how-to-get-specific-information-of-an-android-device-from-proc-cpuinfo-file)?
 </div>
 
 Lo que implementan estas tecnologías son una serie de instrucciones
@@ -443,7 +443,7 @@ capas anteriores
   [Docker](https://blog.docker.com/2016/02/containers-as-a-service-caas/) pero
   empresas
   como
-  [Microsoft](https://azure.microsoft.com/es-es/services/container-service/) o
+  [Microsoft](https://azure.microsoft.com/es-es/services/kubernetes-service/) o
   Amazon lo ofrecen como parte de sus servicios en la nube. La gran
   ventaja que poseen los contenedores es que pueden desplegarse,
   usando las mismas herramientas estándar y libres, en cualquier
@@ -484,7 +484,7 @@ de monitorización se puede configurar el sistema para que de forma
 eficiente responda a estos picos de demanda.
 
 Para implementar nubes privadas se usan general mente sistemas libres
-como [OpenStack](http://openstack.org); OpenStack permite proveer
+como [OpenStack](https://www.openstack.org); OpenStack permite proveer
 servicios nube a una empresa, aunque hay también empresas privadas que
 basan su oferta en este tipo de
 infraestructura; [CloudStack](https://cloudstack.apache.org/) es otra
