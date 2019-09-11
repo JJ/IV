@@ -7,20 +7,20 @@ layout: index
 
 [![Build Status](https://travis-ci.org/JJ/IV.svg?branch=master)](https://travis-ci.org/JJ/IV)
 
-[Infraestructura virtual](http://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/curso_actual/cuarto/tecnologiasdelainformacion/gii_infraestructura_virtual_20172018_firmada)
+[Infraestructura virtual](https://etsiit.ugr.es/pages/calendario_academico/horarioscurso20192020/horariosgii1920)
 es una asignatura obligatoria de la rama Tecnologías de la Información
 del primer cuatrimestre del cuarto del Grado de Ingeniería
 Informática y optativa en otras ramas y el Doble Grado de Informática
 y Matemáticas.
 
-La asignatura se imparte en el curso 2018-2019 en la -1.2 (aula polivalente), [los lunes de 11:30 a 13:30 y miércoles y viernes de 9:30 a 11:30](http://etsiit.ugr.es/pages/calendario_academico/horarios-curso-20182019/horariosgii1819).
+La asignatura se imparte en el curso 2019-2020 en la -1.2 (aula polivalente), [los lunes de 9:30 a 13:30 y jueves de 9:30 a 11:30](http://etsiit.ugr.es/pages/calendario_academico/horarios-curso-20182019/horariosgii1819).
 Se recuerda a los alumnos que en todas las clases será necesario llevar el portátil, ya que son clases prácticas.
 
 
 Se usará
 [GitHub](http://github.com) para el proyecto cuyos hitos serán considerados "prácticas".
 
-Estos son los [objetivos de la asignatura](documentos/objetivos), cuyas sesiones de clase se irán reflejando en [un repositorio de GitHub; este es el de 2018-2019](https://github.com/JJ/IV-18-19).
+Estos son los [objetivos de la asignatura](documentos/objetivos), cuyas sesiones de clase se irán reflejando en [un repositorio de GitHub; este es el de 2019-2020](https://github.com/JJ/IV-19-20).
 
 En resumen, mi intención es que el estudiante al final de la asignatura sea capaz de hacer lo siguiente:
 
@@ -36,7 +36,7 @@ Temario - Programa de la asignatura
 Los materiales de la asignatura están enlazados desde aquí y
 disponibles con una licencia libre. Los fuentes de los mismos están en
 [GitHub](http://github.com/JJ/IV). La
-[temporización de la asignatura y los objetivos de cada sesión figuran en la bitácora de clase](https://github.com/JJ/IV18-19/blob/master/sesiones/README.md).
+[temporización de la asignatura y los objetivos de cada sesión figuran en la bitácora de clase](https://github.com/JJ/IV-19-20/blob/master/sesiones/README.md).
 
 1. [Introducción: conceptos y soporte físico](documentos/temas/Intro_concepto_y_soporte_fisico).
 2. [Iniciación a DevOps: desarrollo basado en pruebas](documentos/temas/Desarrollo_basado_en_pruebas).
@@ -79,7 +79,7 @@ Tutorías virtuales
 ----
 
 Las tutorías virtuales se realizarán preferiblemente a través de
-[la plataforma de trabajo colaborativo GitHub](https://github.com/JJ/IV-18-19/issues?state=open) y
+[la plataforma de trabajo colaborativo GitHub](https://github.com/JJ/IV-19-20/issues?state=open) y
 a través del grupo de Telegram; habrá que solicitar al profesor ser
 añadido. Finalmente, el profesor está disponible por Telegram, Skype y
 Google Hangouts (en todos los casos: `jjmerelo`).
@@ -90,7 +90,7 @@ Criterios de evaluación
 Los
 [criterios de evaluación figuran en la ficha de la asignatura en la web del grado](http://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/curso_actual/cuarto/tecnologiasdelainformacion/gii_infraestructura_virtual_20172018_firmada),
 y
-[se especifican en el repositorio de la clase](https://github.com/JJ/IV-18-19/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n).
+[se especifican en el repositorio de la clase](https://github.com/JJ/IV-19-20/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n).
 
 ## Convocatoria extraordinaria (AL FINAL DEL CUATRIMESTRE)
 
