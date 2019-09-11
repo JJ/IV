@@ -2,13 +2,13 @@
 
 [![Build Status](https://travis-ci.org/JJ/IV.svg?branch=master)](https://travis-ci.org/JJ/IV)
 
-[Infraestructura virtual](http://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/curso_actual/cuarto/tecnologiasdelainformacion/gii_infraestructura_virtual_20172018_firmada)
+[Infraestructura virtual](https://etsiit.ugr.es/pages/calendario_academico/horarioscurso20192020/horariosgii1920)
 es una asignatura obligatoria de la rama Tecnologías de la Información
 del primer cuatrimestre del cuarto del Grado de Ingeniería
 Informática y optativa en otras ramas y el Doble Grado de Informática
 y Matemáticas.
 
-La asignatura se imparte en el curso 2019-2020 en la -1.2 (aula polivalente), [los lunes de 11:30 a 13:30 y miércoles y viernes de 9:30 a 11:30](http://etsiit.ugr.es/pages/calendario_academico/horarios-curso-20182019/horariosgii1819).
+La asignatura se imparte en el curso 2019-2020 en la -1.2 (aula polivalente), [los lunes de 9:30 a 13:30 y jueves de 9:30 a 11:30](http://etsiit.ugr.es/pages/calendario_academico/horarios-curso-20182019/horariosgii1819).
 Se recuerda a los alumnos que en todas las clases será necesario llevar el portátil, ya que son clases prácticas.
 
 
