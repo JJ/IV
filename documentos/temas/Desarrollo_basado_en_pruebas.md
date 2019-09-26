@@ -26,17 +26,27 @@ next: PaaS
 ## Introducción
 
 Los ciclos de desarrollo de software actuales son ágiles y rápidos, de
-forma que continuamente se están arreglando errores, programando
-nuevas características y desplegándolas en producción. Para que esto
-sea posible todo este ciclo de vida del software debe estar automatizado en
-todo lo posible, para que todas las fases se hagan esencialmente sin
-intervención humana y se minimice la posibilidad de que haya 
-en el proceso errores costosos de arreglar una vez echado a andar un
-sistema. La aparición de la
+forma que continuamente se están arreglando errores que se hayan
+observado en producción, programando nuevas características y
+desplegándolas en producción. Para que esto sea posible todo este
+ciclo de vida del software debe estar automatizado en todo lo posible,
+para que todas las fases se hagan esencialmente sin intervención
+humana y se minimice la posibilidad de que haya en el proceso fallos
+costosos de arreglar una vez echado a andar un sistema; también en ese
+sentido, las aplicaciones de hoy en día ya no son monolíticas, de
+forma que sea fácil rearrancar o escalar una parte de la misma sin
+afectar al resto y, sobre todo, que no haya un tiempo en el que no
+esté disponible. La aparición de la
 [nube](https://es.wikipedia.org/wiki/Computaci%C3%B3n_en_la_nube) ha
-hecho que en varias, o en todas,
-las partes del proceso, aparezcan recursos *elásticos* y disponibles bajo
-demanda, algunos de ellos gratuitos.
+hecho que en varias, o en todas, las partes del proceso, aparezcan
+recursos *elásticos* y disponibles bajo demanda, algunos de ellos
+gratuitos.
+
+Para asegurar despliegues con éxito es esencial que se prueba, antes
+de que se comiencen a desplegar, que no hay ningún error y que el
+software corresponde a los requisitos que se le habían planteado, sea
+como historias de usuario o sea usando cualquier otra metodología de
+especificación. 
 
 Por eso, en esta parte del curso, veremos cómo desarrollar según la
 metodología basada en pruebas con los
@@ -53,7 +63,10 @@ despliegue continuo y virtualización.
 El desarrollo basado en pruebas es una metodología que se integra con
 el desarrollo en la nube que hemos venido viendo de forma inconsútil
 (en inglés esto queda mejor; *seamless*). Hace falta pasar las pruebas
-para hacer el despliegue, pero también para integrar código. Las
+para hacer el despliegue, pero también para integrar código, por eso
+el flujo de trabajo integra automáticamente las pruebas como paso
+previo a la incorporación del código, que si es a la rama `master`
+implicaría automáticamente el despliegue o pase a producción. Las
 pruebas son a diferente nivel, pero las que vamos a usar, pruebas
 unitarias, consisten en llamar a una función con diferentes valores y
 comprobar los resultados esperados con los obtenidos. Los resultados
