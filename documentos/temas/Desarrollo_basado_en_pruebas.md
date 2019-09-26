@@ -14,7 +14,6 @@ next: PaaS
 
 * Conocer los conceptos relacionados con el proceso de virtualización tanto de software como de hardware y ponerlos en práctica.
 
-
 ### Objetivos específicos
 
 * Entender el concepto de <i>DevOps</i>.
@@ -42,7 +41,7 @@ hecho que en varias, o en todas, las partes del proceso, aparezcan
 recursos *elásticos* y disponibles bajo demanda, algunos de ellos
 gratuitos.
 
-Para asegurar despliegues con éxito es esencial que se prueba, antes
+Para asegurar despliegues con éxito es esencial que se pruebe, antes
 de que se comiencen a desplegar, que no hay ningún error y que el
 software corresponde a los requisitos que se le habían planteado, sea
 como historias de usuario o sea usando cualquier otra metodología de
@@ -97,10 +96,24 @@ que el usuario debería esperar. Estas historias de usuario se
 convertirán en *issues* del repositorio, cuyo cierre marcará que el
 código está escrito, testeado, y se ajusta a la misma. 
 
-En la mayoría de los entornos de programación y especialmente en node,
+En la mayoría de los entornos de programación y especialmente en `node`,
 que es en el que nos estamos fijando, hay dos niveles en el test: el
 primero es el marco de pruebas y el segundo la librería de pruebas que
-efectivamente se está usando. 
+efectivamente se está usando. El marco de pruebas será el que ejecute
+todos los tests, examine el resultado y emita un informe, que
+dependerá de si los tests se han superado o no.
+
+> Para ello, todas las librerías de tests emiten sus resultados en un
+> formato de texto estándar, que se llama TAP. Por eso los marcos de
+> pruebas se pueden usar con cualquier librería de pruebas, incluso de
+> cualquier lenguaje.
+
+Por debajo del marco de pruebas (la librería que permite estructuras
+las pruebas), a veces existe una biblioteca de aserciones, que son las
+diferentes pruebas unitarias que se deben pasar o no. En muchos casos,
+la biblioteca de pruebas incluye ya aserciones; en otros casos,
+bibliotecas de pruebas pueden trabajar con diferentes bibliotecas de
+aserciones. 
 
 ### Escribiendo tests en Go
 
@@ -113,7 +126,10 @@ en
 [esta pequeña biblioteca que lee de un fichero en JSON los hitos de la asignatura](https://github.com/JJ/HitosIV) escrita
 en ese lenguaje, Go. La biblioteca
 tiene
-[dos funciones, una que devuelve un hito a partir de su ID y otra que te dice cuantos hay](https://github.com/JJ/HitosIV/blob/master/HitosIV.go). [Go](https://golang.org/) es
+[dos funciones, una que devuelve un hito a partir de su ID y otra que
+te dice cuantos
+hay](https://github.com/JJ/HitosIV/blob/master/HitosIV.go).
+[Go](https://golang.org/) es
 un lenguaje que pretende evitar lo peor de C++ para crear un lenguaje
 concurrente, de sintaxis simple y con más seguridad; además, Go provee
 también un entorno de programación con una serie de herramientas
@@ -150,7 +166,8 @@ func TestTodosHitos (t *testing.T){
 ```
 
 > Te puedes descargar todo el proyecto con `git clone
-> https://github.com/JJ/HitosIV` o hacerle *fork*, es software libre.
+> https://github.com/JJ/HitosIV` o hacerle *fork*, es software
+> libre. Se agradecen PRs e issues.
 
 La sintaxis no es excesivamente complicada. Se importan las
 bibliotecas para testear (`testing`) y para averiguar de qué tipo es
@@ -171,7 +188,6 @@ los tests) se usa para mostrar algún mensaje sobre qué está ocurriendo en el 
 haya hitos en el fichero JSON que se ha pasado, y el segundo comprueba que el tipo que se devuelve cuando
 se solicita un hito es el correcto. Estos tests no están completos;
 generalmente hay que escribir una función de test para todas las funciones del módulo. Se muestran solo estos para ilustrar cómo funciona en un lenguaje determinado.
-
 
 ## Escribiendo tests en Python
 
