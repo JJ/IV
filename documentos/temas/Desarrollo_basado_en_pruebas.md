@@ -81,7 +81,21 @@ que el código que hace que esos tests *no* fallen. No siempre se hace
 así, claro, pero el trabajar así permite tener claro qué
 funcionalidades queremos, cómo queremos que respondan y qué
 *contratos* o *aserciones* van a ser verdaderas cuando se ejecute el
-código antes siquiera de escribirlo; una aserción es simplemente una afirmación sobre los valores que devuelve una función para una entrada determinada.
+código antes siquiera de escribirlo; una aserción es simplemente una
+afirmación sobre los valores que devuelve una función para una entrada
+determinada.
+
+Las pruebas deben de corresponder a las especificaciones que queremos
+que respete nuestro software, y como tales deben de ser previas a la
+escritura del código en sí y del test. Es esencial entender
+perfectamente qué queremos que nuestro software haga, y hay diferentes
+formas de hacerlo, pero generalmente, en metodologías ágiles, tenemos
+que hacerlo mediante [*historias de
+usuario*](https://es.wikipedia.org/wiki/Historias_de_usuario),
+narrativas de qué es lo que puede hacer un posible usuario y qué es lo
+que el usuario debería esperar. Estas historias de usuario se
+convertirán en *issues* del repositorio, cuyo cierre marcará que el
+código está escrito, testeado, y se ajusta a la misma. 
 
 En la mayoría de los entornos de programación y especialmente en node,
 que es en el que nos estamos fijando, hay dos niveles en el test: el
