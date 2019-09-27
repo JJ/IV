@@ -354,6 +354,35 @@ parafernalia y farfolla. Una vez más, [hay varios marcos de testeo](https://sta
 nodejs (y, por supuesto, uno propio para cada uno de los lenguajes de
 programación, aunque en algunos están realmente estandarizados).
 
+Como algunos marcos de prueba como Chai usan su propia biblioteca de
+aserciones, podemos hacer este pequeño cambio para usarla: 
+
+```
+var assert = require("chai").assert,
+    apuesta = require(__dirname+"/../Apuesta.js");
+
+console.log(assert);
+describe('Apuesta con Chai', function(){
+    // Testea que se haya cargado bien la librería
+    describe('Carga', function(){
+	it('should be loaded', function(){
+	    assert.ok(apuesta, "Cargado");
+	});
+	
+    });
+    describe('Crea', function(){
+	it('should create apuestas correctly', function(){
+	    var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama','2-3');
+	    assert.equal(nueva_apuesta.as_string(), "Polopos: Alhama - 2-3","Creado");
+	});
+    });
+});
+```
+
+Los únicos cambios son el usar `assert.ok` en vez de assert, y el usar
+el objeto `assert` de la biblioteca `chai`, en vez de usar el que hay
+por omisión. 
+
 Cada uno de ellos tendrá sus promotores y detractores, pero
 [Mocha](https://mochajs.org/), [Jasmine](https://jasmine.github.io/) y [Jest](https://github.com/facebook/jest)
 parecen ser los más populares. Los tres usan un sistema denominado
@@ -408,6 +437,34 @@ el resultado de ejecutarlo será:
 (pero con más colorines)
 
 >Y la verdad es que debería haber puesto los mensajes en español.
+
+Con la librería BDD de Chai, podríamos expresar los mismos tests de
+esta forma: 
+
+```
+var assert = require("chai").should(),
+    apuesta = require(__dirname+"/../Apuesta.js");
+
+describe('BDD con Chai', function(){
+    it('Debería cargar la biblioteca y poder instanciarse', function() {
+	apuesta.should.exist;
+	var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama','2-3');
+	
+	nueva_apuesta.as_string().should.equal( "Polopos: Alhama - 2-3","Creado");
+    })
+});
+```
+
+La única diferencia es que ejecutamos la función `should` de `chai`,
+que añade a todos los objetos funciones que permite expresar, en
+lenguaje más o menos natural, qué es lo que queremos probar: que el
+objeto de la librería existe, y que se puede instanciar y que los
+resultados que obtienen se pueden convertir a una cadena de la forma
+esperada. Como se ve, el marco (que incluye las funciones `describe` e
+`it`) no varía, lo que varía es como se describe el test en sí, que
+depende de la biblioteca de aserciones.
+
+
 
 Además, te indica el tiempo que ha tardado lo que te puede servir para
 hacer un *benchmark* de tu código en los diferentes entornos en los
