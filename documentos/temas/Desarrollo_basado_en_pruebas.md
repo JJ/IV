@@ -318,7 +318,11 @@ de tests más completos. Estos marcos de test incluyen [Chai](https://www.chaijs
 [Must.js](https://github.com/moll/js-must) y [jest](https://jestjs.io/).
 
 
-Veamos el siguiente ejemplo de uso de assert:
+Veamos el siguiente
+[ejemplo](https://github.com/JJ/desarrollo-basado-pruebas/blob/master/src/prueba-assert.js)
+de uso de `assert`:
+
+> Hace uso de una clase en JavaScript, [`Apuesta`, que está en otro repo](https://github.com/JJ/desarrollo-basado-pruebas/)
 
 ```
 var apuesta = require("./Apuesta.js"),
@@ -340,8 +344,11 @@ función `as_string` es la esperada.
 Para la aplicación que se está haciendo, escribir una serie de aserciones y probar que efectivamente no fallan. Añadir tests para una nueva funcionalidad, probar que falla y escribir el código para que no lo haga (vamos, lo que viene siendo TDD).
 </div>
 
-Hay un segundo nivel, el marco de ejecución de los tests. Estos marcos
-son programas que, a su vez, ejecutan los programas de test y escriben
+El programa anterior ilustra la sintaxis, y puede formar parte de un
+conjunto de tests; se puede ejecutar directamente, pero para testearlo
+los lenguajes de programación usan un segundo nivel, el marco de
+ejecución de los tests. Estos marcos incluyen programas de línea de
+órdenes que, a su vez, ejecutan los programas de test y escriben 
 un informe sobre cuáles han fallado y cuáles no con más o menos
 parafernalia y farfolla. Una vez más, [hay varios marcos de testeo](https://stackoverflow.com/questions/4308786/what-is-the-best-testing-framework-to-use-with-node-js) para
 nodejs (y, por supuesto, uno propio para cada uno de los lenguajes de
@@ -352,7 +359,9 @@ Cada uno de ellos tendrá sus promotores y detractores, pero
 parecen ser los más populares. Los tres usan un sistema denominado
 [Behavior Driven Development](https://en.wikipedia.org/wiki/Behavior-driven_development),
 que consiste en describir el comportamiento de un sistema más o menos
-de alto nivel. Como hay que escoger uno y parece que Mocha es más
+de alto nivel; para ello suelen incluir una serie de aserciones o su
+propia biblioteca de aserciones para que la sentencia que lleve a cabo
+el test sea lo más cercana posible a la frase (en inglés) que la describiría. Como hay que escoger uno y parece que Mocha es más
 popular, nos quedamos con este para escribir este programa de test.
 
 ```
@@ -376,12 +385,12 @@ describe('Crea', function(){
 });
 ```
 
-Mocha puede usar diferentes librerías de test. En este caso hemos
+Mocha puede usar diferentes librerías de aserciones. En este caso hemos
 escogido la que ya habíamos usado, `assert`. A bajo nivel, los tests
 que funcionen en este marco tendrán que usar una librería de este
 tipo, porque mocha funciona a un nivel superior, con funciones como
-`it` y `describe` que describe, a diferentes niveles, qué hace el
-test y cuál es el resultado que necesitamos. Se ejecuta con `mocha` y
+`it` y `describe` que describe, a diferentes niveles, el
+comportamiento que queremos comprobar. Se ejecuta con `mocha` y
 el resultado de ejecutarlo será:
 
 
