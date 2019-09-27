@@ -199,13 +199,18 @@ generalmente hay que escribir una función de test para todas las funciones del 
 
 ## Escribiendo tests en Python
 
-Para llevar a cabo los tests, Go busca módulos con un nombre
+Para llevar a cabo los tests, Go busca módulos (ficheros) con un nombre
 específico y en el mismo directorio que el módulo que se quiere
 probar; sin embargo, en otros lenguajes de programación como Python
 pasar las pruebas consiste simplemente en ejecutar un programa,
 situado en cualquier directorio y con cualquier nombre, que use alguna
 librería estándar de aserciones como `unittest`. Por ejemplo,
 en [el programa siguiente](https://github.com/JJ/tdd-gdg).
+
+> Este programa tiene como objeto ilustrar la sintaxis y la forma de
+> trabajar de Python. En un programa real la funcionalidad debe ser
+> real y corresponder a las especificaciones (historias de usuario o
+> de otro tipo) que se hayan hecho.
 
 ```
 import unittest
@@ -263,10 +268,13 @@ aserciones de este tipo:
 self.assertTrue(devuelveTrue(), "Tiene que fallar")
 ```
 
-A diferencia de Go, en Python sí existen [aserciones explícitas](https://docs.python.org/3/library/unittest.html). Todas las aserciones tienen al final un mensaje que se imprimirá
+A diferencia de Go, en Python sí existen
+[aserciones explícitas](https://docs.python.org/3/library/unittest.html). Todas
+las aserciones tienen al final un mensaje que se imprimirá 
 funcione o no, y que debe ser más o menos descriptivo. Es decir, lo
 contrario de lo que es en este caso, pero bueno, está así en el
-original así que se queda. Antes de esto está un test; en este caso
+original así que se queda. Antes del mensaje, la aserción realiza un
+test específico; en este caso
 una llamada a una función. `assertTrue` fallará solo si no se
 devuelve `True` (o equivalente), y `assertEqual` lo hará si los dos
 primeros argumentos no lo son. 
@@ -276,7 +284,10 @@ primeros argumentos no lo son.
 No solo se puede y debe probar el código,
 también
 [la documentación](https://docs.python-guide.org/writing/tests/) y
-todo tipo de cosas. Se puede usar también `pytest`, un programa que
+todo tipo de cosas, incluyendo los scripts de despliegue, por
+ejemplo. 
+
+Alternativamente al uso de esta biblioteca, se puede usar también `pytest`, un programa que
 tiene una sintaxis un poco más simple para los tests, o `nose`. Cada
 lenguaje tiene sus múltiples modos de testear, y este tema pretende
 ser solamente una introducción. 
@@ -298,17 +309,24 @@ faltan (en el momento que se lea este tema).
 ### Escribiendo tests en Javascript
 
 Go valora la simplicidad y además incluye de serie todo lo necesario
-para llevar a cabo los tests.
-Vamos a ir al nivel más bajo: el de las aserciones; ya hemos visto
-cómo se usan en Python, en esta sección veremos otro lenguaje:
-JavaScript. Hay
-[múltiples bibliotecas que se pueden usar](https://stackoverflow.com/questions/14294567/assertions-library-for-node-js): 
-[Chai](https://www.chaijs.com/),
-[Should.js](https://github.com/visionmedia/should.js),
-[Must.js](https://github.com/moll/js-must) y
-[`assert`](https://nodejs.org/api/assert.html) que es la librería que
-forma parte de la estándar de JS, y por tanto la que vamos a usar. Se
-usa de la forma siguiente
+para llevar a cabo los tests. Python, el lenguaje en el que sólo hay
+una buena forma de hacer las cosas, permite que se hagan las cosas de
+varias formas diferentes, e incluye en su biblioteca estándar una
+biblioteca de aserciones.
+
+. Hay
+[múltiples bibliotecas que se pueden
+usar](https://stackoverflow.com/questions/14294567/assertions-library-for-node-js);
+el [panorama de 2019 se presenta en este
+artículo](https://medium.com/welldone-software/an-overview-of-javascript-testing-in-2019-264e19514d0a). La
+librería de aserciones [`assert`](https://nodejs.org/api/assert.html) 
+forma parte de la estándar de JS, pero hay otras como
+[Unexpected](http://unexpected.js.org/) o aserciones parte de marcos
+de tests más completos. Estos marcos de test incluyen [Chai](https://www.chaijs.com/), [Jasmine](https://jasmine.github.io/),
+[Must.js](https://github.com/moll/js-must) y [jest](https://jestjs.io/).
+
+
+Veamos el siguiente ejemplo de uso de assert:
 
 ```
 var apuesta = require("./Apuesta.js"),
