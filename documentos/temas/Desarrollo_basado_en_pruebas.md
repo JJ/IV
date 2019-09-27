@@ -502,6 +502,8 @@ lenguajes son:
   
 * JUnit es el más cercano en Java.
 
+* Perl 6 usa prove6, pero también zef si se trata de usarlo sobre un módulo. 
+
 Cada lenguaje incluye este tipo de marcos, sea como parte de su
 distribución base o como parte de alguna biblioteca popular.
 
@@ -529,9 +531,14 @@ versión usada de la que proporcione el sistema, instalarla sin
 necesidad de tener privilegios de superusuario, compartirla entre
 todos los miembros del equipo y también automatizar la tarea 
 de instalación del mismo mediante el uso de una sola orden que
-seleccione la versión precisa que se va a usar. 
+seleccione la versión precisa que se va a usar.
 
-Y estos entornos virtuales vienen del hecho de que los lenguajes de scripting tales como Perl, Python y Ruby tienen
+> El poder seleccionar la versión del lenguaje de programación es
+> parte de la especificación de infraestructura virtual, o
+> "infraestructura como código", que es la clave de la nube. 
+
+Y estos entornos virtuales vienen del hecho de que los lenguajes de
+scripting tales como Perl, Python, node y Ruby tienen
 ciclos de desarrollo muy rápidos que hacen que a veces convivan en
 producción diferentes versiones de los mismos, incluso versiones
 *major*. Eso hace complicado desarrollar e incluso probar los 
@@ -542,18 +549,18 @@ incluso probar la versión más avanzada.
 Por eso desde hacer cierto tiempo se han venido usando *entornos
 virtuales de desarrollo* tales como:
 
-*  [virtualenv](https://virtualenv.pypa.io/en/latest/) para Python,
+*  [virtualenv](https://virtualenv.pypa.io/en/latest/) o `pyenv` para Python,
 *  [nvm](https://github.com/creationix/nvm), [`n`](https://github.com/tj/n) y [nave](https://github.com/isaacs/nave) para node.js,
 *  [`phpenv` para, lo adivinaste, PHP](https://github.com/phpenv/phpenv),
 *  [rbenv](https://github.com/sstephenson/rbenv) y [RVM](https://rvm.io) para Ruby
 *  y [plenv](https://github.com/tokuhirom/plenv) y [perlbrew](https://perlbrew.pl) para Perl.
 
-Generalmente, estos programa funcionan instalando binarios en
+Generalmente, estos programas funcionan instalando binarios en
 directorios del usuario y modificando el camino de ejecución para que
 se usen estas versiones en vez de las instaladas en el sistema. En la
 mayoría de los casos se coordinan también con el *shell* para mostrar
 la versión que se está ejecutando en la línea de órdenes o para llevar
-a cabo autocompletado. 
+a cabo autocompletado.
 
 Una vez instalados, estos programas permiten instalar fácilmente
 nuevas versiones de tu lenguaje de programación (con las librerías
@@ -564,7 +571,6 @@ librerías que nos vamos a encontrar en un PaaS tal como los que
 veremos a continuación.
 
 <div class='ejercicios' markdown='1'>
-
 Instalar alguno de los entornos virtuales de `node.js` (o de cualquier
 otro lenguaje con el que se esté familiarizado) y, con ellos,
 instalar la última versión existente, la versión `minor` más actual
@@ -588,14 +594,16 @@ y si acaso una fecha o descripción (por ejemplo, *Jaén-Osasuna Copa
 *JJ, 2-1*, por ejemplo. Este sería el *modelo* sobre el que vamos a
 basar la aplicación.
 
-El objeto básico, por tanto, será la `Apuesta` que irá asociada a un `Partido`.
+El objeto básico, por tanto, será la `Apuesta` que irá asociada a un
+`Partido`. El el mismo objeto que hemos venido usando hasta ahora, y
+está en [este repositorio](https://github.com/JJ/desarrollo-basado-pruebas)
 
 <div class='ejercicios'  markdown="1">
 
-Como ejercicio, algo ligeramente diferente: una web para calificar
+Como ejercicio, algo ligeramente diferente: un servicio web para calificar
 las empresas en las que hacen prácticas los alumnos.
 
-Las acciones serían
+Las acciones podrían incluir
 
 * Crear empresa
 * Listar calificaciones para cada empresa
@@ -608,15 +616,15 @@ Si se quiere hacer con cualquier otra aplicación, también es válido.
 
 Se trata de hacer una aplicación simple que se pueda hacer rápidamente
 con un generador de aplicaciones como los que incluyen diferentes
-marcos MVC. Si cuesta mucho trabajo, simplemente prepara una
+*microframeworks*. Si cuesta mucho trabajo, simplemente prepara una
 aplicación que puedas usar más adelante en el resto de los ejercicios.
 
 </div>
 
 
-La aplicación tendrá más adelante un interfaz web, pero por lo pronto,
+La aplicación tendrá más adelante un API REST, pero por lo pronto,
 y a efectos de la prueba continua de más adelante, vamos a quedarnos
-solo con un pequeño programa que sirva para ver que funciona.
+solo con un pequeño módulo que sirva para ver que funciona.
 
 <div class='ejercicios'>
 
@@ -686,7 +694,9 @@ día el concepto de *construcción* es más amplio e incluye tareas que
 van desde el uso de diferentes generadores (de hojas CSS a partir de
 un lenguaje, por ejemplo) hasta la *minificación* o "compresión" de un
 programa hasta que ocupe el mínimo espacio posible, para que sea más
-*amigable* para móviles y otros dispositivos sin mucho ancho de banda.
+*amigable* para móviles y otros dispositivos sin mucho ancho de banda,
+o por supuesto últimamente para *transpilación*, o conversión de un
+lenguaje al código fuente de otro lenguaje, típicamente JavaScript o node.
 
 Todos los lenguajes de programación tienen su propia [herramienta de construcción](https://en.wikipedia.org/wiki/Build_automation),  de las
 cuales la más conocida y veterana es la
@@ -708,11 +718,10 @@ usan diferentes herramientas para ello: Ant, Ivy y Maven para Java, `sbt`
 para Scala, Rake para Ruby y otras muchas.
 
 En node.js se utilizan principalmente dos:
-[Grunt](https://gruntjs.com) y [Gulp](https://gulpjs.com), aunque
-también han aparecido
-últimamente
-[Broccoli y mimosa](https://www.freelancinggig.com/blog/2017/05/18/grunt-vs-cake-vs-gulp-vs-broccoli-js-task-runners-comparison-2017/),
-así como [Brunch y webpack](https://brunch.io/docs/why-brunch).
+[Grunt](https://gruntjs.com) y [Gulp](https://gulpjs.com), 
+así como [Brunch y webpack](https://brunch.io/docs/why-brunch), pero
+el mismo npm tiene muchas características de una herramienta de
+construcción.
 
 >Aquí podíamos hacer una breve disquisición sobre
 >[el código y la configuración](https://coding.abel.nu/2013/06/code-or-configuration-or-configuration-in-code/),
@@ -788,7 +797,15 @@ El fichero que se ve arriba tiene tres partes: la definición de la
 tarea (en este caso, la que genera la documentación), la carga de la
 tarea y finalmente el registro de la tarea.
 
-Vayamos con la primera parte. Primero, le indicamos cuál es el fichero `package.json` que usamos. Este fichero tiene una serie de variables de configuración que podremos usar en el Gruntfile (pero que, por lo pronto, no vamos a hacerlo). Luego, definimos la tarea llamada `docco`, que a su vez tiene una subtarea llamada `debug`: toma los fuentes contenidos en el array indicado y deposita la salida en el directorio que le indicamos. No existe en Grunt una forma general de expresar este tipo de dependencias como en los Makefiles, solo una buena práctica: usar `src`, por ejemplo, para las fuentes. 
+Vayamos con la primera parte. Primero, le indicamos cuál es el fichero
+`package.json` que usamos. Este fichero tiene una serie de variables
+de configuración que podremos usar en el Gruntfile (pero que, por lo
+pronto, no vamos a hacerlo). Luego, definimos la tarea llamada
+`docco`, que a su vez tiene una subtarea llamada `debug`: toma los
+fuentes contenidos en el array indicado y deposita la salida en el
+directorio que le indicamos. No existe en Grunt una forma general de
+expresar este tipo de dependencias como en los Makefiles, solo una
+buena práctica: usar `src`, por ejemplo, para las fuentes.  
 
 La siguiente parte carga el plugin de `grunt` necesario para ejecutar `docco`. Y finalmente, con `grunt.registerTask('default', ['docco']);` indicamos que la tarea que ejecuta docco es la que se ejecutará por defecto simplemente ejecutando `grunt`. También se puede ejecutar con `grunt docco` o `grunt docco:debug` que sacará esto en el terminal:
 
@@ -815,6 +832,15 @@ documentación. Previamente, por supuesto, habrá que documentar tal librería.
 
 ## Añadiendo integración continua
 
+La integración continua es un tipo de acción que se ejecuta cuando
+sucede algún evento en un repo; en general, se tratará de hacer pasar
+tests sobre la base de código cada vez que algo se quiera incorporar a
+la rama máster. Se habla de *integración continua* en oposición a
+ciclos sucesivos de desarrollo, prueba y producción. En la nube, en
+general, se usan entornos de desarrollo continuo donde siempre que el
+código pasa los tests se incorpora a máster y todo lo que hay en
+máster se pasa a producción.
+
 A un primer nivel, la integración continua consiste en integrar los
 cambios hechos por un miembro del equipo en el momento que estén y
 pasen los tests. Pero eso, efectivamente, significa que deben pasar
@@ -838,7 +864,15 @@ Un sistema bastante popular de integración continua es
 [Jenkins](https://jenkins.io/). Para usar Jenkins puedes instalarlo en tu propio
 ordenador, en un servidor propio en la nube o en [algún servicio en la nube](https://wiki.jenkins.io/display/JENKINS/Commercial+Support). Sin embargo, hay otros sistemas como [Travis](https://travis-ci.org) o
 [Shippable](https://www.shippable.com/) que podemos usar también desde
-la nube.
+la nube. Hay otros muchos, como Circle-CI o AppVeyor, y todos ellos
+tienen servicios gratuitos para proyectos open source.
+
+Los sitios de alojamiento de git como Gitlab o Github tienen también
+un sistema de acciones o *ganchos* que se ejecutan cada vez que sucede
+algún evento en el sistema. Como estas acciones son más amplias,
+engloban integración continua y se puede, por tanto, incluir en el
+propio repo, con la ventaja de poder usar el API del mismo para pasar
+algún tipo de tests. 
 
 Para trabajar con estos sistemas, generalmente hay que ejecutar estos
 tres pasos:
@@ -871,8 +905,8 @@ el fichero de configuración tal como este para Travis.
 ```
 language: node_js
 node_js:
-  - "0.10"
-  - "0.11"
+  - "10"
+  - "11"
 before_install:
   - npm install -g mocha
   - cd src; npm install .
@@ -902,21 +936,29 @@ Este fichero, denominado `.travis.yml`, contiene lo siguiente:
   cualquier cosa que quieras ejecutar). Una vez más, nos cambiamos al
   subdirectorio y ejecutamos `mocha` tal como lo hemos hecho
   anteriormente.
+  
+Cada web tendrá sus propias órdenes para configurarlo; aunque Travis
+es un poco estándar y otros sitios permiten importar la configuración
+o usarla con ligeras variantes.
 
 El resultado
 [aparecerá en la web](https://travis-ci.org/JJ/desarrollo-basado-pruebas)
 y también se enviará por correo electrónico. Y te da también un
 *badge* que puedes poner en tu fichero para indicar que, por lo
-pronto, todo funciona.
+pronto, todo funciona. 
 
 Si el informe indica que las pruebas son correctas, se puede proceder al despliegue. Pero eso
 ya será en la siguiente clase.
 
-> Configurar integración continua para nuestra aplicación usando Travis o algún otro sitio.
+<div class='ejercicios' markdown='1'>
+
+Configurar integración continua para nuestra aplicación usando Travis o algún otro sitio.
+</div>
 
 Esta configuración es esencial por varias razones: primero, porque nos
 permite ser conscientes de todo lo necesario para desplegar nuestra
-aplicación. Segundo, porque al crear tests integramos el paso de
+aplicación, y por tanto es una forma alternativa de describir la
+infraestructura virtual. Segundo, porque al crear tests integramos el paso de
 control de calidad en el desarrollo. Y, finalmente, porque la
 integración continua y los tests correspondientes son un paso esencial
 para el despliegue continuo, que se verá más adelante.
