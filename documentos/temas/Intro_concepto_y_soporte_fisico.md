@@ -491,7 +491,7 @@ pero no tienen una comunidad tan activa como este.
 
 <div class='ejercicios' markdown="1">
 1. Darse de alta en una web que permita hacer pruebas con alguno de
-   los sistemas de gestión de nube anteriores.
+   los sistemas de gestión de nube libres como los mencionados en los párrafos anteriores. 
 
 </div>
 
