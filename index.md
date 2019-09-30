@@ -88,7 +88,7 @@ Criterios de evaluación
 ---
 
 Los
-[criterios de evaluación figuran en la ficha de la asignatura en la web del grado](http://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/curso_actual/cuarto/tecnologiasdelainformacion/gii_infraestructura_virtual_20172018_firmada),
+[criterios de evaluación figuran en la ficha de la asignatura en la web del grado](https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/curso_actual/cuarto/tecnologiasdelainformacion/gii_infraestructura_virtual_20172018_firmada),
 y
 [se especifican en el repositorio de la clase](https://github.com/JJ/IV-19-20/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n).
 
@@ -107,5 +107,5 @@ resolvería un problema con las técnicas aprendidas en la
 asignatura. Se aconseja al estudiante que haga los ejercicios de
 autoevaluación para alcanzar los objetivos de aprendizaje que se
 exigen tanto en junio como en septiembre. El método para preguntar
-dudas será el mismo que en la convocatoria ordinaria: lista de correo
+dudas será el mismo que en la convocatoria ordinaria: lista de correo o grupo de Telegram
 e issues de GitHub.
