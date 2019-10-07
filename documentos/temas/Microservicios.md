@@ -231,6 +231,106 @@ incluya variables como en el caso anterior.
 
 </div>
 
+El proceso será más o menos similar en otros lenguages. Vamos a
+llevarlo a cabo en Python diferenciando de forma explícita la clase y
+el servicio web construido sobre ella. Empezaremos con 
+[esta clase, `HitosIV`](https://github.com/JJ/tests-python/blob/master/HitosIV/core.py),
+que describe un hito de esta asignatura. Esa clase se inicializa con
+un fichero JSON que estará en otro directorio; esto se hace en el
+fichero `__init__.py` que está en el mismo directorio.
+
+Sobre esa clase vamos a construir un microservicio basado en el
+microframerowk [`hug`](https://hug.rest), un microframework
+alternativo al más célebre, que hace su labor
+perfectamente. [Esta](https://github.com/JJ/tests-python/blob/master/HitosIV/hugitos.py)
+es la clase, y también el programa principal, que la implementa:
+
+```python
+import os
+import logging
+
+import hug
+from hug.middleware import LogMiddleware
+
+from pythonjsonlogger import jsonlogger
+
+from datetime import datetime
+
+from HitosIV.core import HitosIV
+
+""" Define logger en JSON """
+@hug.middleware_class()
+class CustomLogger(LogMiddleware):
+    def __init__(self):
+        logger = logging.getLogger()
+        logger.setLevel(logging.INFO)
+        logHandler = logging.StreamHandler()
+        formatter = jsonlogger.JsonFormatter()
+        logHandler.setFormatter(formatter)
+        logger.addHandler(logHandler)
+        super().__init__(logger=logger)
+
+    def _generate_combined_log(self, request, response):
+        """Given a request/response pair, generate a logging format similar to the NGINX combined style."""
+        current_time = datetime.utcnow()
+        return {'remote_addr':request.remote_addr,
+                'time': current_time,
+                'method': request.method,
+                'uri': request.relative_uri,
+                'status': response.status,
+                'user-agent': request.user_agent }
+
+
+""" Declara clase """ 
+estos_hitos = HitosIV()
+
+""" Define API """ 
+@hug.get('/')
+def status():
+    """Devuelve estado"""
+    return { "status": "OK" }
+
+@hug.get('/status')
+def status():
+    """Devuelve estado"""
+    return { "status": "OK" }
+
+@hug.get('/all')
+def all():
+    """Devuelve todos los hitos"""
+    return { "hitos": estos_hitos.todos_hitos() }
+
+@hug.get('/one/{id}')
+def one( id: int ):
+    """Devuelve un hito"""
+    return { "hito": estos_hitos.uno( id ) }
+
+if 'PORT' in os.environ :
+    port = int(os.environ['PORT'])
+else:
+    port = 8000
+
+api = hug.API(__name__)
+
+if __name__ == '__main__':
+    hug.API(__name__).http.serve(port )
+```
+
+La primera parte de este fichero está destinada a configurar los
+registros, que son esenciales en cualquier microservicio. Estos
+registros nos permitirán ver y evaluar las peticiones, y también
+permitirán monitorizar las prestaciones. Para implementarlos, usamos
+el decorador `@hug.middleware_class()`; todos los microframeworks
+permiten definir *middleware* que se ejecutarán sin importar qué
+petición se haga. De esa forma se establecen mecanismos comunes a
+todas las peticiones, uno de los cuales puede ser el logging o
+registro. 
+
+El API REST y las rutas se crean en `hug` a base de una serie de
+decoradores. Definimos varias funciones `get` que *decoran* las
+funciones correspondientes de la clase; usamos JSON para devolverlo,
+igual que antes, transformado automáticamente por el framework.
+
 ## Probando nuestra aplicación en la nube
 
 Porque esté en la nube no significa que no tengamos que testearla como cualquier hija de vecina. En este caso no vamos a usar tests unitarios, sino test funcionales (o como se llamen); de lo que se trata es que tenemos que levantar la web y que vaya todo medianamente bien.
