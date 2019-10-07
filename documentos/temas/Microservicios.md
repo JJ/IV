@@ -42,12 +42,26 @@ tanto de software como de hardware y ponerlos en práctica.
 >Esta [presentación](https://jj.github.io/pispaas/#/) es un resumen del concepto de Plataforma como Servicio
 >(PaaS) y alguna cosa adicional que no está incluida en este tema pero que conviene conocer de todas formas.
 
+En general, un microservicio será un decorador o fachada que se
+añadirá a una clase o módulo para acceder a esa funcionalidad a través
+de Internet en el contexto de un grupo de microservicios desplegados
+dentro de una aplicación. Un microservicio es, en sí, también una
+funcionalidad que, como tal, habrá que testear de forma específica.
 
-## Creando una aplicación para su despliegue en un PaaS
+Aunque los frameworks de microservicios contienen servidores web
+funcionales, en general es aconsejable colocarles algún servidor
+adicional para su puesta en producción. Todos los lenguajes de
+programación suelen tener interfaces específicos para que haya un buen
+acoplamiento entre el microservicio y el servidor que hay por delante,
+que además se asegura de que haya un número de copias ejecutándose,
+por ejemplo. Finalmente, en muchos casos por delante de él hay un
+servidor o proxy inverso genérico tal como nginx que, además, es capaz
+de servir de forma más eficiente los ficheros estáticos.
 
-> Un PaaS sirve para desplegar todo tipo de aplicaciones, pero estamos
-> especialmente interesados en el despliegue de servicios web. En
-> [esta presentación sobre servicios web en Python](https://jj.github.io/tests-python/ws.html)
+## Creando un microservicio desde cero
+
+> En este ejemplo usaremos Node; una alternativa está en
+> [esta presentación sobre servicios web en Python](https://jj.github.io/tests-python/ws.html), en la que se da
 > se da una introducción a los servicios web y cómo desplegarlos
 > usando el micromarco de aplicaciones Hug.
 
@@ -74,34 +88,36 @@ Tras la instalación, el programa que hemos visto más arriba se
 transforma en el siguiente:
 
 ```
-	#!/usr/bin/env node
+#!/usr/bin/env node
 
-	var express=require('express');
-	var app = express();
-	var port = process.env.PORT || 8080;
+var express=require('express');
+var app = express();
+var port = process.env.PORT || 8080;
 
-	app.get('/', function (req, res) {
-		res.send( { Portada: true } );
-	});
+app.get('/', function (req, res) {
+	res.send( { Portada: true } );
+});
 
-	app.get('/proc', function (req, res) {
-		res.send( { Portada: false} );
-	});  
+app.get('/proc', function (req, res) {
+	res.send( { Portada: false} );
+});  
 
-	app.listen(port);
-	console.log('Server running at http://127.0.0.1:'+port+'/');
+app.listen(port);
+console.log('Server running at http://127.0.0.1:'+port+'/');
 ```
 
 
 Para empezar, `express` nos evita todas las molestias de tener que
-procesar nosotros la línea de órdenes: directamente escribimos una
+procesar nosotros el URL: directamente escribimos una
 función para cada respuesta que queramos tener, lo que facilita mucho la
-programación. Las órdenes reflejan directamente las órdenes de
+programación. Las órdenes  de expressreflejan directamente las órdenes de
 HTTP a las que queremos responder, en este caso `get` y por
 otro lado se pone directamente la función para cada una de ellas. Dentro
-de cada función de respuesta podemos procesar las órdenes que queramos.
+de cada función de respuesta podemos procesar las órdenes que
+queramos. Dado que JS es un lenguaje asíncrono, la llamada a la
+función será también asíncrona.
 
-Por otro lado, se usa `send`  para enviar el resultado,
+Por otro lado, se usa `send` sobre el objeto respuesta (`res`)  para enviar el resultado,
 [una orden más flexible](https://expressjs.com/en/api.html#res.send)
 que admite todo
 tipo de datos que son procesados para enviar al cliente la respuesta
@@ -115,8 +131,17 @@ cuales se va a acceder desde un cliente, sea un programa que use un
 cliente REST o el mismo cliente REST usando el navegador, es decir,
 mediante JavaScript.
 
->Realizar una aplicación básica que use `express` para devolver alguna
->estructura de datos del modelo que se viene usando en el curso.
+
+<div class='ejercicios' markdown="1">
+
+Realizar una aplicación básica que use `express` para devolver alguna
+estructura de datos del modelo que se viene usando en el curso.
+
+</div>
+
+El puerto se indica en una variable de entorno. Es siempre una buena
+práctica hacerlo, ya que cada despliegue exigirá un puerto
+determinado, y siempre se pueden usar variables de entorno para ello.
 
 Con el mismo `express` se pueden generar aplicaciones no tan básicas
 instalando [`express-generator`](https://expressjs.com/es/starter/generator.html) o el generador de aplicaciones [`yeoman`](https://yeoman.io)
@@ -130,12 +155,17 @@ dependencias necesarias. La aplicación estará en el fichero `index.js`,
 lista para funcionar, pero evidentemente habrá que adaptarla a nuestras
 necesidades particulares.
 
-El acceso a los parámetros de la llamada y la realización de diferentes
-actividades según el mismo se denomina enrutado. En express se pueden
+Por otro lado, el ejemplo anterior es un simple ejemplo de un servicio
+web, sin ninguna funcionalidad. En general, deberemos tener una clase
+por debajo, que esté testeada, y que refleje cuál es el verdadero
+servicio que se está ofreciendo desde el microservicio. Por otro lado, el acceso a los parámetros de la llamada y la realización de diferentes
+actividades según el mismo se denomina enrutado. En `express` se pueden
 definir los parámetros de forma bastante simple, usando marcadores
-precedidos por `:`. Por ejemplo, si queremos tener diferentes contadores
-podríamos usar el [programa
-siguiente](https://github.com/JJ/node-app-cc/blob/master/index.js):
+precedidos por `:`. 
+
+
+Por ejemplo, si queremos tener diferentes contadores
+podríamos usar el [programa siguiente](https://github.com/JJ/node-app-cc/blob/master/index.js):
 
 ```
 	var express = require('express');
