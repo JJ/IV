@@ -50,6 +50,33 @@ por ejemplo. Finalmente, en muchos casos por delante de él hay un
 servidor o proxy inverso genérico tal como nginx que, además, es capaz
 de servir de forma más eficiente los ficheros estáticos.
 
+## Qué es un microservicio
+
+Un microservicio es una aplicación que es capaz de trabajar de forma
+autónoma con una parte del dominio del problema, conteniendo todos los
+elementos necesarios para hacer las operaciones básicas sobre el mismo
+y todas las funcionalidades que la aplicación requiera.
+
+Metodologías
+como
+[diseño dirigido por el dominio](https://devexperto.com/domain-driven-design-1/) nos
+enseñan a dividir un problema en partes y tomar cada una de esas
+partes para convertirla en un microservicio. Los difetentes
+microservicios trabajarán con diferentes estructuras de datos y se
+comunicarán entre sí usando diferntes interfaces; en general será o
+peticiones REST, o sockets, o sistemas de mensajería tales como
+RabbitMQ o sistemas de mensajería específicos.
+
+En este tema trataremos principalmente de microservicios con un
+interfaz REST. Los microservicios REST usan la sintaxis y semántica
+del protocolo HTTP tanto para peticiones (responderán directamente a
+[comandos HTTP como PUT o GET](https://developer.mozilla.org/es/docs/Web/HTTP/Methods)) como para resultados (que usarán los
+[códigos de estado HTTP](https://developer.mozilla.org/es/docs/Web/HTTP/Status)). La
+semántica es importante: PUT crea un recurso, GET lo recupera sin
+cambiarlo, POST lo modifica y DELETE lo borra. De la misma forma, un
+recurso no encontrado deberá devolver el mítico 404 y uno
+correctamente recuperado el código 200.
+
 ## Creando un microservicio desde cero
 
 > En este ejemplo usaremos Node; una alternativa está en
