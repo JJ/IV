@@ -323,11 +323,41 @@ decoradores. Definimos varias funciones `get` que *decoran* las
 funciones correspondientes de la clase; usamos JSON para devolverlo,
 igual que antes, transformado automáticamente por el framework.
 
+En este caso, como en el anterior, el puerto en el que se va a servir
+es configurable, aunque tiene un valor asociado por defecto. Como en
+el caso anterior, se usa una variable de entorno para hacer esta
+configuración. 
+
+
+> Es muy importante que no haya ninguna constante relacionada con el
+> despliegue en la configuración. Todas deben estar en un fichero
+> `.env` que se puede cargar directamente usando alguna
+> aplicación. Este fichero crea una serie de variables de entorno y
+> les asigna valores; algo que podemos hacer directamente también a
+> mano o, posteriormente, con la capacidad que nos dé el entorno donde
+> vayamos a desplegar. Las variables de entorno son imprescindibles
+> para configurar en la nube, y siempre se deben usar para cualquier
+> posible configuración.
+
 ## Probando nuestra aplicación en la nube
 
-Porque esté en la nube no significa que no tengamos que testearla como cualquier hija de vecina. En este caso no vamos a usar tests unitarios, sino test funcionales (o como se llamen); de lo que se trata es que tenemos que levantar la web y que vaya todo medianamente bien.
+Porque esté en la nube no significa que no tengamos que testearla como
+cualquier hija de vecina. En este caso no vamos a usar tests
+unitarios, sino test funcionales; de lo que se
+trata es que tenemos que levantar la web y que vaya todo medianamente
+bien. Sin embargo, las funciones a las que se llaman desde un servicio
+web son en realidad simples funciones, por lo que hay tanto marcos
+como bibliotecas de test que te permiten probarlas.
 
-Los tests podemos integrarlos, como es natural, en el mismo marco que el resto de la aplicación, solo que tendremos que usar librerías de aserciones ligeramente diferentes, en este caso `supertest`
+Para hacer esas pruebas generalmente se crea un objeto cuyos métodos
+son, en realidad, llamadas al API REST. Este objeto tendremos que
+primero crearlo desde nuestro "programa principal" que responde a las
+peticiones REST, y segundo importarlo desde el test. En el caso de
+`express`, se crea un objeto `app`, que será el que usemos aquí.
+
+Los tests podemos integrarlos, como es natural, en el mismo marco que
+el resto de la aplicación, solo que tendremos que usar librerías de
+aserciones ligeramente diferentes, en este caso `supertest` 
 
 ```
 	var request = require('supertest'),
@@ -343,13 +373,24 @@ Los tests podemos integrarlos, como es natural, en el mismo marco que el resto d
 	});
 ```
 
-(que tendrá que estar incluido en el directorio `test/`, como el resto). En vez de ejecutar la aplicación (que también podríamos hacerlo), lo que hacemos es que añadimos al final de `index.js` la línea:
+(que tendrá que estar incluido en el directorio `test/`, como el
+resto). En vez de ejecutar la aplicación (que también podríamos
+hacerlo), lo que hacemos es que añadimos al final de `index.js` la
+línea: 
 
 ```
 module.exports = app;
 ```
 
-con lo que se exporta la app que se crea; `require` ejecuta el código y recibe la variable que hemos exportado, que podemos usar como si se tratara de parte de esta misma aplicación. `app` en este test, por tanto, contendrá lo mismo que en la aplicación principal, `index.js`. Usamos el mismo estilo de test con `mocha` que [ya se ha visto](https://jj.github.io/desarrollo-basado-pruebas/) pero usamos funciones específicas:
+con lo que se exporta la app que se crea; los métodos de ese objeto
+recibirán las peticiones del API REST que vamos a comprobar; `require`
+ejecuta el código y recibe la variable que hemos exportado, que
+podemos usar como si se tratara de parte de esta misma
+aplicación. `app` en este test, por tanto, contendrá lo mismo que en
+la aplicación principal, `index.js`. Usamos el mismo estilo de test
+con `mocha`
+que [ya se ha visto](https://jj.github.io/desarrollo-basado-pruebas/)
+pero usamos funciones específicas: 
 
 * `request` hace una llamada sobre `app` como si la hiciéramos *desde
   fuera*; `put`, por tanto, llamará a la ruta correspondiente, que
@@ -362,7 +403,9 @@ con lo que se exporta la app que se crea; `require` ejecuta el código y recibe 
 
 Podemos hacer más pruebas, usando get, por ejemplo. Pero se deja como ejercicio al alumno.
 
-Estas pruebas permiten que no nos encontremos con sorpresas una vez que despeguemos en el PaaS. Así sabemos que, al menos, todas las rutas que hemos creado funcionan correctamente.
+Estas pruebas permiten que no nos encontremos con sorpresas una vez
+que despeguemos en el PaaS. Así sabemos que, al menos, todas las rutas
+que hemos creado funcionan correctamente. 
 
 <div class='ejercicios' markdown="1">
 
