@@ -452,8 +452,23 @@ de mantener el mismo nivel independientemente de que alguno se caiga o
 se produzca un error en el mismo; tampoco es capaz de monitorizar las
 peticiones para escalarlo y, por último, si se ejecutan varias copias
 es necesario también tener un sistema de registro (logs) centralizado
-que pueda tratar con todos a la vez. Por eso, en producción, suele
-usarse servidores web que sean capaces de tener en cuenta todo eso. 
+que pueda tratar con todos a la vez. Por eso, en producción, suelen
+usarse servidores web que sean capaces de tener en cuenta todo eso.
+
+En la base, sin embargo, muchos lenguajes de programación usan
+simplemente **gestores de procesos** que son capaces de ejecutar
+varias instancias de un servidor a la vez. Por ejemplo, en node uno de
+los más populares es [`pm2`](http://pm2.keymetrics.io/), un gestor de
+proesos que permite arrancar, rearrancar y gestionas las diferentes
+instancias de un proceso.
+
+Si lo aplicamos al programa de gestión de porras anterior, podemos
+arrancarlo simplemente con:
+
+    pm2 start index.js -i 4
+	
+Lo que arrancará cuatro instancias de nuestro programa y equilibrará
+la carga entre las cuatro. 
 
 
 
