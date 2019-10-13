@@ -468,10 +468,91 @@ arrancarlo simplemente con:
     pm2 start index.js -i 4
 	
 Lo que arrancará cuatro instancias de nuestro programa y equilibrará
-la carga entre las cuatro. 
+la carga entre las cuatro. Estas instancias serán copias exactas de nuestro programa: las cuatro escucharán en el puerto que esté definido, que ahora estará gestionado por `pm2`. Este, además, recordará los números de proceso: para pararlos, no hay más que escribir:
+
+    pm2 stop index
+	
+o 
+
+	pm2 stop all
+	
+para parar todos los procesos que gestione. Los logs se almacenan en un directorio específico y se pueden consultar con 
+
+    pm2 logs
+	
 
 
+Hay [muchos otros gestores de procesos](https://www.tecmint.com/process-managers-for-node-js-applications-in-linux/), pero esto incluye también el systemd de Linux, un gestor que se puede usar con éxito en sistemas que lo implementen, como es natural, y que está incluido en cualquier distribución.
 
+Pero en muchos lenguajes, estos gestores de procesos van un poco más allá, y tienen un interfaz específico para llamar a las funciones a través de un interfaz web. Este tipo de interfaz, que se llama genéricamente `*SGI`, de *services (o server) gateway interface*, se implementa en lenguajes como Python, Perl y Ruby de diferentes formas. Dado que el ejemplo que hemos hecho antes es en Python, donde se llama [WSGI](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface), o *web server gateway interface*. 
+
+En lenguajes como este, los gestores de de procesos tendrán además un
+interfaz WSGI para conectar directamente con las
+funciones. Generalmente, el interfaz es un objeto creado
+automáticamente por el microframework; en otros casos tendremos que
+programarlo específicamente. Estos programas hacen más enfasis en el
+hecho de que se tratan de un servidor HTTP con WSGI que con el hecho
+de que puedan gestionar diferentes tareas, lo que en todo caso se
+puede hacer con una capa por encima.  Por ejemplo, podemos ejecutar el
+programa
+[anterior](https://github.com/JJ/tests-python/blob/master/HitosIV/hugitos.py)
+usando [Green Unicorn](https://gunicorn.org/) 
+
+    gunicorn HitosIV.hugitos:__hug_wsgi__ --log-file -
+	
+(desde el directorio principal). A `gunicorn` se le pasa el nombre del
+módulo que va a ejecutar, y, separado por dos puntos, el nombre del
+interfaz WSGI que va a llamar dentro de ese módulo. En este caso, se
+trata de una función generada automáticamente por Hug; en el caso de
+otros microframeworks, tendrá un nombre diferente o habrá que llamarla
+a mano. A continuación le indicamos que el fichero de log será la
+propia consola, con lo que todo lo que ejecutemos irá directamente
+ahí. 
+
+> Como la [documentación indica](http://docs.gunicorn.org/en/latest/run.html), 
+> `gunicorn` llama a la función que se le indica, con el entorno y la
+> variable a la que se le añade la respuesta. La podemos escribir
+> nosotros si queremos, pero los microframeworks se encargan de
+> procesar el contexto y la respuesta de forma que se facilite el resultado.
+
+También podemos ejecutar varios *workers* a la vez:
+
+    gunicorn -w 4 -b 0.0.0.0:31415 HitosIV.hugitos:__hug_wsgi__ --log-file -
+
+Y a la vez hacer un *binding* a un puerto y un rango de direcciones
+específico, en este caso 4 workers y el puerto 31415. Como este puerto
+va a gestionarse por parte de gunicorn, importa relativamente poco el
+que hayas puesto en el propio programa; ese se usará en desarrollo (o
+cuando lo ejecutemos directamente), este en producción.
+
+En todo caso, cuando se ejecuta `gunicorn` la consola se queda
+bloqueada; tampoco te permite arrancar o rearrancar los procesos, o
+añadir más workers. De hecho, `pm2` es independiente del proceso que
+se ejecute o el lenguaje en el que se esté trabajando, y se puede usar
+con [microframeworks en Python](https://stackoverflow.com/questions/53686057/running-gunicorn-flask-with-pm2-doesnt-load-proper-css), 
+pero para reducir las dependencias, es mejor usar una herramienta que
+esté escrita también en Python. Esta herramienta puede ser `fabric`
+(de la que se hablará más adelante), pero mientras tanto pm2 es
+perfectamente adecuada para ello.
+
+    pm2 start 'gunicorn -w 4 -b 0.0.0.0:31415 HitosIV.hugitos:__hug_wsgi__ --log-file -'
+
+Aunque, de hecho, se puede ejecutar directamente y se encargará de
+gestionar los procesos
+
+    pm2 start -i 4 HitosIV/hugitos.py 
+	
+En resumen: `pm2` es una herramienta excelente, que merece la pena
+usar con cualquier programa que necesite ejecutar varias instancias.
+
+
+<div class='ejercicios' markdown="1">
+
+Experimentar con diferentes gestores de procesos y servidores web
+front-end para un microservicio que se haya hecho con antelación, por
+ejemplo en la sección anterior.
+
+</div>
 
 ## A dónde ir desde aquí
 
