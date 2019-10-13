@@ -5,7 +5,7 @@
 [Infraestructura virtual](https://etsiit.ugr.es/pages/calendario_academico/horarioscurso20192020/horariosgii1920)
 es una asignatura obligatoria de la rama Tecnologías de la Información
 del primer cuatrimestre del cuarto del Grado de Ingeniería
-Informática y optativa en otras ramas y el Doble Grado de Informática
+Informática y optativa en otras ramas y en el Doble Grado de Informática
 y Matemáticas.
 
 La asignatura se imparte en el curso 2019-2020 en [la 3.3 los lunes de 9:30 a 11:30 y jueves de 9:30 a 11:30, y en la 1.5 los lunes de 11:30 a 13:30](http://etsiit.ugr.es/pages/calendario_academico/horarios-curso-20182019/horariosgii1819).
@@ -63,9 +63,9 @@ cumplidos hasta ese momento. Los proyectos
 [consisten en crear la infraestructura virtual de una aplicación desarrollada según el modelo DevOps](documentos/proyecto/README.md). A
 grosso modo, los hitos se organizarán de la forma siguiente.
 
-0. [Práctica cero: Uso básico de herramientas](documentos/proyecto/0.Repositorio.md)
-1. [Organización de los grupos de práctica y creación del proyecto](documentos/proyecto/1.Infraestructura.md)
-2. [Integración continua en el repositorio](documentos/proyecto/2.CI.md)
+0. [Práctica cero: Uso básico de herramientas](documentos/proyecto/0.Repositorio.md).
+1. [Organización de los grupos de práctica y creación del proyecto](documentos/proyecto/1.Infraestructura.md).
+2. [Integración continua en el repositorio](documentos/proyecto/2.CI.md).
 3. Desplegando a la nube: [Platform as a Service](documentos/proyecto/3.PaaS.md).
 4. Técnicas de virtualización [Contenedores](documentos/proyecto/4.Docker.md) para despliegue de microservicios.
 4. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS.md).
