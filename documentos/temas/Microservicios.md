@@ -1,4 +1,4 @@
-# Desplegando aplicaciones en la nube: Uso de PaaS
+# Microservicios 
 
 
 <!--@
@@ -25,14 +25,14 @@ tanto de software como de hardware y ponerlos en práctica.
 
 6. Aplicar el concepto de *DevOps* a este tipo específico de plataforma.
 
-7. Aplicar el sistema de control de fuentes `git` para despliegue de aplicaciones en la nube.
+7. Aprender prácticas seguras en el desarrollo de aplicaciones en la nube.
 
 </div>
 
 ## Introducción
 
 >Esta [presentación](https://jj.github.io/pispaas/#/) es un resumen del concepto de Plataforma como Servicio
->(PaaS) y alguna cosa adicional que no está incluida en este tema pero que conviene conocer de todas formas.
+>(PaaS) y alguna cosa adicional que no está incluida en este tema pero que conviene conocer de todas formas. 
 
 En general, un microservicio será un decorador o fachada que se
 añadirá a una clase o módulo para acceder a esa funcionalidad a través
@@ -439,6 +439,22 @@ que hemos creado funcionan correctamente.
  Crear pruebas para las diferentes rutas de la aplicación.
 
 </div>
+
+## Sirviendo servicios web en producción.
+
+En general, todos los microframeworks tienen un servidor web que es
+usable principalmente para desarrollo. Casi ninguno te aconseja que se
+use en producción, y esto por varias razones: si ocurre algún error no
+recuperable, el programa dejará de ejecutarse, dejando el servicio
+tirado; un microframework, por sí, también es incapaz de controlar que
+se está ejecutando un número de procesos de sí mismo simultáneamente o
+de mantener el mismo nivel independientemente de que alguno se caiga o
+se produzca un error en el mismo; tampoco es capaz de monitorizar las
+peticiones para escalarlo y, por último, si se ejecutan varias copias
+es necesario también tener un sistema de registro (logs) centralizado
+que pueda tratar con todos a la vez. Por eso, en producción, suele
+usarse servidores web que sean capaces de tener en cuenta todo eso. 
+
 
 
 
