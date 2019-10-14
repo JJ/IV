@@ -1,4 +1,4 @@
-# Microservicios 
+# Microservicios
 
 
 <!--@
@@ -32,7 +32,7 @@ tanto de software como de hardware y ponerlos en práctica.
 ## Introducción
 
 >Esta [presentación](https://jj.github.io/pispaas/#/) es un resumen del concepto de Plataforma como Servicio
->(PaaS) y alguna cosa adicional que no está incluida en este tema pero que conviene conocer de todas formas. 
+>(PaaS) y alguna cosa adicional que no está incluida en este tema pero que conviene conocer de todas formas.
 
 En general, un microservicio será un decorador o fachada que se
 añadirá a una clase o módulo para acceder a esa funcionalidad a través
@@ -180,7 +180,7 @@ por debajo, que esté testeada, y que refleje cuál es el verdadero
 servicio que se está ofreciendo desde el microservicio. Por otro lado, el acceso a los parámetros de la llamada y la realización de diferentes
 actividades según el mismo se denomina enrutado. En `express` se pueden
 definir los parámetros de forma bastante simple, usando marcadores
-precedidos por `:`. 
+precedidos por `:`.
 
 
 Por ejemplo, si queremos tener diferentes contadores
@@ -252,7 +252,7 @@ incluya variables como en el caso anterior.
 
 El proceso será más o menos similar en otros lenguages. Vamos a
 llevarlo a cabo en Python diferenciando de forma explícita la clase y
-el servicio web construido sobre ella. Empezaremos con 
+el servicio web construido sobre ella. Empezaremos con
 [esta clase, `HitosIV`](https://github.com/JJ/tests-python/blob/master/HitosIV/core.py),
 que describe un hito de esta asignatura. Esa clase se inicializa con
 un fichero JSON que estará en otro directorio; esto se hace en el
@@ -300,10 +300,10 @@ class CustomLogger(LogMiddleware):
                 'user-agent': request.user_agent }
 
 
-""" Declara clase """ 
+""" Declara clase """
 estos_hitos = HitosIV()
 
-""" Define API """ 
+""" Define API """
 @hug.get('/')
 def status():
     """Devuelve estado"""
@@ -332,7 +332,7 @@ else:
 api = hug.API(__name__)
 
 if __name__ == '__main__':
-    hug.API(__name__).http.serve(port )
+    api.http.serve(port ) # Usamos la api definida
 ```
 
 La primera parte de este fichero está destinada a configurar los
@@ -343,7 +343,7 @@ el decorador `@hug.middleware_class()`; todos los microframeworks
 permiten definir *middleware* que se ejecutarán sin importar qué
 petición se haga. De esa forma se establecen mecanismos comunes a
 todas las peticiones, uno de los cuales puede ser el logging o
-registro. 
+registro.
 
 El API REST y las rutas se crean en `hug` a base de una serie de
 decoradores. Definimos varias funciones `get` que *decoran* las
@@ -353,7 +353,7 @@ igual que antes, transformado automáticamente por el framework.
 En este caso, como en el anterior, el puerto en el que se va a servir
 es configurable, aunque tiene un valor asociado por defecto. Como en
 el caso anterior, se usa una variable de entorno para hacer esta
-configuración. 
+configuración.
 
 
 > Es muy importante que no haya ninguna constante relacionada con el
@@ -384,7 +384,7 @@ peticiones REST, y segundo importarlo desde el test. En el caso de
 
 Los tests podemos integrarlos, como es natural, en el mismo marco que
 el resto de la aplicación, solo que tendremos que usar librerías de
-aserciones ligeramente diferentes, en este caso `supertest` 
+aserciones ligeramente diferentes, en este caso `supertest`
 
 ```
 	var request = require('supertest'),
@@ -403,7 +403,7 @@ aserciones ligeramente diferentes, en este caso `supertest`
 (que tendrá que estar incluido en el directorio `test/`, como el
 resto). En vez de ejecutar la aplicación (que también podríamos
 hacerlo), lo que hacemos es que añadimos al final de `index.js` la
-línea: 
+línea:
 
 ```
 module.exports = app;
@@ -417,7 +417,7 @@ aplicación. `app` en este test, por tanto, contendrá lo mismo que en
 la aplicación principal, `index.js`. Usamos el mismo estilo de test
 con `mocha`
 que [ya se ha visto](https://jj.github.io/desarrollo-basado-pruebas/)
-pero usamos funciones específicas: 
+pero usamos funciones específicas:
 
 * `request` hace una llamada sobre `app` como si la hiciéramos *desde
   fuera*; `put`, por tanto, llamará a la ruta correspondiente, que
@@ -432,7 +432,7 @@ Podemos hacer más pruebas, usando get, por ejemplo. Pero se deja como ejercicio
 
 Estas pruebas permiten que no nos encontremos con sorpresas una vez
 que despeguemos en el PaaS. Así sabemos que, al menos, todas las rutas
-que hemos creado funcionan correctamente. 
+que hemos creado funcionan correctamente.
 
 <div class='ejercicios' markdown="1">
 
@@ -466,25 +466,25 @@ Si lo aplicamos al programa de gestión de porras anterior, podemos
 arrancarlo simplemente con:
 
     pm2 start index.js -i 4
-	
+
 Lo que arrancará cuatro instancias de nuestro programa y equilibrará
 la carga entre las cuatro. Estas instancias serán copias exactas de nuestro programa: las cuatro escucharán en el puerto que esté definido, que ahora estará gestionado por `pm2`. Este, además, recordará los números de proceso: para pararlos, no hay más que escribir:
 
     pm2 stop index
-	
-o 
+
+o
 
 	pm2 stop all
-	
-para parar todos los procesos que gestione. Los logs se almacenan en un directorio específico y se pueden consultar con 
+
+para parar todos los procesos que gestione. Los logs se almacenan en un directorio específico y se pueden consultar con
 
     pm2 logs
-	
+
 
 
 Hay [muchos otros gestores de procesos](https://www.tecmint.com/process-managers-for-node-js-applications-in-linux/), pero esto incluye también el systemd de Linux, un gestor que se puede usar con éxito en sistemas que lo implementen, como es natural, y que está incluido en cualquier distribución.
 
-Pero en muchos lenguajes, estos gestores de procesos van un poco más allá, y tienen un interfaz específico para llamar a las funciones a través de un interfaz web. Este tipo de interfaz, que se llama genéricamente `*SGI`, de *services (o server) gateway interface*, se implementa en lenguajes como Python, Perl y Ruby de diferentes formas. Dado que el ejemplo que hemos hecho antes es en Python, donde se llama [WSGI](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface), o *web server gateway interface*. 
+Pero en muchos lenguajes, estos gestores de procesos van un poco más allá, y tienen un interfaz específico para llamar a las funciones a través de un interfaz web. Este tipo de interfaz, que se llama genéricamente `*SGI`, de *services (o server) gateway interface*, se implementa en lenguajes como Python, Perl y Ruby de diferentes formas. Dado que el ejemplo que hemos hecho antes es en Python, donde se llama [WSGI](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface), o *web server gateway interface*.
 
 En lenguajes como este, los gestores de de procesos tendrán además un
 interfaz WSGI para conectar directamente con las
@@ -496,10 +496,10 @@ de que puedan gestionar diferentes tareas, lo que en todo caso se
 puede hacer con una capa por encima.  Por ejemplo, podemos ejecutar el
 programa
 [anterior](https://github.com/JJ/tests-python/blob/master/HitosIV/hugitos.py)
-usando [Green Unicorn](https://gunicorn.org/) 
+usando [Green Unicorn](https://gunicorn.org/)
 
     gunicorn HitosIV.hugitos:__hug_wsgi__ --log-file -
-	
+
 (desde el directorio principal). A `gunicorn` se le pasa el nombre del
 módulo que va a ejecutar, y, separado por dos puntos, el nombre del
 interfaz WSGI que va a llamar dentro de ese módulo. En este caso, se
@@ -507,9 +507,9 @@ trata de una función generada automáticamente por Hug; en el caso de
 otros microframeworks, tendrá un nombre diferente o habrá que llamarla
 a mano. A continuación le indicamos que el fichero de log será la
 propia consola, con lo que todo lo que ejecutemos irá directamente
-ahí. 
+ahí.
 
-> Como la [documentación indica](http://docs.gunicorn.org/en/latest/run.html), 
+> Como la [documentación indica](http://docs.gunicorn.org/en/latest/run.html),
 > `gunicorn` llama a la función que se le indica, con el entorno y la
 > variable a la que se le añade la respuesta. La podemos escribir
 > nosotros si queremos, pero los microframeworks se encargan de
@@ -529,7 +529,7 @@ En todo caso, cuando se ejecuta `gunicorn` la consola se queda
 bloqueada; tampoco te permite arrancar o rearrancar los procesos, o
 añadir más workers. De hecho, `pm2` es independiente del proceso que
 se ejecute o el lenguaje en el que se esté trabajando, y se puede usar
-con [microframeworks en Python](https://stackoverflow.com/questions/53686057/running-gunicorn-flask-with-pm2-doesnt-load-proper-css), 
+con [microframeworks en Python](https://stackoverflow.com/questions/53686057/running-gunicorn-flask-with-pm2-doesnt-load-proper-css),
 pero para reducir las dependencias, es mejor usar una herramienta que
 esté escrita también en Python. Esta herramienta puede ser `fabric`
 (de la que se hablará más adelante), pero mientras tanto pm2 es
@@ -540,8 +540,8 @@ perfectamente adecuada para ello.
 Aunque, de hecho, se puede ejecutar directamente y se encargará de
 gestionar los procesos
 
-    pm2 start -i 4 HitosIV/hugitos.py 
-	
+    pm2 start -i 4 HitosIV/hugitos.py
+
 En resumen: `pm2` es una herramienta excelente, que merece la pena
 usar con cualquier programa que necesite ejecutar varias instancias.
 
@@ -598,14 +598,14 @@ código las tareas a realizar. En este caso sólo tres tareas: test,
 start y stop, y para ello usamos una serie de *plug-ins* que integran
 gulp con utilidades como `mocha` o el shell.
 
-Usando esto, con 
+Usando esto, con
 
     gulp start &
-	
-se puede arrancar el programa, y con 
 
-    gulp stop 
-	
+se puede arrancar el programa, y con
+
+    gulp stop
+
 se detiene, invocando en los dos casos a `pm2`, en el primer caso
 usando el API y en el segundo usando directamente una orden lanzada en
 el shell.
