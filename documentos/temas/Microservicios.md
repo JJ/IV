@@ -608,7 +608,16 @@ se puede arrancar el programa, y con
 	
 se detiene, invocando en los dos casos a `pm2`, en el primer caso
 usando el API y en el segundo usando directamente una orden lanzada en
-el shell. 
+el shell.
+
+<div class='ejercicios' markdown="1">
+
+Usar `rake`, `invoke` o la herramienta equivalente en tu lenguaje de
+programación para programar diferentes tareas que se puedan lanzar
+fácilmente desde la línea de órdenes.
+
+</div>
+
 
 ## A dónde ir desde aquí
 
