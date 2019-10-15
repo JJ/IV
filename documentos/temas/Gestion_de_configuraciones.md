@@ -338,7 +338,7 @@ o
 [incluso desplegar aplicaciones directamente usando el módulo `git`](http://docs.ansible.com/intro_adhoc.html#managing-packages)
 
 Finalmente, el concepto similar a las recetas de Chef en Ansible son los
-[*playbooks*](https://davidwinter.me/articles/2013/11/23/introduction-to-ansible/),
+[*playbooks*](https://davidwinter.dev/introduction-to-ansible/),
 ficheros en YAML que le dicen a la máquina virtual qué es lo que hay
 que instalar en *tareas*, de la forma siguiente
 
