@@ -10,7 +10,7 @@ layout: index
 [Infraestructura virtual](https://etsiit.ugr.es/pages/calendario_academico/horarioscurso20192020/horariosgii1920)
 es una asignatura obligatoria de la rama Tecnologías de la Información
 del primer cuatrimestre del cuarto del Grado de Ingeniería
-Informática y optativa en otras ramas y el Doble Grado de Informática
+Informática y optativa en otras ramas y en el Doble Grado de Informática
 y Matemáticas.
 
 La asignatura se imparte en el curso 2019-2020 en [la 3.3 los lunes de 9:30 a 11:30 y jueves de 9:30 a 11:30, y en la 1.5 los lunes de 11:30 a 13:30](http://etsiit.ugr.es/pages/calendario_academico/horarios-curso-20182019/horariosgii1819).
@@ -40,6 +40,7 @@ disponibles con una licencia libre. Los fuentes de los mismos están en
 
 1. [Introducción: conceptos y soporte físico](documentos/temas/Intro_concepto_y_soporte_fisico).
 2. [Iniciación a DevOps: desarrollo basado en pruebas](documentos/temas/Desarrollo_basado_en_pruebas).
+3. [Puesta en marcha de microservicios](documentos/temas/Microservicios).
 2. [Platform as a Service](documentos/temas/PaaS).
 3. [Usando contenedores](documentos/temas/Contenedores).
 5. [Uso de sistemas de virtualización](documentos/temas/Uso_de_sistemas).
@@ -68,9 +69,10 @@ cumplidos hasta ese momento. Los proyectos
 [consisten en crear la infraestructura virtual de una aplicación desarrollada según el modelo DevOps](documentos/proyecto/README.md). A
 grosso modo, los hitos se organizarán de la forma siguiente.
 
-0. [Práctica cero: Uso básico de herramientas](documentos/proyecto/0.Repositorio)
-1. [Organización de los grupos de práctica y creación del proyecto](documentos/proyecto/1.Infraestructura)
-2. [Integración continua en el repositorio](documentos/proyecto/2.CI)
+0. [Práctica cero: Uso básico de herramientas](documentos/proyecto/0.Repositorio).
+1. [Organización de los grupos de práctica y creación del proyecto](documentos/proyecto/1.Infraestructura).
+2. [Integración continua en el repositorio](documentos/proyecto/2.CI).
+2. [Creando microservicios](documentos/proyecto/2.Microservicios).
 3. Desplegando a la nube: [Platform as a Service](documentos/proyecto/3.PaaS).
 4. Técnicas de virtualización [Contenedores](documentos/proyecto/4.Docker) para despliegue de microservicios.
 4. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS).
