@@ -35,6 +35,7 @@ disponibles con una licencia libre. Los fuentes de los mismos están en
 
 1. [Introducción: conceptos y soporte físico](documentos/temas/Intro_concepto_y_soporte_fisico.md).
 2. [Iniciación a DevOps: desarrollo basado en pruebas](documentos/temas/Desarrollo_basado_en_pruebas.md).
+3. [Puesta en marcha de microservicios](documentos/temas/Microservicios.md).
 2. [Platform as a Service](documentos/temas/PaaS.md).
 3. [Usando contenedores](documentos/temas/Contenedores.md).
 5. [Uso de sistemas de virtualización](documentos/temas/Uso_de_sistemas.md).
@@ -66,6 +67,7 @@ grosso modo, los hitos se organizarán de la forma siguiente.
 0. [Práctica cero: Uso básico de herramientas](documentos/proyecto/0.Repositorio.md).
 1. [Organización de los grupos de práctica y creación del proyecto](documentos/proyecto/1.Infraestructura.md).
 2. [Integración continua en el repositorio](documentos/proyecto/2.CI.md).
+2. [Creando microservicios](documentos/proyecto/2.Microservicios.md).
 3. Desplegando a la nube: [Platform as a Service](documentos/proyecto/3.PaaS.md).
 4. Técnicas de virtualización [Contenedores](documentos/proyecto/4.Docker.md) para despliegue de microservicios.
 4. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS.md).
