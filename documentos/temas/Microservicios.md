@@ -554,6 +554,15 @@ ejemplo en la sección anterior.
 
 </div>
 
+### Arrancando desde una herramienta común
+
+Un microservicio ya incluye una serie de tareas que se facilitan si se
+hacen desde algún tipo de servicio común, simplemente con `orden`
+start|stop|test o lo que se necesite. En el mundo Node, todo se puede
+arrancar desde `npm`, aunque en muchos casos es conveniente usar otras
+herramientas como `webpack`, `yarn`, `babel` o `gulp`.
+
+
 ## A dónde ir desde aquí
 
 
