@@ -94,15 +94,10 @@ y
 Si no se ha superado la asignatura en la convocatoria ordinaria, en la
 extraordinaria habrá que entregar los diferentes hitos del proyecto no
 entregados, con los plazos que se anunciarán cuando se pongan las
-notas de la convocatoria ordinaria. Excepcionalmente, la
-extraordinaria *podrá* consistir en un examen escrito en septiembre que
-puntuará sobre *8 puntos*, siendo el resto proporcional a la nota
-obtenida en junio. El examen incluirá tanto preguntas de desarrollo
-como ejercicios prácticos en los que se tendrá que esbozar un
-programa, script o fichero de configuración o indicar cómo se
-resolvería un problema con las técnicas aprendidas en la
-asignatura. Se aconseja al estudiante que haga los ejercicios de
-autoevaluación para alcanzar los objetivos de aprendizaje que se
-exigen tanto en junio como en septiembre. El método para preguntar
-dudas será el mismo que en la convocatoria ordinaria: lista de correo o grupo de Telegram
-e issues de GitHub.
+notas de la convocatoria ordinaria, y puntuando, en los reentregados,
+sobre un máximo de 8 puntos.
+
+Alternativamente, se puede solicitar al profesor un proyecto, que se
+tendrá que hacer por parte del estudiante, y que puntuará sobre los 10
+puntos completos, con la nota para cada hito repartida en la misma
+proporción que en la convocatoria ordinaria.
