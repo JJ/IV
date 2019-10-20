@@ -968,3 +968,23 @@ para el despliegue continuo, que se verá más adelante.
 Una vez visto todo lo necesario para desplegar una aplicación, se
 puede pasar a estudiar los
 [*PaaS*, plataformas como servicio](PaaS), donde se pueden desplegar aplicaciones para prototipo o para producción de forma relativamente simple. 
+
+## Bibliografía y otros recursos
+
+Algunos recursos a los que puedes acceder desde la
+[Biblioteca de la UGR](https://biblioteca.ugr.es):
+
+- [DevOps: a software architect's perspective](https://bencore.ugr.es/iii/encore/record/C__Rb2526268__Sdevops__P0%2C2__Orightresult__X6;jsessionid=E36643C65032CABF72B40984567B5435?lang=spi&suite=pearl),
+  un libro en general teórico y "a vista de pájaro" de la creación de
+  equipos de desarrollo y aplicaciones basadas en esa filosofía.
+
+- [DevOps for developers](https://bencore.ugr.es/iii/encore/record/C__Rb2516479__Sdevops__P0%2C9__Orightresult__X6;jsessionid=E36643C65032CABF72B40984567B5435?lang=spi&suite=pearl)
+  también con poco código, pero con una visión a más bajo nivel de
+  cómo organizar y montar grupos DevOps.
+
+Esta
+[página](https://www.jedi.be/blog/2010/02/12/what-is-this-devops-thing-anyway/)
+lista una serie de recursos útiles, incluyendo blogs y canales de IRC,
+aparte de diferentes herramientas que deben estar en el carcaj del
+arquero DevOps, aunque la mayoría de los enlaces a estos están
+atrasados (y uno está en chino, así que no tengo ni idea). 
