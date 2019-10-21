@@ -245,7 +245,7 @@ tales como `req.params.local` en las siguientes líneas.
 
 <div class='ejercicios' markdown="1">
 
-Realizar una app en express (o el lenguaje y marco elegido) que
+Programar un microservicio en express (o el lenguaje y marco elegido) que
 incluya variables como en el caso anterior.
 
 </div>
@@ -370,11 +370,23 @@ configuración.
 
 Porque esté en la nube no significa que no tengamos que testearla como
 cualquier hija de vecina. En este caso no vamos a usar tests
-unitarios, sino test funcionales; de lo que se
+unitarios, sino 
+[test funcionales](https://en.wikipedia.org/wiki/Functional_testing) (porque
+proporcionamos una entrada y comprobamos que las salidas son correctas)o 
+[*de integración*](https://en.wikipedia.org/wiki/Integration_testing): un API,
+generalmente, va a integrar diferentes clases y el testear el API REST
+va a ser una prueba de cómo se *integran* esas diferentes clases entre
+sí, o como se integran con los servicios que se usan desde las clases;
+de lo que se 
 trata es que tenemos que levantar la web y que vaya todo medianamente
 bien. Sin embargo, las funciones a las que se llaman desde un servicio
 web son en realidad simples funciones, por lo que hay tanto marcos
 como bibliotecas de test que te permiten probarlas.
+
+> Consultad [esta pregunta en
+> SO](https://stackoverflow.com/questions/2741832/unit-tests-vs-functional-tests)
+> para entender las diferencias entre tests unitarios y de integración
+> o funcionales.
 
 Para hacer esas pruebas generalmente se crea un objeto cuyos métodos
 son, en realidad, llamadas al API REST. Este objeto tendremos que
