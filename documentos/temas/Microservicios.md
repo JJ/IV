@@ -566,6 +566,9 @@ ejemplo en la sección anterior.
 
 </div>
 
+
+> Adicionalmente, la herramienta `systemd` que es común en todos los sistemas Linux actuales se puede usar también [para gestionar procesos](http://alesnosek.com/blog/2016/12/04/controlling-a-multi-service-application-with-systemd/). Como desventaja, aparte de no ser portable a diferentes sistemas operativos, es que hacen falta ficheros de configuración específicos por cada uno de los servicios.
+
 ### Arrancando desde una herramienta común
 
 Dado que hay que realizar diferentes tipos de tareas tales como llevar
