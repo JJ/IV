@@ -429,7 +429,7 @@ línea:
 module.exports = app;
 ```
 
-con lo que se exporta la app que se crea; los métodos de ese objeto
+con lo que se exporta la `app` que se crea; los métodos de ese objeto
 recibirán las peticiones del API REST que vamos a comprobar; `require`
 ejecuta el código y recibe la variable que hemos exportado, que
 podemos usar como si se tratara de parte de esta misma
@@ -448,7 +448,7 @@ pero usamos funciones específicas:
   correcta. Y como esta es la última de la cadena, llamamos a `done`
   que es en realidad una función que usa como parámetro el callback.
 
-Podemos hacer más pruebas, usando get, por ejemplo. Pero se deja como ejercicio al alumno.
+Podemos hacer más pruebas, usando `get`, por ejemplo, pero se deja como ejercicio al alumno.
 
 Estas pruebas permiten que no nos encontremos con sorpresas una vez
 que despeguemos en el PaaS. Así sabemos que, al menos, todas las rutas
@@ -456,11 +456,11 @@ que hemos creado funcionan correctamente.
 
 <div class='ejercicios' markdown="1">
 
- Crear pruebas para las diferentes rutas de la aplicación.
+Crear pruebas para las diferentes rutas de la aplicación.
 
 </div>
 
-## Sirviendo servicios web en producción.
+## Microervicios en producción.
 
 En general, todos los microframeworks tienen un servidor web que es
 usable principalmente para desarrollo. Casi ninguno te aconseja que se
