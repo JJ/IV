@@ -3,8 +3,8 @@
 [![Build Status](https://travis-ci.org/JJ/IV.svg?branch=master)](https://travis-ci.org/JJ/IV)
 
 [Infraestructura virtual](https://etsiit.ugr.es/pages/calendario_academico/horarioscurso20192020/horariosgii1920)
-es una asignatura obligatoria de la rama Tecnologías de la Información
-del primer cuatrimestre del cuarto del Grado de Ingeniería
+es una asignatura obligatoria de la rama "Tecnologías de la Información"
+del primer cuatrimestre del cuarto curso del Grado de Ingeniería
 Informática y optativa en otras ramas y en el Doble Grado de Informática
 y Matemáticas.
 
