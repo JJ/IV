@@ -72,7 +72,7 @@ muchos, por ejemplo, en torno a [node.js](https://nodejs.org), un
 intérprete de JavaScript asíncrono que permite crear fácilmente
 aplicaciones REST.
 
->Pila que se ha venido en llamar [MEAN](https://mean.io/) e incluye
+>Pila que se ha venido en llamar [MEAN](https://en.wikipedia.org/wiki/MEAN_(software_bundle)) e incluye
 >también Mongo y Express.
 
 Algunos servicios PaaS son específicos (solo alojan una solución
@@ -83,7 +83,7 @@ en general relativamente limitada; [Heroku](https://www.heroku.com) y
 también [hay otros](https://www.codediesel.com/nodejs/5-paas-solutions-to-host-your-nodejs-apps/), dependiendo
 del tipo de pila que quieras alojar; los tres anteriores son los que
 trabajan bien con
-node.js, [igual que nitrous.io](https://blog.blakepatches.me/blog/2013/11/04/comparison-of-node-dot-js-hosting/) o [IBM BlueMix](https://console.ng.bluemix.net/#/pricing/cloudOEPaneId=pricing) (que ofrece un período de prueba gratuito, que no se puede renovar, lo sé por experiencia).
+node.js, [igual que platform.sh](https://platform.sh/) o [IBM BlueMix](https://console.bluemix.net/#/pricing/cloudOEPaneId=pricing) (que ofrece un período de prueba gratuito, que no se puede renovar, lo sé por experiencia).
 
 >Después de probar casi todos los servicios anteriores, me da la
 >impresión de que poco hay más allá de Heroku y Openshift. AppFog, después de la efervescencia inicial, dan 30 días de prueba
@@ -290,7 +290,7 @@ Foreman. Para ejecutar localmente nuestra aplicación ejecutaremos
 tarea correspondiente a `web`, en este caso `index.js`.  Podemos
 interrumpirlo simplemente tecleando Ctrl-C.
 
-[`foreman`](https://blog.daviddollar.org/2011/05/06/introducing-foreman.html)
+[`foreman`](https://github.com/ddollar/foreman)
 actúa como un envoltorio de tu aplicación, ejecutando todo lo
 necesario para que funcione (no solo la web, sino bases de datos o
 cualquier otra cosa que haya que levantar antes) codificando por
@@ -395,7 +395,7 @@ adicional: en el menú de Configuración se puede añadir un paso
 adicional tras el de Test, en el que no hay que más que decirle el
 repositorio de Heroku al que se va a desplegar.
 
-![Panel de control de Snap CI con despliegue a Heroku](/documentos/img/despliegue-snap-ci.png)
+![Panel de control de Snap CI con despliegue a Heroku](../img/despliegue-snap-ci.png)
 
 Con esto, un simple push a una rama determinada, que sería la
 `master`, se hará que se pruebe y, en caso de pasar los tests, se
