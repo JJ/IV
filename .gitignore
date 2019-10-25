@@ -3,3 +3,4 @@
 node_modules/
 examenes/*.pdf
 examenes/*.html
+.Rhistory
