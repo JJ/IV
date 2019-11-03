@@ -83,14 +83,14 @@ en general relativamente limitada; [Heroku](https://www.heroku.com) y
 también [hay otros](https://www.codediesel.com/nodejs/5-paas-solutions-to-host-your-nodejs-apps/), dependiendo
 del tipo de pila que quieras alojar; los tres anteriores son los que
 trabajan bien con
-node.js, [igual que platform.sh](https://platform.sh/) o [IBM BlueMix](https://console.bluemix.net/#/pricing/cloudOEPaneId=pricing) (que ofrece un período de prueba gratuito, que no se puede renovar, lo sé por experiencia).
+node.js, [igual que platform.sh](https://platform.sh/) o [IBM BlueMix](https://console.bluemix.net/) (que ofrece un período de prueba gratuito, que no se puede renovar, lo sé por experiencia).
 
 >Después de probar casi todos los servicios anteriores, me da la
 >impresión de que poco hay más allá de Heroku y Openshift. AppFog, después de la efervescencia inicial, dan 30 días de prueba
 >solamente. nitrous.io también da un periodo de prueba y se puede usar como IaaS, pero del resto, al menos
 >los que funcionan con node.js, poco más hay.  
 
-[AppAgile](https://cloud.telekom.de/de/infrastruktur/appagile/)
+[AppAgile](https://cloud.telekom.de/en/infrastructure/appagile-paas-big-data/paas)
 trabaja con Perl, por ejemplo, como lo hacía 
 Stackato y otras. En general, si necesitas otros lenguajes, tendrás que buscar porque la oferta variará. Los más fiables son OpenShift y Heroku, y los que ofrecen más opciones a la hora de elegir lenguajes.
 
@@ -134,7 +134,7 @@ que hagan esto de forma más o menos automática.
 
 La interacción con los PaaS se hace en general a través de una
 herramienta de línea de órdenes que permite, para empezar, crear
-fácilmente a partir de una plantilla una aplicación básica con las
+fácilmente, a partir de una plantilla, una aplicación básica con las
 características definidas; en ambos casos habrá que descargar una
 aplicación libre para llevar a cabo ciertas tareas como monitorizar el
 estatus y hacer tests básicos; una vez creado el fuente de la
@@ -207,9 +207,9 @@ En
 
 ## Desplegando en el PaaS
 
-Podemos, por ejemplo, desplegarlo en Heroku.
+Como ejemplo vamos a usar Heroku.
 
-> Sitios como Openshift o Nodester tienen sistemas también similares,
+> Sitios como Openshift tienen sistemas también similares,
 > pero por lo pronto vamos a usar este, que tiene un sistema un poco
 > más abierto y completo.
 
@@ -228,7 +228,7 @@ caso, cualquier otro marco de servicios REST).
    una aplicación simple de node y express. Heroku tiene una serie de
    ejemplos para diferentes lenguajes de programación. Por ejemplo,
    [para PHP](https://devcenter.heroku.com/articles/getting-started-with-php#prepare-the-app). Heroku
-   admite [7 lenguajes, Scala, Clojure, Java, Ruby y Python](https://devcenter.heroku.com/start)
+   admite [7 lenguajes, que incluyen Scala, Clojure, Java, Ruby y Python](https://devcenter.heroku.com/start), aparte de permitir también despliegue de contenedores.
 4. Con `heroku create` (dentro del directorio descargado) se crea la
    aplicación en heroku. Previamente lo único que había era un repo,
    con esta orden se crea una aplicación en heroku y se conecta con el
@@ -280,7 +280,9 @@ parte derecha; en este caso le estamos indicando la línea de órdenes
 que hay que ejecutar para *levantar* la web que hemos creado.
 
 Localmente, se recrea (aproximadamente) el entorno de Heroku usando
-Foreman. Para ejecutar localmente nuestra aplicación ejecutaremos
+Foreman. En versiones tempranas de `heroku` estaba incluido, pero ahora tendrás que instalarlo de forma independiente.
+
+Para ejecutar localmente nuestra aplicación ejecutaremos
 
 ```
 	foreman start web
@@ -323,7 +325,9 @@ envoltorio, simplemente con `npm start`, que ejecutará lo que hay a su
 izquierda. La clave `scripts` de `package.json` contiene una serie de
 tareas o procesos que se pueden comenzar; en ese sentido, la
 funcionalidad se solapa con el `Gruntfile` que se ha visto
-anteriormente.
+anteriormente, sin embargo y como se ha visto en el hito anterior,
+aconsejamos vivamente tener todas las tareas centralizadas en un sólo
+sistema de lanzamiento de tareas.
 
 >Siempre hay más de una manera de hacer las cosas.
 
@@ -373,14 +377,6 @@ aunque no es inmediato, sino que pasa por usar un servicio de
 integración continua, que se asegure de que todo funciona
 correctamente.
 
-Para eso, evidentemente, el sitio en el que se despliegue debe estar
-preparado. No es el caso de Heroku.
-
->Heroku tiene, sin embargo,
->[una beta reciente en GitHub y posiblemente funcione en el futuro próximo](https://github.com/github/github-services/tree/master/docs), que necesita un servicio
->intermedio para llevarlo a cabo, aunque
->[se puede probar ahora mismo en beta](https://devcenter.heroku.com/articles/github-integration)
-
 Otros sistemas, como
 [AWS CodeDeploy de Amazon pueden desplegar a una instancia en la nube de esta empresa](https://medium.com/aws-activate-startup-blog/simplify-code-deployments-with-aws-codedeploy-e95599091304). Sin
 embargo,
@@ -390,7 +386,7 @@ configuración se hace desde un panel de control y, si ya lo tienes
 configurado para Travis (como deberías) el propio sitio detecta la
 configuración automáticamente.
 
-Para añadir el paso de despliegue a Heroku hay que hacer un paso
+Para añadir el paso de despliegue a Heroku desde un sistema de integración continua hay que hacer una configuración adicional
 adicional: en el menú de Configuración se puede añadir un paso
 adicional tras el de Test, en el que no hay que más que decirle el
 repositorio de Heroku al que se va a desplegar.
@@ -413,9 +409,9 @@ En principio se ha preparado [a la aplicación](https://github.com/JJ/node-app-c
 
 Hay que dar un paso atrás y ver qué es necesario para desplegar en Heroku, aparte de lo obvio, tener una cuenta. Hacen falta varias cosas:
 
-1. Un `packaje.json`, aunque en realidad esto no es específico de Heroku sino de cualquier aplicación y cualquier despliegue.
-2. El fichero `Procfile` con el trabaja Foreman y que distribuye las tareas entre los diferentes *dynos*: `web`, `worker` y los demás.
-3. Requisitos específicos de IP y puerto al que escuchar y que se pasan a `app.listen`. Estos parámetros se definen como variables de entorno.
+1. Un `packaje.json`, aunque en realidad esto no es específico de Heroku sino de cualquier aplicación y cualquier despliegue. En general, hará falta un fichero de una herramienta de construcción al que se pueda invocar para arrancar la aplicación.
+2. El fichero `Procfile` con el trabaja Foreman y que distribuye las tareas entre los diferentes *dynos*: `web`, `worker` y los demás. Desde este fichero habrá que usar el target que hayamos definido previamente para arrancar el servicio.
+3. Requisitos específicos de IP y puerto al que escuchar y que se pasan a `app.listen`. Estos parámetros se definen como variables de entorno, como se ha explicado en el capítulo anterior.
 
 Teniendo en cuenta esto, no es difícil cambiar la aplicación para que pueda funcionar correctamente al menos en esos dos PaaS, que son los más populares. En Openshift, en realidad, no hace falta `Procfile`. Como no tiene el concepto de diferentes tipos de dynos, usa directamente `package.json` para iniciar la aplicación. Por otro lado, los requisitos específicos de puerto e IP se tienen en cuenta en estas dos órdenes:
 
@@ -449,6 +445,5 @@ hacerlo con Snap CI como se ha indicado más arriba.
 
 
 En el [siguiente tema](Tecnicas_de_virtualizacion) usaremos
-diferentes técnicas de virtualización para la creación de contenedores
-y jaulas que aíslan procesos, usuarios y recursos del resto del sistema, creando por tanto máquinas *virtuales*. Previamente habrá que [realizar la
-práctica correspondiente a esta materia](../proyecto/3.PaaS).
+diferentes técnicas de virtualización para la creación de contenedores que aíslan procesos, usuarios y recursos del resto del sistema, creando por tanto máquinas *virtuales*. Previamente habrá que [realizar la
+práctica correspondiente a esta materia](../proyecto/4.PaaS).
