@@ -8,8 +8,8 @@ layout: index
 [![Build Status](https://travis-ci.org/JJ/IV.svg?branch=master)](https://travis-ci.org/JJ/IV)
 
 [Infraestructura virtual](https://etsiit.ugr.es/pages/calendario_academico/horarioscurso20192020/horariosgii1920)
-es una asignatura obligatoria de la rama Tecnologías de la Información
-del primer cuatrimestre del cuarto del Grado de Ingeniería
+es una asignatura obligatoria de la rama "Tecnologías de la Información"
+del primer cuatrimestre del cuarto curso del Grado de Ingeniería
 Informática y optativa en otras ramas y en el Doble Grado de Informática
 y Matemáticas.
 
@@ -41,9 +41,8 @@ disponibles con una licencia libre. Los fuentes de los mismos están en
 1. [Introducción: conceptos y soporte físico](documentos/temas/Intro_concepto_y_soporte_fisico).
 2. [Iniciación a DevOps: desarrollo basado en pruebas](documentos/temas/Desarrollo_basado_en_pruebas).
 3. [Puesta en marcha de microservicios](documentos/temas/Microservicios).
-2. [Platform as a Service](documentos/temas/PaaS).
-3. [Usando contenedores](documentos/temas/Contenedores).
-5. [Uso de sistemas de virtualización](documentos/temas/Uso_de_sistemas).
+4. [Platform as a Service](documentos/temas/PaaS).
+5. [Usando contenedores](documentos/temas/Contenedores).
 6. [Gestión de configuraciones](documentos/temas/Gestion_de_configuraciones).
 
 Estos temas se pueden consultar como material adicional, pero no forman parte este año del temario de la asignatura:
