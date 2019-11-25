@@ -35,21 +35,24 @@ provisionamiento y monitorización más usados hoy en día.
 Introducción
 ---
 
-Los [contenedores](Contenedores) son un ejemplo de virtualización que ya tienen
-ciertas características de las máquinas virtuales, como el aislamiento y la gestión
-independiente. Pero en general, un contenedor aisla un solo servicio y en arquitecturas de aplicaciones modernas es muchas veces necesario crear máquinas 
-virtuales con características determinadas tales como diferentes sistemas operativos o diferentes características del sistema de ficheros o kernel, por lo que se hace
+Los [contenedores](Contenedores) son un ejemplo de virtualización
+que ya tienen ciertas características de las máquinas virtuales, como
+el aislamiento y la gestión independiente. Pero en general, un
+contenedor aisla un solo servicio y en arquitecturas de aplicaciones
+modernas es muchas veces necesario crear máquinas virtuales con
+características determinadas tales como diferentes sistemas operativos o diferentes características del sistema de ficheros o kernel, por lo que se hace
 necesario usar herramientas para crear y configurar estos
 entornos.
 
 Estas herramientas se denominan, en general,
-[gestores de configuración](https://en.wikipedia.org/wiki/Configuration_management). [Vagrant](https://en.wikipedia.org/wiki/Vagrant_%28software%29)
-es uno de ellos y se sitúa al nivel más alto, pero también hay otros: [Chef](http://www.getchef.com/chef/), Salt y Puppet, por
+[gestores de configuración](https://en.wikipedia.org/wiki/Configuration_management)
+o sistemas de orquestación. [Vagrant](https://en.wikipedia.org/wiki/Vagrant_%28software%29)
+es uno de ellos y se sitúa al nivel más alto, pero también hay otros: [Chef](https://www.getchef.com/chef/), Salt y Puppet, por
 ejemplo, que se pueden usar desde Vagrant pero que también se usan para gestionar configuraciones complejas de sistemas en la nube.
 Todos son libres, pero
 [tienen características específicas](https://en.wikipedia.org/wiki/Comparison_of_open_source_configuration_management_software)
 que hay que tener en cuenta a la hora de elegir uno u otro. En el caso
-específico de
+específico de gestión de configuraciones de
 [sistemas operativos](https://en.wikipedia.org/wiki/Configuration_management#Operating_System_configuration_management)
 se trata de gestionar automáticamente todas las tareas de
 configuración de un sistema, automatizando la edición de ficheros de
@@ -65,7 +68,7 @@ Usando Chef para provisionamiento
 
 En el año 2018, Chef ha introducido una nueva versión
 denominada
-[Chef Workstation](https://blog.chef.io/2018/05/23/introducing-chef-workstation/) que
+[Chef Workstation](https://blog.chef.io/introducing-chef-workstation/) que
 hace más simple trabajar de forma local o remota. Consultad [los recursos de la misma](https://www.chef.sh/docs/chef-workstation/getting-started/) para
 saber más
 
@@ -78,11 +81,11 @@ saber más
 Otros sistemas de gestión de configuración
 ---
 
-Las principales alternativas a Chef son [Ansible](http://ansible.com),
-[Salt](http://www.saltstack.com/) y [Puppet](http://docs.puppetlabs.com/guides/installation.html). Todos ellos se comparan en
-[este artículo](http://www.infoworld.com/d/data-center/review-puppet-vs-chef-vs-ansible-vs-salt-231308),
+Las principales alternativas a Chef son [Ansible](https://ansible.com),
+[Salt](https://www.saltstack.com/) y [Puppet](https://puppet.com/docs/puppet/5.5/puppet_index.html). Todos ellos se comparan en
+[este artículo](https://www.infoworld.com/article/2609482/data-center-review-puppet-vs-chef-vs-ansible-vs-salt.html),
 aunque los principales contendientes son
-[Puppet y Chef, sin que ninguno de los dos sea perfecto](http://www.infoworld.com/d/data-center/puppet-or-chef-the-configuration-management-dilemma-215279?source=fssr). 
+[Puppet y Chef, sin que ninguno de los dos sea perfecto](https://www.infoworld.com/article/2614204/puppet-or-chef--the-configuration-management-dilemma.html). 
 
 De todas ellas, vamos a
 [ver Ansible](https://davidwinter.me/introduction-to-ansible/)
@@ -102,7 +105,7 @@ sudo apt-get install ansible
 ```
 
 El resto de las utilidades son también necesarias y en realidad se
-instalan automáticamente al instalar ansible. Estas utilidades se
+instalan automáticamente al instalar Ansible. Estas utilidades se
 tienen que instalar *en el anfitrión*, no hace falta instalarlas en el
 invitado, que lo único que necesitará, en principio, es tener activada
 la conexión por ssh y tener una cuenta válida y forma válida de
@@ -110,7 +113,7 @@ acceder a ella.
 
 Cada máquina que se añada al control de Ansible se tiene que añadir a
 un
-[fichero, llamado inventario](http://docs.ansible.com/intro_inventory.html),
+[fichero, llamado inventario](https://docs.ansible.com/intro_inventory.html),
 que contiene las diferentes máquinas controladas por el mismo. Por
 ejemplo
 
@@ -125,13 +128,13 @@ fichero es arbitrario, por lo que habrá que avisar a Ansible donde
 está usando una variable de entorno:
 
 ```
-	export ANSIBLE_HOSTS=~/ansible_hosts
+export ANSIBLE_HOSTS=~/ansible_hosts
 ```
 
 Y, con un nodo, ya se puede comprobar si Ansible funciona con 
 
 ```
-	$ ansible all -u jjmerelo -m ping
+$ ansible all -u jjmerelo -m ping
 ```
 
 Esta orden hace un *ping*, es decir, simplemente comprueba si la
@@ -142,11 +145,11 @@ poder acceder a ella sin clave.
 
 De forma básica, lo que hace Ansible es simplemente ejecutar comandos
 de forma remota y simultáneamente. Para hacerlo, podemos usar el
-[inventario para agrupar los servidores](http://docs.ansible.com/intro_inventory.html), por ejemplo
+[inventario para agrupar los servidores](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html), por ejemplo
 
 ```
-	[azure]
-	iv-ansible.cloudapp.net
+[azure]
+iv-ansible.cloudapp.net
 ```
 
 crearía un grupo `azure` (con un solo ordenador), en el cual podemos
@@ -168,25 +171,25 @@ esta forma:
 ```
 
 haciendo uso del módulo `shell`. Hay muchos
-[más módulos](http://docs.ansible.com/modules.html) a los que se le
+[más módulos](https://docs.ansible.com/modules.html) a los que se le
 pueden enviar comandos del tipo "variable = valor". Por ejemplo, se
 puede trabajar con servidores web o
-[copiar ficheros](http://docs.ansible.com/intro_adhoc.html#file-transfer)
+[copiar ficheros](https://www.infoworld.com/article/2614204/puppet-or-chef--the-configuration-management-dilemma.html)
 o
-[incluso desplegar aplicaciones directamente usando el módulo `git`](http://docs.ansible.com/intro_adhoc.html#managing-packages)
+[incluso desplegar aplicaciones directamente usando el módulo `git`](https://docs.ansible.com/intro_adhoc.html#managing-packages)
 
 Finalmente, el concepto similar a las recetas de Chef en Ansible son los
-[*playbooks*](https://davidwinter.me/articles/2013/11/23/introduction-to-ansible/),
+[*playbooks*](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html),
 ficheros en YAML que le dicen a la máquina virtual qué es lo que hay
 que instalar en *tareas*, de la forma siguiente
 
 ```
-	---
-	- hosts: azure
-	  sudo: yes
-	  tasks:
-		- name: Update emacs
-		  apt: pkg=emacs state=present
+---
+- hosts: azure
+  sudo: yes
+  tasks:
+	- name: Update emacs
+	  apt: pkg=emacs state=present
 ```
 
 Esto se guarda en un fichero y se
@@ -227,21 +230,22 @@ Orquestación de máquinas virtuales
 
 A un nivel superior al provisionamiento de máquinas virtuales está la configuración,
 orquestación y gestión de las mismas, herramientas como
-[Vagrant](http://vagrantup.com) ayudan a hacerlo, aunque también
+[Vagrant](https://vagrantup.com) ayudan a hacerlo, aunque también
 Puppet e incluso Juju pueden hacer muchas de las funciones de
-Vagrant. La ventaja de Vagrant es que permite gestionar el ciclo de vida
-completo de una máquina virtual, desde la creación hasta su
-destrucción pasando por el provisionamiento y la monitorización o
+Vagrant (no todas, y por eso hoy en día es la herramienta estándar
+para configuración de máquinas virtuales). La ventaja de Vagrant es que permite gestionar el ciclo de vida
+completo de un conjunto de máquinas virtuales, desde la creación hasta su
+destrucción pasando por el provisionamiento, la interconexión entre ellas, y la monitorización o
 conexión con la misma. Además, permite trabajar con todo tipo de
 hipervisores y provisionadores tales como los que hemos visto
 anteriormente.
 
 Con Vagrant [te puedes descargar directamente](https://gist.github.com/dergachev/3866825)
-[una máquina configurada de esta lista](http://www.vagrantbox.es/). Por
+[una máquina configurada de esta lista](https://www.vagrantbox.es/). Por
 ejemplo, 
 
 ```
-	vagrant box add centos65 https://github.com/2creatives/vagrant-centos/releases/download/v6.5.1/centos65-x86_64-20131205.box
+vagrant box add centos65 https://github.com/2creatives/vagrant-centos/releases/download/v6.5.1/centos65-x86_64-20131205.box
 ```
 
 El formato determinará en qué tipo de hipervisor se puede ejecutar; en
@@ -250,7 +254,7 @@ en ese formato. Otras imágenes están configuradas para trabajar con
 VMWare, pero son las menos. A continuación,
 
 ```
-	vagrant init centos65
+vagrant init centos65
 ```
 
 crea un fichero `Vagrantfile` (y así te lo dice) que permite trabajar
@@ -260,7 +264,7 @@ a apagar la máquina Azure que tengo ejecutándose desde que empecé a
 contar lo anterior)
 
 ```
-	vagrant up
+vagrant up
 ```
 
 y se puede empezar a trabajar en ella con 
@@ -272,17 +276,17 @@ vagrant ssh
 <div class='ejercicios' markdown='1'>
 
 Instalar una máquina virtual Debian usando Vagrant y conectar con ella.
-​	
+​
 </div>
 
 
 Una vez creada la máquina virtual se puede entrar en ella y
 configurarla e instalar todo lo necesario. Pero, por supuesto,
 sabiendo lo que sabemos sobre provisionamiento, Vagrant permite
-[provisionarla de muchas maneras diferentes](http://docs.vagrantup.com/provisioning/index.html). En
+[provisionarla de muchas maneras diferentes](https://www.vagrantup.com/docs/provisioning/index.html). En
 general, Vagrant usará opciones de configuración diferente dependiendo
 del provisionador, subirá un fichero a un directorio temporal del
-mismo y lo ejecutará (tras ejecutar todo lo necesario para el mismo). 
+mismo y lo ejecutará (tras ejecutar todo lo necesario para el mismo).
 
 La provisión tiene lugar cuando se *alza* una máquina virtual (con
 `vagrant up`) o bien explícitamente haciendo `vagrant provision`. En
@@ -292,7 +296,7 @@ especificadas en el fichero de configuración.
 En general, trabajar con un provisionador requiere especificar de cuál
 se trata y luego dar una serie de órdenes específicas. Comenzaremos
 por el
-[*shell*](http://docs.vagrantup.com//provisioning/shell.html), que
+[*shell*](https://www.vagrantup.com/docs/provisioning/shell.html), que
 es el más simple y, en realidad, equivale a entrar en la máquina y dar
 las órdenes a mano. Instalaremos, como hemos hecho en otras ocasiones,
 el utilísimo editor `emacs`usando este
@@ -339,7 +343,7 @@ web que pueda ser útil para alguna otra práctica
 <div class='nota' markdown='1'>
 
 El provisionamiento por *shell* admite
-[muchas más opciones](http://docs.vagrantup.com//provisioning/shell.html):
+[muchas más opciones](https://www.vagrantup.com/docs/provisioning/shell.html):
 se puede usar un fichero externo o incluso alojado en un sitio web
 (por ejemplo, un Gist alojado en GitHub). Por ejemplo,
 [este para provisionar nginx y node](https://gist.github.com/DamonOehlman/5754302)
@@ -358,7 +362,7 @@ de estos sistemas de más alto nivel es que permiten trabajar
 independientemente del sistema operativo. Cada uno de ellos tendrá sus
 opciones específicas, pero veamos cómo se haría lo anterior usando el
 provisionador
-[chef-solo](http://docs.vagrantup.com/provisioning/chef_solo.html).
+[chef-solo](https://www.vagrantup.com/docs/provisioning/chef_solo.html).
 
 Para empezar, hay que provisionar la máquina virtual para que funcione
 con chef-solo y hay que hacerlo desde shell o Ansible;
@@ -416,19 +420,19 @@ Configurar tu máquina virtual usando vagrant con el provisionador
 </div>
 
 Desde Vagrant se puede crear también una
-[caja base](http://docs.vagrantup.com/boxes/base.html) con lo
+[caja base](https://www.vagrantup.com/docs/boxes/base.html) con lo
 mínimo necesario para poder funcionar, incluyendo el soporte para ssh
 y provisionadores como Chef o Puppet. Se puede crear directamente en
 VirtualBox y usar
-[`vagrant package`](http://docs.vagrantup.com//cli/package.html)
+[`vagrant package`](https://www.vagrantup.com/docs/cli/package.html)
 para *empaquetarla* y usarla para su consumo posterior. 
 
 A donde ir desde aquí
 -------
 
 Este es el último tema del curso, pero a partir de aquí se puede
-seguir aprendiendo sobre DevOps en [el blog](http://devops.com/) o
-[en IBM](https://www.ibm.com/cloud-computing/products/devops/). Libros como
+seguir aprendiendo sobre DevOps en [el blog](https://devops.com/) o
+[en IBM](https://www.ibm.com/cloud/devops/). Libros como
 [*DevOps for Developers*](https://www.amazon.es/dp/B009D6ZB0G?tag=atalaya-21&camp=3634&creative=24822&linkCode=as4&creativeASIN=B009D6ZB0G&adid=0PB61Y2QD9K49W3EP8MN&)
 pueden ser también de ayuda.
 
