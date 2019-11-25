@@ -40,7 +40,7 @@ entornos.
 Estas herramientas se denominan, en general,
 [gestores de configuración](https://en.wikipedia.org/wiki/Configuration_management)
 o sistemas de orquestación. [Vagrant](https://en.wikipedia.org/wiki/Vagrant_%28software%29)
-es uno de ellos y se sitúa al nivel más alto, pero también hay otros: [Chef](https://www.getchef.com/chef/), Salt y Puppet, por
+es uno de ellos y se sitúa al nivel más alto, pero también hay otros: [Chef](https://www.chef.io/products/chef-infra/), Salt y Puppet, por
 ejemplo, que se pueden usar desde Vagrant pero que también se usan para gestionar configuraciones complejas de sistemas en la nube.
 Todos son libres, pero
 [tienen características específicas](https://en.wikipedia.org/wiki/Comparison_of_open_source_configuration_management_software)
@@ -74,14 +74,14 @@ saber más
 Otros sistemas de gestión de configuración
 ---
 
-Las principales alternativas a Chef son [Ansible](https://ansible.com),
+Las principales alternativas a Chef son [Ansible](https://www.ansible.com),
 [Salt](https://www.saltstack.com/) y [Puppet](https://puppet.com/docs/puppet/5.5/puppet_index.html). Todos ellos se comparan en
 [este artículo](https://www.infoworld.com/article/2609482/data-center-review-puppet-vs-chef-vs-ansible-vs-salt.html),
 aunque los principales contendientes son
 [Puppet y Chef, sin que ninguno de los dos sea perfecto](https://www.infoworld.com/article/2614204/puppet-or-chef--the-configuration-management-dilemma.html). 
 
 De todas ellas, vamos a
-[ver Ansible](https://davidwinter.me/introduction-to-ansible/)
+[ver Ansible](https://davidwinter.dev/introduction-to-ansible/)
 que parece ser uno de los que se está desarrollando con más intensidad
 últimamente. [Ansible es](https://en.wikipedia.org/wiki/Ansible_%28software%29)
 sistema de gestión remota de configuración que permite gestionar
@@ -106,7 +106,7 @@ acceder a ella.
 
 Cada máquina que se añada al control de Ansible se tiene que añadir a
 un
-[fichero, llamado inventario](https://docs.ansible.com/intro_inventory.html),
+[fichero, llamado inventario](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html),
 que contiene las diferentes máquinas controladas por el mismo. Por
 ejemplo
 
@@ -164,12 +164,12 @@ esta forma:
 ```
 
 haciendo uso del módulo `shell`. Hay muchos
-[más módulos](https://docs.ansible.com/modules.html) a los que se le
+[más módulos](https://docs.ansible.com/ansible/latest/user_guide/modules.html) a los que se le
 pueden enviar comandos del tipo "variable = valor". Por ejemplo, se
 puede trabajar con servidores web o
 [copiar ficheros](https://www.infoworld.com/article/2614204/puppet-or-chef--the-configuration-management-dilemma.html)
 o
-[incluso desplegar aplicaciones directamente usando el módulo `git`](https://docs.ansible.com/intro_adhoc.html#managing-packages)
+[incluso desplegar aplicaciones directamente usando el módulo `git`](https://docs.ansible.com/ansible/latest/user_guide/intro_adhoc.html#managing-packages)
 
 Finalmente, el concepto similar a las recetas de Chef en Ansible son los
 [*playbooks*](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html),
@@ -223,7 +223,7 @@ Orquestación de máquinas virtuales
 
 A un nivel superior al provisionamiento de máquinas virtuales está la configuración,
 orquestación y gestión de las mismas, herramientas como
-[Vagrant](https://vagrantup.com) ayudan a hacerlo, aunque también
+[Vagrant](https://www.vagrantup.com) ayudan a hacerlo, aunque también
 Puppet e incluso Juju pueden hacer muchas de las funciones de
 Vagrant (no todas, y por eso hoy en día es la herramienta estándar
 para configuración de máquinas virtuales). La ventaja de Vagrant es que permite gestionar el ciclo de vida
@@ -425,7 +425,7 @@ A donde ir desde aquí
 
 Este es el último tema del curso, pero a partir de aquí se puede
 seguir aprendiendo sobre DevOps en [el blog](https://devops.com/) o
-[en IBM](https://www.ibm.com/cloud/devops/). Libros como
+[en IBM](https://www.ibm.com/cloud/devops). Libros como
 [*DevOps for Developers*](https://www.amazon.es/dp/B009D6ZB0G?tag=atalaya-21&camp=3634&creative=24822&linkCode=as4&creativeASIN=B009D6ZB0G&adid=0PB61Y2QD9K49W3EP8MN&)
 pueden ser también de ayuda.
 
