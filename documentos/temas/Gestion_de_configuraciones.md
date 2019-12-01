@@ -443,7 +443,7 @@ que usa
 puede provisionar, por ejemplo, una máquina CentOS. 
 
 Una vez preinstalado chef (lo que también podíamos haber hecho con
-[una máquina que ya lo tuviera instalado, de las que hay muchas en `vagrantbox.es`](http://www.vagrantbox.es/) 
+[una máquina que ya lo tuviera instalado, de las que hay muchas en `vagrantbox.es`](https://www.vagrantbox.es/) 
 y de hecho es la mejor opción porque chef-solo no se puede instalar en
 la versión 6.5 de CentOS fácilmente por no tener una versión
 actualizada de Ruby)
