@@ -38,7 +38,6 @@ disponibles con una licencia libre. Los fuentes de los mismos están en
 3. [Puesta en marcha de microservicios](documentos/temas/Microservicios.md).
 4. [Platform as a Service](documentos/temas/PaaS.md).
 5. [Usando contenedores](documentos/temas/Contenedores.md).
-5. [Uso de infraestructura virtual](documentos/temas/Uso_de_sistemas.md).
 6. [Gestión de configuraciones](documentos/temas/Gestion_de_configuraciones.md).
 
 Estos temas se pueden consultar como material adicional, pero no forman parte este año del temario de la asignatura:

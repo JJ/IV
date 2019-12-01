@@ -2,7 +2,7 @@ Gestión de infraestructuras virtuales
 ===
 
 <!--@
-prev: Uso_de_sistemas
+prev: Contenedores
 -->
 
 <div class="objetivos" markdown="1">

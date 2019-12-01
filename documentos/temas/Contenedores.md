@@ -3,7 +3,7 @@
 
 <!--@
 prev: PaaS
-next: Uso_de_sistemas
+next: Gestion_de_configuraciones
 -->
 
 <div class="objetivos" markdown="1">
@@ -688,7 +688,7 @@ gratuita o gratuitos.
 
 ## A dónde ir desde aquí
 
-Primero, hay que [llevar a cabo el hito del proyecto correspondiente a este tema](../proyecto/4.Docker).
+Primero, hay que [llevar a cabo el hito del proyecto correspondiente a este tema](../proyecto/5.Docker).
 
 Si te interesa, puedes consultar cómo se [virtualiza el almacenamiento](Almacenamiento) que, en general, es independiente de la
 generación de una máquina virtual. También puedes ir directamente al
