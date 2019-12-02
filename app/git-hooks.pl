@@ -15,8 +15,8 @@ EOT
 POST_COMMIT {
   my ($git) = @_;
   my $branch =  $git->command(qw/rev-parse --abbrev-ref HEAD/);
-  say "Branc $branch";
-  if ( $branch =~ /master/ ) {
+  say "Branch $branch";
+  if ( $branch->stdout() =~ /master/ ) {
     my $changed = $git->command(qw/show --name-status/);
     my @changed_files = ($changed =~ /\s\w\s+(\S+)/g);
     say @changed_files;
