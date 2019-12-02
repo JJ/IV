@@ -147,7 +147,7 @@ saber más
 > El [repositorio de la presentación](https://github.com/JJ/chef)
 > incluye varios *cookbooks* de ejemplo.
 
-Otros sistemas de gestión de configuración
+Ansible para provisionamiento.
 ---
 
 Las principales alternativas a Chef son [Ansible](https://www.ansible.com),
@@ -155,6 +155,9 @@ Las principales alternativas a Chef son [Ansible](https://www.ansible.com),
 [este artículo](https://www.infoworld.com/article/2609482/data-center-review-puppet-vs-chef-vs-ansible-vs-salt.html),
 aunque los principales contendientes son
 [Puppet y Chef, sin que ninguno de los dos sea perfecto](https://www.infoworld.com/article/2614204/puppet-or-chef--the-configuration-management-dilemma.html). 
+
+> Este [tema](Provision.md) se extiende un poco más, sobre todo
+> tratando con Salt, que puedes usar si lo consideras conveniente.
 
 De todas ellas, vamos a
 [ver Ansible](https://davidwinter.dev/introduction-to-ansible/)
