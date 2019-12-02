@@ -13,12 +13,13 @@ layout: index
 EOT
 
 POST_COMMIT {
-  say "Entrando en el hook con → @_";
   my ($git) = @_;
   my $branch =  $git->command(qw/rev-parse --abbrev-ref HEAD/);
+  say "Branc $branch";
   if ( $branch =~ /master/ ) {
     my $changed = $git->command(qw/show --name-status/);
     my @changed_files = ($changed =~ /\s\w\s+(\S+)/g);
+    say @changed_files;
     my @mds = grep ( /\.md/, @changed_files );
     #Now change branch and process
     #Inspired by http://stackoverflow.com/questions/15214762/how-can-i-sync-documentation-with-github-pages
