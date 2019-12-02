@@ -2,14 +2,14 @@
 layout: index
 
 
-prev: Uso_de_sistemas
+prev: Contenedores
 ---
 
 Gestión de infraestructuras virtuales
 ===
 
 <!--@
-prev: Uso_de_sistemas
+prev: Contenedores
 -->
 
 <div class="objetivos" markdown="1">
@@ -154,7 +154,7 @@ saber más
 > El [repositorio de la presentación](https://github.com/JJ/chef)
 > incluye varios *cookbooks* de ejemplo.
 
-Otros sistemas de gestión de configuración
+Ansible para provisionamiento.
 ---
 
 Las principales alternativas a Chef son [Ansible](https://www.ansible.com),
@@ -162,6 +162,9 @@ Las principales alternativas a Chef son [Ansible](https://www.ansible.com),
 [este artículo](https://www.infoworld.com/article/2609482/data-center-review-puppet-vs-chef-vs-ansible-vs-salt.html),
 aunque los principales contendientes son
 [Puppet y Chef, sin que ninguno de los dos sea perfecto](https://www.infoworld.com/article/2614204/puppet-or-chef--the-configuration-management-dilemma.html). 
+
+> Este [tema](Provision) se extiende un poco más, sobre todo
+> tratando con Salt, que puedes usar si lo consideras conveniente.
 
 De todas ellas, vamos a
 [ver Ansible](https://davidwinter.dev/introduction-to-ansible/)
@@ -450,7 +453,7 @@ que usa
 puede provisionar, por ejemplo, una máquina CentOS. 
 
 Una vez preinstalado chef (lo que también podíamos haber hecho con
-[una máquina que ya lo tuviera instalado, de las que hay muchas en `vagrantbox.es`](http://www.vagrantbox.es/) 
+[una máquina que ya lo tuviera instalado, de las que hay muchas en `vagrantbox.es`](https://www.vagrantbox.es/) 
 y de hecho es la mejor opción porque chef-solo no se puede instalar en
 la versión 6.5 de CentOS fácilmente por no tener una versión
 actualizada de Ruby)
