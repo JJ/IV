@@ -21,7 +21,6 @@ POST_COMMIT {
     my $get_changed = $git->command(qw/show --name-status/);
     my $changed = $get_changed->final_output;
     my @changed_files = ($changed =~ /\s\w\s+(\S+)/g);
-    say @changed_files;
     my @mds = grep ( /\.md/, @changed_files );
     #Now change branch and process
     #Inspired by http://stackoverflow.com/questions/15214762/how-can-i-sync-documentation-with-github-pages
