@@ -12,8 +12,8 @@ layout: index
 
 EOT
 
-say "Entrando en el hook con → @_";
 POST_COMMIT {
+  say "Entrando en el hook con → @_";
   my ($git) = @_;
   my $branch =  $git->command(qw/rev-parse --abbrev-ref HEAD/);
   if ( $branch =~ /master/ ) {
