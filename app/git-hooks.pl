@@ -17,8 +17,9 @@ POST_COMMIT {
   my $get_branch =  $git->command(qw/rev-parse --abbrev-ref HEAD/);
   my $branch = $get_branch->final_output;
   say "Branch ", $branch;
-  if ( $branch->stdout() =~ /master/ ) {
-    my $changed = $git->command(qw/show --name-status/);
+  if ( $branch =~ /^master/ ) {
+    my $get_changed = $git->command(qw/show --name-status/);
+    my $changed = $get_changed->final_output;
     my @changed_files = ($changed =~ /\s\w\s+(\S+)/g);
     say @changed_files;
     my @mds = grep ( /\.md/, @changed_files );
