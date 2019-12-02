@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 use v5.14;
-#use Git::Hooks;
+use Git::Hooks;
 use File::Slurp qw(read_file write_file);
 
 my $layout_preffix=<<EOT;
