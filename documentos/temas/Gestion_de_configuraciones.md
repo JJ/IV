@@ -462,6 +462,9 @@ asignatura (o, para el caso, cualquier otra asignatura).
 
 </div>
 
+En esta sección hemos creado a mano la máquina virtual sobre la que
+vamos a trabajar. A continuación veremos como automatizar también este
+proceso, en el espíritu de *infraestructura como código*.
 
 Orquestación de máquinas virtuales
 ---------------
