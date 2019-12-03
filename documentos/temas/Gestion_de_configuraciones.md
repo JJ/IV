@@ -342,6 +342,26 @@ usando un *playbook* de Ansible.
 
 </div>
 
+También se pueden instalar varios paquetes a la vez, como en 
+[este playbook](/ejemplos/vagrant/Debian2018/basico.yaml)  que instala
+node:
+
+```yaml
+---
+- hosts: vagrantboxes
+  become: yes
+  tasks:
+    - name: Instala paquetes
+      apt:
+        pkg: ['curl', 'build-essential', 'libssl-dev', 'nodejs', 'npm']
+```
+
+En vez de usar un genérico `all` en este caso estamos especificando un
+conjunto de nodos, que en realidad es el mismo, porque no tenemos
+más. El formato de instalación de paquetes es ligeramente diferente,
+pero nos permite instalar diferentes paquetes a la vez. 
+
+
 Orquestación de máquinas virtuales
 ---------------
 
