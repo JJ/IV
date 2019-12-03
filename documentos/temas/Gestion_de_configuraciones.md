@@ -352,7 +352,24 @@ node:
 En vez de usar un genérico `all` en este caso estamos especificando un
 conjunto de nodos, que en realidad es el mismo, porque no tenemos
 más. El formato de instalación de paquetes es ligeramente diferente,
-pero nos permite instalar diferentes paquetes a la vez. 
+pero nos permite instalar diferentes paquetes a la vez.
+
+Ansible usa el concepto de [*rol*](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html) para agrupar en un directorio una
+serie de tareas que puedan estar relacionadas; por ejemplo, un
+framework específico junto con lo que ese framework necesite, como un
+conjunto de herramientas. A un nivel muy básico, un rol es el
+equivalente a un paquete, módulo o clase, simplemente una agrupación
+de funciones dentro de un directorio que permite estructurar el
+provisionamiento de un módulo o conjunto de módulos.
+
+> Los roles fueron introducidos en la versión 1.2 de ansible, en el
+> año 2013. Es poco probable que tengas una versión anterior, pero
+> podría suceder.
+
+
+
+Como ventaja adicional, ansible es extensible con un sistema llamado
+[*Galaxy*](https://galaxy.ansible.com/). 
 
 
 Orquestación de máquinas virtuales
