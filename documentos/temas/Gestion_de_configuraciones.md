@@ -301,46 +301,43 @@ forma similar.
 Finalmente, el concepto similar a las recetas de Chef en Ansible son los
 [*playbooks*](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html),
 ficheros en YAML que le dicen a la máquina virtual qué es lo que hay
-que instalar en *tareas*, de la forma siguiente
+que instalar en *tareas* o `tasks`, de la forma que se ve en
+[este fichero](/ejemplos/vagrant/Debian2018/basico.yaml).
 
 ```
 ---
-- hosts: azure
-  sudo: yes
+- hosts: all
+  become: yes
   tasks:
-	- name: Update emacs
-	  apt: pkg=emacs state=present
-```
-
-Esto se guarda en un fichero y se
-[le llama, por ejemplo, emacs.yml](../../ejemplos/ansible/emacs.yml),
-y se ejecuta con 
+    - name: Instala git
+      apt: pkg=git state=present
 
 ```
-ansible-playbook ../../ejemplos/ansible/emacs.yml 
+
+En este caso `all` va a ser una denominación genérica de todos los
+hosts, pero a continuación le indicamos con `become` que es necesario
+adquirir privilegios para ejecutar el resto del fichero. Las tareas se
+llevarán a cabo secuencialmente, pero sólo tenemos una, que invoca el
+comando `apt`, indicándole que el paquete git tiene que estar presente.
+
+```
+ansible-playbook basico.yaml
 ```
 
-(recordando siempre el temita del nombre de usuario), lo que dará, si
-todo ha ido bien, un resultado como el siguiente
+Esto dará, si
+todo ha ido bien, un resultado como el siguiente (para uno que
+instalara emacs en una versión anterior)
 
 ![Instalación de emacs usando ansible](../img/ansible.png)
 
-En el fichero YAML lo que se está expresando es un array asociativo
-con las claves `hosts`, `sudo` y `tasks`. En el primero ponemos el
-bloque de servidores en el que vamos a actuar, en el segundo si hace
-falta hacer sudo o no y en el tercero las tareas que vamos a ejecutar,
-en este caso una sola. El apartado de tareas es un vector de hashes,
-cada uno de los cuales tiene en `name` el nombre de la tarea, a título
-informativo y en las otras claves lo que se va a hacer; `apt` indicará
-que hay que instalar un paquete (`pkg`) llamado `emacs` y que hay que
-comprobar si está presente o no (`state`). El que se trabaje con
-*estados* y no de forma imperativa hace que los *playbooks* sean
-*idempotentes*, es decir, si se ejecutan varias veces darán el mismo
-resultado que si se ejecutan una sola vez. 
+Ejecuciones sucesivas arrojarán el mismo resultado, pero en la salida
+`ansible` indicará que ya está instalado, por lo que no hace
+falta. Comprobará que está presente, y no hará nada más.
 
 <div class='ejercicios' markdown='1'>
 
-Desplegar la aplicación de DAI  con todos los módulos necesarios
+Desplegar la aplicación de DAI o de cualquier otra asignatura donde se
+tenga ya el código fuente con todos los módulos necesarios
 usando un *playbook* de Ansible.
 
 </div>
