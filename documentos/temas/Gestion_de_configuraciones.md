@@ -181,7 +181,23 @@ instalan automáticamente al instalar Ansible. Estas utilidades se
 tienen que instalar *en el anfitrión*, no hace falta instalarlas en el
 invitado, que lo único que necesitará, en principio, es tener activada
 la conexión por ssh y tener una cuenta válida y forma válida de
-acceder a ella.
+acceder a ella. 
+
+Ansible va a necesitar tres ficheros para trabajar
+* Un fichero de configuración general, que se suele llamar `ansible.cfg`
+* Un fichero de configuración específica de los *hosts* con los que se va a trabajar o inventario , que habitualmente se llama `ansible_hosts`.
+* Una o varias recetas o *playbooks* que indican qué se va a instalar, y declara el estado en el que se debe encontrar el sistema al final. 
+
+Comencemos por el fichero de configuración, tal como [este](/ejemplos/vagrant/Debian2018/ansible.cfg):
+
+```
+[defaults]
+host_key_checking = False
+inventory = ./ansible_hosts
+```
+
+Lo principal es la primera opción, que permite que la conexión con nuevas máquinas virtuales por `ssh` no pregunte si se acepta la clave nueva de una nueva MAC detectada. La segunda instrucción indica dónde se va a encontrar, por omisión, el fichero de inventario, en este caso en el mismo directorio.
+
 
 Cada máquina que se añada al control de Ansible se tiene que añadir a
 un
