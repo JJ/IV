@@ -1,10 +1,3 @@
----
-layout: index
-
-
-prev: Contenedores
----
-
 Gestión de infraestructuras virtuales
 ===
 
@@ -35,7 +28,7 @@ provisionamiento y monitorización más usados hoy en día.
 Introducción
 ---
 
-Los [contenedores](Contenedores) son un ejemplo de virtualización
+Los [contenedores](Contenedores.md) son un ejemplo de virtualización
 que ya tienen ciertas características de las máquinas virtuales, como
 el aislamiento y la gestión independiente. Pero en general, un
 contenedor aisla un solo servicio y en arquitecturas de aplicaciones
@@ -66,7 +59,7 @@ configuración, empezando por Chef.
 ## Trabajando con máquinas virtuales en la nube
 
 Azure permite,
-[tras la creación de almacenamiento virtual](Almacenamiento), la
+[tras la creación de almacenamiento virtual](Almacenamiento.md), la
 creación de máquinas virtuales, como es natural. Se puede crear una
 máquina virtual desde el panel de control, pero también desde
 la [línea de órdenes](https://github.com/WindowsAzure/azure-sdk-tools-xplat). Primero
@@ -163,7 +156,7 @@ Las principales alternativas a Chef son [Ansible](https://www.ansible.com),
 aunque los principales contendientes son
 [Puppet y Chef, sin que ninguno de los dos sea perfecto](https://www.infoworld.com/article/2614204/puppet-or-chef--the-configuration-management-dilemma.html). 
 
-> Este [tema](Provision) se extiende un poco más, sobre todo
+> Este [tema](Provision.md) se extiende un poco más, sobre todo
 > tratando con Salt, que puedes usar si lo consideras conveniente.
 
 De todas ellas, vamos a
@@ -359,7 +352,22 @@ node:
 En vez de usar un genérico `all` en este caso estamos especificando un
 conjunto de nodos, que en realidad es el mismo, porque no tenemos
 más. El formato de instalación de paquetes es ligeramente diferente,
-pero nos permite instalar diferentes paquetes a la vez. 
+pero nos permite instalar diferentes paquetes a la vez.
+
+Ansible usa el concepto de *rol* para agrupar en un directorio una
+serie de tareas que puedan estar relacionadas; por ejemplo, un
+framework específico junto con lo que ese framework necesite, como un
+conjunto de herramientas. A un nivel muy básico, un rol es el
+equivalente a un paquete, módulo o clase, simplemente una agrupación
+de funciones dentro de un directorio que permite estructurar el
+provisionamiento de un módulo o conjunto de módulos.
+
+> Los roles fueron introducidos en la versión 1.2 de ansible, en el
+> año 2013. Es poco probable que tengas una versión anterior, pero
+> podría suceder.
+
+Como ventaja adicional, ansible es extensible con un sistema llamado
+[*Galaxy*](https://galaxy.ansible.com/). 
 
 
 Orquestación de máquinas virtuales
@@ -576,5 +584,5 @@ seguir aprendiendo sobre DevOps en [el blog](https://devops.com/) o
 pueden ser también de ayuda.
 
 Si no lo has hecho ya, es hora de comenzar
-[la última práctica](../proyecto/5.IaaS). 
+[la última práctica](../proyecto/5.IaaS.md). 
 ​	
