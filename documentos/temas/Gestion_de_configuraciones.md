@@ -672,6 +672,10 @@ seguir aprendiendo sobre DevOps en [el blog](https://devops.com/) o
 [*DevOps for Developers*](https://www.amazon.es/dp/B009D6ZB0G?tag=atalaya-21&camp=3634&creative=24822&linkCode=as4&creativeASIN=B009D6ZB0G&adid=0PB61Y2QD9K49W3EP8MN&)
 pueden ser también de ayuda.
 
+Este capítulo es suficientemente extenso para necesitar varios hitos
+del proyecto. Tras terminar la sección sobre Ansible, se va a [la
+práctica de provisionamiento](../proyecto/6.Provision.md).
+
 Si no lo has hecho ya, es hora de comenzar
 [la última práctica](../proyecto/5.IaaS.md). 
 ​	
