@@ -226,7 +226,7 @@ $ ansible all -u jjmerelo -m ping
 ```
 
 Esta orden hace un *ping*, es decir, simplemente comprueba si la
-máquina es accesible desde la máquina local. `-u ` incluye el nombre
+máquina es accesible desde la máquina local. `-u` incluye el nombre
 del usuario (si es diferente del de la máquina local); habrá que
 añadir `--ask-pass` si no se ha configurado la máquina remota para
 poder acceder a ella sin clave. 
@@ -264,7 +264,32 @@ pueden enviar comandos del tipo "variable = valor". Por ejemplo, se
 puede trabajar con servidores web o
 [copiar ficheros](https://www.infoworld.com/article/2614204/puppet-or-chef--the-configuration-management-dilemma.html)
 o
-[incluso desplegar aplicaciones directamente usando el módulo `git`](https://docs.ansible.com/ansible/latest/user_guide/intro_adhoc.html#managing-packages)
+[incluso desplegar aplicaciones directamente usando el módulo `git`](https://docs.ansible.com/ansible/latest/user_guide/intro_adhoc.html#managing-packages).
+
+Nosotros nos vamos a conectar a una máquina virtual local creada con Vagrant, usando [este](/ejemplos/vagrant/Debian2018/ansible_hosts) inventario:
+
+```
+[vagrantboxes]
+debianita ansible_ssh_port=2222 ansible_ssh_private_key_file=.vagrant/machines/default/virtualbox/private_key
+
+[vagrantboxes:vars]
+ansible_ssh_host=127.0.0.1
+ansible_ssh_user=vagrant
+```
+
+Como se ha creado con `vagrant`, la máquina local va a usar por
+omisión el puerto 2222 y además la clave privada que se usa (y que
+generalmente no tenemos que encontrar si accedemos con vagrant ssh)
+está en el camino indicado. Las variables por omisión que vamos a usar
+en la conexión también están en ese fichero: el nombre de usuario y la
+dirección IP. Además, usamos el nombre `debianita` que es el que le
+vamos a asignar a estas máquinas virtuales. El término `vagrantboxes`
+permite que nos refiramos de forma genérica a una serie de máquinas,
+aunque en este caso tengamos sólo una.
+
+Como se ve, este fichero de hosts permite definir parámetros para una
+o varias máquinas. En el caso de usar un host en la nube se haría de
+forma similar.
 
 Finalmente, el concepto similar a las recetas de Chef en Ansible son los
 [*playbooks*](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html),
