@@ -374,10 +374,97 @@ provisionamiento de un módulo o conjunto de módulos.
 > podría suceder.
 
 
+Un rol abarca variables, tareas y otro tipo de metadatos, y se
+agruparán en un directorio con un nombre determinado, por ejemplo, el
+rol `ol` estará en el directorio (a partir del playbook que lo use)
+`roles/ol`. Dentro de ese directorio habrá diferentes subdirectorios,
+tales como `tasks` para tareas o `vars` para variables. Por ejemplo,
+vamos a declarar un rol `common` que suele usarse para agrupar tareas
+que van a ser comunes a varios playbooks en un proyecto. Este será el
+[playbook](/ejemplos/vagrant/Debian2018/express.yaml):
 
-Como ventaja adicional, ansible es extensible con un sistema llamado
-[*Galaxy*](https://galaxy.ansible.com/). 
+```
+---
+- hosts: all
+  become: yes
+  roles:
+    - common
+```
 
+> Normalmente, habría otras tareas (no comunes) en este playbook. 
+
+En el directorio `roles/common/tasks` estará este [fichero](/ejemplos/vagrant/Debian2018/roles/common/tasks/main.yaml)
+
+```
+---
+- name: Instala básicos
+  apt:
+    pkg: ['git','make','perl']
+```
+
+Como ya está calificado como tareas, en este fichero se pondría
+directamente lo que estaría dentro de la lista de `tasks` en un
+playbook. 
+
+Este sistema de roles, además, permite extender ansible con un sistema llamado
+[*Galaxy*](https://galaxy.ansible.com/), una colección de roles libres
+aportados por la comunidad. Estos roles se pueden descargar e instalar
+en el propio repositorio, pero también se pueden instalar en un lugar
+común para todos.  Por ejemplo, podemos instalar uno para trabajar con
+diferentes versiones de node
+llamado
+[`geerlingguy.nodejs`](https://github.com/geerlingguy/ansible-role-nodejs) de
+esta forma:
+
+```
+ansible-galaxy install geerlingguy.nodejs
+```
+
+
+Se
+usa en un [playbook](/ejemplos/vagrant/Debian2018/node-versions.yml)
+usando el nombre completo, tras intalarlo:
+
+```
+---
+- hosts: debianita
+  become: yes
+  vars_files:
+    - vars/main.yml
+  roles:
+    - geerlingguy.nodejs
+```
+
+En este caso el rol lo que incluye son variables, en vez de tareas,
+con concreto la indicada en la clave `vars_files`. Ese fichero
+contiene solamente:
+
+```
+nodejs_version: "12.x"
+```
+
+indicando la versión del fichero que se va a instalar. Esa variable la
+usará el rol para instalar la versión de node correspondiente.
+
+> Un tutorial bastante extenso de diferentes capacidades de ansible
+> en [Guru99](https://www.guru99.com/ansible-tutorial.html). Digital
+> Ocean también nos
+> enseña
+> [aquí](https://www.digitalocean.com/community/tutorials/configuration-management-101-writing-ansible-playbooks) diferentes
+> características de los playbooks que se pueden usar.
+
+
+<div class='ejercicios' markdown='1'>
+
+Crear un rol `common` que haga ciertas tareas comunes que vayamos a
+usar en todas las máquinas virtuales de los microservicios de la
+asignatura (o, para el caso, cualquier otra asignatura).
+
+</div>
+
+En esta sección hemos creado a mano la máquina virtual sobre la que
+vamos a trabajar. A continuación veremos como automatizar también este
+proceso, en el espíritu de *infraestructura como código*.
 
 Orquestación de máquinas virtuales
 ---------------
@@ -592,6 +679,10 @@ seguir aprendiendo sobre DevOps en [el blog](https://devops.com/) o
 [*DevOps for Developers*](https://www.amazon.es/dp/B009D6ZB0G?tag=atalaya-21&camp=3634&creative=24822&linkCode=as4&creativeASIN=B009D6ZB0G&adid=0PB61Y2QD9K49W3EP8MN&)
 pueden ser también de ayuda.
 
+Este capítulo es suficientemente extenso para necesitar varios hitos
+del proyecto. Tras terminar la sección sobre Ansible, se va a [la
+práctica de provisionamiento](../proyecto/6.Provision).
+
 Si no lo has hecho ya, es hora de comenzar
-[la última práctica](../proyecto/5.IaaS). 
+[la última práctica](../proyecto/7.Final). 
 ​	
