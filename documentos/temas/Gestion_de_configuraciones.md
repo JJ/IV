@@ -156,16 +156,13 @@ Las principales alternativas a Chef son [Ansible](https://www.ansible.com),
 aunque los principales contendientes son
 [Puppet y Chef, sin que ninguno de los dos sea perfecto](https://www.infoworld.com/article/2614204/puppet-or-chef--the-configuration-management-dilemma.html). 
 
-> Este [tema](Provision.md) se extiende un poco más, sobre todo
-> tratando con Salt, que puedes usar si lo consideras conveniente.
-
-De todas ellas, vamos a
-[ver Ansible](https://davidwinter.dev/introduction-to-ansible/)
-que parece ser uno de los que se está desarrollando con más intensidad
-últimamente. [Ansible es](https://en.wikipedia.org/wiki/Ansible_%28software%29)
-sistema de gestión remota de configuración que permite gestionar
+De todas ellas, vamos
+a [ver Ansible](https://davidwinter.dev/introduction-to-ansible/) que
+parece ser uno de los que se está desarrollando con más intensidad
+últimamente. [Ansible es](https://en.wikipedia.org/wiki/Ansible_%28software%29) sistema
+de gestión remota de configuración que permite gestionar
 simultáneamente miles de sistemas diferentes. Está basado en YAML para
-la descripción de los sistemas y escrito en Python. 
+la descripción de los sistemas y escrito en Python.
 
 Se puede instalar como un módulo de Python, usando por ejemplo la utilidad de
 instalación de módulos `pip` (que habrá que instalar si no se tiene);
@@ -176,14 +173,7 @@ sudo apt-add-repository ppa:ansible/ansible
 sudo apt-get install ansible
 ```
 
-El resto de las utilidades son también necesarias y en realidad se
-instalan automáticamente al instalar Ansible. Estas utilidades se
-tienen que instalar *en el anfitrión*, no hace falta instalarlas en el
-invitado, que lo único que necesitará, en principio, es tener activada
-la conexión por ssh y tener una cuenta válida y forma válida de
-acceder a ella. 
-
-Ansible va a necesitar tres ficheros para trabajar
+Ansible va a necesitar tres ficheros para provisionar una máquina virtual.
 * Un fichero de configuración general, que se suele llamar `ansible.cfg`
 * Un fichero de configuración específica de los *hosts* con los que se va a trabajar o inventario , que habitualmente se llama `ansible_hosts`.
 * Una o varias recetas o *playbooks* que indican qué se va a instalar, y declara el estado en el que se debe encontrar el sistema al final. 
