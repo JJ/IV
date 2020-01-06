@@ -674,5 +674,5 @@ del proyecto. Tras terminar la sección sobre Ansible, se va a [la
 práctica de provisionamiento](../proyecto/6.Provision).
 
 Si no lo has hecho ya, es hora de comenzar
-[la última práctica](../proyecto/5.IaaS). 
+[la última práctica](../proyecto/7.Final). 
 ​	
