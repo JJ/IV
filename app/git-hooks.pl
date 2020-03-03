@@ -14,9 +14,12 @@ EOT
 
 POST_COMMIT {
   my ($git) = @_;
-  my $branch =  $git->command(qw/rev-parse --abbrev-ref HEAD/);
-  if ( $branch =~ /master/ ) {
-    my $changed = $git->command(qw/show --name-status/);
+  my $get_branch =  $git->command(qw/rev-parse --abbrev-ref HEAD/);
+  my $branch = $get_branch->final_output;
+  say "Branch ", $branch;
+  if ( $branch =~ /^master/ ) {
+    my $get_changed = $git->command(qw/show --name-status/);
+    my $changed = $get_changed->final_output;
     my @changed_files = ($changed =~ /\s\w\s+(\S+)/g);
     my @mds = grep ( /\.md/, @changed_files );
     #Now change branch and process
@@ -26,6 +29,7 @@ POST_COMMIT {
       $git->command( 'checkout', 'master', '--', $f );
       my $file_content = read_file( $f );
       $file_content =~ s/(?<!README)\.md\)/\)/g; # Change links
+      $file_content =~ s/(proyectos.hito-\d)/$1.md/g; # Reset links to repo
       if ( $f =~ /practicas/ ) {
 	  $file_content =~ s{/(\d)}{/$1.md}g; # Change back for links to prácticas
       }

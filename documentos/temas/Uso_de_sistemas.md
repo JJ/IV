@@ -25,7 +25,7 @@ proceso de datos virtual.
 ## Introducción
 
 El objetivo de las plataformas de virtualización es, eventualmente,
-crear y gestionar una máquina virtual completa que funcione de forma aislada 
+crear y gestionar máquinas virtual completas que funcione de forma aislada 
 del resto del sistema y que permita trabajar con sistemas
 virtualizados de forma flexible, escalable y adaptada a cualquier
 objetivo. Eventualmente, el objetivo de este este tema es aprender a
@@ -52,7 +52,7 @@ y en todo caso la distinción es más académica que funcional; en la
 práctica, en la mayoría de los casos nos vamos a encontrar con
 hipervisores alojados que se ejecutan desde un sistema operativo.
 
-![Ilustración de los dos tipos de hipervisores (alojada en la Wikipedia)](http://upload.wikimedia.org/wikipedia/commons/e/e1/Hyperviseur.png)
+![Ilustración de los dos tipos de hipervisores (alojada en la Wikipedia)](https://upload.wikimedia.org/wikipedia/commons/e/e1/Hyperviseur.png)
 
 Para apoyar la virtualización, casi todos los procesadores actuales y
 especialmente [los de las líneas más populares basadas en la arquitectura x86 tienen una serie de instrucciones que permiten usarla de manera segura y eficiente](https://en.wikipedia.org/wiki/X86_virtualization). Esta
@@ -160,7 +160,7 @@ Linux o BSD. Si se
 quieren distribuciones que ocupen poco espacio con el objetivo
 principalmente de hacer pruebas se puede usar
 [CoreOS](https://coreos.com/) (que sirve como soporte para Docker)
-[GALPon Minino](http://minino.galpon.org/en), hecha en Galicia para el
+[GALPon Minino](https://minino.galpon.org/en), hecha en Galicia para el
 mundo,
 [Damn Small Linux](http://www.damnsmalllinux.org/download.html),
 [SliTaz](http://www.slitaz.org/en/) (que cabe en 35 megas) y
@@ -174,7 +174,7 @@ Parallels.
 
 <div class='nota' markdown='1'>
 
-En [esta guía](http://www.dedoimedo.com/computers/kvm-intro.html) se
+En [esta guía](https://www.dedoimedo.com/computers/kvm-intro.html) se
 explica cómo trabajar con KVM usando VMM, o *virtual machine manager*,
 una herramienta gráfica que trabaja sobre KVM
 
@@ -226,80 +226,6 @@ LXDE a la que se pueda acceder mediante VNC y `ssh`.
 
 </div>
 
-## Trabajando con máquinas virtuales en la nube
-
-Azure permite,
-[tras la creación de almacenamiento virtual](Almacenamiento.md), la
-creación de máquinas virtuales, como es natural. Se puede crear una
-máquina virtual desde el panel de control, pero también desde
-la [línea de órdenes](https://github.com/WindowsAzure/azure-sdk-tools-xplat). Primero
-hay que saber qué imágenes hay disponibles:
-
-	azure vm image list
-
-Por ejemplo, se puede escoger la imagen
-`b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu_DAILY_BUILD-trusty-14_04-LTS-amd64-server-20131221-en-us-30GB`
-de la última versión de Ubuntu (para salir dentro de cuatro meses) o
-alguna más probada como la
-`b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131215-en-us-30GB`
-Con
-
-```
-azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131215-en-us-30GB
-```
-
-nos muestra detalles sobre la imagen; entre otras cosas dónde está
-disponible y sobre si es Premium o no (en este caso no lo es). Con
-esta (o con otra) podemos crear una máquina virtual
-
-```
-azure vm create peasomaquina b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131215-en-us-30GB peasousuario PeasoD2clav= --location "West Europe" --ssh
-```
-
-En esta clave tenemos que asignar un nombre de máquina (que se
-convertirá en un nombre de dominio `peasomaquina.cloudapp.net`, un
-nombre de usuario (como `peasousuario`) que será el superusuario de la
-máquina, una clave como `PeasoD2clav=` que debe incluir mayúsculas,
-minúsculas, números y caracteres especiales (no uséis esta, hombre),
-una localización que en nuestro caso, para producción, será
-conveniente que sea *West Europa* pero que para probar podéis
-llevárosla a la localización exótica que queráis y, finalmente, para
-poder acceder a ella mediante ssh, la última opción, si no no tengo
-muy claro cómo se podrá acceder. Una vez hecho esto, conviene que se
-cree un par clave pública/privada y se copie al mismo para poder
-acceder fácilmente.
-
-La máquina todavía no está funcionando. Con `azure vm list` nos
-muestra las máquinas virtuales que tenemos y el nombre que se le ha
-asignado y finalmente con `azure vm start` se arranca la máquina y
-podemos conectarnos con ella usando `ssh` Una de las primeras cosas
-que hay que hacer cuando se arranque es actualizar el sistema para
-evitar problemas de seguridad. A partir de ahí, podemos instalar lo
-que queramos. El arranque tarda cierto tiempo y dependerá de la
-disponibilidad de recursos; evidentemente, mientras no esté arrancada
-no se puede usar, pero conviene de todas formas apagarla con 
-
-	azure vm shutdown maquina
-	
-cuando terminemos la sesión y no sea necesaria, sobre todo porque,
-dado que se pagan por tiempo de uso, se puede incurrir en costes
-innecesarios. 
-
-<div class='ejercicios' markdown='1'>
-
-Crear una máquina virtual ubuntu e instalar en ella alguno de los
-servicios que estamos usando en el proyecto de la asignatura.
-
-</div>
-
-
-Trabajar con estas máquinas virtuales como se tratara de máquinas
-reales no tiene mucho sentido. El uso de infraestructuras virtuales,
-precisamente, lo que permite es automatizar la creación y
-provisionamiento de las mismas de forma que se puedan crear y
-configurar máquinas en instantes y personalizarlas de forma
-masiva. Veremos como hacerlo en el
-[siguiente tema](Gestion_de_configuraciones). 
 
 ## Automatizando la creación de máquinas virtuales
 
@@ -398,6 +324,7 @@ pero no se encuentran en las últimas versiones disponibles en los
 repositorios. 
 
 </div>
+
 
 ## A dónde ir desde aquí
 

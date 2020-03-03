@@ -10,7 +10,7 @@ use v5.16;
 my $dir = shift || ".";
 my $previo = shift || "IV-17-18";
 
-for my $d ( qw( objetivos proyectos sesiones ) ) {
+for my $d ( qw( objetivos proyectos sesiones) ) {
     eval {
 	mkdir("$dir/$d");
     };
@@ -20,6 +20,7 @@ for my $d ( qw( objetivos proyectos sesiones ) ) {
     move( 'README.md', "$dir/$d/" ) || die "Can't write file";
 }
 
-for my $f ( qw (.gitignore LICENSE Metodología_y_criterios_de_evaluación.md README.md)) {
+mkdir("$dir/t");
+for my $f ( qw (.travis.yml .gitignore LICENSE Metodología_y_criterios_de_evaluación.md README.md cpanfile) ) {
     `wget  --backups=1 https://raw.githubusercontent.com/JJ/$previo/master/$f`;
 }

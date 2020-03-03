@@ -1,0 +1,7 @@
+---
+- hosts: vagrantboxes
+  become: yes
+  tasks:
+    - name: Instala paquetes
+      apt:
+        pkg: ['curl', 'build-essential', 'libssl-dev', 'nodejs', 'npm']

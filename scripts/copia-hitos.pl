@@ -5,7 +5,7 @@ use warnings;
 use File::Slurper qw(read_lines);
 
 use v5.14;
-
+binmode(STDOUT, ":utf8");
 my $file_name = shift || "hito-0.md";
 
 my @lines = read_lines($file_name);
