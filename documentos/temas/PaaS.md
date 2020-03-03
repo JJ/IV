@@ -355,6 +355,170 @@ incluya variables como en el caso anterior.
 
 </div>
 
+## Creando un bot de Telegram para Heroku
+
+Otro ejemplo de aplicación, usando en este caso Python 3.7, es un bot de telegram. Un bot es un asistente, generalmente conversacional, que nos ayudará en nuestras tareas del día a día. La aplicación de mensajería Telegram permite obtener TOKENS para crear bots para su aplicación, y a lo largo de los años se han creado librerías específicas para este fin, así que al final han aparecido [muchos bots libres](https://github.com/python-telegram-bot/python-telegram-bot/wiki/Examples) que pueden usarse de forma individual o en grupos. Irónicamente, para crear uno de estos bots, lo primero que tenemos que hacer es hablar con un bot de Telegram, [BotFather](https://telegram.me/botfather). Para ello, tenemos que escribir en la conversación el comendo `/newbot`, y tras responder a sus preguntas para la configuración básica del nombre, nos devolverá un **token**. Este token nos servirá para enlazar el código del bot a la aplicación de Telegram. Una vez tenemos el **token**, nos toca ponernos manos a la obra con el código del bot, que más tarde desplegaremos con Heroku. Para ello, usaremos [una librería de python](https://python-telegram-bot.readthedocs.io/en/latest/index.html). Como necesitaremos un Dockerfile y un requirements para luego desplegarlo en condiciones, lo montaremos todo en un directorio para tenerlo ordenado. 
+
+```
+$ mkdir mibot; cd mibot
+```
+
+Con nuestro editor de código favorito crearemos y editaremos un archivo `bot.py` en esta carpeta. ¡Ojo! Vamos a usar **Python 3**, lo cual es recomendable en general. Para empezar haremos un bot eco, que nos devuelva el mismo mensaje que nosotros le hemos mandado. Observemos los imports:
+
+```
+import logging
+import os
+import sys
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+
+```
+Vamos a comentar un poco las librerias que hemos añadido. Las librerías `os` y `sys` nos permiten manejar cuestiones básicas a bajo nivel, mientras que `logging` nos permite guardar logs de la interacción con el bot y mostrarlos por la terminal. Los módulos importados de `telegram.ext` nos permiten manipular y enviar mensajes. Antes mencionábamos que se pueden guardar y revisar logs. Vamos a activar esta opción:
+
+```
+# Enabling logging
+logging.basicConfig(level=logging.INFO,
+                    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+logger = logging.getLogger()
+
+```
+A continuación viene una parte importante. Es recomendable que algunas variables delicadas las guardemos en el apartado _Settings_ de Heroku, en lugar de ponerlas en plano en nuestro código. Por ello, para recuperarlas en la ejecución usaremos:
+
+```
+mode = os.getenv("MODE")
+TOKEN = os.getenv("TOKEN")
+
+```
+
+Luego explicaremos dónde colocar esas variables. La primera nos permite ver el modo de ejecución, en el ejemplo usaremos "dev" de developer, y TOKEN es el **token** que no sha facilitado _BotFtaher_. 
+
+```
+if mode == "dev":
+    def run(updater):
+        updater.start_polling()
+elif mode == "prod":
+    def run(updater):
+        PORT = int(os.environ.get("PORT", "8443"))
+        HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME")
+        # Code from https://github.com/python-telegram-bot/python-telegram-bot/wiki/Webhooks#heroku
+        updater.start_webhook(listen="0.0.0.0",
+                              port=PORT,
+                              url_path=TOKEN)
+        updater.bot.set_webhook("https://{}.herokuapp.com/{}".format(HEROKU_APP_NAME, TOKEN))
+else:
+    logger.error("No MODE specified!")
+    sys.exit(1)
+
+```
+De este modo podemos tener un adecuado control de la versión (desarrollo o producción) de nuestro bot, y un mejor control de su seguridad. Bien, ahora podemos pasar a definir los comandos. Como su nombre indica, esta función nos va a permitir activar determinadas funciones de nuestro bot. La función de inicio por defecto en la mayoría de los bots es `/start` que generalmente es un saludo, ayuda o algo similar. Empecemos por ahí, pues. 
+
+```
+def start(update, context):
+    logging.info("User started bot {}".format(update.message.from_user.first_name))
+    context.bot.send_message(chat_id=update.message.chat_id, text="Hi there, {}".format(update.message.from_user.first_name))
+    context.bot.send_message(chat_id=update.message.chat_id, text="What's up.")
+
+```
+Para darle algo de vidilla a nuestro bot, le he añadido una función especial, un saludo personalizado. AL usar `update.message.from_user.first_name` nos devuelve el nombre del usuario, de modo que el saludo (que se envía con `context.bot.send_message`) queda mucho más personal. Como podemos comprobar, el uso de mensajes funciona a través de los parámetros fundamentales: `update` y  `context`, que como sus nombres indican, van **actualizando** el **contenido** de la conversación. Vale, ya tenemos el comando principal. Vamos a crear ahora nuestra función especial, para hacernos eco.
+
+```
+def echo(update, context):
+    update.message.reply_text(update.message.text)
+
+```
+
+En esta ocasión lo único que hace es coger el mensaje del usuario (`update.message.text`) y reenviarlo. Creemos ahora nuestro `main` para poder poner todo en marcha una vez despleguemos el bot. 
+
+```
+if __name__ == '__main__':
+    logger.info("Bot started")
+
+    updater = Updater(token=TOKEN, use_context=True)
+
+    # ADD dispatcher with command handler
+    dispatcher = updater.dispatcher
+    logger.info("working untill here")
+    start_handler = CommandHandler('start', start)
+    dispatcher.add_handler(start_handler)
+    dispatcher.add_handler(MessageHandler(Filters.text, echo))
+    logger.info(dispatcher.add_handler(start_handler))
+
+run(updater)
+```
+Ahora es el momento de configurar los logs para ir viendo lo que ocurre en el despliegue y ejecución de nuestro bot. Cada vez que usamos `logger.` estamos guardando logs. Por otro lado, `dispatcher` nos permite controlar los mensajes y las funciones que hemos creado (en nuestro caso `start` y `echo`) para que funcionen cuando deban. Para que el despliegue (en la siguiente sección) funcione como debe, crearemos un `Dockerfile` y un `requirements.txt` que iremos ampliando. Echemos un vistazo al `Dockerfile`.
+
+```
+ROM python:3.7
+
+RUN mkdir /app
+ADD . /app
+WORKDIR /app
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+CMD python /app/bot.py
+
+```
+
+En este archivo (que usamos porque vamos a desplegar en Heroku con docker) indicamos que usaremos python 3.7, y que todo se desplegará en una carpeta que se creará llamada `/app`. También le indicamos que instale todo lo necesario que indiquemos en `requirements.txt`, que vamos a examinar a continuación:
+
+```
+python-telegram-bot==12.0.0
+
+```
+
+Por ahora nuestro `requirements.txt` es muy simple, solo necesita la librería para crear bots de telegram. Si desplegásemos este bot con las indicaciones de la siguiente sección, tendríamos un echo. Hagámoslo un poco más divertido. Volvamos a `bot.py`, y analicemos la función `echo`. Vamos a cambiarla para hacer a nuestro bot un poco burlón.
+
+
+```
+def echo(update, context):
+	mensa = update.message.text
+	dic = 'aeou'
+	for i in dic:
+		mensa = mensa.replace(i, 'i')
+	context.bot.send_message(chat_id=update.message.chat_id, text=mensa)
+```
+Ahora, nuestro bot no repite literalmente el mensaje, si no que coje nuestro mensaje y cambia todas las vocales por "i" de modo que parece que se está burlando de nosotros. Vamos ahora a añadir algo más, para engordar el `requirements.txt` un poco. Digamos que queremos activar nuestro bot para que cifre con AES y una clave un mensaje que enviemos por conversación. Vamos a crear una nueva función llamada `reply`. Para ello importamos la librería adecuada.
+
+```
+...
+from Crypto.Cipher import AES
+...
+MYKEY = os.getenv("MYKEY")
+...
+def reply(update, context):
+	mensa = update.message.text
+	if "encrypt" in mensa:
+	    context.bot.send_message(chat_id=update.message.chat_id, text="Encrypting from the ':' ...")
+            mensa = mensa.split(':',1)
+            mensa = mensa[1]
+            obj = AES.new(MYKEY, AES.MODE_CFB, 'This is an IV456')
+            cifrado = obj.encrypt(mensa)
+            cifrado = str(cifrado)
+            context.bot.send_message(chat_id=update.message.chat_id, text=cifrado)
+```
+
+Vamos por partes. Para empezar, hemos incluído el módulo y la librería que necesitamos. A continuación hemos pillado otra variable que añadiremos en Heroku. Y finalmente hemos definido la función. En la función recuperamos el mensaje del usuario, de modo que se ha añadido la palabra "encrypt", por ejemplo: "encrypt this for me : Hello world" pillará la frase y la separará tomando como referencia el `:`, es decir nos quedará la siguiente lista: `{"encrypt this for me","Hello world"}`. Pero a nosotros sólo nos interesa lo que hay después del `:`, de modo que el mensaje que nos quedamos es `mensa[1]`. Creamos un objeto para cifrarlo, forzamos que éste mensaje sea un string y se lo devolvemos al usuario.
+
+Como hicimos antes, configuramos el `main` para añadir este último cambio:
+
+```
+...
+dispatcher.add_handler(MessageHandler(Filters.text, reply))
+...
+```
+Bien, ya tenemos el código listo, podemos pasar al `requirements.txt`. Debemos añadir la librería que hemos usado:
+
+```
+...
+pycrypto==2.6.1
+`` 
+
+Y ya está todo. Ya sólo nos queda desplegar y monitorizar, como veremos en la siguiente sección.
+
+
 ## Probando nuestra aplicación en la nube
 
 Porque esté en la nube no significa que no tengamos que testearla como cualquier hija de vecina. En este caso no vamos a usar tests unitarios, sino test funcionales (o como se llamen); de lo que se trata es que tenemos que levantar la web y que vaya todo medianamente bien.
@@ -641,6 +805,29 @@ También en OpenShift se puede desplegar automáticamente usando Travis,
 por ejemplo. De hecho, incluso en Heroku se puede trabajar también con
 Travis para el despliegue automático, aunque es mucho más simple
 hacerlo con Snap CI como se ha indicado más arriba.
+
+
+## Despliegue del bot de Telegram
+
+Para desplegar el bot de Telegram usaremos también Heroku, pero en este caso haremos uso también de Docker. Antes de nada, metamos las variables delicadas que comentábamos antes. Entramos en Heroku, creamos una nueva aplicación en python y le ponemos el nombre nuestro bot. A continuación vamos a **Settings** -> Config Vars -> Reveal Config Vars. Añadimos las siguientes variables:
+
+```
+HROKU_APP_NAME = miapp
+MODE = dev
+MYKEY = aquiunaclavede16
+TOKEN = nuestroToken
+```
+
+En las claves, HEROKU_APP_NAME tiene que coincidir con el nombre del bot. Para el modo, por ahora, usaremos developer. MYKEY es para generar claves AES, y debe tener un tamaño de 16, 24 o 32. Y finalmente TOKEN es donde pegaremos el token de Telegram. Volvamos a la terminal, y hacemos `heroku login` desde el directorio donde está nuestro proyecto.
+
+```
+$ heroku container: login
+$ heroku container: push --app mibot web
+$ heroku container:release -app mibot web
+$ heroku logs --tail --app miapp
+```
+
+Tras esto habremos desplegado la última `release` en desarrollo de nuestro bot, y podemos leer los logs para ver qué está suceciendo. Si escribimos comandos desde la conversación podemos observar como reacciona nuestro bot desde la terminal. Para probar, copia y pega en tu directorio [este ejemplo](enlacealbot).
 
 ## A dónde ir desde aquí
 
