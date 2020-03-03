@@ -514,7 +514,7 @@ Bien, ya tenemos el código listo, podemos pasar al `requirements.txt`. Debemos 
 ```
 ...
 pycrypto==2.6.1
-`` 
+``` 
 
 Y ya está todo. Ya sólo nos queda desplegar y monitorizar, como veremos en la siguiente sección.
 
