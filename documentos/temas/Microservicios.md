@@ -517,7 +517,9 @@ programa
 [anterior](https://github.com/JJ/tests-python/blob/master/HitosIV/hugitos.py)
 usando [Green Unicorn](https://gunicorn.org/)
 
-    gunicorn HitosIV.hugitos:__hug_wsgi__ --log-file -
+```
+gunicorn HitosIV.hugitos:__hug_wsgi__ --log-file -
+```
 
 (desde el directorio principal). A `gunicorn` se le pasa el nombre del
 módulo que va a ejecutar, y, separado por dos puntos, el nombre del
