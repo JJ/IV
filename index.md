@@ -3,7 +3,7 @@ layout: index
 
 
 ---
-# Material docente para Infraestructura Virtual
+# Material docente para la asignatura Infraestructura Virtual
 
 [![Build Status](https://travis-ci.org/JJ/IV.svg?branch=master)](https://travis-ci.org/JJ/IV)
 
@@ -18,7 +18,7 @@ Se recuerda a los alumnos que en todas las clases será necesario llevar el port
 
 
 Se usará
-[GitHub](http://github.com) para el proyecto cuyos hitos serán considerados "prácticas".
+[GitHub](http://github.com) para el proyecto; llamaremos *hitos* a cada una de las entregas que hay que hacer de este proyecto.
 
 Estos son los [objetivos de la asignatura](documentos/objetivos), cuyas sesiones de clase se irán reflejando en [un repositorio de GitHub; este es el de 2019-2020](https://github.com/JJ/IV-19-20).
 
