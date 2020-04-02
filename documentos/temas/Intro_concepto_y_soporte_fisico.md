@@ -503,6 +503,6 @@ Antes de continuar (y, de hecho, antes de empezar) es
 el temario se verá a
 continuación
 [los ciclos de desarrollo modernos usando desarrollo basado en pruebas, *test-driven development*, TDD](Desarrollo_basado_en_pruebas.md),
-pero se puede salar directamente
+pero se puede saltar directamente
 al [tema dedicado a las plataformas como servicio](PaaS.md) veremos
 como usarlos. Previamente habrá que [realizar la práctica correspondiente a esta materia](../proyecto/0.Repositorio.md).
