@@ -199,7 +199,7 @@ En
 
 ## Creando un bot de Telegram para Heroku
 
-Otro ejemplo de aplicación, usando en este caso Python 3.7, es un bot de telegram. Un bot es un asistente, generalmente conversacional, que nos ayudará en nuestras tareas del día a día. La aplicación de mensajería Telegram permite obtener TOKENS para crear bots para su aplicación, y a lo largo de los años se han creado librerías específicas para este fin, así que al final han aparecido [muchos bots libres](https://github.com/python-telegram-bot/python-telegram-bot/wiki/Examples) que pueden usarse de forma individual o en grupos. Irónicamente, para crear uno de estos bots, lo primero que tenemos que hacer es hablar con un bot de Telegram, [BotFather](https://telegram.me/botfather). Para ello, tenemos que escribir en la conversación el comendo `/newbot`, y tras responder a sus preguntas para la configuración básica del nombre, nos devolverá un **token**. Este token nos servirá para enlazar el código del bot a la aplicación de Telegram. Una vez tenemos el **token**, nos toca ponernos manos a la obra con el código del bot, que más tarde desplegaremos con Heroku. Para ello, usaremos [una librería de python](https://python-telegram-bot.readthedocs.io/en/latest/index.html). Como necesitaremos un Dockerfile y un requirements para luego desplegarlo en condiciones, lo montaremos todo en un directorio para tenerlo ordenado. 
+Otro ejemplo de aplicación, usando en este caso Python 3.7, es un bot de telegram. Un bot es un asistente, generalmente conversacional, que nos ayudará en nuestras tareas del día a día. La aplicación de mensajería Telegram permite obtener TOKENS para crear bots para su aplicación, y a lo largo de los años se han creado librerías específicas para este fin, así que al final han aparecido [muchos bots libres](https://github.com/python-telegram-bot/python-telegram-bot/wiki/Examples) que pueden usarse de forma individual o en grupos. Irónicamente, para crear uno de estos bots, lo primero que tenemos que hacer es hablar con un bot de Telegram, [BotFather](https://telegram.me/botfather). Para ello, tenemos que escribir en la conversación el comando `/newbot`, y tras responder a sus preguntas para la configuración básica del nombre, nos devolverá un **token**. Este token nos servirá para enlazar el código del bot a la aplicación de Telegram. Una vez tenemos el **token**, nos toca ponernos manos a la obra con el código del bot, que más tarde desplegaremos con Heroku. Para ello, usaremos [una librería de python](https://python-telegram-bot.readthedocs.io/en/latest/index.html). Como necesitaremos un Dockerfile y un `requirements` para luego desplegarlo en condiciones, lo montaremos todo en un directorio para tenerlo ordenado. 
 
 ```
 $ mkdir mibot; cd mibot
@@ -214,7 +214,7 @@ import sys
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 ```
-Vamos a comentar un poco las librerias que hemos añadido. Las librerías `os` y `sys` nos permiten manejar cuestiones básicas a bajo nivel, mientras que `logging` nos permite guardar logs de la interacción con el bot y mostrarlos por la terminal. Los módulos importados de `telegram.ext` nos permiten manipular y enviar mensajes. Antes mencionábamos que se pueden guardar y revisar logs. Vamos a activar esta opción:
+Vamos a comentar un poco las librerías que hemos añadido. Las librerías `os` y `sys` nos permiten manejar cuestiones básicas a bajo nivel, mientras que `logging` nos permite guardar logs de la interacción con el bot y mostrarlos por la terminal. Los módulos importados de `telegram.ext` nos permiten manipular y enviar mensajes. Antes mencionábamos que se pueden guardar y revisar logs. Vamos a activar esta opción:
 
 ```
 # Enabling logging
@@ -322,7 +322,7 @@ def echo(update, context):
 		mensa = mensa.replace(i, 'i')
 	context.bot.send_message(chat_id=update.message.chat_id, text=mensa)
 ```
-Ahora, nuestro bot no repite literalmente el mensaje, sino que coje nuestro mensaje y cambia todas las vocales por "i" de modo que parece que se está burlando de nosotros. Vamos ahora a añadir algo más, para engordar el `requirements.txt` un poco. Digamos que queremos activar nuestro bot para que cifre con AES y una clave un mensaje que enviemos por conversación. Vamos a crear una nueva función llamada `reply`. Para ello importamos la librería adecuada.
+Ahora, nuestro bot no repite literalmente el mensaje, sino que coge nuestro mensaje y cambia todas las vocales por "i" de modo que parece que se está burlando de nosotros. Vamos ahora a añadir algo más, para engordar el `requirements.txt` un poco. Digamos que queremos activar nuestro bot para que cifre con AES y una clave un mensaje que enviemos por conversación. Vamos a crear una nueva función llamada `reply`. Para ello importamos la librería adecuada.
 
 ```
 ...
@@ -342,7 +342,7 @@ def reply(update, context):
             context.bot.send_message(chat_id=update.message.chat_id, text=cifrado)
 ```
 
-Vamos por partes. Para empezar, hemos incluído el módulo y la librería que necesitamos. A continuación hemos pillado otra variable que añadiremos en Heroku. Y finalmente hemos definido la función. En la función recuperamos el mensaje del usuario, de modo que se ha añadido la palabra "encrypt", por ejemplo: "encrypt this for me : Hello world" pillará la frase y la separará tomando como referencia el `:`, es decir nos quedará la siguiente lista: `{"encrypt this for me","Hello world"}`. Pero a nosotros sólo nos interesa lo que hay después del `:`, de modo que el mensaje que nos quedamos es `mensa[1]`. Creamos un objeto para cifrarlo, forzamos que éste mensaje sea un string y se lo devolvemos al usuario.
+Vamos por partes. Para empezar, hemos incluido el módulo y la librería que necesitamos. A continuación hemos pillado otra variable que añadiremos en Heroku. Y finalmente hemos definido la función. En la función recuperamos el mensaje del usuario, de modo que se ha añadido la palabra "encrypt", por ejemplo: "encrypt this for me : Hello world" pillará la frase y la separará tomando como referencia el `:`, es decir nos quedará la siguiente lista: `{"encrypt this for me","Hello world"}`. Pero a nosotros solo nos interesa lo que hay después del `:`, de modo que el mensaje que nos quedamos es `mensa[1]`. Creamos un objeto para cifrarlo, forzamos que éste mensaje sea un string y se lo devolvemos al usuario.
 
 Como hicimos antes, configuramos el `main` para añadir este último cambio:
 
@@ -358,7 +358,7 @@ Bien, ya tenemos el código listo, podemos pasar al `requirements.txt`. Debemos 
 pycrypto==2.6.1
 ``` 
 
-Y ya está todo. Ya sólo nos queda desplegar y monitorizar, como veremos en la siguiente sección.
+Y ya está todo. Ya solo nos queda desplegar y monitorizar, como veremos en la siguiente sección.
 
 
 ## Desplegando en el PaaS
@@ -482,7 +482,7 @@ izquierda. La clave `scripts` de `package.json` contiene una serie de
 tareas o procesos que se pueden comenzar; en ese sentido, la
 funcionalidad se solapa con el `Gruntfile` que se ha visto
 anteriormente, sin embargo y como se ha visto en el hito anterior,
-aconsejamos vivamente tener todas las tareas centralizadas en un sólo
+aconsejamos vivamente tener todas las tareas centralizadas en un solo
 sistema de lanzamiento de tareas.
 
 >Siempre hay más de una manera de hacer las cosas.
@@ -618,7 +618,7 @@ $ heroku container:release -app mibot web
 $ heroku logs --tail --app miapp
 ```
 
-Tras esto habremos desplegado la última `release` en desarrollo de nuestro bot, y podemos leer los logs para ver qué está suceciendo. Si escribimos comandos desde la conversación podemos observar como reacciona nuestro bot desde la terminal. Para probar, copia y pega en tu directorio [este ejemplo](enlacealbot).
+Tras esto habremos desplegado la última `release` en desarrollo de nuestro bot, y podemos leer los logs para ver qué está sucediendo. Si escribimos comandos desde la conversación podemos observar como reacciona nuestro bot desde la terminal. Para probar, copia y pega en tu directorio [este ejemplo](enlacealbot).
 
 ## A dónde ir desde aquí
 
