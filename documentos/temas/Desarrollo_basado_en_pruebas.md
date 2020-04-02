@@ -854,7 +854,7 @@ ordenador, en un servidor propio en la nube o en [algún servicio en la nube](ht
 la nube. Hay otros muchos, como Circle-CI o AppVeyor, y todos ellos
 tienen servicios gratuitos para proyectos open source.
 
-Los sitios de alojamiento de git como Gitlab o Github tienen también
+Los sitios de alojamiento de git como GitLab o GitHub tienen también
 un sistema de acciones o *ganchos* que se ejecutan cada vez que sucede
 algún evento en el sistema. Como estas acciones son más amplias,
 engloban integración continua y se puede, por tanto, incluir en el
