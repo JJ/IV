@@ -97,8 +97,7 @@ que respete nuestro software, y como tales deben de ser previas a la
 escritura del código en sí y del test. Es esencial entender
 perfectamente qué queremos que nuestro software haga, y hay diferentes
 formas de hacerlo, pero generalmente, en metodologías ágiles, tenemos
-que hacerlo mediante [*historias de
-usuario*](https://es.wikipedia.org/wiki/Historias_de_usuario),
+que hacerlo mediante [*historias de usuario*](https://es.wikipedia.org/wiki/Historias_de_usuario),
 narrativas de qué es lo que puede hacer un posible usuario y qué es lo
 que el usuario debería esperar. Estas historias de usuario se
 convertirán en *issues* del repositorio, cuyo cierre marcará que el
@@ -134,9 +133,7 @@ en
 [esta pequeña biblioteca que lee de un fichero en JSON los hitos de la asignatura](https://github.com/JJ/HitosIV) escrita
 en ese lenguaje, Go. La biblioteca
 tiene
-[dos funciones, una que devuelve un hito a partir de su ID y otra que
-te dice cuantos
-hay](https://github.com/JJ/HitosIV/blob/master/HitosIV.go).
+[dos funciones, una que devuelve un hito a partir de su ID y otra que te dice cuantos hay](https://github.com/JJ/HitosIV/blob/master/HitosIV.go).
 [Go](https://golang.org/) es
 un lenguaje que pretende evitar lo peor de C++ para crear un lenguaje
 concurrente, de sintaxis simple y con más seguridad; además, Go provee
@@ -309,21 +306,19 @@ faltan (en el momento que se lea este tema).
 ### Escribiendo tests en Javascript
 
 Go valora la simplicidad y además incluye de serie todo lo necesario
-para llevar a cabo los tests. Python, el lenguaje en el que sólo hay
+para llevar a cabo los tests. Python, el lenguaje en el que solo hay
 una buena forma de hacer las cosas, permite que se hagan las cosas de
 varias formas diferentes, e incluye en su biblioteca estándar una
 biblioteca de aserciones.
 
-. Hay
-[múltiples bibliotecas que se pueden
-usar](https://stackoverflow.com/questions/14294567/assertions-library-for-node-js);
-el [panorama de 2019 se presenta en este
-artículo](https://medium.com/welldone-software/an-overview-of-javascript-testing-in-2019-264e19514d0a). La
+Hay
+[múltiples bibliotecas que se pueden usar](https://stackoverflow.com/questions/14294567/assertions-library-for-node-js);
+el [panorama de 2019 se presenta en este artículo](https://medium.com/welldone-software/an-overview-of-javascript-testing-in-2019-264e19514d0a). La
 librería de aserciones [`assert`](https://nodejs.org/api/assert.html) 
 forma parte de la estándar de JS, pero hay otras como
-[Unexpected](http://unexpected.js.org/) o aserciones parte de marcos
+[`Unexpected`](http://unexpected.js.org/) o aserciones parte de marcos
 de tests más completos. Estos marcos de test incluyen [Chai](https://www.chaijs.com/), [Jasmine](https://jasmine.github.io/),
-[Must.js](https://github.com/moll/js-must) y [jest](https://jestjs.io/).
+[Must.js](https://github.com/moll/js-must) y [`jest`](https://jestjs.io/).
 
 
 Veamos el siguiente
