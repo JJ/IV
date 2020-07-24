@@ -13,12 +13,12 @@ del primer cuatrimestre del cuarto curso del Grado de Ingeniería
 Informática y optativa en otras ramas y en el Doble Grado de Informática
 y Matemáticas.
 
-La asignatura se imparte en el curso 2019-2020 en [la 3.3 los lunes de 9:30 a 11:30 y jueves de 9:30 a 11:30, y en la 1.5 los lunes de 11:30 a 13:30](http://etsiit.ugr.es/pages/calendario_academico/horarios-curso-20182019/horariosgii1819).
-Se recuerda a los alumnos que en todas las clases será necesario llevar el portátil, ya que son clases prácticas.
+La asignatura se imparte en el curso 2020-2021 en [la 3.3 los viernes de 9:15 a 11:15 y en la 3.7 los martes de 9:15 a 11:15 (clases de "prácticas"), y en la 1.5 los martes de 11:45 a 13:45](http://etsiit.ugr.es/pages/calendario_academico/horarioscurso20202021/horariosgii2021/!).
+Se recuerda a los estudiantes que en todas las clases será necesario llevar el portátil, ya que son clases prácticas.
 
 
 Se usará
-[GitHub](http://github.com) para el proyecto; llamaremos *hitos* a cada una de las entregas que hay que hacer de este proyecto.
+[GitHub](http://github.com) para el proyecto, la forma principal de examinar la asignatura; llamaremos *hitos* a cada una de las entregas que hay que hacer del mismo.
 
 Estos son los [objetivos de la asignatura](documentos/objetivos), cuyas sesiones de clase se irán reflejando en [un repositorio de GitHub; este es el de 2019-2020](https://github.com/JJ/IV-19-20).
 
