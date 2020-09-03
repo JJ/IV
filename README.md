@@ -9,7 +9,8 @@ Informática y optativa en otras ramas y en el Doble Grado de Informática
 y Matemáticas.
 
 La asignatura se imparte en el curso 2020-2021 en [la 3.3 los viernes de 9:15 a 11:15 y en la 3.7 los martes de 9:15 a 11:15 (clases de "prácticas"), y en la 1.5 los martes de 11:45 a 13:45](http://etsiit.ugr.es/pages/calendario_academico/horarioscurso20202021/horariosgii2021/!).
-Se recuerda a los estudiantes que en todas las clases será necesario llevar el portátil, ya que son clases prácticas.
+Se recuerda a los estudiantes que en todas las clases será necesario
+llevar el portátil, ya que son en realidad clases prácticas.
 
 
 Se usará
@@ -33,7 +34,11 @@ disponibles con una licencia libre. Los fuentes de los mismos están en
 [GitHub](http://github.com/JJ/IV). La
 [temporización de la asignatura y los objetivos de cada sesión figuran en la bitácora de clase](https://github.com/JJ/IV-19-20/blob/master/sesiones/README.md).
 
-1. [Introducción: conceptos y soporte físico](documentos/temas/Intro_concepto_y_soporte_fisico.md).
+1. [Introducción: conceptos y soporte físico](documentos/temas/Intro_concepto_y_soporte_fisico.md). Esta
+   introducción es *cultura general*; aunque conviene conocerlo, no es
+   imprescindible para llevar a cabo, en general, el proyecto de la
+   asignatura. Se aconseja vivamente, sin embargo, leerlo y llevar a
+   cabo los ejercicios de autoevaluación.
 2. [Iniciación a DevOps: desarrollo basado en pruebas](documentos/temas/Desarrollo_basado_en_pruebas.md).
 3. [Puesta en marcha de microservicios](documentos/temas/Microservicios.md).
 4. [Platform as a Service](documentos/temas/PaaS.md).

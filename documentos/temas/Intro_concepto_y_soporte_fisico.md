@@ -253,12 +253,7 @@ los mismos.
   necesarios se denominan *emuladores*; CygWin, por ejemplo,
   permite ejecutar aplicaciones de UNIX en Windows,
   aunque se tienen que recompilar.
-  Programas como [CDE](https://github.com/pgbovine/CDE/) en Linux
-  permiten empaquetar aplicaciones para que se ejecuten de forma
-  independiente en cualquier sistema operativo Linux, aunque hoy en
-  día sistemas de empaquetado mucho más modernos como Docker hacen que
-  CDE se haya quedado prácticamente obsoleto; sistemas más modernos,
-  como [FlatPak](http://docs.flatpak.org/en/latest/getting-started.html), permiten
+  Programas como [FlatPak](http://docs.flatpak.org/en/latest/getting-started.html), permiten
   empaquetar aplicaciones para que se ejecuten en cualquier
   distribución de Linux, empaquetando todas las dependencias en un
   solo fichero que, además, se puede distribuir desde la web, evitando
@@ -360,7 +355,7 @@ Alternativamente, se puede usar la orden `lscpu`, también presente en
 todos los Linux, para ver si las órdenes de virtualización están
 presentes. Como se
 indica
-[en este artículo](https://www.fosslinux.com/2484/how-to-install-virtual-machine-manager-kvm-in-manjaro-and-arch-linux.htm/),
+[en este artículo](https://www.fosslinux.com/2484/how-to-install-virtual-machine-manager-kvm-in-manjaro-and-arch-linux.htm),
 en Manjaro, ArchLinux y distros similares (y en realidad en todas), se
 puede usar:
 
@@ -433,7 +428,7 @@ capas anteriores
   como funciones de orden superior como conexión u
   orquestación. Evidentemente, empezó
   con
-  [Docker](https://blog.docker.com/2016/02/containers-as-a-service-caas/) pero
+  [Docker](https://www.docker.com/blog/containers-as-a-service-caas/) pero
   empresas
   como
   [Microsoft](https://azure.microsoft.com/es-es/services/kubernetes-service/) o
