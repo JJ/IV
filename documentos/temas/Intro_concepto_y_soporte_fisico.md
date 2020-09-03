@@ -194,7 +194,7 @@ Tecnológicamente la computación nube se basa en el proceso progresivo
       instalación tradicional, aunque eventualmente algunos negocios puedan optar, si tienen un uso intensivo y regular, en volver a ella.
 
 Todas estas ventajas hacen que,
-	  [ya en el año 2013, más de la mitad de los negocios americanos usan infraestructura virtual](https://www.forbes.com/sites/reuvencohen/2013/04/16/the-cloud-hits-the-mainstream-more-than-half-of-u-s-businesses-now-use-cloud-computing/).
+	  [ya en el año 2013, más de la mitad de los negocios americanos usaban infraestructura virtual](https://www.forbes.com/sites/reuvencohen/2013/04/16/the-cloud-hits-the-mainstream-more-than-half-of-u-s-businesses-now-use-cloud-computing/).
 
 <div class='ejercicios' markdown="1">
 Usando las tablas de precios de servicios de alojamiento en Internet
@@ -375,11 +375,9 @@ cambia el formato para que se pueda hacer `grep` (búsqueda)
 correctamente sobre él.
 
 <div class='ejercicios' markdown="1">
-1. Comprobar si el núcleo instalado en tu ordenador contiene este módulo
-del kernel usando la orden `kvm-ok`. Alternativamente (o además), usar `lscpu`
-como se indica arriba.
-
-2. Instalar un hipervisor para gestionar máquinas virtuales, que más adelante se podrá usar en pruebas y ejercicios.
+Instalar un hipervisor para gestionar máquinas virtuales, que más
+adelante se podrá usar en pruebas y ejercicios. Usar siempre que sea
+posible un hipervisor que sea software libre.
 </div>
 
 
@@ -462,11 +460,6 @@ En general, estos dos servicios necesitan a su vez de otros productos
 en la nube, especialmente definición de redes virtuales y diferentes
 tipos de almacenes de datos y de canales de comunicación entre ellos.
 
-<div class='ejercicios' markdown="1">
-1. Darse de alta en servicios de nube usando ofertas gratuitas o
-   cupones que pueda proporcionar el profesor.
-
-</div>
 
 Por otro lado, dependiendo de quién posea físicamente el centro de
 datos y lo administre, se suele hablar de nube pública o privada; los
