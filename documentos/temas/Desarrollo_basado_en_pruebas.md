@@ -545,9 +545,9 @@ Por eso desde hacer cierto tiempo se han venido usando *entornos
 virtuales de desarrollo* tales como:
 
 *  [virtualenv](https://virtualenv.pypa.io/en/latest/) o `pyenv` para Python,
-*  [nvm](https://github.com/creationix/nvm), [`n`](https://github.com/tj/n) y [nave](https://github.com/isaacs/nave) para node.js,
+*  [nvm](https://github.com/nvm-sh/nvm), [`n`](https://github.com/tj/n) y [nave](https://github.com/isaacs/nave) para node.js,
 *  [`phpenv` para, lo adivinaste, PHP](https://github.com/phpenv/phpenv),
-*  [rbenv](https://github.com/sstephenson/rbenv) y [RVM](https://rvm.io) para Ruby
+*  [rbenv](https://github.com/rbenv/rbenv) y [RVM](https://rvm.io) para Ruby
 *  y [plenv](https://github.com/tokuhirom/plenv) y [perlbrew](https://perlbrew.pl) para Perl.
 
 Generalmente, estos programas funcionan instalando binarios en
@@ -856,11 +856,16 @@ sí con las librerías del lenguaje de programación en el que está
 desarrollado.
 
 Un sistema bastante popular de integración continua es
-[Jenkins](https://jenkins.io/). Para usar Jenkins puedes instalarlo en tu propio
-ordenador, en un servidor propio en la nube o en [algún servicio en la nube](https://wiki.jenkins.io/display/JENKINS/Commercial+Support). Sin embargo, hay otros sistemas como [Travis](https://travis-ci.org) o
+[Jenkins](https://www.jenkins.io/). Para usar Jenkins puedes instalarlo en tu propio
+ordenador, en un servidor propio  o
+en [algún servicio en la nube tal como CloudBees](https://CloudBees.com). Sin embargo, hay otros sistemas como [Travis](https://travis-ci.org) o
 [Shippable](https://www.shippable.com/) que podemos usar también desde
 la nube. Hay otros muchos, como Circle-CI o AppVeyor, y todos ellos
-tienen servicios gratuitos para proyectos open source.
+tienen servicios gratuitos para proyectos open source. Las propias
+plataformas de hosting de fuentes tienen su propio sistema de
+integración
+continua: [GitHub Actions](https://github.com/features/actions)
+o [GitLab pipelines](https://docs.gitlab.com/ee/ci/pipelines/), por ejemplo.
 
 Los sitios de alojamiento de git como GitLab o GitHub tienen también
 un sistema de acciones o *ganchos* que se ejecutan cada vez que sucede
@@ -969,16 +974,16 @@ puede pasar a estudiar los
 Algunos recursos a los que puedes acceder desde la
 [Biblioteca de la UGR](https://biblioteca.ugr.es):
 
-- [DevOps: a software architect's perspective](https://bencore.ugr.es/iii/encore/record/C__Rb2526268__Sdevops__P0%2C2__Orightresult__X6;jsessionid=E36643C65032CABF72B40984567B5435?lang=spi&suite=pearl),
+- [DevOps: a software architect's perspective](https://granatensis.ugr.es/permalink/34CBUA_UGR/1p2iirq/alma991014008537904990),
   un libro en general teórico y "a vista de pájaro" de la creación de
   equipos de desarrollo y aplicaciones basadas en esa filosofía.
 
-- [DevOps for developers](https://bencore.ugr.es/iii/encore/record/C__Rb2516479__Sdevops__P0%2C9__Orightresult__X6;jsessionid=E36643C65032CABF72B40984567B5435?lang=spi&suite=pearl)
+- [DevOps for developers](https://granatensis.ugr.es/permalink/34CBUA_UGR/1p2iirq/alma991013959592104990)
   también con poco código, pero con una visión a más bajo nivel de
   cómo organizar y montar grupos DevOps.
 
 Esta
-[página](https://www.jedi.be/blog/2010/02/12/what-is-this-devops-thing-anyway/)
+[página](http://www.jedi.be/blog/2010/02/12/what-is-this-devops-thing-anyway/)
 lista una serie de recursos útiles, incluyendo blogs y canales de IRC,
 aparte de diferentes herramientas que deben estar en el carcaj del
 arquero DevOps, aunque la mayoría de los enlaces a estos están
