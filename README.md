@@ -29,10 +29,17 @@ En resumen, mi intención es que el estudiante al final de la asignatura sea cap
 Temario - Programa de la asignatura
 ------------------------------------------------------
 
+> Previo a la asignatura, es conveniente
+> que [consultes este curso](https://jj.github.io/curso-tdd), con
+> material suplementario a lo que se imparte en la asignatura.
+
 Los materiales de la asignatura están enlazados desde aquí y
 disponibles con una licencia libre. Los fuentes de los mismos están en
-[GitHub](http://github.com/JJ/IV). La
+[GitHub](http://github.com/JJ/IV). 
+<!-- actualizar a 2020 -->
+La
 [temporización de la asignatura y los objetivos de cada sesión figuran en la bitácora de clase](https://github.com/JJ/IV-19-20/blob/master/sesiones/README.md).
+
 
 1. [Introducción: conceptos y soporte físico](documentos/temas/Intro_concepto_y_soporte_fisico.md). Esta
    introducción es *cultura general*; aunque conviene conocerlo, no es
