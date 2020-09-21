@@ -39,7 +39,7 @@ virtualizados de forma flexible, escalable y adaptada a cualquier
 objetivo. Eventualmente, el objetivo de este este tema es aprender a
 crear
 [infraestructura como servicio tal como vimos en el primer tema](Intro_concepto_y_soporte_fisico). Para
-ello necesitamos configurar una serie de infraestucturas virtuales,
+ello necesitamos configurar una serie de infraestructuras virtuales,
 especialmente
 [almacenamiento](Almacenamiento).
 
