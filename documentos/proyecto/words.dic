@@ -1,4 +1,4 @@
-1298
+1339
 AMD
 API
 APIs
@@ -21,6 +21,7 @@ Arch
 ArchLinux
 Architecture
 Area
+Atom
 Atomic
 Autonomic
 Azure
@@ -37,6 +38,7 @@ Bill
 BlobService
 Block
 BlueMix
+Bluemix
 BotFather
 Box
 BridgeNetworkConnections
@@ -104,6 +106,7 @@ Digest
 Distributed
 Django
 Docker
+DockerHub
 Dockerfile
 Dockerfiles
 Document
@@ -131,6 +134,7 @@ Firebase
 Flamingo
 Flask
 FlatPak
+FlightPlan
 Foreman
 FreeBSD
 Functions
@@ -173,6 +177,7 @@ Infoautónomos
 Infrastructure
 Initiative
 Intel
+IoT
 Isos
 Ivy
 J
@@ -199,6 +204,7 @@ LTS
 LUN
 LXC
 LXDE
+LaTeX
 Language
 Link
 Linux
@@ -222,6 +228,7 @@ Manjaro
 Mark
 Math
 Maven
+McKenzie
 MediaWiki
 Merelo
 Microsoft
@@ -237,6 +244,7 @@ NAMES
 NBD
 NOOP
 NOT
+NetBeans
 Network
 Networks
 Nexenta
@@ -246,6 +254,7 @@ Nodester
 Now
 Number
 ODS
+OK
 OR
 OSD
 OSGi
@@ -263,6 +272,7 @@ Openshift
 Orquestacion
 Osasuna
 PATH
+PDF
 PEs
 PHP
 PI
@@ -272,8 +282,10 @@ PNG
 PORT
 PORTS
 PPA
+PR
 PRs
 PVG
+PaaS
 PaaS
 Pangolin
 Parallels
@@ -299,10 +311,12 @@ QEMU
 Quay
 RAM
 RBEnv
+README
 REPOSITORY
 REST
 RESTful
 RPM
+RST
 RSpec
 RVM
 RabbitMQ
@@ -347,6 +361,7 @@ Settings
 Sharing
 Shippable
 Should
+Slack
 SliTaz
 Small
 SmartOS
@@ -367,6 +382,7 @@ TAP
 TDD
 TOKENS
 Telegram
+Terraform
 Thrift
 Travis
 Try
@@ -392,6 +408,7 @@ VMM
 VMWare
 VNC
 VPN
+VSCode
 VT
 Vagrant
 VagrantBoxes
@@ -461,6 +478,7 @@ b
 ba
 back
 backend
+backoffice
 backports
 badge
 bare
@@ -495,6 +513,7 @@ build
 builder
 buildpack
 buildpacks
+buildtool
 buntu
 c
 callback
@@ -519,6 +538,7 @@ cifrarlo
 class
 cli
 client
+closes
 cloud
 cloudapp
 cluster
@@ -527,6 +547,7 @@ colocarles
 colorines
 com
 commit
+commits
 common
 communication
 compartimentalización
@@ -703,6 +724,7 @@ g
 garantiadata
 gateway
 gem
+geolocalización
 gestionables
 get
 gist
@@ -747,12 +769,12 @@ imagenes
 images
 img
 imports
+incluidlo
 inconsútil
 index
 indexarlos
 infraestructura
 infraestructuras
-infraestucturas
 infrastructure
 inicialización
 inicializado
@@ -764,9 +786,11 @@ inmersivo
 inspect
 install
 instalártelo
+instanciación
 instanciadas
 instanciar
 instanciarlas
+instancie
 int
 intel
 inter
@@ -860,6 +884,7 @@ media
 mediawiki
 megabytes
 memory
+mencionadlo
 merge
 merges
 metadata
@@ -876,6 +901,8 @@ microservices
 microservicio
 microservicios
 middleware
+milestone
+milestones
 milisegundos
 mini
 minificación
@@ -926,6 +953,7 @@ next
 nginx
 nic
 nick
+nicks
 nitrous
 noSQL
 node
@@ -956,10 +984,13 @@ opt
 optionalDependencies
 options
 order
+org
+org
 oriented
 origin
 orquestación
 orquestadores
+orquestarlos
 osd
 otrotaper
 output
@@ -968,6 +999,7 @@ owner
 p
 pack
 package
+pages
 paraiv
 paramiko
 params
@@ -1010,6 +1042,7 @@ postgres
 pre
 preinstalado
 prepago
+prerrequisito
 prerrequisitos
 present
 prev
@@ -1077,6 +1110,7 @@ redis
 redisURL
 rediseñar
 redislabs
+reenvíos
 reescritura
 refactorizarlo
 referencial
@@ -1105,9 +1139,11 @@ rm
 root
 roster
 router
+rst
 ruby
 rubygems
 run
+runner
 running
 ránking
 s
@@ -1174,6 +1210,7 @@ static
 status
 stop
 storage
+streaming
 strict
 string
 strip
@@ -1181,6 +1218,7 @@ subcomando
 subdirectorio
 subdirectorios
 subgrupos
+subobjetivos
 subred
 subsistema
 subsistemas
@@ -1197,6 +1235,7 @@ síncrona
 t
 tag
 taper
+taperizando
 target
 task
 tasks
@@ -1287,6 +1326,7 @@ www
 x
 xfs
 xplat
+xxx
 yarn
 year
 yet
@@ -1297,43 +1337,3 @@ zeit
 zipi
 zuuz
 π
-NetBeans
-commits
-org
-rst
-README
-pages
-streaming
-geolocalización
-IoT
-McKenzie
-milestone
-closes
-PDF
-LaTeX
-Slack
-prerrequisito
-subobjetivos
-PR
-OK
-buildtool
-backoffice
-PaaS
-taperizando
-orquestarlos
-Bluemix
-DockerHub
-mencionadlo
-instanciación
-instancie
-RST
-org
-Terraform
-FlightPlan
-incluidlo
-reenvíos
-nicks
-VSCode
-Atom
-xxx
-runner
