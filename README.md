@@ -8,7 +8,8 @@ del primer cuatrimestre del cuarto curso del Grado de Ingeniería
 Informática y optativa en otras ramas y en el Doble Grado de Informática
 y Matemáticas.
 
-La asignatura se imparte en el curso 2020-2021 en [la 3.3 los viernes de 9:15 a 11:15 y en la 3.7 los martes de 9:15 a 11:15 (clases de "prácticas"), y en la 1.5 los martes de 11:45 a 13:45](http://etsiit.ugr.es/pages/calendario_academico/horarioscurso20202021/horariosgii2021/!).
+La asignatura se imparte en el curso 2020-2021
+en [la 3.3 los viernes y en la 3.7 los martes de 9:30 a 11:30  (clases de "prácticas"), y en la 1.5 los martes de 11:30 a 13:30](http://etsiit.ugr.es/pages/calendario_academico/horarioscurso20202021/horariosgii2021/!).
 Se recuerda a los estudiantes que en todas las clases será necesario
 llevar el portátil, ya que son en realidad clases prácticas.
 
@@ -36,9 +37,10 @@ Temario - Programa de la asignatura
 Los materiales de la asignatura están enlazados desde aquí y
 disponibles con una licencia libre. Los fuentes de los mismos están en
 [GitHub](http://github.com/JJ/IV). 
-<!-- actualizar a 2020 -->
+
 La
-[temporización de la asignatura y los objetivos de cada sesión figuran en la bitácora de clase](https://github.com/JJ/IV-19-20/blob/master/sesiones/README.md).
+[temporización de la asignatura y los objetivos de cada sesión figuran en la bitácora de clase](https://github.com/JJ/IV-20-21/blob/master/sesiones/README.md). Enlazaremos
+también en ese fichero las grabaciones que se hagan de las sesiones en vivo.
 
 
 1. [Introducción: conceptos y soporte físico](documentos/temas/Intro_concepto_y_soporte_fisico.md). Esta
