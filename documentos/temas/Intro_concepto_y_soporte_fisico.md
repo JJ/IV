@@ -72,7 +72,7 @@ acceder *bajo demanda*, que es *escalable* y que, desde el punto de
 vista del usuario, se *facture según uso*, no por el hecho de tener acceso.
 
 El [origen de la palabra](https://en.wikipedia.org/wiki/Cloud_computing#History) viene de la tradicional representación de recursos
-  en la red como una nube en ilustraciones.
+  en la red como una nube en diferentes ilustraciones.
 
 <div class='ejercicios' markdown='1'>
 Consultar en el catálogo de alguna tienda de informática el precio de
@@ -297,7 +297,8 @@ En general, en esta asignatura hablaremos, sobre todo, de
 virtualización plena, aunque en realidad lo interesante de la
 infraestructura virtual es poder definir por software los recursos que
 se van a usar para desplegar una aplicación, independientemente de la
-tecnología que se use.
+tecnología que se use; en ese sentido, el tipo de virtualación que se
+use físicamente tiene importancia secundaria.
 
 
 Virtualización a nivel de *hardware*
@@ -454,7 +455,7 @@ capas anteriores
   ejecución, que además está limitada y se cobra por
   milisegundos. Amazon Lambda o Google o Azure Functions son los
   nombres de los productos comerciales, que cuentan con marcos libres
-  como [OpenWhisk](https://en.wikipedia.org/wiki/Bluemix).
+  como [Apache OpenWhisk](https://openwhisk.apache.org/).
 
 En general, estos dos servicios necesitan a su vez de otros productos
 en la nube, especialmente definición de redes virtuales y diferentes
@@ -486,7 +487,7 @@ pero no tienen una comunidad tan activa como este.
 
 <div class='ejercicios' markdown="1">
 1. Darse de alta en una web que permita hacer pruebas con alguno de
-   los sistemas de gestión de nube libres como los mencionados en los párrafos anteriores. 
+   los sistemas de gestión de nube libres como los mencionados en los párrafos anteriores.
 
 </div>
 
