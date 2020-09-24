@@ -9,7 +9,7 @@ on:
       - 'README.md'
 
 jobs:
-  perl:
+  OrtografíaReadme:
     runs-on: ubuntu-latest
 
     container:
@@ -27,7 +27,7 @@ jobs:
             Test::Text
             TAP::Harness
           sudo: false
-      - name: Ejecuta los tests
+      - name: Comprueba la ortografía
         run: |
           curl https://raw.githubusercontent.com/JJ/Test-Text/master/data/Spanish.aff -o Spanish.aff
           curl https://raw.githubusercontent.com/SublimeText/Dictionaries/master/Spanish.dic -o Spanish.dic
