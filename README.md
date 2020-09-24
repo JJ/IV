@@ -17,7 +17,7 @@ llevar el portátil, ya que son en realidad clases prácticas.
 Se usará
 [GitHub](http://github.com) para el proyecto, la forma principal de examinar la asignatura; llamaremos *hitos* a cada una de las entregas que hay que hacer del mismo.
 
-Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas sesiones de clase se irán reflejando en [un repositorio de GitHub; este es el de 2019-2020](https://github.com/JJ/IV-19-20).
+Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas sesiones de clase se irán reflejando en [un repositorio de GitHub; este es el de 2020-21](https://github.com/JJ/IV-20-21).
 
 En resumen, mi intención es que el estudiante al final de la asignatura sea capaz de hacer lo siguiente:
 
