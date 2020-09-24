@@ -36,7 +36,7 @@ Temario - Programa de la asignatura
 > que [consultes este curso](https://jj.github.io/curso-tdd), con
 > material suplementario a lo que se imparte en la asignatura.
 
-Los materiales de la asignatura están enlazados desde aquí y
+Los materiales de la asignatura están enlazados desde abajo y
 disponibles con una licencia libre. Los fuentes de los mismos están en
 [GitHub](http://github.com/JJ/IV). 
 
