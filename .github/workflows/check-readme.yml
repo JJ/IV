@@ -4,9 +4,12 @@ on:
   push:
     paths:
       - 'README.md'
+      - 'words.dic'
+
   pull_request:
     paths:
       - 'README.md'
+      - 'words.dic'
 
 jobs:
   OrtografiaReadme:

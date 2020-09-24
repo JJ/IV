@@ -1,4 +1,4 @@
-1298
+1312
 AMD
 API
 APIs
@@ -6,6 +6,7 @@ APPC
 AWS
 About
 Access
+Actions
 Admin
 Akka
 Alpine
@@ -72,6 +73,7 @@ Circle
 ClearDB
 Clojure
 CloudAnt
+CloudBees
 CloudFoundry
 CloudStack
 Cobbler
@@ -152,6 +154,7 @@ Guadalinex
 Gulp
 HTTP
 Hagámoslo
+Hangouts
 Hastexo
 Heroku
 Hotmail
@@ -186,7 +189,9 @@ Jenkings
 Jenkins
 Jessie
 Jest
+Jitsi
 Joomla
+JotaGalera
 Joy
 Juju
 KVM
@@ -347,6 +352,7 @@ Settings
 Sharing
 Shippable
 Should
+Skype
 SliTaz
 Small
 SmartOS
@@ -413,6 +419,7 @@ XXI
 Xen
 YAML
 Yahoo
+YouTube
 ZFS
 Zafra
 aaS
@@ -709,6 +716,7 @@ gist
 git
 github
 gmail
+grosso
 group
 groups
 grunt
@@ -728,6 +736,7 @@ hkeys
 home
 horadam
 host
+hosting
 hostname
 hosts
 hour
@@ -920,6 +929,7 @@ network
 networks
 never
 new
+new
 newer
 next
 nginx
@@ -990,6 +1000,7 @@ physical
 pid
 ping
 pip
+pipelines
 pkg
 platform
 playbook
@@ -1091,6 +1102,7 @@ replies
 reply
 repo
 repos
+repository
 repository
 reproducible
 req
@@ -1201,11 +1213,14 @@ task
 tasks
 telegram
 temita
+template
+temporización
 testearla
 testearlas
 testearlo
 tests
 tg
+this
 this
 tier
 tmp
@@ -1296,18 +1311,3 @@ zeit
 zipi
 zuuz
 π
-CloudBees
-Actions
-hosting
-pipelines
-new
-repository
-template
-this
-Jitsi
-YouTube
-temporización
-JotaGalera
-grosso
-Skype
-Hangouts
