@@ -14,9 +14,11 @@ Informática y optativa en otras ramas y en el Doble Grado de Informática
 y Matemáticas.
 
 La asignatura se imparte en el curso 2020-2021
-en [la 3.3 los viernes y en la 3.7 los martes de 9:30 a 11:30  (clases de "prácticas"), y en la 1.5 los martes de 11:30 a 13:30](http://etsiit.ugr.es/pages/calendario_academico/horarioscurso20202021/horariosgii2021/!).
+en [la 3.3 los viernes y en la 3.7 los martes de 9:30 a 11:30  (clases de "prácticas"), y en la 1.8 los martes de 11:30 a 13:30](http://etsiit.ugr.es/pages/calendario_academico/horarioscurso20202021/horariosgii2021/!).
 Se recuerda a los estudiantes que en todas las clases será necesario
 llevar el portátil, ya que son en realidad clases prácticas.
+
+Las clases se quedarán grabadas y almacenadas [en esta lista de reproducción de YouTube](https://www.youtube.com/playlist?list=PLsYEfmwhBQdKIwbMDIwK64pt3Fs03BDz9).
 
 
 Se usará
@@ -68,7 +70,8 @@ Estos temas se pueden consultar como material adicional, pero no forman parte es
 Seminarios
 ---------------
 
-Material adicional interesante para la asignatura, que se impartirá fuera del horario lectivo.
+Material adicional interesante para la asignatura, que se impartirá
+(en todo caso) fuera del horario lectivo.
 
 1. [Mini-tutorial de Markdown, por Justo Javier Galera (JotaGalera)](documentos/seminarios/tutorial).
 1. [Introducción ligera al lenguaje Ruby](documentos/seminarios/ruby).
@@ -95,10 +98,13 @@ Tutorías virtuales
 ----
 
 Las tutorías virtuales se realizarán preferiblemente a través de
-[la plataforma de trabajo colaborativo GitHub](https://github.com/JJ/IV-19-20/issues?state=open) y
+[la plataforma de trabajo colaborativo GitHub](https://github.com/JJ/IV-20-21/issues?state=open) y
 a través del grupo de Telegram; habrá que solicitar al profesor ser
 añadido. Finalmente, el profesor está disponible por Telegram, Skype y
 Google Hangouts (en todos los casos: `jjmerelo`).
+
+Se creará también una sala específica en Jitsi para las tutorías,
+consultar con los profesores la dirección y el horario.
 
 Criterios de evaluación
 ---
@@ -113,10 +119,4 @@ y
 Si no se ha superado la asignatura en la convocatoria ordinaria, en la
 extraordinaria habrá que entregar los diferentes hitos del proyecto no
 entregados, con los plazos que se anunciarán cuando se pongan las
-notas de la convocatoria ordinaria, y puntuando, en los reentregados,
-sobre un máximo de 8 puntos.
-
-Alternativamente, se puede solicitar al profesor un proyecto, que se
-tendrá que hacer por parte del estudiante, y que puntuará sobre los 10
-puntos completos, con la nota para cada hito repartida en la misma
-proporción que en la convocatoria ordinaria.
+notas de la convocatoria ordinaria.
