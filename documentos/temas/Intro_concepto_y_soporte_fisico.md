@@ -378,9 +378,9 @@ posible un hipervisor que sea software libre.
 Niveles y tipos de infraestructura virtual
 -----
 
-A nivel de tecnología se aprecian diferentes niveles de de
+A nivel de tecnología se aprecian diferentes niveles de
 virtualización, pero hasta no hace demasiado tiempo se solía hablar,
-desde el punto de vista comercial se habla de
+desde el punto de vista comercial, de
 [tres niveles: *Infrastructure*, *Platform* y *Software* *as a service*](https://en.wikipedia.org/wiki/Cloud_computing)
 
 ![Capas de computación nube](https://upload.wikimedia.org/wikipedia/commons/3/3c/Cloud_computing_layers.png)
@@ -398,7 +398,7 @@ atención en este tema al nivel PaaS.
 A diferencia del IaaS, que proporciona algo similar al *bare metal* o capacidades de
 máquina (CPU, almacenamiento, entrada salida y red) que uno puede
 configurar y usar según la necesidad que haya, un PaaS contiene infraestructura y
-una *pila de soluciones* o *solution stack* completa que permita
+una *pila de soluciones* o *solution stack* completa que permite
 desplegar en el mismo nuestras propias aplicaciones.
 
 En realidad, a estas alturas del siglo no está tan clara esa división
