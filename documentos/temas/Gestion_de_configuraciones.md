@@ -65,7 +65,7 @@ máquina virtual desde el panel de control, pero también desde
 la [línea de órdenes](https://github.com/WindowsAzure/azure-sdk-tools-xplat). Primero
 hay que saber qué imágenes hay disponibles:
 
-	azure vm image list
+    azure vm image list
 
 Por ejemplo, se puede escoger la imagen
 `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu_DAILY_BUILD-trusty-14_04-LTS-amd64-server-20131221-en-us-30GB`
@@ -109,7 +109,7 @@ que queramos. El arranque tarda cierto tiempo y dependerá de la
 disponibilidad de recursos; evidentemente, mientras no esté arrancada
 no se puede usar, pero conviene de todas formas apagarla con
 
-	azure vm shutdown maquina
+    azure vm shutdown maquina
 
 cuando terminemos la sesión y no sea necesaria, sobre todo porque,
 dado que se pagan por tiempo de uso, se puede incurrir en costes
@@ -231,7 +231,7 @@ crearía un grupo `azure` (con un solo ordenador), en el cual podemos
 ejecutar comandos de forma remota
 
 ```
-	$ ansible azure -u jjmerelo -a df
+    $ ansible azure -u jjmerelo -a df
 ```
 
 nos mostraría en todas las máquinas de Azure la organización del
@@ -242,7 +242,7 @@ Esta orden usa un *módulo* de ansible y se puede ejecutar también de
 esta forma:
 
 ```
-	$ ansible azure -m shell ls
+    $ ansible azure -m shell ls
 ```
 
 haciendo uso del módulo `shell`. Hay muchos
@@ -522,14 +522,14 @@ el utilísimo editor `emacs`usando este
 [`Vagrantfile`](../../ejemplos/vagrant/provision/Vagrantfile):
 
 ```
-	VAGRANTFILE_API_VERSION = "2"
+    VAGRANTFILE_API_VERSION = "2"
 
-	Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-		config.vm.box = "centos65"
+    Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+    config.vm.box = "centos65"
 
-	    config.vm.provision "shell",
-			inline: "yum install -y emacs"
-	end
+        config.vm.provision "shell",
+    inline: "yum install -y emacs"
+    end
 ```
 
 Recordemos que se trata de un programa en Ruby en el cual configuramos
@@ -599,16 +599,16 @@ incluimos en el Vagrantfile. las órdenes para usarlo en
 [este Vagrantfile](../../ejemplos/vagrant/provision/chef/Vagrantfile)
 
 ```
-	VAGRANTFILE_API_VERSION = "2"
+    VAGRANTFILE_API_VERSION = "2"
 
-	Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-		config.vm.box = "centos63"
+    Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+    config.vm.box = "centos63"
 
-	    config.vm.provision "chef_solo" do |chef|
-			chef.add_recipe "emacs"
-		end
+        config.vm.provision "chef_solo" do |chef|
+    chef.add_recipe "emacs"
+    end
 
-	end
+    end
 ```
 
 Este fichero usa un bloque de Ruby para pasarle variables y
@@ -618,7 +618,7 @@ que descienda exactamente del mismo directorio y que contenga
 simplemente `package 'emacs'` que tendrá que estar en un fichero
 
 ```
-	cookbooks/emacs/recipes/default.rb
+    cookbooks/emacs/recipes/default.rb
 ```
 
 Con todo esto se puede configurar emacs.

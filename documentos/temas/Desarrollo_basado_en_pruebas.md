@@ -142,23 +142,23 @@ como
 package HitosIV
 
 import (
-	"testing"
-	"reflect"
+    "testing"
+    "reflect"
 )
 
 func TestHitos (t *testing.T){
-	t.Log("Test Id");
-	if CuantosHitos() <= 0 {
-		t.Error("No milestones")
-	}
+    t.Log("Test Id");
+    if CuantosHitos() <= 0 {
+    t.Error("No milestones")
+    }
 }
 
 func TestTodosHitos (t *testing.T){
-	t.Log("Test Todos");
-	these_milestones := Hitos()
-	if reflect.TypeOf(these_milestones).String() == "Data" {
-		t.Error("No milestones here")
-	}
+    t.Log("Test Todos");
+    these_milestones := Hitos()
+    if reflect.TypeOf(these_milestones).String() == "Data" {
+    t.Error("No milestones here")
+    }
 }
 ```
 
@@ -358,16 +358,16 @@ console.log(assert);
 describe('Apuesta con Chai', function(){
     // Testea que se haya cargado bien la librería
     describe('Carga', function(){
-	it('should be loaded', function(){
-	    assert.ok(apuesta, "Cargado");
-	});
+    it('should be loaded', function(){
+        assert.ok(apuesta, "Cargado");
+    });
 
     });
     describe('Crea', function(){
-	it('should create apuestas correctly', function(){
-	    var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama','2-3');
-	    assert.equal(nueva_apuesta.as_string(), "Polopos: Alhama - 2-3","Creado");
-	});
+    it('should create apuestas correctly', function(){
+        var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama','2-3');
+        assert.equal(nueva_apuesta.as_string(), "Polopos: Alhama - 2-3","Creado");
+    });
     });
 });
 ```
@@ -388,22 +388,22 @@ popular, nos quedamos con este para escribir este programa de test.
 
 ```
 var assert = require("assert"),
-		apuesta = require(__dirname+"/../Apuesta.js");
+    apuesta = require(__dirname+"/../Apuesta.js");
 
 describe('Apuesta', function(){
-	// Testea que se haya cargado bien la librería
-	describe('Carga', function(){
-	it('should be loaded', function(){
-		assert(apuesta, "Cargado");
-	});
+    // Testea que se haya cargado bien la librería
+    describe('Carga', function(){
+    it('should be loaded', function(){
+    assert(apuesta, "Cargado");
+    });
 });
 
 describe('Crea', function(){
-	it('should create apuestas correctly', function(){
-		var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama','2-3');
-		assert.equal(nueva_apuesta.as_string(), "Polopos: Alhama - 2-3","Creado");
-		});
-	});
+    it('should create apuestas correctly', function(){
+    var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama','2-3');
+    assert.equal(nueva_apuesta.as_string(), "Polopos: Alhama - 2-3","Creado");
+    });
+    });
 });
 ```
 
@@ -438,10 +438,10 @@ var assert = require("chai").should(),
 
 describe('BDD con Chai', function(){
     it('Debería cargar la biblioteca y poder instanciarse', function() {
-	apuesta.should.exist;
-	var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama','2-3');
+    apuesta.should.exist;
+    var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama','2-3');
 
-	nueva_apuesta.as_string().should.equal( "Polopos: Alhama - 2-3","Creado");
+    nueva_apuesta.as_string().should.equal( "Polopos: Alhama - 2-3","Creado");
     })
 });
 ```
@@ -620,25 +620,25 @@ instalar y tener para ejecutarlo. En node se usa un fichero en formato
 JSON tal como este:
 
 ```
-	{
-	  "author": "J. J. Merelo <jjmerelo@gmail.com> (https://github.com/JJ/desarrollo-basado-pruebas)",
-	  "name": "porrio",
-	  "description": "Apuesta en una porra",
-	  "version": "0.0.1",
-	  "repository": {
-	  "url": "git://github.com/JJ/desarrollo-basado-pruebas.git"
-	  },
-	  "main": "./Apuesta.js",
-	  "scripts": {
-	  "test": "make test"
-	  },
-	  "dependencies": {"sqlite3": "~3.0"},
-	  "devDependencies": {},
-	  "optionalDependencies": {},
-	  "engines": {
-	  "node": ">=0.8"
-	  }
-	}
+    {
+      "author": "J. J. Merelo <jjmerelo@gmail.com> (https://github.com/JJ/desarrollo-basado-pruebas)",
+      "name": "porrio",
+      "description": "Apuesta en una porra",
+      "version": "0.0.1",
+      "repository": {
+      "url": "git://github.com/JJ/desarrollo-basado-pruebas.git"
+      },
+      "main": "./Apuesta.js",
+      "scripts": {
+      "test": "make test"
+      },
+      "dependencies": {"sqlite3": "~3.0"},
+      "devDependencies": {},
+      "optionalDependencies": {},
+      "engines": {
+      "node": ">=0.8"
+      }
+    }
 ```
 
 Las partes que más nos interesan están hacia el final: las
@@ -727,24 +727,24 @@ Makefiles, `grunt` usa `Gruntfile.js` tal como este
 
     module.exports = function(grunt) {
 
-	  // Configuración del proyecto
-	  grunt.initConfig({
-	  pkg: grunt.file.readJSON('package.json'),
-	  docco: {
-		  debug: {
-		  src: ['*.js'],
-		  options: {
-			  output: 'docs/'
-		  }
-		  }
-	  }
-	  });
+      // Configuración del proyecto
+      grunt.initConfig({
+      pkg: grunt.file.readJSON('package.json'),
+      docco: {
+      debug: {
+      src: ['*.js'],
+      options: {
+      output: 'docs/'
+      }
+      }
+      }
+      });
 
-	  // Carga el plugin de grunt para hacer esto
-	  grunt.loadNpmTasks('grunt-docco');
+      // Carga el plugin de grunt para hacer esto
+      grunt.loadNpmTasks('grunt-docco');
 
-	  // Tarea por omisión: generar la documentación
-	  grunt.registerTask('default', ['docco']);
+      // Tarea por omisión: generar la documentación
+      grunt.registerTask('default', ['docco']);
     };
 ```
 
@@ -756,17 +756,17 @@ usamos `package.json`, `npm` puede editarlo y cambiar la configuración
 automáticamente si lo usamos de esta forma
 
 ```
-	npm install docco grunt-docco --save-dev
+    npm install docco grunt-docco --save-dev
 ```
 
 El `--save-dev` indica que se guarde la configuración correspondiente
 en `package.json`, donde efectivamente se puede ver:
 
 ```
-	"devDependencies": {
-	  "docco": "~0.6",
-	  "grunt-docco": "~0.3.3"
-	},
+    "devDependencies": {
+      "docco": "~0.6",
+      "grunt-docco": "~0.3.3"
+    },
 ```
 
 El fichero que se ve arriba tiene tres partes: la definición de la
@@ -786,10 +786,10 @@ buena práctica: usar `src`, por ejemplo, para las fuentes.
 La siguiente parte carga el plugin de `grunt` necesario para ejecutar `docco`. Y finalmente, con `grunt.registerTask('default', ['docco']);` indicamos que la tarea que ejecuta docco es la que se ejecutará por defecto simplemente ejecutando `grunt`. También se puede ejecutar con `grunt docco` o `grunt docco:debug` que sacará esto en el terminal:
 
 ```
-	bash$ grunt docco
-	Running "docco:src" (docco) task
-	docco: Apuesta.js -> docs/Apuesta.html
-	docco: Gruntfile.js -> docs/Gruntfile.html
+    bash$ grunt docco
+    Running "docco:src" (docco) task
+    docco: Apuesta.js -> docs/Apuesta.html
+    docco: Gruntfile.js -> docs/Gruntfile.html
 ```
 
 y producirá una documentación tal como [esta](http://jj.github.io/desarrollo-basado-pruebas/src/docs/Apuesta.html).

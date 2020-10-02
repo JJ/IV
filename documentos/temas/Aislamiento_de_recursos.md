@@ -78,11 +78,11 @@ Comprobar si en la instalación hecha se ha instalado cgroups y en qué punto es
 Dependiendo de cómo esté configurado, puede contener algo como esto
 
 ```
-	blkio.io_merged                   cpuset.memory_pressure
-	blkio.io_queued                   cpuset.memory_pressure_enabled
-	blkio.io_service_bytes            cpuset.memory_spread_page
-	blkio.io_serviced                 cpuset.memory_spread_slab
-	...
+    blkio.io_merged                   cpuset.memory_pressure
+    blkio.io_queued                   cpuset.memory_pressure_enabled
+    blkio.io_service_bytes            cpuset.memory_spread_page
+    blkio.io_serviced                 cpuset.memory_spread_slab
+    ...
 ```
 
 con diferentes ficheros, unos de lectura y escritura y otros de
@@ -119,10 +119,10 @@ estos:
 
 ```
 ...
-	cpuset.cpu_exclusive              memory.usage_in_bytes
-	cpuset.cpus                       memory.use_hierarchy
-	cpuset.mem_exclusive              notify_on_release
-	cpuset.mem_hardwall               tasks
+    cpuset.cpu_exclusive              memory.usage_in_bytes
+    cpuset.cpus                       memory.use_hierarchy
+    cpuset.mem_exclusive              notify_on_release
+    cpuset.mem_hardwall               tasks
 ```
 
 Este último es, precisamente, el fichero que contiene los PIDs de las
@@ -149,7 +149,7 @@ número de CPU en el que queremos que se ejecute cada grupo de control.
 Una vez hecho eso, se asignan las tareas a cada grupo de control
 
 ```
-	echo xxx > /cgroup/buenos/tasks
+    echo xxx > /cgroup/buenos/tasks
 ```
 
 Se puede crear otro grupo de control llamado *malos*, por ejemplo,
@@ -178,7 +178,7 @@ cat /cgroup/malos/cpuacct.usage
 
 devolverá un valor similar a
 
-	72012663139
+    72012663139
 
 que nos dará una idea del uso de cada grupo en particular y nos
 permitirá comparar entre un grupo y otro.

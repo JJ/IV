@@ -9,7 +9,7 @@ Se ejecuta al principio del año para generar los ficheros
 correspondientes. Primero se crea el repo en GitHub. Luego, se cambia
 uno al repo y ...
 
-	/path/to/crea-asignatura.pl <este-directorio> <directorio-a-copiar>
+    /path/to/crea-asignatura.pl <este-directorio> <directorio-a-copiar>
 
 Necesita Perl y `File::Copy` para funcionar. Y que se cree el
 directorio del repo de la asignatura previamente.

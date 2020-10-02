@@ -183,7 +183,7 @@ Tecnológicamente la computación nube se basa en el proceso progresivo
       instalación tradicional, aunque eventualmente algunos negocios puedan optar, si tienen un uso intensivo y regular, en volver a ella.
 
 Todas estas ventajas hacen que,
-	  [ya en el año 2013, más de la mitad de los negocios americanos usaban infraestructura virtual](https://www.forbes.com/sites/reuvencohen/2013/04/16/the-cloud-hits-the-mainstream-more-than-half-of-u-s-businesses-now-use-cloud-computing/).
+      [ya en el año 2013, más de la mitad de los negocios americanos usaban infraestructura virtual](https://www.forbes.com/sites/reuvencohen/2013/04/16/the-cloud-hits-the-mainstream-more-than-half-of-u-s-businesses-now-use-cloud-computing/).
 
 <div class='ejercicios' markdown="1">
 Usando las tablas de precios de servicios de alojamiento en Internet

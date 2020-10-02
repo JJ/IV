@@ -112,11 +112,11 @@ var app = express();
 var port = process.env.PORT || 8080;
 
 app.get('/', function (req, res) {
-	res.send( { Portada: true } );
+    res.send( { Portada: true } );
 });
 
 app.get('/proc', function (req, res) {
-	res.send( { Portada: false} );
+    res.send( { Portada: false} );
 });
 
 app.listen(port);
@@ -182,33 +182,33 @@ Por ejemplo, si queremos tener diferentes contadores
 podríamos usar el [programa siguiente](https://github.com/JJ/node-app-cc/blob/master/index.js):
 
 ```
-	var express = require('express');
-	var app = express();
+    var express = require('express');
+    var app = express();
 
-	// recuerda ejecutar antes grunt creadb
-	var db_file = "porrio.db.sqlite3";
-	var apuesta = require("./Apuesta.js");
-	var porra = require("./Porra.js");
+    // recuerda ejecutar antes grunt creadb
+    var db_file = "porrio.db.sqlite3";
+    var apuesta = require("./Apuesta.js");
+    var porra = require("./Porra.js");
 
-	var porras = new Array;
+    var porras = new Array;
 
-	app.set('port', (process.env.PORT || 5000));
-	app.use(express.static(__dirname + '/public'));
+    app.set('port', (process.env.PORT || 5000));
+    app.use(express.static(__dirname + '/public'));
 
-	app.put('/porra/:local/:visitante/:competition/:year', function( req, response ) {
-		var nueva_porra = new porra.Porra(req.params.local,req.params.visitante,
-						  req.params.competition, req.params.year );
-		porras.push(nueva_porra);
-		response.send(nueva_porra);
-	});
+    app.put('/porra/:local/:visitante/:competition/:year', function( req, response ) {
+    var nueva_porra = new porra.Porra(req.params.local,req.params.visitante,
+      req.params.competition, req.params.year );
+    porras.push(nueva_porra);
+    response.send(nueva_porra);
+    });
 
-	app.get('/porras', function(request, response) {
-		response.send( porras );
-	});
+    app.get('/porras', function(request, response) {
+    response.send( porras );
+    });
 
-	app.listen(app.get('port'), function() {
-	  console.log("Node app is running at localhost:" + app.get('port'));
-	});
+    app.listen(app.get('port'), function() {
+      console.log("Node app is running at localhost:" + app.get('port'));
+    });
 ```
 
 Este [programa
@@ -389,17 +389,17 @@ el resto de la aplicación, solo que tendremos que usar librerías de
 aserciones ligeramente diferentes, en este caso `supertest`
 
 ```
-	var request = require('supertest'),
-	app = require('../index.js');
+    var request = require('supertest'),
+    app = require('../index.js');
 
-	describe( "PUT porra", function() {
-		it('should create', function (done) {
-		request(app)
-			.put('/porra/uno/dos/tres/4')
-			.expect('Content-Type', /json/)
-			.expect(200,done);
-		});
-	});
+    describe( "PUT porra", function() {
+    it('should create', function (done) {
+    request(app)
+    .put('/porra/uno/dos/tres/4')
+    .expect('Content-Type', /json/)
+    .expect(200,done);
+    });
+    });
 ```
 
 (que tendrá que estar incluido en el directorio `test/`, como el
@@ -476,7 +476,7 @@ la carga entre las cuatro. Estas instancias serán copias exactas de nuestro pro
 
 o
 
-	pm2 stop all
+    pm2 stop all
 
 para parar todos los procesos que gestione. Los logs se almacenan en un directorio específico y se pueden consultar con
 

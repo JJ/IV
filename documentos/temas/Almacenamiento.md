@@ -404,24 +404,24 @@ Vamos a configurar ceph, creando un fichero de configuración como el
 siguiente:
 
 ```
-	[global]
-	log file = /var/log/ceph/$name.log
-	pid file = /var/run/ceph/$name.pid
-	[mon]
-	mon data = /srv/ceph/mon/$name
-	[mon.mio]
-	host = penny
-	mon addr = 127.0.0.1:6789
-	[mds]
-	[mds.mio]
-	host = penny
-	[osd]
-	osd data = /srv/ceph/osd/$name
-	osd journal = /srv/ceph/osd/$name/journal
-	osd journal size = 1000 ; journal size, in megabytes
-	[osd.0]
-	host = penny
-	devs = /dev/loop0
+    [global]
+    log file = /var/log/ceph/$name.log
+    pid file = /var/run/ceph/$name.pid
+    [mon]
+    mon data = /srv/ceph/mon/$name
+    [mon.mio]
+    host = penny
+    mon addr = 127.0.0.1:6789
+    [mds]
+    [mds.mio]
+    host = penny
+    [osd]
+    osd data = /srv/ceph/osd/$name
+    osd journal = /srv/ceph/osd/$name/journal
+    osd journal size = 1000 ; journal size, in megabytes
+    [osd.0]
+    host = penny
+    devs = /dev/loop0
 ```
 
  Aparte de declarar los ficheros de logs y demás, el fichero de
@@ -458,7 +458,7 @@ siguiente:
  preguntéis por qué, pero es así y [aquí lo dicen](http://tracker.ceph.com/issues/1015))
 
 ```
-	 sudo mkdir /srv/ceph/osd/osd.0
+     sudo mkdir /srv/ceph/osd/osd.0
 ```
 
 y ya podemos crear el sistema de ficheros de objetos con
@@ -733,10 +733,10 @@ require "azure"
 
 azure_blob_service = Azure::BlobService.new
 begin
-	container = azure_blob_service.create_container("test-container",
+    container = azure_blob_service.create_container("test-container",
                                       :public_access_level => "blob" )
-	rescue
-	puts $!
+    rescue
+    puts $!
 end
 
 content = File.open("blob-azure.rb", "rb") { |file| file.read }

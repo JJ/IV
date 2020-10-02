@@ -313,11 +313,11 @@ Por ahora nuestro `requirements.txt` es muy simple, solo necesita la librería p
 
 ```
 def echo(update, context):
-	mensa = update.message.text
-	dic = 'aeou'
-	for i in dic:
-		mensa = mensa.replace(i, 'i')
-	context.bot.send_message(chat_id=update.message.chat_id, text=mensa)
+    mensa = update.message.text
+    dic = 'aeou'
+    for i in dic:
+    mensa = mensa.replace(i, 'i')
+    context.bot.send_message(chat_id=update.message.chat_id, text=mensa)
 ```
 Ahora, nuestro bot no repite literalmente el mensaje, sino que coge nuestro mensaje y cambia todas las vocales por "i" de modo que parece que se está burlando de nosotros. Vamos ahora a añadir algo más, para engordar el `requirements.txt` un poco. Digamos que queremos activar nuestro bot para que cifre con AES y una clave un mensaje que enviemos por conversación. Vamos a crear una nueva función llamada `reply`. Para ello importamos la librería adecuada.
 
@@ -328,9 +328,9 @@ from Crypto.Cipher import AES
 MYKEY = os.getenv("MYKEY")
 ...
 def reply(update, context):
-	mensa = update.message.text
-	if "encrypt" in mensa:
-	    context.bot.send_message(chat_id=update.message.chat_id, text="Encrypting from the ':' ...")
+    mensa = update.message.text
+    if "encrypt" in mensa:
+        context.bot.send_message(chat_id=update.message.chat_id, text="Encrypting from the ':' ...")
             mensa = mensa.split(':',1)
             mensa = mensa[1]
             obj = AES.new(MYKEY, AES.MODE_CFB, 'This is an IV456')
@@ -421,7 +421,7 @@ hay que ejecutar? Si miramos el fichero `Procfile` encontraremos algo
 así
 
 ```
-	web: node index.js
+    web: node index.js
 ```
 
 Este [Procfile](https://devcenter.heroku.com/articles/procfile) se usa
@@ -437,7 +437,7 @@ Foreman. En versiones tempranas de `heroku` estaba incluido, pero ahora tendrás
 Para ejecutar localmente nuestra aplicación ejecutaremos
 
 ```
-	foreman start web
+    foreman start web
 ```
 
 `foreman` leerá el `Procfile` y ejecutará la
@@ -467,9 +467,9 @@ Si está `package.json` bien configurado, por ejemplo, de esta forma
 
 ```
     "scripts": {
-	  "test": "mocha",
-	  "start": "node index.js"
-	},
+      "test": "mocha",
+      "start": "node index.js"
+    },
 ```
 
 se puede arrancar también la aplicación, sin ningún tipo de
@@ -568,10 +568,10 @@ Teniendo en cuenta esto, no es difícil cambiar la aplicación para que pueda fu
 
 ```
 var server_ip_address = process.env.OPENSHIFT_NODEJS_IP
-	                          || '0.0.0.0';
+                              || '0.0.0.0';
 app.set('port', (process.env.PORT
-	                 || process.env.OPENSHIFT_NODEJS_PORT
-					 || 5000));
+                     || process.env.OPENSHIFT_NODEJS_PORT
+     || 5000));
 ```
 
 En la primera se establece la IP en la que tiene que escuchar la aplicación. En el caso por omisión, el segundo, la dirección `0.0.0.0` indica que Express escuchará en todas las IPs. Sin embargo, eso no es correcto ni posible en OpenShift, que tiene una IP específica, contenida en la variable de entorno `OPENSHIFT_NODEJS_IP` y que será una IP de tipo local (aunque realmente esto no tiene que importarnos salvo por el caso de que no podremos acceder a esa IP directamente).

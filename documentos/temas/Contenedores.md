@@ -181,8 +181,8 @@ contenedores, si se lista desde fuera aparecerá de esta forma:
 ```
 jmerelo@penny:~/txt/docencia/infraestructuras-virtuales/IV/documentos$ sudo lxc-list
 RUNNING
-	contenedor
-	nubecilla
+    contenedor
+    nubecilla
 
 FROZEN
 
@@ -356,7 +356,7 @@ sudo docker ps -a=false
 Obteniendo algo así:
 
 ```
-	CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+    CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 b76f70b6c5ce        ubuntu:12.04        /bin/bash           About an hour ago   Up About an hour                        sharp_brattain
 ```
 
@@ -571,7 +571,7 @@ través de `VOLUME`, hemos creado un directorio sobre el que podemos
 
 ```
 sudo docker run --rm -t -v `pwd`:/app  \
-	    jjmerelo/alpine-perl6 /app/horadam.p6 100 3 7 0.25 0.33
+        jjmerelo/alpine-perl6 /app/horadam.p6 100 3 7 0.25 0.33
 ```
 
 En realidad, usando `-v` se puede montar cualquier directorio externo

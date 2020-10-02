@@ -192,10 +192,10 @@ virtualización ya tengamos alguna creada, `brctl show` muestra todos
 los puentes que existen en una máquina, por ejemplo:
 
 ```
-	bridge name	bridge id		STP enabled	interfaces
-	alcantara		8000.1c6f65a40690	no		eth2
-	lxcbr0		8000.000000000000	no
-	virbr0		8000.000000000000	yes
+    bridge name	bridge id		STP enabled	interfaces
+    alcantara		8000.1c6f65a40690	no		eth2
+    lxcbr0		8000.000000000000	no
+    virbr0		8000.000000000000	yes
 ```
 
 Que muestra los puentes creados por `lxc` (que veremos más adelante) y
@@ -353,15 +353,15 @@ root@penny:/#
 que, al listar el contenido nos mostrará
 
 ```
-	bin   dev  home  lib64	mnt  proc  run	 selinux  sys  usr
-	boot  etc  lib	 media	opt  root  sbin  srv	  tmp  var
+    bin   dev  home  lib64	mnt  proc  run	 selinux  sys  usr
+    boot  etc  lib	 media	opt  root  sbin  srv	  tmp  var
 ```
 
 La máquina tal como está es usable, pero no está completa. Por
 ejemplo, `top` dará un error:
 
 ```
-	Error, do this: mount -t proc proc /proc
+    Error, do this: mount -t proc proc /proc
 ```
 
 Así que [una de las cosas que hay que hacer](https://help.ubuntu.com/community/BasicChroot) es montar el filesystem
@@ -447,16 +447,16 @@ Lo primero que hay que hacer es crear una definición para cada uno de
 los entornos en el fichero `/etc/schroot/schroot.conf` tal como esta:
 
 ```
-	[saucy]
-	description=Saucy Lagartija (Ubuntu)
-	location=/home/jaulas/saucy
-	type=directory
-	users=jmerelo
-	root-groups=root
-	root-users=root
-	aliases=ubuntu1210
-	run-setup-scripts=true
-	run-exec-scripts=true
+    [saucy]
+    description=Saucy Lagartija (Ubuntu)
+    location=/home/jaulas/saucy
+    type=directory
+    users=jmerelo
+    root-groups=root
+    root-users=root
+    aliases=ubuntu1210
+    run-setup-scripts=true
+    run-exec-scripts=true
 ```
 
 [Esta configuración](https://wiki.debian.org/Schroot) define un

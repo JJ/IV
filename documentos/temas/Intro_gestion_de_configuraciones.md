@@ -197,27 +197,27 @@ juju status
 que mostrará algo así:
 
 ```
-	machines:
-	"0":
+    machines:
+    "0":
     agent-state: started
     agent-version: 1.12.0.1
     instance-id: localhost
     instance-state: missing
     series: precise
-	"1":
+    "1":
     agent-state: started
     agent-version: 1.12.0.1
     instance-id: jmerelo-local-machine-1
     instance-state: missing
     series: precise
-	"2":
+    "2":
     agent-state: started
     agent-version: 1.12.0.1
     instance-id: jmerelo-local-machine-2
     instance-state: missing
     series: precise
-	services:
-	mysql:
+    services:
+    mysql:
     charm: cs:precise/mysql-27
     exposed: false
     relations:
@@ -231,7 +231,7 @@ que mostrará algo así:
     agent-version: 1.12.0.1
     machine: "1"
     public-address: 10.0.3.15
-	wordpress:
+    wordpress:
     charm: cs:precise/wordpress-16
     exposed: true
     relations:
@@ -301,7 +301,7 @@ environment: local
 La nueva máquina aparecerá inicialmente de esta forma, porque la orden regresa antes de que se complete la orden. Posteriormente, si todo ha ido bien, aparecerá el estado completo de esta nueva máquina. Si ha ido mal, aparecerá algo como:
 
 ```
-	agent-state-info: '(error: error executing "lxc-create": No such file or directory
+    agent-state-info: '(error: error executing "lxc-create": No such file or directory
       - bad template: ubuntu-cloud; bad template: ubuntu-cloud)'
     instance-id: pending
     series: precise
