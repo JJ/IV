@@ -3,11 +3,11 @@ name: "Lint Markdown"
 on:
   push:
     paths:
-      - '*.md'
+      - '**/*.md'
 
   pull_request:
     paths:
-      - '*.md'
+      - '**/*.md'
 
 jobs:
   LintMarkdown:
