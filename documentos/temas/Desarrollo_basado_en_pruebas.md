@@ -174,7 +174,7 @@ ejecutar desde la línea de órdenes `go test`, que devolverá algo así:
 
 ```
 PASS
-ok  	_/home/jmerelo/Asignaturas/infraestructura-virtual/HitosIV	0.017s
+ok      _/home/jmerelo/Asignaturas/infraestructura-virtual/HitosIV    0.017s
 ```
 
 En vez de aserciones como funciones específicas, Go simplifica el interfaz de test haciendo que
@@ -620,25 +620,25 @@ instalar y tener para ejecutarlo. En node se usa un fichero en formato
 JSON tal como este:
 
 ```
-    {
-      "author": "J. J. Merelo <jjmerelo@gmail.com> (https://github.com/JJ/desarrollo-basado-pruebas)",
-      "name": "porrio",
-      "description": "Apuesta en una porra",
-      "version": "0.0.1",
-      "repository": {
-      "url": "git://github.com/JJ/desarrollo-basado-pruebas.git"
-      },
-      "main": "./Apuesta.js",
-      "scripts": {
-      "test": "make test"
-      },
-      "dependencies": {"sqlite3": "~3.0"},
-      "devDependencies": {},
-      "optionalDependencies": {},
-      "engines": {
-      "node": ">=0.8"
-      }
-    }
+{
+  "author": "J. J. Merelo <jjmerelo@gmail.com> (https://github.com/JJ/desarrollo-basado-pruebas)",
+  "name": "porrio",
+  "description": "Apuesta en una porra",
+  "version": "0.0.1",
+  "repository": {
+    "url": "git://github.com/JJ/desarrollo-basado-pruebas.git"
+  },
+  "main": "./Apuesta.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "dependencies": {"sqlite3": "~3.0"},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": ">=0.8"
+  }
+}
 ```
 
 Las partes que más nos interesan están hacia el final: las

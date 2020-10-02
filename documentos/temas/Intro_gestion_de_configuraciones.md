@@ -402,7 +402,7 @@ De hecho, también se pueden usar contenedores que hayan sido instalados usando 
 virt-install --connect lxc:/// --name esa_maquina --ram 512 --vcpu 1 --filesystem /var/lib/libvirt/lxc/taper --noautoconsole
 ```
 
-instalaría usando el conector para lxc	una máquina con el nombre indicado, medio giga de RAM, una sola CPU virtual y un filesystem ya instalado previamente en el subdirectorio `taper`.
+instalaría usando el conector para lxc una máquina con el nombre indicado, medio giga de RAM, una sola CPU virtual y un filesystem ya instalado previamente en el subdirectorio `taper`.
 
 Una vez instalados diferentes contenedores, `virsh` permite trabajar
 con ellos.

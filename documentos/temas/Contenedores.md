@@ -431,7 +431,7 @@ esta forma, usando las órdenes propias del sistema operativo con el que se haya
 Los contenedores se pueden arrancar de forma independiente con `start`
 
 ```
-sudo docker start	ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
+sudo docker start ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
 ```
 
 pero hay que usar el ID largo que se obtiene dando la orden de esta
@@ -446,7 +446,7 @@ y los usuarios y claves y por supuesto tener ejecutándose un cliente
 de `ssh` en la misma. Para averiguar la IP:
 
 ```
-sudo docker inspect	ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
+sudo docker inspect ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
 ```
 
 te dirá toda la información sobre la misma, incluyendo qué es lo que

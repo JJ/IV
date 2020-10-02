@@ -632,8 +632,7 @@ en ninguna de las máquinas pre-configuradas de VagrantBoxes.
 
 <div class='ejercicios' markdown='1'>
 
-Configurar tu máquina virtual usando vagrant con el provisionador
-​	chef.
+Configurar tu máquina virtual usando vagrant con el provisionador chef.
 ​
 </div>
 

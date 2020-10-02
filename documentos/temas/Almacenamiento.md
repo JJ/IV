@@ -215,7 +215,7 @@ eso no quiere decir que haga falta una máquina virtual para
 leerlos; se pueden [montar usando `mount`](http://en.wikibooks.org/wiki/QEMU/Images) de la forma siguiente:
 
 ```
-mount -o loop,offset=32256 /camino/a/fichero-suelto.img	/mnt/mountpoint
+mount -o loop,offset=32256 /camino/a/fichero-suelto.img /mnt/mountpoint
 ```
 
 aunque dará un error en caso de no haber sido formateado (lo que se
@@ -558,7 +558,7 @@ pero tampoco me voy a poner a hacer todos y cada uno de ellos. Para
 almacenar objetos, por ejemplo, se usa put
 
 ```
-sudo rados put -p esa-piscina objeto-almacenado	fichero-que-almacenaremos.whatever
+sudo rados put -p esa-piscina objeto-almacenado fichero-que-almacenaremos.whatever
 ```
 
 <div class='ejercicios' markdown='1'>
@@ -642,7 +642,7 @@ copiar en variables de entorno (que tendrás que cargar en tu
 
 ```
 export AZURE_STORAGE_ACCOUNT=esacuenta
-export	AZURE_STORAGE_ACCESS_KEY=unaclavemuylargaquetieneigualesalfinal==
+export AZURE_STORAGE_ACCESS_KEY=unaclavemuylargaquetieneigualesalfinal==
 ```
 
 Una vez creada la cuenta y establecida la configuración ya [se pueden crear cosas en ella](http://www.azure.microsoft.com/en-us/manage/linux/other-resources/command-line-tools/?fb=es-es)
