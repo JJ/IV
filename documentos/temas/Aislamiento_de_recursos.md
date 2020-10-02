@@ -12,8 +12,8 @@ next: PaaS
 
 ### Cubre los siguientes objetivos de la asignatura
 
-2. Conocer los conceptos relacionados con el proceso de virtualización
-tanto de software como de hardware y ponerlos en práctica.
+2. Conocer los conceptos relacionados con el proceso de virtualización tanto de
+   software como de hardware y ponerlos en práctica.
 
 3. Comprender la diferencia entre infraestructura virtual y real.
 
@@ -217,14 +217,13 @@ virtuales, pero esto se verá más adelante.
 
 <div class='ejercicios' markdown="1">
 
-1. Crear diferentes grupos de control sobre un sistema operativo
-Linux. Ejecutar en uno de ellos el navegador, en otro un procesador de
-textos y en uno último cualquier otro proceso. Comparar el uso de
-recursos de unos y otros durante un tiempo determinado.
+1. Crear diferentes grupos de control sobre un sistema operativo Linux.
+   Ejecutar en uno de ellos el navegador, en otro un procesador de textos y en
+   uno último cualquier otro proceso. Comparar el uso de recursos de unos y
+   otros durante un tiempo determinado.
 
-2. Calcular el coste real de uso de recursos de un ordenador teniendo
-en cuenta sus costes de amortización. Añadir los costes eléctricos
-correspondientes.
+2. Calcular el coste real de uso de recursos de un ordenador teniendo en cuenta
+   sus costes de amortización. Añadir los costes eléctricos correspondientes.
 
 </div>
 
@@ -280,17 +279,16 @@ pertenecer a cada grupo. Con ello se le puede asignar, por ejemplo,
 más prioridad en la CPU o entrada/salida a unos usuarios que a otros.
 
 <div class='ejercicios' markdown="1">
+
 1. [Discutir diferentes escenarios de limitación de uso de recursos o de asignación de los mismos a una u otra CPU](https://github.com/IV-GII/GII-2014/issues/4).
-2. Implementar usando el fichero de configuración de `cgcreate` una
-política que dé menos prioridad a los procesos de usuario que a los
-procesos del sistema (o viceversa).
-3. Usar un programa que muestre en tiempo real la carga del sistema
-tal como `htop`y comprobar los efectos de la migración en tiempo real
-de una tarea *pesada* de un procesador a otro (si se tiene dos núcleos
-en el sistema).
-4. Configurar un servidor para que el servidor web que se ejecute
-reciba mayor prioridad de entrada/salida que el resto de los usuarios.
-</div>
+2. Implementar usando el fichero de configuración de `cgcreate` una política
+   que dé menos prioridad a los procesos de usuario que a los procesos del
+   sistema (o viceversa).
+3. Usar un programa que muestre en tiempo real la carga del sistema tal como
+   `htop`y comprobar los efectos de la migración en tiempo real de una tarea
+   *pesada* de un procesador a otro (si se tiene dos núcleos en el sistema).
+4. Configurar un servidor para que el servidor web que se ejecute reciba mayor
+   prioridad de entrada/salida que el resto de los usuarios. </div>
 
 <div class='nota' markdown='1'>
 

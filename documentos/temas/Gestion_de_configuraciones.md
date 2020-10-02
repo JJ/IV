@@ -20,8 +20,8 @@ prev: Contenedores
 
 1. Aprender lenguajes de configuración usados en infraestructuras virtuales.
 2. Saber cómo aplicarlos en un caso determinado.
-3. Conocer los sistemas de gestión de la configuración,
-provisionamiento y monitorización más usados hoy en día.
+3. Conocer los sistemas de gestión de la configuración, provisionamiento y
+   monitorización más usados hoy en día.
 
 </div>
 
@@ -172,6 +172,7 @@ sudo apt-get install ansible
 ```
 
 Ansible va a necesitar tres ficheros para provisionar una máquina virtual.
+
 * Un fichero de configuración general, que se suele llamar `ansible.cfg`
 * Un fichero de configuración específica de los *hosts* con los que se va a trabajar o inventario , que habitualmente se llama `ansible_hosts`.
 * Una o varias recetas o *playbooks* que indican qué se va a instalar, y declara el estado en el que se debe encontrar el sistema al final.

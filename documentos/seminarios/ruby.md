@@ -449,10 +449,9 @@ bloque, lo que le da más derechos, al parecer.
 
 <div class='ejercicios' markdown="1">
 
-1. Crear una serie de funciones instanciadas con un URL que devuelvan
-algún tipo de información sobre el mismo: fecha de última
-modificación, por ejemplo. *Pista*: esa información está en la
-cabecera HTTP que devuelve
+1. Crear una serie de funciones instanciadas con un URL que devuelvan algún
+   tipo de información sobre el mismo: fecha de última modificación, por
+   ejemplo. *Pista*: esa información está en la cabecera HTTP que devuelve
 
 </div>
 

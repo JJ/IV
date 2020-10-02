@@ -12,10 +12,10 @@ next: Desarrollo_basado_en_pruebas
 ### Cubre los siguientes objetivos de la asignatura
 
 1. Conocer la historia de la Computación Virtual, sus orígenes y
-razones de su existencia.
+   razones de su existencia.
 
 2. Conocer los conceptos relacionados con el proceso de virtualización
-tanto de software como de hardware y ponerlos en práctica.
+   tanto de software como de hardware y ponerlos en práctica.
 
 3. Comprender la diferencia entre infraestructura virtual y real.
 
@@ -24,16 +24,16 @@ tanto de software como de hardware y ponerlos en práctica.
 ### Objetivos específicos
 
 5. Conocer diferentes tecnologías relacionadas con la virtualización
-(Computación nube, *Cloud computing*, *Utility Computing*, *Software as a Service* o Google
-AppSpot).
+   (Computación nube, *Cloud computing*, *Utility Computing*, *Software as a
+   Service* o Google AppSpot).
 
 6. Conocer el concepto de software libre y su importancia dentro de la
-computación nube.
+   computación nube.
 
 6. Entender el concepto de *DevOps* y las técnicas y tecnologías que cubre.
 
-7. Usar el sistema de control de fuentes `git`para desarrollo
-colaborativo y para despliegue de aplicaciones en la nube.
+7. Usar el sistema de control de fuentes `git`para desarrollo colaborativo y
+   para despliegue de aplicaciones en la nube.
 
 </div>
 
@@ -225,61 +225,56 @@ virtual *invitado*.
   [virtualizar algún recurso](https://en.wikipedia.org/wiki/Hardware-assisted_virtualization),
   tal como la memoria.
 
-* La
-  [paravirtualización](https://en.wikipedia.org/wiki/Paravirtualization)
+* La [paravirtualización](https://en.wikipedia.org/wiki/Paravirtualization)
   requiere modificación de los sistemas operativos
 
-* La
-[virtualización a nivel de sistema operativo](https://en.wikipedia.org/wiki/Operating_system-level_virtualization)
-solo permite que anfitrión y cliente usen el mismo sistema operativo
-pero con invitados aislados del anfitrión y entre sí. En este caso, en
-vez de hablarse de máquinas virtuales se habla de *jaulas*, *zonas* o
-*contenedores*; generalmente se trata de aplicaciones de un sistema
-operativo determinado y el soporte suele estar a nivel del núcleo de
-los mismos.
+* La [virtualización a nivel de sistema operativo
+  ](https://en.wikipedia.org/wiki/Operating_system-level_virtualization) solo
+  permite que anfitrión y cliente usen el mismo sistema operativo pero con
+  invitados aislados del anfitrión y entre sí. En este caso, en vez de hablarse
+  de máquinas virtuales se habla de *jaulas*, *zonas* o *contenedores*;
+  generalmente se trata de aplicaciones de un sistema operativo determinado y
+  el soporte suele estar a nivel del núcleo de los mismos.
 
 * La
   [virtualización de aplicaciones](https://en.wikipedia.org/wiki/Application_virtualization)
-  empaqueta aplicaciones de forma que se ejecuten en un entorno que
-  las aísla del resto del sistema operativo; una parte es el uso de
-  [virtualización de escritorio](https://en.wikipedia.org/wiki/Desktop_virtualization) que
-  permite aplicar una serie de aplicaciones generalmente desde un
-  navegador (y que en realidad tiene que tener por debajo una máquina
-  virtual, en un servidor, que sea quien en realidad ejecuta las mismas). En general, los programas
-  necesarios se denominan *emuladores*; CygWin, por ejemplo,
-  permite ejecutar aplicaciones de UNIX en Windows,
-  aunque se tienen que recompilar.
-  Programas como [FlatPak](http://docs.flatpak.org/en/latest/getting-started.html), permiten
-  empaquetar aplicaciones para que se ejecuten en cualquier
-  distribución de Linux, empaquetando todas las dependencias en un
-  solo fichero que, además, se puede distribuir desde la web, evitando
-  tener que descargar dependencias e instalarlas usando privilegios de
-  administrador. Esta virtualización de aplicaciones, aunque se puede
-  usar para desplegarlas en infraestructura virtual, en realidad está
-  fuera de los conceptos de infraestructura cloud que son la clave de
-  esta asignatura.
+  empaqueta aplicaciones de forma que se ejecuten en un entorno que las aísla
+  del resto del sistema operativo; una parte es el uso de
+  [virtualización de escritorio](https://en.wikipedia.org/wiki/Desktop_virtualization)
+  que permite aplicar una serie de aplicaciones generalmente desde un navegador
+  (y que en realidad tiene que tener por debajo una máquina virtual, en un
+  servidor, que sea quien en realidad ejecuta las mismas). En general, los
+  programas necesarios se denominan *emuladores*; CygWin, por ejemplo, permite
+  ejecutar aplicaciones de UNIX en Windows, aunque se tienen que recompilar.
+  Programas como
+  [FlatPak](http://docs.flatpak.org/en/latest/getting-started.html), permiten
+  empaquetar aplicaciones para que se ejecuten en cualquier distribución de
+  Linux, empaquetando todas las dependencias en un solo fichero que, además, se
+  puede distribuir desde la web, evitando tener que descargar dependencias e
+  instalarlas usando privilegios de administrador. Esta virtualización de
+  aplicaciones, aunque se puede usar para desplegarlas en infraestructura
+  virtual, en realidad está fuera de los conceptos de infraestructura cloud que
+  son la clave de esta asignatura.
 
-*  La *contenedorización* de aplicaciones va un poco más allá,
-empaquetando un entorno de ejecución completo de una o varias
-aplicaciones o servicios (aunque se aconseja que sea solo uno) y aislándolo del resto
-del sistema operativo. Se pueden usar las
-técnicas que se explican en el resto de la asignatura; de hecho, se
-pueden crear *paquetes* que permiten ejecutar una aplicación con todas
-las dependencias necesarias. Por ejemplo, [*docker*](https://www.docker.com)
-es una aplicación que permite crear fácilmente aplicaciones
-*contenidas* desde línea de órdenes para su uso en cualquier tipo de
-infraestructura virtual. A bajo nivel, la contenedorización es en
-realidad un sistema de aislamiento de aplicaciones que permite crear
-seudo-máquinas virtuales de *usar y tirar*.
+* La *contenedorización* de aplicaciones va un poco más allá, empaquetando un
+  entorno de ejecución completo de una o varias aplicaciones o servicios
+  (aunque se aconseja que sea solo uno) y aislándolo del resto del sistema
+  operativo. Se pueden usar las técnicas que se explican en el resto de la
+  asignatura; de hecho, se pueden crear *paquetes* que permiten ejecutar una
+  aplicación con todas las dependencias necesarias. Por ejemplo,
+  [*docker*](https://www.docker.com) es una aplicación que permite crear
+  fácilmente aplicaciones *contenidas* desde línea de órdenes para su uso en
+  cualquier tipo de infraestructura virtual. A bajo nivel, la contenedorización
+  es en realidad un sistema de aislamiento de aplicaciones que permite crear
+  seudo-máquinas virtuales de *usar y tirar*.
 
-* La *virtualización de entornos de desarrollo* es una práctica
-habitual en lenguajes de scripting tales como Perl, Python o Ruby. Se
-trata de reproducir entornos de producción de la forma más fiel
-posible, incluyendo las versiones de intérpretes y librerías usadas en
-el entorno de producción. Esta práctica permite también probar una
-aplicación en diferentes versiones con una sola orden. `virtualenv`, `perlbrew`
-`rbenv` o `RVM` son diferentes aplicaciones que permiten realizarlo
-para diferentes lenguajes.
+* La *virtualización de entornos de desarrollo* es una práctica habitual en
+  lenguajes de scripting tales como Perl, Python o Ruby. Se trata de reproducir
+  entornos de producción de la forma más fiel posible, incluyendo las versiones
+  de intérpretes y librerías usadas en el entorno de producción. Esta práctica
+  permite también probar una aplicación en diferentes versiones con una sola
+  orden. `virtualenv`, `perlbrew` `rbenv` o `RVM` son diferentes aplicaciones
+  que permiten realizarlo para diferentes lenguajes.
 
 En general, en esta asignatura hablaremos, sobre todo, de
 virtualización plena, aunque en realidad lo interesante de la
@@ -470,6 +465,7 @@ son
 pero no tienen una comunidad tan activa como este.
 
 <div class='ejercicios' markdown="1">
+
 1. Darse de alta en una web que permita hacer pruebas con alguno de
    los sistemas de gestión de nube libres como los mencionados en los
    párrafos anteriores, aunque sea temporalmente. Si la prueba es menos de un

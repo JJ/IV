@@ -9,12 +9,11 @@ next: Gestion_de_configuraciones
 
 <h2>Objetivos</h2>
 
-1. Conocer las diferentes tecnologías y herramientas de
-virtualización tanto para procesamiento, comunicación y
-almacenamiento.
+1. Conocer las diferentes tecnologías y herramientas de virtualización tanto
+   para procesamiento, comunicación y almacenamiento.
 
-2. Diseñar, construir y analizar las prestaciones de un centro de
-proceso de datos virtual.
+2. Diseñar, construir y analizar las prestaciones de un centro de proceso de
+   datos virtual.
 
 3. Documentar y mantener una plataforma virtual.
 
@@ -156,18 +155,17 @@ va a ser así esta vez y `d`, como antiguamente, es el CD
 <div class='ejercicios' markdown="1">
 
 1. Crear varias máquinas virtuales con algún sistema operativo libre tal como
-Linux o BSD. Si se
-quieren distribuciones que ocupen poco espacio con el objetivo
-principalmente de hacer pruebas se puede usar
-[CoreOS](https://coreos.com/) (que sirve como soporte para Docker)
-[GALPon Minino](https://minino.galpon.org/en), hecha en Galicia para el
-mundo,
-[Damn Small Linux](http://www.damnsmalllinux.org/download.html),
-[SliTaz](http://www.slitaz.org/en/) (que cabe en 35 megas) y
-[ttylinux](http://freecode.com/projects/ttylinux/) (basado en línea de órdenes solo).
+   Linux o BSD. Si se quieren distribuciones que ocupen poco espacio con el
+   objetivo principalmente de hacer pruebas se puede usar
+   [CoreOS](https://coreos.com/) (que sirve como soporte para Docker)
+   [GALPon Minino](https://minino.galpon.org/en), hecha en Galicia para el
+   mundo, [Damn Small Linux](http://www.damnsmalllinux.org/download.html),
+   [SliTaz](http://www.slitaz.org/en/) (que cabe en 35 megas) y
+   [ttylinux](http://freecode.com/projects/ttylinux/) (basado en línea de
+   órdenes solo).
 
 2. Hacer un ejercicio equivalente usando otro hipervisor como Xen, VirtualBox o
-Parallels.
+   Parallels.
 
 </div>
 
@@ -183,7 +181,7 @@ La máquina virtual, una vez instalada, se puede arrancar directamente
 desde el fichero en el que la hemos instalado, usando una orden [tal como esta](https://wiki.archlinux.org/index.php/QEMU#Creating_new_virtualized_system)
 
 ```
-qemu-system-x86_64 -boot order=c -drive file=/media/Backup/Isos/discovirtual.img,if=virtio
+qemu-system-x86_64 -boot order=c -drive	file=/media/Backup/Isos/discovirtual.img,if=virtio
 ```
 
 En este caso no necesitamos *pegarle* el CD, sino que le indicamos en

@@ -17,16 +17,15 @@ Cubre los siguientes objetivos de la asignatura
 * Conocer las diferentes tecnologías y herramientas de virtualización
   tanto para procesamiento, comunicación y almacenamiento.
 
- * Configurar los diferentes dispositivos físicos para acceso a los
-  servidores virtuales: acceso de usuarios, redes de comunicaciones o entrada/salida.
+* Configurar los diferentes dispositivos físicos para acceso a los servidores
+  virtuales: acceso de usuarios, redes de comunicaciones o entrada/salida.
 
 * Realizar tareas de administración en infraestructura virtual.
 
 <h2>Objetivos específicos</h2>
 
-1.  Conocer las diferentes tecnologías y herramientas de
-virtualización tanto para procesamiento, comunicación y
-almacenamiento.
+1. Conocer las diferentes tecnologías y herramientas de virtualización tanto
+   para procesamiento, comunicación y almacenamiento.
 
 2. Crear infraestructuras virtuales básicas: dispositivos.
 
@@ -205,8 +204,8 @@ por VirtualBox.
 
 1. Mostrar los puentes configurados en el sistema operativo.
 
-2. Crear un interfaz virtual y asignarlo al interfaz de la tarjeta
-wifi, si se tiene, o del fijo, si no se tiene.
+2. Crear un interfaz virtual y asignarlo al interfaz de la tarjeta wifi, si se
+   tiene, o del fijo, si no se tiene.
 
 </div>
 
@@ -296,10 +295,10 @@ natural.
 <div class='ejercicios' markdown="1">
 
 1. Usar `debootstrap` (o herramienta similar en otra distro) para crear un
-sistema mínimo que se pueda ejecutar más adelante.
+   sistema mínimo que se pueda ejecutar más adelante.
 
-2. Experimentar con la creación de un sistema Fedora dentro de Debian
-usando Rinse.
+2. Experimentar con la creación de un sistema Fedora dentro de Debian usando
+   Rinse.
 
 </div>
 
