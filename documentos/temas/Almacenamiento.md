@@ -35,7 +35,7 @@ Objetivos
 
  </div>
 
-## La parte verdadera: un disco físico.
+## La parte verdadera: un disco físico
 
  Aunque en principio esté claro que un disco es un disco físico, en la
  práctica y en la nube no tiene que ser así. El soporte físico del almacenamiento

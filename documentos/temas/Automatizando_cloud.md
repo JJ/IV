@@ -23,7 +23,7 @@ proceso de datos virtual.
 
 </div>
 
-## Trabajando en la nube.
+## Trabajando en la nube
 
 Lo primero es crear metadatos relativos a la instancia de la máquina
    virtual. Cosas como el *grupo de recursos*, que indica cómo va a

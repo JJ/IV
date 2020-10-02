@@ -1,4 +1,4 @@
-Arquitecturas software para infraestructura virtual.
+Arquitecturas software para infraestructura virtual
 ==
 
 <!--@

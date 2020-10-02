@@ -145,7 +145,7 @@ saber más
 > El [repositorio de la presentación](https://github.com/JJ/chef)
 > incluye varios *cookbooks* de ejemplo.
 
-Ansible para provisionamiento.
+Ansible para provisionamiento
 ---
 
 Las principales alternativas a Chef son [Ansible](https://www.ansible.com),

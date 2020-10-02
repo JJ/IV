@@ -496,7 +496,7 @@ guste) para ese lenguaje.
 
 </div>
 
-## Gestores de versiones de lenguajes y bibliotecas.
+## Gestores de versiones de lenguajes y bibliotecas
 
 Una de las partes esenciales de la cultura *DevOps* es la definición y
 gestión de configuraciones que permite la automatización y

@@ -76,7 +76,7 @@ caso de que el procesador tenga soporte.
 A continuación veremos el uso básico de estos sistemas de
 virtualización basándonos, sobre todo, en uno de ellos KVM.
 
-## Creando máquinas virtuales desde la línea de órdenes.
+## Creando máquinas virtuales desde la línea de órdenes
 
 Crear una máquina virtual requiere seguir un proceso similar a la
 construcción e instalación del sistema operativo de un ordenador por

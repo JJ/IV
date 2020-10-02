@@ -442,7 +442,7 @@ Crear pruebas para las diferentes rutas de la aplicación.
 
 </div>
 
-## Microservicios en producción.
+## Microservicios en producción
 
 En general, todos los microframeworks tienen un servidor web que es
 usable principalmente para desarrollo. Casi ninguno te aconseja que se

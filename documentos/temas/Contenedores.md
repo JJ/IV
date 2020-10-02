@@ -642,7 +642,7 @@ desarrollando en el proyecto de la asignatura.
 
 </div>
 
-## Desplegando directamente contenedores.
+## Desplegando directamente contenedores
 
 Docker tiene un repositorio público de contenedores llamado
 [Docker Hub](https://hub.docker.com). En este repositorio se pueden
