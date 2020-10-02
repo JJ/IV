@@ -21,5 +21,5 @@ jobs:
       - name: "Install the linter"
         run: gem install mdl
       - name: "Comprueba estilo de archivos Markdown"
-        run: mdl --style mdl.rb .
+        run: mdl --style .mdl.rb .
 
