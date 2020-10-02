@@ -3,7 +3,6 @@ Una introducción ligera al lenguaje Ruby
 
 <div class="objetivos" markdown="1">
 
-
 Objetivos específicos
 --
 
@@ -15,7 +14,6 @@ Objetivos específicos
  * Hacer un pequeño programa
 
 </div>
-
 
 ¿Ruby? Pero si es muy fácil
 ---
@@ -59,7 +57,6 @@ para comprobar la versión instalada. A la vez, conviene instalar también `irb`
 
 Primer programa
 --
-
 
 Para programar en Ruby necesitas el editor y el intérprete de Ruby propiamente
   dicho. Descárgatelo e instálalo (o haz las dos cosas a la vez), aunque te vendrá bien también
@@ -194,7 +191,6 @@ No son los únicos tipos de matrices: las matrices asociativas son
 	  :caballo => 'iiiii' }
     puts sonido_de.inspect
 
-
 Que, aparte de introducir las llaves (para claves... ¿lo ves como se
 	  trata de no sorprender?) pone unos dos puntitos delante de
 	  las mismas que la verdad que sí sorprenden. Y es porque se
@@ -261,14 +257,12 @@ Recorrer una estructura compleja exhaustivamente, imprimiendo todos los datos.
 
 </div>
 
-
 Leyendo y escribiendo
 --
 
 Tratándose de un lenguaje orientado a objetos, habrá que buscar la
   clase para abrir y cerrar ficheros, que se llama en un alarde de
   originalidad `File`.
-
 
 	fh = File::new( ARGV[0] )
 	while (line = fh.gets )
@@ -453,7 +447,6 @@ misma. De camino, vemos como se definen funciones en Ruby: usando
 también `def`. Igual que antes, salvo que ahora damos un nombre al
 bloque, lo que le da más derechos, al parecer.
 
-
 <div class='ejercicios' markdown="1">
 
 1. Crear una serie de funciones instanciadas con un URL que devuelvan
@@ -464,7 +457,6 @@ cabecera HTTP que devuelve
 </div>
 
 Instalando nuevos módulos
-
 
 Qué sería de cualquier lenguaje si tuviéramos que conformarnos con
   lo que nos da, y no pudiéramos instalar cosas nuevas... El usar
@@ -541,11 +533,8 @@ En algunos casos puede que dé error, porque falte alguna
 
 </div>
 
-
-
 Referencias adicionales
 --
-
 
  Como es de esperar, hay libros enteros gratuitos sobre
     Ruby: [Programming Ruby](http://ruby-doc.org/docs/ProgrammingRuby/), por ejemplo, pero el más curioso
@@ -565,5 +554,3 @@ En español se puede
 Cuando ya estés harto de
   Ruby,[también
     puedes aprender un poquico de Ruby on Rails](http://www.maestrosdelweb.com/editorial/rubyonrails/), ya puesto.
-
-

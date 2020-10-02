@@ -1,6 +1,5 @@
 # Virtualización *ligera* usando contenedores
 
-
 <!--@
 prev: PaaS
 next: Gestion_de_configuraciones
@@ -35,7 +34,6 @@ Objetivos
 
 </div>
 
-
 ## Un paso más hacia la virtualización completa: *contenedores*
 
 El aislamiento de grupos de procesos formando una *jaula* o
@@ -67,7 +65,6 @@ contenedores y cuáles son sus ventajas frente a otros métodos de
 virtualización
 
 </div>
-
 
 El mundo Linux no tendría capacidades similares hasta bien entrados los años 90, con
 [vServers, OpenVZ y finalmente LXC](https://en.wikipedia.org/wiki/Operating_system-level_virtualization#Implementations). Este
@@ -247,7 +244,6 @@ instalados y desde ella se pueden arrancar o parar.
 
 ![Página inicial de LXC-Webpanel](../img/Overview-lxc.png)
 
-
 Cada solución de virtualización tiene sus ventajas e
 inconvenientes. La principal ventaja de los contenedores son el
 aislamiento de recursos y la posibilidad de manejarlos, lo que hace
@@ -257,7 +253,6 @@ que haya una diferencia en las prestaciones, que puede ser apreciable
 en ciertas circunstancias.
 
 ## Gestión de contenedores con `docker`
-
 
 [Docker](https://www.docker.com) es una herramienta de gestión de
 contenedores que permite no solo instalarlos, sino trabajar con el

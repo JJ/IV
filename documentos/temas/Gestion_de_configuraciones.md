@@ -122,7 +122,6 @@ servicios que estamos usando en el proyecto de la asignatura.
 
 </div>
 
-
 Trabajar con estas máquinas virtuales como se tratara de máquinas
 reales no tiene mucho sentido. El uso de infraestructuras virtuales,
 precisamente, lo que permite es automatizar la creación y
@@ -130,7 +129,6 @@ provisionamiento de las mismas de forma que se puedan crear y
 configurar máquinas en instantes y personalizarlas de forma
 masiva. Veremos como hacerlo en el
 [siguiente tema](Gestion_de_configuraciones).
-
 
 Usando Chef para provisionamiento
 -----
@@ -187,7 +185,6 @@ inventory = ./ansible_hosts
 ```
 
 Lo principal es la primera opción, que permite que la conexión con nuevas máquinas virtuales por `ssh` no pregunte si se acepta la clave nueva de una nueva MAC detectada. La segunda instrucción indica dónde se va a encontrar, por omisión, el fichero de inventario, en este caso en el mismo directorio.
-
 
 Cada máquina que se añada al control de Ansible se tiene que añadir a
 un
@@ -356,7 +353,6 @@ provisionamiento de un módulo o conjunto de módulos.
 > año 2013. Es poco probable que tengas una versión anterior, pero
 > podría suceder.
 
-
 Un rol abarca variables, tareas y otro tipo de metadatos, y se
 agruparán en un directorio con un nombre determinado, por ejemplo, el
 rol `ol` estará en el directorio (a partir del playbook que lo use)
@@ -403,7 +399,6 @@ esta forma:
 ansible-galaxy install geerlingguy.nodejs
 ```
 
-
 Se
 usa en un [playbook](/ejemplos/vagrant/Debian2018/node-versions.yml)
 usando el nombre completo, tras instalarlo:
@@ -435,7 +430,6 @@ usará el rol para instalar la versión de node correspondiente.
 > enseña
 > [aquí](https://www.digitalocean.com/community/tutorials/configuration-management-101-writing-ansible-playbooks) diferentes
 > características de los playbooks que se pueden usar.
-
 
 <div class='ejercicios' markdown='1'>
 
@@ -504,7 +498,6 @@ vagrant ssh
 Instalar una máquina virtual Debian usando Vagrant y conectar con ella.
 ​
 </div>
-
 
 Una vez creada la máquina virtual se puede entrar en ella y
 configurarla e instalar todo lo necesario. Pero, por supuesto,
@@ -636,7 +629,6 @@ es más fácil hacerlo en Ansible y/o en otro sistema operativo que no
 sea CentOS porque yo, por lo pronto, no he logrado instalar chef-solo
 en ninguna de las máquinas pre-configuradas de VagrantBoxes.
 </div>
-
 
 <div class='ejercicios' markdown='1'>
 

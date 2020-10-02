@@ -23,7 +23,6 @@ proceso de datos virtual.
 
 </div>
 
-
 ## Trabajando en la nube.
 
 Lo primero es crear metadatos relativos a la instancia de la máquina
@@ -36,7 +35,6 @@ varias, que permite acceder al API de la misma una vez identificados
 ahí. Generalmente son libres, así que también se pueden usar desde tu
 propio programa. A continuación veremos como trabajar en alguna de
 ellas.
-
 
 <!-- incluir instrucciones para usar CLI de Python -->
 
@@ -55,7 +53,6 @@ az group create -l westeurope -n CCGroupEU
 
 Esto crea un grupo de recursos en Europa Occidental.
 
-
 A dónde ir desde aquí
 -----
 
@@ -65,7 +62,5 @@ práctica todos los conceptos aprendidos en este tema y
 fácilmente gestionables y adaptables a un fin determinado. También se
 puede ir a [el hito del proyecto](../3.IaaS.md) para aplicarlo al mismo.
 
-
 Si lo que necesitas es un sistema ligero de virtualización, puedes
 mirar cómo virtualizar con [contenedores](Contenedores.md).
-

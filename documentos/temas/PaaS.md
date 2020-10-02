@@ -1,6 +1,5 @@
 # Desplegando aplicaciones en la nube: Uso de PaaS
 
-
 <!--@
 prev: Microservicios
 next: Contenedores
@@ -9,7 +8,6 @@ next: Contenedores
 <div class="objetivos" markdown="1">
 
 <h2>Objetivos</h2>
-
 
 <h3>Cubre los siguientes objetivos de la asignatura</h3>
 
@@ -313,7 +311,6 @@ python-telegram-bot==12.0.0
 
 Por ahora nuestro `requirements.txt` es muy simple, solo necesita la librería para crear bots de telegram. Si desplegásemos este bot con las indicaciones de la siguiente sección, tendríamos un echo. Hagámoslo un poco más divertido. Volvamos a `bot.py`, y analicemos la función `echo`. Vamos a cambiarla para hacer a nuestro bot un poco burlón.
 
-
 ```
 def echo(update, context):
 	mensa = update.message.text
@@ -359,7 +356,6 @@ pycrypto==2.6.1
 ```
 
 Y ya está todo. Ya solo nos queda desplegar y monitorizar, como veremos en la siguiente sección.
-
 
 ## Desplegando en el PaaS
 
@@ -553,7 +549,6 @@ Con esto, un simple push a una rama determinada, que sería la
 `master`, se hará que se pruebe y, en caso de pasar los tests, se
 despliegue automáticamente en Heroku.
 
-
 <div class='ejercicios' markdown="1">
  Haz alguna modificación a tu aplicación en node.js para Heroku, sin
  olvidar añadir los tests para la nueva funcionalidad, y configura el
@@ -597,7 +592,6 @@ por ejemplo. De hecho, incluso en Heroku se puede trabajar también con
 Travis para el despliegue automático, aunque es mucho más simple
 hacerlo con Snap CI como se ha indicado más arriba.
 
-
 ## Despliegue del bot de Telegram
 
 Para desplegar el bot de Telegram usaremos también Heroku, pero en este caso haremos uso también de Docker. Antes de nada, metamos las variables delicadas que comentábamos antes. Entramos en Heroku, creamos una nueva aplicación en python y le ponemos el nombre nuestro bot. A continuación vamos a **Settings** -> Config Vars -> Reveal Config Vars. Añadimos las siguientes variables:
@@ -621,7 +615,6 @@ $ heroku logs --tail --app miapp
 Tras esto habremos desplegado la última `release` en desarrollo de nuestro bot, y podemos leer los logs para ver qué está sucediendo. Si escribimos comandos desde la conversación podemos observar como reacciona nuestro bot desde la terminal. Para probar, copia y pega en tu directorio [este ejemplo](enlacealbot).
 
 ## A dónde ir desde aquí
-
 
 En el [siguiente tema](Tecnicas_de_virtualizacion.md) usaremos
 diferentes técnicas de virtualización para la creación de contenedores que aíslan procesos, usuarios y recursos del resto del sistema, creando por tanto máquinas *virtuales*. Previamente habrá que [realizar la

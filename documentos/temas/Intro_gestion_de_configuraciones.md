@@ -276,7 +276,6 @@ sudo juju destroy-machine 2
 
 donde 2 es el número de la máquina que aparecería en status. La máquina `0` siempre es la máquina anfitriona, que no se puede destruir a no ser que queramos ver el fin del universo conocido.
 
-
 Los números de máquina no se reutilizan, y cuando se ejecuta
 
 ```
@@ -317,8 +316,6 @@ Cuando algo va mal en `juju`, hay que echar mano de los logs. En algún momento 
 Lo que indica que falta una plantilla del tipo de máquina que se
 ha usado, por algún error en la instalación de `lxc-templates`,
 seguramente.
-
-
 
 <div class='ejercicios' markdown='1'>
 

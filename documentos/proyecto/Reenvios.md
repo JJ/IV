@@ -6,7 +6,6 @@ Descripción
 
 Puedes reenviar los hitos las veces que quieras, pero sigue estas instrucciones para que se pueda evaluar correctamente.
 
-
 Entrega de la práctica
 --------------------------------
 

@@ -239,7 +239,6 @@ class SoloTest(unittest.TestCase):
         self.assertEqual(multiplo3o5o15(15),3,u"Multiplo de 15")
         self.assertEqual(multiplo3o5o15(7),0,u"No es multiplo")
 
-
 if __name__ == '__main__':
 unittest.main()
 ```
@@ -311,7 +310,6 @@ forma parte de la estándar de JS, pero hay otras como
 [`Unexpected`](http://unexpected.js.org/) o aserciones parte de marcos
 de tests más completos. Estos marcos de test incluyen [Chai](https://www.chaijs.com/), [Jasmine](https://jasmine.github.io/),
 [Must.js](https://github.com/moll/js-must) y [`jest`](https://jestjs.io/).
-
 
 Veamos el siguiente
 [ejemplo](https://github.com/JJ/desarrollo-basado-pruebas/blob/master/src/prueba-assert.js)
@@ -417,14 +415,12 @@ tipo, porque mocha funciona a un nivel superior, con funciones como
 comportamiento que queremos comprobar. Se ejecuta con `mocha` y
 el resultado de ejecutarlo será:
 
-
 ```
     Apuesta
       Carga
         ✓ should be loaded
       Crea
         ✓ should create apuestas correctly
-
 
     2 passing (6ms)
 ```
@@ -459,8 +455,6 @@ esperada. Como se ve, el marco (que incluye las funciones `describe` e
 `it`) no varía, lo que varía es como se describe el test en sí, que
 depende de la biblioteca de aserciones.
 
-
-
 Además, te indica el tiempo que ha tardado lo que te puede servir para
 hacer un *benchmark* de tu código en los diferentes entornos en los
 que se ejecute.
@@ -494,7 +488,6 @@ lenguajes son:
 Cada lenguaje incluye este tipo de marcos, sea como parte de su
 distribución base o como parte de alguna biblioteca popular.
 
-
 <div class='ejercicios' markdown='1'>
 
 Crear algún conjunto de scripts de tests, usando tu lenguaje favorito,
@@ -502,7 +495,6 @@ y ejecutarlos desde el marco de test más adecuado (o el que más te
 guste) para ese lenguaje.
 
 </div>
-
 
 ## Gestores de versiones de lenguajes y bibliotecas.
 
@@ -608,7 +600,6 @@ aplicación que puedas usar más adelante en el resto de los ejercicios.
 
 </div>
 
-
 La aplicación tendrá más adelante un API REST, pero por lo pronto,
 y a efectos de la prueba continua de más adelante, vamos a quedarnos
 solo con un pequeño módulo que sirva para ver que funciona.
@@ -618,7 +609,6 @@ solo con un pequeño módulo que sirva para ver que funciona.
 Ejecutar el programa en diferentes versiones del lenguaje. ¿Funciona en todas ellas?
 
 </div>
-
 
 Podemos almacenar esta información en una base de datos como SQLite
 (la clásica). Para instalarla, `npm install sqlite` que es la forma
@@ -650,7 +640,6 @@ JSON tal como este:
 	  }
 	}
 ```
-
 
 Las partes que más nos interesan están hacia el final: las
 dependencias diversas (`dependencies`). Es un *hash* que dice qué
@@ -815,7 +804,6 @@ cree usando `docco` u otro sistema similar de generación de
 documentación. Previamente, por supuesto, habrá que documentar tal librería.
 
 </div>
-
 
 ## Añadiendo integración continua
 

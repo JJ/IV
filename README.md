@@ -44,7 +44,6 @@ La
 [temporización de la asignatura y los objetivos de cada sesión figuran en la bitácora de clase](https://github.com/JJ/IV-20-21/blob/master/sesiones/README.md). Enlazaremos
 también en ese fichero las grabaciones que se hagan de las sesiones en vivo.
 
-
 1. [Introducción: conceptos y soporte físico](documentos/temas/Intro_concepto_y_soporte_fisico.md). Esta
    introducción es *cultura general*; aunque conviene conocerlo, no es
    imprescindible para llevar a cabo, en general, el proyecto de la

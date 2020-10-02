@@ -10,7 +10,6 @@ next: PaaS
 
 ## Objetivos
 
-
 ### Cubre los siguientes objetivos de la asignatura
 
 2. Conocer los conceptos relacionados con el proceso de virtualización
@@ -25,7 +24,6 @@ tanto de software como de hardware y ponerlos en práctica.
 6. Entender el soporte lógico del aislamiento de recursos.
 
 </div>
-
 
 Restricción y medición del uso de recursos: `cgroups`
 -----
@@ -217,7 +215,6 @@ parte de diferentes usuarios o grupos de aplicaciones. Por supuesto,
 también para aislar recursos y, por tanto, crear infraestructuras
 virtuales, pero esto se verá más adelante.
 
-
 <div class='ejercicios' markdown="1">
 
 1. Crear diferentes grupos de control sobre un sistema operativo
@@ -282,7 +279,6 @@ pertenece cada usuario e incluso qué comandos de qué usuario deben
 pertenecer a cada grupo. Con ello se le puede asignar, por ejemplo,
 más prioridad en la CPU o entrada/salida a unos usuarios que a otros.
 
-
 <div class='ejercicios' markdown="1">
 1. [Discutir diferentes escenarios de limitación de uso de recursos o de asignación de los mismos a una u otra CPU](https://github.com/IV-GII/GII-2014/issues/4).
 2. Implementar usando el fichero de configuración de `cgcreate` una
@@ -303,9 +299,7 @@ Algunas aplicaciones están preparadas de serie para usar cgroups:
 
 </div>
 
-
 A dónde ir desde aquí
 -----
 
 En el [siguiente tema](PaaS.md) veremos como usar sistemas de plataforma como servicio.
-

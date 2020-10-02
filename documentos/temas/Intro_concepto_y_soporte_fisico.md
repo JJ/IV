@@ -7,7 +7,6 @@ next: Desarrollo_basado_en_pruebas
 
 <div class="objetivos" markdown="1">
 
-
 ## Objetivos
 
 ### Cubre los siguientes objetivos de la asignatura
@@ -37,7 +36,6 @@ computación nube.
 colaborativo y para despliegue de aplicaciones en la nube.
 
 </div>
-
 
 <div class="nota" markdown="1">
 
@@ -116,8 +114,6 @@ desarrollo ágil. En concreto, *DevOps* comprende
    característica se introduzca tan pronto esté lista y probada; el
    despliegue continuo implica integración continua de las nuevas
    características y arreglos, tanto en el software como el hardware.
-
-
 
 Tecnologías de virtualización: un poco de historia
 ---
@@ -263,7 +259,6 @@ los mismos.
   fuera de los conceptos de infraestructura cloud que son la clave de
   esta asignatura.
 
-
 *  La *contenedorización* de aplicaciones va un poco más allá,
 empaquetando un entorno de ejecución completo de una o varias
 aplicaciones o servicios (aunque se aconseja que sea solo uno) y aislándolo del resto
@@ -292,7 +287,6 @@ infraestructura virtual es poder definir por software los recursos que
 se van a usar para desplegar una aplicación, independientemente de la
 tecnología que se use; en ese sentido, el tipo de virtualización que se
 use físicamente tiene importancia secundaria.
-
 
 Virtualización a nivel de *hardware*
 ----------------------------------
@@ -374,7 +368,6 @@ adelante se podrá usar en pruebas y ejercicios. Usar siempre que sea
 posible un hipervisor que sea software libre.
 </div>
 
-
 Niveles y tipos de infraestructura virtual
 -----
 
@@ -417,7 +410,6 @@ el flujo de datos en la ejecución; todas las tareas de asignación de
 recursos y escalado de los mismos es gestionado por la propia
 plataforma.
 
-
 Hay especialmente dos servicios que han
 surgido a partir del año 2015 que no encajan nada bien dentro de esas
 capas anteriores
@@ -453,7 +445,6 @@ capas anteriores
 En general, estos tipos de servicio necesitan a su vez de otros productos
 en la nube, especialmente definición de redes virtuales y diferentes
 tipos de almacenes de datos y de canales de comunicación entre ellos.
-
 
 Por otro lado, dependiendo de quién posea físicamente el centro de
 datos y lo administre, se suele hablar de nube pública o privada; los

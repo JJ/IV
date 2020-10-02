@@ -34,7 +34,6 @@ almacenamiento.
 
 </div>
 
-
 Introducción
 ------------------
 
@@ -444,7 +443,6 @@ más de la cuenta, pero es más o menos completo.
 
 </div>
 
-
 Lo primero que hay que hacer es crear una definición para cada uno de
 los entornos en el fichero `/etc/schroot/schroot.conf` tal como esta:
 
@@ -564,4 +562,3 @@ A dónde ir desde aquí
 
 En el [siguiente tema](Contenedores.md) se verá cómo trabajar con
 sistemas *ligeros* de virtualización.
-

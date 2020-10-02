@@ -171,7 +171,6 @@ Parallels.
 
 </div>
 
-
 <div class='nota' markdown='1'>
 
 En [esta guía](https://www.dedoimedo.com/computers/kvm-intro.html) se
@@ -225,7 +224,6 @@ Crear una máquina virtual Linux con 512 megas de RAM y entorno gráfico
 LXDE a la que se pueda acceder mediante VNC y `ssh`.
 
 </div>
-
 
 ## Automatizando la creación de máquinas virtuales
 
@@ -325,9 +323,7 @@ repositorios.
 
 </div>
 
-
 ## A dónde ir desde aquí
-
 
 En el [siguiente tema](Gestion_de_configuraciones) pondremos en
 práctica todos los conceptos aprendidos en este tema y
@@ -337,4 +333,3 @@ Antes, habrá que hacer y entregar [el último hito](../proyecto/5.IaaS.md).
 
 Si lo que necesitas es un sistema ligero de virtualización, puedes
 mirar cómo virtualizar con [contenedores](Contenedores.md).
-

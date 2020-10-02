@@ -1,6 +1,5 @@
 # Microservicios
 
-
 <!--@
 prev: Desarrollo_basado_en_pruebas
 next: PaaS
@@ -9,7 +8,6 @@ next: PaaS
 <div class="objetivos" markdown="1">
 
 <h2>Objetivos</h2>
-
 
 <h3>Cubre los siguientes objetivos de la asignatura</h3>
 
@@ -125,7 +123,6 @@ app.listen(port);
 console.log('Server running at http://127.0.0.1:'+port+'/');
 ```
 
-
 Para empezar, `express` nos evita todas las molestias de tener que
 procesar nosotros el URL: directamente escribimos una
 función para cada respuesta que queramos tener, lo que facilita mucho la
@@ -149,7 +146,6 @@ acostumbrarse a pensar en estas aplicaciones como servidores a los
 cuales se va a acceder desde un cliente, sea un programa que use un
 cliente REST o el mismo cliente REST usando el navegador, es decir,
 mediante JavaScript.
-
 
 <div class='ejercicios' markdown="1">
 
@@ -181,7 +177,6 @@ servicio que se está ofreciendo desde el microservicio. Por otro lado, el acces
 actividades según el mismo se denomina enrutado. En `express` se pueden
 definir los parámetros de forma bastante simple, usando marcadores
 precedidos por `:`.
-
 
 Por ejemplo, si queremos tener diferentes contadores
 podríamos usar el [programa siguiente](https://github.com/JJ/node-app-cc/blob/master/index.js):
@@ -216,7 +211,6 @@ podríamos usar el [programa siguiente](https://github.com/JJ/node-app-cc/blob/m
 	});
 ```
 
-
 Este [programa
 (express-count.js)](https://github.com/JJ/node-app-cc/blob/master/index.js)
 introduce otras dos órdenes REST: PUT, que, como recordamos, sirve para
@@ -241,7 +235,6 @@ incluir parámetros, como en el caso de `put`:
 principio y cuatro parámetros. Estos parámetros se recuperan dentro de
 la función *callback* como atributos de la variable `req.params`,
 tales como `req.params.local` en las siguientes líneas.
-
 
 <div class='ejercicios' markdown="1">
 
@@ -299,7 +292,6 @@ class CustomLogger(LogMiddleware):
                 'status': response.status,
                 'user-agent': request.user_agent }
 
-
 """ Declara clase """
 estos_hitos = HitosIV()
 
@@ -354,7 +346,6 @@ En este caso, como en el anterior, el puerto en el que se va a servir
 es configurable, aunque tiene un valor asociado por defecto. Como en
 el caso anterior, se usa una variable de entorno para hacer esta
 configuración.
-
 
 > Es muy importante que no haya ninguna constante relacionada con el
 > despliegue en la configuración. Todas deben estar en un fichero
@@ -491,8 +482,6 @@ para parar todos los procesos que gestione. Los logs se almacenan en un director
 
     pm2 logs
 
-
-
 Hay [muchos otros gestores de procesos](https://www.tecmint.com/process-managers-for-node-js-applications-in-linux/), pero esto incluye también el systemd de Linux, un gestor que se puede usar con éxito en sistemas que lo implementen, como es natural, y que está incluido en cualquier distribución.
 
 Pero en muchos lenguajes, estos gestores de procesos van un poco más allá, y tienen un interfaz específico para llamar a las funciones a través de un interfaz web. Este tipo de interfaz, que se llama genéricamente `*SGI`, de *services (o server) gateway interface*, se implementa en lenguajes como Python, Perl y Ruby de diferentes formas. Dado que el ejemplo que hemos hecho antes es en Python, donde se llama [WSGI](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface), o *web server gateway interface*.
@@ -564,7 +553,6 @@ pm2 start -i 4 HitosIV/hugitos.py
 En resumen: `pm2` es una herramienta excelente, que merece la pena
 usar con cualquier programa que necesite ejecutar varias instancias.
 
-
 <div class='ejercicios' markdown="1">
 
 Experimentar con diferentes gestores de procesos y servidores web
@@ -572,7 +560,6 @@ front-end para un microservicio que se haya hecho con antelación, por
 ejemplo en la sección anterior.
 
 </div>
-
 
 > Adicionalmente, la herramienta `systemd` que es común en todos los sistemas Linux actuales se puede usar también [para gestionar procesos](http://alesnosek.com/blog/2016/12/04/controlling-a-multi-service-application-with-systemd/). Como desventaja, aparte de no ser portable a diferentes sistemas operativos, es que hacen falta ficheros de configuración específicos por cada uno de los servicios.
 
@@ -642,8 +629,6 @@ fácilmente desde la línea de órdenes.
 
 </div>
 
-
 ## A dónde ir desde aquí
-
 
 En el [siguiente tema](PaaS.md) veremos cómo hacer efectivamente el despliegue en la nube.

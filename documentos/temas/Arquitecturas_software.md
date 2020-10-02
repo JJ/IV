@@ -10,7 +10,6 @@ next: PaaS
 
 ## Objetivos
 
-
 ### Cubre los siguientes objetivos de la asignatura
 
 1. Conocer los conceptos relacionados con el proceso de virtualización
@@ -27,7 +26,6 @@ tanto de software como de hardware y ponerlos en práctica.
    enfocadas a infraestructuras virtuales.
 
 </div>
-
 
 ## Servicios web
 

@@ -6,5 +6,3 @@ Cosas por hacer
 * [x] Continuar con el resto de los temas
 * [ ] Revisar el texto: puntuación, ortografía, enlaces rotos.
 * [ ] Hablar más extensamente de PaaS.
-
-

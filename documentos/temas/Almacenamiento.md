@@ -35,7 +35,6 @@ Objetivos
 
  </div>
 
-
 ## La parte verdadera: un disco físico.
 
  Aunque en principio esté claro que un disco es un disco físico, en la
@@ -89,8 +88,6 @@ volúmenes físicos y lógicos en Linux.
 
 </div>
 
-
-
 Sistemas de ficheros en espacio de usuario
 -----------------------
 
@@ -141,7 +138,6 @@ que pueda ser manejado desde un programa que solo, o principalmente,
 sepa manejar ficheros. En cualquier caso, se trata de un ejemplo
 estupendo de virtualización de recursos y de un tipo de recurso que,
 también, se puede usar dentro de máquinas virtuales.
-
 
 Provisionamiento delgado
 ----
@@ -309,9 +305,6 @@ Una lista de
 [cosas chulas que se pueden hacer con ficheros sueltecillos (o sea, *sparse*)](http://www.ogris.de/docs/sparse.html)
 
 </div>
-
-
-
 
 Almacenamiento de objetos
 ----
@@ -781,20 +774,9 @@ virtual se crea simultáneamente el almacenamiento necesario para la
 misma, aunque, por supuesto, puedes usar almacenamiento virtual creado
 previamente.
 
-
 A dónde ir desde aquí
 -----
 
 En el [siguiente tema](Uso_de_sistemas) trabajaremos con máquinas
 virtuales completas, incluyendo máquinas en la nube. Tras él, habrá que hacer y entregar la
 [tercera práctica](../practicas/3.MV).
-
-
-
-
-
-
-
-
-
-
