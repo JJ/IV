@@ -10,8 +10,8 @@ prev: Contenedores
 ## Objetivos de la asignatura
 
 * Diseñar, construir y analizar las prestaciones de un centro de
-  proceso de datos virtual. 
-  
+  proceso de datos virtual.
+
 * Documentar y mantener una plataforma virtual.
 
 * Realizar tareas de administración en infraestructura virtual.
@@ -51,7 +51,7 @@ se trata de gestionar automáticamente todas las tareas de
 configuración de un sistema, automatizando la edición de ficheros de
 configuración, instalación de software y configuración del mismo,
 creación de usuarios y autenticación, de forma que se pueda hacer de
-forma automática y masiva. 
+forma automática y masiva.
 
 Veremos primero un ejemplo de trabajo en un gestor de nube comercial usando el CLI libre, y a continuación veremos diferentes ejemplos de sistemas de
 configuración, empezando por Chef.
@@ -107,13 +107,13 @@ que hay que hacer cuando se arranque es actualizar el sistema para
 evitar problemas de seguridad. A partir de ahí, podemos instalar lo
 que queramos. El arranque tarda cierto tiempo y dependerá de la
 disponibilidad de recursos; evidentemente, mientras no esté arrancada
-no se puede usar, pero conviene de todas formas apagarla con 
+no se puede usar, pero conviene de todas formas apagarla con
 
 	azure vm shutdown maquina
-	
+
 cuando terminemos la sesión y no sea necesaria, sobre todo porque,
 dado que se pagan por tiempo de uso, se puede incurrir en costes
-innecesarios. 
+innecesarios.
 
 <div class='ejercicios' markdown='1'>
 
@@ -129,7 +129,7 @@ precisamente, lo que permite es automatizar la creación y
 provisionamiento de las mismas de forma que se puedan crear y
 configurar máquinas en instantes y personalizarlas de forma
 masiva. Veremos como hacerlo en el
-[siguiente tema](Gestion_de_configuraciones). 
+[siguiente tema](Gestion_de_configuraciones).
 
 
 Usando Chef para provisionamiento
@@ -143,7 +143,7 @@ saber más
 
 > [Este vídeo](https://www.youtube.com/watch?v=dTIyS816dOA) es una
 > introducción a Chef Workstation, a la vez que explica los conceptos
-> básicos para trabajar con los cookbooks de Chef. 
+> básicos para trabajar con los cookbooks de Chef.
 > El [repositorio de la presentación](https://github.com/JJ/chef)
 > incluye varios *cookbooks* de ejemplo.
 
@@ -154,7 +154,7 @@ Las principales alternativas a Chef son [Ansible](https://www.ansible.com),
 [Salt](https://www.saltstack.com/) y [Puppet](https://puppet.com/docs/puppet/5.5/puppet_index.html). Todos ellos se comparan en
 [este artículo](https://www.infoworld.com/article/2609482/data-center-review-puppet-vs-chef-vs-ansible-vs-salt.html),
 aunque los principales contendientes son
-[Puppet y Chef, sin que ninguno de los dos sea perfecto](https://www.infoworld.com/article/2614204/puppet-or-chef--the-configuration-management-dilemma.html). 
+[Puppet y Chef, sin que ninguno de los dos sea perfecto](https://www.infoworld.com/article/2614204/puppet-or-chef--the-configuration-management-dilemma.html).
 
 De todas ellas, vamos
 a [ver Ansible](https://davidwinter.dev/introduction-to-ansible/) que
@@ -176,7 +176,7 @@ sudo apt-get install ansible
 Ansible va a necesitar tres ficheros para provisionar una máquina virtual.
 * Un fichero de configuración general, que se suele llamar `ansible.cfg`
 * Un fichero de configuración específica de los *hosts* con los que se va a trabajar o inventario , que habitualmente se llama `ansible_hosts`.
-* Una o varias recetas o *playbooks* que indican qué se va a instalar, y declara el estado en el que se debe encontrar el sistema al final. 
+* Una o varias recetas o *playbooks* que indican qué se va a instalar, y declara el estado en el que se debe encontrar el sistema al final.
 
 Comencemos por el fichero de configuración, tal como [este](/ejemplos/vagrant/Debian2018/ansible.cfg):
 
@@ -209,7 +209,7 @@ está usando una variable de entorno:
 export ANSIBLE_HOSTS=~/ansible_hosts
 ```
 
-Y, con un nodo, ya se puede comprobar si Ansible funciona con 
+Y, con un nodo, ya se puede comprobar si Ansible funciona con
 
 ```
 $ ansible all -u jjmerelo -m ping
@@ -219,7 +219,7 @@ Esta orden hace un *ping*, es decir, simplemente comprueba si la
 máquina es accesible desde la máquina local. `-u` incluye el nombre
 del usuario (si es diferente del de la máquina local); habrá que
 añadir `--ask-pass` si no se ha configurado la máquina remota para
-poder acceder a ella sin clave. 
+poder acceder a ella sin clave.
 
 De forma básica, lo que hace Ansible es simplemente ejecutar comandos
 de forma remota y simultáneamente. Para hacerlo, podemos usar el
@@ -239,7 +239,7 @@ ejecutar comandos de forma remota
 
 nos mostraría en todas las máquinas de Azure la organización del
 sistema de ficheros (que es lo que hace el comando `df`). Una vez más,
-`-u` es opcional. 
+`-u` es opcional.
 
 Esta orden usa un *módulo* de ansible y se puede ejecutar también de
 esta forma:
@@ -325,7 +325,7 @@ usando un *playbook* de Ansible.
 
 </div>
 
-También se pueden instalar varios paquetes a la vez, como en 
+También se pueden instalar varios paquetes a la vez, como en
 [este playbook](/ejemplos/vagrant/Debian2018/basico.yaml)  que instala
 node:
 
@@ -374,7 +374,7 @@ que van a ser comunes a varios playbooks en un proyecto. Este será el
     - common
 ```
 
-> Normalmente, habría otras tareas (no comunes) en este playbook. 
+> Normalmente, habría otras tareas (no comunes) en este playbook.
 
 En el directorio `roles/common/tasks` estará este [fichero](/ejemplos/vagrant/Debian2018/roles/common/tasks/main.yaml)
 
@@ -387,7 +387,7 @@ En el directorio `roles/common/tasks` estará este [fichero](/ejemplos/vagrant/D
 
 Como ya está calificado como tareas, en este fichero se pondría
 directamente lo que estaría dentro de la lista de `tasks` en un
-playbook. 
+playbook.
 
 Este sistema de roles, además, permite extender ansible con un sistema llamado
 [*Galaxy*](https://galaxy.ansible.com/), una colección de roles libres
@@ -468,7 +468,7 @@ anteriormente.
 
 Con Vagrant [te puedes descargar directamente](https://gist.github.com/dergachev/3866825)
 [una máquina configurada de esta lista](https://www.vagrantbox.es/). Por
-ejemplo, 
+ejemplo,
 
 ```
 vagrant box add centos65 https://github.com/2creatives/vagrant-centos/releases/download/v6.5.1/centos65-x86_64-20131205.box
@@ -493,7 +493,7 @@ contar lo anterior)
 vagrant up
 ```
 
-y se puede empezar a trabajar en ella con 
+y se puede empezar a trabajar en ella con
 
 ```
 vagrant ssh
@@ -517,7 +517,7 @@ mismo y lo ejecutará (tras ejecutar todo lo necesario para el mismo).
 La provisión tiene lugar cuando se *alza* una máquina virtual (con
 `vagrant up`) o bien explícitamente haciendo `vagrant provision`. En
 cualquier caso se lee del Vagrantfile y se llevan a cabo las acciones
-especificadas en el fichero de configuración. 
+especificadas en el fichero de configuración.
 
 En general, trabajar con un provisionador requiere especificar de cuál
 se trata y luego dar una serie de órdenes específicas. Comenzaremos
@@ -552,7 +552,7 @@ comandos; se le pasa un hash en Ruby  (variable: valor, tal como en
 JavaScript, separados por comas) en el que la clave `inline` indica el
 comando que se va a ejecutar, en este caso `yum`, el programa para
 instalar paquetes en CentOS, y al que se le indica `-y` para que
-conteste *Yes* a todas las preguntas sobre la instalación. 
+conteste *Yes* a todas las preguntas sobre la instalación.
 
 Este Vagrantfile no necesita nada especial para ejecutarse: se le
 llama directamente cuando se ejecuta `vagrant up` o explícitamente
@@ -563,7 +563,7 @@ este programa bajándose todas sus dependencias (y tardará un rato).
 
 Crear un script para provisionar `nginx` o cualquier otro servidor
 web que pueda ser útil para alguna otra práctica
-​	
+​
 </div>
 
 <div class='nota' markdown='1'>
@@ -595,15 +595,15 @@ con chef-solo y hay que hacerlo desde shell o Ansible;
 [este ejemplo](../../ejemplos/vagrant/provision/chef-with-shell/Vagrantfile)
 que usa
 [este fichero shell](../../ejemplos/vagrant/provision/chef-with-shell/chef-solo.sh)
-puede provisionar, por ejemplo, una máquina CentOS. 
+puede provisionar, por ejemplo, una máquina CentOS.
 
 Una vez preinstalado chef (lo que también podíamos haber hecho con
-[una máquina que ya lo tuviera instalado, de las que hay muchas en `vagrantbox.es`](https://www.vagrantbox.es/) 
+[una máquina que ya lo tuviera instalado, de las que hay muchas en `vagrantbox.es`](https://www.vagrantbox.es/)
 y de hecho es la mejor opción porque chef-solo no se puede instalar en
 la versión 6.5 de CentOS fácilmente por no tener una versión
 actualizada de Ruby)
 incluimos en el Vagrantfile. las órdenes para usarlo en
-[este Vagrantfile](../../ejemplos/vagrant/provision/chef/Vagrantfile) 
+[este Vagrantfile](../../ejemplos/vagrant/provision/chef/Vagrantfile)
 
 ```
 	VAGRANTFILE_API_VERSION = "2"
@@ -622,7 +622,7 @@ Este fichero usa un bloque de Ruby para pasarle variables y
 simplemente declara que se va a usar la receta `emacs`, que
 previamente tendremos que haber creado en un subdirectorio `cookbooks`
 que descienda exactamente del mismo directorio y que contenga
-simplemente `package 'emacs'` que tendrá que estar en un fichero 
+simplemente `package 'emacs'` que tendrá que estar en un fichero
 
 ```
 	cookbooks/emacs/recipes/default.rb
@@ -634,7 +634,7 @@ Con todo esto se puede configurar emacs.
 Pero, la verdad, seguro que
 es más fácil hacerlo en Ansible y/o en otro sistema operativo que no
 sea CentOS porque yo, por lo pronto, no he logrado instalar chef-solo
-en ninguna de las máquinas pre-configuradas de VagrantBoxes. 
+en ninguna de las máquinas pre-configuradas de VagrantBoxes.
 </div>
 
 
@@ -642,7 +642,7 @@ en ninguna de las máquinas pre-configuradas de VagrantBoxes.
 
 Configurar tu máquina virtual usando vagrant con el provisionador
 ​	chef.
-​	
+​
 </div>
 
 Desde Vagrant se puede crear también una
@@ -651,7 +651,7 @@ mínimo necesario para poder funcionar, incluyendo el soporte para ssh
 y provisionadores como Chef o Puppet. Se puede crear directamente en
 VirtualBox y usar
 [`vagrant package`](https://www.vagrantup.com/docs/cli/package.html)
-para *empaquetarla* y usarla para su consumo posterior. 
+para *empaquetarla* y usarla para su consumo posterior.
 
 A donde ir desde aquí
 -------
@@ -667,5 +667,5 @@ del proyecto. Tras terminar la sección sobre Ansible, se va a [la
 práctica de provisionamiento](../proyecto/6.Provision.md).
 
 Si no lo has hecho ya, es hora de comenzar
-[la última práctica](../proyecto/7.Final.md). 
-​	
+[la última práctica](../proyecto/7.Final.md).
+​

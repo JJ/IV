@@ -8,15 +8,15 @@ next: PaaS
 
 <div class="objetivos" markdown="1">
 
-## Objetivos 
+## Objetivos
 
 
 ### Cubre los siguientes objetivos de la asignatura
 
 2. Conocer los conceptos relacionados con el proceso de virtualización
-tanto de software como de hardware y ponerlos en práctica. 
+tanto de software como de hardware y ponerlos en práctica.
 
-3. Comprender la diferencia entre infraestructura virtual y real. 
+3. Comprender la diferencia entre infraestructura virtual y real.
 
 4. Justificar la necesidad de procesamiento virtual frente a real en el contexto de una infraestructura TIC de una organización.
 
@@ -51,7 +51,7 @@ Los [`cgroups`](http://kaivanov.blogspot.com.es/2012/07/setting-up-linux-cgroups
 sistemas de ficheros virtuales, igual que el sistema `/proc` presente
 en todos. En este caso, los que tienen soporte a nivel de kernel
 permiten crear un sistema de ficheros en `/cgroups` o en
-`/sys/fs/cgroups` a partir del cual se controla el uso de los mismos. 
+`/sys/fs/cgroups` a partir del cual se controla el uso de los mismos.
 
 Si ese sistema de ficheros virtual está ya activado, se puede listar
 su contenido usando `ls` o el navegador de ficheros. Si no lo está, se
@@ -61,7 +61,7 @@ monta con
 mount -t cgroup cgroup /sys/fs/cgroup/
 ```
 
-o 
+o
 
 ```
 mount -t cgroup cgroup /cgroup/
@@ -71,10 +71,10 @@ dependiendo de donde esté configurado.
 
 > En Ubuntu 14.04, por ejemplo, se monta por defecto y está en
 > `/sys/fs/cgroup`. Si no, se puede instalar `cgroup-lite` para
-> instalarlos cuando se arranque el sistema. 
+> instalarlos cuando se arranque el sistema.
 
 <div class='ejercicios' markdown="1">
-Comprobar si en la instalación hecha se ha instalado cgroups y en qué punto está montado, así como qué contiene. 
+Comprobar si en la instalación hecha se ha instalado cgroups y en qué punto está montado, así como qué contiene.
 </div>
 
 Dependiendo de cómo esté configurado, puede contener algo como esto
@@ -96,11 +96,11 @@ blkio  cpuacct  devices  hugetlb  perf_event
 cpu    cpuset   freezer  memory   systemd
 ```
 
-en caso de que `cgroup-lite` se haya instalado y esté funcionando. 
+en caso de que `cgroup-lite` se haya instalado y esté funcionando.
 
 > *Aviso*: lo siguiente puede que no funcione, dependiendo de la
 > configuración. Si se ha configurado con cgroup-lite no va a
-> funcionar y solo se podrán crear grupos dentro de directorios determinados. 
+> funcionar y solo se podrán crear grupos dentro de directorios determinados.
 
 Dependiendo de la configuración que se haya creado, crear un *grupo de control* es tan simple como crear un subdirectorio
 
@@ -118,7 +118,7 @@ sudo su - root
 La creación de ese grupo automáticamente hace que se creen una serie
 de subdirectorios específicos para cada grupo de control, tales como
 estos:
- 
+
 ```
 ...
 	cpuset.cpu_exclusive              memory.usage_in_bytes
@@ -139,8 +139,8 @@ ps aux | grep bash
 por ejemplo y escribimos, también usando privilegios de root
 
 ```
-echo 0 > /cgroup/malos/cpuset.cpus 
-echo 0 > /cgroup/malos/cpuset.mems 
+echo 0 > /cgroup/malos/cpuset.cpus
+echo 0 > /cgroup/malos/cpuset.mems
 ```
 
 Estas dos órdenes son imprescindibles para asignar las CPUs por
@@ -156,7 +156,7 @@ Una vez hecho eso, se asignan las tareas a cada grupo de control
 
 Se puede crear otro grupo de control llamado *malos*, por ejemplo,
 procediendo de la misma forma, y no olvidando asignar las CPUs y las
-memorias antes que las tareas, o no te dejará escribir en las mismas. 
+memorias antes que las tareas, o no te dejará escribir en las mismas.
 
 Una vez hecho eso, cada grupo de control será gestionado de forma
 independiente y con las restricciones y límites que le
@@ -168,7 +168,7 @@ echo 512 > /cgroup/buenos/cpu.shares
 ```
 
 Aunque en este caso lo que hemos hecho ha sido aumentarlo del valor 1024 que
-se le asigna por defecto. 
+se le asigna por defecto.
 
 Lo más importante es la *contabilidad* que se hace por separado para
 cada uno de los grupos; los ficheros con el prefijo `cpuacct`nos darán
@@ -223,11 +223,11 @@ virtuales, pero esto se verá más adelante.
 1. Crear diferentes grupos de control sobre un sistema operativo
 Linux. Ejecutar en uno de ellos el navegador, en otro un procesador de
 textos y en uno último cualquier otro proceso. Comparar el uso de
-recursos de unos y otros durante un tiempo determinado. 
+recursos de unos y otros durante un tiempo determinado.
 
 2. Calcular el coste real de uso de recursos de un ordenador teniendo
 en cuenta sus costes de amortización. Añadir los costes eléctricos
-correspondientes. 
+correspondientes.
 
 </div>
 
@@ -265,7 +265,7 @@ teniendo su subdirectorio correspondiente dentro de
 Esta librería tiene otra orden, `cgexec`, para ejecutar órdenes dentro
 de un grupo determinado, de forma que no haya que añadir el PID de un
 proceso a un fichero dentro del sistema de ficheros virtuales
-anterior. 
+anterior.
 
 ```
 cgexec   -g memory,cpu,cpuacct:teestoyviendo/wp lowriter
@@ -273,14 +273,14 @@ cgexec   -g memory,cpu,cpuacct:teestoyviendo/wp lowriter
 
 Con [cgclassify](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/sec-Moving_a_Process_to_a_Control_Group.html), para finalizar, podemos cambiar un proceso de
 grupo. La sintaxis es la misma que en el caso de cgexec (es decir, usa
-la opción `-g`) pero habrá que pasarle un número de proceso. 
+la opción `-g`) pero habrá que pasarle un número de proceso.
 
 Si se quiere trabajar con usuarios en vez de procesos, se puede usar
 [cgrules](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/sec-Moving_a_Process_to_a_Control_Group.html#The_cgred_Service),
 un fichero de configuración que permite especificar a qué grupo
 pertenece cada usuario e incluso qué comandos de qué usuario deben
 pertenecer a cada grupo. Con ello se le puede asignar, por ejemplo,
-más prioridad en la CPU o entrada/salida a unos usuarios que a otros. 
+más prioridad en la CPU o entrada/salida a unos usuarios que a otros.
 
 
 <div class='ejercicios' markdown="1">
@@ -298,7 +298,7 @@ reciba mayor prioridad de entrada/salida que el resto de los usuarios.
 
 <div class='nota' markdown='1'>
 
-Algunas aplicaciones están preparadas de serie para usar cgroups: 
+Algunas aplicaciones están preparadas de serie para usar cgroups:
 [este manual explican cómo asignarle calidades de servicio usando CGROUPS a un marco web denominado uWSCGI](http://uwsgi-docs.readthedocs.org/en/latest/Cgroups.html).
 
 </div>
@@ -307,5 +307,5 @@ Algunas aplicaciones están preparadas de serie para usar cgroups:
 A dónde ir desde aquí
 -----
 
-En el [siguiente tema](PaaS.md) veremos como usar sistemas de plataforma como servicio. 
+En el [siguiente tema](PaaS.md) veremos como usar sistemas de plataforma como servicio.
 

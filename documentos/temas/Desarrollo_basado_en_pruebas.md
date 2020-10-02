@@ -45,7 +45,7 @@ Para asegurar despliegues con éxito es esencial que se pruebe, antes
 de que se comiencen a desplegar, que no hay ningún error y que el
 software corresponde a los requisitos que se le habían planteado, sea
 como historias de usuario o sea usando cualquier otra metodología de
-especificación. 
+especificación.
 
 Por eso, en esta parte del curso, veremos cómo desarrollar según la
 metodología basada en pruebas con los
@@ -55,7 +55,7 @@ test y sistemas. En otros capítulos se han descrito las diferentes fases
 del ciclo de vida de una aplicación en la nube; en este capítulo veremos
 como se llevan a cabo la mayoría de ellas. En siguientes capítulos se verá la
 gestión de configuraciones, provisionamiento de los servidores,
-despliegue continuo y virtualización. 
+despliegue continuo y virtualización.
 
 ## Desarrollo basado en pruebas
 
@@ -93,7 +93,7 @@ que hacerlo mediante [*historias de usuario*](https://es.wikipedia.org/wiki/Hist
 narrativas de qué es lo que puede hacer un posible usuario y qué es lo
 que el usuario debería esperar. Estas historias de usuario se
 convertirán en *issues* del repositorio, cuyo cierre marcará que el
-código está escrito, testeado, y se ajusta a la misma. 
+código está escrito, testeado, y se ajusta a la misma.
 
 En la mayoría de los entornos de programación y especialmente en `node`,
 que es en el que nos estamos fijando, hay dos niveles en el test: el
@@ -112,7 +112,7 @@ las pruebas), a veces existe una biblioteca de aserciones, que son las
 diferentes pruebas unitarias que se deben pasar o no. En muchos casos,
 la biblioteca de pruebas incluye ya aserciones; en otros casos,
 bibliotecas de pruebas pueden trabajar con diferentes bibliotecas de
-aserciones. 
+aserciones.
 
 ### Escribiendo tests en Go
 
@@ -212,7 +212,7 @@ def sumaPositivos( a, b):
         return -1
     if ( not (type(b) is int) ):
         return -1
-    if ( a >= 0 and b >= 0): 
+    if ( a >= 0 and b >= 0):
         return a + b
 
 def multiplo3o5o15( numero ):
@@ -223,9 +223,9 @@ def multiplo3o5o15( numero ):
     if numero % 5 == 0:
         return 2
     return 0
-    
+
 class SoloTest(unittest.TestCase):
-    
+
     def testTrue(self):
         self.assertTrue(devuelveTrue(), "devuelveTrue devuelve True")
 
@@ -238,7 +238,7 @@ class SoloTest(unittest.TestCase):
         self.assertEqual(multiplo3o5o15(5),2,u"Multiplo de 5")
         self.assertEqual(multiplo3o5o15(15),3,u"Multiplo de 15")
         self.assertEqual(multiplo3o5o15(7),0,u"No es multiplo")
-        
+
 
 if __name__ == '__main__':
 unittest.main()
@@ -259,14 +259,14 @@ self.assertTrue(devuelveTrue(), "Tiene que fallar")
 
 A diferencia de Go, en Python sí existen
 [aserciones explícitas](https://docs.python.org/3/library/unittest.html). Todas
-las aserciones tienen al final un mensaje que se imprimirá 
+las aserciones tienen al final un mensaje que se imprimirá
 funcione o no, y que debe ser más o menos descriptivo. Es decir, lo
 contrario de lo que es en este caso, pero bueno, está así en el
 original así que se queda. Antes del mensaje, la aserción realiza un
 test específico; en este caso
 una llamada a una función. `assertTrue` fallará solo si no se
 devuelve `True` (o equivalente), y `assertEqual` lo hará si los dos
-primeros argumentos no lo son. 
+primeros argumentos no lo son.
 
 <div class='notes' markdown='1'>
 
@@ -274,18 +274,18 @@ No solo se puede y debe probar el código,
 también
 [la documentación](https://docs.python-guide.org/writing/tests/) y
 todo tipo de cosas, incluyendo los scripts de despliegue, por
-ejemplo. 
+ejemplo.
 
 Alternativamente al uso de esta biblioteca, se puede usar también `pytest`, un programa que
 tiene una sintaxis un poco más simple para los tests, o `nose`. Cada
 lenguaje tiene sus múltiples modos de testear, y este tema pretende
-ser solamente una introducción. 
+ser solamente una introducción.
 
 </div>
 
 En este caso, para ejecutar el programa se ejecuta como otro
 cualquiera, `python test.py`, presentando un informe de los tests que
-se han pasado, todos en este caso. 
+se han pasado, todos en este caso.
 
 <div class='ejercicios' markdown='1'>
 
@@ -306,7 +306,7 @@ biblioteca de aserciones.
 Hay
 [múltiples bibliotecas que se pueden usar](https://stackoverflow.com/questions/14294567/assertions-library-for-node-js);
 el [panorama de 2019 se presenta en este artículo](https://medium.com/welldone-software/an-overview-of-javascript-testing-in-2019-264e19514d0a). La
-librería de aserciones [`assert`](https://nodejs.org/api/assert.html) 
+librería de aserciones [`assert`](https://nodejs.org/api/assert.html)
 forma parte de la estándar de JS, pero hay otras como
 [`Unexpected`](http://unexpected.js.org/) o aserciones parte de marcos
 de tests más completos. Estos marcos de test incluyen [Chai](https://www.chaijs.com/), [Jasmine](https://jasmine.github.io/),
@@ -343,14 +343,14 @@ El programa anterior ilustra la sintaxis, y puede formar parte de un
 conjunto de tests; se puede ejecutar directamente, pero para testearlo
 los lenguajes de programación usan un segundo nivel, el marco de
 ejecución de los tests. Estos marcos incluyen programas de línea de
-órdenes que, a su vez, ejecutan los programas de test y escriben 
+órdenes que, a su vez, ejecutan los programas de test y escriben
 un informe sobre cuáles han fallado y cuáles no con más o menos
 parafernalia y farfolla. Una vez más, [hay varios marcos de testeo](https://stackoverflow.com/questions/4308786/what-is-the-best-testing-framework-to-use-with-node-js) para
 nodejs (y, por supuesto, uno propio para cada uno de los lenguajes de
 programación, aunque en algunos están realmente estandarizados).
 
 Como algunos marcos de prueba como Chai usan su propia biblioteca de
-aserciones, podemos hacer este pequeño cambio para usarla: 
+aserciones, podemos hacer este pequeño cambio para usarla:
 
 ```
 var assert = require("chai").assert,
@@ -363,7 +363,7 @@ describe('Apuesta con Chai', function(){
 	it('should be loaded', function(){
 	    assert.ok(apuesta, "Cargado");
 	});
-	
+
     });
     describe('Crea', function(){
 	it('should create apuestas correctly', function(){
@@ -376,7 +376,7 @@ describe('Apuesta con Chai', function(){
 
 Los únicos cambios son el usar `assert.ok` en vez de assert, y el usar
 el objeto `assert` de la biblioteca `chai`, en vez de usar el que hay
-por omisión. 
+por omisión.
 
 Cada uno de ellos tendrá sus promotores y detractores, pero
 [Mocha](https://mochajs.org/), [Jasmine](https://jasmine.github.io/) y [Jest](https://github.com/facebook/jest)
@@ -421,9 +421,9 @@ el resultado de ejecutarlo será:
 ```
     Apuesta
       Carga
-        ✓ should be loaded 
+        ✓ should be loaded
       Crea
-        ✓ should create apuestas correctly 
+        ✓ should create apuestas correctly
 
 
     2 passing (6ms)
@@ -434,7 +434,7 @@ el resultado de ejecutarlo será:
 >Y la verdad es que debería haber puesto los mensajes en español.
 
 Con la librería BDD de Chai, podríamos expresar los mismos tests de
-esta forma: 
+esta forma:
 
 ```
 var assert = require("chai").should(),
@@ -444,7 +444,7 @@ describe('BDD con Chai', function(){
     it('Debería cargar la biblioteca y poder instanciarse', function() {
 	apuesta.should.exist;
 	var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama','2-3');
-	
+
 	nueva_apuesta.as_string().should.equal( "Polopos: Alhama - 2-3","Creado");
     })
 });
@@ -482,14 +482,14 @@ lenguajes son:
 * Ruby usa [RSpec](http://rspec.info/), que además está basado en el
   comportamiento deseado, lo que permite tener descripciones mucho más
   informativas del test y el resultado del fallo.
-  
+
 * Perl usa [prove](https://perldoc.perl.org/prove.html), con múltiples
   opciones de configuración. De hecho, es el que se usa en el test de
   la asignatura.
-  
+
 * JUnit es el más cercano en Java.
 
-* Perl 6 usa prove6, pero también zef si se trata de usarlo sobre un módulo. 
+* Perl 6 usa prove6, pero también zef si se trata de usarlo sobre un módulo.
 
 Cada lenguaje incluye este tipo de marcos, sea como parte de su
 distribución base o como parte de alguna biblioteca popular.
@@ -511,24 +511,24 @@ gestión de configuraciones que permite la automatización y
 replicabilidad de la misma desde el entorno de desarrollo hasta el
 entorno de ensayo o el de producción. El uso de *entornos
 virtuales* (llamados así por uno de los primeros en Python, llamado
-`virtualenv`) o *gestores de versiones*, que permite instalar desde el 
+`virtualenv`) o *gestores de versiones*, que permite instalar desde el
 usuario la versión del lenguaje de programación y herramientas que uno
 desee, cubre las dos necesidades: te permite independizar la
 versión usada de la que proporcione el sistema, instalarla sin
 necesidad de tener privilegios de superusuario, compartirla entre
-todos los miembros del equipo y también automatizar la tarea 
+todos los miembros del equipo y también automatizar la tarea
 de instalación del mismo mediante el uso de una sola orden que
 seleccione la versión precisa que se va a usar.
 
 > El poder seleccionar la versión del lenguaje de programación es
 > parte de la especificación de infraestructura virtual, o
-> "infraestructura como código", que es la clave de la nube. 
+> "infraestructura como código", que es la clave de la nube.
 
 Y estos entornos virtuales vienen del hecho de que los lenguajes de
 scripting tales como Perl, Python, node y Ruby tienen
 ciclos de desarrollo muy rápidos que hacen que a veces convivan en
 producción diferentes versiones de los mismos, incluso versiones
-*major*. Eso hace complicado desarrollar e incluso probar los 
+*major*. Eso hace complicado desarrollar e incluso probar los
 programas que se desarrollan: si el sistema operativo viene con Perl
 5.14, puede que haga falta probar o desarrollar para 5.16 o 5.18 o
 incluso probar la versión más avanzada.
@@ -564,7 +564,7 @@ instalar la última versión existente, la versión `minor` más actual
 de la 4.x y lo mismo para la 0.11 o alguna impar (de desarrollo).
 </div>
 
-Generalmente, las librerías asociadas a una aplicación determinada, es decir, las dependencias, 
+Generalmente, las librerías asociadas a una aplicación determinada, es decir, las dependencias,
 siguen un método similar. En vez de instalar en el sistema todas las
 librerías necesarias (o instalar una cada vez que hay algún error),
 la mayor parte de los entornos de programación incluyen alguna forma
@@ -659,7 +659,7 @@ falta. Al desplegarse, el entorno dependerá de muchas cuestiones y hay que aseg
 
 A este nivel, la descripción del entorno de trabajo ya constituye en sí un test: donde se va a desplegar o lo tiene o no lo tiene, en cuyo caso no se permitirá la ejecución.
 
-Este fichero, además, permite instalar todas las dependencias usando solo `npm install .`. Casi todos los lenguajes habituales tienen algún sistema similar: `bundle` para Ruby o `cpanm` para Perl, por ejemplo. 
+Este fichero, además, permite instalar todas las dependencias usando solo `npm install .`. Casi todos los lenguajes habituales tienen algún sistema similar: `bundle` para Ruby o `cpanm` para Perl, por ejemplo.
 
 <div class='ejercicios' markdown='1'>
 
@@ -705,7 +705,7 @@ usan diferentes herramientas para ello: Ant, Ivy y Maven para Java, `sbt`
 para Scala, Rake para Ruby y otras muchas.
 
 En node.js se utilizan principalmente dos:
-[Grunt](https://gruntjs.com) y [Gulp](https://gulpjs.com), 
+[Grunt](https://gruntjs.com) y [Gulp](https://gulpjs.com),
 así como [Brunch y webpack](https://brunch.io/docs/why-brunch), pero
 el mismo npm tiene muchas características de una herramienta de
 construcción.
@@ -728,8 +728,8 @@ sudo npm install -g grunt-cli
 ```
 
 `-g` indica que se trata de una instalación global, aunque también se
-puede instalar localmente. 
-	
+puede instalar localmente.
+
 Igual que make usa
 Makefiles, `grunt` usa `Gruntfile.js` tal como este
 
@@ -792,7 +792,7 @@ pronto, no vamos a hacerlo). Luego, definimos la tarea llamada
 fuentes contenidos en el array indicado y deposita la salida en el
 directorio que le indicamos. No existe en Grunt una forma general de
 expresar este tipo de dependencias como en los Makefiles, solo una
-buena práctica: usar `src`, por ejemplo, para las fuentes.  
+buena práctica: usar `src`, por ejemplo, para las fuentes.
 
 La siguiente parte carga el plugin de `grunt` necesario para ejecutar `docco`. Y finalmente, con `grunt.registerTask('default', ['docco']);` indicamos que la tarea que ejecuta docco es la que se ejecutará por defecto simplemente ejecutando `grunt`. También se puede ejecutar con `grunt docco` o `grunt docco:debug` que sacará esto en el terminal:
 
@@ -864,7 +864,7 @@ un sistema de acciones o *ganchos* que se ejecutan cada vez que sucede
 algún evento en el sistema. Como estas acciones son más amplias,
 engloban integración continua y se puede, por tanto, incluir en el
 propio repo, con la ventaja de poder usar el API del mismo para pasar
-algún tipo de tests. 
+algún tipo de tests.
 
 Para trabajar con estos sistemas, generalmente hay que ejecutar estos
 tres pasos:
@@ -892,7 +892,7 @@ corresponden, aproximadamente, a una configuración de una máquina
 virtual que hiciera solo y exclusivamente la ejecución de los
 tests. Para ello se provisiona una máquina virtual (o contenedor), se
 le carga el sistema operativo y se instala lo necesario, indicado en
-el fichero de configuración tal como este para Travis. 
+el fichero de configuración tal como este para Travis.
 
 ```
 language: node_js
@@ -928,7 +928,7 @@ Este fichero, denominado `.travis.yml`, contiene lo siguiente:
   cualquier cosa que quieras ejecutar). Una vez más, nos cambiamos al
   subdirectorio y ejecutamos `mocha` tal como lo hemos hecho
   anteriormente.
-  
+
 Cada web tendrá sus propias órdenes para configurarlo; aunque Travis
 es un poco estándar y otros sitios permiten importar la configuración
 o usarla con ligeras variantes.
@@ -937,7 +937,7 @@ El resultado
 [aparecerá en la web](https://travis-ci.org/JJ/desarrollo-basado-pruebas)
 y también se enviará por correo electrónico. Y te da también un
 *badge* que puedes poner en tu fichero para indicar que, por lo
-pronto, todo funciona. 
+pronto, todo funciona.
 
 Si el informe indica que las pruebas son correctas, se puede proceder al despliegue. Pero eso
 ya será en la siguiente clase.
@@ -959,7 +959,7 @@ para el despliegue continuo, que se verá más adelante.
 
 Una vez visto todo lo necesario para desplegar una aplicación, se
 puede pasar a estudiar los
-[*PaaS*, plataformas como servicio](PaaS.md), donde se pueden desplegar aplicaciones para prototipo o para producción de forma relativamente simple. 
+[*PaaS*, plataformas como servicio](PaaS.md), donde se pueden desplegar aplicaciones para prototipo o para producción de forma relativamente simple.
 
 ## Bibliografía y otros recursos
 
@@ -979,4 +979,4 @@ Esta
 lista una serie de recursos útiles, incluyendo blogs y canales de IRC,
 aparte de diferentes herramientas que deben estar en el carcaj del
 arquero DevOps, aunque la mayoría de los enlaces a estos están
-atrasados (y uno está en chino, así que no tengo ni idea). 
+atrasados (y uno está en chino, así que no tengo ni idea).

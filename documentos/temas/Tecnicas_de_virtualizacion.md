@@ -12,11 +12,11 @@ Cubre los siguientes objetivos de la asignatura
 ---
 
 * Conocer los conceptos relacionados con el proceso de virtualización
-  tanto de software como de hardware. 
+  tanto de software como de hardware.
 
 * Conocer las diferentes tecnologías y herramientas de virtualización
-  tanto para procesamiento, comunicación y almacenamiento. 
-  
+  tanto para procesamiento, comunicación y almacenamiento.
+
  * Configurar los diferentes dispositivos físicos para acceso a los
   servidores virtuales: acceso de usuarios, redes de comunicaciones o entrada/salida.
 
@@ -26,7 +26,7 @@ Cubre los siguientes objetivos de la asignatura
 
 1.  Conocer las diferentes tecnologías y herramientas de
 virtualización tanto para procesamiento, comunicación y
-almacenamiento. 
+almacenamiento.
 
 2. Crear infraestructuras virtuales básicas: dispositivos.
 
@@ -76,7 +76,7 @@ núcleo:
         tenga privilegios de `root` dentro del espacio de nombres de
         un usuario y no los tenga fuera, creando contenedores de
         recursos.
-		
+
 La mayor parte de estos espacios de nombres se pueden asignar a una
 nueva orden usando una llamada del sistema `CLONE`. Pero desde línea
 de órdenes se pueden crear diferentes espacios de nombres usando
@@ -91,13 +91,13 @@ Primero, se ha usado
 
 ```
 sudo unshare -u /bin/bash
-``` 
+```
 
 En este caso, `-u` indica que vamos a crear un nuevo *namespace* UTS,
 que nos permite cambiar el nombre de la máquina. Eso es lo que
 hacemos: cambiamos el nombre de la máquina, y comprobamos que al salir
 de la orden que había ejecutado, el intérprete de órdenes, se vuelve a
-restaurar el nombre original. 
+restaurar el nombre original.
 
 <div class='ejercicios' markdown="1">
 
@@ -108,24 +108,24 @@ nos explican como hacerlo, usando el dispositivo *loopback*
 
 </div>
 
-El mecanismo de espacios de nombres es diferente al usado en 
+El mecanismo de espacios de nombres es diferente al usado en
 [`cgroups`](Intro_concepto_y_soporte_fisico#restriccin_y_medicin_del_uso_de_recursos_),
 tal como se vio en el tema anterior: teóricamente, un PID dentro de un
 CGROUP es visible a todos los demás procesos; sin embargo, es
 complementario porque mientras que uno aísla la visibilidad o el
 ámbito otro aísla o limita el uso de recursos. Por ello constituyen la
-base de los contenedores que se verán en este tema. 
+base de los contenedores que se verán en este tema.
 
 `unshare`tiene sus limitaciones, y la principal es que solo se puede
 *entrar* en un *namespace* ejecutando un comando, no "desde fuera". A
 partir de la versión 2.23 de `util-linux` (la versión en mi Ubuntu 12.04
 es la 2.20) [un nuevo comando `nsenter`](http://karelzak.blogspot.com.es/2013/04/umount8-mount8-and-nsenter1.html) permitirá entrar dando el
-PID del proceso dentro del que se haya creado. 
+PID del proceso dentro del que se haya creado.
 
 <div class='nota' markdown='1'>
 
 Los espacios de nombres permiten aislar todo tipo de aplicaciones; en
-[este manual explican cómo aislar un marco web denominado uWSCGI y su centro de control](http://uwsgi-docs.readthedocs.org/en/latest/Namespaces.html). 
+[este manual explican cómo aislar un marco web denominado uWSCGI y su centro de control](http://uwsgi-docs.readthedocs.org/en/latest/Namespaces.html).
 
 </div>
 
@@ -151,7 +151,7 @@ sudo brctl addbr alcantara
 ```
 
 Hace falta privilegios de superusuario para crear este nuevo interfaz;
-una vez creado, 
+una vez creado,
 
 ```
  ip addr show
@@ -160,7 +160,7 @@ una vez creado,
 nos mostrará, entre otras cosas
 
 ```
-alcantara: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN 
+alcantara: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN
 link/ether 0a:f5:42:80:e7:09 brd ff:ff:ff:ff:ff:ff
 ```
 
@@ -195,8 +195,8 @@ los puentes que existen en una máquina, por ejemplo:
 ```
 	bridge name	bridge id		STP enabled	interfaces
 	alcantara		8000.1c6f65a40690	no		eth2
-	lxcbr0		8000.000000000000	no		
-	virbr0		8000.000000000000	yes		
+	lxcbr0		8000.000000000000	no
+	virbr0		8000.000000000000	yes
 ```
 
 Que muestra los puentes creados por `lxc` (que veremos más adelante) y
@@ -216,7 +216,7 @@ máquinas virtuales. Se puede usar, por ejemplo, para
 [equilibrar la carga entre dos interfaces](http://archive09.linux.com/feature/133849)
 o simplemente crear un solo interfaz virtual que contenga los dos
 interfaces reales presentes en el ordenador; también para simular
-redes dentro de un solo ordenador. 
+redes dentro de un solo ordenador.
 
 <div class="nota" markdown="1">
 
@@ -267,7 +267,7 @@ caso de la de Ubuntu; la de Debian sería
 `http://ftp.debian.org/debian/` y en el caso de Guadalinex sería un
 tanto diferente, con diferentes directorios para cada distro, por
 ejemplo `http://ftp.cica.es/Guadalinex/guadalinex-buho/`para Búho, la
-última (que puede funcionar o no). 
+última (que puede funcionar o no).
 
 En realidad, `debootstrap` es un conjunto de archivos del shell que
 localizan la descripción de la distro y la descargan, y para hacer eso
@@ -297,7 +297,7 @@ natural.
 <div class='ejercicios' markdown="1">
 
 1. Usar `debootstrap` (o herramienta similar en otra distro) para crear un
-sistema mínimo que se pueda ejecutar más adelante. 
+sistema mínimo que se pueda ejecutar más adelante.
 
 2. Experimentar con la creación de un sistema Fedora dentro de Debian
 usando Rinse.
@@ -315,7 +315,7 @@ un poco avanzada, pero conviene al menos conocer que existe, igual que
 [`cdebootstrap`](https://wiki.debian.org/cdebootstrap), una
 implementación en C (en vez de scripts del shell, lo que tiene que
 haber sido todo un infierno) de `debootstrap` y que en realidad se usa
-solo en imágenes de DebianInstaller. 
+solo en imágenes de DebianInstaller.
 
 <div class="nota" markdown="1">
 
@@ -348,9 +348,9 @@ indicándole el directorio donde se encuentra. Nos encontraremos con
 una línea de órdenes como esta:
 
 ```
-root@penny:/# 
+root@penny:/#
 ```
-	
+
 que, al listar el contenido nos mostrará
 
 ```
@@ -375,7 +375,7 @@ superusuario.
 Otro de los problemas será la configuración del Locale; muchos
 comandos darán un error indicando que no está
 establecido. [Otros pasos resolverán este tema, incluyendo la instalación de los Locales necesarios](https://wiki.ubuntu.com/DebootstrapChroot). Habrá
-que actualizar la distribución, los locales, y configurarlos. 
+que actualizar la distribución, los locales, y configurarlos.
 
 ```
 apt-get install language-pack-es
@@ -389,7 +389,7 @@ con esto evitamos los errores más comunes.
 
 Instalar alguna sistema debianita y configurarlo para su
 uso. Trabajando desde terminal, probar a ejecutar alguna aplicación o
-instalar las herramientas necesarias para compilar una y ejecutarla. 
+instalar las herramientas necesarias para compilar una y ejecutarla.
 
 </div>
 
@@ -405,7 +405,7 @@ Sin necesidad de usar el comando chroot, al conectarte como ese
 usuario (abriendo un terminal o bien con `su - rjmerelo`) se ejecutará
 directamente dentro de la misma. Esto se puede usar para crear
 usuarios poco privilegiados para ejecutar shells restringidos o
-servicios como `sftp` o un servidor web. 
+servicios como `sftp` o un servidor web.
 
 <div class='nota' markdown='1'>
 
@@ -487,7 +487,7 @@ puede automatizar con scripts pero que posiblemente necesite
 intervención humana en algún momento. Por eso se han creado
 herramientas como [`jailkit`](http://olivier.sessink.nl/jailkit/),
 cuya principal intención es crear jaulas con usuarios o servicios
-limitados a las mismas. 
+limitados a las mismas.
 
 `jailkit` no tiene paquetes "oficiales" para ninguna distro pero se
 puede descargar de la página e instalarse fácilmente con `./configure
@@ -504,9 +504,9 @@ tanto, hay que crear un sistema de ficheros *poseído* por `root`:
 ```
 mkdir -p /seguro/jaulas/dorada
 chown -R root:root /seguro
-```	
-	
-Y a partir de ahí 
+```
+
+Y a partir de ahí
 
 ```
 jk_init -v -j /seguro/jaulas/dorada jk_lsh basicshell netutils editors
@@ -518,7 +518,7 @@ encuentra la jaula. Los comandos son alias de lo que se va a instalar
 en la jaula; `editors`, por ejemplo, instala una serie de editores y
 las dependencias pertinentes. A estos alias se le denominan
 *secciones* y se refieren a la parte correspondiente del fichero de
-configuración. 
+configuración.
 
 Esta jaula se puede usar directamente con `chroot`, pero [`jailkit` también permite *enjaular* usuarios](http://www.binarytides.com/setup-jailed-shell-jailkit-ubuntu/). Tras
 crear el usuario de la forma habitual
@@ -539,7 +539,7 @@ usando este nombre de usuario.
 
 <div class='ejercicios' markdown='1'>
 
-Crear una jaula y enjaular un usuario usando `jailkit`, que previamente se habrá tenido que instalar. 
+Crear una jaula y enjaular un usuario usando `jailkit`, que previamente se habrá tenido que instalar.
 
 </div>
 

@@ -119,7 +119,7 @@ app.get('/', function (req, res) {
 
 app.get('/proc', function (req, res) {
 	res.send( { Portada: false} );
-});  
+});
 
 app.listen(port);
 console.log('Server running at http://127.0.0.1:'+port+'/');
@@ -370,14 +370,14 @@ configuración.
 
 Porque esté en la nube no significa que no tengamos que testearla como
 cualquier hija de vecina. En este caso no vamos a usar tests
-unitarios, sino 
+unitarios, sino
 [test funcionales](https://en.wikipedia.org/wiki/Functional_testing) (porque
-proporcionamos una entrada y comprobamos que las salidas son correctas)o 
+proporcionamos una entrada y comprobamos que las salidas son correctas)o
 [*de integración*](https://en.wikipedia.org/wiki/Integration_testing): un API,
 generalmente, va a integrar diferentes clases y el testear el API REST
 va a ser una prueba de cómo se *integran* esas diferentes clases entre
 sí, o como se integran con los servicios que se usan desde las clases;
-de lo que se 
+de lo que se
 trata es que tenemos que levantar la web y que vaya todo medianamente
 bien. Sin embargo, las funciones a las que se llaman desde un servicio
 web son en realidad simples funciones, por lo que hay tanto marcos

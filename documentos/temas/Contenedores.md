@@ -13,13 +13,13 @@ Objetivos
 
 ### Cubre los siguientes objetivos de la asignatura
 
-* Conocer las diferentes tecnologías y herramientas de virtualización tanto para procesamiento, comunicación y almacenamiento. 
+* Conocer las diferentes tecnologías y herramientas de virtualización tanto para procesamiento, comunicación y almacenamiento.
 * Instalar, configurar, evaluar y optimizar las prestaciones de un servidor virtual.
 * Configurar los diferentes dispositivos físicos para acceso a los
   servidores virtuales: acceso de usuarios, redes de comunicaciones o entrada/salida.
 * Diseñar, implementar y construir un centro de procesamiento de datos virtual.
 * Documentar y mantener una plataforma virtual.
-* Optimizar aplicaciones sobre plataformas virtuales. 
+* Optimizar aplicaciones sobre plataformas virtuales.
 * Conocer diferentes tecnologías relacionadas con la virtualización
   (Computación Nube, Utility Computing, Software as a Service) e
   implementaciones tales como Google AppSpot, OpenShift o Heroku.
@@ -27,7 +27,7 @@ Objetivos
 
 ### Objetivos específicos
 
-1. Entender cómo las diferentes tecnologías de virtualización se integran en la creación de contenedores. 
+1. Entender cómo las diferentes tecnologías de virtualización se integran en la creación de contenedores.
 
 2. Crear infraestructuras virtuales completas.
 
@@ -79,7 +79,7 @@ sistema operativo que incluyen acceso a recursos, prioridades y
 control de los procesos. Los procesos dentro de un contenedor están
 *aislados* de forma que solo pueden *ver* los procesos dentro del
 mismo, creando un entorno mucho más seguro que las anteriores
-*jaulas*. Estos [CGROUPS han sido ya vistos en otro tema](Intro_concepto_y_soporte_fisico). 
+*jaulas*. Estos [CGROUPS han sido ya vistos en otro tema](Intro_concepto_y_soporte_fisico).
 
 Dentro de la familia de sistemas operativos Solaris (cuya última
 versión libre se denomina
@@ -110,7 +110,7 @@ desarrollo, disponible tanto en [GitHub](http://github.com/lxc/lxc)
 como en el [sitio web](http://linuxcontainers.org) está bastante más
 avanzada; para evitar problemas sobre todo con las herramientas que
 vamos a ver más adelante, conviene que te instales la última versión y
-si es posible una igual o mayor a la 1.0. 
+si es posible una igual o mayor a la 1.0.
 
 </div>
 
@@ -118,7 +118,7 @@ Esta virtualización *ligera* tiene, entre otras ventajas, una
 *huella* escasa: un ordenador normal puede admitir 10 veces más contenedores
 (o *tápers*) que máquinas virtuales; su tiempo de arranque es de unos
 segundos y, además, tienes mayor control desde fuera (desde el anfitrión) del que se pueda
-tener usando máquinas virtuales. 
+tener usando máquinas virtuales.
 
 ## Usando `lxc`
 
@@ -133,7 +133,7 @@ el hardware. `lxc-checkconfig` permite comprobar si está preparado
 para usar este tipo de tecnología y también si se ha configurado correctamente. Parte de la configuración se
 refiere a la instalación de `cgroups`, que hemos visto antes; el resto
 a los espacios de nombres y a capacidades *misceláneas* relacionadas
-con la red y el sistema de ficheros. 
+con la red y el sistema de ficheros.
 
 ![Usando lxc-chkconfig](../img/lxcchkconfig.png)
 
@@ -163,7 +163,7 @@ listar los contenedores que tenemos disponibles con `lxc-ls -f`, aunque
 en este momento cualquier contenedor debería estar en estado
 `STOPPED`.
 
-Para arrancar el contenedor y conectarse a él, 
+Para arrancar el contenedor y conectarse a él,
 
 ```
 sudo lxc-start -n nubecilla
@@ -176,7 +176,7 @@ de esta forma `ubuntu` (también clave). Lo que hace esta orden es
 automatizar una serie de tareas tales como asignar los `CGROUPS`, crear
 los namespaces que sean necesarios, y crear un puente de red tal como
 hemos visto anteriormente. En general, creará un puente llamado
-`lxcbr0` y otro con el prefijo `veth`. 
+`lxcbr0` y otro con el prefijo `veth`.
 
 Una vez arrancados los
 contenedores, si se lista desde fuera aparecerá de esta forma:
@@ -200,7 +200,7 @@ apariencias:
 Para el usuario del contenedor aparecerá exactamente igual que
 cualquier otro ordenador: será una máquina virtual que, salvo error o
 brecha de seguridad, no tendrá acceso al anfitrión, que sí podrá tener
-acceso a los mismos y pararlos cuando le resulte conveniente. 
+acceso a los mismos y pararlos cuando le resulte conveniente.
 
 ```
 sudo lxc-stop -n nubecilla
@@ -212,18 +212,18 @@ permiten administrar las máquinas virtuales, actualizarlas y explican
 cómo usar otras plantillas de las suministradas para crear
 contenedores con otro tipo de sistemas, sean o no debianitas. Se
 pueden crear sistemas basados en Fedora; también clonar contenedores
-existentes para que vaya todo rápidamente. 
+existentes para que vaya todo rápidamente.
 
 <div class='ejercicios' markdown='1'>
 
 Crear y ejecutar un contenedor basado en tu distribución y otro basado en otra distribución, tal
 como Fedora. *Nota* En general, crear un contenedor basado en *tu*
-distribución y otro basado en otra que no sea la tuya.  
+distribución y otro basado en otra que no sea la tuya.
 
 >Fedora, al
 >parecer, tiene problemas si estás en Ubuntu 13.04 o superior, así que
 >en tal caso usa cualquier otra distro. Por ejemplo,
->[Óscar Zafra ha logrado instalar Gentoo usando un script descargado desde su sitio, como indica en este comentario en el issue](https://github.com/IV-GII/GII-2013/issues/87#issuecomment-28639976). 
+>[Óscar Zafra ha logrado instalar Gentoo usando un script descargado desde su sitio, como indica en este comentario en el issue](https://github.com/IV-GII/GII-2013/issues/87#issuecomment-28639976).
 
 </div>
 
@@ -243,7 +243,7 @@ ellas y visualizarlos, tal como se muestra a continuación.
 ![Visualizando uno de los tápers](../img/Minube-lxc.png)
 
 La página principal te da una visión general de los contenedores
-instalados y desde ella se pueden arrancar o parar. 
+instalados y desde ella se pueden arrancar o parar.
 
 ![Página inicial de LXC-Webpanel](../img/Overview-lxc.png)
 
@@ -289,7 +289,7 @@ ellos. Normalmente el ciclo de vida de un contenedor pasa por su
 creación y, más adelante, ejecución de algún tipo de programa, por
 ejemplo de instalación de los servicios que queramos; luego se puede
 salvar el estado del táper y clonarlo o realizar cualquier otro tipo
-de tareas. 
+de tareas.
 
 Así que comencemos desde el principio:
 [vamos a ejecutar `docker` y trabajar con el contenedor creado](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
@@ -322,7 +322,7 @@ Debian. Se pueden
 o
 [buscar las imágenes más populares](https://hub.docker.com/explore/). Estas
 imágenes contienen no solo sistemas operativos *bare bones*, sino
-también otros con una funcionalidad determinada. 
+también otros con una funcionalidad determinada.
 
 <div class='ejercicios' markdown='1'>
 
@@ -352,7 +352,7 @@ comando que estamos ejecutando.
 
 La máquina instalada la podemos usar con el nombre de la imagen con
 que la hayamos descargado, pero cada
-táper tiene un id único que se puede ver con 
+táper tiene un id único que se puede ver con
 
 ```
 sudo docker ps -a=false
@@ -362,11 +362,11 @@ Obteniendo algo así:
 
 ```
 	CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-b76f70b6c5ce        ubuntu:12.04        /bin/bash           About an hour ago   Up About an hour                        sharp_brattain     
+b76f70b6c5ce        ubuntu:12.04        /bin/bash           About an hour ago   Up About an hour                        sharp_brattain
 ```
 
 El primer número es el ID de la máquina que podemos usar también para
-referirnos a ella en otros comandos. También se puede usar 
+referirnos a ella en otros comandos. También se puede usar
 
 ```
 sudo docker images
@@ -429,7 +429,7 @@ que no siga en segundo plano:
 <div class='ejercicios' markdown='1'>
 
 Crear un usuario propio e instalar alguna aplicación tal como `nginx` en el contenedor creado de
-esta forma, usando las órdenes propias del sistema operativo con el que se haya inicializado el contenedor. 
+esta forma, usando las órdenes propias del sistema operativo con el que se haya inicializado el contenedor.
 
 </div>
 
@@ -456,7 +456,7 @@ sudo docker inspect	ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a9
 
 te dirá toda la información sobre la misma, incluyendo qué es lo que
 está haciendo en un momento determinado. Para finalizar, se puede
-parar usando `stop`. 
+parar usando `stop`.
 
 Hasta ahora el uso de
 docker [no es muy diferente del contenedor, pero lo interesante](https://stackoverflow.com/questions/17989306/what-does-docker-add-to-just-plain-lxc) es que se puede guardar el estado de un contenedor tal
@@ -474,7 +474,7 @@ solo si uno se ha dado de alta antes).
 <div class='ejercicios' markdown='1'>
 
 Crear a partir del contenedor anterior una imagen persistente con
-commit. 
+commit.
 
 </div>
 
@@ -484,7 +484,7 @@ Se pueden construir contenedores más complejos. Una funcionalidad interesante
 de los mismos es la posibilidad de usarlos como *sustitutos* de
 una orden, de forma que sea mucho más fácil trabajar con alguna
 configuración específica de una aplicación o de un lenguaje de
-programación determinado. 
+programación determinado.
 
 Por
 ejemplo,
@@ -549,26 +549,26 @@ sudo docker run -t jjmerelo/alpine-perl6 -e "say π  - 4 * ([+]  <1 -1> <</<<  (
 ```
 
 Si tuviéramos perl6 instalado en local, se podría escribir
-directamente 
+directamente
 
 ```
 perl6 -e "say π  - 4 * ([+]  <1 -1> <</<<  (1,3,5,7,9...10000))  "
-```	
+```
 
 o algún
 otro
-[*one-liner* de Perl6](https://gist.github.com/JJ/9953ba0a98800fed205eaae5b5a6410a). 
+[*one-liner* de Perl6](https://gist.github.com/JJ/9953ba0a98800fed205eaae5b5a6410a).
 
 En caso de que se trate de un servicio o algún otro tipo de programa
 de ejecución continua, se puede usar directamente `CMD`. En este caso,
-`ENTRYPOINT` da más flexibilidad e incluso de puede evitar usando 
+`ENTRYPOINT` da más flexibilidad e incluso de puede evitar usando
 
 ```
 sudo docker run -it --entrypoint "sh -l -c" jjmerelo/alpine-perl6
 ```
 
 que accederá directamente a la línea de órdenes, en este caso
-`busybox`, que es el *shell* que provee Alpine. 
+`busybox`, que es el *shell* que provee Alpine.
 
 Por otro lado, otra característica que tiene este contenedor es que, a
 través de `VOLUME`, hemos creado un directorio sobre el que podemos
@@ -577,7 +577,7 @@ través de `VOLUME`, hemos creado un directorio sobre el que podemos
 ```
 sudo docker run --rm -t -v `pwd`:/app  \
 	    jjmerelo/alpine-perl6 /app/horadam.p6 100 3 7 0.25 0.33
-``` 
+```
 
 En realidad, usando `-v` se puede montar cualquier directorio externo
 en cualquier directorio interno. `VOLUME` únicamente *marca* un
@@ -586,12 +586,12 @@ usar de forma genérica para interaccionar con el contenedor a través
 de ficheros externos o para *copiar* (en realidad, simplemente hacer
 accesibles) estos ficheros al contenedor. En el caso anterior,
 podíamos haber sustituido `/app` en los dos lugares donde aparece por
-cualquier otro valor y habría funcionado igualmente. 
+cualquier otro valor y habría funcionado igualmente.
 
 En este caso, además, usamos `--rm` para borrar el contenedor una vez
 se haya usado y `-t` en vez de `-it` para indicar que solo estamos
 interesados en que se asigne un terminal y la salida del mismo, no
-vamos a interaccionar con él. 
+vamos a interaccionar con él.
 
 En muchos casos el `Dockerfile` estará dentro de un repositorio y
 usará los mismos ficheros que hay en el mismo. Por ejemplo, este que
@@ -622,7 +622,7 @@ otra cosa que necesite; en este caso, la imagen lleva también
 oficiales; siempre nos ahorrará trabajo usar esas imágenes, sean
 oficiales o no, porque en muchos casos están optimizadas con solo las
 partes del sistema operativo necesarias y ocupan mucho menos espacio
-siendo, por tanto, más rápidas para descargar. 
+siendo, por tanto, más rápidas para descargar.
 
 Aparte de usar las imágenes oficiales para la versión 3 de Python,
 copia todo a el directorio de trabajo definido y finalmente *expone*
@@ -638,7 +638,7 @@ sudo docker run -p 80:8000 -it --rm minick/mitag
 donde `minick/mitag` es nuestro prefijo y tag elegidos para este caso
 en particular. Este contenedor, por ejemplo, está alojado en Docker
 Hub como
-[`jjmerelo/tests-python`](https://hub.docker.com/r/jjmerelo/tests-python/). 
+[`jjmerelo/tests-python`](https://hub.docker.com/r/jjmerelo/tests-python/).
 
 <div class='ejercicios' markdown='1'>
 
@@ -657,7 +657,7 @@ que se haga pull a un repositorio en GitHub. Aparte de dejar
 disponibles herramientas útiles, Docker Hub también sirve para alojar
 imágenes que queramos desplegar en algún otro servicio. Se pueden
 subir todas las imágenes públicas que se desee, aunque hay un servicio
-de pago que permite tener imágenes privadas. 
+de pago que permite tener imágenes privadas.
 
 Dado que Docker es simplemente una herramienta que se puede desplegar
 en cualquier sistema operativo, desplegar contenedores es tan sencillo
@@ -682,7 +682,7 @@ cuenta gratuita de un mes, que se puede usar como prueba.
 <div class='ejercicios' markdown='1'>
 
 Desplegar un contenedor en alguno de estos servicios, de prueba
-gratuita o gratuitos. 
+gratuita o gratuitos.
 
 </div>
 
@@ -693,9 +693,9 @@ Primero, hay que [llevar a cabo el hito del proyecto correspondiente a este tema
 Si te interesa, puedes consultar cómo se [virtualiza el almacenamiento](Almacenamiento) que, en general, es independiente de la
 generación de una máquina virtual. También puedes ir directamente al
 [tema de uso de sistemas](Uso_de_sistemas) en el que se trabajará
-con sistemas de virtualización completa. 
+con sistemas de virtualización completa.
 
 Aunque inicialmente iguales, el
 [tema equivalente de Cloud Computing](https://jj.github.io/CC/documentos/temas/Contenedores)
 ha ido divergiendo y en este momento es más completo en algunos
-aspectos. 
+aspectos.

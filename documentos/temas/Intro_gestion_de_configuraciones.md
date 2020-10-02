@@ -13,13 +13,13 @@ Objetivos
 
 ### Cubre los siguientes objetivos de la asignatura
 
-* Conocer las diferentes tecnologías y herramientas de virtualización tanto para procesamiento, comunicación y almacenamiento. 
+* Conocer las diferentes tecnologías y herramientas de virtualización tanto para procesamiento, comunicación y almacenamiento.
 * Instalar, configurar, evaluar y optimizar las prestaciones de un servidor virtual.
 * Configurar los diferentes dispositivos físicos para acceso a los
   servidores virtuales: acceso de usuarios, redes de comunicaciones o entrada/salida.
 * Diseñar, implementar y construir un centro de procesamiento de datos virtual.
 * Documentar y mantener una plataforma virtual.
-* Optimizar aplicaciones sobre plataformas virtuales. 
+* Optimizar aplicaciones sobre plataformas virtuales.
 * Realizar tareas de administración en infraestructura virtual.
 
 ### Objetivos específicos
@@ -49,7 +49,7 @@ crear un táper (o, para el caso, una máquina virtual, o muchas de
 ellas) y automáticamente *provisionarla* con el software necesario
 para comportarse como un
 [PaaS](http://jj.github.io/IV/documentos/temas/Intro:concepto_y_soporte_fisico#usando_un_servicio_paas)
-o simplemente como una máquina de servicio al cliente. 
+o simplemente como una máquina de servicio al cliente.
 
 En general, un SCM permite crear métodos para instalar una aplicación
 o servicio determinado, expresando sus dependencias, los servicios que
@@ -57,7 +57,7 @@ provee y cómo se puede trabajar con ellos. Por ejemplo, una base de
 datos ofrece precisamente ese servicio; un sistema de gestión de
 contenidos dependerá del lenguaje en el que esté escrito; además, se
 pueden establecer *relaciones* entre ellos para que el CMS use la BD
-para almacenar sus tablas. 
+para almacenar sus tablas.
 
 Hay
 [decenas de sistemas CMS](http://en.wikipedia.org/wiki/Comparison_of_open-source_configuration_management_software),
@@ -83,7 +83,7 @@ Si has instalado previamente con `sudo apt-get install juju` te lo
 desinstalará automáticamente. Esto añade un repositorio PPA (creado
 por el desarrollador); actualiza los contenidos del local e instala
 `juju`, que está basado en Python y por tanto instalará un montón de
-librerías del mismo, inclusive Twisted y varias más. 
+librerías del mismo, inclusive Twisted y varias más.
 
 Para empezar a trabajar con él, se escribe
 
@@ -97,13 +97,13 @@ fichero `environments.yaml`, que contiene información sobre los
 nube y el local, que es el que vamos a probar. Por omisión, el fichero
 trabajará con Amazon EC2. Tenemos que cambiarlo a
 `local` [si queremos trabajar con contenedores LXC](https://juju.ubuntu.com/docs/config-local.html) editando el
-fichero y cambiando la línea 
+fichero y cambiando la línea
 
 ```
 #default: amazon
 ```
 
-comentándola de esta forma, por ejemplo, y añadiendo 
+comentándola de esta forma, por ejemplo, y añadiendo
 
 ```
 default: local
@@ -115,7 +115,7 @@ Este es el entorno con el que se va a trabajar por omisión; usando
 juju switch amazon
 ```
 
-por ejemplo, se puede cambiar a ese entorno. 
+por ejemplo, se puede cambiar a ese entorno.
 
 <div class='nota' markdown='1'>
 
@@ -124,10 +124,10 @@ instalado, haz
 
 ```
 sudo apt-get install mongodb-server
-```	
+```
 
-MongoDB reserva una gran cantidad de espacio (del orden de 10 gigas) para sus bases de datos, por lo que tendrás que tener bastantes gigas libres para usarlo. 
-	
+MongoDB reserva una gran cantidad de espacio (del orden de 10 gigas) para sus bases de datos, por lo que tendrás que tener bastantes gigas libres para usarlo.
+
 </div>
 
 Si tienes ya algún táper creado, te fastidias. A `juju`,
@@ -138,11 +138,11 @@ fácil crearlo, simplemente
 juju bootstrap
 ```
 
-te creará un táper con su propia configuración, algo así como 
+te creará un táper con su propia configuración, algo así como
 
 ```
-bash$ lxc-ls 
-	
+bash$ lxc-ls
+
 contenedor  jmerelo-local-machine-1  jmerelo-local-machine-2
 nubecilla
 ```
@@ -156,7 +156,7 @@ cosas. `juju` usa [*encantos*](https://jujucharms.com/), scripts que expresan qu
 provee cada aplicación. Son simplemente *scripts* que usan un lenguaje
 basado en YAML, pero ya hay *charms* para las tareas más comunes:
 instalar servicios web o lenguajes de programación. Por ejemplo, para
-instalar mediawiki simplemente se escribiría 
+instalar mediawiki simplemente se escribiría
 
 ```
 juju deploy mediawiki
@@ -173,9 +173,9 @@ juju deploy mysql
 ```
 
 No solo eso, sino que habrá que indicar que mediawiki va a usar
-precisamente mysql como base de datos. Se trata de añadir [una *relación*](https://juju.ubuntu.com/docs/charms-relations.html) con 
+precisamente mysql como base de datos. Se trata de añadir [una *relación*](https://juju.ubuntu.com/docs/charms-relations.html) con
 
-```	
+```
 juju add-relation mediawiki mysql
 ```
 
@@ -252,17 +252,17 @@ que se ha instalado wordpress; en el mismo se muestra la relación con
 la base de datos y también con un *loadbalancer* para equilibrar la
 carga. Como dato interesante, esta orden nos da la IP local del táper
 que hemos creado, por lo que accediendo desde el navegador a
-http://10.0.3.15 nos mostrará la página de inicio de MediaWiki. Al instalar un *servicio* en una *máquina* se crean una serie de *unidades*. Esas unidades son como mini-contenedores que están a cargo de ejecutar el servicio que se ha instalado mediante juju. 
+http://10.0.3.15 nos mostrará la página de inicio de MediaWiki. Al instalar un *servicio* en una *máquina* se crean una serie de *unidades*. Esas unidades son como mini-contenedores que están a cargo de ejecutar el servicio que se ha instalado mediante juju.
 
 <div class='ejercicios' markdown='1'>
 
 1. Instalar `juju`.
 
-2. Usándolo, instalar `MySQL` en un táper. 
+2. Usándolo, instalar `MySQL` en un táper.
 
 </div>
 
-Para desmontar los servicios se tiene que hacer en orden inverso a su creación: primero hay que destruir las unidades, de esta forma: 
+Para desmontar los servicios se tiene que hacer en orden inverso a su creación: primero hay que destruir las unidades, de esta forma:
 
 ```
 sudo juju destroy-unit mysql/0
@@ -274,14 +274,14 @@ La destrucción de las máquinas solo se puede hacer una vez que todas las unida
 sudo juju destroy-machine 2
 ```
 
-donde 2 es el número de la máquina que aparecería en status. La máquina `0` siempre es la máquina anfitriona, que no se puede destruir a no ser que queramos ver el fin del universo conocido. 
+donde 2 es el número de la máquina que aparecería en status. La máquina `0` siempre es la máquina anfitriona, que no se puede destruir a no ser que queramos ver el fin del universo conocido.
 
 
-Los números de máquina no se reutilizan, y cuando se ejecuta 
+Los números de máquina no se reutilizan, y cuando se ejecuta
 
 ```
 sudo juju add-machine
-```	
+```
 
 se creará una con número posterior al último utilizado:
 
@@ -308,7 +308,7 @@ La nueva máquina aparecerá inicialmente de esta forma, porque la orden regresa
     series: precise
 ```
 
-Cuando algo va mal en `juju`, hay que echar mano de los logs. En algún momento funcionará `juju debug-log`, pero por lo pronto hay que apañarse con el registro de errores del mismo, que se puede consultar (y se debe borrar con cierta frecuencia, porque engorda que da gusto), en `~/.juju/local/log/machine-0.log`; en este caso sería el de la máquina anfitriona, pero cada una de las máquinas tendrá su propio registro. 
+Cuando algo va mal en `juju`, hay que echar mano de los logs. En algún momento funcionará `juju debug-log`, pero por lo pronto hay que apañarse con el registro de errores del mismo, que se puede consultar (y se debe borrar con cierta frecuencia, porque engorda que da gusto), en `~/.juju/local/log/machine-0.log`; en este caso sería el de la máquina anfitriona, pero cada una de las máquinas tendrá su propio registro.
 
 ```
 2013-11-21 21:28:16 DEBUG juju.rpc.jsoncodec codec.go:107 <- {"RequestId":110,"Type":"Provisioner","Request":"SetStatus","Params":{"Entities":[{"Tag":"machine-4","Status":"error","Info":"error executing \"lxc-create\": No such file or directory - bad template: ubuntu-cloud; bad template: ubuntu-cloud","Data":null}],"Machines":null}}
@@ -316,9 +316,9 @@ Cuando algo va mal en `juju`, hay que echar mano de los logs. En algún momento 
 
 Lo que indica que falta una plantilla del tipo de máquina que se
 ha usado, por algún error en la instalación de `lxc-templates`,
-seguramente. 
-	
-	
+seguramente.
+
+
 
 <div class='ejercicios' markdown='1'>
 
@@ -357,12 +357,12 @@ virtual. `libvirt` es un interfaz de aplicación a los diferentes
 hipervisores y gestores de contenedores que pueda haber en un
 ordenador, y se puede usar tanto desde el interfaz de la línea de
 órdenes como conectando con un servicio directamente desde una
-aplicación. 
+aplicación.
 
 <div class='ejercicios' markdown='1'>
 
 Instalar `libvirt`. Te puede ayudar
-[esta guía para Ubuntu](https://help.ubuntu.com/12.04/serverguide/libvirt.html). 
+[esta guía para Ubuntu](https://help.ubuntu.com/12.04/serverguide/libvirt.html).
 
 </div>
 
@@ -399,13 +399,13 @@ Instalar un contenedor usando `virt-install`.
 
 </div>
 
-De hecho, también se pueden usar contenedores que hayan sido instalados usando `lxc` (como no podía ser de otra forma, por otro lado). Por [ejemplo](http://wiki.centos.org/HowTos/LXC-on-CentOS6), esta orden 
+De hecho, también se pueden usar contenedores que hayan sido instalados usando `lxc` (como no podía ser de otra forma, por otro lado). Por [ejemplo](http://wiki.centos.org/HowTos/LXC-on-CentOS6), esta orden
 
 ```
 virt-install --connect lxc:/// --name esa_maquina --ram 512 --vcpu 1 --filesystem /var/lib/libvirt/lxc/taper --noautoconsole
 ```
 
-instalaría usando el conector para lxc	una máquina con el nombre indicado, medio giga de RAM, una sola CPU virtual y un filesystem ya instalado previamente en el subdirectorio `taper`. 
+instalaría usando el conector para lxc	una máquina con el nombre indicado, medio giga de RAM, una sola CPU virtual y un filesystem ya instalado previamente en el subdirectorio `taper`.
 
 Una vez instalados diferentes contenedores, `virsh` permite trabajar
 con ellos.

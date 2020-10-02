@@ -138,14 +138,14 @@ Tecnológicamente la computación nube se basa en el proceso progresivo
   [línea temporal de tecnologías de virtualización](https://en.wikipedia.org/wiki/Timeline_of_virtualization_development)
   sitúa en los años 60 el desarrollo de los primeros sistemas de
   [memoria virtual](https://en.wikipedia.org/wiki/Virtual_memory) por parte de IBM, con el primer monitor de máquinas virtuales hecho
-  en los años 80 sobre el procesador 80286.  
+  en los años 80 sobre el procesador 80286.
 
   El concepto de *red privada virtual* o VPN (*virtual private
   network*) es posterior y comenzó a usarse en los años noventa,
   simultáneamente a lo que se puede considerar las primeras
   aplicaciones virtuales, los [servicios de correo web](https://en.wikipedia.org/wiki/Webmail) tales como Yahoo
   o Hotmail, que son en realidad una virtualización de las
-  aplicaciones de lectura del correo electrónico.  
+  aplicaciones de lectura del correo electrónico.
 
   Todos los conceptos, por lo tanto, tienen origen en el pasado
   pero la computación nube tal como la conocemos resurge a principios
@@ -231,7 +231,7 @@ virtual *invitado*.
 
 * La
   [paravirtualización](https://en.wikipedia.org/wiki/Paravirtualization)
-  requiere modificación de los sistemas operativos    
+  requiere modificación de los sistemas operativos
 
 * La
 [virtualización a nivel de sistema operativo](https://en.wikipedia.org/wiki/Operating_system-level_virtualization)

@@ -12,10 +12,10 @@ next: Orquestacion
 
 1.   Conocer las diferentes tecnologías y herramientas de
 virtualización tanto para procesamiento, comunicación y
-almacenamiento. 
+almacenamiento.
 
 2. Diseñar, construir y analizar las prestaciones de un centro de
-proceso de datos virtual. 
+proceso de datos virtual.
 
 3. Documentar y mantener una plataforma virtual.
 
@@ -35,10 +35,10 @@ Todas las plataformas suelen tener una utilidad de línea de órdenes, o
 varias, que permite acceder al API de la misma una vez identificados
 ahí. Generalmente son libres, así que también se pueden usar desde tu
 propio programa. A continuación veremos como trabajar en alguna de
-ellas. 
+ellas.
 
 
-<!-- incluir instrucciones para usar CLI de Python --> 
+<!-- incluir instrucciones para usar CLI de Python -->
 
 El [CLI de Azure](https://github.com/Azure/azure-cli#installation)
 está basado en Python y se puede instalar siguiendo las instrucciones

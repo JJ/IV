@@ -80,10 +80,10 @@ node.js, [igual que platform.sh](https://platform.sh/) o [IBM BlueMix](https://c
 >Después de probar casi todos los servicios anteriores, me da la
 >impresión de que poco hay más allá de Heroku y Openshift. AppFog, después de la efervescencia inicial, dan 30 días de prueba
 >solamente. nitrous.io también da un periodo de prueba y se puede usar como IaaS, pero del resto, al menos
->los que funcionan con node.js, poco más hay.  
+>los que funcionan con node.js, poco más hay.
 
 [AppAgile](https://cloud.telekom.de/en/infrastructure/appagile-paas-big-data/paas)
-trabaja con Perl, por ejemplo, como lo hacía 
+trabaja con Perl, por ejemplo, como lo hacía
 Stackato y otras. En general, si necesitas otros lenguajes, tendrás que buscar porque la oferta variará. Los más fiables son OpenShift y Heroku, y los que ofrecen más opciones a la hora de elegir lenguajes.
 
 <div class='ejercicios' markdown="1">
@@ -152,7 +152,7 @@ enseñanza.
 
 Crear una aplicación en OpenShift o en algún otro PaaS en el que se
 haya dado uno de alta. Realizar un despliegue de prueba usando alguno
-de los ejemplos incluidos con el PaaS.  
+de los ejemplos incluidos con el PaaS.
 
 </div>
 
@@ -192,14 +192,14 @@ te explica cómo usarlo. No hay muchos vídeos en español, pero en
 [este explica cómo crear una aplicación Django y subirla a Heroku](https://www.youtube.com/watch?v=3k2eg0stnCI)
 y
 [este es una introducción general con ejemplos de Ruby](https://www.youtube.com/watch?v=ii9G9JMvoXM).
-En 
+En
 [este otro encuentras cómo hacer un despliegue de Python y Flask en Heroku](https://www.youtube.com/watch?v=pmRT8QQLIqk).
 
 </div>
 
 ## Creando un bot de Telegram para Heroku
 
-Otro ejemplo de aplicación, usando en este caso Python 3.7, es un bot de telegram. Un bot es un asistente, generalmente conversacional, que nos ayudará en nuestras tareas del día a día. La aplicación de mensajería Telegram permite obtener TOKENS para crear bots para su aplicación, y a lo largo de los años se han creado librerías específicas para este fin, así que al final han aparecido [muchos bots libres](https://github.com/python-telegram-bot/python-telegram-bot/wiki/Examples) que pueden usarse de forma individual o en grupos. Irónicamente, para crear uno de estos bots, lo primero que tenemos que hacer es hablar con un bot de Telegram, [BotFather](https://telegram.me/botfather). Para ello, tenemos que escribir en la conversación el comando `/newbot`, y tras responder a sus preguntas para la configuración básica del nombre, nos devolverá un **token**. Este token nos servirá para enlazar el código del bot a la aplicación de Telegram. Una vez tenemos el **token**, nos toca ponernos manos a la obra con el código del bot, que más tarde desplegaremos con Heroku. Para ello, usaremos [una librería de python](https://python-telegram-bot.readthedocs.io/en/latest/index.html). Como necesitaremos un Dockerfile y un `requirements` para luego desplegarlo en condiciones, lo montaremos todo en un directorio para tenerlo ordenado. 
+Otro ejemplo de aplicación, usando en este caso Python 3.7, es un bot de telegram. Un bot es un asistente, generalmente conversacional, que nos ayudará en nuestras tareas del día a día. La aplicación de mensajería Telegram permite obtener TOKENS para crear bots para su aplicación, y a lo largo de los años se han creado librerías específicas para este fin, así que al final han aparecido [muchos bots libres](https://github.com/python-telegram-bot/python-telegram-bot/wiki/Examples) que pueden usarse de forma individual o en grupos. Irónicamente, para crear uno de estos bots, lo primero que tenemos que hacer es hablar con un bot de Telegram, [BotFather](https://telegram.me/botfather). Para ello, tenemos que escribir en la conversación el comando `/newbot`, y tras responder a sus preguntas para la configuración básica del nombre, nos devolverá un **token**. Este token nos servirá para enlazar el código del bot a la aplicación de Telegram. Una vez tenemos el **token**, nos toca ponernos manos a la obra con el código del bot, que más tarde desplegaremos con Heroku. Para ello, usaremos [una librería de python](https://python-telegram-bot.readthedocs.io/en/latest/index.html). Como necesitaremos un Dockerfile y un `requirements` para luego desplegarlo en condiciones, lo montaremos todo en un directorio para tenerlo ordenado.
 
 ```
 $ mkdir mibot; cd mibot
@@ -231,7 +231,7 @@ TOKEN = os.getenv("TOKEN")
 
 ```
 
-Luego explicaremos dónde colocar esas variables. La primera nos permite ver el modo de ejecución, en el ejemplo usaremos "dev" de developer, y TOKEN es el **token** que no sha facilitado _BotFtaher_. 
+Luego explicaremos dónde colocar esas variables. La primera nos permite ver el modo de ejecución, en el ejemplo usaremos "dev" de developer, y TOKEN es el **token** que no sha facilitado _BotFtaher_.
 
 ```
 if mode == "dev":
@@ -251,7 +251,7 @@ else:
     sys.exit(1)
 
 ```
-De este modo podemos tener un adecuado control de la versión (desarrollo o producción) de nuestro bot, y un mejor control de su seguridad. Bien, ahora podemos pasar a definir los comandos. Como su nombre indica, esta función nos va a permitir activar determinadas funciones de nuestro bot. La función de inicio por defecto en la mayoría de los bots es `/start` que generalmente es un saludo, ayuda o algo similar. Empecemos por ahí, pues. 
+De este modo podemos tener un adecuado control de la versión (desarrollo o producción) de nuestro bot, y un mejor control de su seguridad. Bien, ahora podemos pasar a definir los comandos. Como su nombre indica, esta función nos va a permitir activar determinadas funciones de nuestro bot. La función de inicio por defecto en la mayoría de los bots es `/start` que generalmente es un saludo, ayuda o algo similar. Empecemos por ahí, pues.
 
 ```
 def start(update, context):
@@ -268,7 +268,7 @@ def echo(update, context):
 
 ```
 
-En esta ocasión lo único que hace es coger el mensaje del usuario (`update.message.text`) y reenviarlo. Creemos ahora nuestro `main` para poder poner todo en marcha una vez despleguemos el bot. 
+En esta ocasión lo único que hace es coger el mensaje del usuario (`update.message.text`) y reenviarlo. Creemos ahora nuestro `main` para poder poner todo en marcha una vez despleguemos el bot.
 
 ```
 if __name__ == '__main__':
@@ -356,7 +356,7 @@ Bien, ya tenemos el código listo, podemos pasar al `requirements.txt`. Debemos 
 ```
 ...
 pycrypto==2.6.1
-``` 
+```
 
 Y ya está todo. Ya solo nos queda desplegar y monitorizar, como veremos en la siguiente sección.
 
@@ -401,7 +401,7 @@ heroku master` se pondrá en marcha. La mayoría de los PaaS usa `git
 push` como modo de despliegue, que permite tener controlada la versión
 de todos los ficheros que hay en el mismo y además, con los *ganchos*
 post-`push`,
-[compilar y ejecutar la aplicación a través de los llamados *Buildpacks*](https://www.jamesward.com/2012/07/18/the-magic-behind-herokus-git-push-deployment).  
+[compilar y ejecutar la aplicación a través de los llamados *Buildpacks*](https://www.jamesward.com/2012/07/18/the-magic-behind-herokus-git-push-deployment).
 
 <div class='ejercicios' markdown="1">
 

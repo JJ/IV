@@ -8,7 +8,7 @@ next: PaaS
 
 <div class="objetivos" markdown="1">
 
-## Objetivos 
+## Objetivos
 
 
 ### Cubre los siguientes objetivos de la asignatura
@@ -22,9 +22,9 @@ tanto de software como de hardware y ponerlos en práctica.
 
 1. Entender la necesidad de infraestructura virtual en un contexto
    moderno de desarrollo de aplicaciones.
-   
+
 2. Asimilar los diferentes conceptos de las metodologías de desarrollo
-   enfocadas a infraestructuras virtuales. 
+   enfocadas a infraestructuras virtuales.
 
 </div>
 
@@ -39,13 +39,13 @@ partes. Esto, en la práctica, se lleva a cabo en la creación de
 una serie de módulos o servicios, cada uno de ellos con un interfaz o API
 (*application programming interface*) bien definido, de forma que sea
 fácil para los desarrolladores de cada uno de ellos cambiar el código o
-refactorizarlo, siempre que el API se mantenga invariable. 
+refactorizarlo, siempre que el API se mantenga invariable.
 
 La *separación de intereses* más directa es la división entre
 *front-end* y *back-end*, o en modelos, vista y controlador, aparte de
 otros paradigmas como
 la
-[programación orientada a aspectos](https://en.wikipedia.org/wiki/Aspect-oriented_programming). 
+[programación orientada a aspectos](https://en.wikipedia.org/wiki/Aspect-oriented_programming).
 
 En programación *clásica*, esta separación se llevaba a cabo mediante
 el concepto de bibliotecas. Un programa es una colección de
@@ -53,7 +53,7 @@ bibliotecas con un programa *principal* que se ejecuta. Cuando este
 concepto se trasladó a aplicaciones en red, se empezaron a usar
 conceptos como cliente-servidor o *multi-tier*, cuando entre cliente y
 servidor hay otras aplicaciones denominadas genéricamente
-*middleware*. 
+*middleware*.
 
 Sin embargo, cuando hay múltiples aplicaciones y además deseamos que
 cada una tenga sus propios intereses y se ocupe de ellos es cuando
@@ -63,16 +63,16 @@ servicios web especifican un API accesible mediante el protocolo HTTP
 que permite encapsular la lógica de negocio y desarrollar de forma
 independiente diferentes partes de una aplicación, partes que se
 conectarán entre sí a través de la web usando las medidas de
-seguridad, autenticación y autorización que sean convenientes. 
+seguridad, autenticación y autorización que sean convenientes.
 
 Las aplicaciones modernas se basan en la concatenación de servicios
 web. Es imprescindible entender el concepto para comprender cómo
-funciona el desarrollo en infraestructuras virtuales. 
+funciona el desarrollo en infraestructuras virtuales.
 
 <div class='nota' markdown='1'>
 
 Un
-[tutorial de unos 10 minutos sobre servicios Web](https://www.youtube.com/watch?v=KU3V25XABgg). 
+[tutorial de unos 10 minutos sobre servicios Web](https://www.youtube.com/watch?v=KU3V25XABgg).
 </div>
 
 Aunque durante muchos años se han usado extensivamente servicios web
@@ -81,7 +81,7 @@ sobre todo los llamados [sistemas RESTful](https://elbauldelprogramador.com/buen
 órdenes HTTP estándar y codifican las peticiones en URIs y las
 respuestas usando,
 generalmente, [JSON](https://es.wikipedia.org/wiki/JSON), un formato
-que permite transmitir estructuras de datos generales. 
+que permite transmitir estructuras de datos generales.
 
 <div class='nota' markdown='1'>
 
@@ -100,7 +100,7 @@ parámetros, por lo que se suelen usar generalmente bibliotecas,
 denominadas *frameworks* o *microframeworks*. Estas bibliotecas se
 encargan de activar un bucle que va recibiendo peticiones y
 encaminándolas o enrutándolas a las funciones que se encarguen de cada
-una de ellas. 
+una de ellas.
 
 Por ejemplo, vamos a crear un pequeño servicio web que sirva los hitos
 de la asignatura, basándose en la [biblioteca que los lee de un fichero en JSON](https://github.com/JJ/HitosIV)
