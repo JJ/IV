@@ -87,7 +87,7 @@ grosso modo, los hitos se organizarán de la forma siguiente.
 
 0. [Práctica cero: Uso básico de herramientas](documentos/proyecto/0.Repositorio).
 1. [Organización de los grupos de práctica y creación del proyecto](documentos/proyecto/1.Infraestructura).
-2. [Integración continua en el repositorio](documentos/proyecto/2.CI).
+2. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/2.Tests).
 2. [Creando microservicios](documentos/proyecto/3.Microservicios).
 3. Desplegando a la nube: [Platform as a Service](documentos/proyecto/4.PaaS).
 4. Técnicas de virtualización: [Contenedores](documentos/proyecto/5.Docker) para despliegue de microservicios.
