@@ -527,11 +527,11 @@ incluso probar la versión más avanzada.
 Por eso desde hacer cierto tiempo se han venido usando *entornos
 virtuales de desarrollo* tales como:
 
--  [virtualenv](https://virtualenv.pypa.io/en/latest/) o `pyenv` para Python,
--  [nvm](https://github.com/nvm-sh/nvm), [`n`](https://github.com/tj/n) y [nave](https://github.com/isaacs/nave) para node.js,
--  [`phpenv` para, lo adivinaste, PHP](https://github.com/phpenv/phpenv),
--  [rbenv](https://github.com/rbenv/rbenv) y [RVM](https://rvm.io) para Ruby
--  y [plenv](https://github.com/tokuhirom/plenv) y [perlbrew](https://perlbrew.pl) para Perl.
+- [virtualenv](https://virtualenv.pypa.io/en/latest/) o `pyenv` para Python,
+- [nvm](https://github.com/nvm-sh/nvm), [`n`](https://github.com/tj/n) y [nave](https://github.com/isaacs/nave) para node.js,
+- [`phpenv` para, lo adivinaste, PHP](https://github.com/phpenv/phpenv),
+- [rbenv](https://github.com/rbenv/rbenv) y [RVM](https://rvm.io) para Ruby
+- y [plenv](https://github.com/tokuhirom/plenv) y [perlbrew](https://perlbrew.pl) para Perl.
 
 Generalmente, estos programas funcionan instalando binarios en
 directorios del usuario y modificando el camino de ejecución para que

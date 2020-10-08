@@ -145,8 +145,9 @@ anterior tratará de arrancar de todas formas del disco duro. Se puede
 cortar la máquina virtual simplemente cerrando la ventana y tratar de
 arrancar de nuevo empezando por el CD virtual usando
 
-    qemu-system-x86_64 -hda otro-disco.img -cdrom picaros-diego-b.iso
-    -boot once=d
+```
+qemu-system-x86_64 -hda otro-disco.img -cdrom picaros-diego-b.iso -boot once=d
+```
 
 con `-boot` se le indica el orden de arranque; `once` indica que solo
 va a ser así esta vez y `d`, como antiguamente, es el CD
@@ -197,7 +198,9 @@ Crear un *benchmark* de velocidad de entrada salida y comprobar la
 diferencia entre usar paravirtualización y arrancar la máquina virtual
 simplemente con
 
-    qemu-system-x86_64 -hda /media/Backup/Isos/discovirtual.img
+```
+qemu-system-x86_64 -hda /media/Backup/Isos/discovirtual.img
+```
 
 </div>
 
@@ -208,7 +211,9 @@ pero una de ellas es arrancarlas dentro de un
 [servidor VNC](https://en.wikipedia.org/wiki/Virtual_Network_Computing)
 con una orden como esta
 
-    qemu-system-x86_64 -hda /media/Backup/Isos/discovirtual.img -vnc :1
+```
+qemu-system-x86_64 -hda /media/Backup/Isos/discovirtual.img -vnc :1
+```
 
 Con esto podemos conectar a la máquina virtual usando algún
 [cliente de VNC tal como `vinagre`](https://help.ubuntu.com/community/VNC/Clients). Hay
@@ -264,7 +269,9 @@ Por otro lado, [también puede usar `virt-manager`](https://help.ubuntu.com/comm
 virtuales creadas, así que habrá que instalar una serie de utilidades
 para echarlo a andar:
 
-    sudo ubuntu-vm-builder kvm virt-manager
+```
+sudo ubuntu-vm-builder kvm virt-manager
+```
 
 Con eso ya podemos crear una imagen para usar
 
@@ -291,11 +298,15 @@ con un solo usuario, `ubuntu` con la misma clave. Como no se le ha
 indicado ninguna personalización, tendrá el teclado en inglés y la
 hora que le parezca bien. Una vez construido podemos arrancarlo con
 
-    sudo qemu-system-x86_64 -drive file=/directorio/donde/este/tmpGAPl8O.qcow2,if=none,id=drive-ide0-0-0,format=qcow2
+```
+sudo qemu-system-x86_64 -drive file=/directorio/donde/este/tmpGAPl8O.qcow2,if=none,id=drive-ide0-0-0,format=qcow2
+```
 
 y trabajar con ella, o directamente con
 
-    sudo qemu-system-x86_64 -hda /que/me/dir/tmpGAPl8O.qcow2
+```
+sudo qemu-system-x86_64 -hda /que/me/dir/tmpGAPl8O.qcow2
+```
 
 que carga el sistema del disco duro virtual creado.
 

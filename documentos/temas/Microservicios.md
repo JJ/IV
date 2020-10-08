@@ -161,7 +161,9 @@ determinado, y siempre se pueden usar variables de entorno para ello.
 Con el mismo `express` se pueden generar aplicaciones no tan básicas
 instalando [`express-generator`](https://expressjs.com/es/starter/generator.html) o el generador de aplicaciones [`yeoman`](https://yeoman.io)
 
-    express prueba-rest
+```
+express prueba-rest
+```
 
 Se indica el camino completo a la aplicación, que sería el
 puesto. Con esto se genera un directorio prueba-rest. Cambiándoos al
@@ -467,20 +469,28 @@ instancias de un proceso.
 Si lo aplicamos al programa de gestión de porras anterior, podemos
 arrancarlo simplemente con:
 
-    pm2 start index.js -i 4
+```
+pm2 start index.js -i 4
+```
 
 Lo que arrancará cuatro instancias de nuestro programa y equilibrará
 la carga entre las cuatro. Estas instancias serán copias exactas de nuestro programa: las cuatro escucharán en el puerto que esté definido, que ahora estará gestionado por `pm2`. Este, además, recordará los números de proceso: para pararlos, no hay más que escribir:
 
-    pm2 stop index
+```
+pm2 stop index
+```
 
 o
 
-    pm2 stop all
+```
+pm2 stop all
+```
 
 para parar todos los procesos que gestione. Los logs se almacenan en un directorio específico y se pueden consultar con
 
-    pm2 logs
+```
+pm2 logs
+```
 
 Hay [muchos otros gestores de procesos](https://www.tecmint.com/process-managers-for-node-js-applications-in-linux/), pero esto incluye también el systemd de Linux, un gestor que se puede usar con éxito en sistemas que lo implementen, como es natural, y que está incluido en cualquier distribución.
 
@@ -611,11 +621,15 @@ gulp con utilidades como `mocha` o el shell.
 
 Usando esto, con
 
-    gulp start &
+```
+gulp start &
+```
 
 se puede arrancar el programa, y con
 
-    gulp stop
+```
+gulp stop
+```
 
 se detiene, invocando en los dos casos a `pm2`, en el primer caso
 usando el API y en el segundo usando directamente una orden lanzada en

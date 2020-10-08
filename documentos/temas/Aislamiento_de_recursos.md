@@ -176,7 +176,9 @@ cat /cgroup/malos/cpuacct.usage
 
 devolverá un valor similar a
 
-    72012663139
+```
+72012663139
+```
 
 que nos dará una idea del uso de cada grupo en particular y nos
 permitirá comparar entre un grupo y otro.

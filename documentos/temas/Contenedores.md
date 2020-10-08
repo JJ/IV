@@ -488,7 +488,7 @@ ejemplo,
 se puede usar en lugar del intérprete de Perl6 y usa como base la
 distro ligera Alpine:
 
-~~~
+```
 FROM alpine:latest
 MAINTAINER JJ Merelo <jjmerelo@GMail.com>
 WORKDIR /root
@@ -518,7 +518,7 @@ RUN panda install Linenoise
 #Mount point
 RUN mkdir /app
 VOLUME /app
-~~~
+```
 
 Como ya hemos visto anteriormente, usa `apk`, la orden de Alpine para
 instalar paquetes e instala lo necesario para que eche a andar el

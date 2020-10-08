@@ -63,7 +63,9 @@ máquina virtual desde el panel de control, pero también desde
 la [línea de órdenes](https://github.com/WindowsAzure/azure-sdk-tools-xplat). Primero
 hay que saber qué imágenes hay disponibles:
 
-    azure vm image list
+```
+azure vm image list
+```
 
 Por ejemplo, se puede escoger la imagen
 `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu_DAILY_BUILD-trusty-14_04-LTS-amd64-server-20131221-en-us-30GB`
@@ -107,7 +109,9 @@ que queramos. El arranque tarda cierto tiempo y dependerá de la
 disponibilidad de recursos; evidentemente, mientras no esté arrancada
 no se puede usar, pero conviene de todas formas apagarla con
 
-    azure vm shutdown maquina
+```
+azure vm shutdown maquina
+```
 
 cuando terminemos la sesión y no sea necesaria, sobre todo porque,
 dado que se pagan por tiempo de uso, se puede incurrir en costes
