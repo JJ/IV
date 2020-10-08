@@ -11,13 +11,13 @@ next: PaaS
 
 ### Cubre los siguientes objetivos de la asignatura
 
-* Conocer los conceptos relacionados con el proceso de virtualización tanto de software como de hardware y ponerlos en práctica.
+- Conocer los conceptos relacionados con el proceso de virtualización tanto de software como de hardware y ponerlos en práctica.
 
 ### Objetivos específicos
 
-* Entender el concepto de <i>DevOps</i>.
-* Usar herramientas para gestión de los ciclos de desarrollo de una aplicación y entender cuales son estos.
-* Aprender a usar integración continua en cualquier aplicación.
+- Entender el concepto de <i>DevOps</i>.
+- Usar herramientas para gestión de los ciclos de desarrollo de una aplicación y entender cuales son estos.
+- Aprender a usar integración continua en cualquier aplicación.
 
 </div>
 
@@ -472,17 +472,17 @@ alguna información adicional como qué scripts de tests no se ha
 pasado o el mensaje de la misma. Algunos programas usados en otros
 lenguajes son:
 
-* Ruby usa [RSpec](http://rspec.info/), que además está basado en el
+- Ruby usa [RSpec](http://rspec.info/), que además está basado en el
   comportamiento deseado, lo que permite tener descripciones mucho más
   informativas del test y el resultado del fallo.
 
-* Perl usa [prove](https://perldoc.perl.org/prove.html), con múltiples
+- Perl usa [prove](https://perldoc.perl.org/prove.html), con múltiples
   opciones de configuración. De hecho, es el que se usa en el test de
   la asignatura.
 
-* JUnit es el más cercano en Java.
+- JUnit es el más cercano en Java.
 
-* Perl 6 usa prove6, pero también zef si se trata de usarlo sobre un módulo.
+- Perl 6 usa prove6, pero también zef si se trata de usarlo sobre un módulo.
 
 Cada lenguaje incluye este tipo de marcos, sea como parte de su
 distribución base o como parte de alguna biblioteca popular.
@@ -527,11 +527,11 @@ incluso probar la versión más avanzada.
 Por eso desde hacer cierto tiempo se han venido usando *entornos
 virtuales de desarrollo* tales como:
 
-*  [virtualenv](https://virtualenv.pypa.io/en/latest/) o `pyenv` para Python,
-*  [nvm](https://github.com/nvm-sh/nvm), [`n`](https://github.com/tj/n) y [nave](https://github.com/isaacs/nave) para node.js,
-*  [`phpenv` para, lo adivinaste, PHP](https://github.com/phpenv/phpenv),
-*  [rbenv](https://github.com/rbenv/rbenv) y [RVM](https://rvm.io) para Ruby
-*  y [plenv](https://github.com/tokuhirom/plenv) y [perlbrew](https://perlbrew.pl) para Perl.
+-  [virtualenv](https://virtualenv.pypa.io/en/latest/) o `pyenv` para Python,
+-  [nvm](https://github.com/nvm-sh/nvm), [`n`](https://github.com/tj/n) y [nave](https://github.com/isaacs/nave) para node.js,
+-  [`phpenv` para, lo adivinaste, PHP](https://github.com/phpenv/phpenv),
+-  [rbenv](https://github.com/rbenv/rbenv) y [RVM](https://rvm.io) para Ruby
+-  y [plenv](https://github.com/tokuhirom/plenv) y [perlbrew](https://perlbrew.pl) para Perl.
 
 Generalmente, estos programas funcionan instalando binarios en
 directorios del usuario y modificando el camino de ejecución para que
@@ -583,12 +583,12 @@ las empresas en las que hacen prácticas los alumnos.
 
 Las acciones podrían incluir
 
-* Crear empresa
-* Listar calificaciones para cada empresa
-* crear calificación y añadirla (comprobando que la persona no la haya añadido ya)
-* borrar calificación (si se arrepiente o te denuncia la empresa o algo)
-* Hacer un ránking de empresas por calificación, por ejemplo
-* Crear un repositorio en GitHub para la librería y crear un pequeño programa que use algunas de sus funcionalidades.
+- Crear empresa
+- Listar calificaciones para cada empresa
+- crear calificación y añadirla (comprobando que la persona no la haya añadido ya)
+- borrar calificación (si se arrepiente o te denuncia la empresa o algo)
+- Hacer un ránking de empresas por calificación, por ejemplo
+- Crear un repositorio en GitHub para la librería y crear un pequeño programa que use algunas de sus funcionalidades.
 
 Si se quiere hacer con cualquier otra aplicación, también es válido.
 
@@ -679,11 +679,11 @@ orden `make`, introducida [hace casi cuarenta años](https://es.wikipedia.org/wi
 de construcción en un fichero llamado `Makefile` con una sintaxis
 específica que se puede resumir en
 
-* unos *objetivos* que hay que cumplir y que dependen unos de
+- unos *objetivos* que hay que cumplir y que dependen unos de
   otros. Por ejemplo, antes de construir el ejecutable hay que
   construir las librerías.
 
-* unas *tareas* que hay que hacer para cumplir esos objetivos. Por
+- unas *tareas* que hay que hacer para cumplir esos objetivos. Por
   ejemplo, para obtener una librería hay que compilarla a partir del
   fuente.
 

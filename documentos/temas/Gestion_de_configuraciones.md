@@ -190,7 +190,7 @@ que contiene las diferentes máquinas controladas por el mismo. Por
 ejemplo
 
 ```
-$ echo "ansible-iv.cloudapp.net" > ~/ansible_hosts
+echo "ansible-iv.cloudapp.net" > ~/ansible_hosts
 ```
 
 se puede ejecutar desde el *shell* para meter (`echo`) una cadena con
@@ -206,7 +206,7 @@ export ANSIBLE_HOSTS=~/ansible_hosts
 Y, con un nodo, ya se puede comprobar si Ansible funciona con
 
 ```
-$ ansible all -u jjmerelo -m ping
+ansible all -u jjmerelo -m ping
 ```
 
 Esta orden hace un *ping*, es decir, simplemente comprueba si la
@@ -228,7 +228,7 @@ crearía un grupo `azure` (con un solo ordenador), en el cual podemos
 ejecutar comandos de forma remota
 
 ```
-    $ ansible azure -u jjmerelo -a df
+ansible azure -u jjmerelo -a df
 ```
 
 nos mostraría en todas las máquinas de Azure la organización del
@@ -239,7 +239,7 @@ Esta orden usa un *módulo* de ansible y se puede ejecutar también de
 esta forma:
 
 ```
-    $ ansible azure -m shell ls
+ansible azure -m shell ls
 ```
 
 haciendo uso del módulo `shell`. Hay muchos
@@ -421,12 +421,11 @@ nodejs_version: "12.x"
 indicando la versión del fichero que se va a instalar. Esa variable la
 usará el rol para instalar la versión de node correspondiente.
 
-> Un tutorial bastante extenso de diferentes capacidades de ansible
-> en [Guru99](https://www.guru99.com/ansible-tutorial.html). Digital
-> Ocean también nos
-> enseña
-> [aquí](https://www.digitalocean.com/community/tutorials/configuration-management-101-writing-ansible-playbooks) diferentes
-> características de los playbooks que se pueden usar.
+> Un tutorial bastante extenso de diferentes capacidades de ansible en
+> [Guru99](https://www.guru99.com/ansible-tutorial.html). Digital Ocean también
+> nos enseña
+> [aquí](https://www.digitalocean.com/community/tutorials/configuration-management-101-writing-ansible-playbooks)
+> diferentes características de los playbooks que se pueden usar.
 
 <div class='ejercicios' markdown='1'>
 

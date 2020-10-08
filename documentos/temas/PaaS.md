@@ -200,7 +200,7 @@ En
 Otro ejemplo de aplicación, usando en este caso Python 3.7, es un bot de telegram. Un bot es un asistente, generalmente conversacional, que nos ayudará en nuestras tareas del día a día. La aplicación de mensajería Telegram permite obtener TOKENS para crear bots para su aplicación, y a lo largo de los años se han creado librerías específicas para este fin, así que al final han aparecido [muchos bots libres](https://github.com/python-telegram-bot/python-telegram-bot/wiki/Examples) que pueden usarse de forma individual o en grupos. Irónicamente, para crear uno de estos bots, lo primero que tenemos que hacer es hablar con un bot de Telegram, [BotFather](https://telegram.me/botfather). Para ello, tenemos que escribir en la conversación el comando `/newbot`, y tras responder a sus preguntas para la configuración básica del nombre, nos devolverá un **token**. Este token nos servirá para enlazar el código del bot a la aplicación de Telegram. Una vez tenemos el **token**, nos toca ponernos manos a la obra con el código del bot, que más tarde desplegaremos con Heroku. Para ello, usaremos [una librería de python](https://python-telegram-bot.readthedocs.io/en/latest/index.html). Como necesitaremos un Dockerfile y un `requirements` para luego desplegarlo en condiciones, lo montaremos todo en un directorio para tenerlo ordenado.
 
 ```
-$ mkdir mibot; cd mibot
+mkdir mibot; cd mibot
 ```
 
 Con nuestro editor de código favorito crearemos y editaremos un archivo `bot.py` en esta carpeta. ¡Ojo! Vamos a usar **Python 3**, lo cual es recomendable en general. Para empezar haremos un bot eco, que nos devuelva el mismo mensaje que nosotros le hemos mandado. Observemos los imports:
@@ -610,10 +610,10 @@ TOKEN = nuestroToken
 En las claves, HEROKU_APP_NAME tiene que coincidir con el nombre del bot. Para el modo, por ahora, usaremos developer. MYKEY es para generar claves AES, y debe tener un tamaño de 16, 24 o 32. Y finalmente TOKEN es donde pegaremos el token de Telegram. Volvamos a la terminal, y hacemos `heroku login` desde el directorio donde está nuestro proyecto.
 
 ```
-$ heroku container: login
-$ heroku container: push --app mibot web
-$ heroku container:release -app mibot web
-$ heroku logs --tail --app miapp
+heroku container: login
+heroku container: push --app mibot web
+heroku container:release -app mibot web
+heroku logs --tail --app miapp
 ```
 
 Tras esto habremos desplegado la última `release` en desarrollo de nuestro bot, y podemos leer los logs para ver qué está sucediendo. Si escribimos comandos desde la conversación podemos observar como reacciona nuestro bot desde la terminal. Para probar, copia y pega en tu directorio [este ejemplo](enlacealbot).
