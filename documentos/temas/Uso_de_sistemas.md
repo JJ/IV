@@ -112,6 +112,7 @@ defecto. Dependiendo del procesador que usemos,
 ```
 sudo modprobe kvm-amd
 ```
+
 o
 
 ```

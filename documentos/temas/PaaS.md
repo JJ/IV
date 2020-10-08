@@ -212,6 +212,7 @@ import sys
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 ```
+
 Vamos a comentar un poco las librerías que hemos añadido. Las librerías `os` y `sys` nos permiten manejar cuestiones básicas a bajo nivel, mientras que `logging` nos permite guardar logs de la interacción con el bot y mostrarlos por la terminal. Los módulos importados de `telegram.ext` nos permiten manipular y enviar mensajes. Antes mencionábamos que se pueden guardar y revisar logs. Vamos a activar esta opción:
 
 ```
@@ -219,14 +220,13 @@ Vamos a comentar un poco las librerías que hemos añadido. Las librerías `os` 
 logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger()
-
 ```
+
 A continuación viene una parte importante. Es recomendable que algunas variables delicadas las guardemos en el apartado _Settings_ de Heroku, en lugar de ponerlas en plano en nuestro código. Por ello, para recuperarlas en la ejecución usaremos:
 
 ```
 mode = os.getenv("MODE")
 TOKEN = os.getenv("TOKEN")
-
 ```
 
 Luego explicaremos dónde colocar esas variables. La primera nos permite ver el modo de ejecución, en el ejemplo usaremos "dev" de developer, y TOKEN es el **token** que no sha facilitado _BotFtaher_.
@@ -249,6 +249,7 @@ else:
     sys.exit(1)
 
 ```
+
 De este modo podemos tener un adecuado control de la versión (desarrollo o producción) de nuestro bot, y un mejor control de su seguridad. Bien, ahora podemos pasar a definir los comandos. Como su nombre indica, esta función nos va a permitir activar determinadas funciones de nuestro bot. La función de inicio por defecto en la mayoría de los bots es `/start` que generalmente es un saludo, ayuda o algo similar. Empecemos por ahí, pues.
 
 ```
@@ -258,6 +259,7 @@ def start(update, context):
     context.bot.send_message(chat_id=update.message.chat_id, text="What's up.")
 
 ```
+
 Para darle algo de vidilla a nuestro bot, le he añadido una función especial, un saludo personalizado. AL usar `update.message.from_user.first_name` nos devuelve el nombre del usuario, de modo que el saludo (que se envía con `context.bot.send_message`) queda mucho más personal. Como podemos comprobar, el uso de mensajes funciona a través de los parámetros fundamentales: `update` y  `context`, que como sus nombres indican, van **actualizando** el **contenido** de la conversación. Vale, ya tenemos el comando principal. Vamos a crear ahora nuestra función especial, para hacernos eco.
 
 ```
@@ -284,6 +286,7 @@ if __name__ == '__main__':
 
 run(updater)
 ```
+
 Ahora es el momento de configurar los logs para ir viendo lo que ocurre en el despliegue y ejecución de nuestro bot. Cada vez que usamos `logger.` estamos guardando logs. Por otro lado, `dispatcher` nos permite controlar los mensajes y las funciones que hemos creado (en nuestro caso `start` y `echo`) para que funcionen cuando deban. Para que el despliegue (en la siguiente sección) funcione como debe, crearemos un `Dockerfile` y un `requirements.txt` que iremos ampliando. Echemos un vistazo al `Dockerfile`.
 
 ```
@@ -306,7 +309,6 @@ En este archivo (que usamos porque vamos a desplegar en Heroku con docker) indic
 
 ```
 python-telegram-bot==12.0.0
-
 ```
 
 Por ahora nuestro `requirements.txt` es muy simple, solo necesita la librería para crear bots de telegram. Si desplegásemos este bot con las indicaciones de la siguiente sección, tendríamos un echo. Hagámoslo un poco más divertido. Volvamos a `bot.py`, y analicemos la función `echo`. Vamos a cambiarla para hacer a nuestro bot un poco burlón.
@@ -319,6 +321,7 @@ def echo(update, context):
     mensa = mensa.replace(i, 'i')
     context.bot.send_message(chat_id=update.message.chat_id, text=mensa)
 ```
+
 Ahora, nuestro bot no repite literalmente el mensaje, sino que coge nuestro mensaje y cambia todas las vocales por "i" de modo que parece que se está burlando de nosotros. Vamos ahora a añadir algo más, para engordar el `requirements.txt` un poco. Digamos que queremos activar nuestro bot para que cifre con AES y una clave un mensaje que enviemos por conversación. Vamos a crear una nueva función llamada `reply`. Para ello importamos la librería adecuada.
 
 ```
@@ -348,6 +351,7 @@ Como hicimos antes, configuramos el `main` para añadir este último cambio:
 dispatcher.add_handler(MessageHandler(Filters.text, reply))
 ...
 ```
+
 Bien, ya tenemos el código listo, podemos pasar al `requirements.txt`. Debemos añadir la librería que hemos usado:
 
 ```

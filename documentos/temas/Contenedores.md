@@ -294,6 +294,7 @@ Primero, se ejecuta como un servicio
 ```
 sudo docker -d &
 ```
+
 > En las últimas instalaciones se activa este servicio durante la
 > instalación.
 
