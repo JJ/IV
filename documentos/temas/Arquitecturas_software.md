@@ -103,7 +103,6 @@ una de ellas.
 Por ejemplo, vamos a crear un pequeño servicio web que sirva los hitos
 de la asignatura, basándose en la [biblioteca que los lee de un fichero en JSON](https://github.com/JJ/HitosIV)
 
-A dónde ir desde aquí
------
+## A dónde ir desde aquí
 
 A la charla de [servicios web](https://jj.github.io/pilas/#/), por ejemplo.

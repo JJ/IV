@@ -25,8 +25,7 @@ next: PaaS
 
 </div>
 
-Restricción y medición del uso de recursos: `cgroups`
------
+## Restricción y medición del uso de recursos: `cgroups`
 
 <div class='nota' markdown='1'>
 
@@ -297,7 +296,6 @@ Algunas aplicaciones están preparadas de serie para usar cgroups:
 
 </div>
 
-A dónde ir desde aquí
------
+## A dónde ir desde aquí
 
 En el [siguiente tema](PaaS.md) veremos como usar sistemas de plataforma como servicio.

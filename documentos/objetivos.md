@@ -1,5 +1,4 @@
-Objetivos perseguidos con la materia de la asignatura
-================
+# Objetivos perseguidos con la materia de la asignatura
 
 * Conocer la historia de la computación virtual, sus orígenes y razones de su existencia.
 * Conocer los conceptos relacionados con el proceso de virtualización tanto de software como de hardware.
@@ -17,8 +16,7 @@ Objetivos perseguidos con la materia de la asignatura
   implementaciones tales como Google AppSpot, OpenShift o Heroku.
 * Realizar tareas de administración en infraestructura virtual.
 
-Otros objetivos
----------------
+## Otros objetivos
 
 * Aprender a crear un entorno personal de aprendizaje que ayude al aprendizaje autónomo.
 * Aprender una serie de lenguajes de programación de scripting de

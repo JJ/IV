@@ -25,8 +25,7 @@ prev: Contenedores
 
 </div>
 
-Introducción
----
+## Introducción
 
 Los [contenedores](Contenedores.md) son un ejemplo de virtualización
 que ya tienen ciertas características de las máquinas virtuales, como
@@ -130,8 +129,7 @@ configurar máquinas en instantes y personalizarlas de forma
 masiva. Veremos como hacerlo en el
 [siguiente tema](Gestion_de_configuraciones).
 
-Usando Chef para provisionamiento
------
+## Usando Chef para provisionamiento
 
 En el año 2018, Chef ha introducido una nueva versión
 denominada
@@ -145,8 +143,7 @@ saber más
 > El [repositorio de la presentación](https://github.com/JJ/chef)
 > incluye varios *cookbooks* de ejemplo.
 
-Ansible para provisionamiento
----
+## Ansible para provisionamiento
 
 Las principales alternativas a Chef son [Ansible](https://www.ansible.com),
 [Salt](https://www.saltstack.com/) y [Puppet](https://puppet.com/docs/puppet/5.5/puppet_index.html). Todos ellos se comparan en
@@ -444,8 +441,7 @@ En esta sección hemos creado a mano la máquina virtual sobre la que
 vamos a trabajar. A continuación veremos como automatizar también este
 proceso, en el espíritu de *infraestructura como código*.
 
-Orquestación de máquinas virtuales
----------------
+## Orquestación de máquinas virtuales
 
 > [Vagrant in 5 minutes](https://opensource.com/business/16/1/lightning-talk-quick-introduction-vagrant) hace exactamente es, explicar Vagrant en cinco minutos.
 
@@ -645,8 +641,7 @@ VirtualBox y usar
 [`vagrant package`](https://www.vagrantup.com/docs/cli/package.html)
 para *empaquetarla* y usarla para su consumo posterior.
 
-A donde ir desde aquí
--------
+## A donde ir desde aquí
 
 Este es el último tema del curso, pero a partir de aquí se puede
 seguir aprendiendo sobre DevOps en [el blog](https://devops.com/) o

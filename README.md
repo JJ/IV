@@ -28,8 +28,7 @@ En resumen, mi intención es que el estudiante al final de la asignatura sea cap
 4. Entienda las técnicas de configuración automática de entornos virtuales y las sepa aplicar en los entornos anteriores.
 5. Use lo aprendido para despliegue masivo de aplicaciones en la nube.
 
-Temario - Programa de la asignatura
-------------------------------------------------------
+## Temario - Programa de la asignatura
 
 > Previo a la asignatura, es conveniente
 > que [consultes este curso](https://jj.github.io/curso-tdd), con
@@ -61,8 +60,7 @@ Estos temas se pueden consultar como material adicional, pero no forman parte es
 4. [Aislamiento de recursos](documentos/temas/Aislamiento_de_recursos.md).
 4. [Almacenamiento virtual](documentos/temas/Almacenamiento.md).
 
-Seminarios
----------------
+## Seminarios
 
 Material adicional interesante para la asignatura, que se impartirá
 (en todo caso) fuera del horario lectivo.
@@ -70,8 +68,7 @@ Material adicional interesante para la asignatura, que se impartirá
 1. [Mini-tutorial de Markdown, por Justo Javier Galera (JotaGalera)](documentos/seminarios/tutorial.md).
 1. [Introducción ligera al lenguaje Ruby](documentos/seminarios/ruby.md).
 
-Prácticas - Actividades académicas dirigidas
--------------
+## Prácticas - Actividades académicas dirigidas
 
 La parte práctica consiste en la realización de un proyecto a lo largo de
 la asignatura, con diferentes hitos cuyo contenido corresponde a los objetivos de aprendizaje
@@ -88,8 +85,7 @@ grosso modo, los hitos se organizarán de la forma siguiente.
 5. [Provisionamiento de máquinas virtuales](documentos/proyecto/6.Provision.md).
 4. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS.md).
 
-Tutorías virtuales
-----
+## Tutorías virtuales
 
 Las tutorías virtuales se realizarán preferiblemente a través de
 [la plataforma de trabajo colaborativo GitHub](https://github.com/JJ/IV-20-21/issues?state=open) y
@@ -100,8 +96,7 @@ Google Hangouts (en todos los casos: `jjmerelo`).
 Se creará también una sala específica en Jitsi para las tutorías,
 consultar con los profesores la dirección y el horario.
 
-Criterios de evaluación
----
+## Criterios de evaluación
 
 Los
 [criterios de evaluación figuran en la ficha de la asignatura en la web del grado](https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/curso_actual/cuarto/tecnologiasdelainformacion/gii_infraestructura_virtual_20172018_firmada),

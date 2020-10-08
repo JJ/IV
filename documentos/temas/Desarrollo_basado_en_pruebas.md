@@ -1,5 +1,4 @@
-Desarrollo basado en pruebas
-=========================
+# Desarrollo basado en pruebas
 
 <!--@
 prev: Intro_concepto_y_soporte_fisico

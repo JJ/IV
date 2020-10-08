@@ -30,8 +30,7 @@ Objetivos
 
 </div>
 
-Configurando las aplicaciones en un táper
-----
+## Configurando las aplicaciones en un táper
 
 Una vez creados los tápers, son en casi todos los aspectos como una
 instalación normal de un sistema operativo: se puede instalar lo que
@@ -327,8 +326,7 @@ seguramente.
 
 </div>
 
-Breve introducción a los hipervisores
------
+## Breve introducción a los hipervisores
 
 Un [hipervisor](http://en.wikipedia.org/wiki/Hypervisor) es un monitor
 de máquinas virtuales que permite instalarlas, activarlas, monitorizar
@@ -342,8 +340,7 @@ del sistema operativo; VirtualBox sería un ejemplo de este último.
 Un hipervisor denomina *dominios* a las máquinas virtuales con las que
 trabaja, siendo él mismo también un dominio denominado [*dominio 0*](http://wiki.xen.org/wiki/Dom0). Las MVs alojadas son *dominios de usuario* o *DomU*.
 
-Usando los hipervisores de forma uniforme
----
+## Usando los hipervisores de forma uniforme
 
 Estos contenedores se pueden manejar junto con otros proveedores de
 infraestructuras virtuales (en general, hipervisores, aunque algunos como User Mode Linux pueden no serlo) usando herramientas como la librería
@@ -407,8 +404,7 @@ instalaría usando el conector para lxc una máquina con el nombre indicado, med
 Una vez instalados diferentes contenedores, `virsh` permite trabajar
 con ellos.
 
-A dónde ir desde aquí
------
+## A dónde ir desde aquí
 
 En el [siguiente tema](Almacenamiento) veremos cómo crear y configurar el
 almacenamiento virtual que, en general, es independiente de la

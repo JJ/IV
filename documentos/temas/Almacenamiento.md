@@ -88,8 +88,7 @@ volúmenes físicos y lógicos en Linux.
 
 </div>
 
-Sistemas de ficheros en espacio de usuario
------------------------
+## Sistemas de ficheros en espacio de usuario
 
 Los
 [FUSE o sistemas de ficheros en espacio de usuario (*filesystems in userspace*)](http://en.wikipedia.org/wiki/Thin_provisioning)
@@ -139,8 +138,7 @@ sepa manejar ficheros. En cualquier caso, se trata de un ejemplo
 estupendo de virtualización de recursos y de un tipo de recurso que,
 también, se puede usar dentro de máquinas virtuales.
 
-Provisionamiento delgado
-----
+## Provisionamiento delgado
 
 Una máquina virtual puede usar directamente cualquiera de los
 volúmenes físicos o lógicos creados por el sistema operativo, pero lo
@@ -306,8 +304,7 @@ Una lista de
 
 </div>
 
-Almacenamiento de objetos
-----
+## Almacenamiento de objetos
 
 La metáfora del sistema de ficheros funciona correctamente en la mayor
 parte de los casos, pero muchas aplicaciones requieren que se pueda
@@ -580,8 +577,7 @@ Amazon, [Elastic Block Storage](http://aws.amazon.com/es/ebs/) forma
 parte de las ofertas de servicios web del mismo y permite trabajar con
 bloques desde las instancias EC2.
 
-Almacenamiento virtual en la nube
----
+## Almacenamiento virtual en la nube
 
 Todos servicios IaaS poseen su propio *Storage as a ervice*, que se
 puede usar desde los servicios de computación o bien desde servicios
@@ -774,8 +770,7 @@ virtual se crea simultáneamente el almacenamiento necesario para la
 misma, aunque, por supuesto, puedes usar almacenamiento virtual creado
 previamente.
 
-A dónde ir desde aquí
------
+## A dónde ir desde aquí
 
 En el [siguiente tema](Uso_de_sistemas) trabajaremos con máquinas
 virtuales completas, incluyendo máquinas en la nube. Tras él, habrá que hacer y entregar la

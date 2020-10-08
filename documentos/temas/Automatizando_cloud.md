@@ -53,8 +53,7 @@ az group create -l westeurope -n CCGroupEU
 
 Esto crea un grupo de recursos en Europa Occidental.
 
-A dónde ir desde aquí
------
+## A dónde ir desde aquí
 
 Si no lo has visto, en el [siguiente tema](Gestion_de_configuraciones.md) pondremos en
 práctica todos los conceptos aprendidos en este tema y

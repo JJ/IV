@@ -15,8 +15,7 @@ Objetivos específicos
 
 </div>
 
-¿Ruby? Pero si es muy fácil
----
+## ¿Ruby? Pero si es muy fácil
 
 Si alguna vez habéis oído hablar de este lenguaje, posiblemente conozcáis [Ruby](http://ruby-lang.org) por [Ruby on Rails](http://rubyonrails.org), un marco
   web que sigue el paradigma MVC (*Model, View, Controller*) creado alrededor de 2005 que usa Ruby como lenguaje
@@ -370,8 +369,7 @@ Nuestra cosecha incluye una interrogación y un `if`, que no
 
 </div>
 
-Bloques
-----
+## Bloques
 
 Después de las variables uno de los conceptos importantes en Ruby
   son los bloques. Un bloque es una secuencia de código con sus

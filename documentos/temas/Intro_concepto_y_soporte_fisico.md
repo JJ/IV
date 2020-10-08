@@ -44,8 +44,7 @@ Se puede consultar
 
 </div>
 
-Introducción
-------------------
+## Introducción
 
 En general y en Informática, un recurso [virtual](https://en.wikipedia.org/wiki/Virtualization) es un recurso
 *irreal*, es decir, un recurso que no tiene equivalente físico directo. Así, *memoria virtual* es la memoria que, en
@@ -115,8 +114,7 @@ desarrollo ágil. En concreto, *DevOps* comprende
    despliegue continuo implica integración continua de las nuevas
    características y arreglos, tanto en el software como el hardware.
 
-Tecnologías de virtualización: un poco de historia
----
+## Tecnologías de virtualización: un poco de historia
 
 Tecnológicamente la computación nube se basa en el proceso progresivo
   de virtualización de recursos computacionales que ha tenido lugar
@@ -197,8 +195,7 @@ transferencia de disco duro) en el caso de que la infraestructura comprada se us
 solo el 1% o el 10% del tiempo.
 </div>
 
-Tipos de virtualización
------------------------
+## Tipos de virtualización
 
 El término *virtualización* abarca diferentes técnicas y tecnologías
 que tienen todas el mismo objetivo: crear recursos que, desde el punto
@@ -283,8 +280,7 @@ se van a usar para desplegar una aplicación, independientemente de la
 tecnología que se use; en ese sentido, el tipo de virtualización que se
 use físicamente tiene importancia secundaria.
 
-Virtualización a nivel de *hardware*
-----------------------------------
+## Virtualización a nivel de *hardware*
 
 Los sistemas operativos modernos ofrecen *puentes* para poder usar las
 capacidades de virtualización que contienen los procesadores de
@@ -363,8 +359,7 @@ adelante se podrá usar en pruebas y ejercicios. Usar siempre que sea
 posible un hipervisor que sea software libre.
 </div>
 
-Niveles y tipos de infraestructura virtual
------
+## Niveles y tipos de infraestructura virtual
 
 A nivel de tecnología se aprecian diferentes niveles de
 virtualización, pero hasta no hace demasiado tiempo se solía hablar,
@@ -473,8 +468,7 @@ pero no tienen una comunidad tan activa como este.
 
 </div>
 
-A dónde ir desde aquí
------
+## A dónde ir desde aquí
 
 Antes de continuar (y, de hecho, antes de empezar) es
 [imprescindible que aprendas y configures `git`. Empieza por aquí](http://mini-git.github.io). En
