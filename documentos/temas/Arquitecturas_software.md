@@ -1,5 +1,4 @@
-Arquitecturas software para infraestructura virtual
-==
+# Arquitecturas software para infraestructura virtual
 
 <!--@
 prev: Intro_concepto_y_soporte_fisico

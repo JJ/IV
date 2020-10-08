@@ -1,5 +1,4 @@
-Automatización de tareas en la nube
-==
+# Automatización de tareas en la nube
 
 <!--@
 prev: Provision
@@ -8,7 +7,7 @@ next: Orquestacion
 
 <div class="objetivos" markdown="1">
 
-<h2>Objetivos</h2>
+## Objetivos
 
 1. Conocer las diferentes tecnologías y herramientas de
    virtualización tanto para procesamiento, comunicación y

@@ -56,7 +56,7 @@ como se llevan a cabo la mayoría de ellas. En siguientes capítulos se verá la
 gestión de configuraciones, provisionamiento de los servidores,
 despliegue continuo y virtualización.
 
-## Desarrollo basado en pruebas
+## Metodología de desarrollo basado en pruebas
 
 El desarrollo basado en pruebas es una metodología que se integra con
 el desarrollo en la nube que hemos venido viendo de forma inconsútil

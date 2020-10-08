@@ -7,6 +7,7 @@ En un principio MarkDown nació para elaborar textos cuyo destino fuera ser inte
 Hoy en día es una forma ágil y sencilla de tomar apuntes, documentar un trabajo o simplemente redactar un texto.
 
 La extensión propia de MarkDown es ".md" y la conversión a PDF se realiza mediante algun pluggin que tengamos en nuestro editor, en mi caso utilizo: "MarkDown to PDF"
+
 ## Sintaxis de MarkDown:
 
 ### 1. Encabezados(#):

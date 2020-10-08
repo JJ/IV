@@ -7,9 +7,9 @@ next: PaaS
 
 <div class="objetivos" markdown="1">
 
-<h2>Objetivos</h2>
+## Objetivos
 
-<h3>Cubre los siguientes objetivos de la asignatura</h3>
+### Cubre los siguientes objetivos de la asignatura
 
 2. Conocer los conceptos relacionados con el proceso de virtualización tanto de
    software como de hardware y ponerlos en práctica.

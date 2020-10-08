@@ -1,10 +1,8 @@
-Una introducción ligera al lenguaje Ruby
-===
+# Una introducción ligera al lenguaje Ruby
 
 <div class="objetivos" markdown="1">
 
-Objetivos específicos
---
+## Objetivos específicos
 
  * Conocer la historia y origenes de este lenguaje
  * Entender los conceptos principales detrás del mismo
@@ -54,8 +52,7 @@ para comprobar la versión instalada. A la vez, conviene instalar también `irb`
 
 </div>
 
-Primer programa
---
+## Primer programa
 
 Para programar en Ruby necesitas el editor y el intérprete de Ruby propiamente
   dicho. Descárgatelo e instálalo (o haz las dos cosas a la vez), aunque te vendrá bien también
@@ -256,8 +253,7 @@ Recorrer una estructura compleja exhaustivamente, imprimiendo todos los datos.
 
 </div>
 
-Leyendo y escribiendo
---
+## Leyendo y escribiendo
 
 Tratándose de un lenguaje orientado a objetos, habrá que buscar la
   clase para abrir y cerrar ficheros, que se llama en un alarde de
@@ -530,8 +526,7 @@ En algunos casos puede que dé error, porque falte alguna
 
 </div>
 
-Referencias adicionales
---
+## Referencias adicionales
 
  Como es de esperar, hay libros enteros gratuitos sobre
     Ruby: [Programming Ruby](http://ruby-doc.org/docs/ProgrammingRuby/), por ejemplo, pero el más curioso

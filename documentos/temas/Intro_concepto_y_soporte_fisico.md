@@ -1,5 +1,4 @@
-Introducción a la infraestructura virtual: concepto y soporte físico
-==
+# Introducción a la infraestructura virtual: concepto y soporte físico
 
 <!--@
 next: Desarrollo_basado_en_pruebas

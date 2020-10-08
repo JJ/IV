@@ -1,5 +1,4 @@
-Técnicas de virtualización
-==
+# Técnicas de virtualización
 
 <!--@
 prev: PaaS
@@ -21,7 +20,7 @@ next: Contenedores
 
 * Realizar tareas de administración en infraestructura virtual.
 
-<h2>Objetivos específicos</h2>
+## Objetivos específicos
 
 1. Conocer las diferentes tecnologías y herramientas de virtualización tanto
    para procesamiento, comunicación y almacenamiento.

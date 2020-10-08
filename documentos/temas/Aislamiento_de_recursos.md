@@ -1,5 +1,4 @@
-Aislamiento de recursos
-==
+# Aislamiento de recursos
 
 <!--@
 prev: Intro_concepto_y_soporte_fisico

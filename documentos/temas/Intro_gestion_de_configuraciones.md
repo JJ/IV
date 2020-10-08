@@ -1,5 +1,4 @@
-Virtualización *ligera* usando contenedores
-===
+# Virtualización *ligera* usando contenedores
 
 <!--@
 prev: Tecnicas_de_virtualizacion

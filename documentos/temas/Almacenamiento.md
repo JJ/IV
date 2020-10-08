@@ -1,5 +1,4 @@
-Virtualización del almacenamiento
-===
+# Virtualización del almacenamiento
 
 <!--@
 prev: Contenedores
@@ -8,8 +7,7 @@ next: Uso_de_sistemas
 
 <div class="objetivos" markdown="1">
 
-Objetivos
---
+## Objetivos
 
 ### Cubre los siguientes objetivos de la asignatura
 
