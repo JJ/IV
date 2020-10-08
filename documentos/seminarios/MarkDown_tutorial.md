@@ -55,11 +55,11 @@ Para realizar la lista sin numerar cambiaríamos los números por `*`:
 *. Tercer Elemento
 ~~~~
 
- Obtendríamos como resultado:
+Obtendríamos como resultado:
 
- * Primero
- * Segundo
- * Tercero
+* Primero
+* Segundo
+* Tercero
 
 ### 4. Crear enlaces:
 

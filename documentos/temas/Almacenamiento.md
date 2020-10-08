@@ -11,25 +11,22 @@ next: Uso_de_sistemas
 
 ### Cubre los siguientes objetivos de la asignatura
 
- * Conocer las diferentes tecnologías y herramientas de virtualización
-  tanto para procesamiento, comunicación y almacenamiento.
+* Conocer las diferentes tecnologías y herramientas de virtualización tanto
+  para procesamiento, comunicación y almacenamiento.
 
- * Configurar los diferentes dispositivos físicos para acceso a los
-  servidores virtuales: acceso de usuarios, redes de comunicaciones o
-  entrada/salida
+* Configurar los diferentes dispositivos físicos para acceso a los servidores
+  virtuales: acceso de usuarios, redes de comunicaciones o entrada/salida
 
- * Diseñar, implementar y construir un centro de procesamiento de
-   datos virtual.
+* Diseñar, implementar y construir un centro de procesamiento de datos virtual.
 
- * Realizar tareas de administración en infraestructura virtual.
+* Realizar tareas de administración en infraestructura virtual.
 
 ### Objetivos específicos
 
- * Conocer las técnicas de provisionamiento de almacenamiento de datos
-   para
-   máquinas virtuales.
+* Conocer las técnicas de provisionamiento de almacenamiento de datos para
+  máquinas virtuales.
 
- * Saber usar diferentes órdenes de terminal y utilidades para crearlas.
+* Saber usar diferentes órdenes de terminal y utilidades para crearlas.
 
  </div>
 
@@ -69,7 +66,7 @@ de particiones usual.
 
  <div class='ejercicios' markdown="1">
 
- 1. ¿Cómo tienes instalado tu disco duro? ¿Usas particiones? ¿Volúmenes lógicos?
+1. ¿Cómo tienes instalado tu disco duro? ¿Usas particiones? ¿Volúmenes lógicos?
 
 2. Si tienes acceso en tu escuela o facultad a un ordenador común para las prácticas, ¿qué almacenamiento físico utiliza?
 
@@ -657,12 +654,12 @@ azure storage container create taper
 pero esto crea un contenedor de acceso privado; los contenedores
 pueden ser públicos o privados y por defecto se crean privados; [los niveles de permisos existentes son](http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx):
 
- * Públicos para que se vean los contenidos.
- * Blobs públicos solo.
- * Sin acceso público.
+* Públicos para que se vean los contenidos.
+* Blobs públicos solo.
+* Sin acceso público.
 
- Este último es el permiso por defecto, pero si queremos que se acceda
- a los *blobs* se crea con
+Este último es el permiso por defecto, pero si queremos que se acceda
+a los *blobs* se crea con
 
 ```
 azure storage container create otrotaper -p blob
