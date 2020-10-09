@@ -250,7 +250,7 @@ que se ha instalado wordpress; en el mismo se muestra la relación con
 la base de datos y también con un *loadbalancer* para equilibrar la
 carga. Como dato interesante, esta orden nos da la IP local del táper
 que hemos creado, por lo que accediendo desde el navegador a
-http://10.0.3.15 nos mostrará la página de inicio de MediaWiki. Al instalar un *servicio* en una *máquina* se crean una serie de *unidades*. Esas unidades son como mini-contenedores que están a cargo de ejecutar el servicio que se ha instalado mediante juju.
+`http://10.0.3.15` nos mostrará la página de inicio de MediaWiki. Al instalar un *servicio* en una *máquina* se crean una serie de *unidades*. Esas unidades son como mini-contenedores que están a cargo de ejecutar el servicio que se ha instalado mediante juju.
 
 <div class='ejercicios' markdown='1'>
 
