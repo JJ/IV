@@ -292,7 +292,7 @@ algunos casos, esta tecnología está desactivada en la BIOS, por lo que
 habrá que comprobar si está activada o no en nuestro caso
 particular. Para hacerlo se usa este comando en Linux:
 
-```
+```shell
 egrep '^flags.*(vmx|svm)' /proc/cpuinfo
 ```
 
@@ -344,7 +344,7 @@ indica
 en Manjaro, ArchLinux y distros similares (y en realidad en todas), se
 puede usar:
 
-```
+```shell
 LC_ALL=C lscpu | grep Virtualization
 ```
 

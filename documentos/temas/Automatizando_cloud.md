@@ -46,7 +46,7 @@ relativamente fácil trabajar con ellos de forma automática.
 
 Comencemos por crear un grupo de recursos
 
-```
+```shell
 az group create -l westeurope -n CCGroupEU
 ```
 

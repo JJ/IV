@@ -52,13 +52,13 @@ Si ese sistema de ficheros virtual está ya activado, se puede listar
 su contenido usando `ls` o el navegador de ficheros. Si no lo está, se
 monta con
 
-```
+```shell
 mount -t cgroup cgroup /sys/fs/cgroup/
 ```
 
 o
 
-```
+```shell
 mount -t cgroup cgroup /cgroup/
 ```
 
@@ -74,7 +74,7 @@ Comprobar si en la instalación hecha se ha instalado cgroups y en qué punto es
 
 Dependiendo de cómo esté configurado, puede contener algo como esto
 
-```
+```plain
     blkio.io_merged                   cpuset.memory_pressure
     blkio.io_queued                   cpuset.memory_pressure_enabled
     blkio.io_service_bytes            cpuset.memory_spread_page
@@ -86,7 +86,7 @@ con diferentes ficheros, unos de lectura y escritura y otros de
 lectura, que permiten controlar y monitorizar la actividad de los
 diferentes grupos de control. O bien un simple `systemd` o
 
-```
+```plain
 blkio  cpuacct  devices  hugetlb  perf_event
 cpu    cpuset   freezer  memory   systemd
 ```
@@ -99,14 +99,14 @@ en caso de que `cgroup-lite` se haya instalado y esté funcionando.
 
 Dependiendo de la configuración que se haya creado, crear un *grupo de control* es tan simple como crear un subdirectorio
 
-```
+```shell
 mkdir /cgroup/buenos
 ```
 
 aunque se tiene que hacer con permisos de superusuario, para lo cual,
 en Ubuntu, habrá que hacer
 
-```
+```shell
 sudo su - root
 ```
 
@@ -114,7 +114,7 @@ La creación de ese grupo automáticamente hace que se creen una serie
 de subdirectorios específicos para cada grupo de control, tales como
 estos:
 
-```
+```plain
 ...
     cpuset.cpu_exclusive              memory.usage_in_bytes
     cpuset.cpus                       memory.use_hierarchy
@@ -127,13 +127,13 @@ tareas que vamos a regular. Por ejemplo, si queremos limitar todas las
 tareas iniciadas desde un intérprete de comandos, averiguamos el PID
 de ese intérprete con
 
-```
+```shell
 ps aux | grep bash
 ```
 
 por ejemplo y escribimos, también usando privilegios de root
 
-```
+```shell
 echo 0 > /cgroup/malos/cpuset.cpus
 echo 0 > /cgroup/malos/cpuset.mems
 ```
@@ -145,7 +145,7 @@ número de CPU en el que queremos que se ejecute cada grupo de control.
 
 Una vez hecho eso, se asignan las tareas a cada grupo de control
 
-```
+```shell
     echo xxx > /cgroup/buenos/tasks
 ```
 
@@ -158,7 +158,7 @@ independiente y con las restricciones y límites que le
 impongamos. Podemos, por ejemplo, limitar el *ancho de banda* de la
 CPU:
 
-```
+```shell
 echo 512 > /cgroup/buenos/cpu.shares
 ```
 
@@ -169,13 +169,13 @@ Lo más importante es la *contabilidad* que se hace por separado para
 cada uno de los grupos; los ficheros con el prefijo `cpuacct`nos darán
 información sobre uso; por ejemplo:
 
-```
+```shell
 cat /cgroup/malos/cpuacct.usage
 ```
 
 devolverá un valor similar a
 
-```
+```plain
 72012663139
 ```
 
@@ -186,7 +186,7 @@ En el caso en que cgroups viniera ya configurado en el sistema
 operativo, se puede trabajar de forma similar, pero limitando recursos
 específicos, por ejemplo, CPU, de esta forma
 
-```
+```shell
 root@penny:/sys/fs/cgroup/cpu# mkdir alto
 root@penny:/sys/fs/cgroup/cpu# mkdir bajo
 root@penny:/sys/fs/cgroup/cpu# ls alto/
@@ -202,7 +202,7 @@ asignar
 `cgcreate` que te crea grupos con el mismo nombre en todos los
 controladores que desees:
 
-```
+```shell
 root@penny:/sys/fs/cgroup# cgcreate -g cpu,cpuacct:/good
 root@penny:/sys/fs/cgroup# find . -name good
 ./cpuacct/good
@@ -238,7 +238,7 @@ los grupos.
 
 Los grupos se crean con la orden `cgcreate`:
 
-```
+```shell
 sudo cgcreate -a un_usuario -g memory,cpu,cpuacct:teestoyviendo
 ```
 
@@ -248,7 +248,7 @@ permiso a `un_usuario` para que trabaje con él. El resto de las
 órdenes que afecten a este grupo las podrá realizar este usuario. Por
 ejemplo, se pueden crear subgrupos con
 
-```
+```shell
 cgcreate -g memory,cpu,cpuacct:teestoyviendo/wp
 cgcreate -g memory,cpu,cpuacct:teestoyviendo/navegadores
 ```
@@ -262,7 +262,7 @@ de un grupo determinado, de forma que no haya que añadir el PID de un
 proceso a un fichero dentro del sistema de ficheros virtuales
 anterior.
 
-```
+```shell
 cgexec   -g memory,cpu,cpuacct:teestoyviendo/wp lowriter
 ```
 

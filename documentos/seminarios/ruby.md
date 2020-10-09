@@ -46,7 +46,7 @@ El lenguaje Ruby lo
 
 Instalar Ruby y usar
 
-```
+```shell
 ruby --version
 ```
 
@@ -85,7 +85,7 @@ En cuanto al intérprete de Ruby que se puede instalar, hay muchas
   instalar [cualquier
     otra](http://en.wikipedia.org/wiki/Ruby_(programming_language)#Implementations).
 
-```
+```ruby
 #!/usr/bin/ruby
 puts "Esto es jauja"
 ```
@@ -107,7 +107,7 @@ Para ejecutarlo se guarda y se hace lo que se ha dicho antes, no
   voy a repetirlo. Y el resultado será el esperado. También pasará lo
   mismo si lo hacemos desde `irb`:
 
-```
+```shell
 [jmerelo@leonard ruby-para-impacientes]$ irb
 pirb(main):001:0> puts "esto es jauja"
 esto es jauja
@@ -118,7 +118,7 @@ Pero Ruby es un lenguaje orientado a objetos, o más bien empotrado
   de objetos: todo es un objeto en Ruby. Así que lo anterior (y algo más) podríamos
   escribirlo de la forma siguiente.
 
-```
+```ruby
 puts "--" << "Esto es jauja".center(20) << "--"
 ```
 
@@ -135,7 +135,7 @@ puts "--" << "Esto es jauja".center(20) << "--"
  ese. Pasándole el argumento 20, centra la cadena en un espacio de 20
  caracteres:
 
-```
+```shell
 usuario@usuario-desktop:~/code$ ./jauja-center.rb
 --   Esto es jauja    --
 ```
@@ -143,7 +143,7 @@ usuario@usuario-desktop:~/code$ ./jauja-center.rb
 También podíamos haber creado el objeto explícitamente, pero
   hubiera sido mucho más clásico:
 
-```
+```ruby
 jauja = String::new( "Esto es jauja" )
 puts "--" << jauja.center(20) << "--"
 ```
@@ -173,7 +173,7 @@ muchas veces provoca sorpresa si uno proviene de otros lenguajes, que nos tienen
 de la máxima coherencia: una vez aprendida parte del lenguaje, el
 resto es más o menos igual. Por ejemplo, las matrices:
 
-```
+```ruby
 matriz = ['esto','es',1,'matriz']
 puts matriz.join << " " << matriz.join("-")
 ```
@@ -185,7 +185,7 @@ pleno derecho, pudiéndosele aplicar métodos como `join` que
 une todos los elementos de la matriz, con o sin algún carácter de por
 medio. Este pequeño programa imprimirá:
 
-```
+```shell
 usuario@usuario-desktop:~/ruby-para-impacientes$ code/matriz.rb
 estoes1matriz esto-es-1-matriz
 ```
@@ -198,7 +198,7 @@ No son los únicos tipos de matrices: las matrices asociativas son
   distribución de la información de una estructura de datos por
   múltiples matrices y su acceso fácil usando una clave
 
-```
+```ruby
 sonido_de = { :vaca => 'muuu',
   :buho => 'uuu',
   :caballo => 'iiiii' }
@@ -218,7 +218,7 @@ necesitamos en una variable asociativa,
       en Ruby. Por supuesto, se puede usar una cadena normal y
       corriente como clave:
 
-```
+```ruby
 precio_de = { "pipas" => 'bajo',
   "coche" => 'depende',
   "plan E" => 'exagerado' }
@@ -247,7 +247,7 @@ de hashes de arrays e imprimirlo.
 Como los arrays y hashes son objetos, también se usa normalmente un
 método para recorrerlos, como en el ejemplo siguiente:
 
-```
+```ruby
 zipi = { :foo => 'bar',
   :baz => 'quux'}
 
@@ -281,7 +281,7 @@ Tratándose de un lenguaje orientado a objetos, habrá que buscar la
   clase para abrir y cerrar ficheros, que se llama en un alarde de
   originalidad `File`.
 
-```
+```ruby
 fh = File::new( ARGV[0] )
 while (line = fh.gets )
 nombre, apellidos  = line.split(',')
@@ -310,7 +310,7 @@ Fijaros también en una cosa curiosa: el `=` de la primera línea
   que se trata de variables, y no de parte de la cadena. El
   resultado es el esperado:
 
-```
+```shell
 $ ruby code/fichero.rb code/nombres.txt
 * Nombre Ginés
 apellidos  Ibn Hassan Rodríguez
@@ -324,7 +324,7 @@ apellidos  Gómez Gómez
 
 al menos sobre el fichero
 
-```
+```plain
 Ginés, Ibn Hassan Rodríguez
 Sergei, Ben Ayoun
 Malika, Maliki
@@ -343,7 +343,7 @@ organizadas jerárquicamente en espacios de
   *core*, así que tendremos que importarla explícitamente con
   `require`:
 
-```
+```ruby
 require 'net/http'
 Net::HTTP.get_print  'osl.ugr.es', '/'
 ```
@@ -364,7 +364,7 @@ Juntando todo lo anterior, y añadiendo alguna cosilla más de
   nuestra cosecha, podemos bajarnos una página web y
   meterla en un fichero
 
-```
+```ruby
 require 'net/http'
 
 url = ARGV[0]
@@ -404,7 +404,7 @@ Después de las variables uno de los conceptos importantes en Ruby
   propias variables, y en Ruby se denota por
   llaves `{}` o por `do` - `done`. Se usa, por ejemplo, para bucles tales como los siguientes.
 
-```
+```ruby
 host = ARGV[0]
 partes = host.split(".")
 partes.each do |p|
@@ -419,7 +419,7 @@ En este mini-programa le pasamos un nombre de servidor en internet
     que recibe un bloque como argumento. También lo podríamos expresar
     de la forma siguiente:
 
-```
+```ruby
 host = ARGV[0]
 partes = host.split(".")
 partes.each { |p|
@@ -443,7 +443,7 @@ Lo que ocurre con los bloques en Ruby es que tienen entidad
   tales; además, como todo en Ruby, son objetos, o sea que podemos
   crearlos y pasarlos por ahí como queramos.
 
-```
+```ruby
 prefijos = %w( pre post ante super macro mega)
 prefijadores = Hash.new
 prefijos.each { |p|
@@ -467,7 +467,7 @@ al método `call` de ese objeto). La
 función `prefijadores['macro']` se comportará de la misma
 forma que si la hubiéramos definido así
 
-```
+```ruby
 def prefijador( post )
 "macro#{post}";
 end
@@ -511,7 +511,7 @@ Aparte de `gem`, hay que instalarse alguna cosa más, porque muchos
   Ruby que tengamos instalado. Por ejemplo, en alguna versión de Ubuntu habría que
   escribir
 
-```
+```shell
 sudo apt-get install ruby1.8-dev
 ```
 
@@ -521,7 +521,7 @@ No siempre es necesario, pero si te da un error algún módulo típico,
 Una vez instalado todo eso, no hay más que usarlo. Empezamos por
   buscar algo que queramos instalar:
 
-```
+```shell
 jmerelo@sheldon:~/public_html/tutoriales/ruby-para-impacientes$ gem search mysql
 *** LOCAL GEMS ***
 ```
@@ -529,7 +529,7 @@ jmerelo@sheldon:~/public_html/tutoriales/ruby-para-impacientes$ gem search mysql
 Joeves, no devuelve nada. Pero claro, es que busca en la colección
   local de gemas. Habrá que buscar en la remota:
 
-```
+```shell
 jmerelo@sheldon:~/public_html/tutoriales/ruby-para-impacientes$ gem search --remote mysql
 
 *** REMOTE GEMS ***
@@ -546,7 +546,7 @@ Y así hasta un mogollón de cosas. Tendremos un listado de todas las
   si queremos que esté disponible para todos los usuarios tendremos
   que lanzar la orden con privilegios de administrador:
 
-```
+```shell
 jmerelo@sheldon:~/ruby-para-impacientes$ sudo gem install ruby-mysql
 Successfully installed ruby-mysql-2.9.2
 1 gem installed

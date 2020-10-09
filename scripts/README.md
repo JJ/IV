@@ -9,7 +9,7 @@ Se ejecuta al principio del año para generar los ficheros
 correspondientes. Primero se crea el repo en GitHub. Luego, se cambia
 uno al repo y ...
 
-```
+```shell
 /path/to/crea-asignatura.pl <este-directorio> <directorio-a-copiar>
 ```
 

@@ -72,7 +72,7 @@ Para instalarlo conviene usar la última versión; la que hay en los
 repositorios de algunas versiones de Ubuntu no tiene todas las
 capacidades (aunque puedes usarla directamente con `sudo apt-get install juju` en Ubuntu 14.04. Por tanto:
 
-```
+```shell
 sudo add-apt-repository ppa:juju/stable
 sudo apt-get update && sudo apt-get install juju-core
 ```
@@ -85,7 +85,7 @@ librerías del mismo, inclusive Twisted y varias más.
 
 Para empezar a trabajar con él, se escribe
 
-```
+```shell
 juju init
 ```
 
@@ -97,19 +97,19 @@ trabajará con Amazon EC2. Tenemos que cambiarlo a
 `local` [si queremos trabajar con contenedores LXC](https://juju.ubuntu.com/docs/config-local.html) editando el
 fichero y cambiando la línea
 
-```
+```yaml
 #default: amazon
 ```
 
 comentándola de esta forma, por ejemplo, y añadiendo
 
-```
+```yaml
 default: local
 ```
 
 Este es el entorno con el que se va a trabajar por omisión; usando
 
-```
+```shell
 juju switch amazon
 ```
 
@@ -120,7 +120,7 @@ por ejemplo, se puede cambiar a ese entorno.
 Para [trabajar en local hace falta instalar MongoDB](http://marcoceppi.com/2013/07/compiling-juju-and-the-local-provider/). Si no lo tienes
 instalado, haz
 
-```
+```shell
 sudo apt-get install mongodb-server
 ```
 
@@ -132,14 +132,14 @@ Si tienes ya algún táper creado, te fastidias. A `juju`,
 aparentemente, le gustan los suyos propios. Pero la verdad es que es
 fácil crearlo, simplemente
 
-```
+```shell
 juju bootstrap
 ```
 
 te creará un táper con su propia configuración, algo así como
 
-```
-bash$ lxc-ls
+```shell
+$ lxc-ls
 
 contenedor  jmerelo-local-machine-1  jmerelo-local-machine-2
 nubecilla
@@ -156,7 +156,7 @@ basado en YAML, pero ya hay *charms* para las tareas más comunes:
 instalar servicios web o lenguajes de programación. Por ejemplo, para
 instalar mediawiki simplemente se escribiría
 
-```
+```shell
 juju deploy mediawiki
 ```
 
@@ -166,14 +166,14 @@ momento se trabaja con la máquina por defecto (en mi caso
 gran cosa. Mediawiki usa mysql, por lo que habrá que instalarlo
 también
 
-```
+```shell
 juju deploy mysql
 ```
 
 No solo eso, sino que habrá que indicar que mediawiki va a usar
 precisamente mysql como base de datos. Se trata de añadir [una *relación*](https://juju.ubuntu.com/docs/charms-relations.html) con
 
-```
+```shell
 juju add-relation mediawiki mysql
 ```
 
@@ -182,19 +182,19 @@ Una vez hecho esto, se tiene que
 servicio para que pueda ser usado por el público, lo que implicará que
 se enganche al servidor web, por ejemplo
 
-```
+```shell
 juju expose mediawiki
 ```
 
 Con esto se puede mostrar ya el estado de la máquina:
 
-```
+```shell
 juju status
 ```
 
 que mostrará algo así:
 
-```
+```yaml
     machines:
     "0":
     agent-state: started
@@ -262,13 +262,13 @@ http://10.0.3.15 nos mostrará la página de inicio de MediaWiki. Al instalar un
 
 Para desmontar los servicios se tiene que hacer en orden inverso a su creación: primero hay que destruir las unidades, de esta forma:
 
-```
+```shell
 sudo juju destroy-unit mysql/0
 ```
 
 La destrucción de las máquinas solo se puede hacer una vez que todas las unidades hayan dejado de funcionar, de esta forma:
 
-```
+```shell
 sudo juju destroy-machine 2
 ```
 
@@ -276,13 +276,13 @@ donde 2 es el número de la máquina que aparecería en status. La máquina `0` 
 
 Los números de máquina no se reutilizan, y cuando se ejecuta
 
-```
+```shell
 sudo juju add-machine
 ```
 
 se creará una con número posterior al último utilizado:
 
-```
+```yaml
 environment: local
   machines:
     "0":
@@ -298,7 +298,7 @@ environment: local
 
 La nueva máquina aparecerá inicialmente de esta forma, porque la orden regresa antes de que se complete la orden. Posteriormente, si todo ha ido bien, aparecerá el estado completo de esta nueva máquina. Si ha ido mal, aparecerá algo como:
 
-```
+```yaml
     agent-state-info: '(error: error executing "lxc-create": No such file or directory
       - bad template: ubuntu-cloud; bad template: ubuntu-cloud)'
     instance-id: pending
@@ -307,7 +307,7 @@ La nueva máquina aparecerá inicialmente de esta forma, porque la orden regresa
 
 Cuando algo va mal en `juju`, hay que echar mano de los logs. En algún momento funcionará `juju debug-log`, pero por lo pronto hay que apañarse con el registro de errores del mismo, que se puede consultar (y se debe borrar con cierta frecuencia, porque engorda que da gusto), en `~/.juju/local/log/machine-0.log`; en este caso sería el de la máquina anfitriona, pero cada una de las máquinas tendrá su propio registro.
 
-```
+```log
 2013-11-21 21:28:16 DEBUG juju.rpc.jsoncodec codec.go:107 <- {"RequestId":110,"Type":"Provisioner","Request":"SetStatus","Params":{"Entities":[{"Tag":"machine-4","Status":"error","Info":"error executing \"lxc-create\": No such file or directory - bad template: ubuntu-cloud; bad template: ubuntu-cloud","Data":null}],"Machines":null}}
 ```
 
@@ -394,7 +394,7 @@ Instalar un contenedor usando `virt-install`.
 
 De hecho, también se pueden usar contenedores que hayan sido instalados usando `lxc` (como no podía ser de otra forma, por otro lado). Por [ejemplo](http://wiki.centos.org/HowTos/LXC-on-CentOS6), esta orden
 
-```
+```shell
 virt-install --connect lxc:/// --name esa_maquina --ram 512 --vcpu 1 --filesystem /var/lib/libvirt/lxc/taper --noautoconsole
 ```
 

@@ -109,13 +109,13 @@ Dado que KVM es un módulo del kernel, puede que no esté cargado por
 defecto. Dependiendo del procesador que usemos,
 [lo cargamos](http://www.linux-kvm.org/page/HOWTO1) con
 
-```
+```shell
 sudo modprobe kvm-amd
 ```
 
 o
 
-```
+```shell
 sudo modprobe kvm-intel
 ```
 
@@ -123,7 +123,7 @@ Con los ficheros de almacenamiento virtual y una ISO para poder
 arrancar el sistema ya podemos arrancar KVM para instalarlo usando,
 por ejemplo
 
-```
+```shell
 qemu-system-x86_64 -hda /media/Backup/Isos/discovirtual.img -cdrom ~/tmp/debian-7.3.0-i386-netinst.iso
 ```
 
@@ -145,7 +145,7 @@ anterior tratará de arrancar de todas formas del disco duro. Se puede
 cortar la máquina virtual simplemente cerrando la ventana y tratar de
 arrancar de nuevo empezando por el CD virtual usando
 
-```
+```shell
 qemu-system-x86_64 -hda otro-disco.img -cdrom picaros-diego-b.iso -boot once=d
 ```
 
@@ -182,7 +182,7 @@ una herramienta gráfica que trabaja sobre KVM
 La máquina virtual, una vez instalada, se puede arrancar directamente
 desde el fichero en el que la hemos instalado, usando una orden [tal como esta](https://wiki.archlinux.org/index.php/QEMU#Creating_new_virtualized_system)
 
-```
+```shell
 qemu-system-x86_64 -boot order=c -drive file=/media/Backup/Isos/discovirtual.img,if=virtio
 ```
 
@@ -198,7 +198,7 @@ Crear un *benchmark* de velocidad de entrada salida y comprobar la
 diferencia entre usar paravirtualización y arrancar la máquina virtual
 simplemente con
 
-```
+```shell
 qemu-system-x86_64 -hda /media/Backup/Isos/discovirtual.img
 ```
 
@@ -211,7 +211,7 @@ pero una de ellas es arrancarlas dentro de un
 [servidor VNC](https://en.wikipedia.org/wiki/Virtual_Network_Computing)
 con una orden como esta
 
-```
+```shell
 qemu-system-x86_64 -hda /media/Backup/Isos/discovirtual.img -vnc :1
 ```
 
@@ -269,13 +269,13 @@ Por otro lado, [también puede usar `virt-manager`](https://help.ubuntu.com/comm
 virtuales creadas, así que habrá que instalar una serie de utilidades
 para echarlo a andar:
 
-```
+```shell
 sudo ubuntu-vm-builder kvm virt-manager
 ```
 
 Con eso ya podemos crear una imagen para usar
 
-```
+```shell
 sudo vmbuilder kvm ubuntu --suite precise --flavour server
      -o --dest /un/directorio/vacío --hostname paraiv --domain paraiv
 ```
@@ -298,13 +298,13 @@ con un solo usuario, `ubuntu` con la misma clave. Como no se le ha
 indicado ninguna personalización, tendrá el teclado en inglés y la
 hora que le parezca bien. Una vez construido podemos arrancarlo con
 
-```
+```shell
 sudo qemu-system-x86_64 -drive file=/directorio/donde/este/tmpGAPl8O.qcow2,if=none,id=drive-ide0-0-0,format=qcow2
 ```
 
 y trabajar con ella, o directamente con
 
-```
+```shell
 sudo qemu-system-x86_64 -hda /que/me/dir/tmpGAPl8O.qcow2
 ```
 

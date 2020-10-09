@@ -83,7 +83,7 @@ ejemplo, podemos cambiar el nombre de la máquina:
 
 Primero, se ha usado
 
-```
+```shell
 sudo unshare -u /bin/bash
 ```
 
@@ -139,20 +139,20 @@ usarlos necesitaremos instalar un [paquete de linux (y sus dependencias) denomin
 La principal orden que provee este paquete
 es [`brctl` que podemos usar directamente](https://wiki.debian.org/BridgeNetworkConnections) para crear este puente.
 
-```
+```shell
 sudo brctl addbr alcantara
 ```
 
 Hace falta privilegios de superusuario para crear este nuevo interfaz;
 una vez creado,
 
-```
- ip addr show
+```shell
+ip addr show
 ```
 
 nos mostrará, entre otras cosas
 
-```
+```plain
 alcantara: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN
 link/ether 0a:f5:42:80:e7:09 brd ff:ff:ff:ff:ff:ff
 ```
@@ -162,14 +162,14 @@ dirección ethernet, aunque sí un MAC propio. Este puente podemos, por
 ejemplo, añadirlo a otro interfaz como el eth0 típico de cualquier
 ordenador:
 
-```
+```shell
 sudo brctl addif alcantara eth0
 ```
 
 Si mostramos de nuevo los interfaces con `ip addr show`, ahora
 mostrará:
 
-```
+```plain
 eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master alcantara state UP qlen 1000
 ```
 
@@ -185,7 +185,7 @@ usar. Es posible que si hemos instalado algún paquete de
 virtualización ya tengamos alguna creada, `brctl show` muestra todos
 los puentes que existen en una máquina, por ejemplo:
 
-```
+```plain
 bridge name    bridge id            STP enable    interfaces
 alcantara      8000.1c6f65a40690    no            eth2
 lxcbr0         8000.000000000000    no
@@ -244,7 +244,7 @@ usa `debootstrap`.
 
 Una vez instalado, se puede usar de esta forma
 
-```
+```shell
 sudo debootstrap --arch=amd64 saucy /home/jaulas/saucy/ http://archive.ubuntu.com/ubuntu
 ```
 
@@ -332,20 +332,20 @@ software o para empaquetado de recursos.
 Una vez creada la instalación del sistema operativo, para *entrar* en
 la jaula se usa `chroot`
 
-```
+```shell
 sudo chroot /home/jaulas/raring
 ```
 
 indicándole el directorio donde se encuentra. Nos encontraremos con
 una línea de órdenes como esta:
 
-```
+```shell
 root@penny:/#
 ```
 
 que, al listar el contenido nos mostrará
 
-```
+```plain
 bin   dev  home  lib64  mnt  proc  run   selinux  sys  usr
 boot  etc  lib   media  opt  root  sbin  srv      tmp  var
 ```
@@ -353,7 +353,7 @@ boot  etc  lib   media  opt  root  sbin  srv      tmp  var
 La máquina tal como está es usable, pero no está completa. Por
 ejemplo, `top` dará un error:
 
-```
+```plain
     Error, do this: mount -t proc proc /proc
 ```
 
@@ -369,7 +369,7 @@ comandos darán un error indicando que no está
 establecido. [Otros pasos resolverán este tema, incluyendo la instalación de los Locales necesarios](https://wiki.ubuntu.com/DebootstrapChroot). Habrá
 que actualizar la distribución, los locales, y configurarlos.
 
-```
+```shell
 apt-get install language-pack-es
 ```
 
@@ -389,7 +389,7 @@ Para añadir un usuario que trabaje dentro de esta jaula hay que usar
 un . en su directorio home; automáticamente cuando se conecte
 "aparecerá" dentro de la misma:
 
-```
+```shell
 sudo useradd -s /bin/bash -m -d /home/jaulas/raring/./home/rjmerelo -c "Raring jmerelo" -g users rjmerelo
 ```
 
@@ -439,7 +439,7 @@ más de la cuenta, pero es más o menos completo.
 Lo primero que hay que hacer es crear una definición para cada uno de
 los entornos en el fichero `/etc/schroot/schroot.conf` tal como esta:
 
-```
+```conf
 [saucy]
 description=Saucy Lagartija (Ubuntu)
 location=/home/jaulas/saucy
@@ -492,14 +492,14 @@ que se pueden usar, pero para el resto hay que editar ese fichero
 incluyendo las dependencias o ficheros necesarios. Para usarlo, por
 tanto, hay que crear un sistema de ficheros *poseído* por `root`:
 
-```
+```shell
 mkdir -p /seguro/jaulas/dorada
 chown -R root:root /seguro
 ```
 
 Y a partir de ahí
 
-```
+```shell
 jk_init -v -j /seguro/jaulas/dorada jk_lsh basicshell netutils editors
 ```
 
@@ -515,7 +515,7 @@ Esta jaula se puede usar directamente con `chroot`, pero [`jailkit` también per
 crear el usuario de la forma habitual
 en Linux
 
-```
+```shell
 sudo jk_jailuser -m -j /seguro/jaulas/dorada alguien
 ```
 

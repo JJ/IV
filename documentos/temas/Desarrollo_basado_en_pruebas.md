@@ -171,7 +171,7 @@ algo (`reflect`) y se crean dos funciones de test, una por cada función que
 queremos probar. De este fichero se ejecutarán todas las funciones al
 ejecutar desde la línea de órdenes `go test`, que devolverá algo así:
 
-```
+```plain
 PASS
 ok      _/home/jmerelo/Asignaturas/infraestructura-virtual/HitosIV    0.017s
 ```
@@ -200,7 +200,7 @@ en [el programa siguiente](https://github.com/JJ/tdd-gdg).
 > real y corresponder a las especificaciones (historias de usuario o
 > de otro tipo) que se hayan hecho.
 
-```
+```python
 import unittest
 
 def devuelveTrue():
@@ -316,7 +316,7 @@ de uso de `assert`:
 
 > Hace uso de una clase en JavaScript, [`Apuesta`, que está en otro repo](https://github.com/JJ/desarrollo-basado-pruebas/)
 
-```
+```js
 var apuesta = require("./Apuesta.js"),
 assert= require("assert");
 
@@ -349,7 +349,7 @@ programación, aunque en algunos están realmente estandarizados).
 Como algunos marcos de prueba como Chai usan su propia biblioteca de
 aserciones, podemos hacer este pequeño cambio para usarla:
 
-```
+```js
 var assert = require("chai").assert,
     apuesta = require(__dirname+"/../Apuesta.js");
 
@@ -385,7 +385,7 @@ propia biblioteca de aserciones para que la sentencia que lleve a cabo
 el test sea lo más cercana posible a la frase (en inglés) que la describiría. Como hay que escoger uno y parece que Mocha es más
 popular, nos quedamos con este para escribir este programa de test.
 
-```
+```js
 var assert = require("assert"),
     apuesta = require(__dirname+"/../Apuesta.js");
 
@@ -414,7 +414,7 @@ tipo, porque mocha funciona a un nivel superior, con funciones como
 comportamiento que queremos comprobar. Se ejecuta con `mocha` y
 el resultado de ejecutarlo será:
 
-```
+```plain
     Apuesta
       Carga
         ✓ should be loaded
@@ -431,7 +431,7 @@ el resultado de ejecutarlo será:
 Con la librería BDD de Chai, podríamos expresar los mismos tests de
 esta forma:
 
-```
+```js
 var assert = require("chai").should(),
     apuesta = require(__dirname+"/../Apuesta.js");
 
@@ -618,7 +618,7 @@ ficheros que describen qué se usa y, en general, que es necesario
 instalar y tener para ejecutarlo. En node se usa un fichero en formato
 JSON tal como este:
 
-```
+```json
 {
   "author": "J. J. Merelo <jjmerelo@gmail.com> (https://github.com/JJ/desarrollo-basado-pruebas)",
   "name": "porrio",
@@ -711,7 +711,7 @@ vamos a usar `grunt` para documentar el código. Tras la instalación de
 `grunt`, que no viene instalado por defecto en nodejs, se puede usar
 directamente.
 
-```
+```shell
 sudo npm install -g grunt-cli
 ```
 
@@ -754,14 +754,14 @@ herramienta habitual de instalación en node, `npm`, pero una vez que
 usamos `package.json`, `npm` puede editarlo y cambiar la configuración
 automáticamente si lo usamos de esta forma
 
-```
+```shell
     npm install docco grunt-docco --save-dev
 ```
 
 El `--save-dev` indica que se guarde la configuración correspondiente
 en `package.json`, donde efectivamente se puede ver:
 
-```
+```json
     "devDependencies": {
       "docco": "~0.6",
       "grunt-docco": "~0.3.3"
@@ -784,11 +784,11 @@ buena práctica: usar `src`, por ejemplo, para las fuentes.
 
 La siguiente parte carga el plugin de `grunt` necesario para ejecutar `docco`. Y finalmente, con `grunt.registerTask('default', ['docco']);` indicamos que la tarea que ejecuta docco es la que se ejecutará por defecto simplemente ejecutando `grunt`. También se puede ejecutar con `grunt docco` o `grunt docco:debug` que sacará esto en el terminal:
 
-```
-    bash$ grunt docco
-    Running "docco:src" (docco) task
-    docco: Apuesta.js -> docs/Apuesta.html
-    docco: Gruntfile.js -> docs/Gruntfile.html
+```shell
+$ grunt docco
+Running "docco:src" (docco) task
+docco: Apuesta.js -> docs/Apuesta.html
+docco: Gruntfile.js -> docs/Gruntfile.html
 ```
 
 y producirá una documentación tal como [esta](http://jj.github.io/desarrollo-basado-pruebas/src/docs/Apuesta.html).
@@ -881,7 +881,7 @@ tests. Para ello se provisiona una máquina virtual (o contenedor), se
 le carga el sistema operativo y se instala lo necesario, indicado en
 el fichero de configuración tal como este para Travis.
 
-```
+```yaml
 language: node_js
 node_js:
   - "10"

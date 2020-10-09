@@ -104,7 +104,7 @@ que se esté trabajando. `--save` guarda la dependencia en `package.json` siempr
 Tras la instalación, el programa que hemos visto más arriba se
 transforma en el siguiente:
 
-```
+```js
 #!/usr/bin/env node
 
 var express=require('express');
@@ -161,7 +161,7 @@ determinado, y siempre se pueden usar variables de entorno para ello.
 Con el mismo `express` se pueden generar aplicaciones no tan básicas
 instalando [`express-generator`](https://expressjs.com/es/starter/generator.html) o el generador de aplicaciones [`yeoman`](https://yeoman.io)
 
-```
+```shell
 express prueba-rest
 ```
 
@@ -183,7 +183,7 @@ precedidos por `:`.
 Por ejemplo, si queremos tener diferentes contadores
 podríamos usar el [programa siguiente](https://github.com/JJ/node-app-cc/blob/master/index.js):
 
-```
+```js
     var express = require('express');
     var app = express();
 
@@ -390,7 +390,7 @@ Los tests podemos integrarlos, como es natural, en el mismo marco que
 el resto de la aplicación, solo que tendremos que usar librerías de
 aserciones ligeramente diferentes, en este caso `supertest`
 
-```
+```js
     var request = require('supertest'),
     app = require('../index.js');
 
@@ -409,7 +409,7 @@ resto). En vez de ejecutar la aplicación (que también podríamos
 hacerlo), lo que hacemos es que añadimos al final de `index.js` la
 línea:
 
-```
+```js
 module.exports = app;
 ```
 
@@ -469,26 +469,26 @@ instancias de un proceso.
 Si lo aplicamos al programa de gestión de porras anterior, podemos
 arrancarlo simplemente con:
 
-```
+```shell
 pm2 start index.js -i 4
 ```
 
 Lo que arrancará cuatro instancias de nuestro programa y equilibrará
 la carga entre las cuatro. Estas instancias serán copias exactas de nuestro programa: las cuatro escucharán en el puerto que esté definido, que ahora estará gestionado por `pm2`. Este, además, recordará los números de proceso: para pararlos, no hay más que escribir:
 
-```
+```shell
 pm2 stop index
 ```
 
 o
 
-```
+```shell
 pm2 stop all
 ```
 
 para parar todos los procesos que gestione. Los logs se almacenan en un directorio específico y se pueden consultar con
 
-```
+```shell
 pm2 logs
 ```
 
@@ -508,7 +508,7 @@ programa
 [anterior](https://github.com/JJ/tests-python/blob/master/HitosIV/hugitos.py)
 usando [Green Unicorn](https://gunicorn.org/)
 
-```
+```shell
 gunicorn HitosIV.hugitos:__hug_wsgi__ --log-file -
 ```
 
@@ -529,7 +529,7 @@ ahí.
 
 También podemos ejecutar varios *workers* a la vez:
 
-```
+```shell
 gunicorn -w 4 -b 0.0.0.0:31415 HitosIV.hugitos:__hug_wsgi__ --log-file -
 ```
 
@@ -549,14 +549,14 @@ esté escrita también en Python. Esta herramienta puede ser `fabric`
 (de la que se hablará más adelante), pero mientras tanto pm2 es
 perfectamente adecuada para ello.
 
-```
+```shell
 pm2 start 'gunicorn -w 4 -b 0.0.0.0:31415 HitosIV.hugitos:__hug_wsgi__ --log-file -'
 ```
 
 Aunque, de hecho, se puede ejecutar directamente y se encargará de
 gestionar los procesos
 
-```
+```shell
 pm2 start -i 4 HitosIV/hugitos.py
 ```
 
@@ -621,13 +621,13 @@ gulp con utilidades como `mocha` o el shell.
 
 Usando esto, con
 
-```
+```shell
 gulp start &
 ```
 
 se puede arrancar el programa, y con
 
-```
+```shell
 gulp stop
 ```
 

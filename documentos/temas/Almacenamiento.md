@@ -164,7 +164,7 @@ trabajan con él. Algunos formatos que son populares son
   usuario se comportan como los ficheros normales, pero su creación
   necesitará una orden de Linux como esta:
 
-```
+```shell
 dd of=fichero-suelto.img bs=1k seek=5242879 count=0
 ```
 
@@ -172,7 +172,7 @@ dd of=fichero-suelto.img bs=1k seek=5242879 count=0
 del bloque y `seek` es el tamaño del fichero en bytes  (menos uno);
 mientras que
 
-```
+```shell
 ls -lks fichero-suelto.img
 ```
 
@@ -180,7 +180,7 @@ dice cuantos bloques se han ocupado realmente. También se
 [puede hacer](http://stackoverflow.com/questions/257844/quickly-create-a-large-file-on-a-linux-system)
 usando `fallocate`:
 
-```
+```shell
 fallocate -l 5M fichero-suelto.img
 ```
 
@@ -196,8 +196,8 @@ algunos sistemas de ficheros (como ZFS).
   disco a la vez que se optimiza el acceso al mismo. Una forma de
   crear este fichero es con `qemu-img`:
 
-```
- qemu-img create -f qcow2 fichero-cow.qcow2 5M
+```shell
+qemu-img create -f qcow2 fichero-cow.qcow2 5M
 ```
 
 lo que aparecerá como un fichero normal y corriente de un tamaño
@@ -207,14 +207,14 @@ Estos ficheros se van a usar como sistemas de ficheros virtuales, pero
 eso no quiere decir que haga falta una máquina virtual para
 leerlos; se pueden [montar usando `mount`](http://en.wikibooks.org/wiki/QEMU/Images) de la forma siguiente:
 
-```
+```shell
 mount -o loop,offset=32256 /camino/a/fichero-suelto.img /mnt/mountpoint
 ```
 
 aunque dará un error en caso de no haber sido formateado (lo que se
 verá un poco más adelante). En el caso de qcow2, usando qemu-nbd
 
-```
+```shell
 modprobe nbd max_part=16
 qemu-nbd -c /dev/nbd0 fichero-cow.qcow2
 partprobe /dev/nbd0
@@ -243,7 +243,7 @@ tenemos que convertirlos en un
 [dispositivo *loop*](http://en.wikipedia.org/wiki/Loop_device#Uses_of_loop_mounting)
 usando `losetup`
 
-```
+```shell
 sudo losetup -v -f fichero-suelto.img
 ```
 
@@ -270,7 +270,7 @@ usando las herramientas que hay para ello: `fdisk`, `mkfs`, `gparted`
 o la que sea. Por ejemplo, para formatearlo con el
 [sistema de ficheros `btrfs`](http://en.wikipedia.org/wiki/Btrfs)
 
-```
+```shell
 sudo mkfs.btrfs /dev/loop0
 ```
 
@@ -374,7 +374,7 @@ instalarlos en el mismo sistema.
 
 Primero, habrá que instalar varios paquetes
 
-```
+```shell
 sudo apt-get install ceph-mds
 ```
 
@@ -384,7 +384,7 @@ ceph-fs-common, ceph y ceph-common.
 Vamos a crear los directorios donde se va a almacenar la información
 de CEPH
 
-```
+```shell
 mkdir -p /srv/ceph/{osd,mon,mds}
 ```
 
@@ -395,7 +395,7 @@ ceph.
 Vamos a configurar ceph, creando un fichero de configuración como el
 siguiente:
 
-```
+```plain
     [global]
     log file = /var/log/ceph/$name.log
     pid file = /var/run/ceph/$name.pid
@@ -449,13 +449,13 @@ siguiente:
  Una vez hecho esto, hay que crear un directorio a mano (no me
  preguntéis por qué, pero es así y [aquí lo dicen](http://tracker.ceph.com/issues/1015))
 
-```
-     sudo mkdir /srv/ceph/osd/osd.0
+```shell
+sudo mkdir /srv/ceph/osd/osd.0
 ```
 
 y ya podemos crear el sistema de ficheros de objetos con
 
-```
+```shell
 sudo /sbin/mkcephfs -a -c /etc/ceph/ceph.conf
 ```
 
@@ -464,7 +464,7 @@ no especificamos BTRFS sino XFS, con lo que nos ahorramos
 opciones. Esa orden da un montón de resultados diferentes, pero
 finalmente ya está el sistema ceph creado. Iniciamos el servicio con
 
-```
+```shell
 sudo /etc/init.d/ceph -a start
 ```
 
@@ -472,13 +472,13 @@ sudo /etc/init.d/ceph -a start
 están empezando). Puedes comprobar si todo ha ido (más o menos) bien
 con
 
-```
+```shell
 sudo ceph -s
 ```
 
 y ya lo podemos montar con
 
-```
+```shell
 sudo mount -t ceph penny:/ /mnt/ceph
 ```
 
@@ -518,13 +518,13 @@ configuración que tentamos funcionando en ese momento, con lo que no
 hace falta indicarle los monitores y todas esas cosas. Tal como se ha
 creado, la orden que funciona es
 
-```
+```shell
 rados lspools
 ```
 
 que devolverá
 
-```
+```plain
 data
 metadata
 rbd
@@ -534,13 +534,13 @@ Esta orden lista los *pools* o "directorios" (cubos, en realidad) en
 los que se van a colocar los diferentes objetos. Podemos crear nuevos
 *pools* con
 
-```
+```shell
 sudo rados mkpool esa-piscina
 ```
 
 (con `rmpool`, por supuesto, se puede borrar). La orden
 
-```
+```shell
 sudo rados df
 ```
 
@@ -549,7 +549,7 @@ te mostrará qué hay en cada uno de los pools. Hay
 pero tampoco me voy a poner a hacer todos y cada uno de ellos. Para
 almacenar objetos, por ejemplo, se usa put
 
-```
+```shel
 sudo rados put -p esa-piscina objeto-almacenado fichero-que-almacenaremos.whatever
 ```
 
@@ -612,7 +612,7 @@ Tal cuenta se puede crear de dos formas diferentes: desde el panel de
 control de Azure o bien
 [desde la línea de órdenes con](https://github.com/WindowsAzure/azure-sdk-tools-xplat)
 
-```
+```shell
 azure account storage create esacuenta
 ```
 
@@ -623,7 +623,7 @@ una o más cuentas, pero seguramente solo una.
 
 Para manejar esta cuenta se necesitan una serie de claves. Con
 
-```
+```shell
 azure account storage keys list esacuenta
 ```
 
@@ -631,7 +631,7 @@ te dará una clave primaria y otra secundaria. Esta información se debe
 copiar en variables de entorno (que tendrás que cargar en tu
 `.profile` o bien establecerlas cada vez que vayas a usarlo con
 
-```
+```shell
 export AZURE_STORAGE_ACCOUNT=esacuenta
 export AZURE_STORAGE_ACCESS_KEY=unaclavemuylargaquetieneigualesalfinal==
 ```
@@ -647,7 +647,7 @@ los contenedores son simplemente una forma de agrupar a las *masas* o
 *blobs* y equivalen a los *pools* o piscinas creadas en la sección
 anterior. Los containers se crean de forma más o menos obvia:
 
-```
+```shell
 azure storage container create taper
 ```
 
@@ -661,7 +661,7 @@ pueden ser públicos o privados y por defecto se crean privados; [los niveles de
 Este último es el permiso por defecto, pero si queremos que se acceda
 a los *blobs* se crea con
 
-```
+```shell
 azure storage container create otrotaper -p blob
 ```
 
@@ -680,7 +680,7 @@ como listarlos y borrarlos. Pero lo que nos interesa es como subir un
 blob a este almacenamiento, lo que también se puede hacer desde la
 línea de órdenes con `azure storage blob` tal como
 
-```
+```shell
 azure storage blob upload container-con-acceso-blob.png imagenes-iv container-con-acceso-blob.png
 ```
 
@@ -706,7 +706,7 @@ son libres. Dado que hemos hecho un
 pero hay SDKs para muchos otros lenguajes: node.js, Java y por
 supuesto los propios de Microsoft. Instalemos la [gema para Azure](https://github.com/WindowsAzure/azure-sdk-for-ruby/blob/master/README.md)
 
-```
+```shell
 sudo gem install azure
 ```
 
@@ -715,7 +715,7 @@ y vamos a usar
 para crear un contenedor y almacenar algo
 en él
 
-```
+```ruby
 #!/usr/bin/ruby
 
 require "azure"

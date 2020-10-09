@@ -14,7 +14,7 @@ La extensión propia de MarkDown es ".md" y la conversión a PDF se realiza medi
 
 Para integrar un encabezado en nuestro texto utilizamos el caracter "#" al principio de este, pudiendo agregar más almohadillas podemos variar de nivel el encabezado, cuantas más almohadillas más pequeño será el encabezado:
 
-```
+```md
 # Titulo1
 ## Subtitulo
 ### Apartado
@@ -25,7 +25,7 @@ Para integrar un encabezado en nuestro texto utilizamos el caracter "#" al princ
 
 Hay distintas formas de conseguir que nuestro texto se vea en _cursiva_, __negrita__ o ___ambos___, aquí se reflejarán dos de ellas:
 
-```
+```md
 Cursiva:  _a_ ó *a*
 Negrita: __a__ ó **a**
 Ambos: ___a___ ó ***a***
@@ -35,7 +35,7 @@ Ambos: ___a___ ó ***a***
 
 Para conseguir una lista enumerada basta con agregar un número delante del texto junto a un punto y un espacio:
 
-```
+```md
 1. Primer Elemento
 2. Segundo Elemento
 3. Tercer Elemento
@@ -49,7 +49,7 @@ Se muestra así:
 
 Para realizar la lista sin numerar cambiaríamos los números por `*`:
 
-```
+```md
 *. Primer Elemento
 *. Segundo Elemento
 *. Tercer Elemento
@@ -65,7 +65,7 @@ Obtendríamos como resultado:
 
 Si queremos crear un enlace hacia una una página escribimos esta estructura:
 
-```
+```md
 [El texto que queremos que se vea](Enlace, por ejemplo: https://google.com)
 ```
 
@@ -77,7 +77,7 @@ Se vería así:
 
 La estructura para añadir imágenes es similar a la de los enlaces pero añadiendo '!' al principio:
 
-```
+```md
 ![Texto que utilizamos por si no se visualiza la imagen](Ruta que ocupa la imagen
 respecto a nuestro archivo .md)
 
@@ -104,7 +104,7 @@ Texto que queremos dentro
 
 Previsualización:
 
-```
+```md
 Texto que queremos dentro
 ```
 

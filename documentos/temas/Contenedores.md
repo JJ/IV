@@ -140,7 +140,7 @@ todas están *enabled* se puede
 [usar lxc con relativa facilidad](https://stgraber.org/2012/05/04/lxc-in-ubuntu-12-04-lts/)
 siempre que tengamos una distro como Ubuntu relativamente moderna:
 
-```
+```shell
 sudo lxc-create -t ubuntu -n una-caja
 ```
 
@@ -150,7 +150,7 @@ instalan. O se
 puede usar una imagen similar a la que se usa en
 [EC2 de Amazon](https://aws.amazon.com/es/ec2/):
 
-```
+```shell
 sudo lxc-create -t ubuntu-cloud -n nubecilla
 ```
 
@@ -162,7 +162,7 @@ en este momento cualquier contenedor debería estar en estado
 
 Para arrancar el contenedor y conectarse a él,
 
-```
+```shell
 sudo lxc-start -n nubecilla
 ```
 
@@ -178,7 +178,7 @@ hemos visto anteriormente. En general, creará un puente llamado
 Una vez arrancados los
 contenedores, si se lista desde fuera aparecerá de esta forma:
 
-```
+```shell
 jmerelo@penny:~/txt/docencia/infraestructuras-virtuales/IV/documentos$ sudo lxc-list
 RUNNING
     contenedor
@@ -199,7 +199,7 @@ cualquier otro ordenador: será una máquina virtual que, salvo error o
 brecha de seguridad, no tendrá acceso al anfitrión, que sí podrá tener
 acceso a los mismos y pararlos cuando le resulte conveniente.
 
-```
+```shell
 sudo lxc-stop -n nubecilla
 ```
 
@@ -291,7 +291,7 @@ Así que comencemos desde el principio:
 
 Primero, se ejecuta como un servicio
 
-```
+```shell
 sudo docker -d &
 ```
 
@@ -306,7 +306,7 @@ usando un socket protegido.
 A partir de ahí, podemos crear un contenedor descargándolo del
 repositorio oficial
 
-```
+```shell
 sudo docker pull ubuntu
 ```
 
@@ -338,7 +338,7 @@ demás lo hace ello, al modo de Vagrant (lo que veremos más adelante).
 
 Podemos ejecutar, por ejemplo, un listado de los directorios
 
-```
+```shell
 sudo docker run ubuntu ls
 ```
 
@@ -350,27 +350,27 @@ La máquina instalada la podemos usar con el nombre de la imagen con
 que la hayamos descargado, pero cada
 táper tiene un id único que se puede ver con
 
-```
+```shell
 sudo docker ps -a=false
 ```
 
 Obteniendo algo así:
 
-```
-    CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+```plain
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 b76f70b6c5ce        ubuntu:12.04        /bin/bash           About an hour ago   Up About an hour                        sharp_brattain
 ```
 
 El primer número es el ID de la máquina que podemos usar también para
 referirnos a ella en otros comandos. También se puede usar
 
-```
+```shell
 sudo docker images
 ```
 
 Que devolverá algo así:
 
-```
+```plain
 REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
 ubuntu              12.04               8dbd9e392a96        9 months ago        128 MB
 ubuntu              latest              8dbd9e392a96        9 months ago        128 MB
@@ -383,13 +383,13 @@ El *IMAGE ID* es el ID interno del contenedor, que se puede usar para
 trabajar en una u otra máquina igual que antes hemos usado el nombre
 de la imagen:
 
-```
+```shell
 sudo docker run b750fe79269d du
 ```
 
 En vez de ejecutar las cosas una a una podemos directamente [ejecutar un shell](https://docs.docker.com/engine/getstarted/step_two/):
 
-```
+```shell
 sudo docker run -i -t ubuntu /bin/bash
 ```
 
@@ -431,14 +431,14 @@ esta forma, usando las órdenes propias del sistema operativo con el que se haya
 
 Los contenedores se pueden arrancar de forma independiente con `start`
 
-```
+```shell
 sudo docker start ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
 ```
 
 pero hay que usar el ID largo que se obtiene dando la orden de esta
 forma
 
-```
+```shell
 sudo docker images --no-trunc
 ```
 
@@ -446,7 +446,7 @@ Para entrar en ese contenedor tienes que averiguar qué IP está usando
 y los usuarios y claves y por supuesto tener ejecutándose un cliente
 de `ssh` en la misma. Para averiguar la IP:
 
-```
+```shell
 sudo docker inspect ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
 ```
 
@@ -458,7 +458,7 @@ Hasta ahora el uso de
 docker [no es muy diferente del contenedor, pero lo interesante](https://stackoverflow.com/questions/17989306/what-does-docker-add-to-just-plain-lxc) es que se puede guardar el estado de un contenedor tal
 como está usando [commit](https://docs.docker.com/engine/reference/commandline/commit)
 
-```
+```shell
 sudo docker commit 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c nuevo-nombre
 ```
 
@@ -488,7 +488,7 @@ ejemplo,
 se puede usar en lugar del intérprete de Perl6 y usa como base la
 distro ligera Alpine:
 
-```
+```dockerfile
 FROM alpine:latest
 MAINTAINER JJ Merelo <jjmerelo@GMail.com>
 WORKDIR /root
@@ -533,21 +533,21 @@ de órdenes, en este caso, tratándose del intérprete de Perl 6, se
 comportará exactamente como él. Para que esto funcione también se ha
 definido una variable de entorno en:
 
-```
+```dockerfile
 ENV PATH="/root/.rakudobrew/bin:${PATH}"
 ```
 
 que añade al `PATH` el directorio donde se encuentra. Con estas dos
 características se puede ejecutar el contenedor con:
 
-```
+```shell
 sudo docker run -t jjmerelo/alpine-perl6 -e "say π  - 4 * ([+]  <1 -1> <</<<  (1,3,5,7,9...10000))  "
 ```
 
 Si tuviéramos perl6 instalado en local, se podría escribir
 directamente
 
-```
+```shell
 perl6 -e "say π  - 4 * ([+]  <1 -1> <</<<  (1,3,5,7,9...10000))  "
 ```
 
@@ -559,7 +559,7 @@ En caso de que se trate de un servicio o algún otro tipo de programa
 de ejecución continua, se puede usar directamente `CMD`. En este caso,
 `ENTRYPOINT` da más flexibilidad e incluso de puede evitar usando
 
-```
+```shell
 sudo docker run -it --entrypoint "sh -l -c" jjmerelo/alpine-perl6
 ```
 
@@ -570,7 +570,7 @@ Por otro lado, otra característica que tiene este contenedor es que, a
 través de `VOLUME`, hemos creado un directorio sobre el que podemos
 *montar* un directorio externo, tal como hacemos aquí:
 
-```
+```shell
 sudo docker run --rm -t -v `pwd`:/app  \
         jjmerelo/alpine-perl6 /app/horadam.p6 100 3 7 0.25 0.33
 ```
@@ -593,7 +593,7 @@ En muchos casos el `Dockerfile` estará dentro de un repositorio y
 usará los mismos ficheros que hay en el mismo. Por ejemplo, este que
 se usa para el servicio web que hemos venido usando en la asignatura:
 
-```
+```dockerfile
 FROM python:3
 
 WORKDIR /usr/src/app
@@ -627,7 +627,7 @@ un puerto; este puerto es el puerto del propio contenedor y en caso de
 desplegarse directamente es el que se usará, pero si se está
 ejecutando localmente habrá que probarlo de esta forma
 
-```
+```shell
 sudo docker run -p 80:8000 -it --rm minick/mitag
 ```
 

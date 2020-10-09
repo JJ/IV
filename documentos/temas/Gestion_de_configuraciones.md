@@ -63,7 +63,7 @@ máquina virtual desde el panel de control, pero también desde
 la [línea de órdenes](https://github.com/WindowsAzure/azure-sdk-tools-xplat). Primero
 hay que saber qué imágenes hay disponibles:
 
-```
+```shell
 azure vm image list
 ```
 
@@ -74,7 +74,7 @@ alguna más probada como la
 `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131215-en-us-30GB`
 Con
 
-```
+```shell
 azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131215-en-us-30GB
 ```
 
@@ -82,7 +82,7 @@ nos muestra detalles sobre la imagen; entre otras cosas dónde está
 disponible y sobre si es Premium o no (en este caso no lo es). Con
 esta (o con otra) podemos crear una máquina virtual
 
-```
+```shell
 azure vm create peasomaquina b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131215-en-us-30GB peasousuario PeasoD2clav= --location "West Europe" --ssh
 ```
 
@@ -109,7 +109,7 @@ que queramos. El arranque tarda cierto tiempo y dependerá de la
 disponibilidad de recursos; evidentemente, mientras no esté arrancada
 no se puede usar, pero conviene de todas formas apagarla con
 
-```
+```shell
 azure vm shutdown maquina
 ```
 
@@ -166,7 +166,7 @@ Se puede instalar como un módulo de Python, usando por ejemplo la utilidad de
 instalación de módulos `pip` (que habrá que instalar si no se tiene);
 también se puede instalar directamente desde su repositorio PPA en Ubuntu
 
-```
+```shell
 sudo apt-add-repository ppa:ansible/ansible
 sudo apt-get install ansible
 ```
@@ -179,7 +179,7 @@ Ansible va a necesitar tres ficheros para provisionar una máquina virtual.
 
 Comencemos por el fichero de configuración, tal como [este](/ejemplos/vagrant/Debian2018/ansible.cfg):
 
-```
+```ini
 [defaults]
 host_key_checking = False
 inventory = ./ansible_hosts
@@ -193,7 +193,7 @@ un
 que contiene las diferentes máquinas controladas por el mismo. Por
 ejemplo
 
-```
+```shell
 echo "ansible-iv.cloudapp.net" > ~/ansible_hosts
 ```
 
@@ -203,13 +203,13 @@ fichero `ansible_hosts` situado en mi directorio raíz. El lugar de ese
 fichero es arbitrario, por lo que habrá que avisar a Ansible donde
 está usando una variable de entorno:
 
-```
+```shell
 export ANSIBLE_HOSTS=~/ansible_hosts
 ```
 
 Y, con un nodo, ya se puede comprobar si Ansible funciona con
 
-```
+```shell
 ansible all -u jjmerelo -m ping
 ```
 
@@ -223,7 +223,7 @@ De forma básica, lo que hace Ansible es simplemente ejecutar comandos
 de forma remota y simultáneamente. Para hacerlo, podemos usar el
 [inventario para agrupar los servidores](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html), por ejemplo
 
-```
+```ini
 [azure]
 iv-ansible.cloudapp.net
 ```
@@ -231,7 +231,7 @@ iv-ansible.cloudapp.net
 crearía un grupo `azure` (con un solo ordenador), en el cual podemos
 ejecutar comandos de forma remota
 
-```
+```shell
 ansible azure -u jjmerelo -a df
 ```
 
@@ -242,7 +242,7 @@ sistema de ficheros (que es lo que hace el comando `df`). Una vez más,
 Esta orden usa un *módulo* de ansible y se puede ejecutar también de
 esta forma:
 
-```
+```shell
 ansible azure -m shell ls
 ```
 
@@ -256,7 +256,7 @@ o
 
 Nosotros nos vamos a conectar a una máquina virtual local creada con Vagrant, usando [este](/ejemplos/vagrant/Debian2018/ansible_hosts) inventario:
 
-```
+```ini
 [vagrantboxes]
 debianita ansible_ssh_port=2222 ansible_ssh_private_key_file=.vagrant/machines/default/virtualbox/private_key
 
@@ -285,7 +285,7 @@ ficheros en YAML que le dicen a la máquina virtual qué es lo que hay
 que instalar en *tareas* o `tasks`, de la forma que se ve en
 [este fichero](/ejemplos/vagrant/Debian2018/basico.yaml).
 
-```
+```yaml
 ---
 - hosts: all
   become: yes
@@ -301,7 +301,7 @@ adquirir privilegios para ejecutar el resto del fichero. Las tareas se
 llevarán a cabo secuencialmente, pero solo tenemos una, que invoca el
 comando `apt`, indicándole que el paquete git tiene que estar presente.
 
-```
+```shell
 ansible-playbook basico.yaml
 ```
 
@@ -363,7 +363,7 @@ vamos a declarar un rol `common` que suele usarse para agrupar tareas
 que van a ser comunes a varios playbooks en un proyecto. Este será el
 [playbook](/ejemplos/vagrant/Debian2018/express.yaml):
 
-```
+```yaml
 ---
 - hosts: all
   become: yes
@@ -375,7 +375,7 @@ que van a ser comunes a varios playbooks en un proyecto. Este será el
 
 En el directorio `roles/common/tasks` estará este [fichero](/ejemplos/vagrant/Debian2018/roles/common/tasks/main.yaml)
 
-```
+```yaml
 ---
 - name: Instala básicos
   apt:
@@ -396,7 +396,7 @@ llamado
 [`geerlingguy.nodejs`](https://github.com/geerlingguy/ansible-role-nodejs) de
 esta forma:
 
-```
+```shell
 ansible-galaxy install geerlingguy.nodejs
 ```
 
@@ -404,7 +404,7 @@ Se
 usa en un [playbook](/ejemplos/vagrant/Debian2018/node-versions.yml)
 usando el nombre completo, tras instalarlo:
 
-```
+```yaml
 ---
 - hosts: debianita
   become: yes
@@ -418,7 +418,7 @@ En este caso el rol lo que incluye son variables, en vez de tareas,
 con concreto la indicada en la clave `vars_files`. Ese fichero
 contiene solamente:
 
-```
+```yaml
 nodejs_version: "12.x"
 ```
 
@@ -463,7 +463,7 @@ Con Vagrant [te puedes descargar directamente](https://gist.github.com/dergachev
 [una máquina configurada de esta lista](https://www.vagrantbox.es/). Por
 ejemplo,
 
-```
+```shell
 vagrant box add centos65 https://github.com/2creatives/vagrant-centos/releases/download/v6.5.1/centos65-x86_64-20131205.box
 ```
 
@@ -472,7 +472,7 @@ general, Vagrant usa VirtualBox, y los `.box` se ejecutan precisamente
 en ese formato. Otras imágenes están configuradas para trabajar con
 VMWare, pero son las menos. A continuación,
 
-```
+```shell
 vagrant init centos65
 ```
 
@@ -482,13 +482,13 @@ ya podemos inicializar la máquina y trabajar con ella (pero antes voy
 a apagar la máquina Azure que tengo ejecutándose desde que empecé a
 contar lo anterior)
 
-```
+```shell
 vagrant up
 ```
 
 y se puede empezar a trabajar en ella con
 
-```
+```shell
 vagrant ssh
 ```
 
@@ -520,7 +520,7 @@ las órdenes a mano. Instalaremos, como hemos hecho en otras ocasiones,
 el utilísimo editor `emacs`usando este
 [`Vagrantfile`](../../ejemplos/vagrant/provision/Vagrantfile):
 
-```
+```vagrantfile
     VAGRANTFILE_API_VERSION = "2"
 
     Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -597,7 +597,7 @@ actualizada de Ruby)
 incluimos en el Vagrantfile. las órdenes para usarlo en
 [este Vagrantfile](../../ejemplos/vagrant/provision/chef/Vagrantfile)
 
-```
+```vagrantfile
     VAGRANTFILE_API_VERSION = "2"
 
     Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -616,7 +616,7 @@ previamente tendremos que haber creado en un subdirectorio `cookbooks`
 que descienda exactamente del mismo directorio y que contenga
 simplemente `package 'emacs'` que tendrá que estar en un fichero
 
-```
+```plain
     cookbooks/emacs/recipes/default.rb
 ```
 
