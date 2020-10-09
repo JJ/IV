@@ -6,3 +6,5 @@ rule 'MD026', :punctuation => '.,;!?'
 rule 'MD003', :style => :atx
 # Enforce ordered list prefix style
 rule 'MD029', :style => :ordered
+# Allow raw HTML for notes and other stuff
+exclude_rule 'MD033'
