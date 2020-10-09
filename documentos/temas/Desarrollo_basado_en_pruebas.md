@@ -11,12 +11,14 @@ next: PaaS
 
 ### Cubre los siguientes objetivos de la asignatura
 
-- Conocer los conceptos relacionados con el proceso de virtualización tanto de software como de hardware y ponerlos en práctica.
+- Conocer los conceptos relacionados con el proceso de virtualización tanto de
+  software como de hardware y ponerlos en práctica.
 
 ### Objetivos específicos
 
-- Entender el concepto de <i>DevOps</i>.
-- Usar herramientas para gestión de los ciclos de desarrollo de una aplicación y entender cuales son estos.
+- Entender el concepto de *DevOps*.
+- Usar herramientas para gestión de los ciclos de desarrollo de una aplicación
+  y entender cuales son estos.
 - Aprender a usar integración continua en cualquier aplicación.
 
 </div>
@@ -58,21 +60,21 @@ despliegue continuo y virtualización.
 
 ## Metodología de desarrollo basado en pruebas
 
-El desarrollo basado en pruebas es una metodología que se integra con
-el desarrollo en la nube que hemos venido viendo de forma inconsútil
-(en inglés esto queda mejor; *seamless*). Hace falta pasar las pruebas
-para hacer el despliegue, pero también para integrar código, por eso
-el flujo de trabajo integra automáticamente las pruebas como paso
-previo a la incorporación del código, que si es a la rama `master`
-implicaría automáticamente el despliegue o pase a producción. Las
-pruebas son a diferente nivel, pero las que vamos a usar, pruebas
-unitarias, consisten en llamar a una función con diferentes valores y
-comprobar los resultados esperados con los obtenidos. Los resultados
-pueden ser de todo tipo: desde simples escalares respuesta a una
-función hasta cambio en el DOM ([*Document Object Model*](https://en.wikipedia.org/wiki/Document_Object_Model)) de una página cuando se envía un JSON
-desde una web. Cada uno tiene sus estrategias, pero al final se trata
-de crear una serie de pruebas para que lo que nosotros queremos que
-haga la aplicación efectivamente lo haga.
+El desarrollo basado en pruebas es una metodología que se integra con el
+desarrollo en la nube que hemos venido viendo de forma inconsútil (en inglés
+esto queda mejor; *seamless*). Hace falta pasar las pruebas para hacer el
+despliegue, pero también para integrar código, por eso el flujo de trabajo
+integra automáticamente las pruebas como paso previo a la incorporación del
+código, que si es a la rama `master` implicaría automáticamente el despliegue o
+pase a producción. Las pruebas son a diferente nivel, pero las que vamos a
+usar, pruebas unitarias, consisten en llamar a una función con diferentes
+valores y comprobar los resultados esperados con los obtenidos. Los resultados
+pueden ser de todo tipo: desde simples escalares respuesta a una función hasta
+cambio en el DOM
+([*Document Object Model*](https://en.wikipedia.org/wiki/Document_Object_Model))
+de una página cuando se envía un JSON desde una web. Cada uno tiene sus
+estrategias, pero al final se trata de crear una serie de pruebas para que lo
+que nosotros queremos que haga la aplicación efectivamente lo haga.
 
 El desarrollo basado en pruebas consiste en escribir los tests antes
 que el código que hace que esos tests *no* fallen. No siempre se hace
@@ -83,16 +85,16 @@ código antes siquiera de escribirlo; una aserción es simplemente una
 afirmación sobre los valores que devuelve una función para una entrada
 determinada.
 
-Las pruebas deben de corresponder a las especificaciones que queremos
-que respete nuestro software, y como tales deben de ser previas a la
-escritura del código en sí y del test. Es esencial entender
-perfectamente qué queremos que nuestro software haga, y hay diferentes
-formas de hacerlo, pero generalmente, en metodologías ágiles, tenemos
-que hacerlo mediante [*historias de usuario*](https://es.wikipedia.org/wiki/Historias_de_usuario),
-narrativas de qué es lo que puede hacer un posible usuario y qué es lo
-que el usuario debería esperar. Estas historias de usuario se
-convertirán en *issues* del repositorio, cuyo cierre marcará que el
-código está escrito, testeado, y se ajusta a la misma.
+Las pruebas deben de corresponder a las especificaciones que queremos que
+respete nuestro software, y como tales deben de ser previas a la escritura del
+código en sí y del test. Es esencial entender perfectamente qué queremos que
+nuestro software haga, y hay diferentes formas de hacerlo, pero generalmente,
+en metodologías ágiles, tenemos que hacerlo mediante
+[*historias de usuario*](https://es.wikipedia.org/wiki/Historias_de_usuario),
+narrativas de qué es lo que puede hacer un posible usuario y qué es lo que el
+usuario debería esperar. Estas historias de usuario se convertirán en *issues*
+del repositorio, cuyo cierre marcará que el código está escrito, testeado, y se
+ajusta a la misma.
 
 En la mayoría de los entornos de programación y especialmente en `node`,
 que es en el que nos estamos fijando, hay dos niveles en el test: el
@@ -115,26 +117,23 @@ aserciones.
 
 ### Escribiendo tests en Go
 
-Algunos lenguajes, como [Go](https://golang.org), integran este marco de pruebas en el
-propio lenguaje, por lo que nos permite fijarnos exclusivamente en la
-biblioteca de pruebas con la que estamos trabajando.
+Algunos lenguajes, como [Go](https://golang.org), integran este marco de
+pruebas en el propio lenguaje, por lo que nos permite fijarnos exclusivamente
+en la biblioteca de pruebas con la que estamos trabajando.
 
-Por ejemplo, vamos a fijarnos
-en
-[esta pequeña biblioteca que lee de un fichero en JSON los hitos de la asignatura](https://github.com/JJ/HitosIV) escrita
-en ese lenguaje, Go. La biblioteca
-tiene
-[dos funciones, una que devuelve un hito a partir de su ID y otra que te dice cuantos hay](https://github.com/JJ/HitosIV/blob/master/HitosIV.go).
-[Go](https://golang.org/) es
-un lenguaje que pretende evitar lo peor de C++ para crear un lenguaje
-concurrente, de sintaxis simple y con más seguridad; además, Go provee
-también un entorno de programación con una serie de herramientas
-(*toolbelt*) de serie.
+Por ejemplo, vamos a fijarnos en
+[esta pequeña biblioteca](https://github.com/JJ/HitosIV) que lee de un fichero
+en JSON los hitos de la asignatura escrita en ese lenguaje, Go. La biblioteca
+tiene [dos funciones](https://github.com/JJ/HitosIV/blob/master/HitosIV.go),
+una que devuelve un hito a partir de su ID y otra que te dice cuantos hay.
+[Go](https://golang.org/) es un lenguaje que pretende evitar lo peor de C++
+para crear un lenguaje concurrente, de sintaxis simple y con más seguridad;
+además, Go provee también un entorno de programación con una serie de
+herramientas (*toolbelt*) de serie.
 
-Los módulos en Go incluyen funciones simples, estructuradas en un
-paquete o *package*, y para testear un paquete en Go simplemente se crea un fichero con el
-mismo nombre y el sufijo `_test`
-como
+Los módulos en Go incluyen funciones simples, estructuradas en un paquete o
+*package*, y para testear un paquete en Go simplemente se crea un fichero con
+el mismo nombre y el sufijo `_test` como
 [el siguiente](https://github.com/JJ/HitosIV/blob/master/HitosIV_test.go):
 
 ```Go
@@ -176,14 +175,17 @@ PASS
 ok      _/home/jmerelo/Asignaturas/infraestructura-virtual/HitosIV    0.017s
 ```
 
-En vez de aserciones como funciones específicas, Go simplifica el interfaz de test haciendo que
-se devuelva un error (con `t.Error()`) cuando el test no pasa. Si
-todos funcionan, no hay ningún problema y se imprime `PASS` como se muestra arriba. Adicionalmente, `t.Log()`
-(siendo `t` una estructura de datos que se le tiene que pasar a todos
-los tests) se usa para mostrar algún mensaje sobre qué está ocurriendo en el test. En este caso, uno de los tests comprueba que efectivamente
-haya hitos en el fichero JSON que se ha pasado, y el segundo comprueba que el tipo que se devuelve cuando
-se solicita un hito es el correcto. Estos tests no están completos;
-generalmente hay que escribir una función de test para todas las funciones del módulo. Se muestran solo estos para ilustrar cómo funciona en un lenguaje determinado.
+En vez de aserciones como funciones específicas, Go simplifica el interfaz de
+test haciendo que se devuelva un error (con `t.Error()`) cuando el test no
+pasa. Si todos funcionan, no hay ningún problema y se imprime `PASS` como se
+muestra arriba. Adicionalmente, `t.Log()` (siendo `t` una estructura de datos
+que se le tiene que pasar a todos los tests) se usa para mostrar algún mensaje
+sobre qué está ocurriendo en el test. En este caso, uno de los tests comprueba
+que efectivamente haya hitos en el fichero JSON que se ha pasado, y el segundo
+comprueba que el tipo que se devuelve cuando se solicita un hito es el
+correcto. Estos tests no están completos; generalmente hay que escribir una
+función de test para todas las funciones del módulo. Se muestran solo estos
+para ilustrar cómo funciona en un lenguaje determinado.
 
 ## Escribiendo tests en Python
 
@@ -229,8 +231,16 @@ class SoloTest(unittest.TestCase):
         self.assertTrue(devuelveTrue(), "devuelveTrue devuelve True")
 
     def testSuma(self):
-        self.assertEqual(sumaPositivos("cadena",3),-1, "Suma correcta con argumento incorrecto")
-        self.assertEqual(sumaPositivos(4,8), 12, "Suma correcta con argumento correcto")
+        self.assertEqual(
+            sumaPositivos("cadena",3),
+            -1,
+            "Suma correcta con argumento incorrecto"
+        )
+        self.assertEqual(
+            sumaPositivos(4,8),
+            12,
+            "Suma correcta con argumento correcto"
+        )
 
     def testMultiplos(self):
         self.assertEqual(multiplo3o5o15(3),1,"Multiplo de 3")
@@ -242,14 +252,14 @@ if __name__ == '__main__':
 unittest.main()
 ```
 
-Tenemos tres funciones, que podrían estar en una clase o no, que vamos
-a testear; en caso de pertenecer a una clase tendremos que instanciar
-un objeto, pero lo dejamos así por lo pronto porque con lo que hay se pueden testear
-funciones individuales tales como estas. Para testearlas sí tenemos
-que crear una clase, y esa clase `SoloTest` tiene que ser una subclase
-de `unittest.TestCase`, es decir, un único caso de test. En esta clase
-definimos tres métodos, cada uno de los cuales tiene una serie de
-aserciones de este tipo:
+Tenemos tres funciones, que podrían estar en una clase o no, que vamos a
+testear; en caso de pertenecer a una clase tendremos que instanciar un objeto,
+pero lo dejamos así por lo pronto porque con lo que hay se pueden testear
+funciones individuales tales como estas. Para testearlas sí tenemos que crear
+una clase, y esa clase `SoloTest` tiene que ser una subclase de
+`unittest.TestCase`, es decir, un único caso de test. En esta clase definimos
+tres métodos, cada uno de los cuales tiene una serie de aserciones de este
+tipo:
 
 ```Python
 self.assertTrue(devuelveTrue(), "Tiene que fallar")
@@ -274,10 +284,10 @@ también
 todo tipo de cosas, incluyendo los scripts de despliegue, por
 ejemplo.
 
-Alternativamente al uso de esta biblioteca, se puede usar también `pytest`, un programa que
-tiene una sintaxis un poco más simple para los tests, o `nose`. Cada
-lenguaje tiene sus múltiples modos de testear, y este tema pretende
-ser solamente una introducción.
+Alternativamente al uso de esta biblioteca, se puede usar también `pytest`, un
+programa que tiene una sintaxis un poco más simple para los tests, o `nose`.
+Cada lenguaje tiene sus múltiples modos de testear, y este tema pretende ser
+solamente una introducción.
 
 </div>
 
@@ -287,9 +297,9 @@ se han pasado, todos en este caso.
 
 <div class='ejercicios' markdown='1'>
 
-Descargar y ejecutar las pruebas de alguno de los proyectos anteriores, y si sale todo
-bien, hacer un pull request a alguno de esos proyectos con tests adicionales, si es que
-faltan (en el momento que se lea este tema).
+Descargar y ejecutar las pruebas de alguno de los proyectos anteriores, y si
+sale todo bien, hacer un pull request a alguno de esos proyectos con tests
+adicionales, si es que faltan (en el momento que se lea este tema).
 
 </div>
 
@@ -302,19 +312,22 @@ varias formas diferentes, e incluye en su biblioteca estándar una
 biblioteca de aserciones.
 
 Hay
-[múltiples bibliotecas que se pueden usar](https://stackoverflow.com/questions/14294567/assertions-library-for-node-js);
-el [panorama de 2019 se presenta en este artículo](https://medium.com/welldone-software/an-overview-of-javascript-testing-in-2019-264e19514d0a). La
-librería de aserciones [`assert`](https://nodejs.org/api/assert.html)
-forma parte de la estándar de JS, pero hay otras como
-[`Unexpected`](http://unexpected.js.org/) o aserciones parte de marcos
-de tests más completos. Estos marcos de test incluyen [Chai](https://www.chaijs.com/), [Jasmine](https://jasmine.github.io/),
+[múltiples bibliotecas](https://stackoverflow.com/questions/14294567/assertions-library-for-node-js)
+que se pueden usar; el panorama de 2019 se presenta en
+[este artículo](https://medium.com/welldone-software/an-overview-of-javascript-testing-in-2019-264e19514d0a).
+La librería de aserciones [`assert`](https://nodejs.org/api/assert.html) forma
+parte de la estándar de JS, pero hay otras como
+[`Unexpected`](http://unexpected.js.org/) o aserciones parte de marcos de tests
+más completos. Estos marcos de test incluyen [Chai](https://www.chaijs.com/),
+[Jasmine](https://jasmine.github.io/),
 [Must.js](https://github.com/moll/js-must) y [`jest`](https://jestjs.io/).
 
 Veamos el siguiente
 [ejemplo](https://github.com/JJ/desarrollo-basado-pruebas/blob/master/src/prueba-assert.js)
 de uso de `assert`:
 
-> Hace uso de una clase en JavaScript, [`Apuesta`, que está en otro repo](https://github.com/JJ/desarrollo-basado-pruebas/)
+> Hace uso de una clase en JavaScript, `Apuesta`, que está en
+> [otro repo](https://github.com/JJ/desarrollo-basado-pruebas/)
 
 ```js
 var apuesta = require("./Apuesta.js"),
@@ -333,17 +346,22 @@ del mismo, y `equal` comprueba que efectivamente la salida que da la
 función `as_string` es la esperada.
 
 <div class='ejercicios' markdown='1'>
-Para la aplicación que se está haciendo, escribir una serie de aserciones y probar que efectivamente no fallan. Añadir tests para una nueva funcionalidad, probar que falla y escribir el código para que no lo haga (vamos, lo que viene siendo TDD).
+
+Para la aplicación que se está haciendo, escribir una serie de aserciones y
+probar que efectivamente no fallan. Añadir tests para una nueva funcionalidad,
+probar que falla y escribir el código para que no lo haga (vamos, lo que viene
+siendo TDD).
+
 </div>
 
-El programa anterior ilustra la sintaxis, y puede formar parte de un
-conjunto de tests; se puede ejecutar directamente, pero para testearlo
-los lenguajes de programación usan un segundo nivel, el marco de
-ejecución de los tests. Estos marcos incluyen programas de línea de
-órdenes que, a su vez, ejecutan los programas de test y escriben
-un informe sobre cuáles han fallado y cuáles no con más o menos
-parafernalia y farfolla. Una vez más, [hay varios marcos de testeo](https://stackoverflow.com/questions/4308786/what-is-the-best-testing-framework-to-use-with-node-js) para
-nodejs (y, por supuesto, uno propio para cada uno de los lenguajes de
+El programa anterior ilustra la sintaxis, y puede formar parte de un conjunto
+de tests; se puede ejecutar directamente, pero para testearlo los lenguajes de
+programación usan un segundo nivel, el marco de ejecución de los tests. Estos
+marcos incluyen programas de línea de órdenes que, a su vez, ejecutan los
+programas de test y escriben un informe sobre cuáles han fallado y cuáles no
+con más o menos parafernalia y farfolla. Una vez más,
+[hay varios marcos de testeo](https://stackoverflow.com/questions/4308786/what-is-the-best-testing-framework-to-use-with-node-js)
+para nodejs (y, por supuesto, uno propio para cada uno de los lenguajes de
 programación, aunque en algunos están realmente estandarizados).
 
 Como algunos marcos de prueba como Chai usan su propia biblioteca de
@@ -365,7 +383,9 @@ describe('Apuesta con Chai', function(){
     describe('Crea', function(){
     it('should create apuestas correctly', function(){
         var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama','2-3');
-        assert.equal(nueva_apuesta.as_string(), "Polopos: Alhama - 2-3","Creado");
+        assert.equal(
+            nueva_apuesta.as_string(), "Polopos: Alhama - 2-3","Creado"
+        );
     });
     });
 });
@@ -376,14 +396,16 @@ el objeto `assert` de la biblioteca `chai`, en vez de usar el que hay
 por omisión.
 
 Cada uno de ellos tendrá sus promotores y detractores, pero
-[Mocha](https://mochajs.org/), [Jasmine](https://jasmine.github.io/) y [Jest](https://github.com/facebook/jest)
-parecen ser los más populares. Los tres usan un sistema denominado
+[Mocha](https://mochajs.org/), [Jasmine](https://jasmine.github.io/) y
+[Jest](https://github.com/facebook/jest) parecen ser los más populares. Los
+tres usan un sistema denominado
 [Behavior Driven Development](https://en.wikipedia.org/wiki/Behavior-driven_development),
-que consiste en describir el comportamiento de un sistema más o menos
-de alto nivel; para ello suelen incluir una serie de aserciones o su
-propia biblioteca de aserciones para que la sentencia que lleve a cabo
-el test sea lo más cercana posible a la frase (en inglés) que la describiría. Como hay que escoger uno y parece que Mocha es más
-popular, nos quedamos con este para escribir este programa de test.
+que consiste en describir el comportamiento de un sistema más o menos de alto
+nivel; para ello suelen incluir una serie de aserciones o su propia biblioteca
+de aserciones para que la sentencia que lleve a cabo el test sea lo más cercana
+posible a la frase (en inglés) que la describiría. Como hay que escoger uno y
+parece que Mocha es más popular, nos quedamos con este para escribir este
+programa de test.
 
 ```js
 var assert = require("assert"),
@@ -528,10 +550,12 @@ Por eso desde hacer cierto tiempo se han venido usando *entornos
 virtuales de desarrollo* tales como:
 
 - [virtualenv](https://virtualenv.pypa.io/en/latest/) o `pyenv` para Python,
-- [nvm](https://github.com/nvm-sh/nvm), [`n`](https://github.com/tj/n) y [nave](https://github.com/isaacs/nave) para node.js,
+- [nvm](https://github.com/nvm-sh/nvm), [`n`](https://github.com/tj/n) y
+  [nave](https://github.com/isaacs/nave) para node.js,
 - [`phpenv` para, lo adivinaste, PHP](https://github.com/phpenv/phpenv),
 - [rbenv](https://github.com/rbenv/rbenv) y [RVM](https://rvm.io) para Ruby
-- y [plenv](https://github.com/tokuhirom/plenv) y [perlbrew](https://perlbrew.pl) para Perl.
+- y [plenv](https://github.com/tokuhirom/plenv) y
+  [perlbrew](https://perlbrew.pl) para Perl.
 
 Generalmente, estos programas funcionan instalando binarios en
 directorios del usuario y modificando el camino de ejecución para que
@@ -555,14 +579,16 @@ instalar la última versión existente, la versión `minor` más actual
 de la 4.x y lo mismo para la 0.11 o alguna impar (de desarrollo).
 </div>
 
-Generalmente, las librerías asociadas a una aplicación determinada, es decir, las dependencias,
-siguen un método similar. En vez de instalar en el sistema todas las
-librerías necesarias (o instalar una cada vez que hay algún error),
-la mayor parte de los entornos de programación incluyen alguna forma
-de definir qué librerías (o módulos) necesitan y qué versiones
-mínimas, máximas o exactas deben tener.
+Generalmente, las librerías asociadas a una aplicación determinada, es decir,
+las dependencias, siguen un método similar. En vez de instalar en el sistema
+todas las librerías necesarias (o instalar una cada vez que hay algún error),
+la mayor parte de los entornos de programación incluyen alguna forma de definir
+qué librerías (o módulos) necesitan y qué versiones mínimas, máximas o exactas
+deben tener.
 
->Incidentalmente, el hecho de que todo sea software libre ayuda a que en ningún paso de este proceso haya que decidir qué licencia o modelo de pago o cosas similares hay que usar.
+> Incidentalmente, el hecho de que todo sea software libre ayuda a que en
+> ningún paso de este proceso haya que decidir qué licencia o modelo de pago o
+> cosas similares hay que usar.
 
 ## Vamos a hacer una aplicación: gestionar porras de fútbol
 
@@ -585,10 +611,12 @@ Las acciones podrían incluir
 
 - Crear empresa
 - Listar calificaciones para cada empresa
-- crear calificación y añadirla (comprobando que la persona no la haya añadido ya)
+- crear calificación y añadirla (comprobando que la persona no la haya añadido
+  ya)
 - borrar calificación (si se arrepiente o te denuncia la empresa o algo)
 - Hacer un ránking de empresas por calificación, por ejemplo
-- Crear un repositorio en GitHub para la librería y crear un pequeño programa que use algunas de sus funcionalidades.
+- Crear un repositorio en GitHub para la librería y crear un pequeño programa
+  que use algunas de sus funcionalidades.
 
 Si se quiere hacer con cualquier otra aplicación, también es válido.
 
@@ -605,7 +633,8 @@ solo con un pequeño módulo que sirva para ver que funciona.
 
 <div class='ejercicios'>
 
-Ejecutar el programa en diferentes versiones del lenguaje. ¿Funciona en todas ellas?
+Ejecutar el programa en diferentes versiones del lenguaje. ¿Funciona en todas
+ellas?
 
 </div>
 
@@ -640,18 +669,25 @@ JSON tal como este:
 }
 ```
 
-Las partes que más nos interesan están hacia el final: las
-dependencias diversas (`dependencies`). Es un *hash* que dice qué
-módulo se usan (en este caso, `sqlite` solo) y qué versiones harán
-falta. Al desplegarse, el entorno dependerá de muchas cuestiones y hay que asegurarse de que donde va a acabar el programa tiene todo lo necesario. En caso de que no lo tuviera, el programa no se instalará.
+Las partes que más nos interesan están hacia el final: las dependencias
+diversas (`dependencies`). Es un *hash* que dice qué módulo se usan (en este
+caso, `sqlite` solo) y qué versiones harán falta. Al desplegarse, el entorno
+dependerá de muchas cuestiones y hay que asegurarse de que donde va a acabar el
+programa tiene todo lo necesario. En caso de que no lo tuviera, el programa no
+se instalará.
 
-A este nivel, la descripción del entorno de trabajo ya constituye en sí un test: donde se va a desplegar o lo tiene o no lo tiene, en cuyo caso no se permitirá la ejecución.
+A este nivel, la descripción del entorno de trabajo ya constituye en sí un
+test: donde se va a desplegar o lo tiene o no lo tiene, en cuyo caso no se
+permitirá la ejecución.
 
-Este fichero, además, permite instalar todas las dependencias usando solo `npm install .`. Casi todos los lenguajes habituales tienen algún sistema similar: `bundle` para Ruby o `cpanm` para Perl, por ejemplo.
+Este fichero, además, permite instalar todas las dependencias usando solo
+`npm install .`. Casi todos los lenguajes habituales tienen algún sistema
+similar: `bundle` para Ruby o `cpanm` para Perl, por ejemplo.
 
 <div class='ejercicios' markdown='1'>
 
-Crear una descripción del módulo usando `package.json`. En caso de que se trate de otro lenguaje, usar el método correspondiente.
+Crear una descripción del módulo usando `package.json`. En caso de que se trate
+de otro lenguaje, usar el método correspondiente.
 
 </div>
 
@@ -673,11 +709,12 @@ programa hasta que ocupe el mínimo espacio posible, para que sea más
 o por supuesto últimamente para *transpilación*, o conversión de un
 lenguaje al código fuente de otro lenguaje, típicamente JavaScript o node.
 
-Todos los lenguajes de programación tienen su propia [herramienta de construcción](https://en.wikipedia.org/wiki/Build_automation),  de las
-cuales la más conocida y veterana es la
-orden `make`, introducida [hace casi cuarenta años](https://es.wikipedia.org/wiki/Make). `make` automatiza el proceso
-de construcción en un fichero llamado `Makefile` con una sintaxis
-específica que se puede resumir en
+Todos los lenguajes de programación tienen su propia
+[herramienta de construcción](https://en.wikipedia.org/wiki/Build_automation),
+de las cuales la más conocida y veterana es la orden `make`, introducida
+[hace casi cuarenta años](https://es.wikipedia.org/wiki/Make). `make`
+automatiza el proceso de construcción en un fichero llamado `Makefile` con una
+sintaxis específica que se puede resumir en
 
 - unos *objetivos* que hay que cumplir y que dependen unos de
   otros. Por ejemplo, antes de construir el ejecutable hay que
@@ -687,10 +724,10 @@ específica que se puede resumir en
   ejemplo, para obtener una librería hay que compilarla a partir del
   fuente.
 
-Muchos lenguajes de programación, como el propio Perl, usan *make*
-para la automatización de tareas y compilación. Sin embargo, otros lenguajes de programación
-usan diferentes herramientas para ello: Ant, Ivy y Maven para Java, `sbt`
-para Scala, Rake para Ruby y otras muchas.
+Muchos lenguajes de programación, como el propio Perl, usan *make* para la
+automatización de tareas y compilación. Sin embargo, otros lenguajes de
+programación usan diferentes herramientas para ello: Ant, Ivy y Maven para
+Java, `sbt` para Scala, Rake para Ruby y otras muchas.
 
 En node.js se utilizan principalmente dos:
 [Grunt](https://gruntjs.com) y [Gulp](https://gulpjs.com),
@@ -698,13 +735,12 @@ así como [Brunch y webpack](https://brunch.io/docs/why-brunch), pero
 el mismo npm tiene muchas características de una herramienta de
 construcción.
 
->Aquí podíamos hacer una breve disquisición sobre
->[el código y la configuración](https://coding.abel.nu/2013/06/code-or-configuration-or-configuration-in-code/),
->algo a lo que nos vamos a enfrentar repetidamente en la nube. ¿Un
->fichero de construcción es, o debe ser, configuración o código?
->Diferentes herramientas toman diferentes aproximaciones al tema:
->`grunt` es, sobre todo, configuración, mientras que `gulp` es, sobre
->todo, código.
+> Aquí podíamos hacer una breve disquisición sobre
+> [el código y la configuración](https://coding.abel.nu/2013/06/code-or-configuration-or-configuration-in-code/),
+> algo a lo que nos vamos a enfrentar repetidamente en la nube. ¿Un fichero de
+> construcción es, o debe ser, configuración o código? Diferentes herramientas
+> toman diferentes aproximaciones al tema: `grunt` es, sobre todo,
+> configuración, mientras que `gulp` es, sobre todo, código.
 
 Algo fundamental en todo proyecto es la documentación; para empezar,
 vamos a usar `grunt` para documentar el código. Tras la instalación de
@@ -782,7 +818,11 @@ directorio que le indicamos. No existe en Grunt una forma general de
 expresar este tipo de dependencias como en los Makefiles, solo una
 buena práctica: usar `src`, por ejemplo, para las fuentes.
 
-La siguiente parte carga el plugin de `grunt` necesario para ejecutar `docco`. Y finalmente, con `grunt.registerTask('default', ['docco']);` indicamos que la tarea que ejecuta docco es la que se ejecutará por defecto simplemente ejecutando `grunt`. También se puede ejecutar con `grunt docco` o `grunt docco:debug` que sacará esto en el terminal:
+La siguiente parte carga el plugin de `grunt` necesario para ejecutar `docco`.
+Y finalmente, con `grunt.registerTask('default', ['docco']);` indicamos que la
+tarea que ejecuta docco es la que se ejecutará por defecto simplemente
+ejecutando `grunt`. También se puede ejecutar con `grunt docco` o
+`grunt docco:debug` que sacará esto en el terminal:
 
 ```shell
 $ grunt docco
@@ -791,9 +831,12 @@ docco: Apuesta.js -> docs/Apuesta.html
 docco: Gruntfile.js -> docs/Gruntfile.html
 ```
 
-y producirá una documentación tal como [esta](http://jj.github.io/desarrollo-basado-pruebas/src/docs/Apuesta.html).
+y producirá una documentación tal como
+[esta](http://jj.github.io/desarrollo-basado-pruebas/src/docs/Apuesta.html).
 
-La automatización de Grunt se puede usar tanto para prueba como para despliegue. Pero hay también otras formas de probar en la nube, y lo veremos a continuación.
+La automatización de Grunt se puede usar tanto para prueba como para
+despliegue. Pero hay también otras formas de probar en la nube, y lo veremos a
+continuación.
 
 <div class='ejercicios' markdown='1'>
 
@@ -835,16 +878,16 @@ sí con las librerías del lenguaje de programación en el que está
 desarrollado.
 
 Un sistema bastante popular de integración continua es
-[Jenkins](https://www.jenkins.io/). Para usar Jenkins puedes instalarlo en tu propio
-ordenador, en un servidor propio  o
-en [algún servicio en la nube tal como CloudBees](https://CloudBees.com). Sin embargo, hay otros sistemas como [Travis](https://travis-ci.org) o
-[Shippable](https://www.shippable.com/) que podemos usar también desde
-la nube. Hay otros muchos, como Circle-CI o AppVeyor, y todos ellos
-tienen servicios gratuitos para proyectos open source. Las propias
-plataformas de hosting de fuentes tienen su propio sistema de
-integración
-continua: [GitHub Actions](https://github.com/features/actions)
-o [GitLab pipelines](https://docs.gitlab.com/ee/ci/pipelines/), por ejemplo.
+[Jenkins](https://www.jenkins.io/). Para usar Jenkins puedes instalarlo en tu
+propio ordenador, en un servidor propio o en
+[algún servicio en la nube tal como CloudBees](https://CloudBees.com). Sin
+embargo, hay otros sistemas como [Travis](https://travis-ci.org) o
+[Shippable](https://www.shippable.com/) que podemos usar también desde la nube.
+Hay otros muchos, como Circle-CI o AppVeyor, y todos ellos tienen servicios
+gratuitos para proyectos open source. Las propias plataformas de hosting de
+fuentes tienen su propio sistema de integración continua:
+[GitHub Actions](https://github.com/features/actions) o
+[GitLab pipelines](https://docs.gitlab.com/ee/ci/pipelines/), por ejemplo.
 
 Los sitios de alojamiento de git como GitLab o GitHub tienen también
 un sistema de acciones o *ganchos* que se ejecutan cada vez que sucede
@@ -926,12 +969,14 @@ y también se enviará por correo electrónico. Y te da también un
 *badge* que puedes poner en tu fichero para indicar que, por lo
 pronto, todo funciona.
 
-Si el informe indica que las pruebas son correctas, se puede proceder al despliegue. Pero eso
-ya será en la siguiente clase.
+Si el informe indica que las pruebas son correctas, se puede proceder al
+despliegue. Pero eso ya será en la siguiente clase.
 
 <div class='ejercicios' markdown='1'>
 
-Configurar integración continua para nuestra aplicación usando Travis o algún otro sitio.
+Configurar integración continua para nuestra aplicación usando Travis o algún
+otro sitio.
+
 </div>
 
 Esta configuración es esencial por varias razones: primero, porque nos
@@ -944,9 +989,10 @@ para el despliegue continuo, que se verá más adelante.
 
 ## A dónde ir desde aquí
 
-Una vez visto todo lo necesario para desplegar una aplicación, se
-puede pasar a estudiar los
-[*PaaS*, plataformas como servicio](PaaS.md), donde se pueden desplegar aplicaciones para prototipo o para producción de forma relativamente simple.
+Una vez visto todo lo necesario para desplegar una aplicación, se puede pasar a
+estudiar los [*PaaS*, plataformas como servicio](PaaS.md), donde se pueden
+desplegar aplicaciones para prototipo o para producción de forma relativamente
+simple.
 
 ## Bibliografía y otros recursos
 
@@ -963,7 +1009,7 @@ Algunos recursos a los que puedes acceder desde la
 
 Esta
 [página](http://www.jedi.be/blog/2010/02/12/what-is-this-devops-thing-anyway/)
-lista una serie de recursos útiles, incluyendo blogs y canales de IRC,
-aparte de diferentes herramientas que deben estar en el carcaj del
-arquero DevOps, aunque la mayoría de los enlaces a estos están
-atrasados (y uno está en chino, así que no tengo ni idea).
+lista una serie de recursos útiles, incluyendo blogs y canales de IRC, aparte
+de diferentes herramientas que deben estar en el carcaj del arquero DevOps,
+aunque la mayoría de los enlaces a estos están atrasados (y uno está en chino,
+así que no tengo ni idea).

@@ -14,7 +14,8 @@ next: PaaS
 1. Conocer los conceptos relacionados con el proceso de virtualización
    tanto de software como de hardware y ponerlos en práctica.
 
-2. Justificar la necesidad de procesamiento virtual frente a real en el contexto de una infraestructura TIC de una organización.
+2. Justificar la necesidad de procesamiento virtual frente a real en el
+   contexto de una infraestructura TIC de una organización.
 
 ### Objetivos específicos
 
@@ -70,15 +71,18 @@ funciona el desarrollo en infraestructuras virtuales.
 
 Un
 [tutorial de unos 10 minutos sobre servicios Web](https://www.youtube.com/watch?v=KU3V25XABgg).
+
 </div>
 
-Aunque durante muchos años se han usado extensivamente servicios web
-basados en protocolos tales como SOAP (*Simple Object Access Protocol*) u [OSGi](https://www.linkedin.com/pulse/20140903145139-12717948-qu%C3%A9-es-osgi), hoy en día se usan
-sobre todo los llamados [sistemas RESTful](https://elbauldelprogramador.com/buenas-practicas-para-el-diseno-de-una-api-restful-pragmatica/), que usan exclusivamente
-órdenes HTTP estándar y codifican las peticiones en URIs y las
-respuestas usando,
-generalmente, [JSON](https://es.wikipedia.org/wiki/JSON), un formato
-que permite transmitir estructuras de datos generales.
+Aunque durante muchos años se han usado extensivamente servicios web basados en
+protocolos tales como SOAP (*Simple Object Access Protocol*) u
+[OSGi](https://www.linkedin.com/pulse/20140903145139-12717948-qu%C3%A9-es-osgi),
+hoy en día se usan sobre todo los llamados
+[sistemas RESTful](https://elbauldelprogramador.com/buenas-practicas-para-el-diseno-de-una-api-restful-pragmatica/),
+que usan exclusivamente órdenes HTTP estándar y codifican las peticiones en
+URIs y las respuestas usando, generalmente,
+[JSON](https://es.wikipedia.org/wiki/JSON), un formato que permite transmitir
+estructuras de datos generales.
 
 <div class='nota' markdown='1'>
 

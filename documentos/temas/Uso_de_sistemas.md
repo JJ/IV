@@ -23,16 +23,14 @@ next: Gestion_de_configuraciones
 
 ## Introducción
 
-El objetivo de las plataformas de virtualización es, eventualmente,
-crear y gestionar máquinas virtual completas que funcione de forma aislada
-del resto del sistema y que permita trabajar con sistemas
-virtualizados de forma flexible, escalable y adaptada a cualquier
-objetivo. Eventualmente, el objetivo de este este tema es aprender a
-crear
-[infraestructura como servicio tal como vimos en el primer tema](Intro_concepto_y_soporte_fisico.md). Para
-ello necesitamos configurar una serie de infraestructuras virtuales,
-especialmente
-[almacenamiento](Almacenamiento.md).
+El objetivo de las plataformas de virtualización es, eventualmente, crear y
+gestionar máquinas virtual completas que funcione de forma aislada del resto
+del sistema y que permita trabajar con sistemas virtualizados de forma
+flexible, escalable y adaptada a cualquier objetivo. Eventualmente, el objetivo
+de este este tema es aprender a crear
+[infraestructura como servicio tal como vimos en el primer tema](Intro_concepto_y_soporte_fisico.md).
+Para ello necesitamos configurar una serie de infraestructuras virtuales,
+especialmente [almacenamiento](Almacenamiento.md).
 
 Los programas que permiten crear infraestructuras virtuales completas
 se denominan
@@ -54,23 +52,24 @@ hipervisores alojados que se ejecutan desde un sistema operativo.
 ![Ilustración de los dos tipos de hipervisores (alojada en la Wikipedia)](https://upload.wikimedia.org/wikipedia/commons/e/e1/Hyperviseur.png)
 
 Para apoyar la virtualización, casi todos los procesadores actuales y
-especialmente [los de las líneas más populares basadas en la arquitectura x86 tienen una serie de instrucciones que permiten usarla de manera segura y eficiente](https://en.wikipedia.org/wiki/X86_virtualization). Esta
-arquitectura tiene dos ramas: la Intel y la AMD, cada uno de los
-cuales tiene un conjunto de instrucciones diferentes para llevarla a
-cabo. Aunque la mayoría de los procesadores lo incluyen, los
-portátiles de gama baja y algunos ordenadores de sobremesa antiguos no
-la incluyen, por lo que habrá que comprobar si nuestro procesador lo
-hace. Si no lo hiciera, se habla de
-[paravirtualización](https://en.wikipedia.org/wiki/Paravirtualization)
-en la que los hipervisores tienen que *interpretar* cada imagen del
-sistema operativo que alojan (llamado *invitado*) y convertirla en
-instrucciones del que aloja (llamado *anfitrión* o *host*). La mayor
-parte de los hipervisores, como
-[Xen](https://en.wikipedia.org/wiki/Xen) o [KVM](https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine) incluyen
-también la capacidad de paravirtualizar ciertos sistemas operativos en
-caso de que los anfitriones no tengan soporte; por ejemplo, KVM se ha
-asociado con [QEMU](https://en.wikipedia.org/wiki/QEMU) que lo usa en
-caso de que el procesador tenga soporte.
+especialmente los de las líneas más populares
+[basadas en la arquitectura x86](https://en.wikipedia.org/wiki/X86_virtualization)
+tienen una serie de instrucciones que permiten usarla de manera segura y
+eficiente. Esta arquitectura tiene dos ramas: la Intel y la AMD, cada uno de
+los cuales tiene un conjunto de instrucciones diferentes para llevarla a cabo.
+Aunque la mayoría de los procesadores lo incluyen, los portátiles de gama baja
+y algunos ordenadores de sobremesa antiguos no la incluyen, por lo que habrá
+que comprobar si nuestro procesador lo hace. Si no lo hiciera, se habla de
+[paravirtualización](https://en.wikipedia.org/wiki/Paravirtualization) en la
+que los hipervisores tienen que *interpretar* cada imagen del sistema operativo
+que alojan (llamado *invitado*) y convertirla en instrucciones del que aloja
+(llamado *anfitrión* o *host*). La mayor parte de los hipervisores, como
+[Xen](https://en.wikipedia.org/wiki/Xen) o
+[KVM](https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine) incluyen
+también la capacidad de paravirtualizar ciertos sistemas operativos en caso de
+que los anfitriones no tengan soporte; por ejemplo, KVM se ha asociado con
+[QEMU](https://en.wikipedia.org/wiki/QEMU) que lo usa en caso de que el
+procesador tenga soporte.
 
 A continuación veremos el uso básico de estos sistemas de
 virtualización basándonos, sobre todo, en uno de ellos KVM.
@@ -179,8 +178,9 @@ una herramienta gráfica que trabaja sobre KVM
 
 </div>
 
-La máquina virtual, una vez instalada, se puede arrancar directamente
-desde el fichero en el que la hemos instalado, usando una orden [tal como esta](https://wiki.archlinux.org/index.php/QEMU#Creating_new_virtualized_system)
+La máquina virtual, una vez instalada, se puede arrancar directamente desde el
+fichero en el que la hemos instalado, usando una orden
+[tal como esta](https://wiki.archlinux.org/index.php/QEMU#Creating_new_virtualized_system)
 
 ```shell
 qemu-system-x86_64 -boot order=c -drive file=/media/Backup/Isos/discovirtual.img,if=virtio
@@ -216,11 +216,11 @@ qemu-system-x86_64 -hda /media/Backup/Isos/discovirtual.img -vnc :1
 ```
 
 Con esto podemos conectar a la máquina virtual usando algún
-[cliente de VNC tal como `vinagre`](https://help.ubuntu.com/community/VNC/Clients). Hay
-[múltiples opciones más](http://man.cx/qemu-system-x86_64%281%29) en
-la línea de órdenes, que nos permiten establecer los tipos de CPU,
-todo tipo de periféricos, tamaño de memoria (son 128 megas por
-omisión) o nombre del invitado.
+[cliente de VNC tal como `vinagre`](https://help.ubuntu.com/community/VNC/Clients).
+Hay [múltiples opciones más](http://man.cx/qemu-system-x86_64%281%29) en la
+línea de órdenes, que nos permiten establecer los tipos de CPU, todo tipo de
+periféricos, tamaño de memoria (son 128 megas por omisión) o nombre del
+invitado.
 
 <div class='ejercicios' markdown='1'>
 
@@ -265,9 +265,10 @@ puede trabajar con Xen, VMWare, kvm y vmserver. Solo trabaja con una
 distribución: Ubuntu (jolines, que se llama `ubuntu-vm-builder`, ¿qué
 te esperabas?).
 
-Por otro lado, [también puede usar `virt-manager`](https://help.ubuntu.com/community/KVM/CreateGuests) para gestionar las máquinas
-virtuales creadas, así que habrá que instalar una serie de utilidades
-para echarlo a andar:
+Por otro lado,
+[también puede usar `virt-manager`](https://help.ubuntu.com/community/KVM/CreateGuests)
+para gestionar las máquinas virtuales creadas, así que habrá que instalar una
+serie de utilidades para echarlo a andar:
 
 ```shell
 sudo ubuntu-vm-builder kvm virt-manager
@@ -292,11 +293,11 @@ externo que podamos usar nosotros desde `virt-manager`(`domain`)
 aunque ahora mismo hay un bug que impide usarlo correctamente, como un
 hombre interno para el propio ordenador.
 
-Esta orden creará, tras una buena cantidad de minutos, un fichero de nombre ignoto (algo así como
-`tmpGAPl8O.qcow2`) en el que habrá una distribución Ubuntu instalada
-con un solo usuario, `ubuntu` con la misma clave. Como no se le ha
-indicado ninguna personalización, tendrá el teclado en inglés y la
-hora que le parezca bien. Una vez construido podemos arrancarlo con
+Esta orden creará, tras una buena cantidad de minutos, un fichero de nombre
+ignoto (algo así como `tmpGAPl8O.qcow2`) en el que habrá una distribución
+Ubuntu instalada con un solo usuario, `ubuntu` con la misma clave. Como no se
+le ha indicado ninguna personalización, tendrá el teclado en inglés y la hora
+que le parezca bien. Una vez construido podemos arrancarlo con
 
 ```shell
 sudo qemu-system-x86_64 -drive file=/directorio/donde/este/tmpGAPl8O.qcow2,if=none,id=drive-ide0-0-0,format=qcow2
@@ -317,29 +318,31 @@ tengas instalado.
 
 </div>
 
-Como la máquina creada anteriormente necesita más trabajo todavía que
-una máquina instalada desde una ISO (por aquello de que necesita
-instalar idioma, usuarios y demás), en realidad ubuntu-vm-builder
-[permite configurar el tamaño del disco, la IP, qué mirror se va a usar para descargar los paquetes, usuarios, claves y también qué paquetes se van a instalar, al menos en el caso de los más comunes](https://help.ubuntu.com/community/KVM/CreateGuests). En
-todo caso, este programa permite crear configuraciones de forma fácil
-y reproducible usando una sola orden.
+Como la máquina creada anteriormente necesita más trabajo todavía que una
+máquina instalada desde una ISO (por aquello de que necesita instalar idioma,
+usuarios y demás), en realidad ubuntu-vm-builder permite configurar
+[múltiples ajustes](https://help.ubuntu.com/community/KVM/CreateGuests): el
+tamaño del disco, la IP, qué mirror se va a usar para descargar los paquetes,
+usuarios, claves y también qué paquetes se van a instalar, al menos en el caso
+de los más comunes. En todo caso, este programa permite crear configuraciones
+de forma fácil y reproducible usando una sola orden.
 
 <div class='nota' markdown='1'>
 
 Aparentemente,
 [los errores señalados arriba están siendo solucionados](https://bugs.launchpad.net/ubuntu/+source/vm-builder/+bug/1174148)
-pero no se encuentran en las últimas versiones disponibles en los
-repositorios.
+pero no se encuentran en las últimas versiones disponibles en los repositorios.
 
 </div>
 
 ## A dónde ir desde aquí
 
-En el [siguiente tema](Gestion_de_configuraciones) pondremos en
-práctica todos los conceptos aprendidos en este tema y
-[el tema relacionado con el almacenamiento](Almacenamiento) para crear configuraciones que sean
-fácilmente gestionables y adaptables a un fin determinado.
-Antes, habrá que hacer y entregar [el último hito](../proyecto/5.IaaS.md).
+En el [siguiente tema](Gestion_de_configuraciones) pondremos en práctica todos
+los conceptos aprendidos en este tema y
+[el tema relacionado con el almacenamiento](Almacenamiento) para crear
+configuraciones que sean fácilmente gestionables y adaptables a un fin
+determinado. Antes, habrá que hacer y entregar
+[el último hito](../proyecto/5.IaaS.md).
 
 Si lo que necesitas es un sistema ligero de virtualización, puedes
 mirar cómo virtualizar con [contenedores](Contenedores.md).

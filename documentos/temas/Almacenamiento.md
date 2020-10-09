@@ -32,23 +32,19 @@ next: Uso_de_sistemas
 
 ## La parte verdadera: un disco físico
 
- Aunque en principio esté claro que un disco es un disco físico, en la
- práctica y en la nube no tiene que ser así. El soporte físico del almacenamiento
- puede ser un disco duro de cualquier formato (rotatorio, SSD), pero
- también una
- [partición](http://en.wikipedia.org/wiki/Partition_%28computing%29)
- de uno, que aparecerá a todos los efectos como un disco físico o lo
- denominado
+ Aunque en principio esté claro que un disco es un disco físico, en la práctica
+ y en la nube no tiene que ser así. El soporte físico del almacenamiento puede
+ ser un disco duro de cualquier formato (rotatorio, SSD), pero también una
+ [partición](http://en.wikipedia.org/wiki/Partition_%28computing%29) de uno,
+ que aparecerá a todos los efectos como un disco físico o lo denominado
  [LUN (*Logical Unit Number*)](http://en.wikipedia.org/wiki/Logical_Unit_Number),
- un dispositivo al que se accede usando el protocolo SCSI, un
- protocolo veterano de acceso a discos que permitía conectar varios
- discos cuando nuestro querido SATA solo podía tener un maestro y un
- esclavo y que se ha licenciado como protocolo para sistemas de discos
- accesibles desde la red, es decir,
+ un dispositivo al que se accede usando el protocolo SCSI, un protocolo
+ veterano de acceso a discos que permitía conectar varios discos cuando nuestro
+ querido SATA solo podía tener un maestro y un esclavo y que se ha licenciado
+ como protocolo para sistemas de discos accesibles desde la red, es decir,
  [Storage Area Networks](http://en.wikipedia.org/wiki/Storage_area_network). En
- la práctica, en esta asignatura vamos a usar sobre todo los dos
- primeros pero el segundo se usa en todo centro de datos que se
- precie.
+ la práctica, en esta asignatura vamos a usar sobre todo los dos primeros pero
+ el segundo se usa en todo centro de datos que se precie.
 
 Los
 [volúmenes lógicos](http://en.wikipedia.org/wiki/Logical_volume_management)
@@ -68,9 +64,11 @@ de particiones usual.
 
 1. ¿Cómo tienes instalado tu disco duro? ¿Usas particiones? ¿Volúmenes lógicos?
 
-2. Si tienes acceso en tu escuela o facultad a un ordenador común para las prácticas, ¿qué almacenamiento físico utiliza?
+2. Si tienes acceso en tu escuela o facultad a un ordenador común para las
+   prácticas, ¿qué almacenamiento físico utiliza?
 
-3. Buscar ofertas SAN comerciales y comparar su precio con ofertas *locales* (en el propio ordenador) equivalentes.
+3. Buscar ofertas SAN comerciales y comparar su precio con ofertas *locales*
+   (en el propio ordenador) equivalentes.
 
 </div>
 
@@ -78,8 +76,8 @@ de particiones usual.
 
 En
 [esta guía](http://www.idevelopment.info/data/Unix/Linux/LINUX_ManagingPhysicalLogicalVolumes.shtml)
-hay un resumen de todos los comandos usados para trabajar con
-volúmenes físicos y lógicos en Linux.
+hay un resumen de todos los comandos usados para trabajar con volúmenes físicos
+y lógicos en Linux.
 
 </div>
 
@@ -87,27 +85,24 @@ volúmenes físicos y lógicos en Linux.
 
 Los
 [FUSE o sistemas de ficheros en espacio de usuario (*filesystems in userspace*)](http://en.wikipedia.org/wiki/Thin_provisioning)
-son *drivers* que permiten proyectar sobre el sistema local recursos
-remotos como si se trataran de sistemas de ficheros locales y sin
-necesidad de usar órdenes privilegiadas para montarlos. Un ejemplo muy
-usado es Dropbox, pero en general casi cualquier recurso que se pueda
-*mapear* a una estructura de directorios se puede pasar a una metáfora
-de sistema de ficheros y hacerlo mediante un programa. Por ejemplo, un
-repositorio remoto de `git` podría usarse de esa forma, accediendo a
-ficheros en el mismo como si se tratara de ficheros locales (y, de
-hecho, eso es lo que hace
-[este programa, `gitfuse`](https://github.com/davesque/gitfuse)), que
-solo permite visualizarlos y que está escrito en Python.
+son *drivers* que permiten proyectar sobre el sistema local recursos remotos
+como si se trataran de sistemas de ficheros locales y sin necesidad de usar
+órdenes privilegiadas para montarlos. Un ejemplo muy usado es Dropbox, pero en
+general casi cualquier recurso que se pueda *mapear* a una estructura de
+directorios se puede pasar a una metáfora de sistema de ficheros y hacerlo
+mediante un programa. Por ejemplo, un repositorio remoto de `git` podría usarse
+de esa forma, accediendo a ficheros en el mismo como si se tratara de ficheros
+locales (y, de hecho, eso es lo que hace
+[este programa, `gitfuse`](https://github.com/davesque/gitfuse)), que solo
+permite visualizarlos y que está escrito en Python.
 
 En Linux se usa la librería [FUSE](http://fuse.sourceforge.net/) para
-implementarlo. Se puede usar directamente o mediante alguna adaptación
-a
-[cualquier lenguaje o a cualquier tipo de sistema](http://sourceforge.net/apps/mediawiki/fuse/index.php?title=FileSystems). Por
-ejemplo, se puede usar para acceder a ficheros comprimidos
-directamente, o a bases de datos, o a la red, o en realidad a casi
-cualquier cosa. Por ejemplo, `sshfs` (que debería estar instalado con
-el paquete OpenSSH) permite acceder a ficheros remotos como si fueran
-locales con el protocolo ssh.
+implementarlo. Se puede usar directamente o mediante alguna adaptación a
+[cualquier lenguaje o a cualquier tipo de sistema](http://sourceforge.net/apps/mediawiki/fuse/index.php?title=FileSystems).
+Por ejemplo, se puede usar para acceder a ficheros comprimidos directamente, o
+a bases de datos, o a la red, o en realidad a casi cualquier cosa. Por ejemplo,
+`sshfs` (que debería estar instalado con el paquete OpenSSH) permite acceder a
+ficheros remotos como si fueran locales con el protocolo ssh.
 
 <div class='ejercicios' markdown='1'>
 
@@ -116,10 +111,10 @@ locales. Por ejemplo, sshfs para acceder a ficheros de una máquina
 virtual invitada o de la invitada al anfitrión.
 
 *Avanzado* Usar los drivers de FUSE para Ruby
- ([aquí explican más o menos como hacerlo con fusefs](http://www.debian-administration.org/articles/619)
- para mostrar el contenido de una estructura de datos en un lenguaje
- como si fuera un
- fichero. [Este es un ejemplo en Python](http://www.stavros.io/posts/python-fuse-filesystem/).
+([aquí explican más o menos como hacerlo con fusefs](http://www.debian-administration.org/articles/619)
+para mostrar el contenido de una estructura de datos en un lenguaje como si
+fuera un fichero.
+[Este es un ejemplo en Python](http://www.stavros.io/posts/python-fuse-filesystem/).
 
 </div>
 
@@ -135,28 +130,26 @@ también, se puede usar dentro de máquinas virtuales.
 
 ## Provisionamiento delgado
 
-Una máquina virtual puede usar directamente cualquiera de los
-volúmenes físicos o lógicos creados por el sistema operativo, pero lo
-más habitual es crear, sobre los volúmenes físicos o lógicos creados por el sistema
-operativo,  un almacenamiento virtual en un proceso que se llama
-habitualmente
+Una máquina virtual puede usar directamente cualquiera de los volúmenes físicos
+o lógicos creados por el sistema operativo, pero lo más habitual es crear,
+sobre los volúmenes físicos o lógicos creados por el sistema operativo, un
+almacenamiento virtual en un proceso que se llama habitualmente
 [provisionamiento delgado](http://en.wikipedia.org/wiki/Thin_provisioning). El
 término *delgado* indica que el volumen lógico va a tener más espacio
-disponible que el espacio físico que realmente ocupa y de forma
-práctica se hace creando ficheros en diferentes formatos, ficheros que
-serán vistos como un volumen lógico dentro de la máquina virtual con
-más espacio del que usan realmente.
+disponible que el espacio físico que realmente ocupa y de forma práctica se
+hace creando ficheros en diferentes formatos, ficheros que serán vistos como un
+volumen lógico dentro de la máquina virtual con más espacio del que usan
+realmente.
 
-Este almacenamiento virtual puede tener muchos formatos
-diferentes. Cada hipervisor, librería, máquina virtual o incluso
-[*pools* de recursos admite unos cuantos; por ejemplo, `libvirt` admite hasta una docena](http://libvirt.org/storage.html). Cualquiera
-de estos recursos tendrá que estar disponible (es decir,
-*provisionado*) antes de la creación de la máquina virtual, por lo que
-conviene *tenerlo a mano* previamente, junto con las herramientas que
-trabajan con él. Algunos formatos que son populares son
+Este almacenamiento virtual puede tener muchos formatos diferentes. Cada
+hipervisor, librería, máquina virtual o incluso *pools* de recursos admite unos
+cuantos; por ejemplo, [`libvirt`](http://libvirt.org/storage.html) admite hasta
+una docena. Cualquiera de estos recursos tendrá que estar disponible (es decir,
+*provisionado*) antes de la creación de la máquina virtual, por lo que conviene
+*tenerlo a mano* previamente, junto con las herramientas que trabajan con él.
+Algunos formatos que son populares son
 
-*
-  [`raw` o *poco poblado* (*sparse*)](http://en.wikipedia.org/wiki/Sparse_file):
+* [`raw` o *poco poblado* (*sparse*)](http://en.wikipedia.org/wiki/Sparse_file):
   son ficheros cuyo formato evita los espacios sin asignar, que se
   representan por metadatos y por lo tanto puede usar en el
   almacenamiento físico menos espacio del asignado inicialmente. Lo
@@ -203,9 +196,10 @@ qemu-img create -f qcow2 fichero-cow.qcow2 5M
 lo que aparecerá como un fichero normal y corriente de un tamaño
 inferior al indicado (5M).
 
-Estos ficheros se van a usar como sistemas de ficheros virtuales, pero
-eso no quiere decir que haga falta una máquina virtual para
-leerlos; se pueden [montar usando `mount`](http://en.wikibooks.org/wiki/QEMU/Images) de la forma siguiente:
+Estos ficheros se van a usar como sistemas de ficheros virtuales, pero eso no
+quiere decir que haga falta una máquina virtual para leerlos; se pueden
+[montar usando `mount`](http://en.wikibooks.org/wiki/QEMU/Images) de la forma
+siguiente:
 
 ```shell
 mount -o loop,offset=32256 /camino/a/fichero-suelto.img /mnt/mountpoint
@@ -223,9 +217,9 @@ mount /dev/nbd0p1 /mnt/image
 
 , donde
 [NBD se refiere a Network Block Device](http://en.wikipedia.org/wiki/Network_block_device).
-En cualquier caso, el objetivo de estas imágenes es precisamente ser
-usadas como sistemas de ficheros montables, por lo que, en cualquier
-caso, la forma de manipularlas es montándolas en algún anfitrión.
+En cualquier caso, el objetivo de estas imágenes es precisamente ser usadas
+como sistemas de ficheros montables, por lo que, en cualquier caso, la forma de
+manipularlas es montándolas en algún anfitrión.
 
 <div class='ejercicios' markdown='1'>
 
@@ -235,11 +229,10 @@ utilidad que se encuentre
 
 </div>
 
-Estos ficheros se pueden usar como cualquier otro dispositivo; son, de
-hecho, sistemas de almacenamiento virtual. Tal cual pueden ser usados
-directamente como almacenamiento cuando creemos un nodo virtual, pero
-también pueden usarse como tales dentro de nuestro sistema. Para ello
-tenemos que convertirlos en un
+Estos ficheros se pueden usar como cualquier otro dispositivo; son, de hecho,
+sistemas de almacenamiento virtual. Tal cual pueden ser usados directamente
+como almacenamiento cuando creemos un nodo virtual, pero también pueden usarse
+como tales dentro de nuestro sistema. Para ello tenemos que convertirlos en un
 [dispositivo *loop*](http://en.wikipedia.org/wiki/Loop_device#Uses_of_loop_mounting)
 usando `losetup`
 
@@ -294,8 +287,8 @@ sistema
 
 <div class='notas' markdown='1'>
 
-Una lista de
-[cosas chulas que se pueden hacer con ficheros sueltecillos (o sea, *sparse*)](http://www.ogris.de/docs/sparse.html)
+Una lista de cosas chulas que se pueden hacer con ficheros sueltecillos (o sea,
+[*sparse*](http://www.ogris.de/docs/sparse.html)).
 
 </div>
 
@@ -341,17 +334,16 @@ interoperabilidad entre sistemas de diferente procedencia, igual que
 todos los sistemas de ficheros usan la misma metáfora de directorios y
 ficheros para acceder a los mismos.
 
-Dado que en la mayor parte de los casos las aplicaciones en nube
-requieren este tipo de almacenamiento, muchos sistemas de
-almacenamiento en nube, como
+Dado que en la mayor parte de los casos las aplicaciones en nube requieren este
+tipo de almacenamiento, muchos sistemas de almacenamiento en nube, como
 [Google cloud storage](https://developers.google.com/storage/index),
 [Amazon Elastic Block Store (EBS)](http://aws.amazon.com/es/ebs/) o
-[el de SoftLayer](http://www.softlayer.com/object-storage). Todos
-estos servicios son de pago (o *freemium* con una capa de pago), pero
-también existen soluciones de software libre que se pueden instalar
-localmente como [CEPH](http://ceph.com) u
-[OpenStack Cinder](http://en.wikipedia.org/wiki/Openstack#Object_Storage_.28Swift.29). También
-se pueden comprar dispositivos físicos que utilizan este tipo de
+[el de SoftLayer](http://www.softlayer.com/object-storage). Todos estos
+servicios son de pago (o *freemium* con una capa de pago), pero también existen
+soluciones de software libre que se pueden instalar localmente como
+[CEPH](http://ceph.com) u
+[OpenStack Cinder](http://en.wikipedia.org/wiki/Openstack#Object_Storage_.28Swift.29).
+También se pueden comprar dispositivos físicos que utilizan este tipo de
 almacenamiento, como
 [Nexenta](http://en.wikipedia.org/wiki/Openstack#Object_Storage_.28Swift.29).
 
@@ -362,8 +354,8 @@ Instalar `ceph` en tu sistema operativo.
 </div>
 
 Podemos probar como sistema de almacenamiento de objetos
-[`ceph`](http://ceph.com), uno de los más simples (relativamente) de
-instalar, al menos si sigues
+[`ceph`](http://ceph.com), uno de los más simples (relativamente) de instalar,
+al menos si sigues
 [estas instrucciones](http://blog.bob.sh/2012/02/basic-ceph-storage-kvm-virtualisation.html).
 
 `ceph` crea tres tipos de nodos: el nodo monitor, el que almacena los
@@ -416,38 +408,37 @@ siguiente:
     devs = /dev/loop0
 ```
 
- Aparte de declarar los ficheros de logs y demás, el fichero de
- configuración tiene tres partes: `mon`, para configurar el monitor,
- `mds`, para configurar el servidor de metadatos, y `osd`, para
- configurar el dispositivo servidor de objetos. `mio` es el nombre
- corto que le damos a la máquina y `penny` es el nombre local de
- nuestra máquina, que tendremos que cambiar por el que haga falta (raj
- o wollowitz o el que sea).
+Aparte de declarar los ficheros de logs y demás, el fichero de configuración
+tiene tres partes: `mon`, para configurar el monitor, `mds`, para configurar el
+servidor de metadatos, y `osd`, para configurar el dispositivo servidor de
+objetos. `mio` es el nombre corto que le damos a la máquina y `penny` es el
+nombre local de nuestra máquina, que tendremos que cambiar por el que haga
+falta (raj o wollowitz o el que sea).
 
- El dispositivo que se use en `devs` debe estar formateado con el
- formato XFS; en el caso de usar otro sistema de ficheros (btrfs
- principalmente) se indica previamente (como se indica en las
- instrucciones que se han enlazado anteriormente.
+El dispositivo que se use en `devs` debe estar formateado con el formato XFS;
+en el caso de usar otro sistema de ficheros (btrfs principalmente) se indica
+previamente (como se indica en las instrucciones que se han enlazado
+anteriormente.
 
- <div class='nota' markdown='1'>
+<div class='nota' markdown='1'>
 
- [Esta presentación de Hastexo](http://www.hastexo.com/misc/static/presentations/lceu2012/ceph.html)
- muestra las ventajas de este tipo de almacenamiento frente al clásico
- y explica los conceptos de OSD
+[Esta presentación de Hastexo](http://www.hastexo.com/misc/static/presentations/lceu2012/ceph.html)
+muestra las ventajas de este tipo de almacenamiento frente al clásico y explica
+los conceptos de OSD
 
- </div>
+</div>
 
- La parte que hay que cambiar también es donde efectivamente se van a
- almacenar los objetos. Lo podemos hacer en cualquier dispositivo,
- pero en este caso he elegido usar un dispositivo *loop* como los que
- hemos configurado anteriormente, con el objeto de no tener que
- disponer una partición específica para ello. Esta partición se
- aconseja que se formatee con XFS o BTRFS; en este caso he elegido el
- primero ya que el segundo todavía es experimental y XFS es el sistema
- por defecto para ceph.
+La parte que hay que cambiar también es donde efectivamente se van a
+almacenar los objetos. Lo podemos hacer en cualquier dispositivo,
+pero en este caso he elegido usar un dispositivo *loop* como los que
+hemos configurado anteriormente, con el objeto de no tener que
+disponer una partición específica para ello. Esta partición se
+aconseja que se formatee con XFS o BTRFS; en este caso he elegido el
+primero ya que el segundo todavía es experimental y XFS es el sistema
+por defecto para ceph.
 
- Una vez hecho esto, hay que crear un directorio a mano (no me
- preguntéis por qué, pero es así y [aquí lo dicen](http://tracker.ceph.com/issues/1015))
+Una vez hecho esto, hay que crear un directorio a mano (no me preguntéis por
+qué, pero es así y [aquí lo dicen](http://tracker.ceph.com/issues/1015))
 
 ```shell
 sudo mkdir /srv/ceph/osd/osd.0
@@ -498,16 +489,16 @@ carga.
 
 <div class='nota' markdown='1'>
 
- [Estas instrucciones](http://svealiden.se/Ceph.html) muestran
-paso a paso como montar `ceph` en un solo sistema; también
+[Estas instrucciones](http://svealiden.se/Ceph.html) muestran paso a paso como
+montar `ceph` en un solo sistema; también
 [una forma alternativa de hacerlo usando las nuevas órdenes](http://svealiden.se/Ceph.html#installnew)
 (aunque la verdad es que no resultan mucho más comprensibles que las
 *clásicas*. Si te animas, puedes seguir
-[las docenas de pasos](http://ceph.com/docs/next/start/) que vienen en
-el sitio oficial de ceph, o
+[las docenas de pasos](http://ceph.com/docs/next/start/) que vienen en el sitio
+oficial de ceph, o
 [estas de Admin magazine](http://www.admin-magazine.com/HPC/Articles/The-RADOS-Object-Store-and-Ceph-Filesystem/%28language%29/eng-US),
-aunque usan autenticación que aquí no estamos usando (pero hará falta
-en una instalación seria).
+aunque usan autenticación que aquí no estamos usando (pero hará falta en una
+instalación seria).
 
 </div>
 
@@ -546,8 +537,8 @@ sudo rados df
 
 te mostrará qué hay en cada uno de los pools. Hay
 [muchos más comandos](https://synnefo.readthedocs.org/en/latest/storage.html?highlight=import)
-pero tampoco me voy a poner a hacer todos y cada uno de ellos. Para
-almacenar objetos, por ejemplo, se usa put
+pero tampoco me voy a poner a hacer todos y cada uno de ellos. Para almacenar
+objetos, por ejemplo, se usa put
 
 ```shel
 sudo rados put -p esa-piscina objeto-almacenado fichero-que-almacenaremos.whatever
@@ -560,17 +551,17 @@ completos usando `ceph` y `rados`.
 
 </div>
 
-En infraestructuras virtuales como OpenStack hay servicios que usan
-este tipo de almacenes de objetos sobre todo para almacenar imágenes
-de dispositivos de almacenamiento completos o *snapshots* de la
-misma. Se verá más adelante cuando usemos este tipo de sistemas. En
-concreto,
+En infraestructuras virtuales como OpenStack hay servicios que usan este tipo
+de almacenes de objetos sobre todo para almacenar imágenes de dispositivos de
+almacenamiento completos o *snapshots* de la misma. Se verá más adelante cuando
+usemos este tipo de sistemas. En concreto,
 [el servicio de almacenamiento de objetos en OpenStack se llama Swift](http://en.wikipedia.org/wiki/Openstack#Object_Storage_.28Swift.29)
-y se
-[usa principalmente almacenamiento de imágenes (discos duros completos) y *snapshots* (estado de un disco duro en un momento determinado)](http://www.openstack.org/software/openstack-storage/). En
-Amazon, [Elastic Block Storage](http://aws.amazon.com/es/ebs/) forma
-parte de las ofertas de servicios web del mismo y permite trabajar con
-bloques desde las instancias EC2.
+y se usa principalmente almacenamiento de imágenes (discos duros completos) y
+[*snapshots*](http://www.openstack.org/software/openstack-storage/) (estado de
+un disco duro en un momento determinado). En Amazon,
+[Elastic Block Storage](http://aws.amazon.com/es/ebs/) forma parte de las
+ofertas de servicios web del mismo y permite trabajar con bloques desde las
+instancias EC2.
 
 ## Almacenamiento virtual en la nube
 
@@ -585,10 +576,10 @@ ningún tipo de almacenamiento interno.
 
 En [Microsoft Azure](http://azure.microsoft.com), por ejemplo,
 [la creación de almacenamiento virtual requiere una *cuenta*](http://www.azure.microsoft.com/en-us/documentation/services/storage/?fb=es-es)
-que estará asociada a la cuenta general que se use en el resto de
-Azure. La cuenta se activa en una zona geográfica determinada, lo que
-dependerá de nuestras preferencias o de las disposiciones legales al
-respecto. Se pueden obtener cuentas gratuitas de Azure siempre que no exceda un uso determinado.
+que estará asociada a la cuenta general que se use en el resto de Azure. La
+cuenta se activa en una zona geográfica determinada, lo que dependerá de
+nuestras preferencias o de las disposiciones legales al respecto. Se pueden
+obtener cuentas gratuitas de Azure siempre que no exceda un uso determinado.
 
 <div class='nota' markdown='1'>
 
@@ -603,13 +594,14 @@ en la Europa Occidental.
 <div class='ejercicios' markdown='1'>
 
 Tras crear la cuenta de Azure, instalar las
-[herramientas de línea de órdenes (Command line interface, cli) del mismo](http://www.azure.microsoft.com/en-us/manage/install-and-configure-cli/)
-y configurarlas con la cuenta Azure correspondiente
+[herramientas de línea de órdenes](http://www.azure.microsoft.com/en-us/manage/install-and-configure-cli/)
+(Command line interface, cli) del mismo y configurarlas con la cuenta Azure
+correspondiente
 
 </div>
 
-Tal cuenta se puede crear de dos formas diferentes: desde el panel de
-control de Azure o bien
+Tal cuenta se puede crear de dos formas diferentes: desde el panel de control
+de Azure o bien
 [desde la línea de órdenes con](https://github.com/WindowsAzure/azure-sdk-tools-xplat)
 
 ```shell
@@ -636,23 +628,26 @@ export AZURE_STORAGE_ACCOUNT=esacuenta
 export AZURE_STORAGE_ACCESS_KEY=unaclavemuylargaquetieneigualesalfinal==
 ```
 
-Una vez creada la cuenta y establecida la configuración ya [se pueden crear cosas en ella](http://www.azure.microsoft.com/en-us/manage/linux/other-resources/command-line-tools/?fb=es-es)
-se puede empezar a manejar la cuenta; una vez más,
-[se pueden crear diferentes contenedores desde el panel de control](http://www.azure.microsoft.com/en-us/manage/services/storage/what-is-a-storage-account/?fb=es-es),
+Una vez creada la cuenta y establecida la configuración ya
+[se pueden crear cosas en ella](http://www.azure.microsoft.com/en-us/manage/linux/other-resources/command-line-tools/?fb=es-es)
+se puede empezar a manejar la cuenta; una vez más, se pueden crear diferentes
+contenedores
+[desde el panel de control](http://www.azure.microsoft.com/en-us/manage/services/storage/what-is-a-storage-account/?fb=es-es),
 pero es más práctico hacerlo desde la línea de órdenes.
 
 Azure divide su cuenta en
 [*contenedores* y llama a los objetos almacenados *blobs*](http://www.azure.microsoft.com/en-us/develop/net/how-to-guides/blob-storage/?fb=es-es#what-is);
-los contenedores son simplemente una forma de agrupar a las *masas* o
-*blobs* y equivalen a los *pools* o piscinas creadas en la sección
-anterior. Los containers se crean de forma más o menos obvia:
+los contenedores son simplemente una forma de agrupar a las *masas* o *blobs* y
+equivalen a los *pools* o piscinas creadas en la sección anterior. Los
+containers se crean de forma más o menos obvia:
 
 ```shell
 azure storage container create taper
 ```
 
-pero esto crea un contenedor de acceso privado; los contenedores
-pueden ser públicos o privados y por defecto se crean privados; [los niveles de permisos existentes son](http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx):
+pero esto crea un contenedor de acceso privado; los contenedores pueden ser
+públicos o privados y por defecto se crean privados;
+[los niveles de permisos existentes son](http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx):
 
 * Públicos para que se vean los contenidos.
 * Blobs públicos solo.
@@ -669,19 +664,20 @@ En este caso, se contesta con
 
 ![Contestación a una creación de contenedor con acceso a nivel de blob](../img/container-con-acceso-blob.png)
 
-que indica en `publicAccessLevel`el valor `Blob`; dado que el CLI de
-azure es una herramienta en node.js, la contestación a las peticiones
-es en JSON. Los containers creados tienen un URL de la forma
-`http://micuenta.blob.core.windows.net/taper` y si tiene acceso
-público se puede acceder directamente a ellos o usando el interfaz
-REST; también se pueden hacer
+que indica en `publicAccessLevel`el valor `Blob`; dado que el CLI de azure es
+una herramienta en node.js, la contestación a las peticiones es en JSON. Los
+containers creados tienen un URL de la forma
+`http://micuenta.blob.core.windows.net/taper` y si tiene acceso público se
+puede acceder directamente a ellos o usando el interfaz REST; también se pueden
+hacer
 [otra serie de operaciones](https://github.com/WindowsAzure/azure-sdk-tools-xplat)
-como listarlos y borrarlos. Pero lo que nos interesa es como subir un
-blob a este almacenamiento, lo que también se puede hacer desde la
-línea de órdenes con `azure storage blob` tal como
+como listarlos y borrarlos. Pero lo que nos interesa es como subir un blob a
+este almacenamiento, lo que también se puede hacer desde la línea de órdenes
+con `azure storage blob` tal como
 
 ```shell
-azure storage blob upload container-con-acceso-blob.png imagenes-iv container-con-acceso-blob.png
+azure storage blob upload container-con-acceso-blob.png imagenes-iv \
+    container-con-acceso-blob.png
 ```
 
 que almacenará un fichero PNG usando como nombre de blob el mismo
@@ -696,15 +692,15 @@ que capturéis las pantallas donde se muestre lo que habéis hecho.
 
 </div>
 
-Con esto estamos a punto de llegar al primer programa que se va a
-mostrar en esta asignatura, fuera de los seminarios. Como es natural,
-se puede acceder al almacenamiento usando diferentes librerías, que,
-en consonancia con el espíritu libre (que no libertario) de la nube y
-en disonancia con el espíritu, ejem, todo lo contrario, de Microsoft,
-son libres. Dado que hemos hecho un
-[seminario de Ruby](../seminarios/ruby.md) vamos a usar ese lenguaje,
-pero hay SDKs para muchos otros lenguajes: node.js, Java y por
-supuesto los propios de Microsoft. Instalemos la [gema para Azure](https://github.com/WindowsAzure/azure-sdk-for-ruby/blob/master/README.md)
+Con esto estamos a punto de llegar al primer programa que se va a mostrar en
+esta asignatura, fuera de los seminarios. Como es natural, se puede acceder al
+almacenamiento usando diferentes librerías, que, en consonancia con el espíritu
+libre (que no libertario) de la nube y en disonancia con el espíritu, ejem,
+todo lo contrario, de Microsoft, son libres. Dado que hemos hecho un
+[seminario de Ruby](../seminarios/ruby.md) vamos a usar ese lenguaje, pero hay
+SDKs para muchos otros lenguajes: node.js, Java y por supuesto los propios de
+Microsoft. Instalemos la
+[gema para Azure](https://github.com/WindowsAzure/azure-sdk-for-ruby/blob/master/README.md)
 
 ```shell
 sudo gem install azure
@@ -712,15 +708,15 @@ sudo gem install azure
 
 y vamos a usar
 [este programa](https://github.com/JJ/IV/tree/master/ejemplos/blob-azure.rb)
-para crear un contenedor y almacenar algo
-en él
+para crear un contenedor y almacenar algo en él
 
 ```ruby
 #!/usr/bin/ruby
 
 require "azure"
 
-#Recuerda establecer las variables de entorno AZURE_STORAGE_ACCOUNT and AZURE_STORAGE_ACCESS_KEY
+# Recuerda establecer las variables de entorno AZURE_STORAGE_ACCOUNT and
+# AZURE_STORAGE_ACCESS_KEY
 
 azure_blob_service = Azure::BlobService.new
 begin
@@ -767,6 +763,6 @@ previamente.
 
 ## A dónde ir desde aquí
 
-En el [siguiente tema](Uso_de_sistemas) trabajaremos con máquinas
-virtuales completas, incluyendo máquinas en la nube. Tras él, habrá que hacer y entregar la
-[tercera práctica](../practicas/3.MV).
+En el [siguiente tema](Uso_de_sistemas) trabajaremos con máquinas virtuales
+completas, incluyendo máquinas en la nube. Tras él, habrá que hacer y entregar
+la [tercera práctica](../practicas/3.MV).

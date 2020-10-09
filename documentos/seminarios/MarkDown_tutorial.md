@@ -1,18 +1,26 @@
 # Mini-tutorial de Markdown
 
-MarkDown nació como un lenguaje de marcado que facilita aplicar un cierto formato a un texto plano. Para ello se utilizar distintos caracteres de forma especial.
+MarkDown nació como un lenguaje de marcado que facilita aplicar un cierto
+formato a un texto plano. Para ello se utilizar distintos caracteres de forma
+especial.
 
-En un principio MarkDown nació para elaborar textos cuyo destino fuera ser integrados en la web con facilidad y rapidez.
+En un principio MarkDown nació para elaborar textos cuyo destino fuera ser
+integrados en la web con facilidad y rapidez.
 
-Hoy en día es una forma ágil y sencilla de tomar apuntes, documentar un trabajo o simplemente redactar un texto.
+Hoy en día es una forma ágil y sencilla de tomar apuntes, documentar un trabajo
+o simplemente redactar un texto.
 
-La extensión propia de MarkDown es ".md" y la conversión a PDF se realiza mediante algun pluggin que tengamos en nuestro editor, en mi caso utilizo: "MarkDown to PDF"
+La extensión propia de MarkDown es ".md" y la conversión a PDF se realiza
+mediante algun pluggin que tengamos en nuestro editor, en mi caso utilizo:
+"MarkDown to PDF"
 
 ## Sintaxis de MarkDown:
 
 ### 1. Encabezados(#):
 
-Para integrar un encabezado en nuestro texto utilizamos el caracter "#" al principio de este, pudiendo agregar más almohadillas podemos variar de nivel el encabezado, cuantas más almohadillas más pequeño será el encabezado:
+Para integrar un encabezado en nuestro texto utilizamos el caracter "#" al
+principio de este, pudiendo agregar más almohadillas podemos variar de nivel el
+encabezado, cuantas más almohadillas más pequeño será el encabezado:
 
 ```md
 # Titulo1
@@ -23,7 +31,8 @@ Para integrar un encabezado en nuestro texto utilizamos el caracter "#" al princ
 
 ### 2. Cursiva y negrita:
 
-Hay distintas formas de conseguir que nuestro texto se vea en _cursiva_, __negrita__ o ___ambos___, aquí se reflejarán dos de ellas:
+Hay distintas formas de conseguir que nuestro texto se vea en _cursiva_,
+__negrita__ o ___ambos___, aquí se reflejarán dos de ellas:
 
 ```md
 Cursiva:  _a_ ó *a*
@@ -33,7 +42,8 @@ Ambos: ___a___ ó ***a***
 
 ### 3. Listas enumeradas y no enumeradas:
 
-Para conseguir una lista enumerada basta con agregar un número delante del texto junto a un punto y un espacio:
+Para conseguir una lista enumerada basta con agregar un número delante del
+texto junto a un punto y un espacio:
 
 ```md
 1. Primer Elemento
@@ -75,7 +85,8 @@ Se vería así:
 
 ### 5. Añadir imágenes:
 
-La estructura para añadir imágenes es similar a la de los enlaces pero añadiendo '!' al principio:
+La estructura para añadir imágenes es similar a la de los enlaces pero
+añadiendo '!' al principio:
 
 ```md
 ![Texto que utilizamos por si no se visualiza la imagen](Ruta que ocupa la imagen
@@ -92,7 +103,10 @@ Y se vería así:
 
 ### 6. Escapar caracteres:
 
-Si te estás preguntando cómo se escapan caracteres o como se están creando esos mágicos cuadraditos tan bonitos este es el truco, basta con utilizar: \` ,(escapar caracteres) o repetirlo tres veces para abrir y otras tres para cerrar \`\`\`, viendolo en un ejemplo quedará más claro:
+Si te estás preguntando cómo se escapan caracteres o como se están creando esos
+mágicos cuadraditos tan bonitos este es el truco, basta con utilizar: \`,
+(escapar caracteres) o repetirlo tres veces para abrir y otras tres para
+cerrar \`\`\`, viendolo en un ejemplo quedará más claro:
 
 Recuadro:
 

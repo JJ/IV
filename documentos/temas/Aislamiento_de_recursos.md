@@ -15,7 +15,8 @@ next: PaaS
    software como de hardware y ponerlos en práctica.
 2. Comprender la diferencia entre infraestructura virtual y real.
 
-3. Justificar la necesidad de procesamiento virtual frente a real en el contexto de una infraestructura TIC de una organización.
+3. Justificar la necesidad de procesamiento virtual frente a real en el
+   contexto de una infraestructura TIC de una organización.
 
 ### Objetivos específicos
 
@@ -42,11 +43,13 @@ esto se consigue usando los denominados
 un mecanismo que se implantó por primera vez a principios de los años
 90.
 
-Los [`cgroups`](http://kaivanov.blogspot.com.es/2012/07/setting-up-linux-cgroups-control-groups.html) usan un mecanismo común a todos los Linux denominado
-sistemas de ficheros virtuales, igual que el sistema `/proc` presente
-en todos. En este caso, los que tienen soporte a nivel de kernel
-permiten crear un sistema de ficheros en `/cgroups` o en
-`/sys/fs/cgroups` a partir del cual se controla el uso de los mismos.
+Los
+[`cgroups`](http://kaivanov.blogspot.com.es/2012/07/setting-up-linux-cgroups-control-groups.html)
+usan un mecanismo común a todos los Linux denominado sistemas de ficheros
+virtuales, igual que el sistema `/proc` presente en todos. En este caso, los
+que tienen soporte a nivel de kernel permiten crear un sistema de ficheros en
+`/cgroups` o en `/sys/fs/cgroups` a partir del cual se controla el uso de los
+mismos.
 
 Si ese sistema de ficheros virtual está ya activado, se puede listar
 su contenido usando `ls` o el navegador de ficheros. Si no lo está, se
@@ -69,7 +72,10 @@ dependiendo de donde esté configurado.
 > instalarlos cuando se arranque el sistema.
 
 <div class='ejercicios' markdown="1">
-Comprobar si en la instalación hecha se ha instalado cgroups y en qué punto está montado, así como qué contiene.
+
+Comprobar si en la instalación hecha se ha instalado cgroups y en qué punto
+está montado, así como qué contiene.
+
 </div>
 
 Dependiendo de cómo esté configurado, puede contener algo como esto
@@ -97,7 +103,8 @@ en caso de que `cgroup-lite` se haya instalado y esté funcionando.
 > configuración. Si se ha configurado con cgroup-lite no va a
 > funcionar y solo se podrán crear grupos dentro de directorios determinados.
 
-Dependiendo de la configuración que se haya creado, crear un *grupo de control* es tan simple como crear un subdirectorio
+Dependiendo de la configuración que se haya creado, crear un *grupo de control*
+es tan simple como crear un subdirectorio
 
 ```shell
 mkdir /cgroup/buenos
@@ -195,12 +202,11 @@ cgroup.event_control   cpu.cfs_quota_us   notify_on_release
 cgroup.procs           cpu.shares         tasks
 ```
 
-Dentro de este directorio se pueden
-asignar
-[diferentes procesadores mediante `cgroup.procs` o tareas específicas a uno u otro grupo](http://kaivanov.blogspot.com.es/2012/07/setting-up-linux-cgroups-control-groups.html). Instalar
-`cgroup-bin` te proporciona diferentes utilidades, como `lscgroup` o
-`cgcreate` que te crea grupos con el mismo nombre en todos los
-controladores que desees:
+Dentro de este directorio se pueden asignar diferentes procesadores mediante
+[`cgroup.procs](http://kaivanov.blogspot.com.es/2012/07/setting-up-linux-cgroups-control-groups.html)`
+o tareas específicas a uno u otro grupo. Instalar `cgroup-bin` te proporciona
+diferentes utilidades, como `lscgroup` o `cgcreate` que te crea grupos con el
+mismo nombre en todos los controladores que desees:
 
 ```shell
 root@penny:/sys/fs/cgroup# cgcreate -g cpu,cpuacct:/good
@@ -226,15 +232,15 @@ virtuales, pero esto se verá más adelante.
 
 </div>
 
-El paquete `cgroup-bin` (`libcgroup` en ArchLinux, puede variar en
-otras distros) [permite un control por línea de órdenes](https://wiki.archlinux.org/index.php/Cgroups) algo
-más sencillo sin necesidad de trabajar directamente con sistemas de
-ficheros virtuales. Con una serie de órdenes o un fichero de
-configuración en
-`/etc/cgconfig.conf`
-[se pueden controlar los diferentes grupos de control y limitar y contabilizar el uso de recursos por parte de los diferentes procesos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/) que
-se hayan asignado en
-los grupos.
+El paquete `cgroup-bin` (`libcgroup` en ArchLinux, puede variar en otras
+distros)
+[permite un control por línea de órdenes](https://wiki.archlinux.org/index.php/Cgroups)
+algo más sencillo sin necesidad de trabajar directamente con sistemas de
+ficheros virtuales. Con una serie de órdenes o un fichero de configuración en
+[`/etc/cgconfig.conf`](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/)
+se pueden controlar los diferentes grupos de control y limitar y contabilizar
+el uso de recursos por parte de los diferentes procesos que se hayan asignado
+en los grupos.
 
 Los grupos se crean con la orden `cgcreate`:
 
@@ -266,20 +272,25 @@ anterior.
 cgexec   -g memory,cpu,cpuacct:teestoyviendo/wp lowriter
 ```
 
-Con [cgclassify](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/sec-Moving_a_Process_to_a_Control_Group.html), para finalizar, podemos cambiar un proceso de
-grupo. La sintaxis es la misma que en el caso de cgexec (es decir, usa
-la opción `-g`) pero habrá que pasarle un número de proceso.
+Con
+[cgclassify](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/sec-Moving_a_Process_to_a_Control_Group.html),
+para finalizar, podemos cambiar un proceso de grupo. La sintaxis es la misma
+que en el caso de cgexec (es decir, usa la opción `-g`) pero habrá que pasarle
+un número de proceso.
 
 Si se quiere trabajar con usuarios en vez de procesos, se puede usar
 [cgrules](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/sec-Moving_a_Process_to_a_Control_Group.html#The_cgred_Service),
-un fichero de configuración que permite especificar a qué grupo
-pertenece cada usuario e incluso qué comandos de qué usuario deben
-pertenecer a cada grupo. Con ello se le puede asignar, por ejemplo,
-más prioridad en la CPU o entrada/salida a unos usuarios que a otros.
+un fichero de configuración que permite especificar a qué grupo pertenece cada
+usuario e incluso qué comandos de qué usuario deben pertenecer a cada grupo.
+Con ello se le puede asignar, por ejemplo, más prioridad en la CPU o
+entrada/salida a unos usuarios que a otros.
 
 <div class='ejercicios' markdown="1">
 
-1. [Discutir diferentes escenarios de limitación de uso de recursos o de asignación de los mismos a una u otra CPU](https://github.com/IV-GII/GII-2014/issues/4).
+1. Discutir
+   [diferentes escenarios](https://github.com/IV-GII/GII-2014/issues/4) de
+   limitación de uso de recursos o de asignación de los mismos a una u otra
+   CPU.
 2. Implementar usando el fichero de configuración de `cgcreate` una política
    que dé menos prioridad a los procesos de usuario que a los procesos del
    sistema (o viceversa).
@@ -291,11 +302,14 @@ más prioridad en la CPU o entrada/salida a unos usuarios que a otros.
 
 <div class='nota' markdown='1'>
 
-Algunas aplicaciones están preparadas de serie para usar cgroups:
-[este manual explican cómo asignarle calidades de servicio usando CGROUPS a un marco web denominado uWSCGI](http://uwsgi-docs.readthedocs.org/en/latest/Cgroups.html).
+Algunas aplicaciones están preparadas de serie para usar cgroups: este manual
+explican cómo asignarle calidades de servicio usando
+[CGROUPS](http://uwsgi-docs.readthedocs.org/en/latest/Cgroups.html) a un marco
+web denominado uWSCGI.
 
 </div>
 
 ## A dónde ir desde aquí
 
-En el [siguiente tema](PaaS.md) veremos como usar sistemas de plataforma como servicio.
+En el [siguiente tema](PaaS.md) veremos como usar sistemas de plataforma como
+servicio.

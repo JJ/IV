@@ -54,11 +54,12 @@ Esto crea un grupo de recursos en Europa Occidental.
 
 ## A dónde ir desde aquí
 
-Si no lo has visto, en el [siguiente tema](Gestion_de_configuraciones.md) pondremos en
-práctica todos los conceptos aprendidos en este tema y
-[en el tema dedicado a almacenamiento](Almacenamiento.md) para crear configuraciones que sean
-fácilmente gestionables y adaptables a un fin determinado. También se
-puede ir a [el hito del proyecto](../3.IaaS.md) para aplicarlo al mismo.
+Si no lo has visto, en el [siguiente tema](Gestion_de_configuraciones.md)
+pondremos en práctica todos los conceptos aprendidos en este tema y
+[en el tema dedicado a almacenamiento](Almacenamiento.md) para crear
+configuraciones que sean fácilmente gestionables y adaptables a un fin
+determinado. También se puede ir a [el hito del proyecto](../3.IaaS.md) para
+aplicarlo al mismo.
 
 Si lo que necesitas es un sistema ligero de virtualización, puedes
 mirar cómo virtualizar con [contenedores](Contenedores.md).

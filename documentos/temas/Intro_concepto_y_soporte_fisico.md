@@ -18,7 +18,8 @@ next: Desarrollo_basado_en_pruebas
 
 3. Comprender la diferencia entre infraestructura virtual y real.
 
-4. Justificar la necesidad de procesamiento virtual frente a real en el contexto de una infraestructura TIC de una organización.
+4. Justificar la necesidad de procesamiento virtual frente a real en el
+   contexto de una infraestructura TIC de una organización.
 
 ### Objetivos específicos
 
@@ -45,41 +46,43 @@ Se puede consultar
 
 ## Introducción
 
-En general y en Informática, un recurso [virtual](https://en.wikipedia.org/wiki/Virtualization) es un recurso
-*irreal*, es decir, un recurso que no tiene equivalente físico directo. Así, *memoria virtual* es la memoria que, en
-realidad, está almacenada en parte en un disco o *realidad virtual* es
-un entorno inmersivo generado por ordenador que imita a la realidad
-(al menos en que se puede situar uno *dentro* de ella). Una infraestructura virtual será un
-recurso -procesador, memoria, disco, conjunto de aplicaciones o
-incluso una sola aplicación o función- que no está asociado
-directamente a su equivalente real (no tiene un procesador físico, o un
-disco físico exclusivo) sino que se ha creado a través de una serie de
-mecanismos computacionales para funcionar como tal.
+En general y en Informática, un recurso
+[virtual](https://en.wikipedia.org/wiki/Virtualization) es un recurso *irreal*,
+es decir, un recurso que no tiene equivalente físico directo. Así, *memoria
+virtual* es la memoria que, en realidad, está almacenada en parte en un disco o
+*realidad virtual* es un entorno inmersivo generado por ordenador que imita a
+la realidad (al menos en que se puede situar uno *dentro* de ella). Una
+infraestructura virtual será un recurso -procesador, memoria, disco, conjunto
+de aplicaciones o incluso una sola aplicación o función- que no está asociado
+directamente a su equivalente real (no tiene un procesador físico, o un disco
+físico exclusivo) sino que se ha creado a través de una serie de mecanismos
+computacionales para funcionar como tal.
 
 A partir de esto, un *recurso en la nube* es aquel al que se puede
 acceder *bajo demanda*, que es *escalable* y que, desde el punto de
 vista del usuario, se *facture según uso*, no por el hecho de tener acceso.
 
-El [origen de la palabra](https://en.wikipedia.org/wiki/Cloud_computing#History) viene de la tradicional representación de recursos
-  en la red como una nube en diferentes ilustraciones.
+El
+[origen de la palabra](https://en.wikipedia.org/wiki/Cloud_computing#History)
+viene de la tradicional representación de recursos en la red como una nube en
+diferentes ilustraciones.
 
-<div class='ejercicios' markdown='1'>
-Consultar en el catálogo de alguna tienda de informática el precio de
-un ordenador tipo servidor y calcular su coste de amortización a
-cuatro y siete años. Consultar
+<div class='ejercicios' markdown='1'> Consultar en el catálogo de alguna tienda
+de informática el precio de un ordenador tipo servidor y calcular su coste de
+amortización a cuatro y siete años. Consultar
 [este artículo en Infoautónomos sobre el tema](http://infoautonomos.eleconomista.es/consultas-a-la-comunidad/988/).
 </div>
 
 Desde el punto de vista del desarrollo, la creación y gestión de
 infraestructuras virtuales entra dentro del concepto de
-[*DevOps*](https://en.wikipedia.org/wiki/DevOps), un concepto que
-abarca tanto sistemas como desarrollo y que está a caballo de
-ambos. En primer lugar, *DevOps* implica la automatización de las
-tareas de creación de un puesto de trabajo para desarrollo, pero
-también la sistematización de pruebas, de despliegue y de las tareas
-de configuración relacionadas con la misma, todo ello en un entorno de
-desarrollo ágil. En concreto, *DevOps* comprende
-[los 7 aspectos siguientes, vistos en la página de una herramienta, Rex, usada para ello](https://www.rexify.org/):
+[*DevOps*](https://en.wikipedia.org/wiki/DevOps), un concepto que abarca tanto
+sistemas como desarrollo y que está a caballo de ambos. En primer lugar,
+*DevOps* implica la automatización de las tareas de creación de un puesto de
+trabajo para desarrollo, pero también la sistematización de pruebas, de
+despliegue y de las tareas de configuración relacionadas con la misma, todo
+ello en un entorno de desarrollo ágil. En concreto, *DevOps* comprende los 7
+aspectos siguientes, vistos en la página de una herramienta,
+[Rex](https://www.rexify.org/), usada para ello:
 
 1. Automatización de tareas relacionadas con el desarrollo. En
    resumen, que no haya que recordar comandos para hacer todo tipo de
@@ -115,39 +118,37 @@ desarrollo ágil. En concreto, *DevOps* comprende
 
 ## Tecnologías de virtualización: un poco de historia
 
-Tecnológicamente la computación nube se basa en el proceso progresivo
-  de virtualización de recursos computacionales que ha tenido lugar
-  prácticamente desde que se empezaron a usar los sistemas de tiempo
-  compartido o *time-share* en los años 50. Estos sistemas convertían una sola máquina real en
-  diversas *máquinas virtuales*, una por usuario. A estos sistemas se
-  accedía mediante terminales *tontos*, con usuarios *percibiendo* un
-  uso exclusivo de los recursos, es decir, teniendo acceso a un
-  *ordenador virtual*.
+Tecnológicamente la computación nube se basa en el proceso progresivo de
+virtualización de recursos computacionales que ha tenido lugar prácticamente
+desde que se empezaron a usar los sistemas de tiempo compartido o *time-share*
+en los años 50. Estos sistemas convertían una sola máquina real en diversas
+*máquinas virtuales*, una por usuario. A estos sistemas se accedía mediante
+terminales *tontos*, con usuarios *percibiendo* un uso exclusivo de los
+recursos, es decir, teniendo acceso a un *ordenador virtual*.
 
-  En realidad en estos sistemas la protección de memoria o de CPU era
-  relativa; la virtualización de recursos en el sentido que la
-  conocemos ahora tiene su origen en los
-  *mainframes* de los 60. La
+  En realidad en estos sistemas la protección de memoria o de CPU era relativa;
+  la virtualización de recursos en el sentido que la conocemos ahora tiene su
+  origen en los *mainframes* de los 60. La
   [línea temporal de tecnologías de virtualización](https://en.wikipedia.org/wiki/Timeline_of_virtualization_development)
   sitúa en los años 60 el desarrollo de los primeros sistemas de
-  [memoria virtual](https://en.wikipedia.org/wiki/Virtual_memory) por parte de IBM, con el primer monitor de máquinas virtuales hecho
-  en los años 80 sobre el procesador 80286.
+  [memoria virtual](https://en.wikipedia.org/wiki/Virtual_memory) por parte de
+  IBM, con el primer monitor de máquinas virtuales hecho en los años 80 sobre
+  el procesador 80286.
 
-  El concepto de *red privada virtual* o VPN (*virtual private
-  network*) es posterior y comenzó a usarse en los años noventa,
-  simultáneamente a lo que se puede considerar las primeras
-  aplicaciones virtuales, los [servicios de correo web](https://en.wikipedia.org/wiki/Webmail) tales como Yahoo
-  o Hotmail, que son en realidad una virtualización de las
-  aplicaciones de lectura del correo electrónico.
+  El concepto de *red privada virtual* o VPN (*virtual private network*) es
+  posterior y comenzó a usarse en los años noventa, simultáneamente a lo que se
+  puede considerar las primeras aplicaciones virtuales, los
+  [servicios de correo web](https://en.wikipedia.org/wiki/Webmail) tales como
+  Yahoo o Hotmail, que son en realidad una virtualización de las aplicaciones
+  de lectura del correo electrónico.
 
-  Todos los conceptos, por lo tanto, tienen origen en el pasado
-  pero la computación nube tal como la conocemos resurge a principios
-  de siglo por la potencia alcanzada por los
-  procesadores y sobre todo por la existencia de soporte físico en los
-  mismos para llevar a cabo virtualización de diferentes recursos
-  tales como CPU, memoria, almacenamiento y red. Productos privativos como VMWare
-  existen desde principios de siglo y otros libres, como [Xen](https://en.wikipedia.org/wiki/Xen), desde el
-  año 2003.
+  Todos los conceptos, por lo tanto, tienen origen en el pasado pero la
+  computación nube tal como la conocemos resurge a principios de siglo por la
+  potencia alcanzada por los procesadores y sobre todo por la existencia de
+  soporte físico en los mismos para llevar a cabo virtualización de diferentes
+  recursos tales como CPU, memoria, almacenamiento y red. Productos privativos
+  como VMWare existen desde principios de siglo y otros libres, como
+  [Xen](https://en.wikipedia.org/wiki/Xen), desde el año 2003.
 
   El primer servicio en
   tener esa denominación fue el
@@ -158,41 +159,42 @@ Tecnológicamente la computación nube se basa en el proceso progresivo
 
   La virtualización de la infraestructura permite:
 
-* Creación y configuración de la misma bajo demanda. En vez de
-    desplazar a un técnico al centro de datos para que instale un
-    sistema operativo y las aplicaciones necesarias, o hacerlo remotamente, se puede
-    automatizar la creación de un recurso (a base de *recetas* o
-    *plantillas*) y llevarse a cabo cuantas veces se necesite.
+* Creación y configuración de la misma bajo demanda. En vez de desplazar a un
+  técnico al centro de datos para que instale un sistema operativo y las
+  aplicaciones necesarias, o hacerlo remotamente, se puede automatizar la
+  creación de un recurso (a base de *recetas* o *plantillas*) y llevarse a cabo
+  cuantas veces se necesite.
 
 * Simplificación del control y despliegue de recursos: permite usar
    diferentes sistemas operativos y en cada caso el más adecuado para
    la tarea que se requiera.
 
-* Permite que el *vendor* (distribuidor o vendedor con valor añadido) aproveche mejor el hardware, usando la
-  capacidad para servir a diferentes clientes a lo largo del día o de
-  la semana y creando tanta infraestructura virtual como la física
-  pueda soportar. Esto también reduce la cantidad de energía consumida.
+* Permite que el *vendor* (distribuidor o vendedor con valor añadido) aproveche
+  mejor el hardware, usando la capacidad para servir a diferentes clientes a lo
+  largo del día o de la semana y creando tanta infraestructura virtual como la
+  física pueda soportar. Esto también reduce la cantidad de energía consumida.
 
 * Portabilidad: una máquina virtual se puede mover físicamente de un
     ordenador a otro cuando sea necesario.
 
-* Ahorro de costes de arranque en un centro de datos frente a una
-      instalación tradicional, aunque eventualmente algunos negocios puedan optar, si tienen un uso intensivo y regular, en volver a ella.
+* Ahorro de costes de arranque en un centro de datos frente a una instalación
+  tradicional, aunque eventualmente algunos negocios puedan optar, si tienen un
+  uso intensivo y regular, en volver a ella.
 
-Todas estas ventajas hacen que,
-      [ya en el año 2013, más de la mitad de los negocios americanos usaban infraestructura virtual](https://www.forbes.com/sites/reuvencohen/2013/04/16/the-cloud-hits-the-mainstream-more-than-half-of-u-s-businesses-now-use-cloud-computing/).
+Todas estas ventajas hacen que, ya en el año 2013,
+[más de la mitad de los negocios americanos](https://www.forbes.com/sites/reuvencohen/2013/04/16/the-cloud-hits-the-mainstream-more-than-half-of-u-s-businesses-now-use-cloud-computing/)
+usaban infraestructura virtual.
 
 <div class='ejercicios' markdown="1">
-Usando las tablas de precios de servicios de alojamiento en Internet
-"clásicos", es decir, que ofrezcan *Virtual Private Servers* o
-servidores físicos, y
-de proveedores de servicios en la nube, comparar el coste durante un
-año de un ordenador con un procesador estándar (escogerlo de forma que
-sea el mismo tipo de procesador en los dos vendedores) y con el resto
-de las características similares (tamaño de disco duro equivalente a
-transferencia de disco duro) en el caso de que la infraestructura comprada se usa
-solo el 1% o el 10% del tiempo.
-</div>
+
+Usando las tablas de precios de servicios
+de alojamiento en Internet "clásicos", es decir, que ofrezcan *Virtual Private
+Servers* o servidores físicos, y de proveedores de servicios en la nube,
+comparar el coste durante un año de un ordenador con un procesador estándar
+(escogerlo de forma que sea el mismo tipo de procesador en los dos vendedores)
+y con el resto de las características similares (tamaño de disco duro
+equivalente a transferencia de disco duro) en el caso de que la infraestructura
+comprada se usa solo el 1% o el 10% del tiempo. </div>
 
 ## Tipos de virtualización
 
@@ -206,18 +208,15 @@ la virtualización se
 denomina *anfitrión* y el que se ejecuta *dentro* de la máquina
 virtual *invitado*.
 
-* La
-  [virtualización plena](https://en.wikipedia.org/wiki/Full_virtualization)
-  virtualiza todos los aspectos de un ordenador para poder ejecutar
-  sistemas operativos y otros programas sin modificar. Las
-  aplicaciones necesarias para llevarlas a cabo se llaman
+* La [virtualización plena](https://en.wikipedia.org/wiki/Full_virtualization)
+  virtualiza todos los aspectos de un ordenador para poder ejecutar sistemas
+  operativos y otros programas sin modificar. Las aplicaciones necesarias para
+  llevarlas a cabo se llaman
   [hipervisores o programas de control](https://en.wikipedia.org/wiki/Hypervisor),
-  y para que se consigan de forma completa necesitan soporte hardware
-  tal como
-  [reescritura binaria y *ensombrecimiento* de estructuras de datos](https://en.wikipedia.org/wiki/X86_virtualization). La
-  mayoría de los procesadores modernos de Intel y AMD tienen este tipo
-  de soporte. A veces, con soporte de hardware, se
-  puede
+  y para que se consigan de forma completa necesitan soporte hardware tal como
+  [reescritura binaria y *ensombrecimiento* de estructuras de datos](https://en.wikipedia.org/wiki/X86_virtualization).
+  La mayoría de los procesadores modernos de Intel y AMD tienen este tipo de
+  soporte. A veces, con soporte de hardware, se puede
   [virtualizar algún recurso](https://en.wikipedia.org/wiki/Hardware-assisted_virtualization),
   tal como la memoria.
 
@@ -282,15 +281,15 @@ use físicamente tiene importancia secundaria.
 ## Virtualización a nivel de *hardware*
 
 Los sistemas operativos modernos ofrecen *puentes* para poder usar las
-capacidades de virtualización que contienen los procesadores de
-sobremesa y portátiles modernos. Hay dos
+capacidades de virtualización que contienen los procesadores de sobremesa y
+portátiles modernos. Hay dos
 [tecnologías principales dentro del mundo x86](https://en.wikipedia.org/wiki/X86_virtualization):
 [VT-x de Intel](https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29)
 y
-[AMD-V](https://en.wikipedia.org/wiki/X86_virtualization#AMD_virtualization_.28AMD-V.29). En
-algunos casos, esta tecnología está desactivada en la BIOS, por lo que
-habrá que comprobar si está activada o no en nuestro caso
-particular. Para hacerlo se usa este comando en Linux:
+[AMD-V](https://en.wikipedia.org/wiki/X86_virtualization#AMD_virtualization_.28AMD-V.29).
+En algunos casos, esta tecnología está desactivada en la BIOS, por lo que habrá
+que comprobar si está activada o no en nuestro caso particular. Para hacerlo se
+usa este comando en Linux:
 
 ```shell
 egrep '^flags.*(vmx|svm)' /proc/cpuinfo
@@ -305,11 +304,11 @@ fichero que contengan la expresión regular indicada, y si aparecen los
 *flags* listará la línea completa. Si no lista nada, entonces es que
 el procesador no tiene esa funcionalidad o está desactivada.
 
-<div class='ejercicios' markdown="1">
-En general, cualquier ordenador con menos de 5 o 6 años tendrá estos *flags*. ¿Qué
-modelo de procesador es? ¿Qué aparece como salida de esa orden? Si
-usas una máquina virtual, ¿qué resultado da? ¿Y en una Raspberry Pi o,
-si tienes acceso, [el procesador del móvil](https://stackoverflow.com/questions/26239956/how-to-get-specific-information-of-an-android-device-from-proc-cpuinfo-file)?
+<div class='ejercicios' markdown="1"> En general, cualquier ordenador con menos
+de 5 o 6 años tendrá estos *flags*. ¿Qué modelo de procesador es? ¿Qué aparece
+como salida de esa orden? Si usas una máquina virtual, ¿qué resultado da? ¿Y en
+una Raspberry Pi o, si tienes acceso,
+[el procesador del móvil](https://stackoverflow.com/questions/26239956/how-to-get-specific-information-of-an-android-device-from-proc-cpuinfo-file)?
 </div>
 
 Lo que implementan estas tecnologías son una serie de instrucciones
@@ -326,15 +325,14 @@ aplicaciones para gestionar máquinas virtuales puedan usarlo.
 
 Esta infraestructura en Linux se llama
 [KVM, Kernel-based Virtual Machine](https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine)
-(aunque también se ha usado en otros sistemas operativos). Este
-dispositivo se encarga de gestionar la aplicación de memoria del
-invitado al anfitrión, crear los dispositivos virtuales de entrada
-salida y presentar la salida de vídeo del invitado en el anfitrión. En
-realidad, KVM tampoco se usa directamente en general (aunque es una
-parte del núcleo con sus características como cualquier otra) sino que
-lo habitual es que se use a través de hipervisores tales como
-[QEMU](https://en.wikipedia.org/wiki/QEMU). KVM solo está activado si
-puede usar la aceleración por hardware del procesador.
+(aunque también se ha usado en otros sistemas operativos). Este dispositivo se
+encarga de gestionar la aplicación de memoria del invitado al anfitrión, crear
+los dispositivos virtuales de entrada salida y presentar la salida de vídeo del
+invitado en el anfitrión. En realidad, KVM tampoco se usa directamente en
+general (aunque es una parte del núcleo con sus características como cualquier
+otra) sino que lo habitual es que se use a través de hipervisores tales como
+[QEMU](https://en.wikipedia.org/wiki/QEMU). KVM solo está activado si puede
+usar la aceleración por hardware del procesador.
 
 Alternativamente, se puede usar la orden `lscpu`, también presente en
 todos los Linux, para ver si las órdenes de virtualización están
@@ -360,9 +358,9 @@ posible un hipervisor que sea software libre.
 
 ## Niveles y tipos de infraestructura virtual
 
-A nivel de tecnología se aprecian diferentes niveles de
-virtualización, pero hasta no hace demasiado tiempo se solía hablar,
-desde el punto de vista comercial, de
+A nivel de tecnología se aprecian diferentes niveles de virtualización, pero
+hasta no hace demasiado tiempo se solía hablar, desde el punto de vista
+comercial, de
 [tres niveles: *Infrastructure*, *Platform* y *Software* *as a service*](https://en.wikipedia.org/wiki/Cloud_computing)
 
 ![Capas de computación nube](https://upload.wikimedia.org/wikipedia/commons/3/3c/Cloud_computing_layers.png)
@@ -377,11 +375,11 @@ Servicio. La mayoría de los temas están dedicados a la creación,
 diseño y mantenimiento de IaaS, por lo que dedicaremos especial
 atención en este tema al nivel PaaS.
 
-A diferencia del IaaS, que proporciona algo similar al *bare metal* o capacidades de
-máquina (CPU, almacenamiento, entrada salida y red) que uno puede
-configurar y usar según la necesidad que haya, un PaaS contiene infraestructura y
-una *pila de soluciones* o *solution stack* completa que permite
-desplegar en el mismo nuestras propias aplicaciones.
+A diferencia del IaaS, que proporciona algo similar al *bare metal* o
+capacidades de máquina (CPU, almacenamiento, entrada salida y red) que uno
+puede configurar y usar según la necesidad que haya, un PaaS contiene
+infraestructura y una *pila de soluciones* o *solution stack* completa que
+permite desplegar en el mismo nuestras propias aplicaciones.
 
 En realidad, a estas alturas del siglo no está tan clara esa división
 en capas. Mientras que el sufijo *as a service* o *aaS* se mantiene,
@@ -403,21 +401,17 @@ Hay especialmente dos servicios que han
 surgido a partir del año 2015 que no encajan nada bien dentro de esas
 capas anteriores
 
-* *Contenedores como servicio* son servicios que permiten subir a la
-  nube directamente contenedores o descripciones de los mismos, así
-  como funciones de orden superior como conexión u
-  orquestación. Evidentemente, empezó
-  con
+* *Contenedores como servicio* son servicios que permiten subir a la nube
+  directamente contenedores o descripciones de los mismos, así como funciones
+  de orden superior como conexión u orquestación. Evidentemente, empezó con
   [Docker](https://www.docker.com/blog/containers-as-a-service-caas/) pero
-  empresas
-  como
+  empresas como
   [Microsoft](https://azure.microsoft.com/es-es/services/kubernetes-service/) o
-  Amazon lo ofrecen como parte de sus servicios en la nube. La gran
-  ventaja que poseen los contenedores es que pueden desplegarse,
-  usando las mismas herramientas estándar y libres, en cualquier
-  servicio, una ventaja que no poseen ni las máquinas virtuales ni las
-  plataformas como servicio que, de hecho, ahora usan también
-  contenedores.
+  Amazon lo ofrecen como parte de sus servicios en la nube. La gran ventaja que
+  poseen los contenedores es que pueden desplegarse, usando las mismas
+  herramientas estándar y libres, en cualquier servicio, una ventaja que no
+  poseen ni las máquinas virtuales ni las plataformas como servicio que, de
+  hecho, ahora usan también contenedores.
 
 * *Funciones como servicio* dentro de lo que se ha venido en
   llamar
@@ -469,11 +463,11 @@ pero no tienen una comunidad tan activa como este.
 
 ## A dónde ir desde aquí
 
-Antes de continuar (y, de hecho, antes de empezar) es
-[imprescindible que aprendas y configures `git`. Empieza por aquí](http://mini-git.github.io). En
-el temario se verá a
-continuación
-[los ciclos de desarrollo modernos usando desarrollo basado en pruebas, *test-driven development*, TDD](Desarrollo_basado_en_pruebas.md),
-pero se puede saltar directamente
-al [tema dedicado a las plataformas como servicio](PaaS.md) veremos
-como usarlos. Previamente habrá que [realizar la práctica correspondiente a esta materia](../proyecto/0.Repositorio.md).
+Antes de continuar (y, de hecho, antes de empezar) es imprescindible que
+aprendas y configures `git`. [Empieza por aquí](http://mini-git.github.io). En
+el temario se verá a continuación los ciclos de desarrollo modernos usando
+[desarrollo basado en pruebas](Desarrollo_basado_en_pruebas.md), *test-driven
+development*, TDD, pero se puede saltar directamente al tema dedicado a las
+[plataformas como servicio](PaaS.md) veremos como usarlos. Previamente habrá
+que realizar la
+[práctica correspondiente a esta materia](../proyecto/0.Repositorio.md).
