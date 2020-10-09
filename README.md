@@ -38,7 +38,7 @@ Temario - Programa de la asignatura
 
 Los materiales de la asignatura están enlazados desde abajo y
 disponibles con una licencia libre. Los fuentes de los mismos están en
-[GitHub](http://github.com/JJ/IV). 
+[GitHub](http://github.com/JJ/IV).
 
 La
 [temporización de la asignatura y los objetivos de cada sesión figuran en la bitácora de clase](https://github.com/JJ/IV-20-21/blob/master/sesiones/README.md). Enlazaremos
