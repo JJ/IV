@@ -23,9 +23,9 @@ Objetivos
 
 ### Objetivos específicos
 
-2. Crear infraestructuras virtuales completas.
+1. Crear infraestructuras virtuales completas.
 
-3. Comprender los pasos necesarios para la configuración automática de las mismas.
+2. Comprender los pasos necesarios para la configuración automática de las mismas.
 
 </div>
 

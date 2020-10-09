@@ -19,12 +19,12 @@ next: Contenedores
 
 ### Objetivos específicos
 
-5. Comprender los conceptos necesarios para trabajar con diferentes
+1. Comprender los conceptos necesarios para trabajar con diferentes
    plataformas PaaS
 
-6. Aplicar el concepto de *DevOps* a este tipo específico de plataforma.
+2. Aplicar el concepto de *DevOps* a este tipo específico de plataforma.
 
-7. Aplicar el sistema de control de fuentes `git` para despliegue de aplicaciones en la nube.
+3. Aplicar el sistema de control de fuentes `git` para despliegue de aplicaciones en la nube.
 
 </div>
 

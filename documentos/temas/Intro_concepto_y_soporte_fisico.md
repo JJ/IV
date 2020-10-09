@@ -22,16 +22,16 @@ next: Desarrollo_basado_en_pruebas
 
 ### Objetivos específicos
 
-5. Conocer diferentes tecnologías relacionadas con la virtualización
+1. Conocer diferentes tecnologías relacionadas con la virtualización
    (Computación nube, *Cloud computing*, *Utility Computing*, *Software as a
    Service* o Google AppSpot).
 
-6. Conocer el concepto de software libre y su importancia dentro de la
+2. Conocer el concepto de software libre y su importancia dentro de la
    computación nube.
 
-6. Entender el concepto de *DevOps* y las técnicas y tecnologías que cubre.
+3. Entender el concepto de *DevOps* y las técnicas y tecnologías que cubre.
 
-7. Usar el sistema de control de fuentes `git`para desarrollo colaborativo y
+4. Usar el sistema de control de fuentes `git`para desarrollo colaborativo y
    para despliegue de aplicaciones en la nube.
 
 </div>
@@ -90,20 +90,20 @@ desarrollo ágil. En concreto, *DevOps* comprende
    publicación y, en general, todos los pasos del desarrollo y
    despliegue de software.
 
-5. Provisionamiento de los servidores: los servidores virtuales a los
+3. Provisionamiento de los servidores: los servidores virtuales a los
    que se despliegue deben estar preparados con todas las herramientas
    necesarias para publicar la aplicación.
 
-6. Gestión de configuraciones: la gestión de las configuraciones de
+4. Gestión de configuraciones: la gestión de las configuraciones de
    los servidores y las órdenes para provisionamiento deben estar
    controladas por un sistema de gestión de versiones que permita
    pruebas y también controlar en cada momento el entorno en el que
    efectivamente se está ejecutando el software.
 
-3. Despliegue en la nube: publicación de aplicaciones en servidores
+5. Despliegue en la nube: publicación de aplicaciones en servidores
    virtuales.
 
-4. [Ciclo de vida del software](https://es.slideshare.net/colmbennett/software-rollout)
+6. [Ciclo de vida del software](https://es.slideshare.net/colmbennett/software-rollout)
    definición de las diferentes fases en la vida de una aplicación,
    desde el diseño hasta el soporte.
 

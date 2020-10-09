@@ -11,19 +11,19 @@ next: PaaS
 
 ### Cubre los siguientes objetivos de la asignatura
 
-2. Conocer los conceptos relacionados con el proceso de virtualización tanto de
+1. Conocer los conceptos relacionados con el proceso de virtualización tanto de
    software como de hardware y ponerlos en práctica.
 
-4. Justificar la necesidad de procesamiento virtual frente a real en
+2. Justificar la necesidad de procesamiento virtual frente a real en
    el contexto de una infraestructura TIC de una organización.
 
 ### Objetivos específicos
 
-5. Entender los mecanismos de diseño, prueba y despliegue de un microservicio antes de efectuarlo y enviarlo a la nube.
+1. Entender los mecanismos de diseño, prueba y despliegue de un microservicio antes de efectuarlo y enviarlo a la nube.
 
-6. Aplicar el concepto de *DevOps* a este tipo específico de plataforma.
+2. Aplicar el concepto de *DevOps* a este tipo específico de plataforma.
 
-7. Aprender prácticas seguras en el desarrollo de aplicaciones en la nube.
+3. Aprender prácticas seguras en el desarrollo de aplicaciones en la nube.
 
 </div>
 

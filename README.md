@@ -56,9 +56,9 @@ también en ese fichero las grabaciones que se hagan de las sesiones en vivo.
 
 Estos temas se pueden consultar como material adicional, pero no forman parte este año del temario de la asignatura:
 
-2. [Técnicas de virtualización](documentos/temas/Tecnicas_de_virtualizacion.md).
-4. [Aislamiento de recursos](documentos/temas/Aislamiento_de_recursos.md).
-4. [Almacenamiento virtual](documentos/temas/Almacenamiento.md).
+1. [Técnicas de virtualización](documentos/temas/Tecnicas_de_virtualizacion.md).
+2. [Aislamiento de recursos](documentos/temas/Aislamiento_de_recursos.md).
+3. [Almacenamiento virtual](documentos/temas/Almacenamiento.md).
 
 ## Seminarios
 
@@ -66,7 +66,7 @@ Material adicional interesante para la asignatura, que se impartirá
 (en todo caso) fuera del horario lectivo.
 
 1. [Mini-tutorial de Markdown, por Justo Javier Galera (JotaGalera)](documentos/seminarios/tutorial.md).
-1. [Introducción ligera al lenguaje Ruby](documentos/seminarios/ruby.md).
+2. [Introducción ligera al lenguaje Ruby](documentos/seminarios/ruby.md).
 
 ## Prácticas - Actividades académicas dirigidas
 
@@ -76,14 +76,14 @@ cumplidos hasta ese momento. Los proyectos
 [consisten en crear la infraestructura virtual de una aplicación desarrollada según el modelo DevOps](documentos/proyecto/README.md). A
 grosso modo, los hitos se organizarán de la forma siguiente.
 
-0. [Práctica cero: Uso básico de herramientas](documentos/proyecto/0.Repositorio.md).
-1. [Organización de los grupos de práctica y creación del proyecto](documentos/proyecto/1.Infraestructura.md).
-2. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/2.Tests.md).
-2. [Creando microservicios](documentos/proyecto/3.Microservicios.md).
-3. Desplegando a la nube: [Platform as a Service](documentos/proyecto/4.PaaS.md).
-4. Técnicas de virtualización: [Contenedores](documentos/proyecto/5.Docker.md) para despliegue de microservicios.
-5. [Provisionamiento de máquinas virtuales](documentos/proyecto/6.Provision.md).
-4. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS.md).
+1. [Práctica cero: Uso básico de herramientas](documentos/proyecto/0.Repositorio.md).
+2. [Organización de los grupos de práctica y creación del proyecto](documentos/proyecto/1.Infraestructura.md).
+3. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/2.Tests.md).
+4. [Creando microservicios](documentos/proyecto/3.Microservicios.md).
+5. Desplegando a la nube: [Platform as a Service](documentos/proyecto/4.PaaS.md).
+6. Técnicas de virtualización: [Contenedores](documentos/proyecto/5.Docker.md) para despliegue de microservicios.
+7. [Provisionamiento de máquinas virtuales](documentos/proyecto/6.Provision.md).
+8. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS.md).
 
 ## Tutorías virtuales
 
