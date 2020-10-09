@@ -20,7 +20,6 @@ llevar el portátil, ya que son en realidad clases prácticas.
 
 Las clases se quedarán grabadas y almacenadas [en esta lista de reproducción de YouTube](https://www.youtube.com/playlist?list=PLsYEfmwhBQdKIwbMDIwK64pt3Fs03BDz9).
 
-
 Se usará
 [GitHub](http://github.com) para el proyecto, la forma principal de examinar la asignatura; llamaremos *hitos* a cada una de las entregas que hay que hacer del mismo.
 
@@ -39,7 +38,8 @@ Temario - Programa de la asignatura
 
 > Previo a la asignatura, es conveniente
 > que [consultes este curso](https://jj.github.io/curso-tdd), con
-> material suplementario a lo que se imparte en la asignatura.
+> material suplementario a lo que se imparte en la asignatura. Los
+> temas relevantes se enlazarán en cada hito.
 
 Los materiales de la asignatura están enlazados desde abajo y
 disponibles con una licencia libre. Los fuentes de los mismos están en
