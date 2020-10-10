@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/JJ/IV.svg?branch=master)](https://travis-ci.org/JJ/IV)
 |
-[![Checks README](https://github.com/JJ/Test-Text/workflows/Checks%20README/badge.svg))[https://github.com/JJ/IV/actions?query=workflow%3A%22Comprueba+README%22]
+[![Checks README](https://github.com/JJ/Test-Text/workflows/Checks%20README/badge.svg)](https://github.com/JJ/IV/actions?query=workflow%3A%22Comprueba+README%22)
 |
 [![Lint Markdown](https://github.com/JJ/IV/workflows/Lint%20Markdown/badge.svg)](https://github.com/JJ/IV/actions?query=workflow%3A%22Lint+Markdown%22)
 
