@@ -2,7 +2,8 @@
 
 [![Build Status](https://travis-ci.org/JJ/IV.svg?branch=master)](https://travis-ci.org/JJ/IV)
 |
-![Checks README](https://github.com/JJ/Test-Text/workflows/Checks%20README/badge.svg) | ![Lint Markdown](https://github.com/JJ/IV/workflows/Lint%20Markdown/badge.svg)
+![Checks README](https://github.com/JJ/Test-Text/workflows/Checks%20README/badge.svg)
+| ![Lint Markdown](https://github.com/JJ/IV/workflows/Lint%20Markdown/badge.svg)
 
 [Infraestructura virtual](https://etsiit.ugr.es/pages/calendario_academico/horarioscurso20192020/horariosgii1920)
 es una asignatura obligatoria de la rama "Tecnologías de la Información" del
