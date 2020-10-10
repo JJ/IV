@@ -87,12 +87,12 @@ Material adicional interesante para la asignatura, que se impartirá
 
 ## Prácticas - Actividades académicas dirigidas
 
-La parte práctica consiste en la realización de un proyecto a lo largo de la
-asignatura, con diferentes hitos cuyo contenido corresponde a los objetivos de
-aprendizaje cumplidos hasta ese momento. Los proyectos
-[consisten en crear la infraestructura virtual de una aplicación desarrollada según el modelo DevOps](documentos/proyecto/README.md). A
-grosso modo, los hitos se organizarán
-de la forma siguiente.
+La parte práctica consiste en la realización de un proyecto a lo largo
+de la asignatura, con diferentes hitos cuyo contenido corresponde a
+los objetivos de aprendizaje cumplidos hasta ese momento. Los
+proyectos
+[consisten en crear la infraestructura virtual junto con una aplicación desarrollada según el modelo DevOps](documentos/proyecto/README.md)
+. A grosso modo, los hitos se organizarán de la forma siguiente.
 
 1. [Práctica cero: Uso básico de
    herramientas](documentos/proyecto/0.Repositorio).
