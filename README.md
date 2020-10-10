@@ -58,8 +58,7 @@ sesiones en vivo.
    conviene conocerlo, no es imprescindible para llevar a cabo, en general, el
    proyecto de la asignatura. Se aconseja vivamente, sin embargo, leerlo y
    llevar a cabo los ejercicios de autoevaluación.
-2. [Iniciación a DevOps: desarrollo basado en
-   pruebas](documentos/temas/Desarrollo_basado_en_pruebas.md).
+2. [Iniciación a DevOps: desarrollo basado en pruebas](documentos/temas/Desarrollo_basado_en_pruebas.md).
 3. [Puesta en marcha de microservicios](documentos/temas/Microservicios.md).
 4. [Platform as a Service](documentos/temas/PaaS.md).
 5. [Usando contenedores](documentos/temas/Contenedores.md).
