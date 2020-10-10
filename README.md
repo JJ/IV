@@ -1,6 +1,8 @@
 # Material docente para la asignatura Infraestructura Virtual
 
 [![Build Status](https://travis-ci.org/JJ/IV.svg?branch=master)](https://travis-ci.org/JJ/IV)
+|
+![Checks README](https://github.com/JJ/Test-Text/workflows/Checks%20README/badge.svg) | ![Lint Markdown](https://github.com/JJ/IV/workflows/Lint%20Markdown/badge.svg)
 
 [Infraestructura virtual](https://etsiit.ugr.es/pages/calendario_academico/horarioscurso20192020/horariosgii1920)
 es una asignatura obligatoria de la rama "Tecnologías de la Información" del
@@ -25,7 +27,7 @@ Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas
 sesiones de clase se irán reflejando en
 [un repositorio de GitHub; este es el de 2020-21](https://github.com/JJ/IV-20-21).
 
-En resumen, mi intención es que el estudiante al final de la asignatura sea
+En resumen, nuestra intención es que el estudiante al final de la asignatura sea
 capaz de hacer lo siguiente:
 
 1. Definir el entorno de trabajo y pruebas para desarrollo de una aplicación en
