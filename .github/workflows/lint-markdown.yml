@@ -1,0 +1,27 @@
+name: "Lint Markdown"
+
+on:
+  push:
+    paths:
+      - '**/*.md'
+
+  pull_request:
+    paths:
+      - '**/*.md'
+
+jobs:
+  LintMarkdown:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: "Set up Ruby"
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+      - name: "Install the linter"
+        run: gem install mdl
+      - name: "Comprueba estilo de archivos Markdown"
+        working-directory: ${{ github.workspace }}
+        run: mdl --style .mdl.rb .
+
