@@ -46,7 +46,6 @@ Objetivos
 
 </div>
 
-
 ## Gestión de contenedores con `docker`
 
 > El mundo de los contenedores no se inició con Docker; se usa desde
