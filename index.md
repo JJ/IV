@@ -68,9 +68,9 @@ sesiones en vivo.
    proyecto de la asignatura. Se aconseja vivamente, sin embargo, leerlo y
    llevar a cabo los ejercicios de autoevaluación.
 2. [Iniciación a DevOps: desarrollo basado en pruebas](documentos/temas/Desarrollo_basado_en_pruebas).
-5. [Usando contenedores](documentos/temas/Contenedores).
-3. [Puesta en marcha de microservicios](documentos/temas/Microservicios).
-4. [Platform as a Service](documentos/temas/PaaS).
+3. [Usando contenedores](documentos/temas/Contenedores).
+4. [Puesta en marcha de microservicios](documentos/temas/Microservicios).
+5. [Platform as a Service](documentos/temas/PaaS).
 6. [Gestión de configuraciones](documentos/temas/Gestion_de_configuraciones).
 
 Estos temas se pueden consultar como material adicional, pero no forman parte
@@ -104,10 +104,10 @@ grosso modo, los hitos se organizarán de la forma siguiente.
 2. [Organización de los grupos de práctica y creación del
    proyecto](documentos/proyecto/1.Infraestructura).
 3. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/2.Tests).
-6. Técnicas de virtualización: [Contenedores](documentos/proyecto/5.Docker)
+4. Técnicas de virtualización: [Contenedores](documentos/proyecto/5.Docker)
    para despliegue de microservicios.
-4. [Creando microservicios](documentos/proyecto/3.Microservicios).
-5. Desplegando a la nube:
+5. [Creando microservicios](documentos/proyecto/3.Microservicios).
+6. Desplegando a la nube:
    [Platform as a Service](documentos/proyecto/4.PaaS).
 7. [Provisionamiento de máquinas
    virtuales](documentos/proyecto/6.Provision).
