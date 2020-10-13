@@ -90,8 +90,8 @@ apoya los diferentes componentes de la tecnología; eso ha propiciado
 que haya otros marcos de construcción y ejecución de contenedores
 tales
 como
-[Podman/Buildah](https://developers.redhat.com/blog/2019/02/21/podman-and-buildah-for-docker-users/) o
-[`rkt`](https://coreos.com/rkt/) (que parece que continúa dentro de FlatCar). Este
+[Podman/Buildah](https://developers.redhat.com/blog/2019/02/21/podman-and-buildah-for-docker-users/)
+o [`rkt`](https://coreos.com/rkt/) (que parece que continúa dentro de FlatCar). Este
 tiene la ventaja de que se puede
 ejecutar sin necesidad de instalar ningún servicio con privilegios de
 administrador.
@@ -339,8 +339,8 @@ RUN mkdir /home/raku \
     && git clone https://github.com/tadzik/rakudobrew ~/.rakudobrew \
     && eval "$(~/.rakudobrew/bin/rakudobrew init Sh)"\
     && rakudobrew build moar $VER --configure-opts='--prefix=/root/raku-install' \
-	&& rm -rf /root/.rakudobrew/versions/moar-$VER \
-	&& rakudobrew register moar-$VER /root/raku-install \
+    && rm -rf /root/.rakudobrew/versions/moar-$VER \
+    && rakudobrew register moar-$VER /root/raku-install \
     && rakudobrew global moar-$VER \
     && rakudobrew build-zef \
     && zef install Linenoise App::Prove6 \
@@ -351,7 +351,6 @@ RUN mkdir /home/raku \
 WORKDIR /home/raku
 ENTRYPOINT ["raku"]
 ```
-
 
 La elección de la base del contenedor, que se hace generalmente en la
 primera línea usando el comando `FROM` es fundamental. En este caso,
