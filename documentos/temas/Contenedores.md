@@ -58,10 +58,16 @@ instalados (orquestación) y exportarlos de forma que se puedan desplegar en
 diferentes servicios en la nube. La tecnología de
 [Docker](https://en.wikipedia.org/wiki/Docker_%28software%29) es relativamente
 reciente, habiendo sido publicada su primera versión en marzo de 2013;
-actualmente está sufriendo una gran expansión que ha hecho que tenga soporte en
-todos los servicios en la nube y que se hayan creado sistemas operativos
-específicos, tales como [CoreOS](https://coreos.com/), un sistema operativo
-básico basado en Linux para despliegue masivo de servidores.
+pero hoy en día su uso es prácticamente ubicuo en cualquier entorno de
+desarrollo, prueba o despliegue de aplicaciones.
+
+> Hasta el punto que se han creado sistemas operativos específicos,
+> tales como [CoreOS](https://coreos.com/)
+> (actualmente [Fedora CoreOS suspenso](https://coreos.com/os/eol/), y
+> con una versión de comunidad llamada [FlatCar](https://www.flatcar-linux.org/))
+> o [RancherOS](https://rancher.com/docs/os/v1.x/en/), creados
+> específicamente como soporte para poder ejecutar Docker o sistemas
+> similares de contenedores.
 
 Por lo pronto,
 [instalar `docker` es fácil, pero no directo](https://www.docker.com/). Por
@@ -69,6 +75,18 @@ ejemplo, para
 [Ubuntu hay que dar de alta una serie de repositorios](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 y no funcionará con versiones más antiguas de la 12.04 (y en este caso solo si
 se instalan kernels posteriores).
+
+Docker es una tecnología abierta y apoyada
+por [Open Container Initiative](https://opencontainers.org/), que
+apoya los diferentes componentes de la tecnología; eso ha propiciado
+que haya otros marcos de construcción y ejecución de contenedores
+tales
+como
+[Podman/Buildah](https://developers.redhat.com/blog/2019/02/21/podman-and-buildah-for-docker-users/) o
+[`rkt`](https://coreos.com/rkt/) (también descontinuado). Este
+tiene la ventaja de que se puede
+ejecutar sin necesidad de instalar ningún servicio con privilegios de
+administrador. 
 
 <div class='ejercicios' markdown='1'>
 
