@@ -86,11 +86,11 @@ como
 [`rkt`](https://coreos.com/rkt/) (que parece que continúa dentro de FlatCar). Este
 tiene la ventaja de que se puede
 ejecutar sin necesidad de instalar ningún servicio con privilegios de
-administrador. 
+administrador.
 
 <div class='ejercicios' markdown='1'>
 
-Instalar docker.
+Instalar docker y/o otro gestor de contenedores como Podman/Buildah.
 
 </div>
 
@@ -123,7 +123,7 @@ A partir de ahí, podemos crear un contenedor descargándolo del
 repositorio oficial
 
 ```shell
-sudo docker pull ubuntu
+docker pull ubuntu
 ```
 
 Esta orden, `pull`, descarga un contenedor básico de Ubuntu y lo instala. Hay
@@ -153,7 +153,7 @@ ello, al modo de Vagrant (lo que veremos más adelante).
 Podemos ejecutar, por ejemplo, un listado de los directorios
 
 ```shell
-sudo docker run ubuntu ls
+docker run ubuntu ls
 ```
 
 Tras el sudo, hace falta docker; `run` es el comando de docker que
@@ -165,7 +165,7 @@ que la hayamos descargado, pero cada
 táper tiene un id único que se puede ver con
 
 ```shell
-sudo docker ps -a=false
+docker ps -a=false
 ```
 
 Obteniendo algo así:
@@ -179,7 +179,7 @@ El primer número es el ID de la máquina que podemos usar también para
 referirnos a ella en otros comandos. También se puede usar
 
 ```shell
-sudo docker images
+docker images
 ```
 
 Que devolverá algo así:
@@ -198,14 +198,14 @@ trabajar en una u otra máquina igual que antes hemos usado el nombre
 de la imagen:
 
 ```shell
-sudo docker run b750fe79269d du
+docker run b750fe79269d du
 ```
 
 En vez de ejecutar las cosas una a una podemos directamente
 [ejecutar un shell](https://docs.docker.com/engine/getstarted/step_two/):
 
 ```shell
-sudo docker run -i -t ubuntu /bin/bash
+docker run -i -t ubuntu /bin/bash
 ```
 
 que [indica](https://docs.docker.com/engine/reference/commandline/cli/) que se
@@ -220,7 +220,7 @@ contenedor nuevo*
 Si quieres “reutilizar” un contenedor y usar alguna
 orden en él tendrás que buscar su nombre:
 
-```sudo docker ps -a```
+```docker ps -a```
 
 Posteriormente arrancar el contenedor:
 
@@ -228,14 +228,14 @@ Posteriormente arrancar el contenedor:
 
 Para finalmente ejecutar el comando deseado:
 
-```sudo docker exec <nombre> <comando>```
+```docker exec <nombre> <comando>```
 
 Igual que hacíamos con la opción `run`.
 
 Por supuesto una vez se termine de usar es importante detenerlo para
 que no siga en segundo plano:
 
-```sudo docker stop <nombre>```
+```docker stop <nombre>```
 
 <div class='ejercicios' markdown='1'>
 
@@ -248,14 +248,14 @@ operativo con el que se haya inicializado el contenedor.
 Los contenedores se pueden arrancar de forma independiente con `start`
 
 ```shell
-sudo docker start ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
+docker start ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
 ```
 
 pero hay que usar el ID largo que se obtiene dando la orden de esta
 forma
 
 ```shell
-sudo docker images --no-trunc
+docker images --no-trunc
 ```
 
 Para entrar en ese contenedor tienes que averiguar qué IP está usando
@@ -263,7 +263,7 @@ y los usuarios y claves y por supuesto tener ejecutándose un cliente
 de `ssh` en la misma. Para averiguar la IP:
 
 ```shell
-sudo docker inspect ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
+docker inspect ed747e1b64506ac40e585ba9412592b00719778fd1dc55dc9bc388bb22a943a8
 ```
 
 te dirá toda la información sobre la misma, incluyendo qué es lo que
@@ -276,7 +276,7 @@ es que se puede guardar el estado de un contenedor tal como está usando
 [commit](https://docs.docker.com/engine/reference/commandline/commit)
 
 ```shell
-sudo docker commit 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c nuevo-nombre
+docker commit 8dbd9e392a964056420e5d58ca5cc376ef18e2de93b5cc90e868a1bbc8318c1c nuevo-nombre
 ```
 
 que guardará el estado del contenedor tal como está en ese
@@ -357,7 +357,7 @@ que añade al `PATH` el directorio donde se encuentra. Con estas dos
 características se puede ejecutar el contenedor con:
 
 ```shell
-sudo docker run -t jjmerelo/alpine-perl6 -e "say π  - 4 * ([+]  <1 -1> <</<<  (1,3,5,7,9...10000))  "
+docker run -t jjmerelo/alpine-perl6 -e "say π  - 4 * ([+]  <1 -1> <</<<  (1,3,5,7,9...10000))  "
 ```
 
 Si tuviéramos perl6 instalado en local, se podría escribir
@@ -375,7 +375,7 @@ de ejecución continua, se puede usar directamente `CMD`. En este caso,
 `ENTRYPOINT` da más flexibilidad e incluso de puede evitar usando
 
 ```shell
-sudo docker run -it --entrypoint "sh -l -c" jjmerelo/alpine-perl6
+docker run -it --entrypoint "sh -l -c" jjmerelo/alpine-perl6
 ```
 
 que accederá directamente a la línea de órdenes, en este caso
@@ -386,7 +386,7 @@ través de `VOLUME`, hemos creado un directorio sobre el que podemos
 *montar* un directorio externo, tal como hacemos aquí:
 
 ```shell
-sudo docker run --rm -t -v `pwd`:/app  \
+docker run --rm -t -v `pwd`:/app  \
         jjmerelo/alpine-perl6 /app/horadam.p6 100 3 7 0.25 0.33
 ```
 
@@ -443,7 +443,7 @@ desplegarse directamente es el que se usará, pero si se está
 ejecutando localmente habrá que probarlo de esta forma
 
 ```shell
-sudo docker run -p 80:8000 -it --rm minick/mitag
+docker run -p 80:8000 -it --rm minick/mitag
 ```
 
 donde `minick/mitag` es nuestro prefijo y tag elegidos para este caso
