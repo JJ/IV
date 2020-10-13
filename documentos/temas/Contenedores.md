@@ -344,14 +344,25 @@ WORKDIR /home/raku
 ENTRYPOINT ["raku"]
 ```
 
-Como ya hemos visto anteriormente, usa `apk`, la orden de Alpine para
+
+La elección de la base del contenedor, que se hace generalmente en la
+primera línea usando el comando `FROM` es fundamental. En este caso,
+usamos la base que se ha hecho más popular por su pequeño tamaño,
+[Alpine Linux](https://alpinelinux.org/). Este pequeño tamaño viene a
+costa de una serie de recortes en la librería básica y en las
+utilidades, por lo que es posible que haya alguna cosa que no funcione
+exactamente igual, y por supuesto diferencia en el nivel de
+prestaciones. Por eso, en algunos casos, habrá que buscar diferentes
+tipos de contenedores base.
+
+Para instalar las dependencias, usa `apk`, la orden de Alpine para
 instalar paquetes e instala lo necesario para que eche a andar el
 gestor de intérpretes de Perl6 llamado `rakudobrew`. Este gestor tarda
 un buen rato, hasta minutos, en construir el intérprete a través de
 diferentes fases de compilación, por eso este contenedor sustituye eso
 por la simple descarga del mismo. Instala además alguna utilidad
 relativamente común, pero lo que lo hace trabajar "como" el intérprete
-es la orden `ENTRYPOINT ["perl6"]`. `ENTRYPOINT` se usa para señalar
+es la orden `ENTRYPOINT ["raku"]`. `ENTRYPOINT` se usa para señalar
 a qué orden se va a concatenar el resto de los argumentos en la línea
 de órdenes, en este caso, tratándose del intérprete de Perl 6, se
 comportará exactamente como él. Para que esto funcione también se ha
@@ -365,14 +376,14 @@ que añade al `PATH` el directorio donde se encuentra. Con estas dos
 características se puede ejecutar el contenedor con:
 
 ```shell
-docker run -t jjmerelo/alpine-perl6 -e "say π  - 4 * ([+]  <1 -1> <</<<  (1,3,5,7,9...10000))  "
+docker run -t jjmerelo/alpine-raku -e "say π  - 4 * ([+]  <1 -1> <</<<  (1,3,5,7,9...10000))  "
 ```
 
-Si tuviéramos perl6 instalado en local, se podría escribir
+Si tuviéramos `raku` instalado en local, se podría escribir
 directamente
 
 ```shell
-perl6 -e "say π  - 4 * ([+]  <1 -1> <</<<  (1,3,5,7,9...10000))  "
+raku -e "say π  - 4 * ([+]  <1 -1> <</<<  (1,3,5,7,9...10000))  "
 ```
 
 o algún otro
@@ -383,7 +394,7 @@ de ejecución continua, se puede usar directamente `CMD`. En este caso,
 `ENTRYPOINT` da más flexibilidad e incluso de puede evitar usando
 
 ```shell
-docker run -it --entrypoint "sh -l -c" jjmerelo/alpine-perl6
+docker run -it --entrypoint "sh -l -c" jjmerelo/alpine-raku
 ```
 
 que accederá directamente a la línea de órdenes, en este caso
@@ -395,7 +406,7 @@ través de `VOLUME`, hemos creado un directorio sobre el que podemos
 
 ```shell
 docker run --rm -t -v `pwd`:/app  \
-        jjmerelo/alpine-perl6 /app/horadam.p6 100 3 7 0.25 0.33
+        jjmerelo/alpine-raku /app/horadam.p6 100 3 7 0.25 0.33
 ```
 
 En realidad, usando `-v` se puede montar cualquier directorio externo
@@ -413,7 +424,8 @@ interesados en que se asigne un terminal y la salida del mismo, no
 vamos a interaccionar con él.
 
 En muchos casos el `Dockerfile` estará dentro de un repositorio y
-usará los mismos ficheros que hay en el mismo. Por ejemplo, este que
+usará los mismos ficheros que hay en el mismo; este es el caso más
+habitual cuando queremos crear un contenedor de test. Por ejemplo, este que
 se usa para el servicio web que hemos venido usando en la asignatura:
 
 ```dockerfile
