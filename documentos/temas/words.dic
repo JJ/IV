@@ -1,4 +1,4 @@
-1298
+1312
 AMD
 API
 APIs
@@ -6,6 +6,7 @@ APPC
 AWS
 About
 Access
+Actions
 Admin
 Akka
 Alpine
@@ -43,6 +44,7 @@ BridgeNetworkConnections
 Broccoli
 Brunch
 Build
+Buildah
 Building
 Buildpack
 Buildpacks
@@ -72,6 +74,7 @@ Circle
 ClearDB
 Clojure
 CloudAnt
+CloudBees
 CloudFoundry
 CloudStack
 Cobbler
@@ -82,6 +85,7 @@ CoffeeScript
 Command
 Computing
 Conflict
+Container
 CoreOS
 CouchDB
 Create
@@ -130,6 +134,7 @@ Finatra
 Firebase
 Flamingo
 Flask
+FlatCar
 FlatPak
 Foreman
 FreeBSD
@@ -171,6 +176,7 @@ Iaas
 Illumos
 Infoautónomos
 Infrastructure
+Initiative
 Initiative
 Intel
 Isos
@@ -252,6 +258,7 @@ OSGi
 OTROMAS
 Object
 Ocean
+Open
 OpenNebula
 OpenSSH
 OpenShift
@@ -281,6 +288,7 @@ Patterns
 Perl
 Pg
 Platform
+Podman
 Portabilidad
 PostgreSQL
 Practical
@@ -308,6 +316,7 @@ RVM
 RabbitMQ
 Rails
 Rake
+RancherOS
 Raspberry
 RedHat
 Redis
@@ -728,6 +737,7 @@ hkeys
 home
 horadam
 host
+hosting
 hostname
 hosts
 hour
@@ -920,6 +930,7 @@ network
 networks
 never
 new
+new
 newer
 next
 nginx
@@ -990,6 +1001,7 @@ physical
 pid
 ping
 pip
+pipelines
 pkg
 platform
 playbook
@@ -1091,6 +1103,7 @@ replies
 reply
 repo
 repos
+repository
 repository
 reproducible
 req
@@ -1201,11 +1214,13 @@ task
 tasks
 telegram
 temita
+template
 testearla
 testearlas
 testearlo
 tests
 tg
+this
 this
 tier
 tmp
@@ -1296,11 +1311,3 @@ zeit
 zipi
 zuuz
 π
-CloudBees
-Actions
-hosting
-pipelines
-new
-repository
-template
-this
