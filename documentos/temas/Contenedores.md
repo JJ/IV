@@ -72,9 +72,17 @@ desarrollo, prueba o despliegue de aplicaciones.
 Por lo pronto,
 [instalar `docker` es fácil, pero no directo](https://www.docker.com/). Por
 ejemplo, para
-[Ubuntu hay que dar de alta una serie de repositorios](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
-y no funcionará con versiones más antiguas de la 12.04 (y en este caso solo si
-se instalan kernels posteriores).
+[Ubuntu hay que dar de alta una serie de repositorios](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
+
+La instalación de `docker` tiene dos partes principales: el *runtime*,
+que es un servicio que se ejecuta con privilegios de superusuario, y
+un CLI que sirve para lanzar los contenedores y gestionarlos, y que se
+debe configurar para que lo pueda hacer directamente el usuario. No
+hay nada que obligue a que las dos partes se instalen en la misma
+máquina virtual o incluso máquina, por eso en
+Windows y OSX se suele instalar el servicio en una máquina virtual
+Linux, lo que también permite trabajar con este formato, que es el más
+común.
 
 Docker es una tecnología abierta y apoyada
 por [Open Container Initiative](https://opencontainers.org/), que
@@ -83,7 +91,7 @@ que haya otros marcos de construcción y ejecución de contenedores
 tales
 como
 [Podman/Buildah](https://developers.redhat.com/blog/2019/02/21/podman-and-buildah-for-docker-users/) o
-[`rkt`](https://coreos.com/rkt/) (también descontinuado). Este
+[`rkt`](https://coreos.com/rkt/) (que parece que continúa dentro de FlatCar). Este
 tiene la ventaja de que se puede
 ejecutar sin necesidad de instalar ningún servicio con privilegios de
 administrador. 
