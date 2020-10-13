@@ -430,22 +430,25 @@ se usa para el servicio web que hemos venido usando en la asignatura:
 
 ```dockerfile
 FROM python:3
+LABEL version="1.0.0" maintainer="JJMerelo@GMail.com"
 
 WORKDIR /usr/src/app
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
+RUN rm requirements.txt
 
-COPY . .
+RUN mkdir HitosIV data
+ADD data/hitos.json data/
+ADD HitosIV/* HitosIV/
 
-ENV PORT 80
-CMD [ "hug",  "-p 80", "-f","hugitos.py" ]
+CMD [ "hug",  "-p 80", "-f","HitosIV/hugitos.py" ]
 
 EXPOSE 80
 ```
 
 En este caso estamos usando `FROM python:3`, la imagen *oficial* de
-python mantenida por el mismo equipo que crea Python. El usar imágenes
+Python mantenida por el mismo equipo que lo crea. El usar imágenes
 oficiales de un lenguaje es mucho más conveniente que usar la de un
 sistema operativo y posteriormente instalar el lenguaje y cualquier
 otra cosa que necesite; en este caso, la imagen lleva también
@@ -453,7 +456,11 @@ otra cosa que necesite; en este caso, la imagen lleva también
 oficiales; siempre nos ahorrará trabajo usar esas imágenes, sean
 oficiales o no, porque en muchos casos están optimizadas con solo las
 partes del sistema operativo necesarias y ocupan mucho menos espacio
-siendo, por tanto, más rápidas para descargar.
+siendo, por tanto, más rápidas para descargar. Sin embargo, las
+mejores prácticas aconsejan que siempre se busque la imagen más
+adecuada para cada aplicación en particular teniendo en cuenta
+consideraciones de disponibilidad de bibliotecas y, sobre todo, tamaño
+y prestaciones.
 
 Aparte de usar las imágenes oficiales para la versión 3 de Python,
 copia todo a el directorio de trabajo definido y finalmente *expone*
@@ -463,7 +470,7 @@ desplegarse directamente es el que se usará, pero si se está
 ejecutando localmente habrá que probarlo de esta forma
 
 ```shell
-docker run -p 80:8000 -it --rm minick/mitag
+docker run -p 8000:80 -it --rm minick/mitag
 ```
 
 donde `minick/mitag` es nuestro prefijo y tag elegidos para este caso
@@ -473,8 +480,8 @@ Hub como
 
 <div class='ejercicios' markdown='1'>
 
-Crear un Dockerfile para el servicio web que se ha venido
-desarrollando en el proyecto de la asignatura.
+Crear un Dockerfile para el servicio web que testee la clase que se ha
+venido desarrollando hasta ahora.
 
 </div>
 
@@ -520,7 +527,7 @@ gratuita o gratuitos.
 ## A dónde ir desde aquí
 
 Primero, hay que
-[llevar a cabo el hito del proyecto correspondiente a este tema](../proyecto/5.Docker).
+[llevar a cabo el hito del proyecto correspondiente a este tema](../proyecto/3.Docker).
 
 Si te interesa, puedes consultar cómo se
 [virtualiza el almacenamiento](Almacenamiento) que, en general, es
