@@ -293,47 +293,55 @@ commit.
 
 ## Diseñando infraestructura virtual usando Docker: Dockerfiles
 
-Se pueden construir contenedores más complejos. Una funcionalidad interesante
+Se pueden construir contenedores más complejos, pero el problema de
+construirlos a mano es que no es reproducible, y realmente fuera de
+una fase de prueba inicial para comprobar que está todo no se
+aconseja.
+
+Una funcionalidad interesante
 de los mismos es la posibilidad de usarlos como *sustitutos* de
-una orden, de forma que sea mucho más fácil trabajar con alguna
+una orden o comando, de forma que sea mucho más fácil trabajar con alguna
 configuración específica de una aplicación o de un lenguaje de
-programación determinado.
+programación determinado. Pero hay que especificar de forma precisa
+todo lo necesario para ejecutar esa orden. Ese es el papel de los
+Dockerfiles, especificar de forma reproducible la infraestructura
+necesaria para que se ejecute una aplicación.
 
 Por ejemplo,
-[esta, llamada `alpine-perl6`](https://hub.docker.com/r/jjmerelo/alpine-perl6/)
+[esta, llamada `alpine-raku`](https://hub.docker.com/r/jjmerelo/alpine-raku/)
 que se puede usar en lugar del intérprete de Perl6 y usa como base la distro
 ligera Alpine:
 
 ```dockerfile
 FROM alpine:latest
-MAINTAINER JJ Merelo <jjmerelo@GMail.com>
-WORKDIR /root
-ENTRYPOINT ["perl6"]
 
-#Basic setup
-RUN apk update
-RUN apk upgrade
+ARG VER="2020.01"
+LABEL version="2.3.2" maintainer="JJMerelo@GMail.com" rakuversion=$VER
 
-#Add basic programs
-RUN apk add gcc git linux-headers make musl-dev perl
+# Environment
+ENV PATH="/root/raku-install/bin:/root/raku-install/share/perl6/site/bin:/root/.rakudobrew/bin:${PATH}" \
+    PKGS="curl git" \
+    PKGS_TMP="perl curl-dev linux-headers make gcc musl-dev wget" \
+    ENV="/root/.profile"
 
-#Download and install rakudo
-RUN git clone https://github.com/tadzik/rakudobrew ~/.rakudobrew
-RUN echo 'export PATH=~/.rakudobrew/bin:$PATH' >> /etc/profile
-RUN echo 'eval "$(/root/.rakudobrew/bin/rakudobrew init -)"' >> /etc/profile
-ENV PATH="/root/.rakudobrew/bin:${PATH}"
-RUN rakudobrew init
+# Basic setup, programs and init
+RUN mkdir /home/raku \
+    && apk update && apk upgrade \
+    && apk add --no-cache $PKGS $PKGS_TMP \
+    && git clone https://github.com/tadzik/rakudobrew ~/.rakudobrew \
+    && eval "$(~/.rakudobrew/bin/rakudobrew init Sh)"\
+    && rakudobrew build moar $VER --configure-opts='--prefix=/root/raku-install' \
+	&& rm -rf /root/.rakudobrew/versions/moar-$VER \
+	&& rakudobrew register moar-$VER /root/raku-install \
+    && rakudobrew global moar-$VER \
+    && rakudobrew build-zef \
+    && zef install Linenoise App::Prove6 \
+    && apk del $PKGS_TMP \
+    && rm -rf /root/.rakudobrew /root/raku-install/zef
 
-#Build moar
-RUN rakudobrew build moar
-
-#Build other utilities
-RUN rakudobrew build panda
-RUN panda install Linenoise
-
-#Mount point
-RUN mkdir /app
-VOLUME /app
+# Runtime
+WORKDIR /home/raku
+ENTRYPOINT ["raku"]
 ```
 
 Como ya hemos visto anteriormente, usa `apk`, la orden de Alpine para
