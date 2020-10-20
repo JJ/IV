@@ -224,7 +224,7 @@ orden en él tendrás que buscar su nombre:
 
 Posteriormente arrancar el contenedor:
 
-```sudo start <nombre>```
+```docker start <nombre>```
 
 Para finalmente ejecutar el comando deseado:
 
