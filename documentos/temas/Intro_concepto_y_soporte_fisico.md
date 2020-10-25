@@ -72,7 +72,7 @@ acceder *bajo demanda*, que es *escalable* y que, desde el punto de
 vista del usuario, se *facture según uso*, no por el hecho de tener acceso.
 
 El [origen de la palabra](https://en.wikipedia.org/wiki/Cloud_computing#History) viene de la tradicional representación de recursos
-  en la red como una nube en ilustraciones.
+  en la red como una nube en diferentes ilustraciones.
 
 <div class='ejercicios' markdown='1'>
 Consultar en el catálogo de alguna tienda de informática el precio de
@@ -194,7 +194,7 @@ Tecnológicamente la computación nube se basa en el proceso progresivo
       instalación tradicional, aunque eventualmente algunos negocios puedan optar, si tienen un uso intensivo y regular, en volver a ella.
 
 Todas estas ventajas hacen que,
-	  [ya en el año 2013, más de la mitad de los negocios americanos usan infraestructura virtual](https://www.forbes.com/sites/reuvencohen/2013/04/16/the-cloud-hits-the-mainstream-more-than-half-of-u-s-businesses-now-use-cloud-computing/).
+	  [ya en el año 2013, más de la mitad de los negocios americanos usaban infraestructura virtual](https://www.forbes.com/sites/reuvencohen/2013/04/16/the-cloud-hits-the-mainstream-more-than-half-of-u-s-businesses-now-use-cloud-computing/).
 
 <div class='ejercicios' markdown="1">
 Usando las tablas de precios de servicios de alojamiento en Internet
@@ -260,12 +260,7 @@ los mismos.
   necesarios se denominan *emuladores*; CygWin, por ejemplo,
   permite ejecutar aplicaciones de UNIX en Windows,
   aunque se tienen que recompilar.
-  Programas como [CDE](https://github.com/pgbovine/CDE/) en Linux
-  permiten empaquetar aplicaciones para que se ejecuten de forma
-  independiente en cualquier sistema operativo Linux, aunque hoy en
-  día sistemas de empaquetado mucho más modernos como Docker hacen que
-  CDE se haya quedado prácticamente obsoleto; sistemas más modernos,
-  como [FlatPak](http://docs.flatpak.org/en/latest/getting-started.html), permiten
+  Programas como [FlatPak](http://docs.flatpak.org/en/latest/getting-started.html), permiten
   empaquetar aplicaciones para que se ejecuten en cualquier
   distribución de Linux, empaquetando todas las dependencias en un
   solo fichero que, además, se puede distribuir desde la web, evitando
@@ -302,7 +297,8 @@ En general, en esta asignatura hablaremos, sobre todo, de
 virtualización plena, aunque en realidad lo interesante de la
 infraestructura virtual es poder definir por software los recursos que
 se van a usar para desplegar una aplicación, independientemente de la
-tecnología que se use.
+tecnología que se use; en ese sentido, el tipo de virtualización que se
+use físicamente tiene importancia secundaria.
 
 
 Virtualización a nivel de *hardware*
@@ -367,7 +363,7 @@ Alternativamente, se puede usar la orden `lscpu`, también presente en
 todos los Linux, para ver si las órdenes de virtualización están
 presentes. Como se
 indica
-[en este artículo](https://www.fosslinux.com/2484/how-to-install-virtual-machine-manager-kvm-in-manjaro-and-arch-linux.htm/),
+[en este artículo](https://www.fosslinux.com/2484/how-to-install-virtual-machine-manager-kvm-in-manjaro-and-arch-linux.htm),
 en Manjaro, ArchLinux y distros similares (y en realidad en todas), se
 puede usar:
 
@@ -380,11 +376,9 @@ cambia el formato para que se pueda hacer `grep` (búsqueda)
 correctamente sobre él.
 
 <div class='ejercicios' markdown="1">
-1. Comprobar si el núcleo instalado en tu ordenador contiene este módulo
-del kernel usando la orden `kvm-ok`. Alternativamente (o además), usar `lscpu`
-como se indica arriba.
-
-2. Instalar un hipervisor para gestionar máquinas virtuales, que más adelante se podrá usar en pruebas y ejercicios.
+Instalar un hipervisor para gestionar máquinas virtuales, que más
+adelante se podrá usar en pruebas y ejercicios. Usar siempre que sea
+posible un hipervisor que sea software libre.
 </div>
 
 
@@ -440,7 +434,7 @@ capas anteriores
   como funciones de orden superior como conexión u
   orquestación. Evidentemente, empezó
   con
-  [Docker](https://blog.docker.com/2016/02/containers-as-a-service-caas/) pero
+  [Docker](https://www.docker.com/blog/containers-as-a-service-caas/) pero
   empresas
   como
   [Microsoft](https://azure.microsoft.com/es-es/services/kubernetes-service/) o
@@ -461,17 +455,12 @@ capas anteriores
   ejecución, que además está limitada y se cobra por
   milisegundos. Amazon Lambda o Google o Azure Functions son los
   nombres de los productos comerciales, que cuentan con marcos libres
-  como [OpenWhisk](https://en.wikipedia.org/wiki/Bluemix).
+  como [Apache OpenWhisk](https://openwhisk.apache.org/).
 
-En general, estos dos servicios necesitan a su vez de otros productos
+En general, estos tipos de servicio necesitan a su vez de otros productos
 en la nube, especialmente definición de redes virtuales y diferentes
 tipos de almacenes de datos y de canales de comunicación entre ellos.
 
-<div class='ejercicios' markdown="1">
-1. Darse de alta en servicios de nube usando ofertas gratuitas o
-   cupones que pueda proporcionar el profesor.
-
-</div>
 
 Por otro lado, dependiendo de quién posea físicamente el centro de
 datos y lo administre, se suele hablar de nube pública o privada; los
@@ -498,7 +487,9 @@ pero no tienen una comunidad tan activa como este.
 
 <div class='ejercicios' markdown="1">
 1. Darse de alta en una web que permita hacer pruebas con alguno de
-   los sistemas de gestión de nube libres como los mencionados en los párrafos anteriores. 
+   los sistemas de gestión de nube libres como los mencionados en los
+   párrafos anteriores, aunque sea temporalmente. Si la prueba es menos de un
+   mes, simplemente anotarlo y dejarlo para el mes de diciembre, más o menos.
 
 </div>
 
@@ -510,6 +501,6 @@ Antes de continuar (y, de hecho, antes de empezar) es
 el temario se verá a
 continuación
 [los ciclos de desarrollo modernos usando desarrollo basado en pruebas, *test-driven development*, TDD](Desarrollo_basado_en_pruebas),
-pero se puede salar directamente
+pero se puede saltar directamente
 al [tema dedicado a las plataformas como servicio](PaaS) veremos
 como usarlos. Previamente habrá que [realizar la práctica correspondiente a esta materia](../proyecto/0.Repositorio).
