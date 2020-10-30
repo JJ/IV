@@ -12,7 +12,7 @@ primer cuatrimestre del cuarto curso del Grado de Ingeniería Informática y
 optativa en otras ramas y en el Doble Grado de Informática y Matemáticas.
 
 La asignatura se imparte en el
-[curso 2020-2021](http://etsiit.ugr.es/pages/calendario_academico/horarioscurso20202021/horariosgii2021/!)
+[curso 2020-2021](https://etsiit.ugr.es/pages/calendario_academico/horarioscurso20202021/horariosgii2021/!)
 en el aula 3.3 los viernes y en la 3.7 los martes de 9:30 a 11:30 (clases de
 "prácticas"), y en la 1.8 los martes de 11:30 a 13:30. Se recuerda a los
 estudiantes que en todas las clases será necesario llevar el portátil, ya que
@@ -21,7 +21,7 @@ son en realidad clases prácticas.
 Las clases se quedarán grabadas y almacenadas
 [en esta lista de reproducción de YouTube](https://www.youtube.com/playlist?list=PLsYEfmwhBQdKIwbMDIwK64pt3Fs03BDz9).
 
-Se usará [GitHub](http://github.com) para el proyecto, la forma principal de
+Se usará [GitHub](https://github.com) para el proyecto, la forma principal de
 examinar la asignatura; llamaremos *hitos* a cada una de las entregas que hay
 que hacer del mismo.
 
@@ -50,7 +50,7 @@ capaz de hacer lo siguiente:
 
 Los materiales de la asignatura están enlazados desde abajo y
 disponibles con una licencia libre. Los fuentes de los mismos están en
-[GitHub](http://github.com/JJ/IV).
+[GitHub](https://github.com/JJ/IV).
 
 La temporización de la asignatura y los objetivos de cada sesión figuran en la
 [bitácora](https://github.com/JJ/IV-20-21/blob/master/sesiones/README.md) de
