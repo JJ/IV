@@ -30,15 +30,18 @@ next: PaaS
 
 ## Introducción
 
-> Esta [presentación](https://jj.github.io/pispaas/#/) es un resumen del
-> concepto de Plataforma como Servicio (PaaS) y alguna cosa adicional que no
-> está incluida en este tema pero que conviene conocer de todas formas.
-
 En general, un microservicio será un decorador o fachada que se
 añadirá a una clase o módulo para acceder a esa funcionalidad a través
 de Internet en el contexto de un grupo de microservicios desplegados
 dentro de una aplicación. Un microservicio es, en sí, también una
 funcionalidad que, como tal, habrá que testear de forma específica.
+
+Los microservicios se van a ejecutar en la nube, y por ello hay que
+tener en cuenta dos cosas: desde su creación tienen que tener una
+forma de recuperar su configuración desde la nube (usando un sistema
+de configuración distribuida), y, por otro lado, tienen que integrar
+un servicio de log externo que permita también consultar sus
+peticiones desde la misma.
 
 Aunque los frameworks de microservicios contienen servidores web
 funcionales, en general es aconsejable colocarles algún servidor
@@ -47,15 +50,15 @@ programación suelen tener interfaces específicos para que haya un buen
 acoplamiento entre el microservicio y el servidor que hay por delante,
 que además se asegura de que haya un número de copias ejecutándose,
 por ejemplo. Finalmente, en muchos casos por delante de él hay un
-servidor o proxy inverso genérico tal como nginx que, además, es capaz
-de servir de forma más eficiente los ficheros estáticos.
+servidor o proxy inverso genérico tal como `nginx` que, además, es
+capaz de servir de forma más eficiente los ficheros estáticos.
 
 ## Qué es un microservicio
 
 Un microservicio es una aplicación que es capaz de trabajar de forma
 autónoma con una parte del dominio del problema, conteniendo todos los
 elementos necesarios para hacer las operaciones básicas sobre el mismo
-y todas las funcionalidades que la aplicación requiera.
+y todas las funcionalidades que la aplicación requiera del mismo.
 
 Metodologías como
 [diseño dirigido por el dominio](https://devexperto.com/domain-driven-design-1/)
@@ -65,7 +68,13 @@ con diferentes estructuras de datos y se comunicarán entre sí usando diferente
 interfaces; en general será o peticiones REST, o sockets, o sistemas de
 mensajería tales como RabbitMQ o sistemas de mensajería específicos.
 
-En este tema trataremos principalmente de microservicios con un interfaz REST.
+En este tema trataremos principalmente de microservicios con un
+interfaz REST.
+
+> No todos los microservicios tienen por qué usarlo. Un microservicio
+puede usar websockets, por ejemplo, o puede dedicarse a ejecutar
+tareas.
+
 Los microservicios REST usan la sintaxis y semántica del protocolo HTTP tanto
 para peticiones (responderán directamente a
 [comandos HTTP como PUT o GET](https://developer.mozilla.org/es/docs/Web/HTTP/Methods))
@@ -73,7 +82,20 @@ como para resultados (que usarán los
 [códigos de estado HTTP](https://developer.mozilla.org/es/docs/Web/HTTP/Status)).
 La semántica es importante: PUT crea un recurso, GET lo recupera sin cambiarlo,
 POST lo modifica y DELETE lo borra. De la misma forma, un recurso no encontrado
-deberá devolver el mítico 404 y uno correctamente recuperado el código 200.
+deberá devolver el mítico 404 y uno correctamente recuperado el código
+200.
+
+> En muchos casos `PUT` y `POST` se usan de forma intercambiable. Son
+> muy diferentes, sin
+> embargo:
+> [aquí se muestran diferencias](https://stackoverflow.com/questions/107390/whats-the-difference-between-a-post-and-a-put-http-request)
+> que van desde poder ser cachables (o no) hasta el significado del URI
+> que se vaya a usar. En una petición `PUT`, el URI que se usa es el
+> que se va a crear. En un `POST`, es simplemente un punto que va
+> manejar la petición. Por eso `PUT` se suele usar para crear (y
+> modificar, siempre que la petición contenga la nueva versión)
+> mientras que `POST` se puede usar para crear (siempre que sea un URI
+> genérico) o modificar parte de un recurso.
 
 ## Creando un microservicio desde cero
 
