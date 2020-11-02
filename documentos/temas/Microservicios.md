@@ -107,6 +107,27 @@ deberá devolver el mítico 404 y uno correctamente recuperado el código
 
 ## Creando un microservicio desde cero
 
+En general, es conveniente no hacer uso de generadores de
+aplicaciones, que tendrán una idea determinada de la arquitectura de
+la aplicación. Se debe usar un microframework que permita control
+sobre todos los aspectos del mismo, y en el caso de un microframework,
+tendremos que tener en cuenta, principalmente, los siguientes
+aspectos: configuración, rutas y middleware.
+
+### Configuración externa.
+
+La
+[configuración externa](https://microservices.io/patterns/externalized-configuration.html) es
+uno de los patrones imprescindibles en la creación de aplicaciones
+nativas en la nube. Lo principal de la misma es el uso de un servicio
+externo para todas las diferentes opciones que haya que usar en cada
+uno de las instancias de los servicios que se vayan a usar. También es
+parte de la [aplicación de 12 factores](https://12factor.net/config),
+que dice que hay que almacenar la aplicación en el entorno. No tiene
+que ser necerariamente *las* variables de entorno, claro.
+
+### Rutas y middleware
+
 > En este ejemplo usaremos Node; una alternativa está en
 > [esta presentación sobre servicios web en Python](https://jj.github.io/tests-python/ws.html),
 > en la que se da se da una introducción a los servicios web y cómo
@@ -191,8 +212,7 @@ práctica hacerlo, ya que cada despliegue exigirá un puerto
 determinado, y siempre se pueden usar variables de entorno para ello.
 
 Con el mismo `express` se pueden generar aplicaciones no tan básicas instalando
-[`express-generator`](https://expressjs.com/es/starter/generator.html) o el
-generador de aplicaciones [`yeoman`](https://yeoman.io)
+[`express-generator`](https://expressjs.com/es/starter/generator.html)
 
 ```shell
 express prueba-rest
