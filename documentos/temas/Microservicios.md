@@ -198,10 +198,10 @@ class Config:
 
     def __init__(self):
         PORT_VAR_NAME= 'hugitos:PORT'
-        etcd = etcd3.client()
-        if etcd:
+        try:
+            etcd = etcd3.client()
             self.port = int(etcd.get(PORT_VAR_NAME)[0].decode("utf8") )
-        else:
+        except:
             load_dotenv()
             if (os.getenv('PORT')):
                 self.port = os.getenv('PORT')
@@ -211,7 +211,8 @@ class Config:
 
 De forma que no es realmente necesario trabajar con *mocks*, sino que
 se usa el método de configuración que haya presente, empezando, como
-es natural, por `etcd`.
+es natural, por `etcd`. Si no, se usa configuración local. Los tests
+automáticamente usarán la configuración por omisión.
 
 ### Rutas y middleware
 
