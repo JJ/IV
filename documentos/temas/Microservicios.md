@@ -134,6 +134,85 @@ que ser necerariamente *las* variables de entorno, claro.
 > ETCDCTL_API=3` para que funcione correctamente
 > el [cliente](https://etcd.io/docs/v3.4.0/dl-build/).
 
+Con estos sistemas de configuración distribuida, se debe tanto
+establecer la configuración (antes de lanzarlo), como leer la
+configuración. Y evidentemente, la configuración se tendrá que
+almacenar en algún lugar. Por ejemplo, este script en Python (que está
+alojado [aquí](https://github.com/JJ/tests-python) servirá para
+establecer un valor leyéndolo desde varias fuentes diferentes:
+
+```python
+import etcd3
+from dotenv import load_dotenv
+import os
+import sys
+
+def main( argv = [] ):
+    PORT_VAR_NAME= 'hugitos:PORT'
+    etcd = etcd3.client()
+    if ( argv ):
+        etcd.put(PORT_VAR_NAME,argv[0])
+    else:
+        load_dotenv()
+        if (os.getenv('PORT')):
+            etcd.put(PORT_VAR_NAME,os.getenv('PORT'))
+        else:
+            etcd.put(PORT_VAR_NAME,3000)
+
+
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        main(sys.argv[1:])
+    else:
+        main()
+```
+
+Primero, establece el espacio de nombres y nombre de la variable que
+vamos a usar, `hugitos`, que ese va a ser el nombre de la
+aplicación. Sólo vamos a usar una variable aquí. Se lee en la
+siguiente secuencia:
+
+1. Se usa el primer argumento en la línea de órdenes si existe
+2. Se lee el fichero `.env` (via `load_dotenv`). Esa orden pone como
+   variable de entorno lo que haya en el fichero; si existe esa
+   variable de entorno, se usa.
+3. Si nada de eso ocurre, se usa un valor por omisión.
+
+Una vez hecho eso, las variables van a estar obligatoriamente
+almacenadas en ese sistema de configuración distribuida. Pero eso
+tiene que estar rodeado por un wrapper que se pueda usar en un *mock*
+para hacer tests locales.
+
+Esta clase, por ejemplo, encapsula la configuración y la incluye en un
+objeto que puede usar cualquier modo de confiuración presente:
+
+```python
+import etcd3
+from dotenv import load_dotenv
+import os
+import sys
+
+
+class Config:
+
+    def __init__(self):
+        PORT_VAR_NAME= 'hugitos:PORT'
+        etcd = etcd3.client()
+        if etcd:
+            self.port = int(etcd.get(PORT_VAR_NAME)[0].decode("utf8") )
+        else:
+            load_dotenv()
+            if (os.getenv('PORT')):
+                self.port = os.getenv('PORT')
+            else:
+                self.port = 3000
+```
+
+De forma que no es realmente necesario trabajar con *mocks*, sino que
+se usa el método de configuración que haya presente, empezando, como
+es natural, por `etcd`.
+
 ### Rutas y middleware
 
 > En este ejemplo usaremos Node; una alternativa está en
