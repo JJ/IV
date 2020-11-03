@@ -89,7 +89,7 @@ deberá devolver el mítico 404 y uno correctamente recuperado el código
 > muy diferentes, sin
 > embargo:
 > [aquí se muestran diferencias](https://stackoverflow.com/questions/107390/whats-the-difference-between-a-post-and-a-put-http-request)
-> que van desde poder ser cachables (o no) hasta el significado del URI
+> que van desde poder ser cacheables (o no) hasta el significado del URI
 > que se vaya a usar. En una petición `PUT`, el URI que se usa es el
 > que se va a crear. En un `POST`, es simplemente un punto que va
 > manejar la petición. Por eso `PUT` se suele usar para crear (y
@@ -117,7 +117,7 @@ externo para todas las diferentes opciones que haya que usar en cada
 uno de las instancias de los servicios que se vayan a usar. También es
 parte de la [aplicación de 12 factores](https://12factor.net/config),
 que dice que hay que almacenar la aplicación en el entorno. No tiene
-que ser necerariamente *las* variables de entorno, claro.
+que ser necesariamente *las* variables de entorno, claro.
 
 > Hay varios servidores de configuración distribuida, pero el más
 > usado es `etcd` (otras alternativas son Zookeeper y Consul). Se
@@ -166,7 +166,7 @@ aplicación. Sólo vamos a usar una variable aquí. Se lee en la
 siguiente secuencia:
 
 1. Se usa el primer argumento en la línea de órdenes si existe
-2. Se lee el fichero `.env` (via `load_dotenv`). Esa orden pone como
+2. Se lee el fichero `.env` (vía `load_dotenv`). Esa orden pone como
    variable de entorno lo que haya en el fichero; si existe esa
    variable de entorno, se usa.
 3. Si nada de eso ocurre, se usa un valor por omisión.
@@ -177,7 +177,7 @@ tiene que estar rodeado por un wrapper que se pueda usar en un *mock*
 para hacer tests locales.
 
 Esta clase, por ejemplo, encapsula la configuración y la incluye en un
-objeto que puede usar cualquier modo de confiuración presente:
+objeto que puede usar cualquier modo de configuración presente:
 
 ```python
 import etcd3
