@@ -114,10 +114,11 @@ sobre todos los aspectos del mismo, y en el caso de un microframework,
 tendremos que tener en cuenta, principalmente, los siguientes
 aspectos: configuración, rutas y middleware.
 
-### Configuración externa.
+### Configuración externa
 
 La
-[configuración externa](https://microservices.io/patterns/externalized-configuration.html) es
+[configuración externa](https://microservices.io/patterns/externalized-configuration.html)
+es
 uno de los patrones imprescindibles en la creación de aplicaciones
 nativas en la nube. Lo principal de la misma es el uso de un servicio
 externo para todas las diferentes opciones que haya que usar en cada
