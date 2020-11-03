@@ -1,4 +1,4 @@
-1312
+1332
 AMD
 API
 APIs
@@ -85,6 +85,7 @@ CoffeeScript
 Command
 Computing
 Conflict
+Consul
 Container
 CoreOS
 CouchDB
@@ -255,6 +256,7 @@ ODS
 OR
 OSD
 OSGi
+OSX
 OTROMAS
 Object
 Ocean
@@ -321,6 +323,8 @@ Raspberry
 RedHat
 Redis
 RedisLabs
+Registry
+Registry
 Reliable
 Resources
 Reveal
@@ -424,6 +428,7 @@ YAML
 Yahoo
 ZFS
 Zafra
+Zookeeper
 aaS
 account
 acervo
@@ -1093,10 +1098,14 @@ refactorizarlo
 referencial
 refs
 registerTask
+registry
+registry
 releases
 remote
 remotes
 reparticionar
+repetibles
+repetibles
 replicabilidad
 replicación
 replies
@@ -1121,6 +1130,7 @@ ruby
 rubygems
 run
 running
+runtime
 ránking
 s
 sadd
@@ -1311,11 +1321,3 @@ zeit
 zipi
 zuuz
 π
-runtime
-OSX
-repetibles
-registry
-Registry
-repetibles
-registry
-Registry

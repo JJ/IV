@@ -119,6 +119,13 @@ parte de la [aplicación de 12 factores](https://12factor.net/config),
 que dice que hay que almacenar la aplicación en el entorno. No tiene
 que ser necerariamente *las* variables de entorno, claro.
 
+> Hay varios servidores de configuración distribuida, pero el más
+> usado es `etcd` (otras alternativas son Zookeeper y Consul). Se
+> puede instalar el cliente y servidor directamente de los
+> repositorios, y a continuación es conveniente escribir `export
+> ETCDCTL_API=3` para que funcione correctamente
+> el [cliente](https://etcd.io/docs/v3.4.0/dl-build/).
+
 ### Rutas y middleware
 
 > En este ejemplo usaremos Node; una alternativa está en
