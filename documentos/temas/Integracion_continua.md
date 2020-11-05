@@ -252,7 +252,14 @@ diferentes sistemas de integración continua que tengas configurados.
   embargo, estos tests deben ser adicionales a los que comprueben
   diferentes sistemas operativos y versiones.
 - Aprovecha diferentes sistemas de integración continua para ejecutar
-  tests diferentes, si es posible en paralelo. Por ejempl
+  tests diferentes, si es posible en paralelo. Por ejemplo usa en uno
+  un contenedor Docker con la última versión del lenguaje, y en otros
+  testea versiones antiguas.
+- Usa `[skip ci]` cuando no quieras por cualquier razón que se pasen
+  los tests. Tampoco es necesario que hagas push con cada commit,
+  puedes agrupar 10, o 12 o los que sean. Cuando termines un conjunto
+  de cambios, o al final de una sesión.
+- Pon siempre el *badge*. Los badges son importantes.
 
 ## A dónde ir desde aquí
 
