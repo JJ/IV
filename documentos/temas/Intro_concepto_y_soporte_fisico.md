@@ -471,3 +471,10 @@ development*, TDD, pero se puede saltar directamente al tema dedicado a las
 [plataformas como servicio](PaaS.md) veremos como usarlos. Previamente habrá
 que realizar la
 [práctica correspondiente a esta materia](../proyecto/0.Repositorio.md).
+
+Esta
+[página](http://www.jedi.be/blog/2010/02/12/what-is-this-devops-thing-anyway/)
+lista una serie de recursos útiles, incluyendo blogs y canales de IRC, aparte
+de diferentes herramientas que deben estar en el carcaj del arquero DevOps,
+aunque la mayoría de los enlaces a estos están atrasados (y uno está en chino,
+así que no tengo ni idea).
