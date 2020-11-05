@@ -273,13 +273,11 @@ simple.
 Algunos recursos a los que puedes acceder desde la
 [Biblioteca de la UGR](https://biblioteca.ugr.es):
 
-- [DevOps: a software architect's perspective](https://granatensis.ugr.es/permalink/34CBUA_UGR/1p2iirq/alma991014008537904990),
-  un libro en general teórico y "a vista de pájaro" de la creación de
-  equipos de desarrollo y aplicaciones basadas en esa filosofía.
+- [Python Continuous Integration and Delivery A Concise Guide with Examples](https://granatensis.ugr.es/permalink/34CBUA_UGR/1p2iirq/alma991014068498204990),
+  de Moritz Lenz, especializado en Python, pero útil para cualquier lenguaje.
 
-- [DevOps for developers](https://granatensis.ugr.es/permalink/34CBUA_UGR/1p2iirq/alma991013959592104990)
-  también con poco código, pero con una visión a más bajo nivel de
-  cómo organizar y montar grupos DevOps.
+- [Cloud Native Continuous Integration](https://granatensis.ugr.es/permalink/34CBUA_UGR/1p2iirq/alma991014250986604990),
+  un poco más genérico.
 
 Esta
 [página](http://www.jedi.be/blog/2010/02/12/what-is-this-devops-thing-anyway/)
