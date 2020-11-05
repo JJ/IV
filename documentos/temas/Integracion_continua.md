@@ -1,4 +1,4 @@
-# Integracion continua
+# Integración continua
 
 <!--@
 prev: Contenedores
@@ -231,7 +231,9 @@ el resultado en la misma página de GitHub.
 Para activar este API, en algunos casos (como Travis) funciona por
 omisión; en otros,
 como [CircleCI](https://circleci.com/docs/2.0/enable-checks/), hay que
-activarlo explícitamente para que funcione.
+activarlo explícitamente para que funcione. Otros,
+como [Cirrus](https://github.com/apps/cirrus-ci), necesitan que se
+instale como una aplicación de GitHub.
 
 > Aparentemente,
 > [Jenkins](https://www.jenkins.io/blog/2020/07/09/github-checks-api-plugin-coding-phase-1/)
