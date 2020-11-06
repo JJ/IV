@@ -64,16 +64,18 @@ sesiones en vivo.
    llevar a cabo los ejercicios de autoevaluación.
 2. [Iniciación a DevOps: desarrollo basado en pruebas](documentos/temas/Desarrollo_basado_en_pruebas.md).
 3. [Usando contenedores](documentos/temas/Contenedores.md).
-4. [Puesta en marcha de microservicios](documentos/temas/Microservicios.md).
-5. [Platform as a Service](documentos/temas/PaaS.md).
-6. [Gestión de configuraciones](documentos/temas/Gestion_de_configuraciones.md).
+4. [Integración continua](documentos/temas/Integracion_continua.md).
+5. [Puesta en marcha de microservicios](documentos/temas/Microservicios.md).
+6. [Platform as a Service](documentos/temas/PaaS.md).
+7. [Gestión de configuraciones](documentos/temas/Gestion_de_configuraciones.md).
 
 Estos temas se pueden consultar como material adicional, pero no forman parte
 este año del temario de la asignatura:
 
-1. [Técnicas de virtualización](documentos/temas/Tecnicas_de_virtualizacion.md).
-2. [Aislamiento de recursos](documentos/temas/Aislamiento_de_recursos.md).
-3. [Almacenamiento virtual](documentos/temas/Almacenamiento.md).
+1. [Introducción e historia de los contenedores](documentos/temas/Intro_contenedores.md).
+2. [Técnicas de virtualización](documentos/temas/Tecnicas_de_virtualizacion.md).
+3. [Aislamiento de recursos](documentos/temas/Aislamiento_de_recursos.md).
+4. [Almacenamiento virtual](documentos/temas/Almacenamiento.md).
 
 ## Seminarios
 
@@ -101,12 +103,13 @@ grosso modo, los hitos se organizarán de la forma siguiente.
 3. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/2.Tests.md).
 4. Técnicas de virtualización: [Contenedores](documentos/proyecto/3.Docker.md)
    para pruebas.
-5. [Creando microservicios](documentos/proyecto/3.Microservicios.md).
-6. Desplegando a la nube:
+5. [Integración continua](documentos/proyecto/4.CI.md)
+6. [Creando microservicios](documentos/proyecto/3.Microservicios.md).
+7. Desplegando a la nube:
    [Platform as a Service](documentos/proyecto/4.PaaS.md).
-7. [Provisionamiento de máquinas
+8. [Provisionamiento de máquinas
    virtuales](documentos/proyecto/6.Provision.md).
-8. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS.md).
+9. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS.md).
 
 ## Tutorías virtuales
 
