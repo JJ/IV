@@ -41,16 +41,16 @@
 
 ## Otros objetivos
 
-* Aprender a crear un entorno personal de aprendizaje que ayude al aprendizaje
+- Aprender a crear un entorno personal de aprendizaje que ayude al aprendizaje
   autónomo.
-* Aprender una serie de lenguajes de programación de scripting de
+- Aprender una serie de lenguajes de programación de scripting de
   aplicación en computación nube tales como Ruby, *shell* de Linux y
   JavaScript (en forma de node.js).
-* Saber trabajar en un entorno de desarrollo colaborativo de software.
-* Asumir los factores económicos en la implantación de centros de procesos de
+- Saber trabajar en un entorno de desarrollo colaborativo de software.
+- Asumir los factores económicos en la implantación de centros de procesos de
   datos y cómo facturarlos.
-* Usar diferentes lenguajes de marcas tales como MediaWiki y Markdown.
-* Trabajar en un entorno de desarrollo basado en tecnologías libres.
-* Ampliar conocimientos de administración de sistemas Linux.
-* Comprender las implicaciones de seguridad de las diferentes tecnologías de
+- Usar diferentes lenguajes de marcas tales como MediaWiki y Markdown.
+- Trabajar en un entorno de desarrollo basado en tecnologías libres.
+- Ampliar conocimientos de administración de sistemas Linux.
+- Comprender las implicaciones de seguridad de las diferentes tecnologías de
   virtualización.
