@@ -77,7 +77,11 @@ Aparte de estos grandes jugadores en la nube, hay otras empresas
 como [Vercel](https://vercel.com) que tienen también este tipo de
 estructura, también con un +tier* gratuito bastante amplio y
 herramientas específicas tanto para desplegar como para testear
-localmente los despliegues.
+localmente los
+despliegues. Finalmente, [Back4App](https://back4app.com) lleva la
+filosofía serverless hasta el extremo, permitiendo desplegar código
+sólo en el cliente, provisionando en el servidor todos los servicios
+que hagan falta para desplegar una aplicación.
 
 > Los lenguajes más habituales suelen ser Node, Ruby, Python y Go. En
 > algunos casos puede haver también Java o C#. Otra razón para probar
@@ -87,14 +91,32 @@ localmente los despliegues.
 Dada esa naturaleza de limitación de recursos y de lenguajes, y
 también desacoplamiento del resto de una aplicación, los caso de uso
 de las funciones serverless son bastante específicos, pero eso no
-evita su uso generalizado dentro de las arquitecturas en la nube.
+evita su uso generalizado dentro de las arquitecturas en la nube. Por
+ejemplo, los usos siguientes.
 - Prototipado rápido de rutas en
   un [microservicio](Microservicios). Abstrayendo adecuadamente la
   lógica de negocio y el acceso a datos, se pueden probar si algunas
   funciones trabajan adecuadamente.
 - [*Single Page Applications*](https://es.wikipedia.org/wiki/Single-page_application)
   pueden basar su backend totalmente en este tipo de
-  servicios. [Vercel, por ejemplo](https://vercel.com/guides/deploying-react-with-vercel-cra) contiene
-  ejemplos para diferentes tipos de frameworks con una sola página de
-  front-end.
-- 
+  servicios.
+  [Vercel, por ejemplo](https://vercel.com/guides/deploying-react-with-vercel-cra)
+  contiene ejemplos para diferentes tipos de frameworks con una sola
+  página de front-end. De forma similar, se puede usar en
+  arquitecturas de tipo [JamStack](https://jamstack.org/).
+- Parte de una arquitectura que los incluya junto con otro tipo de
+  servicios en contenedores o nodos, siempre que se trate de alguna
+  parte de la aplicación relativamente independiente que se beneficie
+  de este tipo de estructura de coste.
+
+Los sistemas serverless permiten desplegar páginas completas, pero por
+supuesto también sólo APIs. Lo veremos a continuación.
+
+## Funciones como servicio
+
+Conceptualmente, lo que se despliega en un sistema serverless es una
+única función. Esta función recibirá, en general, tres cosas:
+
+- Una petición completa HTTP.
+- Un handle a la respuesta, para que se pueda escribir en ella.
+- En algunos casos un objeto con contexto adicional.
