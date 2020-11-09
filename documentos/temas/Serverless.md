@@ -158,7 +158,6 @@ type Hito struct {
 	fecha time.Time
 }
 
-
 var hitos = []Hito {
 	Hito {
 		URI: "0.Repositorio",
@@ -167,7 +166,6 @@ var hitos = []Hito {
 	}, // más hitos como este
 
 }
-
 
 func Handler(w http.ResponseWriter, r *http.Request) {
 	currentTime := time.Now()
