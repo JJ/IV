@@ -44,8 +44,7 @@ next: Microservicios
 
 ## Introducción
 
-Se
-denomina
+Se denomina
 [*serverless* computing](https://en.wikipedia.org/wiki/Serverless_computing),
 o también Lambdas o FaaS (*Functions as a Service*) a un modelo de
 computación en la nube en la cual se virtualiza una unidad mínima de
@@ -81,7 +80,9 @@ localmente los
 despliegues. Finalmente, [Back4App](https://back4app.com) lleva la
 filosofía serverless hasta el extremo, permitiendo desplegar código
 sólo en el cliente, provisionando en el servidor todos los servicios
-que hagan falta para desplegar una aplicación.
+que hagan falta para desplegar una
+aplicación. [Catalyst](https://www.zoho.com/catalyst/use-cases.html)
+de Zoho aparentemente va por el mismo camino.
 
 > Los lenguajes más habituales suelen ser Node, Ruby, Python y Go. En
 > algunos casos puede haver también Java o C#. Otra razón para probar
@@ -109,8 +110,19 @@ ejemplo, los usos siguientes.
   parte de la aplicación relativamente independiente que se beneficie
   de este tipo de estructura de coste.
 
+Adicionalmente, en estas funciones no hay que preocuparse por el
+escalado: se invocan simultáneamente todas las veces que se necesite,
+teniendo en cuenta el costo, como es natural.
+
 Los sistemas serverless permiten desplegar páginas completas, pero por
 supuesto también sólo APIs. Lo veremos a continuación.
+
+<div class='ejercicios' markdown="1">
+
+Darse de alta en Vercel y Firebase, y descargarse los SDKs para poder
+trabajar con ellos localmente.
+
+</div>
 
 ## Funciones como servicio
 
@@ -120,3 +132,81 @@ Conceptualmente, lo que se despliega en un sistema serverless es una
 - Una petición completa HTTP.
 - Un handle a la respuesta, para que se pueda escribir en ella.
 - En algunos casos un objeto con contexto adicional.
+
+A diferencia del caso de los contenedores, en cada caso el layout de
+lo que se despliegue. Vamos a ver como ejemplo una función en Vercel
+(antiguo Zeit), que permite desplegar aplicaciones completas. Para
+trabajar con él es mejor descargarse el CLI y dejar que te ayude a
+crear un ejemplo. Trabajemos con uno básico, con una sola función, y,
+como suele suceder aquí, si frontend. [El proyecto completo está en el
+repo `JJ/vercel-cuantoqueda-go`](https://github.com/JJ/vercel-cuantoqueda-go/),
+incluyendo ejemplos adicionales. Pero la función principal está en el
+directorio `api` y se llama `cuantoqueda.go`.
+
+```go
+package handler
+
+import (
+    "fmt"
+    "net/http"
+    "time"
+)
+
+type Hito struct {
+	URI  string
+	Title string
+	fecha time.Time
+}
+
+
+var hitos = []Hito {
+	Hito {
+		URI: "0.Repositorio",
+		Title: "Datos básicos y repo",
+		fecha: time.Date(2020, time.September, 29, 11, 30, 0, 0, time.UTC),
+	}, // más hitos como este
+
+}
+
+
+func Handler(w http.ResponseWriter, r *http.Request) {
+	currentTime := time.Now()
+	var next int
+	var queda time.Duration
+	for indice, hito := range hitos {
+		if ( hito.fecha.After( currentTime ) ) {
+			next = indice
+			queda = hito.fecha.Sub( currentTime )
+		}
+	}
+	if ( next > 0 ) {
+		fmt.Fprintf(w, queda.String())
+	} else {
+		fmt.Fprintf(w, "Ninguna entrega próxima" )
+	}
+}
+```
+
+Esta función está activada
+en
+[este endpoint](https://vercel-cuantoqueda-go.jjmerelo.vercel.app/api/cuantoqueda)
+y las partes esenciales que tiene, aparte del nombre, es las dos
+variables que recibe. La respuesta se va a escribir en `w` como si se
+tratara de un fichero; como se ve en las últimas líneas, eso es lo que
+va a recibir quien la llame. Y `r` es la petición; en realidad no la
+usamos en este caso, porque no necesitamos parámetros, pero contiene
+el contexto completo, cabecera y cuerpo, que se puede usar,
+efectivamente, para recibir un argumento que se mapeará a la salida.
+
+> Para desplegar esta función, se puede conectar el repositorio a
+> Vercel o bien simplemente ejecutar `vercel` en el directorio raíz
+> del repo. Previamente se puede usar `vercel dev` para hacer un
+> despliegue en local y testearla.
+
+Las funciones que se desplieguen de esta forma se deben testear, como
+cualquier otra función. Para ello es mejor desacoplar la lógica que
+recibe la petición y la escribe de la lógica que ejecuta la
+función. En este caso no se ha hecho, pero en general sí se debe
+hacer. De esa forma se puede testear localmente todo lo que se vaya a
+ejecutar.
+
