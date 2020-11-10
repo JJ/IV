@@ -215,3 +215,29 @@ Tomar alguna de las funciones de prueba de Vercel, y hacer despliegues
 de prueba con el mismo.
 
 </div>
+
+## Ver también
+
+Una
+biblioteca, [`serverless`](https://github.com/serverless/serverless),
+permite trabajar de forma común con los diferentes servicios, con una
+línea de órdenes que permite también desplegar en estos
+servicios. [OpenWhisk](https://openwhisk.apache.org/) te permite
+tener, en tu propio ordenador (o nube), una plataforma serverless en
+la que desplegar tus funciones en muchos lenguajes diferentes,
+incluyendo Rust.
+
+## Bibliografía y otros recursos
+
+Algunos recursos a los que puedes acceder desde la
+[Biblioteca de la UGR](https://biblioteca.ugr.es):
+
+- [Beginning Serverless Computing Developing with Amazon Web Services, Microsoft Azure, and Google Cloud](https://granatensis.ugr.es/permalink/34CBUA_UGR/1p2iirq/alma991013959706004990).
+  Me consta que los libros de [APress](https://apress.com) son de
+  calidad, y este al menos tiene un enfoque para principiantes y con
+  diferentes plataformas serverless.
+- [Serverless Web Applications with React and Firebase : Develop real-time applications for web and mobile platforms](https://granatensis.ugr.es/permalink/34CBUA_UGR/1p2iirq/alma991014333329504990).
+  Al menos cubre un framework común y una plataforma accesible. Sin
+  embargo, poco concepto general, supongo.
+
+
