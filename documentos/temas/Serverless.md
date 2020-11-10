@@ -2,14 +2,14 @@
 layout: index
 
 
-prev: Integracion_continua
+prev: REST
 next: Microservicios
 ---
 
 # Serverless computing
 
 <!--@
-prev: Integracion_continua
+prev: REST
 next: Microservicios
 -->
 
