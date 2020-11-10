@@ -1,7 +1,7 @@
 # Serverless computing
 
 <!--@
-prev: Integracion_continua
+prev: REST
 next: Microservicios
 -->
 
