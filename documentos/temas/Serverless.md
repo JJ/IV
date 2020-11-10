@@ -74,7 +74,8 @@ filosofía serverless hasta el extremo, permitiendo desplegar código
 sólo en el cliente, provisionando en el servidor todos los servicios
 que hagan falta para desplegar una
 aplicación. [Catalyst](https://www.zoho.com/catalyst/use-cases.html)
-de Zoho aparentemente va por el mismo camino.
+(que antes se llamaba Parse) de Zoho aparentemente va por el mismo
+camino.
 
 > Los lenguajes más habituales suelen ser Node, Ruby, Python y Go. En
 > algunos casos puede haver también Java o C#. Otra razón para probar
@@ -200,3 +201,9 @@ función. En este caso no se ha hecho, pero en general sí se debe
 hacer. De esa forma se puede testear localmente todo lo que se vaya a
 ejecutar.
 
+<div class='ejercicios' markdown="1">
+
+Tomar alguna de las funciones de prueba de Vercel, y hacer despliegues
+de prueba con el mismo.
+
+</div>
