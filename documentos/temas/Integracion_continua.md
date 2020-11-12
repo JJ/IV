@@ -31,6 +31,28 @@ como paso previo al despliegue, es decir, transformación del código
 para su copia y arranque en el lugar donde se vayan a encontrar
 definitivamente.
 
+En general, son herramientas complejas que necesitan una
+especificación precisa de cómo tratar los fuentes para crear algo que
+pueda ser ejecutable (lo que puede incluir instrucciones para
+compilación, transpilación o simplemente generación), gestión de la
+configuración para ejecutar la aplicación, y finalmente instrucciones
+para desplegar la misma y probar el despliegue. La denominación
+genérica "integración continua" incluye muchos sistemas
+que
+[automatizan la construcción](https://en.wikipedia.org/wiki/Build_automation)
+de una aplicación.
+
+En esa complejidad, se usan una serie de lenguajes para expresar todos
+los pasos, generalmente fichero con una estructura determinada que
+especifica las diferentes fases de la
+construcción. [YAML](https://yaml.org/) se ha situado como
+posiblemente el lenguaje más popular para hacerlo, pero se han creado
+incluso lenguajes específicos,
+como [StarLark](https://github.com/bazelbuild/starlark/) que permiten
+por un lado expresar grafos de dependencias de forma más precisa, y
+por otro usar lenguajes más expresivos (y portables) que simples
+scripts del shell para especificar los pasos que se tienen que seguir.
+
 Hoy en día hay una serie de herramientas de integración continua tanto
 privativas (generalmente basadas en la web) como libres. Las
 privativas suelen tener un *tier* gratuito para proyectos públicos y
@@ -121,6 +143,7 @@ node_js:
   - "11"
 before_install:
   - npm install -g mocha
+install:
   - cd src; npm install .
 script: cd src; mocha
 ```
