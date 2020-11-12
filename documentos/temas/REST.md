@@ -10,7 +10,6 @@ next: Serverless
 
 ## Objetivos
 
-
 ### Cubre los siguientes objetivos de la asignatura
 
 1. Conocer los conceptos relacionados con el proceso de virtualización
@@ -24,7 +23,6 @@ tanto de software como de hardware y ponerlos en práctica.
   infraestructura virtual.
 </div>
 
-
 Los
 sistemas
 [REST (Representational State Transfer)](https://es.wikipedia.org/wiki/Transferencia_de_Estado_Representacional)
@@ -37,12 +35,12 @@ Las *peticiones* HTTP tienen varias partes diferenciadas:
 
 - Una cabecera HTTP, que contiene metadatos sobre la misma;
   codificación,
-  [tipo MIME](https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) que
-  se está enviando, y, sobre todo, *tokens* que permitan al
+  [tipo MIME](https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types)
+  que se está enviando, y, sobre todo, *tokens* que permitan al
   autenticación.
 - Un
-[comando HTTP como PUT o GET](https://developer.mozilla.org/es/docs/Web/HTTP/Methods)),
-que indique qué es lo que se quiere que haga.
+  [comando HTTP como PUT o GET](https://developer.mozilla.org/es/docs/Web/HTTP/Methods),
+  que indique qué es lo que se quiere que haga.
 - Un URI, o *uniform resource locator*, un identificador único de un
   recurso sobre cuyo estado se quiere actuar.
 - Un *cuerpo*, no siempre presente, que contiene los datos que se
@@ -70,7 +68,8 @@ dependerá en realidad de la persona que lo implemente.
 
 La *respuesta HTTP* tendrá una estructura similar, pero incluirá
 también
-[códigos de estado HTTP](https://developer.mozilla.org/es/docs/Web/HTTP/Status)). Estos
+[códigos de estado HTTP](https://developer.mozilla.org/es/docs/Web/HTTP/Status)).
+Estos
 códigos de estado pueden incluir códigos de error, que tendremos que
 interpretar desde nuestra aplicación; los códigos 500 (error del
 servidor) no serán códigos que podamos tratar, en general, desde

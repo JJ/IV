@@ -146,35 +146,35 @@ import (
 )
 
 type Hito struct {
-	URI  string
-	Title string
-	fecha time.Time
+    URI  string
+    Title string
+    fecha time.Time
 }
 
 var hitos = []Hito {
-	Hito {
-		URI: "0.Repositorio",
-		Title: "Datos básicos y repo",
-		fecha: time.Date(2020, time.September, 29, 11, 30, 0, 0, time.UTC),
-	}, // más hitos como este
+    Hito {
+        URI: "0.Repositorio",
+        Title: "Datos básicos y repo",
+        fecha: time.Date(2020, time.September, 29, 11, 30, 0, 0, time.UTC),
+    }, // más hitos como este
 
 }
 
 func Handler(w http.ResponseWriter, r *http.Request) {
-	currentTime := time.Now()
-	var next int
-	var queda time.Duration
-	for indice, hito := range hitos {
-		if ( hito.fecha.After( currentTime ) ) {
-			next = indice
-			queda = hito.fecha.Sub( currentTime )
-		}
-	}
-	if ( next > 0 ) {
-		fmt.Fprintf(w, queda.String())
-	} else {
-		fmt.Fprintf(w, "Ninguna entrega próxima" )
-	}
+    currentTime := time.Now()
+    var next int
+    var queda time.Duration
+    for indice, hito := range hitos {
+        if ( hito.fecha.After( currentTime ) ) {
+            next = indice
+            queda = hito.fecha.Sub( currentTime )
+        }
+    }
+    if ( next > 0 ) {
+        fmt.Fprintf(w, queda.String())
+    } else {
+        fmt.Fprintf(w, "Ninguna entrega próxima" )
+    }
 }
 ```
 
@@ -224,12 +224,13 @@ incluyendo Rust.
 Algunos recursos a los que puedes acceder desde la
 [Biblioteca de la UGR](https://biblioteca.ugr.es):
 
-- [Beginning Serverless Computing Developing with Amazon Web Services, Microsoft Azure, and Google Cloud](https://granatensis.ugr.es/permalink/34CBUA_UGR/1p2iirq/alma991013959706004990).
+- [Beginning Serverless Computing Developing with Amazon Web Services,
+  Microsoft Azure, and Google Cloud](https://granatensis.ugr.es/permalink/34CBUA_UGR/1p2iirq/alma991013959706004990).
   Me consta que los libros de [APress](https://apress.com) son de
   calidad, y este al menos tiene un enfoque para principiantes y con
   diferentes plataformas serverless.
-- [Serverless Web Applications with React and Firebase : Develop real-time applications for web and mobile platforms](https://granatensis.ugr.es/permalink/34CBUA_UGR/1p2iirq/alma991014333329504990).
+- [Serverless Web Applications with React and Firebase: Develop
+  real-time applications for web and mobile platforms](https://granatensis.ugr.es/permalink/34CBUA_UGR/1p2iirq/alma991014333329504990).
   Al menos cubre un framework común y una plataforma accesible. Sin
   embargo, poco concepto general, supongo.
-
 
