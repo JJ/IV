@@ -179,7 +179,7 @@ Este fichero, denominado `.travis.yml`, contiene lo siguiente:
   sería `npm install .`. En nuestro caso tenemos que instalar `mocha`
   y además ejecutar este último paso en un subdirectorio que no es
   estándar.
-  
+
 - `install` se ejecuta a continuación; en realidad lo único que
   diferencia una fase de otra son las opciones por defecto que se van
   a usar. En este caso no se puede usar la opción por defecto porque
