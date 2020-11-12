@@ -167,13 +167,24 @@ Este fichero, denominado `.travis.yml`, contiene lo siguiente:
 
 - `node_js` en este caso indica las versiones que vamos a probar. Por
   el mismo precio podemos probar varias versiones, en este caso las
-  dos últimas de node.
+  dos antiguas de node. Lo esencial en este paso es tratar de probar
+  la primera y la última versión con la que se va a probar la
+  aplicación. En este caso se han puesto dos arbitrarias (por ilustrar
+  qué se puede hacer), pero generalmente habrá que hacer varias
+  iteraciones para expresar cuales son estas versiones con las que
+  vamos a probar.
 
 - `before_install` se ejecuta antes de la instalación de la aplicación
   (específica de cada lenguaje; por ejemplo en el caso de node.js
   sería `npm install .`. En nuestro caso tenemos que instalar `mocha`
   y además ejecutar este último paso en un subdirectorio que no es
   estándar.
+  
+- `install` se ejecuta a continuación; en realidad lo único que
+  diferencia una fase de otra son las opciones por defecto que se van
+  a usar. En este caso no se puede usar la opción por defecto porque
+  hay que cambiar de directorio, por eso hay que expresarlo
+  explícitamente.
 
 - Finalmente, se ejecuta el script de prueba en sí (para el caso,
   cualquier cosa que quieras ejecutar). Una vez más, nos cambiamos al
