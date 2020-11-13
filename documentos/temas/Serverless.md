@@ -77,7 +77,14 @@ como [Vercel](https://vercel.com) que tienen también este tipo de
 estructura, también con un +tier* gratuito bastante amplio y
 herramientas específicas tanto para desplegar como para testear
 localmente los
-despliegues. Finalmente, [Back4App](https://back4app.com) lleva la
+despliegues;
+[Netlify](https://docs.netlify.com/functions/build-with-go/#synchronous-function-format)
+también
+ofrece un servicio similar, enfocado a Jamstack principalmente, pero
+que permite alojar funciones, aparentemente en Node o Go (aunque
+teóricamente funciona sobre AWS Lambda, así que posiblemente pueda
+usar la gama completa de runtimes que se usan ahí. Finalmente,
+[Back4App](https://back4app.com) lleva la
 filosofía serverless hasta el extremo, permitiendo desplegar código
 sólo en el cliente, provisionando en el servidor todos los servicios
 que hagan falta para desplegar una
@@ -110,6 +117,13 @@ ejemplo, los usos siguientes.
   servicios en contenedores o nodos, siempre que se trate de alguna
   parte de la aplicación relativamente independiente que se beneficie
   de este tipo de estructura de coste.
+- Hay servicios que son capaces de ligar eventos a *endpoints*, como
+  por ejemplo Telegram; cada vez que sucede un evento se hace una
+  llamada; en este caso, si uno es capaz de integrar toda la lógica de
+  negocio en una sola función, ésta puede actuar como un bot de
+  Telegram sin necesidad de ninguna otra cosa; en general, cualquier
+  función puede actuar como *webhook* de cosas como GitHub o cambios
+  en una base de datos online.
 
 Adicionalmente, en estas funciones no hay que preocuparse por el
 escalado: se invocan simultáneamente todas las veces que se necesite,
