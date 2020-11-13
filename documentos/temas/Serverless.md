@@ -208,6 +208,26 @@ de prueba con el mismo.
 
 </div>
 
+Al poder conectarse con otros APIs, estas funciones como servicio
+pueden "cerrar el bucle" y convertirse en soluciones completas, por
+ejemplo
+en
+[este bot de Telegram](https://dev.to/jj/create-a-serverless-telegram-bot-using-go-and-vercel-4fdb),
+que es una adaptación del programa anterior. Aparte de lo necesario
+para interpretar las estructuras de datos que envía Telegram y crear
+el JSON que, a su vez, admite, lo importante en esa función
+es
+[esta línea](https://github.com/JJ/vercel-kekeda/blob/6d5f8e0fb29c7fcbb264c06c17b8244bd4a80450/api/kekeda_iv.go#L102),
+que establece que, como se ha explicado en [el capítulo que habla de
+las peticiones REST](REST.md), la respuesta va a tener un tipo MIME
+determinado. Desde el punto de vista de la arquitectura, es
+interesante que se cambia un tipo de arquitectura *pull* (es decir,
+que va interrogando periódicamente a un punto de contacto de Telegram)
+por un tipo de arquitectura *reactiva* que solo se "despierta" cuando
+efectivamente sucede un evento que necesita algún tipo de
+procesamiento; en caso contrario, simplemente no existe (y por tanto
+no hace ningún tipo de gasto).
+
 ## Ver también
 
 Una
