@@ -186,10 +186,8 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-Esta función está activada
-en
-[este endpoint](https://vercel-cuantoqueda-go.jjmerelo.vercel.app/api/cuantoqueda)
-y las partes esenciales que tiene, aparte del nombre, es las dos
+Esta función está activada (en un endpoint que en este momento puede
+esta o no activado) y las partes esenciales que tiene, aparte del nombre, es las dos
 variables que recibe. La respuesta se va a escribir en `w` como si se
 tratara de un fichero; como se ve en las últimas líneas, eso es lo que
 va a recibir quien la llame. Y `r` es la petición; en realidad no la
@@ -238,7 +236,7 @@ no hace ningún tipo de gasto).
 
 ## Ver también
 
-Una
+gUna
 biblioteca, [`serverless`](https://github.com/serverless/serverless),
 permite trabajar de forma común con los diferentes servicios, con una
 línea de órdenes que permite también desplegar en estos
