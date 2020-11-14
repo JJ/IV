@@ -72,10 +72,10 @@ Estos
 códigos de estado pueden incluir códigos de error, que tendremos que
 interpretar desde nuestra aplicación; los códigos 500 (error del
 servidor) no serán códigos que podamos tratar, en general, desde
-nuestra aplicación, porque indican que ha habido una excepcioón no
+nuestra aplicación, porque indican que ha habido una excepción no
 capturada en la misma.
 
-Es conveniente conocer esta esctructura general del protocolo HTTP,
+Es conveniente conocer esta estructura general del protocolo HTTP,
 porque se aprovechará para escribir APIs que usen su semántica tanto
 para las peticiones como para las respuestas. En estas, diferentes
 frameworks ofrecerán un API que permitirá trabajar fácilmente con las
