@@ -102,6 +102,7 @@ también desacoplamiento del resto de una aplicación, los caso de uso
 de las funciones serverless son bastante específicos, pero eso no
 evita su uso generalizado dentro de las arquitecturas en la nube. Por
 ejemplo, los usos siguientes.
+
 - Prototipado rápido de rutas en
   un [microservicio](Microservicios). Abstrayendo adecuadamente la
   lógica de negocio y el acceso a datos, se pueden probar si algunas
@@ -201,7 +202,8 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 ```
 
 Esta función está activada (en un endpoint que en este momento puede
-esta o no activado) y las partes esenciales que tiene, aparte del nombre, es las dos
+esta o no activado) y las partes esenciales que tiene, aparte del
+nombre, es las dos
 variables que recibe. La respuesta se va a escribir en `w` como si se
 tratara de un fichero; como se ve en las últimas líneas, eso es lo que
 va a recibir quien la llame. Y `r` es la petición; en realidad no la
