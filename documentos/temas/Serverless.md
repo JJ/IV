@@ -240,6 +240,147 @@ efectivamente sucede un evento que necesita algún tipo de
 procesamiento; en caso contrario, simplemente no existe (y por tanto
 no hace ningún tipo de gasto).
 
+## Usando parámetros
+
+Evidentemente, lo interesante en estas funciones es poder usar
+parámetros para hacer diferentes llamadas. Como se ha mostrado en el
+tema de [REST](REST.md), esos parámetros forman parte de la petición
+HTTP y por tanto están accesibles para la función.
+
+Como ejemplo de este tipo de peticiones,
+usaremos [Netlify](https://netlify.com). Netlify sigue un enfoque muy
+parecido a Vercel; las funciones las despliega directamente en AWS
+Lambda, así que, en principio, se puede usar cualquiera de esos
+runtimes. Los ejemplos, sin
+embargo
+[se fijan sobre todo en Go y Node](https://functions-playground.netlify.app/).
+
+Nosotros usaremos node para crear un API que agregue los datos de
+contagios
+de
+[COVID](https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/operaciones/consulta/anual/38842?CodOper=b3_2314&codConsulta=38842)
+de los distritos sanitarios de Granada y devuelva, por omisión, los
+datos de la última semana, o bien los datos de la semana del año en
+curso que se le pase. Esta es la función:
+
+```node
+const data = require("./data" )
+
+exports.handler = async event => {
+
+  var weeks = {};
+  for ( element in  data.data.data ) {
+    const data_piece =  data.data.data[element];
+    const week = data_piece[0].des;
+    const cod = data_piece[1].cod[0];
+    if ( !( week in weeks ) ) {
+      weeks[week] = {};
+    }
+    weeks[week][cod] = data_piece[3].val? Math.round(parseFloat(data_piece[3].val)) : 0;
+    if ( "total" in weeks[week] ) {
+      weeks[week]['total'] +=  weeks[week][cod];
+    } else {
+      weeks[week]['total'] =  weeks[week][cod];
+    }
+  }
+
+  const when = event.queryStringParameters.when || 'last';
+  var result = 0;
+  var week_keys = Object.keys(weeks);
+  if ( when === "last" ) {
+    result = weeks[ week_keys[ week_keys.length -1 ] ].total;
+  } else if ( when in weeks ) {
+    result = weeks[ when ].total;
+  }
+
+  return {
+    statusCode: 200,
+    body: result.toString(),
+  }
+
+}
+```
+
+Explicaremos a continuación cómo se extraen los datos; esos datos
+tienen que procesarse para ponerse en un hash que usa como claves el
+índice de la semana.
+
+Esta línea:
+
+```node
+  const when = event.queryStringParameters.when || 'last';
+```
+
+es donde se extraen los parámetros de llamada. En el caso anterior se
+recibían dos parámetros, la petición y donde había que escribir los
+datos de salida. En este caso, sólo la petición. Los datos que se van
+a devolver son los que la función devuelva. Con esa variable tendremos
+o bien el valor `last` o una semana; en cualquier caso extraemos el
+total calculado en las líneas anteriors.
+
+Al devolverlo:
+
+```node
+return {
+    statusCode: 200,
+    body: result.toString(),
+  }
+```
+
+hay que tener en cuenta que el `body` sólo puede tener el formato de
+una cadena, no se admite JSON ni se serializa automáticamente a
+JSON. Se puede enviar JSON, como es natural, pero sin poder establecer
+la cabecera con el tipo MIME correspondiente, aparentemente. En todo
+caso, el
+resultado
+[se puede ver aquí](https://affectionate-yonath-bf645c.netlify.app/.netlify/functions/covid-and).
+Como se ve, la ruta con la que se accede a esta función es
+`.netlify/functions/covid-and`, lo que viene determinado por el mismo
+Netlify y el nombre del fichero (que será `functions/covid-and.js`).
+
+Para desplegarlo, hay que dar de alta el repositorio en Netlify y
+añadir
+este
+[fichero](https://github.com/JJ/netlify-covid-and/blob/main/netlify.toml) en
+el raíz, en formato [TOML](https://toml.io).
+
+> TOML corresponde a Tom's Obvious, Minimal Language y es una
+> alternativa a otros lenguajes de serialización que se usa en
+> diferentes sistemas cloud, sobre todo los ligados al lenguaje Go. Se
+> parece a los ficheros INI, pero permite definir pares clave-valor de
+> forma jerárquica, y añadir metadatos a las mismas.
+
+```toml
+[build]
+
+  functions = "./functions"
+```
+
+Con esto únicamente se le indica que las funciones se encuentran en
+ese directorio, y se usa para compilar y desplegar la función de forma
+definitiva.
+
+> Sólo una pequeña referencia a cómo se obtienen los datos. Haciendo
+> uso de un modelo de despliegue continuo, se usa
+> una
+> [GitHub action](https://github.com/JJ/netlify-covid-and/blob/main/.github/workflows/descarga.yml)
+> para
+> generar el fichero `data.js` que se importa. Esa *action* se activa
+> tanto cuando se hace push o PR como periódicamente cada día, para
+> actualizar a los datos de la última semana. Es decir, se
+> auto-despliega cada día de forma que la función tenga los últimos
+> datos subidos; este es un ejemplo de despliegue continuo, y también
+> de cómo se desacopla la obtención de los datos del servicio de los
+> mismos, de forma que sea mucho más rápido para el usuario, y sobre
+> todo determinista, el acceso a los datos que ha solicitado.
+
+<div class='ejercicios' markdown="1">
+
+Tomar alguna de las funciones de prueba de Netlify, y hacer despliegues
+de prueba con el mismo.
+
+</div>
+
 ## Ver también
 
 gUna
