@@ -80,7 +80,7 @@ localmente los
 despliegues;
 [Netlify](https://docs.netlify.com/functions/build-with-go/#synchronous-function-format)
 también
-ofrece un servicio similar, enfocado a Jamstack principalmente, pero
+ofrece un servicio similar, enfocado a JamStack principalmente, pero
 que permite alojar funciones, aparentemente en Node o Go (aunque
 teóricamente funciona sobre AWS Lambda, así que posiblemente pueda
 usar la gama completa de runtimes que se usan ahí. Finalmente,
@@ -326,7 +326,7 @@ recibían dos parámetros, la petición y donde había que escribir los
 datos de salida. En este caso, sólo la petición. Los datos que se van
 a devolver son los que la función devuelva. Con esa variable tendremos
 o bien el valor `last` o una semana; en cualquier caso extraemos el
-total calculado en las líneas anteriors.
+total calculado en las líneas anteriores.
 
 Al devolverlo:
 
