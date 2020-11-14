@@ -1,6 +1,5 @@
 # REST en breve
 
-
 <!--@
 prev: Desarrollo_basado_en_pruebas
 next: Serverless
@@ -13,7 +12,7 @@ next: Serverless
 ### Cubre los siguientes objetivos de la asignatura
 
 1. Conocer los conceptos relacionados con el proceso de virtualización
-tanto de software como de hardware y ponerlos en práctica.
+   tanto de software como de hardware y ponerlos en práctica.
 
 ### Objetivos específicos
 
@@ -82,10 +81,7 @@ para las peticiones como para las respuestas. En estas, diferentes
 frameworks ofrecerán un API que permitirá trabajar fácilmente con las
 cabeceras, los contenidos y los metadatos correspondientes.
 
-
-
 ## A dónde ir desde aquí
-
 
 En el [siguiente tema](Serverless.md) veremos cómo se usan estas
 cabeceras para estructurar peticiones.
