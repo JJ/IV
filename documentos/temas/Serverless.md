@@ -85,7 +85,7 @@ aplicación. [Catalyst](https://www.zoho.com/catalyst/use-cases.html)
 camino.
 
 > Los lenguajes más habituales suelen ser Node, Ruby, Python y Go. En
-> algunos casos puede haver también Java o C#. Otra razón para probar
+> algunos casos puede haber también Java o C#. Otra razón para probar
 > Go, que ademas se usa regularmente para los clientes de estos
 > servicios.
 
@@ -385,7 +385,7 @@ de prueba con el mismo.
 
 ## Ver también
 
-gUna
+Una
 biblioteca, [`serverless`](https://github.com/serverless/serverless),
 permite trabajar de forma común con los diferentes servicios, con una
 línea de órdenes que permite también desplegar en estos
