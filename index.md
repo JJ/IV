@@ -5,7 +5,7 @@ layout: index
 ---
 # Material docente para la asignatura Infraestructura Virtual
 
-[![Build Status](https://travis-ci.org/JJ/IV.svg?branch=master)](https://travis-ci.org/JJ/IV)
+[![Build Status](https://travis-ci.com/github/JJ/IV.svg?branch=master)](https://travis-ci.com/github/JJ/IV)
 |
 [![Checks README](https://github.com/JJ/Test-Text/workflows/Checks%20README/badge.svg)](https://github.com/JJ/IV/actions?query=workflow%3A%22Comprueba+README%22)
 |
@@ -70,9 +70,11 @@ sesiones en vivo.
 2. [Iniciación a DevOps: desarrollo basado en pruebas](documentos/temas/Desarrollo_basado_en_pruebas).
 3. [Usando contenedores](documentos/temas/Contenedores).
 4. [Integración continua](documentos/temas/Integracion_continua).
-5. [Puesta en marcha de microservicios](documentos/temas/Microservicios).
-6. [Platform as a Service](documentos/temas/PaaS).
-7. [Gestión de configuraciones](documentos/temas/Gestion_de_configuraciones).
+5. Breve introducción a [REST](documentos/temas/REST).
+6. Computación [Serverless](documentos/temas/Serverless).
+7. [Puesta en marcha de microservicios](documentos/temas/Microservicios).
+8. [Platform as a Service](documentos/temas/PaaS).
+9. [Gestión de configuraciones](documentos/temas/Gestion_de_configuraciones).
 
 Estos temas se pueden consultar como material adicional, pero no forman parte
 este año del temario de la asignatura:
