@@ -110,13 +110,14 @@ grosso modo, los hitos se organizarán de la forma siguiente.
 3. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/2.Tests).
 4. Técnicas de virtualización: [Contenedores](documentos/proyecto/3.Docker)
    para pruebas.
-5. [Integración continua](documentos/proyecto/4.CI)
-6. [Creando microservicios](documentos/proyecto/3.Microservicios).
-7. Desplegando a la nube:
+5. Despliegues [serverless](documentos/proyecto/5.Serverless)
+6. [Integración continua](documentos/proyecto/4.CI)
+7. [Creando microservicios](documentos/proyecto/3.Microservicios).
+8. Desplegando a la nube:
    [Platform as a Service](documentos/proyecto/4.PaaS).
-8. [Provisionamiento de máquinas
+9. [Provisionamiento de máquinas
    virtuales](documentos/proyecto/6.Provision).
-9. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS).
+10. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS).
 
 ## Tutorías virtuales
 
