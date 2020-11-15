@@ -221,7 +221,7 @@ es reflejar en el código, de la forma más natural posible, el diseño del
 interfaz REST.
 
 Pero primero hay que instalarlo. Node.js tiene un sistema de gestión de módulos
-bastante simple llamado [npm](https://www.npmjs.org/) que ya hemos usado. Tras
+bastante simple llamado [npm](https://www.npmjs.com/) que ya hemos usado. Tras
 seguir las instrucciones en el sitio para instalarlo (o, en el caso de Ubuntu,
 instalarlo desde Synaptic o con `apt-get`), vamos al directorio en el que
 vayamos a crear el programa y escribimos
@@ -314,7 +314,7 @@ denomina enrutado. En `express` se pueden definir los parámetros de forma
 bastante simple, usando marcadores precedidos por `:`.
 
 Por ejemplo, si queremos tener diferentes contadores podríamos usar el
-[programa siguiente](https://github.com/JJ/node-app-cc/blob/master/index.js):
+[programa siguiente](https://github.com/JJ/node-app-cc/blob/master/lib/index.js):
 
 ```js
 var express = require('express');
@@ -366,7 +366,7 @@ que hayamos almacenado hasta el momento.
 
 Todas las órdenes definen una *ruta*, que es como se denominan cada
 una de las funciones del API REST. Las
-[rutas](https://hub.packtpub.com/understanding-express-routes)
+[rutas](https://hub.packtpub.com/understanding-express-routes/)
 pueden ser simples cadenas (como `/porras` en el caso de `get`) o
 incluir parámetros, como en el caso de `put`:
 `/porra/:local/:visitante/:competition/:year` incluye una orden al
@@ -390,7 +390,7 @@ JSON que estará en otro directorio; esto se hace en el fichero `__init__.py`
 que está en el mismo directorio.
 
 Sobre esa clase vamos a construir un microservicio basado en el microframework
-[`hug`](https://hug.rest), un microframework alternativo al más célebre, que
+[`hug`](https://www.hug.rest), un microframework alternativo al más célebre, que
 hace su labor perfectamente.
 [Esta](https://github.com/JJ/tests-python/blob/master/HitosIV/hugitos.py) es la
 clase, y también el programa principal, que la implementa:
@@ -604,7 +604,7 @@ usarse servidores web que sean capaces de tener en cuenta todo eso.
 En la base, sin embargo, muchos lenguajes de programación usan
 simplemente **gestores de procesos** que son capaces de ejecutar
 varias instancias de un servidor a la vez. Por ejemplo, en node uno de
-los más populares es [`pm2`](http://pm2.keymetrics.io/), un gestor de
+los más populares es [`pm2`](https://pm2.keymetrics.io/), un gestor de
 procesos que permite arrancar, rearrancar y gestionas las diferentes
 instancias de un proceso.
 
