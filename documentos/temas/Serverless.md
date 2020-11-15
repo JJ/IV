@@ -265,7 +265,7 @@ de los distritos sanitarios de Granada y devuelva, por omisión, los
 datos de la última semana, o bien los datos de la semana del año en
 curso que se le pase. Esta es la función:
 
-```node
+```javascript
 const data = require("./data" )
 
 exports.handler = async event => {
@@ -309,8 +309,8 @@ tienen que procesarse para ponerse en un hash que usa como claves el
 
 Esta línea:
 
-```node
-  const when = event.queryStringParameters.when || 'last';
+```javascript
+const when = event.queryStringParameters.when || 'last';
 ```
 
 es donde se extraen los parámetros de llamada. En el caso anterior se
@@ -322,7 +322,7 @@ total calculado en las líneas anteriores.
 
 Al devolverlo:
 
-```node
+```javascript
 return {
     statusCode: 200,
     body: result.toString(),
@@ -409,3 +409,6 @@ Algunos recursos a los que puedes acceder desde la
   Al menos cubre un framework común y una plataforma accesible. Sin
   embargo, poco concepto general, supongo.
 
+## A donde ir desde aquí
+
+Al [hito correspondiente del proyecto](../proyecto/5.Serverless.md).
