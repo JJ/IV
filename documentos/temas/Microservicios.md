@@ -77,33 +77,12 @@ interfaces; en general será o peticiones REST, o sockets, o sistemas de
 mensajería tales como RabbitMQ o sistemas de mensajería específicos.
 
 En este tema trataremos principalmente de microservicios con un
-interfaz REST.
+[interfaz REST](REST).
 
 > No todos los microservicios tienen por qué usarlo. Un microservicio
-puede usar websockets, por ejemplo, o puede dedicarse a ejecutar
-tareas.
+> puede usar websockets, por ejemplo, o puede dedicarse a ejecutar
+> tareas. Nosotros nos concentraremos sólo en estos por el momento.
 
-Los microservicios REST usan la sintaxis y semántica del protocolo HTTP tanto
-para peticiones (responderán directamente a
-[comandos HTTP como PUT o GET](https://developer.mozilla.org/es/docs/Web/HTTP/Methods))
-como para resultados (que usarán los
-[códigos de estado HTTP](https://developer.mozilla.org/es/docs/Web/HTTP/Status)).
-La semántica es importante: PUT crea un recurso, GET lo recupera sin cambiarlo,
-POST lo modifica y DELETE lo borra. De la misma forma, un recurso no encontrado
-deberá devolver el mítico 404 y uno correctamente recuperado el código
-200.
-
-> En muchos casos `PUT` y `POST` se usan de forma intercambiable. Son
-> muy diferentes, sin
-> embargo:
-> [aquí se muestran diferencias](https://stackoverflow.com/questions/107390/whats-the-difference-between-a-post-and-a-put-http-request)
-> que van desde poder ser cacheables (o no) hasta el significado del URI
-> que se vaya a usar. En una petición `PUT`, el URI que se usa es el
-> que se va a crear. En un `POST`, es simplemente un punto que va
-> manejar la petición. Por eso `PUT` se suele usar para crear (y
-> modificar, siempre que la petición contenga la nueva versión)
-> mientras que `POST` se puede usar para crear (siempre que sea un URI
-> genérico) o modificar parte de un recurso.
 
 ## Creando un microservicio desde cero
 
