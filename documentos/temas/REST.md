@@ -65,6 +65,18 @@ estado).
 Lo anterior son convenciones, y lo que se ejecute por omisión
 dependerá en realidad de la persona que lo implemente.
 
+> En muchos casos `PUT` y `POST` se usan de forma intercambiable. Son
+> muy diferentes, sin
+> embargo:
+> [aquí se muestran diferencias](https://stackoverflow.com/questions/107390/whats-the-difference-between-a-post-and-a-put-http-request)
+> que van desde poder ser cacheables (o no) hasta el significado del URI
+> que se vaya a usar. En una petición `PUT`, el URI que se usa es el
+> que se va a crear. En un `POST`, es simplemente un punto que va
+> manejar la petición. Por eso `PUT` se suele usar para crear (y
+> modificar, siempre que la petición contenga la nueva versión)
+> mientras que `POST` se puede usar para crear (siempre que sea un URI
+> genérico) o modificar parte de un recurso.
+
 La *respuesta HTTP* tendrá una estructura similar, pero incluirá
 también
 [códigos de estado HTTP](https://developer.mozilla.org/es/docs/Web/HTTP/Status).
