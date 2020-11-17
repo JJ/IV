@@ -210,6 +210,9 @@ clave; hacer el almacenamiento desde la línea de órdenes (con
 > en la que se da se da una introducción a los servicios web y cómo
 > desplegarlos usando el micromarco de aplicaciones Hug.
 
+
+### Ejemplos en node
+
 Se pueden diseñar servicios web en cualquier lenguaje de programación;
 pero en este apartado optaremos inicialmente por Node.js/Javascript;
 que para diseñar interfaces REST de forma bastante simple, tiene
