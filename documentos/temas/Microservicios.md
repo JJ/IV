@@ -2,14 +2,14 @@
 layout: index
 
 
-prev: Desarrollo_basado_en_pruebas
+prev: REST
 next: PaaS
 ---
 
 # Microservicios
 
 <!--@
-prev: Desarrollo_basado_en_pruebas
+prev: REST
 next: PaaS
 -->
 
@@ -192,6 +192,16 @@ De forma que no es realmente necesario trabajar con *mocks*, sino que
 se usa el método de configuración que haya presente, empezando, como
 es natural, por `etcd`. Si no, se usa configuración local. Los tests
 automáticamente usarán la configuración por omisión.
+
+<div class='ejercicios' markdown="1">
+
+Instalar `etcd3`, averiguar qué bibliotecas funcionan bien con el
+lenguaje que estemos escribiendo el proyecto (u otro lenguaje), y
+hacer un pequeño ejemplo de almacenamiento y recuperación de una
+clave; hacer el almacenamiento desde la línea de órdenes (con
+`etcdctl`) y la recuperación desde el mini-programa que hagáis.
+
+</div>
 
 ### Rutas y middleware
 
