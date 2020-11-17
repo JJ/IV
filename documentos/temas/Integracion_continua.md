@@ -74,8 +74,8 @@ A un primer nivel, la integración continua consiste en integrar los
 cambios hechos por un miembro del equipo en el momento que estén y
 pasen los tests. Pero eso, efectivamente, significa que deben pasar
 los tests y para nosotros, consiste en crear una configuración para
-una máquina externa que ejecute esos tests y nos diga cuáles han
-pasado o cuáles no. Estas máquinas más adelante se combinan con las de
+una máquina externa que ejecute esos tests y nos diga cuales han
+pasado o cuales no. Estas máquinas más adelante se combinan con las de
 despliegue continuo, no permitiendo el mismo si algún test no ha
 pasado.
 

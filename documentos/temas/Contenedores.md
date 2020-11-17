@@ -1,8 +1,8 @@
 # Virtualización *ligera* usando contenedores
 
 <!--@
-prev: PaaS
-next: Gestion_de_configuraciones
+prev: Desarrollo_basado_en_pruebas
+next: Integracion_continua
 -->
 
 <div class="objetivos" markdown="1">
