@@ -553,18 +553,18 @@ Los tests podemos integrarlos, como es natural, en el mismo marco que
 el resto de la aplicación, solo que tendremos que usar librerías de
 aserciones ligeramente diferentes, en este caso `supertest`
 
-```js
-    var request = require('supertest'),
-    app = require('../index.js');
+```javascript
+var request = require('supertest'),
+app = require('../index.js');
 
-    describe( "PUT porra", function() {
+describe( "PUT porra", function() {
     it('should create', function (done) {
-    request(app)
-    .put('/porra/uno/dos/tres/4')
-    .expect('Content-Type', /json/)
-    .expect(200,done);
+      request(app)
+       .put('/porra/uno/dos/tres/4')
+       .expect('Content-Type', /json/)
+       .expect(200,done);
     });
-    });
+});
 ```
 
 (que tendrá que estar incluido en el directorio `test/`, como el
@@ -572,7 +572,7 @@ resto). En vez de ejecutar la aplicación (que también podríamos
 hacerlo), lo que hacemos es que añadimos al final de `index.js` la
 línea:
 
-```js
+```javascript
 module.exports = app;
 ```
 
