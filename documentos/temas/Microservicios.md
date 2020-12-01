@@ -343,11 +343,12 @@ un [módulo llamado express](https://expressjs.com/). La idea de este módulo
 es reflejar en el código, de la forma más natural posible, el diseño del
 interfaz REST.
 
-Pero primero hay que instalarlo. Node.js tiene un sistema de gestión de módulos
-bastante simple llamado [npm](https://www.npmjs.com/) que ya hemos usado. Tras
-seguir las instrucciones en el sitio para instalarlo (o, en el caso de Ubuntu,
-instalarlo desde Synaptic o con `apt-get`), vamos al directorio en el que
-vayamos a crear el programa y escribimos
+Pero primero hay que instalarlo. Node.js tiene un sistema de gestión
+de módulos bastante simple llamado [npm](https://www.npmjs.com/) que
+ya hemos usado. Tras seguir las instrucciones en el sitio para
+instalarlo (o, en el caso de Ubuntu, instalarlo desde Synaptic o con
+`apt-get`), vamos al directorio en el que vayamos a crear el programa
+y escribimos
 
 `npm install express --save`
 
@@ -380,14 +381,14 @@ console.log('Server running at http://127.0.0.1:'+port+'/');
 ```
 
 Para empezar, `express` nos evita todas las molestias de tener que
-procesar nosotros el URL: directamente escribimos una
-función para cada respuesta que queramos tener, lo que facilita mucho la
-programación. Las órdenes  de `express` reflejan directamente las órdenes de
-HTTP a las que queremos responder, en este caso `get` y por
-otro lado se pone directamente la función para cada una de ellas. Dentro
-de cada función de respuesta podemos procesar las órdenes que
-queramos. Dado que JS es un lenguaje asíncrono, la llamada a la
-función será también asíncrona.
+procesar nosotros el URL: directamente escribimos una función para
+cada respuesta que queramos tener, lo que facilita mucho la
+programación. Las órdenes de `express` reflejan directamente las
+órdenes de HTTP a las que queremos responder, en este caso `get` y por
+otro lado se pone directamente la función para cada una de
+ellas. Dentro de cada función de respuesta podemos procesar las
+órdenes que queramos. Dado que JS es un lenguaje asíncrono, la llamada
+a la función será también asíncrona.
 
 Por otro lado, se usa `send` sobre el objeto respuesta (`res`) para enviar el
 resultado,
