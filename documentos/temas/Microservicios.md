@@ -456,7 +456,7 @@ bastante simple, usando marcadores precedidos por `:`.
 Por ejemplo, si queremos tener diferentes contadores podríamos usar el
 [programa siguiente](https://github.com/JJ/node-app-cc/blob/master/lib/index.js):
 
-```js
+```javascript
 var express = require('express');
 var app = express();
 
@@ -520,7 +520,6 @@ Programar un microservicio en express (o el lenguaje y marco elegido) que
 incluya variables como en el caso anterior.
 
 </div>
-
 
 ## Probando nuestra aplicación en la nube
 
