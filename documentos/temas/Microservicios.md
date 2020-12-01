@@ -83,7 +83,6 @@ En este tema trataremos principalmente de microservicios con un
 > puede usar websockets, por ejemplo, o puede dedicarse a ejecutar
 > tareas. Nosotros nos concentraremos sólo en estos por el momento.
 
-
 ## Creando un microservicio desde cero
 
 En general, es conveniente no hacer uso de generadores de
@@ -209,7 +208,6 @@ clave; hacer el almacenamiento desde la línea de órdenes (con
 > [esta presentación sobre servicios web en Python](https://jj.github.io/tests-python/ws.html),
 > en la que se da se da una introducción a los servicios web y cómo
 > desplegarlos usando el micromarco de aplicaciones Hug.
-
 
 Un microservicio se organiza alrededor del concepto de ruta, que a su
 vez se organiza desde el concepto de *recurso*. Un recurso es un
@@ -370,7 +368,7 @@ recordar qué es lo que está instalado.
 Tras la instalación, el programa que hemos visto más arriba se
 transforma en el siguiente:
 
-```js
+```javascript
 #!/usr/bin/env node
 
 var express=require('express');
@@ -430,6 +428,15 @@ Con el mismo `express` se pueden generar aplicaciones no tan básicas instalando
 ```shell
 express prueba-rest
 ```
+
+> No estamos recomendando que se use express, y mucho menos el
+> generador, para tu caso particular, simplemente estamos explicando
+> la posibilidad de hacerlo, sólo si `express` es el framework
+> adecuado para el problema que se está tratando de resolver, y sólo
+> si el código generado se adapta a todas las historias de usuario. En
+> general, el caso de uso adecuado de este generador es simplemente
+> crear un ejemplo simple que pueda servir de guía para poder trabajar
+> con este framework.
 
 Se indica el camino completo a la aplicación, que sería el
 puesto. Con esto se genera un directorio prueba-rest. Cambiándoos al
