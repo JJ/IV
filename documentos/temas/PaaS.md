@@ -99,8 +99,9 @@ elegir lenguajes.
 
 <div class='ejercicios' markdown="1">
 
-Darse de alta en algún servicio PaaS tal como Heroku,
-[zeit](https://zeit.co), [BlueMix](https://console.bluemix.net/) u OpenShift.
+Darse de alta en algún servicio PaaS tal como Heroku
+o [BlueMix](https://cloud.ibm.com/) o usar alguno de los PaaS de otros
+servicios cloud en los que ya se esté dado de alta.
 
 </div>
 
@@ -471,7 +472,7 @@ de servicios REST).
    [el *cinturón de herramientas* de Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up)
 2. Haz *login* con `heroku login`.
 3. Descarga
-   [la aplicación de ejemplo para node](https://github.com/heroku/node-js-getting-started.git).
+   [la aplicación de ejemplo para node](https://github.com/heroku/node-js-getting-started).
    Es una aplicación simple de node y express. Heroku tiene una serie de
    ejemplos para diferentes lenguajes de programación. Por ejemplo,
    [para PHP](https://devcenter.heroku.com/articles/getting-started-with-php#prepare-the-app).
@@ -494,7 +495,7 @@ Esto crea una aplicación en la web de Heroku, que al hacer `git push heroku
 master` se pondrá en marcha. La mayoría de los PaaS usa `git push` como modo de
 despliegue, que permite tener controlada la versión de todos los ficheros que
 hay en el mismo y además, con los *ganchos* post-`push`,
-[compilar y ejecutar la aplicación a través de los llamados *Buildpacks*](https://www.jamesward.com/2012/07/18/the-magic-behind-herokus-git-push-deployment).
+[compilar y ejecutar la aplicación a través de los llamados *Buildpacks*](https://www.jamesward.com/2012/07/18/the-magic-behind-herokus-git-push-deployment/).
 
 <div class='ejercicios' markdown="1">
 
@@ -658,7 +659,7 @@ automático a Heroku usando Snap CI o
 </div>
 
 En principio se ha preparado
-[a la aplicación](https://github.com/JJ/node-app-cc/blob/master/index.js) para
+[a la aplicación](https://github.com/JJ/node-app-cc/blob/master/lib/index.js) para
 su despliegue en un solo PaaS, Heroku. Pero, ¿se podría desplegar en otro PaaS
 también?
 
@@ -748,7 +749,7 @@ Tras esto habremos desplegado la última `release` en desarrollo de nuestro bot,
 y podemos leer los logs para ver qué está sucediendo. Si escribimos comandos
 desde la conversación podemos observar como reacciona nuestro bot desde la
 terminal. Para probar, copia y pega en tu directorio
-[este ejemplo](enlacealbot).
+[este ejemplo](../../ejemplos/bot-python).
 
 ## A dónde ir desde aquí
 
