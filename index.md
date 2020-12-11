@@ -112,7 +112,7 @@ grosso modo, los hitos se organizarán de la forma siguiente.
    para pruebas.
 5. Despliegues [serverless](documentos/proyecto/5.Serverless)
 6. [Integración continua](documentos/proyecto/4.CI)
-7. [Creando microservicios](documentos/proyecto/3.Microservicios).
+7. [Creando microservicios](documentos/proyecto/6.Microservicio).
 8. Desplegando a la nube:
    [Platform as a Service](documentos/proyecto/4.PaaS).
 9. [Provisionamiento de máquinas
