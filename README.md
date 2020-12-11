@@ -90,10 +90,10 @@ Material adicional interesante para la asignatura, que se impartirá
 
 ## Prácticas - Actividades académicas dirigidas
 
-La parte práctica consiste en la realización de un proyecto a lo largo
-de la asignatura, con diferentes hitos cuyo contenido corresponde a
-los objetivos de aprendizaje cumplidos hasta ese momento. Los
-proyectos
+La parte práctica de esta asignatura consiste en la realización de un
+proyecto a lo largo de la asignatura, con diferentes hitos cuyo
+contenido corresponde a los objetivos de aprendizaje cumplidos hasta
+ese momento. Los proyectos
 [consisten en crear la infraestructura virtual junto con una aplicación
 desarrollada según el modelo DevOps](documentos/proyecto/README.md). A
 grosso modo, los hitos se organizarán de la forma siguiente.
@@ -120,7 +120,7 @@ Las tutorías virtuales se realizarán preferiblemente a través de la plataform
 de trabajo colaborativo
 [GitHub](https://github.com/JJ/IV-20-21/issues?state=open) y a través del grupo
 de Telegram; habrá que solicitar al profesor ser añadido. Finalmente, el
-profesor está disponible por Telegram, Skype y Google Hangouts (en todos los
+profesor está disponible por Telegram, Skype y Google Meet (en todos los
 casos: `jjmerelo`).
 
 Se creará también una sala específica en Jitsi para las tutorías,
