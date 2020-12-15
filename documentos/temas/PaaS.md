@@ -31,7 +31,7 @@ next: Intro_gestion_de_configuraciones
 
 ## Introducción
 
-> Esta [presentación](https://jj.github.io/pispaas/#/) es un resumen del
+> Esta [presentación](https://jj.github.io/pispaas/) es un resumen del
 > concepto de Plataforma como Servicio (PaaS) y alguna cosa adicional que no
 > está incluida en este tema pero que conviene conocer de todas formas.
 
@@ -82,8 +82,9 @@ relativamente limitada; [Heroku](https://www.heroku.com) y
 [hay otros](https://www.codediesel.com/nodejs/5-paas-solutions-to-host-your-nodejs-apps/),
 dependiendo del tipo de pila que quieras alojar; los tres anteriores son los
 que trabajan bien con node.js, [igual que platform.sh](https://platform.sh/) o
-[IBM BlueMix](https://console.bluemix.net/) (que ofrece un período de prueba
-gratuito, que no se puede renovar, lo sé por experiencia).
+[IBM BlueMix](https://cloud.ibm.com/) (que ofrece un período de prueba
+gratuito, que no se puede renovar, lo sé por experiencia, y que ahora
+está integrado directamente ne la nube de IBM).
 
 > Después de probar casi todos los servicios anteriores, me da la impresión de
 > que poco hay más allá de Heroku y Openshift. AppFog, después de la
@@ -495,7 +496,7 @@ Esto crea una aplicación en la web de Heroku, que al hacer `git push heroku
 master` se pondrá en marcha. La mayoría de los PaaS usa `git push` como modo de
 despliegue, que permite tener controlada la versión de todos los ficheros que
 hay en el mismo y además, con los *ganchos* post-`push`,
-[compilar y ejecutar la aplicación a través de los llamados *Buildpacks*](https://www.jamesward.com/2012/07/18/the-magic-behind-herokus-git-push-deployment/).
+[compilar y ejecutar la aplicación a través de los llamados *Buildpacks*](https://jamesward.com/2012/07/18/the-magic-behind-herokus-git-push-deployment/).
 
 <div class='ejercicios' markdown="1">
 
