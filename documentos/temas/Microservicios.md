@@ -672,13 +672,12 @@ pero esto incluye también el `systemd` de Linux, un gestor que se puede usar co
 éxito en sistemas que lo implementen, como es natural, y que está incluido en
 cualquier distribución.
 
-
-## Servidores web para microservicios.
+## Servidores web para microservicios
 
 Mientras que en Node el servidor que tiene `express` (y otra serie de
 microframeworks) se puede usar sin ningún problema en producción y lo
 único que necesita uno delante es ese lanzador de tareas, en la
-mayoría de los languajes estos gestores de procesos van un poco más allá, y
+mayoría de los lenguajes estos gestores de procesos van un poco más allá, y
 tienen un interfaz específico para llamar a las funciones a través de un
 interfaz web. Este tipo de interfaz, que se llama genéricamente `*SGI`, de
 *services (o server) gateway interface*, se implementa en lenguajes como
