@@ -3,14 +3,14 @@ layout: index
 
 
 prev: Microservicios
-next: Gestion_de_Configuraciones
+next: Intro_gestion_de_configuraciones
 ---
 
 # Desplegando aplicaciones en la nube: Uso de PaaS
 
 <!--@
 prev: Microservicios
-next: Gestion_de_Configuraciones
+next: Intro_gestion_de_configuraciones
 -->
 
 <div class="objetivos" markdown="1">
