@@ -790,27 +790,33 @@ const mocha = require('gulp-mocha');
 const pm2   = require('pm2');
 var shell = require('gulp-shell');
 
-gulp.task('test', () => (
-    gulp.src('test/porra.js', {read: false})
-        // `gulp-mocha` needs filepaths so you can't have any plugins before it
-        .pipe(mocha({reporter: 'nyan'}))
-));
+gulp.task('test', async () => {
+  gulp.src('test/test_*.js', {read: false})
+  .pipe(mocha({reporter: 'nyan'}))
+});
 
-gulp.task('start', function () {
-  pm2.connect(true, function () {
+gulp.task('start', async () => {
+  pm2.connect(true, async () => {
     pm2.start({
       name: 'Porra',
-      script: 'index.js',
+      script: 'lib/index.js',
       exec_mode: 'cluster',
       instances: 4
-    }, function () {
+    }, async () => {
          console.log('Arranca porra');
-         pm2.streamLogs('all', 0);
        });
   });
 });
 
-gulp.task('stop', shell.task(['pm2 stop Porra' ]));
+gulp.task('stop', async () => {
+  pm2.connect(true, async () => {
+    pm2.stop( "Porra", async ( err, proc ) => {
+      pm2.disconnect();
+      console.log("Parando la porra");
+    });
+  });
+});
+
 ```
 
 [`gulp`](https://gulpjs.com/) es un programa para automatizar el
@@ -820,7 +826,11 @@ start y stop, y para ello usamos una serie de *plugins* que integran
 gulp con utilidades como `mocha` o el shell. En este caso estamos
 usando `pm2` como una biblioteca externa, en vez de usarlo desde la
 línea de órdenes; es la ventaja de usar una herramienta que está
-escrita en el mismo lenguaje que nuestra aplicación.
+escrita en el mismo lenguaje que nuestra aplicación. `pm2` tiene un
+API, y cada vez que trabajamos con él tenemos que conectarnos
+explícitalmente al mismo con `connect`. En este caso, como se ve, se
+han evitado totalmente los comandos externos y se ha usado siempre el
+API nativo de los módulos en Node que se están usando.
 
 Usando esto, con
 
