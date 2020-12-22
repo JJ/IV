@@ -69,7 +69,7 @@ sesiones en vivo.
 6. Computación [Serverless](documentos/temas/Serverless.md).
 7. [Puesta en marcha de microservicios](documentos/temas/Microservicios.md).
 8. [Platform as a Service](documentos/temas/PaaS.md).
-9. [Gestión de configuraciones](documentos/temas/Gestion_de_configuraciones.md).
+
 
 Estos temas se pueden consultar como material adicional, pero no forman parte
 este año del temario de la asignatura:
@@ -78,6 +78,7 @@ este año del temario de la asignatura:
 2. [Técnicas de virtualización](documentos/temas/Tecnicas_de_virtualizacion.md).
 3. [Aislamiento de recursos](documentos/temas/Aislamiento_de_recursos.md).
 4. [Almacenamiento virtual](documentos/temas/Almacenamiento.md).
+5. [Gestión de configuraciones](documentos/temas/Gestion_de_configuraciones.md).
 
 ## Seminarios
 
@@ -109,10 +110,12 @@ grosso modo, los hitos se organizarán de la forma siguiente.
 6. Despliegues [serverless](documentos/proyecto/5.Serverless.md)
 7. [Creando microservicios](documentos/proyecto/6.Microservicio.md).
 8. Desplegando a la nube:
-   [Platform as a Service](documentos/proyecto/4.PaaS.md).
-9. [Provisionamiento de máquinas
+   [Platform as a Service](documentos/proyecto/7.PaaS.md).
+
+Estas prácticas se han hecho otros años:
+1. [Provisionamiento de máquinas
    virtuales](documentos/proyecto/6.Provision.md).
-10. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS.md).
+2. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS.md).
 
 ## Tutorías virtuales
 
