@@ -70,7 +70,6 @@ sesiones en vivo.
 7. [Puesta en marcha de microservicios](documentos/temas/Microservicios.md).
 8. [Platform as a Service](documentos/temas/PaaS.md).
 
-
 Estos temas se pueden consultar como material adicional, pero no forman parte
 este año del temario de la asignatura:
 
@@ -113,6 +112,7 @@ grosso modo, los hitos se organizarán de la forma siguiente.
    [Platform as a Service](documentos/proyecto/7.PaaS.md).
 
 Estas prácticas se han hecho otros años:
+
 1. [Provisionamiento de máquinas
    virtuales](documentos/proyecto/6.Provision.md).
 2. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS.md).
