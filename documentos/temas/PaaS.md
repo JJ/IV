@@ -452,7 +452,7 @@ aplicación. Por otro lado, los requisitos específicos de puerto e IP se tienen
 en cuenta en estas dos órdenes:
 
 ```javascript
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP
+const server_ip_address = process.env.OPENSHIFT_NODEJS_IP
                               || '0.0.0.0';
 app.set('port', (process.env.PORT
                      || process.env.OPENSHIFT_NODEJS_PORT
@@ -761,7 +761,6 @@ y podemos leer los logs para ver qué está sucediendo. Si escribimos comandos
 desde la conversación podemos observar como reacciona nuestro bot desde la
 terminal. Para probar, copia y pega en tu directorio
 [este ejemplo](../../ejemplos/bot-python).
-
 
 ## A dónde ir desde aquí
 
