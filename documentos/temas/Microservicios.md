@@ -828,7 +828,7 @@ usando `pm2` como una biblioteca externa, en vez de usarlo desde la
 línea de órdenes; es la ventaja de usar una herramienta que está
 escrita en el mismo lenguaje que nuestra aplicación. `pm2` tiene un
 API, y cada vez que trabajamos con él tenemos que conectarnos
-explícitalmente al mismo con `connect`. En este caso, como se ve, se
+explícitamente al mismo con `connect`. En este caso, como se ve, se
 han evitado totalmente los comandos externos y se ha usado siempre el
 API nativo de los módulos en Node que se están usando.
 
