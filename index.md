@@ -18,10 +18,11 @@ optativa en otras ramas y en el Doble Grado de Informática y Matemáticas.
 
 La asignatura se imparte en el
 [curso 2020-2021](https://etsiit.ugr.es/sites/centros/etsiit/public/inline-files/Horarios%20GII%20(20-21).pdf)
-en el aula 3.3 los viernes y en la 3.7 los martes de 9:30 a 11:30 (clases de
+~en el aula 3.3 los viernes y en la 3.7 los martes de 9:30 a 11:30 (clases de
 "prácticas"), y en la 1.8 los martes de 11:30 a 13:30. Se recuerda a los
 estudiantes que en todas las clases será necesario llevar el portátil, ya que
-son en realidad clases prácticas.
+son en realidad clases prácticas~de forma virtual desde las medidas
+tomadas por la Junta.
 
 Las clases se quedarán grabadas y almacenadas
 [en esta lista de reproducción de YouTube](https://www.youtube.com/playlist?list=PLsYEfmwhBQdKIwbMDIwK64pt3Fs03BDz9).
