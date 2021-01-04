@@ -6,7 +6,7 @@
 |
 [![Lint Markdown](https://github.com/JJ/IV/workflows/Lint%20Markdown/badge.svg)](https://github.com/JJ/IV/actions?query=workflow%3A%22Lint+Markdown%22)
 
-[Infraestructura virtual](https://etsiit.ugr.es/pages/calendario_academico/horarioscurso20192020/horariosgii1920)
+[Infraestructura virtual](https://etsiit.ugr.es/sites/centros/etsiit/public/inline-files/Horarios%20GII%20(20-21).pdf)
 es una asignatura obligatoria de la rama "Tecnologías de la Información" del
 primer cuatrimestre del cuarto curso del Grado de Ingeniería Informática y
 optativa en otras ramas y en el Doble Grado de Informática y Matemáticas.
