@@ -15,9 +15,6 @@ jobs:
   OrtografiaReadme:
     runs-on: ubuntu-latest
 
-    container:
-      image: perl:5.28
-
     steps:
       - name: Prerrequisites
         run: |
