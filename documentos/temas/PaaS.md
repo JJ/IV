@@ -286,9 +286,17 @@ común. Dependiendo del lenguaje, variará la parte derecha; en este caso le
 estamos indicando la línea de órdenes que hay que ejecutar para *levantar* la
 web que hemos creado.
 
-Localmente, se recrea (aproximadamente) el entorno de Heroku usando Foreman. En
-versiones tempranas de `heroku` estaba incluido, pero ahora tendrás que
-instalarlo de forma independiente.
+Localmente, se recrea (aproximadamente) el entorno de Heroku usando
+[Foreman](https://github.com/ddollar/foreman) o `heroku local` que
+forma parte del conjunto de herramientas de Heroku.
+
+> No confundir `foreman` con `The Foreman`, una herramienta de gestión
+> del ciclo de vida de programas que es bastante más compleja. Este
+> `foreman` es simplemente un procesador de
+> [Procfile](https://devcenter.heroku.com/articles/procfile#procfile-format),
+> Este formato se usa en algunas otras herramientas, y también tiene
+> diferentes herramientas libres para procesarlo, tales como
+> [Overmind](https://github.com/DarthSim/overmind).
 
 Para ejecutar localmente nuestra aplicación ejecutaremos
 
