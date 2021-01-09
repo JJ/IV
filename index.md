@@ -5,28 +5,29 @@ layout: index
 ---
 # Material docente para la asignatura Infraestructura Virtual
 
-[![Build Status](https://travis-ci.org/JJ/IV.svg?branch=master)](https://travis-ci.org/JJ/IV)
+[![Build Status](https://travis-ci.com/github/JJ/IV.svg?branch=master)](https://travis-ci.com/github/JJ/IV)
 |
 [![Checks README](https://github.com/JJ/Test-Text/workflows/Checks%20README/badge.svg)](https://github.com/JJ/IV/actions?query=workflow%3A%22Comprueba+README%22)
 |
 [![Lint Markdown](https://github.com/JJ/IV/workflows/Lint%20Markdown/badge.svg)](https://github.com/JJ/IV/actions?query=workflow%3A%22Lint+Markdown%22)
 
-[Infraestructura virtual](https://etsiit.ugr.es/pages/calendario_academico/horarioscurso20192020/horariosgii1920)
+[Infraestructura virtual](https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/curso_actual/cuarto/tecnologiasdelainformacion/infraestructuravirtual)
 es una asignatura obligatoria de la rama "Tecnologías de la Información" del
 primer cuatrimestre del cuarto curso del Grado de Ingeniería Informática y
 optativa en otras ramas y en el Doble Grado de Informática y Matemáticas.
 
 La asignatura se imparte en el
-[curso 2020-2021](http://etsiit.ugr.es/pages/calendario_academico/horarioscurso20202021/horariosgii2021/!)
-en el aula 3.3 los viernes y en la 3.7 los martes de 9:30 a 11:30 (clases de
+[curso 2020-2021](https://etsiit.ugr.es/sites/centros/etsiit/public/inline-files/Horarios%20GII%20(20-21).pdf)
+~en el aula 3.3 los viernes y en la 3.7 los martes de 9:30 a 11:30 (clases de
 "prácticas"), y en la 1.8 los martes de 11:30 a 13:30. Se recuerda a los
 estudiantes que en todas las clases será necesario llevar el portátil, ya que
-son en realidad clases prácticas.
+son en realidad clases prácticas~de forma virtual desde las medidas
+tomadas por la Junta.
 
 Las clases se quedarán grabadas y almacenadas
 [en esta lista de reproducción de YouTube](https://www.youtube.com/playlist?list=PLsYEfmwhBQdKIwbMDIwK64pt3Fs03BDz9).
 
-Se usará [GitHub](http://github.com) para el proyecto, la forma principal de
+Se usará [GitHub](https://github.com) para el proyecto, la forma principal de
 examinar la asignatura; llamaremos *hitos* a cada una de las entregas que hay
 que hacer del mismo.
 
@@ -55,7 +56,7 @@ capaz de hacer lo siguiente:
 
 Los materiales de la asignatura están enlazados desde abajo y
 disponibles con una licencia libre. Los fuentes de los mismos están en
-[GitHub](http://github.com/JJ/IV).
+[GitHub](https://github.com/JJ/IV).
 
 La temporización de la asignatura y los objetivos de cada sesión figuran en la
 [bitácora](https://github.com/JJ/IV-20-21/blob/master/sesiones/README.md) de
@@ -69,16 +70,20 @@ sesiones en vivo.
    llevar a cabo los ejercicios de autoevaluación.
 2. [Iniciación a DevOps: desarrollo basado en pruebas](documentos/temas/Desarrollo_basado_en_pruebas).
 3. [Usando contenedores](documentos/temas/Contenedores).
-4. [Puesta en marcha de microservicios](documentos/temas/Microservicios).
-5. [Platform as a Service](documentos/temas/PaaS).
-6. [Gestión de configuraciones](documentos/temas/Gestion_de_configuraciones).
+4. [Integración continua](documentos/temas/Integracion_continua).
+5. Breve introducción a [REST](documentos/temas/REST).
+6. Computación [Serverless](documentos/temas/Serverless).
+7. [Puesta en marcha de microservicios](documentos/temas/Microservicios).
+8. [Platform as a Service](documentos/temas/PaaS).
 
 Estos temas se pueden consultar como material adicional, pero no forman parte
 este año del temario de la asignatura:
 
-1. [Técnicas de virtualización](documentos/temas/Tecnicas_de_virtualizacion).
-2. [Aislamiento de recursos](documentos/temas/Aislamiento_de_recursos).
-3. [Almacenamiento virtual](documentos/temas/Almacenamiento).
+1. [Introducción e historia de los contenedores](documentos/temas/Intro_contenedores).
+2. [Técnicas de virtualización](documentos/temas/Tecnicas_de_virtualizacion).
+3. [Aislamiento de recursos](documentos/temas/Aislamiento_de_recursos).
+4. [Almacenamiento virtual](documentos/temas/Almacenamiento).
+5. [Gestión de configuraciones](documentos/temas/Gestion_de_configuraciones).
 
 ## Seminarios
 
@@ -91,10 +96,10 @@ Material adicional interesante para la asignatura, que se impartirá
 
 ## Prácticas - Actividades académicas dirigidas
 
-La parte práctica consiste en la realización de un proyecto a lo largo
-de la asignatura, con diferentes hitos cuyo contenido corresponde a
-los objetivos de aprendizaje cumplidos hasta ese momento. Los
-proyectos
+La parte práctica de esta asignatura consiste en la realización de un
+proyecto a lo largo de la asignatura, con diferentes hitos cuyo
+contenido corresponde a los objetivos de aprendizaje cumplidos hasta
+ese momento. Los proyectos
 [consisten en crear la infraestructura virtual junto con una aplicación
 desarrollada según el modelo DevOps](documentos/proyecto/README.md). A
 grosso modo, los hitos se organizarán de la forma siguiente.
@@ -104,14 +109,19 @@ grosso modo, los hitos se organizarán de la forma siguiente.
 2. [Organización de los grupos de práctica y creación del
    proyecto](documentos/proyecto/1.Infraestructura).
 3. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/2.Tests).
-4. Técnicas de virtualización: [Contenedores](documentos/proyecto/5.Docker)
-   para despliegue de microservicios.
-5. [Creando microservicios](documentos/proyecto/3.Microservicios).
-6. Desplegando a la nube:
-   [Platform as a Service](documentos/proyecto/4.PaaS).
-7. [Provisionamiento de máquinas
+4. Técnicas de virtualización: [Contenedores](documentos/proyecto/3.Docker)
+   para pruebas.
+5. [Integración continua](documentos/proyecto/4.CI)
+6. Despliegues [serverless](documentos/proyecto/5.Serverless)
+7. [Creando microservicios](documentos/proyecto/6.Microservicio).
+8. Desplegando a la nube:
+   [Platform as a Service](documentos/proyecto/7.PaaS).
+
+Estas prácticas se han hecho otros años:
+
+1. [Provisionamiento de máquinas
    virtuales](documentos/proyecto/6.Provision).
-8. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS).
+2. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS).
 
 ## Tutorías virtuales
 
@@ -119,7 +129,7 @@ Las tutorías virtuales se realizarán preferiblemente a través de la plataform
 de trabajo colaborativo
 [GitHub](https://github.com/JJ/IV-20-21/issues?state=open) y a través del grupo
 de Telegram; habrá que solicitar al profesor ser añadido. Finalmente, el
-profesor está disponible por Telegram, Skype y Google Hangouts (en todos los
+profesor está disponible por Telegram, Skype y Google Meet (en todos los
 casos: `jjmerelo`).
 
 Se creará también una sala específica en Jitsi para las tutorías,

@@ -2,15 +2,15 @@
 layout: index
 
 
-prev: PaaS
-next: Gestion_de_configuraciones
+prev: Desarrollo_basado_en_pruebas
+next: Integracion_continua
 ---
 
 # Virtualización *ligera* usando contenedores
 
 <!--@
-prev: PaaS
-next: Gestion_de_configuraciones
+prev: Desarrollo_basado_en_pruebas
+next: Integracion_continua
 -->
 
 <div class="objetivos" markdown="1">
@@ -232,7 +232,7 @@ orden en él tendrás que buscar su nombre:
 
 Posteriormente arrancar el contenedor:
 
-```sudo start <nombre>```
+```docker start <nombre>```
 
 Para finalmente ejecutar el comando deseado:
 
