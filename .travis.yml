@@ -2,6 +2,7 @@ branches:
   except:
     - gh-pages
 
+sudo: required
 language: minimal
 
 addons:
