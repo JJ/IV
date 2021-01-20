@@ -11,9 +11,10 @@ addons:
     packages:
       - libhunspell-1.3-0
       - libhunspell-dev
+      - libextutils-pkgconfig-perl
 
 before_install:
-  - cpan -l
+  - perl -MExtUtils::Installed -e '$i=ExtUtils::Installed->new(); print "$_ ".$i->version($_)."\n" for $i->modules();'
   - curl https://raw.githubusercontent.com/JJ/Test-Text/master/data/Spanish.aff -o Spanish.aff
   - curl https://raw.githubusercontent.com/SublimeText/Dictionaries/master/Spanish.dic -o Spanish.dic
   - echo "use Test::Text;just_check( 'documentos/temas','.', 'Spanish', 0 );just_check( 'documentos/proyecto','.', 'Spanish',1 );" > just_check.t
