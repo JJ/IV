@@ -2,6 +2,7 @@ branches:
   except:
     - gh-pages
 language: minimal
+sudo: required
 before_install:
   - sudo apt-get update -qq && apt-get -y install libhunspell-1.3-0 libhunspell-dev
   - curl https://raw.githubusercontent.com/JJ/Test-Text/master/data/Spanish.aff -o Spanish.aff
