@@ -7,7 +7,7 @@ my %fatpacked;
 
 $fatpacked{"File/Slurp/Tiny.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'FILE_SLURP_TINY';
   package File::Slurp::Tiny;
-  $File::Slurp::Tiny::VERSION = '0.004';
+  $File::Slurp::Tiny::VERSION = '0.003';
   use strict;
   use warnings;
   
@@ -68,7 +68,7 @@ $fatpacked{"File/Slurp/Tiny.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<
   sub read_dir {
   	my ($dirname, %options) = @_;
   	opendir my ($dir), $dirname or croak "Could not open $dirname: $!";
-  	my @ret = grep { not m/ \A \.\.? \z /x } readdir $dir;
+  	my @ret = grep { not m/ ^ \.\.? $ /x } readdir $dir;
   	@ret = map { catfile($dirname, $_) } @ret if $options{prefix};
   	closedir $dir;
   	return @ret;
@@ -76,7 +76,7 @@ $fatpacked{"File/Slurp/Tiny.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<
   
   1;
   
-  # ABSTRACT: A simple, sane and efficient file slurper [DISCOURAGED]
+  # ABSTRACT: A simple, sane and efficient file slurper
   
   __END__
   
@@ -86,22 +86,16 @@ $fatpacked{"File/Slurp/Tiny.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<
   
   =head1 NAME
   
-  File::Slurp::Tiny - A simple, sane and efficient file slurper [DISCOURAGED]
+  File::Slurp::Tiny - A simple, sane and efficient file slurper
   
   =head1 VERSION
   
-  version 0.004
+  version 0.003
   
   =head1 SYNOPSIS
   
    use File::Slurp::Tiny 'read_file';
    my $content = read_file($filename);
-  
-  =head1 DISCOURAGED
-  
-  B<This module is discouraged in favor of L<File::Slurper|File::Slurper>>. While a useful experiment, it turned out to be both too similar to File::Slurp (still containing most problematic features of File::Slurp's interface) and yet not similar enough to be a true drop-in replacement.
-  
-  Bugs will still be fixed, but new features will probably not be added.
   
   =head1 DESCRIPTION
   
@@ -201,6 +195,771 @@ $fatpacked{"File/Slurp/Tiny.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<
   =cut
 FILE_SLURP_TINY
 
+$fatpacked{"HTML/Summary.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'HTML_SUMMARY';
+  package HTML::Summary;
+  $HTML::Summary::VERSION = '0.022';
+  #==============================================================================
+  #
+  # Start of POD
+  #
+  #==============================================================================
+  
+  =head1 NAME
+  
+  HTML::Summary - generate a summary from a web page
+  
+  =head1 SYNOPSIS
+  
+   use HTML::Summary;
+   use HTML::TreeBuilder;
+   
+   my $tree = HTML::TreeBuilder->new;
+   $tree->parse( $document );
+  
+   my $summarizer = HTML::Summary->new(
+       LENGTH      => 200,
+       USE_META    => 1,
+   );
+  
+   $summary = $summarizer->generate( $tree );
+   $summarizer->option( 'USE_META' => 1 );
+   $length = $summarizer->option( 'LENGTH' );
+   if ( $summarizer->meta_used() ) {
+       # do something
+   }
+  
+  =head1 DESCRIPTION
+  
+  The C<HTML::Summary> module produces summaries from the textual content of
+  web pages. It does so using the location heuristic, which determines the value
+  of a given sentence based on its position and status within the document; for
+  example, headings, section titles and opening paragraph sentences may be
+  favoured over other textual content. A LENGTH option can be used to restrict
+  the length of the summary produced.
+  
+  =head1 CONSTRUCTOR
+  
+  =head2 new( $attr1 => $value1 [, $attr2 => $value2 ] )
+  
+  Possible attributes are:
+  
+  =over 4
+  
+  =item VERBOSE
+  
+  Generate verbose messages to STDERR.
+  
+  =item LENGTH
+  
+  Maximum length of summary (in bytes). Default is 500.
+  
+  =item USE_META
+  
+  Flag to tell summarizer whether to use the content of the C<<META>> tag
+  in the page header, if one is present, instead of generating a summary from the
+  body text. B<Note that> if the USE_META flag is set, this overrides the LENGTH
+  flag - in other words, the summary provided by the C<<META>> tag is
+  returned in full, even if it is greater than LENGTH bytes. Default is 0 (no).
+  
+  =back
+  
+   my $summarizer = HTML::Summary->new(LENGTH => 200);
+  
+  =head1 METHODS
+  
+  =head2 option( )
+  
+  Get / set HTML::Summary configuration options.
+  
+   my $length = $summarizer->option( 'LENGTH' );
+   $summarizer->option( 'USE_META' => 1 );
+  
+  =head2 generate( $tree )
+  
+  Takes an HTML::Element object, and generates a summary from it.
+  
+   my $tree = HTML::TreeBuilder->new;
+   $tree->parse( $document );
+   my $summary = $summarizer->generate( $tree );
+  
+  =head2 meta_used( )
+  
+  Returns 1 if the META tag description was used to generate the summary.
+  
+   if ( $summarizer->meta_used() ) {
+       # do something ...
+   }
+  
+  =head1 SEE ALSO
+  
+  L<HTML::TreeBuilder>,
+  L<Text::Sentence>,
+  L<Lingua::JA::Jcode>,
+  L<Lingua::JA::Jtruncate>.
+  
+  =head1 REPOSITORY
+  
+  L<https://github.com/neilb/HTML-Summary>
+  
+  =head1 AUTHORS
+  
+  This module was originally whipped up by Neil Bowers and Tony Rose.
+  It was then developed and maintained by Ave Wrigley and Tony Rose.
+  
+  Neil Bowers is currently maintaining the HTML-Summary distribution.
+  
+  Neil Bowers E<lt>neilb@cpan.orgE<gt>
+  
+  =head1 COPYRIGHT AND LICENSE
+  
+  Copyright (c) 1997 Canon Research Centre Europe (CRE). All rights reserved.
+  
+  This is free software; you can redistribute it and/or modify it under
+  the same terms as the Perl 5 programming language system itself.
+  
+  =cut
+  
+  #==============================================================================
+  #
+  # End of POD
+  #
+  #==============================================================================
+  
+  #==============================================================================
+  #
+  # Pragmas
+  #
+  #==============================================================================
+  
+  require 5.006;
+  use strict;
+  use warnings;
+  
+  #==============================================================================
+  #
+  # Modules
+  #
+  #==============================================================================
+  
+  use Text::Sentence qw( split_sentences );
+  use Lingua::JA::Jtruncate qw( jtruncate );
+  
+  #==============================================================================
+  #
+  # Constants
+  #
+  #==============================================================================
+  
+  use constant IGNORE_TEXT => 1;
+  
+  #==============================================================================
+  #
+  # Private globals
+  #
+  #==============================================================================
+  
+  my $DEFAULT_SCORE = 0;
+  
+  my %ELEMENT_SCORES = (
+      'p'         => 100,
+      'h1'        => 90,
+      'h2'        => 80,
+      'h3'        => 70,
+  );
+  
+  my %DEFAULTS = (
+      'USE_META'  => 0,
+      'VERBOSE'   => 0,
+      'LENGTH'    => 500,
+  );
+  
+  #==============================================================================
+  #
+  # Public methods
+  #
+  #==============================================================================
+  
+  #------------------------------------------------------------------------------
+  #
+  # new - constructor. Configuration through "hash" type arguments, i.e.
+  # my $abs = HTML::Summary->new( VAR1 => 'foo', VAR2 => 'bar' );
+  #
+  #------------------------------------------------------------------------------
+  
+  sub new
+  {
+      my $class = shift;
+      my $self = bless { }, $class;
+      return $self->_initialize( @_ );
+  }
+  
+  #------------------------------------------------------------------------------
+  #
+  # generate - main public interface method to generate a summary
+  #
+  #------------------------------------------------------------------------------
+  
+  sub generate
+  {
+      my $self = shift;
+      my $tree = shift;
+  
+      my $summary;
+  
+      $self->_verbose( 'Generate summary ...' );
+  
+      # check to see if there is a summary already defined in a META tag ...
+  
+      if ( 
+          $self->{ USE_META } and 
+          $summary = $self->_get_summary_from_meta( $tree ) 
+      )
+      {
+          $self->_verbose( "use summary from META tag ..." );
+          $self->_verbose( $summary );
+          return $summary;
+      }
+  
+      # traverse the HTML tree, building up @summary array
+  
+      my @summary = $self->_get_summary( $tree );
+  
+      # sort @summary by score, truncate if it is greater than LENGTH
+      # characters, and the re-sort by original order. Truncate AFTER the LENGTH
+      # has been exceeded, so that last sentence is truncated later by
+      # jtruncate
+  
+      @summary = sort { $b->{ score } <=> $a->{ score } } @summary;
+  
+      my $tot_length = 0;
+      my @truncated = ();
+  
+      for ( @summary )
+      {
+          push( @truncated, $_ );
+          last if ( $tot_length += $_->{ 'length' } ) > $self->{ LENGTH };
+      }
+      @truncated = sort { $a->{ order } <=> $b->{ order } } @truncated;
+  
+      # these whitespaces will push the length over LENGTH, but jtruncate
+      # should take care of this
+  
+      $summary = join( ' ', map { $_->{ text } } @truncated );
+      $self->_verbose( "truncate the summary to ", $self->{ LENGTH } );
+      $summary = jtruncate( $summary, $self->{ LENGTH } );
+      return $summary;
+  }
+  
+  #------------------------------------------------------------------------------
+  #
+  # meta_used - tells whether the description from the META tag was used; returns
+  # 1 if it was, 0 if the summary was generated automatically
+  #
+  #------------------------------------------------------------------------------
+  
+  sub meta_used
+  {
+      my $self = shift;
+  
+      return $self->{ META_USED };
+  }
+  
+  #------------------------------------------------------------------------------
+  #
+  # option - get / set configuration option
+  #
+  #------------------------------------------------------------------------------
+  
+  sub option
+  {
+      my $self    = shift;
+      my $option  = shift;
+      my $val     = shift;
+  
+      die "No HTML::Summary option name given" unless defined $option;
+      die "$option is not an HTML::Summary option" unless 
+          grep { $_ eq $option } keys %DEFAULTS
+      ;
+  
+      if ( defined $val )
+      {
+          $self->{ $option } = $val;
+      }
+  
+      return $self->{ $option } = $val;
+  }
+  
+  #==============================================================================
+  #
+  # Private methods
+  #
+  #==============================================================================
+  
+  #------------------------------------------------------------------------------
+  #
+  # _initialize - supports sub-classing
+  #
+  #------------------------------------------------------------------------------
+  
+  sub _initialize
+  {
+      my $self = shift;
+  
+      return undef unless @_ % 2 == 0;    # check that config hash has even no.
+                                          # of elements
+  
+      %{ $self } = ( %DEFAULTS, @_ );     # set options from defaults / config.
+                                          # hash passed as arguments
+  
+      return $self;
+  }
+  
+  #------------------------------------------------------------------------------
+  #
+  # _verbose - generate verbose error messages, if the VERBOSE option has been
+  # selected
+  #
+  #------------------------------------------------------------------------------
+  
+  sub _verbose
+  {
+      my $self = shift;
+  
+      return unless $self->{ VERBOSE };
+      print STDERR @_, "\n";
+  }
+  
+  #------------------------------------------------------------------------------
+  #
+  # _get_summary - get sentences from an element to generate the summary from.
+  # Uses lexically scoped array @sentences to build up result from the traversal
+  # callback
+  #
+  #------------------------------------------------------------------------------
+  
+  sub _get_summary
+  {
+      my $self = shift;
+      my $tree = shift;
+  
+      my @summary = ();
+      my $add_sentence = sub {
+          my $text        = shift;
+          my $tag         = shift;
+          my $score       = shift || $DEFAULT_SCORE;
+  
+          return unless $text =~ /\w/;
+  
+          $text =~ s!^\s*!!; # remove leading ...
+          $text =~ s!\s*$!!; # ... and trailing whitespace
+  
+          $summary[ scalar( @summary ) ] = {
+              'text'          => $text,
+              'length'        => length( $text ),
+              'tag'           => $tag,
+              'score'         => $score,
+              'order'         => scalar( @summary ),
+          };
+      };
+      $tree->traverse(
+          sub {
+              my $node = shift;
+              my $flag = shift;
+  
+              if ( $flag ) # entering node ...
+              {
+                  my $tag = $node->tag;
+                  return 0 if $tag eq 'head';
+  
+                  # add sentences which either are scoring, or span no other
+                  # scoring sentences (and have a score of 0).  In this way, all
+                  # text is captured, even if it scores 0; the only exception is
+                  # something like <BODY>some text <P>foobar</P></BODY>, where
+                  # everything but "foobar" will be lost. However, if you have
+                  # <BODY><TD>some text</TD><P>foobar</P></BODY> you should get
+                  # all the text.
+  
+                  if ( 
+                      $ELEMENT_SCORES{ $tag } || 
+                      ! _has_scoring_element( $node ) 
+                  )
+                  {
+                      my $text = _get_text( $node );
+                      foreach ( $text ) # alias $_ to $text
+                      {
+                          # get rid of whitespace (including &nbsp;) from start /
+                          # end of $text
+                          s/^[\s\160]*//;
+                          s/[\s\160]*$//;
+                          # get rid of any spurious tags that have slipped
+                          # through the HTML::TreeBuilder
+                          s!<[^>]+>!!g;
+                      }
+  
+                      if ( $text =~ /\S/ )
+                      {
+                          my $score = $ELEMENT_SCORES{ $tag } || $DEFAULT_SCORE;
+  
+                          # add all the sentences in the text. Only the first
+                          # sentence gets the element score - the rest get the
+                          # default score
+  
+                          $self->_verbose( "TEXT: $text" );
+                          for my $sentence ( 
+                              split_sentences( $text, $self->{ 'LOCALE' } )
+                          )
+                          {
+                              $self->_verbose( "SENTENCE: $text" );
+                              $add_sentence->( $sentence, $tag, $score );
+                              $score = $DEFAULT_SCORE;
+                          }
+                      }
+  
+                      # return 0 to avoid getting the same sentence in a scoring
+                      # "daughter" element
+  
+                      return 0;
+                  }
+              }
+  
+              # continue traversal ...
+  
+              return 1;
+          },
+          IGNORE_TEXT
+      );
+      return @summary;
+  }
+  
+  #------------------------------------------------------------------------------
+  #
+  # _get_summary_from_meta - check to see if there is already a summary
+  # defined in the META tag in the HEAD
+  #
+  #------------------------------------------------------------------------------
+  
+  sub _get_summary_from_meta
+  {
+      my $self = shift;
+      my $tree = shift;
+  
+      my $summary;
+  
+      $tree->traverse(
+          sub {
+              my $node = shift;
+              my $flag = shift;
+  
+              if ($node->tag eq 'meta'
+                  && defined($node->attr('name'))
+                  && lc( $node->attr('name') ) eq 'description'
+                  && defined($node->attr('content')))
+              {
+                  $summary = $node->attr( 'content' );
+                  $summary = undef if $summary eq 'content';
+                  return 0;
+              }
+              return 1;
+          },
+          IGNORE_TEXT
+      );
+  
+      $self->{ META_USED } = defined( $summary ) ? 1 : 0;
+      return $summary;
+  }
+  
+  #==============================================================================
+  #
+  # Private functions
+  #
+  #==============================================================================
+  
+  #------------------------------------------------------------------------------
+  #
+  # _get_text - get all the text spanned by an element. Uses lexically scoped
+  # variable $html to build up result from the traversal callback
+  #
+  #------------------------------------------------------------------------------
+      
+  sub _get_text
+  {
+      my $node = shift;
+      
+      my $html = '';
+      $node->traverse(
+          sub {
+              my $node = shift;
+              $html .= $node unless ref( $node );
+              return 1;
+          }
+      );
+      return $html;
+  }
+  
+  #------------------------------------------------------------------------------
+  #
+  # _has_scoring_element - check to see if this element spans any scoring
+  # element.  Uses lexically scoped variable $has_scoring_element to build up
+  # result from the traversal callback.
+  #
+  #------------------------------------------------------------------------------
+  
+  sub _has_scoring_element
+  {
+      my $node = shift;
+      
+      my $has_scoring_element = 0;
+      $node->traverse(
+          sub {
+              my $node = shift;
+              my $tag = $node->tag;
+              $has_scoring_element ||= $ELEMENT_SCORES{ $tag };
+              return 1;
+          },
+          IGNORE_TEXT
+      );
+      return $has_scoring_element;
+  }
+  
+  #==============================================================================
+  #
+  # Return TRUE
+  #
+  #==============================================================================
+  
+  1;
+HTML_SUMMARY
+
+$fatpacked{"Lingua/JA/Jtruncate.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'LINGUA_JA_JTRUNCATE';
+  package Lingua::JA::Jtruncate;
+  $Lingua::JA::Jtruncate::VERSION = '0.022';
+  #------------------------------------------------------------------------------
+  #
+  # Start of POD
+  #
+  #------------------------------------------------------------------------------
+  
+  =head1 NAME
+  
+  Lingua::JA::Jtruncate - module to truncate Japanese encoded text.
+  
+  =head1 SYNOPSIS
+  
+      use Lingua::JA::Jtruncate qw( jtruncate );
+      $truncated_jtext = jtruncate( $jtext, $length );
+  
+  =head1 DESCRIPTION
+  
+  The jtruncate function truncates text to a length $length less than bytes. It
+  is designed to cope with Japanese text which has been encoded using one of the
+  standard encoding schemes - EUC, JIS, and Shift-JIS.
+  It uses the L<Jcode> module to detect what encoding is being used.
+  If the text is none of the above Japanese encodings,
+  the text is just truncated using substr.
+  If it is detected as Japanese text, it tries to truncate the text as well as
+  possible without breaking the multi-byte encoding.  It does this by detecting
+  the character encoding of the text, and recursively deleting Japanese (possibly
+  multi-byte) characters from the end of the text until it is underneath the
+  length specified. It should work for EUC, JIS and Shift-JIS encodings.
+  
+  =head1 FUNCTIONS
+  
+  =head2 jtruncate( $jtext, $length )
+  
+  B<jtruncate> takes some japanese text and a byte length as arguments, and
+  returns the japanese text truncated to that byte length.
+  
+      $truncated_jtext = jtruncate( $jtext, $length );
+  
+  =head1 SEE ALSO
+  
+  L<Jcode>
+  
+  =head1 REPOSITORY
+  
+  L<https://github.com/neilb/HTML-Summary>
+  
+  =head1 AUTHOR
+  
+  Originally written by Ave Wrigley (AWRIGLEY),
+  now maintained by Neil Bowers (NEILB).
+  
+  =head1 COPYRIGHT
+  
+  Copyright (c) 1997 Canon Research Centre Europe (CRE). All rights reserved.
+  
+  This is free software; you can redistribute it and/or modify it under
+  the same terms as the Perl 5 programming language system itself.
+  
+  =cut
+  
+  #------------------------------------------------------------------------------
+  #
+  # End of POD
+  #
+  #------------------------------------------------------------------------------
+  
+  #------------------------------------------------------------------------------
+  #
+  # Pragmas
+  #
+  #------------------------------------------------------------------------------
+  
+  require 5.006;
+  use strict;
+  use warnings;
+  
+  #==============================================================================
+  #
+  # Modules
+  #
+  #==============================================================================
+  
+  # use Lingua::JA::Jcode;
+  use Jcode;
+  require Exporter;
+  
+  #==============================================================================
+  #
+  # Public globals
+  #
+  #==============================================================================
+  
+  use vars qw( 
+      @ISA 
+      @EXPORT_OK 
+      %euc_code_set
+      %sjis_code_set
+      %jis_code_set
+      %char_re
+  );
+  
+  @ISA = qw( Exporter );
+  @EXPORT_OK = qw( jtruncate );
+  
+  %euc_code_set = (
+      ASCII_JIS_ROMAN     => '[\x00-\x7f]',
+      JIS_X_0208_1997     => '[\xa1-\xfe][\xa1-\xfe]',
+      HALF_WIDTH_KATAKANA => '\x8e[\xa0-\xdf]',
+      JIS_X_0212_1990     => '\x8f[\xa1-\xfe][\xa1-\xfe]',
+  );
+  
+  %sjis_code_set = (
+      ASCII_JIS_ROMAN     => '[\x21-\x7e]',
+      HALF_WIDTH_KATAKANA => '[\xa1-\xdf]',
+      TWO_BYTE_CHAR       => '[\x81-\x9f\xe0-\xef][\x40-\x7e\x80-\xfc]',
+  );
+  
+  %jis_code_set = (
+      TWO_BYTE_ESC        => 
+          '(?:' .
+          join( '|',
+              '\x1b\x24\x40',
+              '\x1b\x24\x42',
+              '\x1b\x26\x40\x1b\x24\x42',
+              '\x1b\x24\x28\x44',
+          ) .
+          ')'
+      ,
+      TWO_BYTE_CHAR       => '(?:[\x21-\x7e][\x21-\x7e])',
+      ONE_BYTE_ESC        => '(?:\x1b\x28[\x4a\x48\x42\x49])',
+      ONE_BYTE_CHAR       =>
+          '(?:' .
+          join( '|', 
+              '[\x21-\x5f]',                      # JIS7 Half width katakana
+              '\x0f[\xa1-\xdf]*\x0e',             # JIS8 Half width katakana
+              '[\x21-\x7e]',                      # ASCII / JIS-Roman
+          ) .
+          ')'
+  );
+  
+  %char_re = (
+      'euc'       => '(?:' . join( '|', values %euc_code_set ) . ')',
+      'sjis'      => '(?:' . join( '|', values %sjis_code_set ) . ')',
+      'jis'       => '(?:' . join( '|', values %jis_code_set ) . ')',
+  );
+  
+  #==============================================================================
+  #
+  # Public exported functions
+  #
+  #==============================================================================
+  
+  #------------------------------------------------------------------------------
+  #
+  # jtruncate( $text, $length )
+  #
+  # truncate a string safely (i.e. don't break japanese encoding)
+  #
+  #------------------------------------------------------------------------------
+  
+  sub jtruncate
+  {
+      my $text            = shift;
+      my $length          = shift;
+  
+      # sanity checks
+  
+      return '' if $length == 0;
+      return undef if not defined $length;
+      return undef if $length < 0;
+      return $text if length( $text ) <= $length;
+  
+      # save the original text, in case we need to bomb out with a substr
+  
+      my $orig_text = $text;
+  
+      my $encoding = Jcode::getcode( \$text );
+      if ( not defined $encoding or $encoding !~ /^(?:euc|s?jis)$/ )
+      {
+  
+          # not euc/sjis/jis - just use substr
+  
+          return substr( $text, 0, $length );
+      }
+  
+      $text = chop_jchars( $text, $length, $encoding );
+      return substr( $orig_text, 0, $length ) unless defined $text;
+  
+      # JIS encoding uses escape sequences to shift in and out of single-byte /
+      # multi-byte  modes. If the truncation process leaves the text ending in
+      # multi-byte mode, we need to add the single-byte escape sequence.
+      # Therefore, we truncate (at least) 3 more bytes from JIS encoded
+      # string, so we have room to add the single-byte escape sequence without
+      # going over the $length limit
+  
+      if ( $encoding eq 'jis' and $text =~ /$jis_code_set{ TWO_BYTE_CHAR }$/ )
+      {
+          $text = chop_jchars( $text, $length - 3, $encoding );
+          return substr( $orig_text, 0, $length ) unless defined $text;
+          $text .= "\x1b\x28\x42";
+      }
+      return $text;
+  }
+  
+  sub chop_jchars
+  {
+      my $text = shift;
+      my $length = shift;
+      my $encoding = shift;
+  
+      while( length( $text ) > $length )
+      {
+          return undef unless $text =~ s!$char_re{ $encoding }$!!o;
+      }
+  
+      return $text;
+  }
+  
+  #==============================================================================
+  #
+  # Return true
+  #
+  #==============================================================================
+  
+  1;
+LINGUA_JA_JTRUNCATE
+
 $fatpacked{"Test/Builder.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST_BUILDER';
   package Test::Builder;
   
@@ -208,7 +967,7 @@ $fatpacked{"Test/Builder.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TE
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   BEGIN {
       if( $] < 5.008 ) {
@@ -231,6 +990,7 @@ $fatpacked{"Test/Builder.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TE
           Test2::IPC::Driver::Files->import;
           Test2::API::test2_ipc_enable_polling();
           Test2::API::test2_no_wait(1);
+          Test2::API::test2_ipc_enable_shm();
       }
   }
   
@@ -255,80 +1015,44 @@ $fatpacked{"Test/Builder.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TE
   
       #$hub->add_context_aquire(sub {$_[0]->{level} += $Level - 1});
   
-      $hub->pre_filter(
-          sub {
-              my ($active_hub, $e) = @_;
+      $hub->pre_filter(sub {
+          my ($active_hub, $e) = @_;
   
-              my $epkg = $$epkgr;
-              my $cpkg = $e->{trace} ? $e->{trace}->{frame}->[0] : undef;
+          my $epkg = $$epkgr;
+          my $cpkg = $e->{trace} ? $e->{trace}->{frame}->[0] : undef;
   
-              no strict 'refs';
-              no warnings 'once';
-              my $todo;
-              $todo = ${"$cpkg\::TODO"} if $cpkg;
-              $todo = ${"$epkg\::TODO"} if $epkg && !$todo;
+          no strict 'refs';
+          no warnings 'once';
+          my $todo;
+          $todo = ${"$cpkg\::TODO"} if $cpkg;
+          $todo = ${"$epkg\::TODO"} if $epkg && !$todo;
   
-              return $e unless defined($todo);
-              return $e unless length($todo);
+          return $e unless $todo;
   
-              # Turn a diag into a todo diag
-              return Test::Builder::TodoDiag->new(%$e) if ref($e) eq 'Test2::Event::Diag';
+          # Turn a diag into a todo diag
+          return Test::Builder::TodoDiag->new(%$e) if ref($e) eq 'Test2::Event::Diag';
   
+          if ($active_hub == $hub) {
               $e->set_todo($todo) if $e->can('set_todo');
               $e->add_amnesty({tag => 'TODO', details => $todo});
+          }
+          else {
+              $e->add_amnesty({tag => 'TODO', details => $todo, inherited => 1});
+          }
   
-              # Set todo on ok's
-              if ($e->isa('Test2::Event::Ok')) {
-                  $e->set_effective_pass(1);
+          # Set todo on ok's
+          if ($e->isa('Test2::Event::Ok')) {
+              $e->set_effective_pass(1);
   
-                  if (my $result = $e->get_meta(__PACKAGE__)) {
-                      $result->{reason} ||= $todo;
-                      $result->{type}   ||= 'todo';
-                      $result->{ok} = 1;
-                  }
+              if (my $result = $e->get_meta(__PACKAGE__)) {
+                  $result->{reason} ||= $todo;
+                  $result->{type}   ||= 'todo';
+                  $result->{ok}       = 1;
               }
+          }
   
-              return $e;
-          },
-  
-          inherit => 1,
-  
-          intercept_inherit => {
-              clean => sub {
-                  my %params = @_;
-  
-                  my $state = $params{state};
-                  my $trace = $params{trace};
-  
-                  my $epkg = $$epkgr;
-                  my $cpkg = $trace->{frame}->[0];
-  
-                  no strict 'refs';
-                  no warnings 'once';
-  
-                  $state->{+__PACKAGE__} = {};
-                  $state->{+__PACKAGE__}->{"$cpkg\::TODO"} = ${"$cpkg\::TODO"} if $cpkg;
-                  $state->{+__PACKAGE__}->{"$epkg\::TODO"} = ${"$epkg\::TODO"} if $epkg;
-  
-                  ${"$cpkg\::TODO"} = undef if $cpkg;
-                  ${"$epkg\::TODO"} = undef if $epkg;
-              },
-              restore => sub {
-                  my %params = @_;
-                  my $state = $params{state};
-  
-                  no strict 'refs';
-                  no warnings 'once';
-  
-                  for my $item (keys %{$state->{+__PACKAGE__}}) {
-                      no strict 'refs';
-                      no warnings 'once';
-  
-                      ${"$item"} = $state->{+__PACKAGE__}->{$item};
-                  }
-              },
-          },
-      );
+          return $e;
+      }, inherit => 1);
   }
   
   {
@@ -635,7 +1359,7 @@ $fatpacked{"Test/Builder.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TE
   sub reset {    ## no critic (Subroutines::ProhibitBuiltinHomonyms)
       my ($self, %params) = @_;
   
-      Test2::API::test2_unset_is_end();
+      Test2::API::test2_set_is_end(0);
   
       # We leave this a global because it has to be localized and localizing
       # hash keys is just asking for pain.  Also, it was documented.
@@ -940,7 +1664,7 @@ $fatpacked{"Test/Builder.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TE
       my $self = shift;
       my ($trace, $orig_name) = @_;
   
-      my $is_todo = $self->in_todo;
+      my $is_todo = defined($self->todo);
   
       my $msg = $is_todo ? "Failed (TODO)" : "Failed";
   
@@ -2004,6 +2728,7 @@ $fatpacked{"Test/Builder.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TE
       my $ipc = Test2::IPC::apply_ipc($self->{Stack});
       $ipc->set_no_fatal(1);
       Test2::API::test2_no_wait(1);
+      Test2::API::test2_ipc_enable_shm();
   }
   
   sub no_log_results { $_[0]->{no_log_results} = 1 }
@@ -2816,17 +3541,7 @@ $fatpacked{"Test/Builder.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TE
   
   =head1 SEE ALSO
   
-  =head2 INTERNALS
-  
-  L<Test2>, L<Test2::API>
-  
-  =head2 LEGACY
-  
-  L<Test::Simple>, L<Test::More>
-  
-  =head2 EXTERNAL
-  
-  L<Test::Harness>
+  L<Test::Simple>, L<Test::More>, L<Test::Harness>
   
   =head1 AUTHORS
   
@@ -2857,7 +3572,7 @@ $fatpacked{"Test/Builder/Formatter.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   BEGIN { require Test2::Formatter::TAP; our @ISA = qw(Test2::Formatter::TAP) }
   
@@ -2888,8 +3603,7 @@ $fatpacked{"Test/Builder/Formatter.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\
       my ($self, $f, $num) = @_;
       return if $self->{+NO_DIAG};
       my @out = $self->SUPER::debug_tap($f, $num);
-      $self->redirect(\@out) if @out && ref $f->{about} && defined $f->{about}->{package}
-          && $f->{about}->{package} eq 'Test::Builder::TodoDiag';
+      $self->redirect(\@out) if @out && $f->{about}->{package} eq 'Test::Builder::TodoDiag';
       return @out;
   }
   
@@ -2897,8 +3611,7 @@ $fatpacked{"Test/Builder/Formatter.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\
       my ($self, $f) = @_;
       return if $self->{+NO_DIAG};
       my @out = $self->SUPER::info_tap($f);
-      $self->redirect(\@out) if @out && ref $f->{about} && defined $f->{about}->{package}
-          && $f->{about}->{package} eq 'Test::Builder::TodoDiag';
+      $self->redirect(\@out) if @out && $f->{about}->{package} eq 'Test::Builder::TodoDiag';
       return @out;
   }
   
@@ -2952,7 +3665,7 @@ $fatpacked{"Test/Builder/Formatter.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -3634,7 +4347,7 @@ $fatpacked{"Test/Builder/Module.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   require Exporter;
   our @ISA = qw(Exporter);
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   =head1 NAME
@@ -3799,13 +4512,6 @@ $fatpacked{"Test/Builder/Module.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
       return Test::Builder->new;
   }
   
-  =head1 SEE ALSO
-  
-  L<< Test2::Manual::Tooling::TestBuilder >> describes the improved
-  options for writing testing modules provided by L<< Test2 >>.
-  
-  =cut
-  
   1;
 TEST_BUILDER_MODULE
 
@@ -3813,7 +4519,7 @@ $fatpacked{"Test/Builder/Tester.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   package Test::Builder::Tester;
   
   use strict;
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   use Test::Builder;
   use Symbol;
@@ -4491,7 +5197,7 @@ $fatpacked{"Test/Builder/Tester/Color.pm"} = '#line '.(1+__LINE__).' "'.__FILE__
   package Test::Builder::Tester::Color;
   
   use strict;
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   require Test::Builder::Tester;
   
@@ -4546,7 +5252,7 @@ $fatpacked{"Test/Builder/TodoDiag.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   BEGIN { require Test2::Event::Diag; our @ISA = qw(Test2::Event::Diag) }
   
@@ -4602,7 +5308,7 @@ $fatpacked{"Test/Builder/TodoDiag.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -4632,7 +5338,7 @@ $fatpacked{"Test/More.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST_
       return warn @_, " at $file line $line\n";
   }
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   use Test::Builder::Module;
   our @ISA    = qw(Test::Builder::Module);
@@ -4710,10 +5416,8 @@ $fatpacked{"Test/More.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST_
   =head1 DESCRIPTION
   
   B<STOP!> If you're just getting started writing tests, have a look at
-  L<Test2::Suite> first.
-  
-  This is a drop in replacement for Test::Simple which you can switch to once you
-  get the hang of basic testing.
+  L<Test::Simple> first.  This is a drop in replacement for Test::Simple
+  which you can switch to once you get the hang of basic testing.
   
   The purpose of this module is to provide a wide range of testing
   utilities.  Various ways to say "ok" with better diagnostics,
@@ -6017,7 +6721,7 @@ $fatpacked{"Test/More.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST_
   TODO flag.
   
   The nice part about todo tests, as opposed to simply commenting out a
-  block of tests, is that it is like having a programmatic todo list.  You know
+  block of tests, is it's like having a programmatic todo list.  You know
   how much work is left to be done, you're aware of what bugs there are,
   and you'll know immediately when they're fixed.
   
@@ -6463,7 +7167,7 @@ $fatpacked{"Test/More.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST_
   C<< binmode STDOUT, ":utf8" >> will not fix it.
   L<Test::Builder> (which powers
   Test::More) duplicates STDOUT and STDERR.  So any changes to them,
-  including changing their output disciplines, will not be seen by
+  including changing their output disciplines, will not be seem by
   Test::More.
   
   One work around is to apply encodings to STDOUT and STDERR as early
@@ -6535,8 +7239,6 @@ $fatpacked{"Test/More.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST_
   
   =head2 ALTERNATIVES
   
-  L<Test2::Suite> is the most recent and modern set of tools for testing.
-  
   L<Test::Simple> if all this confuses you and you just want to write
   some tests.  You can upgrade to Test::More later (it's forward
   compatible).
@@ -6544,6 +7246,15 @@ $fatpacked{"Test/More.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST_
   L<Test::Legacy> tests written with Test.pm, the original testing
   module, do not play well with other testing libraries.  Test::Legacy
   emulates the Test.pm interface and does play well with others.
+  
+  =head2 TESTING FRAMEWORKS
+  
+  L<Fennec> The Fennec framework is a testers toolbox. It uses L<Test::Builder>
+  under the hood. It brings enhancements for forking, defining state, and
+  mocking. Fennec enhances several modules to work better together than they
+  would if you loaded them individually on your own.
+  
+  L<Fennec::Declare> Provides enhanced (L<Devel::Declare>) syntax for Fennec.
   
   =head2 ADDITIONAL LIBRARIES
   
@@ -6619,7 +7330,7 @@ $fatpacked{"Test/Simple.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TES
   
   use strict;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   use Test::Builder::Module;
   our @ISA    = qw(Test::Builder::Module);
@@ -6856,7 +7567,7 @@ $fatpacked{"Test/Tester.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TES
   
   use vars qw( @ISA @EXPORT );
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   @EXPORT = qw( run_tests check_tests check_test cmp_results show_space );
   @ISA = qw( Exporter );
@@ -7231,7 +7942,7 @@ $fatpacked{"Test/Tester.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TES
       }
     );
   
-  this will execute the is_mystyle_eq test, capturing its results and
+  this will execute the is_mystyle_eq test, capturing it's results and
   checking that they are what was expected.
   
   You may need to examine the test results in a more flexible way, for
@@ -7538,7 +8249,7 @@ $fatpacked{"Test/Tester/Capture.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   
   package Test::Tester::Capture;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   use Test::Builder;
@@ -7549,8 +8260,14 @@ $fatpacked{"Test/Tester/Capture.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   # Make Test::Tester::Capture thread-safe for ithreads.
   BEGIN {
   	use Config;
-  	*share = sub { 0 };
-  	*lock  = sub { 0 };
+  	if( $] >= 5.008 && $Config{useithreads} ) {
+  		require threads::shared;
+  		threads::shared->import;
+  	}
+  	else {
+  		*share = sub { 0 };
+  		*lock  = sub { 0 };
+  	}
   }
   
   my $Curr_Test = 0;      share($Curr_Test);
@@ -7560,7 +8277,7 @@ $fatpacked{"Test/Tester/Capture.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   sub new
   {
     # Test::Tester::Capgture::new used to just return __PACKAGE__
-    # because Test::Builder::new enforced its singleton nature by
+    # because Test::Builder::new enforced it's singleton nature by
     # return __PACKAGE__. That has since changed, Test::Builder::new now
     # returns a blessed has and around version 0.78, Test::Builder::todo
     # started wanting to modify $self. To cope with this, we now return
@@ -7759,7 +8476,7 @@ $fatpacked{"Test/Tester/Capture.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   =head1 DESCRIPTION
   
   This is a subclass of Test::Builder that overrides many of the methods so
-  that they don't output anything. It also keeps track of its own set of test
+  that they don't output anything. It also keeps track of it's own set of test
   results so that you can use Test::Builder based modules to perform tests on
   other Test::Builder based modules.
   
@@ -7783,7 +8500,7 @@ $fatpacked{"Test/Tester/CaptureRunner.pm"} = '#line '.(1+__LINE__).' "'.__FILE__
   
   package Test::Tester::CaptureRunner;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   use Test::Tester::Capture;
@@ -7865,7 +8582,7 @@ $fatpacked{"Test/Tester/Delegate.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\
   
   package Test::Tester::Delegate;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   use Scalar::Util();
   
@@ -7918,12 +8635,12 @@ $fatpacked{"Test/Text.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST_
   use Carp;
   use File::Slurp::Tiny 'read_file';
   use Text::Hunspell;
-  use Test::Text::Sentence qw(split_sentences);
-  use v5.22;
+  use Text::Sentence qw(split_sentences);
+  use v5.12;
   
-  use version; our $VERSION = qv('0.6.4'); # Works with UTF8 and includes Text::Sentence
+  use version; our $VERSION = qv('0.6.0'); # Works with UTF8
   
-  use parent 'Test::Builder::Module'; # Included in Test::Simple
+  use base 'Test::Builder::Module'; # Included in Test::Simple
   
   my $CLASS = __PACKAGE__;
   our @EXPORT= 'just_check';
@@ -7945,7 +8662,7 @@ $fatpacked{"Test/Text.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST_
     } else {
       @files = map( "$dir/$_", @files );
     }
-    my $self = {
+    my $self = { 
   	      _dir => $dir,
   	      _data_dir => $data_dir,
   	      _files => \@files
@@ -7959,16 +8676,18 @@ $fatpacked{"Test/Text.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST_
   				   );
     croak "Couldn't create speller: $1" if !$speller;
     $self->{'_speller'} = $speller;
-    $speller->add_dic("$dir/words.dic"); # word.dic should be in the text directory
+    $speller->add_dic("$dir/words.dic"); #word.dic should be in the text directory
     return $self;
   }
   
   sub dir {
-      return shift->{'_dir'};
+      my $self = shift;
+      return $self->{'_dir'};
   }
   
   sub files {
-    return shift->{'_files'};
+    my $self = shift;
+    return $self->{'_files'};
   }
   
   sub check {
@@ -7994,12 +8713,11 @@ $fatpacked{"Test/Text.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST_
       my $different_words = scalar keys %vocabulary;
       $tb->cmp_ok(  $different_words, ">", 1, "We have $different_words different words");
     }
-  
   }
   
   sub _strip_urls {
     my $text = shift || carp "No text";
-    $text =~ s/\[(.+?)\]\(\S+\)/$1/sg;
+    $text =~ s/\[(.+?)\]\(\S+\)/$1/g;
     return $text;
   }
   
@@ -8016,13 +8734,9 @@ $fatpacked{"Test/Text.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST_
       my $dir = shift || croak "Need a directory with text" ;
       my $data_dir = shift || croak "No default spelling data directory\n";
       my $language = shift || "en_US"; # Defaults to English
-      my $call_done_testing = shift // 1; # Defaults to 1
       my $tesxt = Test::Text->new($dir, $data_dir, $language, @_);
-      my $tb= $CLASS->builder;
-      $tb->subtest( "Testing $dir" => sub {
-        $tesxt->check();
-      });
-      $tb->done_testing() if $call_done_testing;
+      $tesxt->check();
+      $tesxt->done_testing;
   }
   
   sub done_testing {
@@ -8208,196 +8922,11 @@ $fatpacked{"Test/Text.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST_
   SUCH DAMAGES.
 TEST_TEXT
 
-$fatpacked{"Test/Text/Sentence.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST_TEXT_SENTENCE';
-  package Test::Text::Sentence;
-  
-  #==============================================================================
-  #
-  # Start of POD
-  #
-  #==============================================================================
-  
-  =head1 NAME
-  
-  Test::Text::Sentence - module for splitting text into sentences
-  
-  =head1 SYNOPSIS
-  
-      use Test::Text::Sentence qw( split_sentences );
-      use locale;
-      use POSIX qw( locale_h );
-  
-      setlocale( LC_CTYPE, 'iso_8859_1' );
-      @sentences = split_sentences( $text );
-  
-  =head1 DESCRIPTION
-  
-  The C<Test::Text::Sentence> module contains the function split_sentences, which
-  splits text into its constituent sentences, based on a fairly approximate
-  regex. If you set the locale before calling it, it will deal correctly with
-  locale dependant capitalization to identify sentence boundaries. Certain well
-  know exceptions, such as abbreviations, may cause incorrect segmentations.
-  
-  =head1 FUNCTIONS
-  
-  =head2 split_sentences( $text )
-  
-  The split sentences function takes a scalar containing ascii text as an
-  argument and returns an array of sentences that the text has been split into.
-  
-      @sentences = split_sentences( $text );
-  
-  =head1 SEE ALSO
-  
-      locale
-      POSIX
-  
-  =head1 REPOSITORY
-  
-  L<https://github.com/neilb/HTML-Summary>
-  
-  =head1 AUTHOR
-  
-  Ave Wrigley E<lt>wrigley@cre.canon.co.ukE<gt>
-  
-  =head1 COPYRIGHT
-  
-  Copyright (c) 1997 Canon Research Centre Europe (CRE). All rights reserved.
-  
-  This is free software; you can redistribute it and/or modify it under
-  the same terms as the Perl 5 programming language system itself.
-  
-  =cut
-  
-  #==============================================================================
-  #
-  # End of POD
-  #
-  #==============================================================================
-  
-  #==============================================================================
-  #
-  # Pragmas
-  #
-  #==============================================================================
-  
-  require 5.006;
-  use strict;
-  use warnings;
-  
-  #==============================================================================
-  #
-  # Modules
-  #
-  #==============================================================================
-  
-  require Exporter;
-  
-  #==============================================================================
-  #
-  # Public globals
-  #
-  #==============================================================================
-  
-  use vars qw( @ISA @EXPORT_OK @PUNCTUATION );
-  
-  @ISA = qw( Exporter );
-  @EXPORT_OK = qw( split_sentences );
-  @PUNCTUATION = ( '\.', '\!', '\?' );
-  
-  #==============================================================================
-  #
-  # Public methods
-  #
-  #==============================================================================
-  
-  #------------------------------------------------------------------------------
-  #
-  # split_sentences - takes text input an splits it into sentences, based on a
-  # fairly approximate regex. Returns an array of the sentences.
-  #
-  #------------------------------------------------------------------------------
-  
-  sub split_sentences
-  {
-      my $text = shift;
-  
-      return () unless $text;
-  
-      # capital letter is a character set; to account for local, this includes
-      # all characters for which lc is different from that character
-  
-      my $capital_letter =  
-          '[' . 
-              join( '', 
-                  grep { lc( $_ ) ne ( $_ ) } 
-                  map { chr( $_ ) } ord( "A" ) .. ord( "\xff" )
-              ) . 
-          ']'
-      ;
-  
-      my $punctuation = '(?:' . join( '|', @PUNCTUATION ) . ')';
-  
-      # this needs to be alternation, not character class, because of
-      # multibyte characters
-  
-      my $opt_start_quote = q/['"]?/; # "'
-      my $opt_close_quote = q/['"]?/; # "'
-  
-      # these are distinguished because (eventually!) I would like to do
-      # locale stuff on quote characters
-  
-      my $opt_start_bracket = q/[[({]?/; # }{
-      my $opt_close_bracket = q/[\])}]?/;
-  
-      # return $text if there is no punctuation ...
-  
-      return $text unless $text =~ /$punctuation/;
-  
-      my @sentences = $text =~ /
-      (
-                                  # sentences start with ...
-          $opt_start_quote        # an optional start quote
-          $opt_start_bracket      # an optional start bracket
-          $capital_letter         # a capital letter ...
-          .+?                     # at least some (non-greedy) anything ...
-          $punctuation            # ... followed by any one of !?.
-          $opt_close_quote        # an optional close quote
-          $opt_close_bracket      # and an optional close bracket
-      )
-      (?=                         # with lookahead that it is followed by ...
-          (?:                     # either ...
-              \s+                 # some whitespace ...
-              $opt_start_quote    # an optional start quote
-              $opt_start_bracket  # an optional start bracket
-              $capital_letter     # an uppercase word character (for locale
-                                  # sensitive matching)
-          |               # or ...
-              \n\n        # a couple (or more) of CRs
-          |               # or ...
-              \s*$        # optional whitespace, followed by end of string
-          )
-      )
-      /gxs
-      ;
-      return @sentences if @sentences;
-      return ( $text );
-  }
-  
-  #==============================================================================
-  #
-  # Return TRUE
-  #
-  #==============================================================================
-  
-  1;
-TEST_TEXT_SENTENCE
-
 $fatpacked{"Test/use/ok.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST_USE_OK';
   package Test::use::ok;
   use 5.005;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   __END__
@@ -8465,7 +8994,7 @@ $fatpacked{"Test2.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2';
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   1;
@@ -8666,7 +9195,7 @@ $fatpacked{"Test2.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2';
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -8688,43 +9217,13 @@ $fatpacked{"Test2/API.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2
       $ENV{TEST2_ACTIVE} = 1;
   }
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   my $INST;
   my $ENDING = 0;
-  sub test2_unset_is_end { $ENDING = 0 }
+  sub test2_set_is_end { ($ENDING) = @_ ? @_ : (1) }
   sub test2_get_is_end { $ENDING }
-  
-  sub test2_set_is_end {
-      my $before = $ENDING;
-      ($ENDING) = @_ ? @_ : (1);
-  
-      # Only send the event in a transition from false to true
-      return if $before;
-      return unless $ENDING;
-  
-      return unless $INST;
-      my $stack = $INST->stack or return;
-      my $root = $stack->root or return;
-  
-      return unless $root->count;
-  
-      return unless $$ == $INST->pid;
-      return unless get_tid() == $INST->tid;
-  
-      my $trace = Test2::EventFacet::Trace->new(
-          frame  => [__PACKAGE__, __FILE__, __LINE__, __PACKAGE__ . '::test2_set_is_end'],
-      );
-      my $ctx = Test2::API::Context->new(
-          trace => $trace,
-          hub   => $root,
-      );
-  
-      $ctx->send_ev2(control => { phase => 'END', details => 'Transition to END phase' });
-  
-      1;
-  }
   
   use Test2::API::Instance(\$INST);
   
@@ -8794,10 +9293,8 @@ $fatpacked{"Test2/API.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2
       test2_start_preload
       test2_stop_preload
       test2_in_preload
-      test2_is_testing_done
   
       test2_set_is_end
-      test2_unset_is_end
       test2_get_is_end
   
       test2_pid
@@ -8840,6 +9337,7 @@ $fatpacked{"Test2/API.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2
       test2_ipc_set_pending
       test2_ipc_get_timeout
       test2_ipc_set_timeout
+      test2_ipc_enable_shm
   
       test2_formatter
       test2_formatters
@@ -8886,27 +9384,6 @@ $fatpacked{"Test2/API.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2
   sub test2_ipc_wait_enable  { $INST->set_no_wait(0) }
   sub test2_ipc_wait_disable { $INST->set_no_wait(1) }
   sub test2_ipc_wait_enabled { !$INST->no_wait }
-  
-  sub test2_is_testing_done {
-      # No instance? VERY DONE!
-      return 1 unless $INST;
-  
-      # No stack? tests must be done, it is created pretty early
-      my $stack = $INST->stack or return 1;
-  
-      # Nothing on the stack, no root hub yet, likely have not started testing
-      return 0 unless @$stack;
-  
-      # Stack has a slot for the root hub (see above) but it is undefined, likely
-      # garbage collected, test is done
-      my $root_hub = $stack->[0] or return 1;
-  
-      # If the root hub is ended than testing is done.
-      return 1 if $root_hub->ended;
-  
-      # Looks like we are still testing!
-      return 0;
-  }
   
   sub test2_no_wait {
       $INST->set_no_wait(@_) if @_;
@@ -8962,7 +9439,7 @@ $fatpacked{"Test2/API.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2
   sub test2_ipc_set_pending     { $INST->set_ipc_pending(@_) }
   sub test2_ipc_set_timeout     { $INST->set_ipc_timeout(@_) }
   sub test2_ipc_get_timeout     { $INST->ipc_timeout() }
-  sub test2_ipc_enable_shm      { 0 }
+  sub test2_ipc_enable_shm      { $INST->ipc_enable_shm }
   
   sub test2_formatter     {
       if ($ENV{T2_FORMATTER} && $ENV{T2_FORMATTER} =~ m/^(\+)?(.*)$/) {
@@ -9054,23 +9531,6 @@ $fatpacked{"Test2/API.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2
   
       my $stack   = $params{stack} || $STACK;
       my $hub     = $params{hub}   || (@$stack ? $stack->[-1] : $stack->top);
-  
-      # Catch an edge case where we try to get context after the root hub has
-      # been garbage collected resulting in a stack that has a single undef
-      # hub
-      if (!$hub && !exists($params{hub}) && @$stack) {
-          my $msg = Carp::longmess("Attempt to get Test2 context after testing has completed (did you attempt a testing event after done_testing?)");
-  
-          # The error message is usually masked by the global destruction, so we have to print to STDER
-          print STDERR $msg;
-  
-          # Make sure this is a failure, we are probably already in END, so set $? to change the exit code
-          $? = 1;
-  
-          # Now we actually die to interrupt the program flow and avoid undefined his warnings
-          die $msg;
-      }
-  
       my $hid     = $hub->{hid};
       my $current = $CONTEXTS->{$hid};
   
@@ -9274,10 +9734,6 @@ $fatpacked{"Test2/API.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2
       $ctx->stack->top; # Make sure there is a top hub before we begin.
       $ctx->stack->push($hub);
   
-      my $trace = $ctx->trace;
-      my $state = {};
-      $hub->clean_inherited(trace => $trace, state => $state);
-  
       my ($ok, $err) = (1, undef);
       T2_SUBTEST_WRAPPER: {
           # Do not use 'try' cause it localizes __DIE__
@@ -9294,8 +9750,7 @@ $fatpacked{"Test2/API.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2
       $hub->cull;
       $ctx->stack->pop($hub);
   
-      $hub->restore_inherited(trace => $trace, state => $state);
-  
+      my $trace = $ctx->trace;
       $ctx->release;
   
       die $err unless $ok;
@@ -9568,7 +10023,6 @@ $fatpacked{"Test2/API.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2
           test2_ipc
           test2_formatter_set
           test2_formatter
-          test2_is_testing_done
       };
   
       my $init  = test2_init_done();
@@ -10012,26 +10466,6 @@ $fatpacked{"Test2/API.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2
   This will return the global L<Test2::API::Stack> instance. If this has not
   yet been initialized it will be initialized now.
   
-  =item $bool = test2_is_testing_done()
-  
-  This will return true if testing is complete and no other events should be
-  sent. This is useful in things like warning handlers where you might want to
-  turn warnings into events, but need them to start acting like normal warnings
-  when testing is done.
-  
-      $SIG{__WARN__} = sub {
-          my ($warning) = @_;
-  
-          if (test2_is_testing_done()) {
-              warn @_;
-          }
-          else {
-              my $ctx = context();
-              ...
-              $ctx->release
-          }
-      }
-  
   =item test2_ipc_disable
   
   Disable IPC.
@@ -10072,7 +10506,7 @@ $fatpacked{"Test2/API.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2
   
   These functions return the filehandles that test output should be written to.
   They are primarily useful when writing a custom formatter and code that turns
-  events into actual output (TAP, etc.).  They will return a dupe of the original
+  events into actual output (TAP, etc.)  They will return a dupe of the original
   filehandles that formatted output can be sent to regardless of whatever state
   the currently running test may have left STDOUT and STDERR in.
   
@@ -10248,7 +10682,8 @@ $fatpacked{"Test2/API.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2
   
   =item test2_ipc_enable_shm()
   
-  Legacy, this is currently a no-op that returns 0;
+  Turn on IPC SHM. Only some IPC drivers use this, and most will turn it on
+  themselves.
   
   =item test2_ipc_set_pending($uniq_val)
   
@@ -10363,7 +10798,7 @@ $fatpacked{"Test2/API.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -10378,7 +10813,7 @@ $fatpacked{"Test2/API/Breakage.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n"
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   use Test2::Util qw/pkg_to_file/;
@@ -10449,9 +10884,7 @@ $fatpacked{"Test2/API/Breakage.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n"
           next unless $INC{$file} || ($require && eval { require $file; 1 });
           my $want = $suggest{$mod};
           next if eval { $mod->VERSION($want); 1 };
-          my $error = $@;
-          chomp $error;
-          push @warn => " * Module '$mod' is outdated, we recommed updating above $want. error was: '$error'; INC is $INC{$file}";
+          push @warn => " * Module '$mod' is outdated, we recommed updating above $want.";
       }
   
       for my $mod (keys %required) {
@@ -10546,7 +10979,7 @@ $fatpacked{"Test2/API/Breakage.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n"
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -10561,7 +10994,7 @@ $fatpacked{"Test2/API/Context.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   use Carp qw/confess croak/;
@@ -10630,8 +11063,6 @@ $fatpacked{"Test2/API/Context.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".
           # show the warning about using eq.
           no warnings 'uninitialized';
           if($self->{+EVAL_ERROR} eq $@ && $hub->is_local) {
-              require Carp;
-              my $mess = Carp::longmess("Context destroyed");
               my $frame = $self->{+_IS_SPAWN} || $self->{+TRACE}->frame;
               warn <<"            EOT";
   A context appears to have been destroyed without first calling release().
@@ -10647,10 +11078,6 @@ $fatpacked{"Test2/API/Context.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".
     File: $frame->[1]
     Line: $frame->[2]
     Tool: $frame->[3]
-  
-  Here is a trace to the code that caused the context to be destroyed, this could
-  be an exit(), a goto, or simply the end of a scope:
-  $mess
   
   Cleaning up the CONTEXT stack...
               EOT
@@ -10890,15 +11317,7 @@ $fatpacked{"Test2/API/Context.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".
           "Test2::Event::Fail"
       );
   
-      for my $msg (@diag) {
-          if (ref($msg) eq 'Test2::EventFacet::Info::Table') {
-              $e->add_info({tag => 'DIAG', debug => 1, $msg->info_args});
-          }
-          else {
-              $e->add_info({tag => 'DIAG', debug => 1, details => $msg});
-          }
-      }
-  
+      $e->add_info({tag => 'DIAG', debug => 1, details => $_}) for @diag;
       $self->{+HUB}->send($e);
       return $e;
   }
@@ -10915,15 +11334,7 @@ $fatpacked{"Test2/API/Context.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".
           "Test2::Event::Fail"
       );
   
-      for my $msg (@diag) {
-          if (ref($msg) eq 'Test2::EventFacet::Info::Table') {
-              $e->add_info({tag => 'DIAG', debug => 1, $msg->info_args});
-          }
-          else {
-              $e->add_info({tag => 'DIAG', debug => 1, details => $msg});
-          }
-      }
-  
+      $e->add_info({tag => 'DIAG', debug => 1, details => $_}) for @diag;
       $self->{+HUB}->send($e);
       $self->release;
       return 0;
@@ -11071,14 +11482,7 @@ $fatpacked{"Test2/API/Context.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".
       sub my_ok {
           my ($bool, $name) = @_;
           my $ctx = context();
-  
-          if ($bool) {
-              $ctx->pass($name);
-          }
-          else {
-              $ctx->fail($name);
-          }
-  
+          $ctx->ok($bool, $name);
           $ctx->release; # You MUST do this!
           return $bool;
       }
@@ -11303,10 +11707,6 @@ $fatpacked{"Test2/API/Context.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".
   This lets you send an L<Test2::Event::Fail> event. You may optionally provide a
   C<$name> and C<@diagnostics> messages.
   
-  Diagnostics messages can be simple strings, data structures, or instances of
-  L<Test2::EventFacet::Info::Table> (which are converted inline into the
-  L<Test2::EventFacet::Info> structure).
-  
   =item my $false = $ctx->fail_and_release()
   
   =item my $false = $ctx->fail_and_release($name)
@@ -11352,8 +11752,7 @@ $fatpacked{"Test2/API/Context.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".
   C<send_event()> method directly.
   
   The third argument C<\@on_fail>) is an optional set of diagnostics to be sent in
-  the event of a test failure. Unlike with C<fail()> these diagnostics must be
-  plain strings, data structures are not supported.
+  the event of a test failure.
   
   =item $event = $ctx->note($message)
   
@@ -11568,7 +11967,7 @@ $fatpacked{"Test2/API/Context.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -11583,7 +11982,8 @@ $fatpacked{"Test2/API/Instance.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n"
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
+  
   
   our @CARP_NOT = qw/Test2::API Test2::API::Instance Test2::IPC::Driver Test2::Formatter/;
   use Carp qw/confess carp/;
@@ -11606,6 +12006,9 @@ $fatpacked{"Test2/API/Instance.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n"
       -preload
   
       ipc_disabled
+      ipc_shm_size
+      ipc_shm_last
+      ipc_shm_id
       ipc_polling
       ipc_drivers
       ipc_timeout
@@ -11793,6 +12196,7 @@ $fatpacked{"Test2/API/Instance.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n"
       for my $driver (@{$self->{+IPC_DRIVERS}}) {
           next unless $driver->can('is_viable') && $driver->is_viable;
           $self->{+IPC} = $driver->new or next;
+          $self->ipc_enable_shm if $self->{+IPC}->use_shm;
           return;
       }
   
@@ -11942,36 +12346,91 @@ $fatpacked{"Test2/API/Instance.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n"
           # $_[0] is a context object
           sub {
               return unless $self->{+IPC_POLLING};
-              return unless $self->{+IPC};
-              return unless $self->{+IPC}->pending();
-              return $_[0]->{hub}->cull;
+              return $_[0]->{hub}->cull unless $self->{+IPC_SHM_ID};
+  
+              my $val;
+              if(shmread($self->{+IPC_SHM_ID}, $val, 0, $self->{+IPC_SHM_SIZE})) {
+                  return if $val eq $self->{+IPC_SHM_LAST};
+                  $self->{+IPC_SHM_LAST} = $val;
+              }
+              else {
+                  warn "SHM Read error: $!\n";
+              }
+  
+              $_[0]->{hub}->cull;
           }
       ) unless defined $self->ipc_polling;
   
       $self->set_ipc_polling(1);
   }
   
-  sub get_ipc_pending {
+  sub ipc_enable_shm {
       my $self = shift;
-      return -1 unless $self->{+IPC};
-      $self->{+IPC}->pending();
+  
+      return 1 if defined $self->{+IPC_SHM_ID};
+  
+      $self->{+_PID} = $$        unless defined $self->{+_PID};
+      $self->{+_TID} = get_tid() unless defined $self->{+_TID};
+  
+      my ($ok, $err) = try {
+          # SysV IPC can be available but not enabled.
+          #
+          # In some systems (*BSD) accessing the SysV IPC APIs without
+          # them being enabled can cause a SIGSYS.  We suppress the SIGSYS
+          # and then get ENOSYS from the calls.
+          local $SIG{SYS} = 'IGNORE' if CAN_SIGSYS;
+  
+          require IPC::SysV;
+  
+          my $ipc_key = IPC::SysV::IPC_PRIVATE();
+          my $shm_size = $self->{+IPC}->can('shm_size') ? $self->{+IPC}->shm_size : 64;
+          my $shm_id = shmget($ipc_key, $shm_size, 0666) or die "Could not get shm: $!";
+  
+          my $initial = 'a' x $shm_size;
+          shmwrite($shm_id, $initial, 0, $shm_size) or die "Could not write to shm: $!";
+          my $val;
+          shmread($shm_id, $val, 0, $shm_size) or die "Could not read from shm: $!";
+          die "Read SHM value does not match the initial value ('$val' vs '$initial')"
+              unless $val eq $initial;
+  
+          $self->{+IPC_SHM_SIZE} = $shm_size;
+          $self->{+IPC_SHM_ID}   = $shm_id;
+          $self->{+IPC_SHM_LAST} = $initial;
+      };
+  
+      return $ok;
   }
   
-  sub _check_pid {
+  sub ipc_free_shm {
       my $self = shift;
-      my ($pid) = @_;
-      return kill(0, $pid);
+  
+      my $id = delete $self->{+IPC_SHM_ID};
+      return unless defined $id;
+  
+      shmctl($id, IPC::SysV::IPC_RMID(), 0);
+  }
+  
+  sub get_ipc_pending {
+      my $self = shift;
+      return -1 unless defined $self->{+IPC_SHM_ID};
+      my $val;
+      shmread($self->{+IPC_SHM_ID}, $val, 0, $self->{+IPC_SHM_SIZE}) or return -1;
+      return 0 if $val eq $self->{+IPC_SHM_LAST};
+      $self->{+IPC_SHM_LAST} = $val;
+      return 1;
   }
   
   sub set_ipc_pending {
       my $self = shift;
-      return unless $self->{+IPC};
+  
+      return undef unless defined $self->{+IPC_SHM_ID};
+  
       my ($val) = @_;
   
       confess "value is required for set_ipc_pending"
           unless $val;
   
-      $self->{+IPC}->set_pending($val);
+      shmwrite($self->{+IPC_SHM_ID}, $val, 0, $self->{+IPC_SHM_SIZE});
   }
   
   sub disable_ipc_polling {
@@ -12036,6 +12495,18 @@ $fatpacked{"Test2/API/Instance.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n"
       return 0 if $ok && !$fail;
       warn $error unless $ok;
       return 255;
+  }
+  
+  sub DESTROY {
+      my $self = shift;
+  
+      return if $self->{+PRELOAD};
+  
+      return unless defined($self->{+_PID}) && $self->{+_PID} == $$;
+      return unless defined($self->{+_TID}) && $self->{+_TID} == get_tid();
+  
+      shmctl($self->{+IPC_SHM_ID}, IPC::SysV::IPC_RMID(), 0)
+          if defined $self->{+IPC_SHM_ID};
   }
   
   sub set_exit {
@@ -12249,20 +12720,42 @@ $fatpacked{"Test2/API/Instance.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n"
   test state and set $?. This will also call any end callbacks, and wait on child
   processes/threads.
   
+  =item $obj->ipc_enable_shm()
+  
+  Turn on SHM for IPC (if possible)
+  
+  =item $shm_id = $obj->ipc_shm_id()
+  
+  If SHM is enabled for IPC this will be the shm_id for it.
+  
+  =item $shm_size = $obj->ipc_shm_size()
+  
+  If SHM is enabled for IPC this will be the size of it.
+  
+  =item $shm_last_val = $obj->ipc_shm_last()
+  
+  If SHM is enabled for IPC this will return the last SHM value seen.
+  
   =item $obj->set_ipc_pending($val)
   
-  Tell other processes and threads there is a pending event. C<$val> should be a
-  unique value no other thread/process will generate.
+  use the IPC SHM to tell other processes and threads there is a pending event.
+  C<$val> should be a unique value no other thread/process will generate.
   
-  B<Note:> This will also make the current process see a pending event.
+  B<Note:> This will also make the current process see a pending event. It does
+  not set C<ipc_shm_last()>, this is important because doing so could hide a
+  previous change.
   
   =item $pending = $obj->get_ipc_pending()
   
-  This returns -1 if it is not possible to know.
+  This returns -1 if SHM is not enabled for IPC.
   
-  This returns 0 if there are no pending events.
+  This returns 0 if the SHM value matches the last known value, which means there
+  are no pending events.
   
-  This returns 1 if there are pending events.
+  This returns 1 if the SHM value has changed, which means there are probably
+  pending events.
+  
+  When 1 is returned this will set C<< $obj->ipc_shm_last() >>.
   
   =item $timeout = $obj->ipc_timeout;
   
@@ -12393,7 +12886,7 @@ $fatpacked{"Test2/API/Instance.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n"
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -12408,7 +12901,7 @@ $fatpacked{"Test2/API/Stack.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   use Test2::Hub();
@@ -12467,12 +12960,6 @@ $fatpacked{"Test2/API/Stack.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<
   sub all {
       my $self = shift;
       return @$self;
-  }
-  
-  sub root {
-      my $self = shift;
-      return unless @$self;
-      return $self->[0];
   }
   
   sub clear {
@@ -12622,7 +13109,7 @@ $fatpacked{"Test2/API/Stack.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -12637,7 +13124,7 @@ $fatpacked{"Test2/Event.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TES
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   use Scalar::Util qw/blessed reftype/;
   use Carp qw/croak/;
@@ -13161,11 +13648,11 @@ $fatpacked{"Test2/Event.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TES
   Facets are produced by the C<facet_data()> subroutine, which you should
   nearly-always override. C<facet_data()> is expected to return a hashref where
   each key is the facet type, and the value is either a hashref with the data for
-  that facet, or an array of hashrefs. Some facets must be defined as single
+  that facet, or an array of hashref's. Some facets must be defined as single
   hashrefs, some must be defined as an array of hashrefs, No facets allow both.
   
   C<facet_data()> B<MUST NOT> bless the data it returns, the main hashref, and
-  nested facet hashrefs B<MUST> be bare, though items contained within each
+  nested facet hashref's B<MUST> be bare, though items contained within each
   facet may be blessed. The data returned by this method B<should> also be copies
   of the internal data in order to prevent accidental state modification.
   
@@ -13403,7 +13890,7 @@ $fatpacked{"Test2/Event.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TES
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -13418,7 +13905,7 @@ $fatpacked{"Test2/Event/Bail.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   BEGIN { require Test2::Event; our @ISA = qw(Test2::Event) }
@@ -13515,7 +14002,7 @@ $fatpacked{"Test2/Event/Bail.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -13530,7 +14017,7 @@ $fatpacked{"Test2/Event/Diag.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   BEGIN { require Test2::Event; our @ISA = qw(Test2::Event) }
@@ -13617,7 +14104,7 @@ $fatpacked{"Test2/Event/Diag.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -13632,7 +14119,7 @@ $fatpacked{"Test2/Event/Encoding.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   use Carp qw/croak/;
   
@@ -13717,7 +14204,7 @@ $fatpacked{"Test2/Event/Encoding.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -13732,7 +14219,7 @@ $fatpacked{"Test2/Event/Exception.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   BEGIN { require Test2::Event; our @ISA = qw(Test2::Event) }
@@ -13833,7 +14320,7 @@ $fatpacked{"Test2/Event/Exception.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -13848,7 +14335,7 @@ $fatpacked{"Test2/Event/Fail.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   use Test2::EventFacet::Info;
   
@@ -13954,7 +14441,7 @@ $fatpacked{"Test2/Event/Fail.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -13972,7 +14459,7 @@ $fatpacked{"Test2/Event/Generic.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   use Carp qw/croak/;
   use Scalar::Util qw/reftype/;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   BEGIN { require Test2::Event; our @ISA = qw(Test2::Event) }
   use Test2::Util::HashBase;
@@ -14237,7 +14724,7 @@ $fatpacked{"Test2/Event/Generic.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -14252,7 +14739,7 @@ $fatpacked{"Test2/Event/Note.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   BEGIN { require Test2::Event; our @ISA = qw(Test2::Event) }
@@ -14337,7 +14824,7 @@ $fatpacked{"Test2/Event/Note.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -14352,7 +14839,7 @@ $fatpacked{"Test2/Event/Ok.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   BEGIN { require Test2::Event; our @ISA = qw(Test2::Event) }
@@ -14419,14 +14906,7 @@ $fatpacked{"Test2/Event/Ok.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'
       };
   
       if (my @exra_amnesty = $self->extra_amnesty) {
-          my %seen;
-  
-          # It is possible the extra amnesty can be a duplicate, so filter it.
-          $out->{amnesty} = [
-              grep { !$seen{defined($_->{tag}) ? $_->{tag} : ''}->{defined($_->{details}) ? $_->{details} : ''}++ }
-                  @exra_amnesty,
-                  @{$out->{amnesty}},
-          ];
+          unshift @{$out->{amnesty}} => @exra_amnesty;
       }
   
       return $out;
@@ -14509,7 +14989,7 @@ $fatpacked{"Test2/Event/Ok.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -14524,7 +15004,7 @@ $fatpacked{"Test2/Event/Pass.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   use Test2::EventFacet::Info;
   
@@ -14626,7 +15106,7 @@ $fatpacked{"Test2/Event/Pass.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -14641,7 +15121,7 @@ $fatpacked{"Test2/Event/Plan.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   BEGIN { require Test2::Event; our @ISA = qw(Test2::Event) }
@@ -14798,7 +15278,7 @@ $fatpacked{"Test2/Event/Plan.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -14813,7 +15293,7 @@ $fatpacked{"Test2/Event/Skip.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   BEGIN { require Test2::Event::Ok; our @ISA = qw(Test2::Event::Ok) }
@@ -14928,7 +15408,7 @@ $fatpacked{"Test2/Event/Skip.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -14943,7 +15423,7 @@ $fatpacked{"Test2/Event/Subtest.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   BEGIN { require Test2::Event::Ok; our @ISA = qw(Test2::Event::Ok) }
   use Test2::Util::HashBase qw{subevents buffered subtest_id subtest_uuid};
@@ -15091,7 +15571,7 @@ $fatpacked{"Test2/Event/Subtest.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -15106,7 +15586,7 @@ $fatpacked{"Test2/Event/TAP/Version.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   use Carp qw/croak/;
   
@@ -15195,7 +15675,7 @@ $fatpacked{"Test2/Event/TAP/Version.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -15210,7 +15690,7 @@ $fatpacked{"Test2/Event/V2.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   use Scalar::Util qw/reftype/;
   use Carp qw/croak/;
@@ -15268,8 +15748,8 @@ $fatpacked{"Test2/Event/V2.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'
       for my $k (keys %$f) {
           next if substr($k, 0, 1) eq '_';
   
-          my $data = $f->{$k} or next; # Key is there, but no facet
-          my $is_list = 'ARRAY' eq (reftype($data) || '');
+          my $data = $f->{$k};
+          my $is_list = reftype($data) eq 'ARRAY';
           $out{$k} = $is_list ? [ map { {%{$_}} } @$data ] : {%$data};
       }
   
@@ -15436,7 +15916,7 @@ $fatpacked{"Test2/Event/V2.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -15451,7 +15931,7 @@ $fatpacked{"Test2/Event/Waiting.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   BEGIN { require Test2::Event; our @ISA = qw(Test2::Event) }
@@ -15515,7 +15995,7 @@ $fatpacked{"Test2/Event/Waiting.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -15530,7 +16010,7 @@ $fatpacked{"Test2/EventFacet.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   use Test2::Util::HashBase qw/-details/;
   use Carp qw/croak/;
@@ -15611,7 +16091,7 @@ $fatpacked{"Test2/EventFacet.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -15626,7 +16106,7 @@ $fatpacked{"Test2/EventFacet/About.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   BEGIN { require Test2::EventFacet; our @ISA = qw(Test2::EventFacet) }
   use Test2::Util::HashBase qw{ -package -no_display -uuid -eid };
@@ -15706,7 +16186,7 @@ $fatpacked{"Test2/EventFacet/About.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -15721,7 +16201,7 @@ $fatpacked{"Test2/EventFacet/Amnesty.pm"} = '#line '.(1+__LINE__).' "'.__FILE__.
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   sub is_list { 1 }
   
@@ -15800,7 +16280,7 @@ $fatpacked{"Test2/EventFacet/Amnesty.pm"} = '#line '.(1+__LINE__).' "'.__FILE__.
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -15815,7 +16295,7 @@ $fatpacked{"Test2/EventFacet/Assert.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   BEGIN { require Test2::EventFacet; our @ISA = qw(Test2::EventFacet) }
   use Test2::Util::HashBase qw{ -pass -no_debug -number };
@@ -15896,7 +16376,7 @@ $fatpacked{"Test2/EventFacet/Assert.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -15911,10 +16391,10 @@ $fatpacked{"Test2/EventFacet/Control.pm"} = '#line '.(1+__LINE__).' "'.__FILE__.
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   BEGIN { require Test2::EventFacet; our @ISA = qw(Test2::EventFacet) }
-  use Test2::Util::HashBase qw{ -global -terminate -halt -has_callback -encoding -phase };
+  use Test2::Util::HashBase qw{ -global -terminate -halt -has_callback -encoding };
   
   1;
   
@@ -15974,13 +16454,6 @@ $fatpacked{"Test2/EventFacet/Control.pm"} = '#line '.(1+__LINE__).' "'.__FILE__.
   
   This can be used to change the encoding from this event onward.
   
-  =item $phase = $control->{phase}
-  
-  =item $phase = $control->phase()
-  
-  Used to signal that a phase change has occurred. Currently only the perl END
-  phase is signaled.
-  
   =back
   
   =head1 SOURCE
@@ -16006,7 +16479,7 @@ $fatpacked{"Test2/EventFacet/Control.pm"} = '#line '.(1+__LINE__).' "'.__FILE__.
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -16021,7 +16494,7 @@ $fatpacked{"Test2/EventFacet/Error.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   sub facet_key { 'errors' }
   sub is_list { 1 }
@@ -16102,7 +16575,7 @@ $fatpacked{"Test2/EventFacet/Error.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -16117,7 +16590,7 @@ $fatpacked{"Test2/EventFacet/Hub.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   sub is_list { 1 }
   sub facet_key { 'hubs' }
@@ -16214,7 +16687,7 @@ $fatpacked{"Test2/EventFacet/Hub.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -16229,12 +16702,12 @@ $fatpacked{"Test2/EventFacet/Info.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   sub is_list { 1 }
   
   BEGIN { require Test2::EventFacet; our @ISA = qw(Test2::EventFacet) }
-  use Test2::Util::HashBase qw{-tag -debug -important -table};
+  use Test2::Util::HashBase qw{-tag -debug -important};
   
   1;
   
@@ -16268,36 +16741,6 @@ $fatpacked{"Test2/EventFacet/Info.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"
   Human readable string or data structure, this is the information to display.
   Formatters are free to render the structures however they please. This may
   contain a blessed object.
-  
-  If the C<table> attribute (see below) is set then a renderer may choose to
-  display the table instead of the details.
-  
-  =item $structure = $info->{table}
-  
-  =item $structure = $info->table()
-  
-  If the data the C<info> facet needs to convey can be represented as a table
-  then the data may be placed in this attribute in a more raw form for better
-  display. The data must also be represented in the C<details> attribute for
-  renderers which do not support rendering tables directly.
-  
-  The table structure:
-  
-      my %table = {
-          header => [ 'column 1 header', 'column 2 header', ... ], # Optional
-  
-          rows => [
-              ['row 1 column 1', 'row 1, column 2', ... ],
-              ['row 2 column 1', 'row 2, column 2', ... ],
-              ...
-          ],
-  
-          # Allow the renderer to hide empty columns when true, Optional
-          collapse => $BOOL,
-  
-          # List by name or number columns that should never be collapsed
-          no_collapse => \@LIST,
-      }
   
   =item $short_string = $info->{tag}
   
@@ -16349,7 +16792,7 @@ $fatpacked{"Test2/EventFacet/Info.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -16359,159 +16802,12 @@ $fatpacked{"Test2/EventFacet/Info.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"
   =cut
 TEST2_EVENTFACET_INFO
 
-$fatpacked{"Test2/EventFacet/Info/Table.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2_EVENTFACET_INFO_TABLE';
-  package Test2::EventFacet::Info::Table;
-  use strict;
-  use warnings;
-  
-  our $VERSION = '1.302177';
-  
-  use Carp qw/confess/;
-  
-  use Test2::Util::HashBase qw{-header -rows -collapse -no_collapse -as_string};
-  
-  sub init {
-      my $self = shift;
-  
-      confess "Table may not be empty" unless ref($self->{+ROWS}) eq 'ARRAY' && @{$self->{+ROWS}};
-  
-      $self->{+AS_STRING} ||= '<TABLE NOT DISPLAYED>';
-  }
-  
-  sub as_hash { my $out = +{%{$_[0]}}; delete $out->{as_string}; $out }
-  
-  sub info_args {
-      my $self = shift;
-  
-      my $hash = $self->as_hash;
-      my $desc = $self->as_string;
-  
-      return (table => $hash, details => $desc);
-  }
-  
-  1;
-  
-  __END__
-  
-  =pod
-  
-  =encoding UTF-8
-  
-  =head1 NAME
-  
-  Test2::EventFacet::Info::Table - Intermediary representation of a table.
-  
-  =head1 DESCRIPTION
-  
-  Intermediary representation of a table for use in specialized
-  L<Test::API::Context> methods which generate L<Test2::EventFacet::Info> facets.
-  
-  =head1 SYNOPSIS
-  
-      use Test2::EventFacet::Info::Table;
-      use Test2::API qw/context/;
-  
-      sub my_tool {
-          my $ctx = context();
-  
-          ...
-  
-          $ctx->fail(
-              $name,
-              "failure diag message",
-              Test2::EventFacet::Info::Table->new(
-                  # Required
-                  rows => [['a', 'b'], ['c', 'd'], ...],
-  
-                  # Strongly Recommended
-                  as_string => "... string to print when table cannot be rendered ...",
-  
-                  # Optional
-                  header => ['col1', 'col2'],
-                  collapse => $bool,
-                  no_collapse => ['col1', ...],
-              ),
-          );
-  
-          ...
-  
-          $ctx->release;
-      }
-  
-      my_tool();
-  
-  =head1 ATTRIBUTES
-  
-  =over 4
-  
-  =item $header_aref = $t->header()
-  
-  =item $rows_aref = $t->rows()
-  
-  =item $bool = $t->collapse()
-  
-  =item $aref = $t->no_collapse()
-  
-  The above are all directly tied to the table hashref structure described in
-  L<Test2::EventFacet::Info>.
-  
-  =item $str = $t->as_string()
-  
-  This returns the string form of the table if it was set, otherwise it returns
-  the string C<< "<TABLE NOT DISPLAYED>" >>.
-  
-  =item $href = $t->as_hash()
-  
-  This returns the data structure used for tables by L<Test2::EventFacet::Info>.
-  
-  =item %args = $t->info_args()
-  
-  This returns the arguments that should be used to construct the proper
-  L<Test2::EventFacet::Info> structure.
-  
-      return (table => $t->as_hash(), details => $t->as_string());
-  
-  =back
-  
-  =head1 SOURCE
-  
-  The source code repository for Test2 can be found at
-  F<http://github.com/Test-More/test-more/>.
-  
-  =head1 MAINTAINERS
-  
-  =over 4
-  
-  =item Chad Granum E<lt>exodist@cpan.orgE<gt>
-  
-  =back
-  
-  =head1 AUTHORS
-  
-  =over 4
-  
-  =item Chad Granum E<lt>exodist@cpan.orgE<gt>
-  
-  =back
-  
-  =head1 COPYRIGHT
-  
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
-  
-  This program is free software; you can redistribute it and/or
-  modify it under the same terms as Perl itself.
-  
-  See F<http://dev.perl.org/licenses/>
-  
-  =cut
-TEST2_EVENTFACET_INFO_TABLE
-
 $fatpacked{"Test2/EventFacet/Meta.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2_EVENTFACET_META';
   package Test2::EventFacet::Meta;
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   BEGIN { require Test2::EventFacet; our @ISA = qw(Test2::EventFacet) }
   use vars qw/$AUTOLOAD/;
@@ -16603,7 +16899,7 @@ $fatpacked{"Test2/EventFacet/Meta.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -16618,7 +16914,7 @@ $fatpacked{"Test2/EventFacet/Parent.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   use Carp qw/confess/;
   
@@ -16642,7 +16938,7 @@ $fatpacked{"Test2/EventFacet/Parent.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."
   
   =head1 NAME
   
-  Test2::EventFacet::Parent - Facet for events contains other events
+  Test2::EventFacet::Parent - Base class for all event facets.
   
   =head1 DESCRIPTION
   
@@ -16704,7 +17000,7 @@ $fatpacked{"Test2/EventFacet/Parent.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -16719,7 +17015,7 @@ $fatpacked{"Test2/EventFacet/Plan.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   BEGIN { require Test2::EventFacet; our @ISA = qw(Test2::EventFacet) }
   use Test2::Util::HashBase qw{ -count -skip -none };
@@ -16801,7 +17097,7 @@ $fatpacked{"Test2/EventFacet/Plan.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -16816,7 +17112,7 @@ $fatpacked{"Test2/EventFacet/Render.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   sub is_list { 1 }
   
@@ -16867,7 +17163,7 @@ $fatpacked{"Test2/EventFacet/Render.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."
   Optional, if the display text was generated from another facet this should
   state what facet it was.
   
-  =item $mode = $render->[#]->{mode}
+  =item $mode = $render->[#]->mode{}
   
   =item $mode = $render->[#]->mode()
   
@@ -16910,7 +17206,7 @@ $fatpacked{"Test2/EventFacet/Render.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -16925,7 +17221,7 @@ $fatpacked{"Test2/EventFacet/Trace.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   BEGIN { require Test2::EventFacet; our @ISA = qw(Test2::EventFacet) }
   
@@ -17192,7 +17488,7 @@ $fatpacked{"Test2/EventFacet/Trace.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -17207,7 +17503,7 @@ $fatpacked{"Test2/Formatter.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   my %ADDED;
@@ -17223,8 +17519,6 @@ $fatpacked{"Test2/Formatter.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<
       my $class = shift;
       return $class->new(@_);
   }
-  
-  sub supports_tables { 0 }
   
   sub hide_buffered { 1 }
   
@@ -17268,8 +17562,6 @@ $fatpacked{"Test2/Formatter.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<
   
       sub finalize { }
   
-      sub supports_tables { return $BOOL }
-  
       sub new_root {
           my $class = shift;
           ...
@@ -17301,14 +17593,11 @@ $fatpacked{"Test2/Formatter.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<
   except when C<terminate> is called for a Bail event >>. It is passed the
   following arguments:
   
-  The C<supports_tables> method should be true if the formatter supports directly
-  rendering table data from the C<info> facets. This is a newer feature and many
-  older formatters may not support it. When not supported the formatter falls
-  back to rendering C<detail> instead of the C<table> data.
-  
-  The C<new_root> method is used when constructing a root formatter. The default
-  is to just delegate to the regular C<new()> method, most formatters can ignore
-  this.
+  The C<new_root> method is called when C<Test2::API::Stack> Initializes the root
+  hub for the first time. Most formatters will simply have this call C<<
+  $class->new >>, which is the default behavior. Some formatters however may want
+  to take extra action during construction of the root formatter, this is where
+  they can do that.
   
   =over 4
   
@@ -17323,12 +17612,6 @@ $fatpacked{"Test2/Formatter.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<
   =item * A boolean indicating whether or not this call is for a subtest
   
   =back
-  
-  The C<new_root> method is called when C<Test2::API::Stack> Initializes the root
-  hub for the first time. Most formatters will simply have this call C<<
-  $class->new >>, which is the default behavior. Some formatters however may want
-  to take extra action during construction of the root formatter, this is where
-  they can do that.
   
   =head1 SOURCE
   
@@ -17353,7 +17636,7 @@ $fatpacked{"Test2/Formatter.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -17368,7 +17651,7 @@ $fatpacked{"Test2/Formatter/TAP.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   use Test2::Util qw/clone_io/;
   
@@ -17381,19 +17664,6 @@ $fatpacked{"Test2/Formatter/TAP.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   sub OUT_ERR() { 1 }
   
   BEGIN { require Test2::Formatter; our @ISA = qw(Test2::Formatter) }
-  
-  my $supports_tables;
-  sub supports_tables {
-      if (!defined $supports_tables) {
-          local $SIG{__DIE__} = 'DEFAULT';
-          local $@;
-          $supports_tables
-              = ($INC{'Term/Table.pm'} && $INC{'Term/Table/Util.pm'})
-              || eval { require Term::Table; require Term::Table::Util; 1 }
-              || 0;
-      }
-      return $supports_tables;
-  }
   
   sub _autoflush {
       my($fh) = pop;
@@ -17483,9 +17753,10 @@ $fatpacked{"Test2/Formatter/TAP.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   
           print $io "\n"
               if $ENV{HARNESS_ACTIVE}
+              && !$ENV{HARNESS_IS_VERBOSE}
               && $hid == OUT_ERR
               && $self->{+_LAST_FH} != $io
-              && $msg =~ m/^#\s*Failed( \(TODO\))? test /;
+              && $msg =~ m/^#\s*Failed test /;
   
           $msg =~ s/^/$indent/mg if $nesting;
           print $io $msg;
@@ -17637,10 +17908,7 @@ $fatpacked{"Test2/Formatter/TAP.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
           }
   
           my %seen;
-  
-          # Sort so that TODO comes before skip even on systems where lc sorts
-          # before uc, as other code depends on that ordering.
-          my @order = grep { !$seen{$_}++ } sort { lc $b cmp lc $a } keys %directives;
+          my @order = grep { !$seen{$_}++ } sort keys %directives;
   
           $directives = ' # ' . join ' & ' => @order;
   
@@ -17744,23 +18012,11 @@ $fatpacked{"Test2/Formatter/TAP.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   
       return map {
           my $details = $_->{details};
-          my $table   = $_->{table};
   
           my $IO = $_->{debug} && !($f->{amnesty} && @{$f->{amnesty}}) ? OUT_ERR : OUT_STD;
   
           my $msg;
-          if ($table && $self->supports_tables) {
-              $msg = join "\n" => map { "# $_" } Term::Table->new(
-                  header      => $table->{header},
-                  rows        => $table->{rows},
-                  collapse    => $table->{collapse},
-                  no_collapse => $table->{no_collapse},
-                  sanitize    => 1,
-                  mark_tail   => 1,
-                  max_width   => $self->calc_table_size($f),
-              )->render();
-          }
-          elsif (ref($details)) {
+          if (ref($details)) {
               require Data::Dumper;
               my $dumper = Data::Dumper->new([$details])->Indent(2)->Terse(1)->Pad('# ')->Useqq(1)->Sortkeys(1);
               chomp($msg = $dumper->Dump);
@@ -17785,20 +18041,6 @@ $fatpacked{"Test2/Formatter/TAP.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
       $summary =~ s/^/# /smg;
   
       return [OUT_STD, "$summary\n"];
-  }
-  
-  sub calc_table_size {
-      my $self = shift;
-      my ($f) = @_;
-  
-      my $term = Term::Table::Util::term_size();
-      my $nesting = 2 + (($f->{trace}->{nested} || 0) * 4); # 4 spaces per level, also '# ' prefix
-      my $total = $term - $nesting;
-  
-      # Sane minimum width, any smaller and we are asking for pain
-      return 50 if $total < 50;
-  
-      return $total;
   }
   
   1;
@@ -17884,7 +18126,7 @@ $fatpacked{"Test2/Formatter/TAP.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -17899,7 +18141,7 @@ $fatpacked{"Test2/Hub.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   use Carp qw/carp croak confess/;
@@ -18710,7 +18952,7 @@ $fatpacked{"Test2/Hub.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2
   
   This can be used to disable auto-ending behavior for a hub. The auto-ending
   behavior is triggered by an end block and is used to cull IPC events, and
-  output the final plan if the plan was 'NO PLAN'.
+  output the final plan if the plan was 'no_plan'.
   
   =item $bool = $hub->active
   
@@ -18758,7 +19000,7 @@ $fatpacked{"Test2/Hub.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2
   =item $plan = $hub->plan
   
   Get or set the plan. The plan must be an integer larger than 0, the string
-  'NO PLAN', or the string 'SKIP'.
+  'no_plan', or the string 'skip_all'.
   
   =item $bool = $hub->check_plan
   
@@ -18796,7 +19038,7 @@ $fatpacked{"Test2/Hub.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -18811,7 +19053,7 @@ $fatpacked{"Test2/Hub/Interceptor.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   use Test2::Hub::Interceptor::Terminator();
@@ -18835,62 +19077,6 @@ $fatpacked{"Test2/Hub/Interceptor.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"
           my $ipc = $from->{+IPC};
           $self->{+IPC} = $ipc;
           $ipc->add_hub($self->{+HID});
-      }
-  
-      if (my $ls = $from->{+_LISTENERS}) {
-          push @{$self->{+_LISTENERS}} => grep { $_->{intercept_inherit} } @$ls;
-      }
-  
-      if (my $pfs = $from->{+_PRE_FILTERS}) {
-          push @{$self->{+_PRE_FILTERS}} => grep { $_->{intercept_inherit} } @$pfs;
-      }
-  
-      if (my $fs = $from->{+_FILTERS}) {
-          push @{$self->{+_FILTERS}} => grep { $_->{intercept_inherit} } @$fs;
-      }
-  }
-  
-  sub clean_inherited {
-      my $self = shift;
-      my %params = @_;
-  
-      my @sets = (
-          $self->{+_LISTENERS},
-          $self->{+_PRE_FILTERS},
-          $self->{+_FILTERS},
-      );
-  
-      for my $set (@sets) {
-          next unless $set;
-  
-          for my $i (@$set) {
-              my $cbs = $i->{intercept_inherit} or next;
-              next unless ref($cbs) eq 'HASH';
-              my $cb = $cbs->{clean} or next;
-              $cb->(%params);
-          }
-      }
-  }
-  
-  sub restore_inherited {
-      my $self = shift;
-      my %params = @_;
-  
-      my @sets = (
-          $self->{+_FILTERS},
-          $self->{+_PRE_FILTERS},
-          $self->{+_LISTENERS},
-      );
-  
-      for my $set (@sets) {
-          next unless $set;
-  
-          for my $i (@$set) {
-              my $cbs = $i->{intercept_inherit} or next;
-              next unless ref($cbs) eq 'HASH';
-              my $cb = $cbs->{restore} or next;
-              $cb->(%params);
-          }
       }
   }
   
@@ -18943,7 +19129,7 @@ $fatpacked{"Test2/Hub/Interceptor.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -18958,7 +19144,7 @@ $fatpacked{"Test2/Hub/Interceptor/Terminator.pm"} = '#line '.(1+__LINE__).' "'._
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   1;
@@ -18997,7 +19183,7 @@ $fatpacked{"Test2/Hub/Interceptor/Terminator.pm"} = '#line '.(1+__LINE__).' "'._
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -19012,7 +19198,7 @@ $fatpacked{"Test2/Hub/Subtest.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   BEGIN { require Test2::Hub; our @ISA = qw(Test2::Hub) }
   use Test2::Util::HashBase qw/nested exit_code manual_skip_all/;
@@ -19136,7 +19322,7 @@ $fatpacked{"Test2/Hub/Subtest.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -19151,13 +19337,12 @@ $fatpacked{"Test2/IPC.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   use Test2::API::Instance;
   use Test2::Util qw/get_tid/;
   use Test2::API qw{
-      test2_in_preload
       test2_init_done
       test2_ipc
       test2_has_ipc
@@ -19167,16 +19352,6 @@ $fatpacked{"Test2/IPC.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2
       test2_tid
       context
   };
-  
-  # Make sure stuff is finalized before anyone tried to fork or start a new thread.
-  {
-      # Avoid warnings if things are loaded at run-time
-      no warnings 'void';
-      INIT {
-          use warnings 'void';
-          context()->release() unless test2_in_preload();
-      }
-  }
   
   use Carp qw/confess/;
   
@@ -19299,7 +19474,7 @@ $fatpacked{"Test2/IPC.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST2
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -19314,7 +19489,7 @@ $fatpacked{"Test2/IPC/Driver.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   use Carp qw/confess/;
@@ -19330,8 +19505,7 @@ $fatpacked{"Test2/IPC/Driver.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
       test2_ipc_add_driver($class);
   }
   
-  sub pending { -1 }
-  sub set_pending { -1 }
+  sub use_shm { 0 }
   
   for my $meth (qw/send cull add_hub drop_hub waiting is_viable/) {
       no strict 'refs';
@@ -19402,6 +19576,11 @@ $fatpacked{"Test2/IPC/Driver.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   This is the same as C<< $ipc->abort($msg) >> except that it uses
   C<Carp::longmess> to add a stack trace to the message.
   
+  =item $false = $self->use_shm
+  
+  The base class always returns false for this method. You may override it if you
+  wish to use the SHM made available in L<Test2::API>/L<Test2::API::Instance>.
+  
   =back
   
   =head1 LOADING DRIVERS
@@ -19449,7 +19628,8 @@ $fatpacked{"Test2/IPC/Driver.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   
           ... # Send the event to the proper hub.
   
-          # This may notify other procs/threads that there is a pending event.
+          # If you are using the SHM you should notify other procs/threads that
+          # there is a pending event.
           Test2::API::test2_ipc_set_pending($uniq_val);
       }
   
@@ -19520,7 +19700,8 @@ $fatpacked{"Test2/IPC/Driver.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   
           ... # Send the event to the proper hub.
   
-          # This may notify other procs/threads that there is a pending event.
+          # If you are using the SHM you should notify other procs/threads that
+          # there is a pending event.
           Test2::API::test2_ipc_set_pending($uniq_val);
       }
   
@@ -19564,6 +19745,15 @@ $fatpacked{"Test2/IPC/Driver.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   chance to cleanup when an abort happens. You cannot prevent the abort, but you
   can gracefully except it.
   
+  =item $bool = $ipc->use_shm()
+  
+  True if you want to make use of the L<Test2::API>/L<Test2::API::Instance> SHM.
+  
+  =item $bites = $ipc->shm_size()
+  
+  Use this to customize the size of the SHM space. There are no guarantees about
+  what the size will be if you do not implement this.
+  
   =back
   
   =head1 SOURCE
@@ -19589,7 +19779,7 @@ $fatpacked{"Test2/IPC/Driver.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -19604,7 +19794,8 @@ $fatpacked{"Test2/IPC/Driver/Files.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
+  
   
   BEGIN { require Test2::IPC::Driver; our @ISA = qw(Test2::IPC::Driver) }
   
@@ -19618,6 +19809,9 @@ $fatpacked{"Test2/IPC/Driver/Files.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\
   
   use Test2::Util qw/try get_tid pkg_to_file IS_WIN32 ipc_separator do_rename do_unlink try_sig_mask/;
   use Test2::API qw/test2_ipc_set_pending/;
+  
+  sub use_shm { 1 }
+  sub shm_size() { 64 }
   
   sub is_viable { 1 }
   
@@ -19719,36 +19913,12 @@ $fatpacked{"Test2/IPC/Driver/Files.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\
       }
   
       opendir(my $dh, $tdir) or $self->abort_trace("Could not open temp dir!");
-  
-      my %bad;
       for my $file (readdir($dh)) {
           next if $file =~ m{\.complete$};
           next unless $file =~ m{^$hid};
-  
-          eval { $bad{$file} = $self->read_event_file(File::Spec->catfile($tdir, $file)); 1 } or $bad{$file} = $@ || "Unknown error reading file";
+          $self->abort_trace("Not all files from hub '$hid' have been collected!");
       }
       closedir($dh);
-  
-      return unless keys %bad;
-  
-      my $data;
-      my $ok = eval {
-          require JSON::PP;
-          local *UNIVERSAL::TO_JSON = sub { +{ %{$_[0]} } };
-          my $json = JSON::PP->new->ascii->pretty->canonical->allow_unknown->allow_blessed->convert_blessed;
-          $data = $json->encode(\%bad);
-          1;
-      };
-      $ok ||= eval {
-          require Data::Dumper;
-          local $Data::Dumper::Sortkeys = 1;
-          $data = Data::Dumper::Dumper(\%bad);
-          1;
-      };
-  
-      $data = "Could not dump data... sorry." unless defined $data;
-  
-      $self->abort_trace("Not all files from hub '$hid' have been collected!\nHere is the leftover data:\n========================\n$data\n===================\n");
   }
   
   sub send {
@@ -19790,7 +19960,7 @@ $fatpacked{"Test2/IPC/Driver/Files.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\
   
       if ($ok) {
           $self->abort("Could not rename file '$file' -> '$ready': $ren_err") unless $ren_ok;
-          test2_ipc_set_pending($file);
+          test2_ipc_set_pending(substr($file, -(shm_size)));
       }
       else {
           my $src_file = __FILE__;
@@ -20095,7 +20265,7 @@ $fatpacked{"Test2/IPC/Driver/Files.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -20124,7 +20294,7 @@ $fatpacked{"Test2/Tools/Tiny.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   use Test2::Hub::Interceptor();
   use Test2::Hub::Interceptor::Terminator();
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   BEGIN { require Exporter; our @ISA = qw(Exporter) }
   our @EXPORT = qw{
@@ -20533,7 +20703,7 @@ $fatpacked{"Test2/Tools/Tiny.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -20548,7 +20718,7 @@ $fatpacked{"Test2/Util.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   use POSIX();
   use Config qw/%Config/;
@@ -20729,7 +20899,7 @@ $fatpacked{"Test2/Util.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST
   
   sub clone_io {
       my ($fh) = @_;
-      my $fileno = eval { fileno($fh) };
+      my $fileno = fileno($fh);
   
       return $fh if !defined($fileno) || !length($fileno) || $fileno < 0;
   
@@ -20984,7 +21154,7 @@ $fatpacked{"Test2/Util.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEST
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -20999,7 +21169,7 @@ $fatpacked{"Test2/Util/ExternalMeta.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   
   use Carp qw/croak/;
@@ -21169,7 +21339,7 @@ $fatpacked{"Test2/Util/ExternalMeta.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -21184,7 +21354,7 @@ $fatpacked{"Test2/Util/Facets2Legacy.pm"} = '#line '.(1+__LINE__).' "'.__FILE__.
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   use Carp qw/croak confess/;
   use Scalar::Util qw/blessed/;
@@ -21471,7 +21641,7 @@ $fatpacked{"Test2/Util/Facets2Legacy.pm"} = '#line '.(1+__LINE__).' "'.__FILE__.
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -21486,7 +21656,7 @@ $fatpacked{"Test2/Util/HashBase.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   use strict;
   use warnings;
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   #################################################################
   #                                                               #
@@ -21500,7 +21670,7 @@ $fatpacked{"Test2/Util/HashBase.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   
   {
       no warnings 'once';
-      $Test2::Util::HashBase::HB_VERSION = '0.009';
+      $Test2::Util::HashBase::HB_VERSION = '0.006';
       *Test2::Util::HashBase::ATTR_SUBS = \%Object::HashBase::ATTR_SUBS;
       *Test2::Util::HashBase::ATTR_LIST = \%Object::HashBase::ATTR_LIST;
       *Test2::Util::HashBase::VERSION   = \%Object::HashBase::VERSION;
@@ -21528,12 +21698,9 @@ $fatpacked{"Test2/Util/HashBase.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
       }
   }
   
-  my %SPEC = (
-      '^' => {reader => 1, writer => 0, dep_writer => 1, read_only => 0, strip => 1},
-      '-' => {reader => 1, writer => 0, dep_writer => 0, read_only => 1, strip => 1},
-      '>' => {reader => 0, writer => 1, dep_writer => 0, read_only => 0, strip => 1},
-      '<' => {reader => 1, writer => 0, dep_writer => 0, read_only => 0, strip => 1},
-      '+' => {reader => 0, writer => 0, dep_writer => 0, read_only => 0, strip => 1},
+  my %STRIP = (
+      '^' => 1,
+      '-' => 1,
   );
   
   sub import {
@@ -21555,22 +21722,14 @@ $fatpacked{"Test2/Util/HashBase.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
               map {
                   my $p = substr($_, 0, 1);
                   my $x = $_;
-  
-                  my $spec = $SPEC{$p} || {reader => 1, writer => 1};
-  
-                  substr($x, 0, 1) = '' if $spec->{strip};
+                  substr($x, 0, 1) = '' if $STRIP{$p};
                   push @$attr_list => $x;
                   my ($sub, $attr) = (uc $x, $x);
-  
-                  $attr_subs->{$sub} = sub() { $attr };
-                  my %out = ($sub => $attr_subs->{$sub});
-  
-                  $out{$attr}       = sub { $_[0]->{$attr} }                                                  if $spec->{reader};
-                  $out{"set_$attr"} = sub { $_[0]->{$attr} = $_[1] }                                          if $spec->{writer};
-                  $out{"set_$attr"} = sub { Carp::croak("'$attr' is read-only") }                             if $spec->{read_only};
-                  $out{"set_$attr"} = sub { Carp::carp("set_$attr() is deprecated"); $_[0]->{$attr} = $_[1] } if $spec->{dep_writer};
-  
-                  %out;
+                  $sub => ($attr_subs->{$sub} = sub() { $attr }),
+                      $attr => sub { $_[0]->{$attr} },
+                        $p eq '-' ? ("set_$attr" => sub { Carp::croak("'$attr' is read-only") })
+                      : $p eq '^' ? ("set_$attr" => sub { Carp::carp("set_$attr() is deprecated"); $_[0]->{$attr} = $_[1] })
+                      : ("set_$attr" => sub { $_[0]->{$attr} = $_[1] }),
               } @_
           ),
       );
@@ -21662,7 +21821,7 @@ $fatpacked{"Test2/Util/HashBase.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
       use warnings;
   
       # Generate 3 accessors
-      use Test2::Util::HashBase qw/foo -bar ^baz <bat >ban +boo/;
+      use Test2::Util::HashBase qw/foo -bar ^baz/;
   
       # Chance to initialize defaults
       sub init {
@@ -21670,13 +21829,10 @@ $fatpacked{"Test2/Util/HashBase.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
           $self->{+FOO} ||= "foo";
           $self->{+BAR} ||= "bar";
           $self->{+BAZ} ||= "baz";
-          $self->{+BAT} ||= "bat";
-          $self->{+BAN} ||= "ban";
-          $self->{+BOO} ||= "boo";
       }
   
       sub print {
-          print join ", " => map { $self->{$_} } FOO, BAR, BAZ, BAT, BAN, BOO;
+          print join ", " => map { $self->{$_} } FOO, BAR, BAZ;
       }
   
   Subclass it
@@ -21687,14 +21843,14 @@ $fatpacked{"Test2/Util/HashBase.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   
       # Note, you should subclass before loading HashBase.
       use base 'My::Class';
-      use Test2::Util::HashBase qw/bub/;
+      use Test2::Util::HashBase qw/bat/;
   
       sub init {
           my $self = shift;
   
           # We get the constants from the base class for free.
           $self->{+FOO} ||= 'SubFoo';
-          $self->{+BUB} ||= 'bub';
+          $self->{+BAT} ||= 'bat';
   
           $self->SUPER::init();
       }
@@ -21711,13 +21867,10 @@ $fatpacked{"Test2/Util/HashBase.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
       my $two   = My::Class->new({foo => 'MyFoo', bar => 'MyBar'});
       my $three = My::Class->new(['MyFoo', 'MyBar']);
   
-      # Readers!
+      # Accessors!
       my $foo = $one->foo;    # 'MyFoo'
       my $bar = $one->bar;    # 'MyBar'
       my $baz = $one->baz;    # Defaulted to: 'baz'
-      my $bat = $one->bat;    # Defaulted to: 'bat'
-      # '>ban' means setter only, no reader
-      # '+boo' means no setter or reader, just the BOO constant
   
       # Setters!
       $one->set_foo('A Foo');
@@ -21728,9 +21881,6 @@ $fatpacked{"Test2/Util/HashBase.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
       # '^baz' means deprecated setter, this will warn about the setter being
       # deprecated.
       $one->set_baz('A Baz');
-  
-      # '<bat' means no setter defined at all
-      # '+boo' means no setter or reader, just the BOO constant
   
       $one->{+FOO} = 'xxx';
   
@@ -21875,24 +22025,6 @@ $fatpacked{"Test2/Util/HashBase.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   
   =back
   
-  =head2 NO SETTER
-  
-      use Test2::Util::HashBase qw/<foo/;
-  
-  Only gives you a reader, no C<set_foo> method is defined at all.
-  
-  =head2 NO READER
-  
-      use Test2::Util::HashBase qw/>foo/;
-  
-  Only gives you a write (C<set_foo>), no C<foo> method is defined at all.
-  
-  =head2 CONSTANT ONLY
-  
-      use Test2::Util::HashBase qw/+foo/;
-  
-  This does not create any methods for you, it just adds the C<FOO> constant.
-  
   =head1 SUBCLASSING
   
   You can subclass an existing HashBase class.
@@ -21947,7 +22079,7 @@ $fatpacked{"Test2/Util/HashBase.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n
   
   =head1 COPYRIGHT
   
-  Copyright 2017 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -21962,7 +22094,7 @@ $fatpacked{"Test2/Util/Trace.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   require Test2::EventFacet::Trace;
   @ISA = ('Test2::EventFacet::Trace');
   
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   1;
   
@@ -22004,7 +22136,7 @@ $fatpacked{"Test2/Util/Trace.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   
   =head1 COPYRIGHT
   
-  Copyright 2019 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+  Copyright 2018 Chad Granum E<lt>exodist@cpan.orgE<gt>.
   
   This program is free software; you can redistribute it and/or
   modify it under the same terms as Perl itself.
@@ -22014,9 +22146,194 @@ $fatpacked{"Test2/Util/Trace.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<
   =cut
 TEST2_UTIL_TRACE
 
+$fatpacked{"Text/Sentence.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'TEXT_SENTENCE';
+  package Text::Sentence;
+  $Text::Sentence::VERSION = '0.022';
+  #==============================================================================
+  #
+  # Start of POD
+  #
+  #==============================================================================
+  
+  =head1 NAME
+  
+  Text::Sentence - module for splitting text into sentences
+  
+  =head1 SYNOPSIS
+  
+      use Text::Sentence qw( split_sentences );
+      use locale;
+      use POSIX qw( locale_h );
+  
+      setlocale( LC_CTYPE, 'iso_8859_1' );
+      @sentences = split_sentences( $text );
+  
+  =head1 DESCRIPTION
+  
+  The C<Text::Sentence> module contains the function split_sentences, which
+  splits text into its constituent sentences, based on a fairly approximate
+  regex. If you set the locale before calling it, it will deal correctly with
+  locale dependant capitalization to identify sentence boundaries. Certain well
+  know exceptions, such as abreviations, may cause incorrect segmentations.
+  
+  =head1 FUNCTIONS
+  
+  =head2 split_sentences( $text )
+  
+  The split sentences function takes a scalar containing ascii text as an
+  argument and returns an array of sentences that the text has been split into.
+  
+      @sentences = split_sentences( $text );
+  
+  =head1 SEE ALSO
+  
+      locale
+      POSIX
+  
+  =head1 REPOSITORY
+  
+  L<https://github.com/neilb/HTML-Summary>
+  
+  =head1 AUTHOR
+  
+  Ave Wrigley E<lt>wrigley@cre.canon.co.ukE<gt>
+  
+  =head1 COPYRIGHT
+  
+  Copyright (c) 1997 Canon Research Centre Europe (CRE). All rights reserved.
+  
+  This is free software; you can redistribute it and/or modify it under
+  the same terms as the Perl 5 programming language system itself.
+  
+  =cut
+  
+  #==============================================================================
+  #
+  # End of POD
+  #
+  #==============================================================================
+  
+  #==============================================================================
+  #
+  # Pragmas
+  #
+  #==============================================================================
+  
+  require 5.006;
+  use strict;
+  use warnings;
+  
+  #==============================================================================
+  #
+  # Modules
+  #
+  #==============================================================================
+  
+  require Exporter;
+  
+  #==============================================================================
+  #
+  # Public globals
+  #
+  #==============================================================================
+  
+  use vars qw( @ISA @EXPORT_OK @PUNCTUATION );
+  
+  @ISA = qw( Exporter );
+  @EXPORT_OK = qw( split_sentences );
+  @PUNCTUATION = ( '\.', '\!', '\?' );
+  
+  #==============================================================================
+  #
+  # Public methods
+  #
+  #==============================================================================
+  
+  #------------------------------------------------------------------------------
+  #
+  # split_sentences - takes text input an splits it into sentences, based on a
+  # fairly approximate regex. Returns an array of the sentences.
+  #
+  #------------------------------------------------------------------------------
+  
+  sub split_sentences
+  {
+      my $text = shift;
+  
+      return () unless $text;
+  
+      # capital letter is a character set; to account for local, this includes
+      # all characters for which lc is different from that character
+  
+      my $capital_letter =  
+          '[' . 
+              join( '', 
+                  grep { lc( $_ ) ne ( $_ ) } 
+                  map { chr( $_ ) } ord( "A" ) .. ord( "\xff" )
+              ) . 
+          ']'
+      ;
+  
+      my $punctuation = '(?:' . join( '|', @PUNCTUATION ) . ')';
+  
+      # this needs to be alternation, not character class, because of
+      # multibyte characters
+  
+      my $opt_start_quote = q/['"]?/; # "'
+      my $opt_close_quote = q/['"]?/; # "'
+  
+      # these are distinguished because (eventually!) I would like to do
+      # locale stuff on quote characters
+  
+      my $opt_start_bracket = q/[[({]?/; # }{
+      my $opt_close_bracket = q/[\])}]?/;
+  
+      # return $text if there is no punctuation ...
+  
+      return $text unless $text =~ /$punctuation/;
+  
+      my @sentences = $text =~ /
+      (
+                                  # sentences start with ...
+          $opt_start_quote        # an optional start quote
+          $opt_start_bracket      # an optional start bracket
+          $capital_letter         # a capital letter ...
+          .+?                     # at least some (non-greedy) anything ...
+          $punctuation            # ... followed by any one of !?.
+          $opt_close_quote        # an optional close quote
+          $opt_close_bracket      # and an optional close bracket
+      )
+      (?=                         # with lookahead that it is followed by ...
+          (?:                     # either ...
+              \s+                 # some whitespace ...
+              $opt_start_quote    # an optional start quote
+              $opt_start_bracket  # an optional start bracket
+              $capital_letter     # an uppercase word character (for locale
+                                  # sensitive matching)
+          |               # or ...
+              \n\n        # a couple (or more) of CRs
+          |               # or ...
+              \s*$        # optional whitespace, followed by end of string
+          )
+      )
+      /gxs
+      ;
+      return @sentences if @sentences;
+      return ( $text );
+  }
+  
+  #==============================================================================
+  #
+  # Return TRUE
+  #
+  #==============================================================================
+  
+  1;
+TEXT_SENTENCE
+
 $fatpacked{"ok.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'OK';
   package ok;
-  our $VERSION = '1.302177';
+  our $VERSION = '1.302136';
   
   use strict;
   use Test::More ();
@@ -22065,6 +22382,1206 @@ $fatpacked{"ok.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'OK';
   
   =cut
 OK
+
+$fatpacked{"x86_64-linux/List/Util.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'X86_64-LINUX_LIST_UTIL';
+  # Copyright (c) 1997-2009 Graham Barr <gbarr@pobox.com>. All rights reserved.
+  # This program is free software; you can redistribute it and/or
+  # modify it under the same terms as Perl itself.
+  #
+  # Maintained since 2013 by Paul Evans <leonerd@leonerd.org.uk>
+  
+  package List::Util;
+  
+  use strict;
+  use warnings;
+  require Exporter;
+  
+  our @ISA        = qw(Exporter);
+  our @EXPORT_OK  = qw(
+    all any first min max minstr maxstr none notall product reduce sum sum0 shuffle uniq uniqnum uniqstr
+    pairs unpairs pairkeys pairvalues pairmap pairgrep pairfirst
+  );
+  our $VERSION    = "1.47";
+  our $XS_VERSION = $VERSION;
+  $VERSION    = eval $VERSION;
+  
+  require XSLoader;
+  XSLoader::load('List::Util', $XS_VERSION);
+  
+  sub import
+  {
+    my $pkg = caller;
+  
+    # (RT88848) Touch the caller's $a and $b, to avoid the warning of
+    #   Name "main::a" used only once: possible typo" warning
+    no strict 'refs';
+    ${"${pkg}::a"} = ${"${pkg}::a"};
+    ${"${pkg}::b"} = ${"${pkg}::b"};
+  
+    goto &Exporter::import;
+  }
+  
+  # For objects returned by pairs()
+  sub List::Util::_Pair::key   { shift->[0] }
+  sub List::Util::_Pair::value { shift->[1] }
+  
+  =head1 NAME
+  
+  List::Util - A selection of general-utility list subroutines
+  
+  =head1 SYNOPSIS
+  
+      use List::Util qw(
+        reduce any all none notall first
+  
+        max maxstr min minstr product sum sum0
+  
+        pairs unpairs pairkeys pairvalues pairfirst pairgrep pairmap
+  
+        shuffle uniq uniqnum uniqstr
+      );
+  
+  =head1 DESCRIPTION
+  
+  C<List::Util> contains a selection of subroutines that people have expressed
+  would be nice to have in the perl core, but the usage would not really be high
+  enough to warrant the use of a keyword, and the size so small such that being
+  individual extensions would be wasteful.
+  
+  By default C<List::Util> does not export any subroutines.
+  
+  =cut
+  
+  =head1 LIST-REDUCTION FUNCTIONS
+  
+  The following set of functions all reduce a list down to a single value.
+  
+  =cut
+  
+  =head2 reduce
+  
+      $result = reduce { BLOCK } @list
+  
+  Reduces C<@list> by calling C<BLOCK> in a scalar context multiple times,
+  setting C<$a> and C<$b> each time. The first call will be with C<$a> and C<$b>
+  set to the first two elements of the list, subsequent calls will be done by
+  setting C<$a> to the result of the previous call and C<$b> to the next element
+  in the list.
+  
+  Returns the result of the last call to the C<BLOCK>. If C<@list> is empty then
+  C<undef> is returned. If C<@list> only contains one element then that element
+  is returned and C<BLOCK> is not executed.
+  
+  The following examples all demonstrate how C<reduce> could be used to implement
+  the other list-reduction functions in this module. (They are not in fact
+  implemented like this, but instead in a more efficient manner in individual C
+  functions).
+  
+      $foo = reduce { defined($a)            ? $a :
+                      $code->(local $_ = $b) ? $b :
+                                               undef } undef, @list # first
+  
+      $foo = reduce { $a > $b ? $a : $b } 1..10       # max
+      $foo = reduce { $a gt $b ? $a : $b } 'A'..'Z'   # maxstr
+      $foo = reduce { $a < $b ? $a : $b } 1..10       # min
+      $foo = reduce { $a lt $b ? $a : $b } 'aa'..'zz' # minstr
+      $foo = reduce { $a + $b } 1 .. 10               # sum
+      $foo = reduce { $a . $b } @bar                  # concat
+  
+      $foo = reduce { $a || $code->(local $_ = $b) } 0, @bar   # any
+      $foo = reduce { $a && $code->(local $_ = $b) } 1, @bar   # all
+      $foo = reduce { $a && !$code->(local $_ = $b) } 1, @bar  # none
+      $foo = reduce { $a || !$code->(local $_ = $b) } 0, @bar  # notall
+         # Note that these implementations do not fully short-circuit
+  
+  If your algorithm requires that C<reduce> produce an identity value, then make
+  sure that you always pass that identity value as the first argument to prevent
+  C<undef> being returned
+  
+    $foo = reduce { $a + $b } 0, @values;             # sum with 0 identity value
+  
+  The above example code blocks also suggest how to use C<reduce> to build a
+  more efficient combined version of one of these basic functions and a C<map>
+  block. For example, to find the total length of the all the strings in a list,
+  we could use
+  
+      $total = sum map { length } @strings;
+  
+  However, this produces a list of temporary integer values as long as the
+  original list of strings, only to reduce it down to a single value again. We
+  can compute the same result more efficiently by using C<reduce> with a code
+  block that accumulates lengths by writing this instead as:
+  
+      $total = reduce { $a + length $b } 0, @strings
+  
+  The remaining list-reduction functions are all specialisations of this generic
+  idea.
+  
+  =head2 any
+  
+      my $bool = any { BLOCK } @list;
+  
+  I<Since version 1.33.>
+  
+  Similar to C<grep> in that it evaluates C<BLOCK> setting C<$_> to each element
+  of C<@list> in turn. C<any> returns true if any element makes the C<BLOCK>
+  return a true value. If C<BLOCK> never returns true or C<@list> was empty then
+  it returns false.
+  
+  Many cases of using C<grep> in a conditional can be written using C<any>
+  instead, as it can short-circuit after the first true result.
+  
+      if( any { length > 10 } @strings ) {
+          # at least one string has more than 10 characters
+      }
+  
+  =head2 all
+  
+      my $bool = all { BLOCK } @list;
+  
+  I<Since version 1.33.>
+  
+  Similar to L</any>, except that it requires all elements of the C<@list> to
+  make the C<BLOCK> return true. If any element returns false, then it returns
+  false. If the C<BLOCK> never returns false or the C<@list> was empty then it
+  returns true.
+  
+  =head2 none
+  
+  =head2 notall
+  
+      my $bool = none { BLOCK } @list;
+  
+      my $bool = notall { BLOCK } @list;
+  
+  I<Since version 1.33.>
+  
+  Similar to L</any> and L</all>, but with the return sense inverted. C<none>
+  returns true only if no value in the C<@list> causes the C<BLOCK> to return
+  true, and C<notall> returns true only if not all of the values do.
+  
+  =head2 first
+  
+      my $val = first { BLOCK } @list;
+  
+  Similar to C<grep> in that it evaluates C<BLOCK> setting C<$_> to each element
+  of C<@list> in turn. C<first> returns the first element where the result from
+  C<BLOCK> is a true value. If C<BLOCK> never returns true or C<@list> was empty
+  then C<undef> is returned.
+  
+      $foo = first { defined($_) } @list    # first defined value in @list
+      $foo = first { $_ > $value } @list    # first value in @list which
+                                            # is greater than $value
+  
+  =head2 max
+  
+      my $num = max @list;
+  
+  Returns the entry in the list with the highest numerical value. If the list is
+  empty then C<undef> is returned.
+  
+      $foo = max 1..10                # 10
+      $foo = max 3,9,12               # 12
+      $foo = max @bar, @baz           # whatever
+  
+  =head2 maxstr
+  
+      my $str = maxstr @list;
+  
+  Similar to L</max>, but treats all the entries in the list as strings and
+  returns the highest string as defined by the C<gt> operator. If the list is
+  empty then C<undef> is returned.
+  
+      $foo = maxstr 'A'..'Z'          # 'Z'
+      $foo = maxstr "hello","world"   # "world"
+      $foo = maxstr @bar, @baz        # whatever
+  
+  =head2 min
+  
+      my $num = min @list;
+  
+  Similar to L</max> but returns the entry in the list with the lowest numerical
+  value. If the list is empty then C<undef> is returned.
+  
+      $foo = min 1..10                # 1
+      $foo = min 3,9,12               # 3
+      $foo = min @bar, @baz           # whatever
+  
+  =head2 minstr
+  
+      my $str = minstr @list;
+  
+  Similar to L</min>, but treats all the entries in the list as strings and
+  returns the lowest string as defined by the C<lt> operator. If the list is
+  empty then C<undef> is returned.
+  
+      $foo = minstr 'A'..'Z'          # 'A'
+      $foo = minstr "hello","world"   # "hello"
+      $foo = minstr @bar, @baz        # whatever
+  
+  =head2 product
+  
+      my $num = product @list;
+  
+  I<Since version 1.35.>
+  
+  Returns the numerical product of all the elements in C<@list>. If C<@list> is
+  empty then C<1> is returned.
+  
+      $foo = product 1..10            # 3628800
+      $foo = product 3,9,12           # 324
+  
+  =head2 sum
+  
+      my $num_or_undef = sum @list;
+  
+  Returns the numerical sum of all the elements in C<@list>. For backwards
+  compatibility, if C<@list> is empty then C<undef> is returned.
+  
+      $foo = sum 1..10                # 55
+      $foo = sum 3,9,12               # 24
+      $foo = sum @bar, @baz           # whatever
+  
+  =head2 sum0
+  
+      my $num = sum0 @list;
+  
+  I<Since version 1.26.>
+  
+  Similar to L</sum>, except this returns 0 when given an empty list, rather
+  than C<undef>.
+  
+  =cut
+  
+  =head1 KEY/VALUE PAIR LIST FUNCTIONS
+  
+  The following set of functions, all inspired by L<List::Pairwise>, consume an
+  even-sized list of pairs. The pairs may be key/value associations from a hash,
+  or just a list of values. The functions will all preserve the original ordering
+  of the pairs, and will not be confused by multiple pairs having the same "key"
+  value - nor even do they require that the first of each pair be a plain string.
+  
+  B<NOTE>: At the time of writing, the following C<pair*> functions that take a
+  block do not modify the value of C<$_> within the block, and instead operate
+  using the C<$a> and C<$b> globals instead. This has turned out to be a poor
+  design, as it precludes the ability to provide a C<pairsort> function. Better
+  would be to pass pair-like objects as 2-element array references in C<$_>, in
+  a style similar to the return value of the C<pairs> function. At some future
+  version this behaviour may be added.
+  
+  Until then, users are alerted B<NOT> to rely on the value of C<$_> remaining
+  unmodified between the outside and the inside of the control block. In
+  particular, the following example is B<UNSAFE>:
+  
+   my @kvlist = ...
+  
+   foreach (qw( some keys here )) {
+      my @items = pairgrep { $a eq $_ } @kvlist;
+      ...
+   }
+  
+  Instead, write this using a lexical variable:
+  
+   foreach my $key (qw( some keys here )) {
+      my @items = pairgrep { $a eq $key } @kvlist;
+      ...
+   }
+  
+  =cut
+  
+  =head2 pairs
+  
+      my @pairs = pairs @kvlist;
+  
+  I<Since version 1.29.>
+  
+  A convenient shortcut to operating on even-sized lists of pairs, this function
+  returns a list of C<ARRAY> references, each containing two items from the
+  given list. It is a more efficient version of
+  
+      @pairs = pairmap { [ $a, $b ] } @kvlist
+  
+  It is most convenient to use in a C<foreach> loop, for example:
+  
+      foreach my $pair ( pairs @kvlist ) {
+         my ( $key, $value ) = @$pair;
+         ...
+      }
+  
+  Since version C<1.39> these C<ARRAY> references are blessed objects,
+  recognising the two methods C<key> and C<value>. The following code is
+  equivalent:
+  
+      foreach my $pair ( pairs @kvlist ) {
+         my $key   = $pair->key;
+         my $value = $pair->value;
+         ...
+      }
+  
+  =head2 unpairs
+  
+      my @kvlist = unpairs @pairs
+  
+  I<Since version 1.42.>
+  
+  The inverse function to C<pairs>; this function takes a list of C<ARRAY>
+  references containing two elements each, and returns a flattened list of the
+  two values from each of the pairs, in order. This is notionally equivalent to
+  
+      my @kvlist = map { @{$_}[0,1] } @pairs
+  
+  except that it is implemented more efficiently internally. Specifically, for
+  any input item it will extract exactly two values for the output list; using
+  C<undef> if the input array references are short.
+  
+  Between C<pairs> and C<unpairs>, a higher-order list function can be used to
+  operate on the pairs as single scalars; such as the following near-equivalents
+  of the other C<pair*> higher-order functions:
+  
+      @kvlist = unpairs grep { FUNC } pairs @kvlist
+      # Like pairgrep, but takes $_ instead of $a and $b
+  
+      @kvlist = unpairs map { FUNC } pairs @kvlist
+      # Like pairmap, but takes $_ instead of $a and $b
+  
+  Note however that these versions will not behave as nicely in scalar context.
+  
+  Finally, this technique can be used to implement a sort on a keyvalue pair
+  list; e.g.:
+  
+      @kvlist = unpairs sort { $a->key cmp $b->key } pairs @kvlist
+  
+  =head2 pairkeys
+  
+      my @keys = pairkeys @kvlist;
+  
+  I<Since version 1.29.>
+  
+  A convenient shortcut to operating on even-sized lists of pairs, this function
+  returns a list of the the first values of each of the pairs in the given list.
+  It is a more efficient version of
+  
+      @keys = pairmap { $a } @kvlist
+  
+  =head2 pairvalues
+  
+      my @values = pairvalues @kvlist;
+  
+  I<Since version 1.29.>
+  
+  A convenient shortcut to operating on even-sized lists of pairs, this function
+  returns a list of the the second values of each of the pairs in the given list.
+  It is a more efficient version of
+  
+      @values = pairmap { $b } @kvlist
+  
+  =head2 pairgrep
+  
+      my @kvlist = pairgrep { BLOCK } @kvlist;
+  
+      my $count = pairgrep { BLOCK } @kvlist;
+  
+  I<Since version 1.29.>
+  
+  Similar to perl's C<grep> keyword, but interprets the given list as an
+  even-sized list of pairs. It invokes the C<BLOCK> multiple times, in scalar
+  context, with C<$a> and C<$b> set to successive pairs of values from the
+  C<@kvlist>.
+  
+  Returns an even-sized list of those pairs for which the C<BLOCK> returned true
+  in list context, or the count of the B<number of pairs> in scalar context.
+  (Note, therefore, in scalar context that it returns a number half the size of
+  the count of items it would have returned in list context).
+  
+      @subset = pairgrep { $a =~ m/^[[:upper:]]+$/ } @kvlist
+  
+  As with C<grep> aliasing C<$_> to list elements, C<pairgrep> aliases C<$a> and
+  C<$b> to elements of the given list. Any modifications of it by the code block
+  will be visible to the caller.
+  
+  =head2 pairfirst
+  
+      my ( $key, $val ) = pairfirst { BLOCK } @kvlist;
+  
+      my $found = pairfirst { BLOCK } @kvlist;
+  
+  I<Since version 1.30.>
+  
+  Similar to the L</first> function, but interprets the given list as an
+  even-sized list of pairs. It invokes the C<BLOCK> multiple times, in scalar
+  context, with C<$a> and C<$b> set to successive pairs of values from the
+  C<@kvlist>.
+  
+  Returns the first pair of values from the list for which the C<BLOCK> returned
+  true in list context, or an empty list of no such pair was found. In scalar
+  context it returns a simple boolean value, rather than either the key or the
+  value found.
+  
+      ( $key, $value ) = pairfirst { $a =~ m/^[[:upper:]]+$/ } @kvlist
+  
+  As with C<grep> aliasing C<$_> to list elements, C<pairfirst> aliases C<$a> and
+  C<$b> to elements of the given list. Any modifications of it by the code block
+  will be visible to the caller.
+  
+  =head2 pairmap
+  
+      my @list = pairmap { BLOCK } @kvlist;
+  
+      my $count = pairmap { BLOCK } @kvlist;
+  
+  I<Since version 1.29.>
+  
+  Similar to perl's C<map> keyword, but interprets the given list as an
+  even-sized list of pairs. It invokes the C<BLOCK> multiple times, in list
+  context, with C<$a> and C<$b> set to successive pairs of values from the
+  C<@kvlist>.
+  
+  Returns the concatenation of all the values returned by the C<BLOCK> in list
+  context, or the count of the number of items that would have been returned in
+  scalar context.
+  
+      @result = pairmap { "The key $a has value $b" } @kvlist
+  
+  As with C<map> aliasing C<$_> to list elements, C<pairmap> aliases C<$a> and
+  C<$b> to elements of the given list. Any modifications of it by the code block
+  will be visible to the caller.
+  
+  See L</KNOWN BUGS> for a known-bug with C<pairmap>, and a workaround.
+  
+  =cut
+  
+  =head1 OTHER FUNCTIONS
+  
+  =cut
+  
+  =head2 shuffle
+  
+      my @values = shuffle @values;
+  
+  Returns the values of the input in a random order
+  
+      @cards = shuffle 0..51      # 0..51 in a random order
+  
+  =head2 uniq
+  
+      my @subset = uniq @values
+  
+  I<Since version 1.45.>
+  
+  Filters a list of values to remove subsequent duplicates, as judged by a
+  DWIM-ish string equality or C<undef> test. Preserves the order of unique
+  elements, and retains the first value of any duplicate set.
+  
+      my $count = uniq @values
+  
+  In scalar context, returns the number of elements that would have been
+  returned as a list.
+  
+  The C<undef> value is treated by this function as distinct from the empty
+  string, and no warning will be produced. It is left as-is in the returned
+  list. Subsequent C<undef> values are still considered identical to the first,
+  and will be removed.
+  
+  =head2 uniqnum
+  
+      my @subset = uniqnum @values
+  
+  I<Since version 1.44.>
+  
+  Filters a list of values to remove subsequent duplicates, as judged by a
+  numerical equality test. Preserves the order of unique elements, and retains
+  the first value of any duplicate set.
+  
+      my $count = uniqnum @values
+  
+  In scalar context, returns the number of elements that would have been
+  returned as a list.
+  
+  Note that C<undef> is treated much as other numerical operations treat it; it
+  compares equal to zero but additionally produces a warning if such warnings
+  are enabled (C<use warnings 'uninitialized';>). In addition, an C<undef> in
+  the returned list is coerced into a numerical zero, so that the entire list of
+  values returned by C<uniqnum> are well-behaved as numbers.
+  
+  Note also that multiple IEEE C<NaN> values are treated as duplicates of
+  each other, regardless of any differences in their payloads, and despite
+  the fact that C<< 0+'NaN' == 0+'NaN' >> yields false.
+  
+  =head2 uniqstr
+  
+      my @subset = uniqstr @values
+  
+  I<Since version 1.45.>
+  
+  Filters a list of values to remove subsequent duplicates, as judged by a
+  string equality test. Preserves the order of unique elements, and retains the
+  first value of any duplicate set.
+  
+      my $count = uniqstr @values
+  
+  In scalar context, returns the number of elements that would have been
+  returned as a list.
+  
+  Note that C<undef> is treated much as other string operations treat it; it
+  compares equal to the empty string but additionally produces a warning if such
+  warnings are enabled (C<use warnings 'uninitialized';>). In addition, an
+  C<undef> in the returned list is coerced into an empty string, so that the
+  entire list of values returned by C<uniqstr> are well-behaved as strings.
+  
+  =cut
+  
+  =head1 KNOWN BUGS
+  
+  =head2 RT #95409
+  
+  L<https://rt.cpan.org/Ticket/Display.html?id=95409>
+  
+  If the block of code given to L</pairmap> contains lexical variables that are
+  captured by a returned closure, and the closure is executed after the block
+  has been re-used for the next iteration, these lexicals will not see the
+  correct values. For example:
+  
+   my @subs = pairmap {
+      my $var = "$a is $b";
+      sub { print "$var\n" };
+   } one => 1, two => 2, three => 3;
+  
+   $_->() for @subs;
+  
+  Will incorrectly print
+  
+   three is 3
+   three is 3
+   three is 3
+  
+  This is due to the performance optimisation of using C<MULTICALL> for the code
+  block, which means that fresh SVs do not get allocated for each call to the
+  block. Instead, the same SV is re-assigned for each iteration, and all the
+  closures will share the value seen on the final iteration.
+  
+  To work around this bug, surround the code with a second set of braces. This
+  creates an inner block that defeats the C<MULTICALL> logic, and does get fresh
+  SVs allocated each time:
+  
+   my @subs = pairmap {
+      {
+         my $var = "$a is $b";
+         sub { print "$var\n"; }
+      }
+   } one => 1, two => 2, three => 3;
+  
+  This bug only affects closures that are generated by the block but used
+  afterwards. Lexical variables that are only used during the lifetime of the
+  block's execution will take their individual values for each invocation, as
+  normal.
+  
+  =head2 uniqnum() on oversized bignums
+  
+  Due to the way that C<uniqnum()> compares numbers, it cannot distinguish
+  differences between bignums (especially bigints) that are too large to fit in
+  the native platform types. For example,
+  
+   my $x = Math::BigInt->new( "1" x 100 );
+   my $y = $x + 1;
+  
+   say for uniqnum( $x, $y );
+  
+  Will print just the value of C<$x>, believing that C<$y> is a numerically-
+  equivalent value. This bug does not affect C<uniqstr()>, which will correctly
+  observe that the two values stringify to different strings.
+  
+  =head1 SUGGESTED ADDITIONS
+  
+  The following are additions that have been requested, but I have been reluctant
+  to add due to them being very simple to implement in perl
+  
+    # How many elements are true
+  
+    sub true { scalar grep { $_ } @_ }
+  
+    # How many elements are false
+  
+    sub false { scalar grep { !$_ } @_ }
+  
+  =head1 SEE ALSO
+  
+  L<Scalar::Util>, L<List::MoreUtils>
+  
+  =head1 COPYRIGHT
+  
+  Copyright (c) 1997-2007 Graham Barr <gbarr@pobox.com>. All rights reserved.
+  This program is free software; you can redistribute it and/or
+  modify it under the same terms as Perl itself.
+  
+  Recent additions and current maintenance by
+  Paul Evans, <leonerd@leonerd.org.uk>.
+  
+  =cut
+  
+  1;
+X86_64-LINUX_LIST_UTIL
+
+$fatpacked{"x86_64-linux/List/Util/XS.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'X86_64-LINUX_LIST_UTIL_XS';
+  package List::Util::XS;
+  use strict;
+  use warnings;
+  use List::Util;
+  
+  our $VERSION = "1.47";       # FIXUP
+  $VERSION = eval $VERSION;    # FIXUP
+  
+  1;
+  __END__
+  
+  =head1 NAME
+  
+  List::Util::XS - Indicate if List::Util was compiled with a C compiler
+  
+  =head1 SYNOPSIS
+  
+      use List::Util::XS 1.20;
+  
+  =head1 DESCRIPTION
+  
+  C<List::Util::XS> can be used as a dependency to ensure List::Util was
+  installed using a C compiler and that the XS version is installed.
+  
+  During installation C<$List::Util::XS::VERSION> will be set to
+  C<undef> if the XS was not compiled.
+  
+  Starting with release 1.23_03, Scalar-List-Util is B<always> using
+  the XS implementation, but for backwards compatibility, we still
+  ship the C<List::Util::XS> module which just loads C<List::Util>.
+  
+  =head1 SEE ALSO
+  
+  L<Scalar::Util>, L<List::Util>, L<List::MoreUtils>
+  
+  =head1 COPYRIGHT
+  
+  Copyright (c) 2008 Graham Barr <gbarr@pobox.com>. All rights reserved.
+  This program is free software; you can redistribute it and/or
+  modify it under the same terms as Perl itself.
+  
+  =cut
+X86_64-LINUX_LIST_UTIL_XS
+
+$fatpacked{"x86_64-linux/Scalar/Util.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'X86_64-LINUX_SCALAR_UTIL';
+  # Copyright (c) 1997-2007 Graham Barr <gbarr@pobox.com>. All rights reserved.
+  # This program is free software; you can redistribute it and/or
+  # modify it under the same terms as Perl itself.
+  #
+  # Maintained since 2013 by Paul Evans <leonerd@leonerd.org.uk>
+  
+  package Scalar::Util;
+  
+  use strict;
+  use warnings;
+  require Exporter;
+  
+  our @ISA       = qw(Exporter);
+  our @EXPORT_OK = qw(
+    blessed refaddr reftype weaken unweaken isweak
+  
+    dualvar isdual isvstring looks_like_number openhandle readonly set_prototype
+    tainted
+  );
+  our $VERSION    = "1.47";
+  $VERSION   = eval $VERSION;
+  
+  require List::Util; # List::Util loads the XS
+  List::Util->VERSION( $VERSION ); # Ensure we got the right XS version (RT#100863)
+  
+  our @EXPORT_FAIL;
+  
+  unless (defined &weaken) {
+    push @EXPORT_FAIL, qw(weaken);
+  }
+  unless (defined &isweak) {
+    push @EXPORT_FAIL, qw(isweak isvstring);
+  }
+  unless (defined &isvstring) {
+    push @EXPORT_FAIL, qw(isvstring);
+  }
+  
+  sub export_fail {
+    if (grep { /^(?:weaken|isweak)$/ } @_ ) {
+      require Carp;
+      Carp::croak("Weak references are not implemented in the version of perl");
+    }
+  
+    if (grep { /^isvstring$/ } @_ ) {
+      require Carp;
+      Carp::croak("Vstrings are not implemented in the version of perl");
+    }
+  
+    @_;
+  }
+  
+  # set_prototype has been moved to Sub::Util with a different interface
+  sub set_prototype(&$)
+  {
+    my ( $code, $proto ) = @_;
+    return Sub::Util::set_prototype( $proto, $code );
+  }
+  
+  1;
+  
+  __END__
+  
+  =head1 NAME
+  
+  Scalar::Util - A selection of general-utility scalar subroutines
+  
+  =head1 SYNOPSIS
+  
+      use Scalar::Util qw(blessed dualvar isdual readonly refaddr reftype
+                          tainted weaken isweak isvstring looks_like_number
+                          set_prototype);
+                          # and other useful utils appearing below
+  
+  =head1 DESCRIPTION
+  
+  C<Scalar::Util> contains a selection of subroutines that people have expressed
+  would be nice to have in the perl core, but the usage would not really be high
+  enough to warrant the use of a keyword, and the size would be so small that 
+  being individual extensions would be wasteful.
+  
+  By default C<Scalar::Util> does not export any subroutines.
+  
+  =cut
+  
+  =head1 FUNCTIONS FOR REFERENCES
+  
+  The following functions all perform some useful activity on reference values.
+  
+  =head2 blessed
+  
+      my $pkg = blessed( $ref );
+  
+  If C<$ref> is a blessed reference, the name of the package that it is blessed
+  into is returned. Otherwise C<undef> is returned.
+  
+      $scalar = "foo";
+      $class  = blessed $scalar;           # undef
+  
+      $ref    = [];
+      $class  = blessed $ref;              # undef
+  
+      $obj    = bless [], "Foo";
+      $class  = blessed $obj;              # "Foo"
+  
+  Take care when using this function simply as a truth test (such as in
+  C<if(blessed $ref)...>) because the package name C<"0"> is defined yet false.
+  
+  =head2 refaddr
+  
+      my $addr = refaddr( $ref );
+  
+  If C<$ref> is reference, the internal memory address of the referenced value is
+  returned as a plain integer. Otherwise C<undef> is returned.
+  
+      $addr = refaddr "string";           # undef
+      $addr = refaddr \$var;              # eg 12345678
+      $addr = refaddr [];                 # eg 23456784
+  
+      $obj  = bless {}, "Foo";
+      $addr = refaddr $obj;               # eg 88123488
+  
+  =head2 reftype
+  
+      my $type = reftype( $ref );
+  
+  If C<$ref> is a reference, the basic Perl type of the variable referenced is
+  returned as a plain string (such as C<ARRAY> or C<HASH>). Otherwise C<undef>
+  is returned.
+  
+      $type = reftype "string";           # undef
+      $type = reftype \$var;              # SCALAR
+      $type = reftype [];                 # ARRAY
+  
+      $obj  = bless {}, "Foo";
+      $type = reftype $obj;               # HASH
+  
+  =head2 weaken
+  
+      weaken( $ref );
+  
+  The lvalue C<$ref> will be turned into a weak reference. This means that it
+  will not hold a reference count on the object it references. Also, when the
+  reference count on that object reaches zero, the reference will be set to
+  undef. This function mutates the lvalue passed as its argument and returns no
+  value.
+  
+  This is useful for keeping copies of references, but you don't want to prevent
+  the object being DESTROY-ed at its usual time.
+  
+      {
+        my $var;
+        $ref = \$var;
+        weaken($ref);                     # Make $ref a weak reference
+      }
+      # $ref is now undef
+  
+  Note that if you take a copy of a scalar with a weakened reference, the copy
+  will be a strong reference.
+  
+      my $var;
+      my $foo = \$var;
+      weaken($foo);                       # Make $foo a weak reference
+      my $bar = $foo;                     # $bar is now a strong reference
+  
+  This may be less obvious in other situations, such as C<grep()>, for instance
+  when grepping through a list of weakened references to objects that may have
+  been destroyed already:
+  
+      @object = grep { defined } @object;
+  
+  This will indeed remove all references to destroyed objects, but the remaining
+  references to objects will be strong, causing the remaining objects to never be
+  destroyed because there is now always a strong reference to them in the @object
+  array.
+  
+  =head2 unweaken
+  
+      unweaken( $ref );
+  
+  I<Since version 1.36.>
+  
+  The lvalue C<REF> will be turned from a weak reference back into a normal
+  (strong) reference again. This function mutates the lvalue passed as its
+  argument and returns no value. This undoes the action performed by
+  L</weaken>.
+  
+  This function is slightly neater and more convenient than the
+  otherwise-equivalent code
+  
+      my $tmp = $REF;
+      undef $REF;
+      $REF = $tmp;
+  
+  (because in particular, simply assigning a weak reference back to itself does
+  not work to unweaken it; C<$REF = $REF> does not work).
+  
+  =head2 isweak
+  
+      my $weak = isweak( $ref );
+  
+  Returns true if C<$ref> is a weak reference.
+  
+      $ref  = \$foo;
+      $weak = isweak($ref);               # false
+      weaken($ref);
+      $weak = isweak($ref);               # true
+  
+  B<NOTE>: Copying a weak reference creates a normal, strong, reference.
+  
+      $copy = $ref;
+      $weak = isweak($copy);              # false
+  
+  =head1 OTHER FUNCTIONS
+  
+  =head2 dualvar
+  
+      my $var = dualvar( $num, $string );
+  
+  Returns a scalar that has the value C<$num> in a numeric context and the value
+  C<$string> in a string context.
+  
+      $foo = dualvar 10, "Hello";
+      $num = $foo + 2;                    # 12
+      $str = $foo . " world";             # Hello world
+  
+  =head2 isdual
+  
+      my $dual = isdual( $var );
+  
+  I<Since version 1.26.>
+  
+  If C<$var> is a scalar that has both numeric and string values, the result is
+  true.
+  
+      $foo = dualvar 86, "Nix";
+      $dual = isdual($foo);               # true
+  
+  Note that a scalar can be made to have both string and numeric content through
+  numeric operations:
+  
+      $foo = "10";
+      $dual = isdual($foo);               # false
+      $bar = $foo + 0;
+      $dual = isdual($foo);               # true
+  
+  Note that although C<$!> appears to be a dual-valued variable, it is
+  actually implemented as a magical variable inside the interpreter:
+  
+      $! = 1;
+      print("$!\n");                      # "Operation not permitted"
+      $dual = isdual($!);                 # false
+  
+  You can capture its numeric and string content using:
+  
+      $err = dualvar $!, $!;
+      $dual = isdual($err);               # true
+  
+  =head2 isvstring
+  
+      my $vstring = isvstring( $var );
+  
+  If C<$var> is a scalar which was coded as a vstring, the result is true.
+  
+      $vs   = v49.46.48;
+      $fmt  = isvstring($vs) ? "%vd" : "%s"; #true
+      printf($fmt,$vs);
+  
+  =head2 looks_like_number
+  
+      my $isnum = looks_like_number( $var );
+  
+  Returns true if perl thinks C<$var> is a number. See
+  L<perlapi/looks_like_number>.
+  
+  =head2 openhandle
+  
+      my $fh = openhandle( $fh );
+  
+  Returns C<$fh> itself if C<$fh> may be used as a filehandle and is open, or is
+  is a tied handle. Otherwise C<undef> is returned.
+  
+      $fh = openhandle(*STDIN);           # \*STDIN
+      $fh = openhandle(\*STDIN);          # \*STDIN
+      $fh = openhandle(*NOTOPEN);         # undef
+      $fh = openhandle("scalar");         # undef
+  
+  =head2 readonly
+  
+      my $ro = readonly( $var );
+  
+  Returns true if C<$var> is readonly.
+  
+      sub foo { readonly($_[0]) }
+  
+      $readonly = foo($bar);              # false
+      $readonly = foo(0);                 # true
+  
+  =head2 set_prototype
+  
+      my $code = set_prototype( $code, $prototype );
+  
+  Sets the prototype of the function given by the C<$code> reference, or deletes
+  it if C<$prototype> is C<undef>. Returns the C<$code> reference itself.
+  
+      set_prototype \&foo, '$$';
+  
+  =head2 tainted
+  
+      my $t = tainted( $var );
+  
+  Return true if C<$var> is tainted.
+  
+      $taint = tainted("constant");       # false
+      $taint = tainted($ENV{PWD});        # true if running under -T
+  
+  =head1 DIAGNOSTICS
+  
+  Module use may give one of the following errors during import.
+  
+  =over
+  
+  =item Weak references are not implemented in the version of perl
+  
+  The version of perl that you are using does not implement weak references, to
+  use L</isweak> or L</weaken> you will need to use a newer release of perl.
+  
+  =item Vstrings are not implemented in the version of perl
+  
+  The version of perl that you are using does not implement Vstrings, to use
+  L</isvstring> you will need to use a newer release of perl.
+  
+  =back
+  
+  =head1 KNOWN BUGS
+  
+  There is a bug in perl5.6.0 with UV's that are >= 1<<31. This will
+  show up as tests 8 and 9 of dualvar.t failing
+  
+  =head1 SEE ALSO
+  
+  L<List::Util>
+  
+  =head1 COPYRIGHT
+  
+  Copyright (c) 1997-2007 Graham Barr <gbarr@pobox.com>. All rights reserved.
+  This program is free software; you can redistribute it and/or modify it
+  under the same terms as Perl itself.
+  
+  Additionally L</weaken> and L</isweak> which are
+  
+  Copyright (c) 1999 Tuomas J. Lukka <lukka@iki.fi>. All rights reserved.
+  This program is free software; you can redistribute it and/or modify it
+  under the same terms as perl itself.
+  
+  Copyright (C) 2004, 2008  Matthijs van Duin.  All rights reserved.
+  Copyright (C) 2014 cPanel Inc.  All rights reserved.
+  This program is free software; you can redistribute it and/or modify
+  it under the same terms as Perl itself.
+  
+  =cut
+X86_64-LINUX_SCALAR_UTIL
+
+$fatpacked{"x86_64-linux/Sub/Util.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'X86_64-LINUX_SUB_UTIL';
+  # Copyright (c) 2014 Paul Evans <leonerd@leonerd.org.uk>. All rights reserved.
+  # This program is free software; you can redistribute it and/or
+  # modify it under the same terms as Perl itself.
+  
+  package Sub::Util;
+  
+  use strict;
+  use warnings;
+  
+  require Exporter;
+  
+  our @ISA = qw( Exporter );
+  our @EXPORT_OK = qw(
+    prototype set_prototype
+    subname set_subname
+  );
+  
+  our $VERSION    = "1.47";
+  $VERSION   = eval $VERSION;
+  
+  require List::Util; # as it has the XS
+  List::Util->VERSION( $VERSION ); # Ensure we got the right XS version (RT#100863)
+  
+  =head1 NAME
+  
+  Sub::Util - A selection of utility subroutines for subs and CODE references
+  
+  =head1 SYNOPSIS
+  
+      use Sub::Util qw( prototype set_prototype subname set_subname );
+  
+  =head1 DESCRIPTION
+  
+  C<Sub::Util> contains a selection of utility subroutines that are useful for
+  operating on subs and CODE references.
+  
+  The rationale for inclusion in this module is that the function performs some
+  work for which an XS implementation is essential because it cannot be
+  implemented in Pure Perl, and which is sufficiently-widely used across CPAN
+  that its popularity warrants inclusion in a core module, which this is.
+  
+  =cut
+  
+  =head1 FUNCTIONS
+  
+  =cut
+  
+  =head2 prototype
+  
+      my $proto = prototype( $code )
+  
+  I<Since version 1.40.>
+  
+  Returns the prototype of the given C<$code> reference, if it has one, as a
+  string. This is the same as the C<CORE::prototype> operator; it is included
+  here simply for symmetry and completeness with the other functions.
+  
+  =cut
+  
+  sub prototype
+  {
+    my ( $code ) = @_;
+    return CORE::prototype( $code );
+  }
+  
+  =head2 set_prototype
+  
+      my $code = set_prototype $prototype, $code;
+  
+  I<Since version 1.40.>
+  
+  Sets the prototype of the function given by the C<$code> reference, or deletes
+  it if C<$prototype> is C<undef>. Returns the C<$code> reference itself.
+  
+  I<Caution>: This function takes arguments in a different order to the previous
+  copy of the code from C<Scalar::Util>. This is to match the order of
+  C<set_subname>, and other potential additions in this file. This order has
+  been chosen as it allows a neat and simple chaining of other
+  C<Sub::Util::set_*> functions as might become available, such as:
+  
+   my $code =
+      set_subname   name_here =>
+      set_prototype '&@'      =>
+      set_attribute ':lvalue' =>
+         sub { ...... };
+  
+  =cut
+  
+  =head2 subname
+  
+      my $name = subname( $code )
+  
+  I<Since version 1.40.>
+  
+  Returns the name of the given C<$code> reference, if it has one. Normal named
+  subs will give a fully-qualified name consisting of the package and the
+  localname separated by C<::>. Anonymous code references will give C<__ANON__>
+  as the localname. If a name has been set using L</set_subname>, this name will
+  be returned instead.
+  
+  This function was inspired by C<sub_fullname> from L<Sub::Identify>. The
+  remaining functions that C<Sub::Identify> implements can easily be emulated
+  using regexp operations, such as
+  
+   sub get_code_info { return (subname $_[0]) =~ m/^(.+)::(.+?)$/ }
+   sub sub_name      { return (get_code_info $_[0])[0] }
+   sub stash_name    { return (get_code_info $_[0])[1] }
+  
+  I<Users of Sub::Name beware>: This function is B<not> the same as
+  C<Sub::Name::subname>; it returns the existing name of the sub rather than
+  changing it. To set or change a name, see instead L</set_subname>.
+  
+  =cut
+  
+  =head2 set_subname
+  
+      my $code = set_subname $name, $code;
+  
+  I<Since version 1.40.>
+  
+  Sets the name of the function given by the C<$code> reference. Returns the
+  C<$code> reference itself. If the C<$name> is unqualified, the package of the
+  caller is used to qualify it.
+  
+  This is useful for applying names to anonymous CODE references so that stack
+  traces and similar situations, to give a useful name rather than having the
+  default of C<__ANON__>. Note that this name is only used for this situation;
+  the C<set_subname> will not install it into the symbol table; you will have to
+  do that yourself if required.
+  
+  However, since the name is not used by perl except as the return value of
+  C<caller>, for stack traces or similar, there is no actual requirement that
+  the name be syntactically valid as a perl function name. This could be used to
+  attach extra information that could be useful in debugging stack traces.
+  
+  This function was copied from C<Sub::Name::subname> and renamed to the naming
+  convention of this module.
+  
+  =cut
+  
+  =head1 AUTHOR
+  
+  The general structure of this module was written by Paul Evans
+  <leonerd@leonerd.org.uk>.
+  
+  The XS implementation of L</set_subname> was copied from L<Sub::Name> by
+  Matthijs van Duin <xmath@cpan.org>
+  
+  =cut
+  
+  1;
+X86_64-LINUX_SUB_UTIL
 
 $fatpacked{"x86_64-linux/Text/Hunspell.pm"} = '#line '.(1+__LINE__).' "'.__FILE__."\"\n".<<'X86_64-LINUX_TEXT_HUNSPELL';
   package Text::Hunspell;
