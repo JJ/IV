@@ -111,7 +111,7 @@ locales. Por ejemplo, sshfs para acceder a ficheros de una máquina
 virtual invitada o de la invitada al anfitrión.
 
 *Avanzado* Usar los drivers de FUSE para Ruby
-([aquí explican más o menos como hacerlo con fusefs](http://www.debian-administration.org/articles/619)
+([aquí explican más o menos como hacerlo con `fusefs`](http://www.debian-administration.org/articles/619)
 para mostrar el contenido de una estructura de datos en un lenguaje como si
 fuera un fichero.
 [Este es un ejemplo en Python](http://www.stavros.io/posts/python-fuse-filesystem/).
@@ -505,7 +505,7 @@ instalación seria).
 Ahora podemos manipular este sistema de ficheros, una vez montado,
 usando diferentes aplicaciones o bien una orden llamada `rados` (Reliable
 Autonomic Distributed Object Storage). `rados` conecta a la
-configuración que tentamos funcionando en ese momento, con lo que no
+configuración que tengamos funcionando en ese momento, con lo que no
 hace falta indicarle los monitores y todas esas cosas. Tal como se ha
 creado, la orden que funciona es
 
@@ -565,7 +565,7 @@ instancias EC2.
 
 ## Almacenamiento virtual en la nube
 
-Todos servicios IaaS poseen su propio *Storage as a ervice*, que se
+Todos servicios IaaS poseen su propio *Storage as a service*, que se
 puede usar desde los servicios de computación o bien desde servicios
 basados en servidores (en nubes *mixtas*). En general, los servicios
 de almacenamiento en la nube, fuera de ofertas masivas como

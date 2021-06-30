@@ -1,7 +1,7 @@
 # Gestión de infraestructuras virtuales
 
 <!--@
-prev: Contenedores
+prev: Intro_gestion_de_configuraciones
 -->
 
 <div class="objetivos" markdown="1">

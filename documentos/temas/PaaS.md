@@ -2,7 +2,7 @@
 
 <!--@
 prev: Microservicios
-next: Contenedores
+next: Intro_gestion_de_configuraciones
 -->
 
 <div class="objetivos" markdown="1">
@@ -31,7 +31,7 @@ next: Contenedores
 
 ## Introducción
 
-> Esta [presentación](https://jj.github.io/pispaas/#/) es un resumen del
+> Esta [presentación](https://jj.github.io/pispaas/) es un resumen del
 > concepto de Plataforma como Servicio (PaaS) y alguna cosa adicional que no
 > está incluida en este tema pero que conviene conocer de todas formas.
 
@@ -82,8 +82,9 @@ relativamente limitada; [Heroku](https://www.heroku.com) y
 [hay otros](https://www.codediesel.com/nodejs/5-paas-solutions-to-host-your-nodejs-apps/),
 dependiendo del tipo de pila que quieras alojar; los tres anteriores son los
 que trabajan bien con node.js, [igual que platform.sh](https://platform.sh/) o
-[IBM BlueMix](https://console.bluemix.net/) (que ofrece un período de prueba
-gratuito, que no se puede renovar, lo sé por experiencia).
+[IBM BlueMix](https://cloud.ibm.com/) (que ofrece un período de prueba
+gratuito, que no se puede renovar, lo sé por experiencia, y que ahora
+está integrado directamente ne la nube de IBM).
 
 > Después de probar casi todos los servicios anteriores, me da la impresión de
 > que poco hay más allá de Heroku y Openshift. AppFog, después de la
@@ -99,8 +100,9 @@ elegir lenguajes.
 
 <div class='ejercicios' markdown="1">
 
-Darse de alta en algún servicio PaaS tal como Heroku,
-[zeit](https://zeit.co), [BlueMix](https://console.bluemix.net/) u OpenShift.
+Darse de alta en algún servicio PaaS tal como Heroku
+o [BlueMix](https://cloud.ibm.com/) o usar alguno de los PaaS de otros
+servicios cloud en los que ya se esté dado de alta.
 
 </div>
 
@@ -207,6 +209,279 @@ En
 [este otro encuentras cómo hacer un despliegue de Python y Flask en Heroku](https://www.youtube.com/watch?v=pmRT8QQLIqk).
 
 </div>
+
+## Desplegando en el PaaS
+
+Como ejemplo vamos a usar Heroku.
+
+> Sitios como Openshift tienen sistemas también similares,
+> pero por lo pronto vamos a usar este, que tiene un sistema un poco
+> más abierto y completo.
+
+Tras abrir una cuenta en Heroku, crear una
+[aplicación en Node](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction)
+es bastante directo. Primero, hay que tener en cuenta que en el PaaS, como
+debería de ser obvio, se trata de aplicaciones web. Por eso la aplicación más
+simple que se propone usa ya `express` (o, para el caso, cualquier otro marco
+de servicios REST).
+
+1. Descarga
+   [el *cinturón de herramientas* de Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up)
+2. Haz *login* con `heroku login`.
+3. Descarga
+   [la aplicación de ejemplo para node](https://github.com/heroku/node-js-getting-started).
+   Es una aplicación simple de node y express. Heroku tiene una serie de
+   ejemplos para diferentes lenguajes de programación. Por ejemplo,
+   [para PHP](https://devcenter.heroku.com/articles/getting-started-with-php#prepare-the-app).
+   Heroku admite
+   [7 lenguajes, que incluyen Scala, Clojure, Java, Ruby y Python](https://devcenter.heroku.com/start),
+   aparte de permitir también despliegue de contenedores.
+4. Con `heroku create` (dentro del directorio descargado) se crea la
+   aplicación en heroku. Previamente lo único que había era un repo,
+   con esta orden se crea una aplicación en heroku y se conecta con el
+   repositorio descargado; esencialmente lo que se hace es que se
+   añade un destino, `heroku` al que podemos hacer push. Con esto se
+   crea una app de nombre aleatorio, que luego podremos modificar.
+
+Puedes darle también un nombre a la aplicación y asignarle un servidor en
+Europa (legalmente obligatorio) escribiendo `heroku apps:create --region eu
+nombre_muy_chulo` Si te asignan un nombre puedes cambiarlo también más
+adelante, en la web y en el repo.
+
+Esto crea una aplicación en la web de Heroku, que al hacer `git push heroku
+master` se pondrá en marcha. La mayoría de los PaaS usa `git push` como modo de
+despliegue, que permite tener controlada la versión de todos los ficheros que
+hay en el mismo y además, con los *ganchos* post-`push`,
+[compilar y ejecutar la aplicación a través de los llamados *Buildpacks*](https://jamesward.com/2012/07/18/the-magic-behind-herokus-git-push-deployment/).
+
+<div class='ejercicios' markdown="1">
+
+Instalar y echar a andar tu primera aplicación en Heroku.
+
+</div>
+
+Solo hemos, por lo pronto, desplegado la aplicación por omisión.
+
+> Y en esta aplicación por omisión se ha usado también el *buildpack*, es
+> decir, el proceso y herramientas de construcción, que esté programado para tu
+> pila, el de Node o el que sea. Pero si eres un poco atrevido, puedes
+> [crear tu propio Buildpack](https://devcenter.heroku.com/articles/buildpack-api),
+> que puede estar escrito en cualquier lenguaje y consiste en realidad en tres
+> scripts.
+
+Se
+habrá generado un fichero denominado `index.js` que será,
+efectivamente, el que se ejecute. Pero ¿cómo sabe Heroku qué es lo que
+hay que ejecutar? Si miramos el fichero `Procfile` encontraremos algo
+así
+
+```plain
+web: node index.js
+```
+
+Este [Procfile](https://devcenter.heroku.com/articles/procfile) se usa para
+indicar a heroku qué es lo que tiene que ejecutar. En casi todos los casos se
+tratará de una aplicación web, y por tanto la parte izquierda, `web:` será
+común. Dependiendo del lenguaje, variará la parte derecha; en este caso le
+estamos indicando la línea de órdenes que hay que ejecutar para *levantar* la
+web que hemos creado.
+
+Localmente, se recrea (aproximadamente) el entorno de Heroku usando
+[Foreman](https://github.com/ddollar/foreman) o `heroku local` que
+forma parte del conjunto de herramientas de Heroku.
+
+> No confundir `foreman` con `The Foreman`, una herramienta de gestión
+> del ciclo de vida de programas que es bastante más compleja. Este
+> `foreman` es simplemente un procesador de
+> [Procfile](https://devcenter.heroku.com/articles/procfile#procfile-format),
+> Este formato se usa en algunas otras herramientas, y también tiene
+> diferentes herramientas libres para procesarlo, tales como
+> [Overmind](https://github.com/DarthSim/overmind).
+
+Para ejecutar localmente nuestra aplicación ejecutaremos
+
+```shell
+foreman start web
+```
+
+`foreman` leerá el `Procfile` y ejecutará la
+tarea correspondiente a `web`, en este caso `index.js`.  Podemos
+interrumpirlo simplemente tecleando Ctrl-C.
+
+[`foreman`](https://github.com/ddollar/foreman)
+actúa como un envoltorio de tu aplicación, ejecutando todo lo
+necesario para que funcione (no solo la web, sino bases de datos o
+cualquier otra cosa que haya que levantar antes) codificando por
+colores la salida correspondiente a cada proceso y presentando también
+el registro o *log* de la misma de forma más amigable.
+
+<div class='ejercicios' markdown="1">
+
+Usar como base la aplicación de ejemplo de heroku y combinarla con la
+aplicación en node que se ha creado anteriormente. Probarla de forma
+local con `foreman`. Al final de cada modificación, los tests tendrán
+que funcionar correctamente; cuando se pasen los tests, se puede
+volver a desplegar en heroku.
+
+>Como en todos los ejemplos anteriores, se puede cambiar "node" y
+>"heroku" por la herramienta que se haya elegido.
+</div>
+
+Si está `package.json` bien configurado, por ejemplo, de esta forma
+
+```json
+    "scripts": {
+      "test": "mocha",
+      "start": "node index.js"
+    },
+```
+
+se puede arrancar también la aplicación, sin ningún tipo de
+envoltorio, simplemente con `npm start`, que ejecutará lo que hay a su
+izquierda. La clave `scripts` de `package.json` contiene una serie de
+tareas o procesos que se pueden comenzar; en ese sentido, la
+funcionalidad se solapa con el `Gruntfile` que se ha visto
+anteriormente, sin embargo y como se ha visto en el hito anterior,
+aconsejamos vivamente tener todas las tareas centralizadas en un solo
+sistema de lanzamiento de tareas.
+
+>Siempre hay más de una manera de hacer las cosas.
+
+Ahora hay que gestionar los dos repositorios de `git` que
+tenemos. `heroku create` (en cualquiera de sus formas) crea un destino
+`heroku` dentro de la configuración de `git` de forma que se pueda
+hacer `git push heroku master`; `heroku` aquí no es más que un alias a
+la dirección de tu aplicación, que si miras en `.git/config` estará
+definido de una forma similar a la siguiente
+
+```ini
+[remote "heroku"]
+   url = git@heroku.com:porrio.git
+   fetch = +refs/heads/*:refs/remotes/heroku/*
+```
+
+Es el mismo resultado que si hubiéramos dado la orden
+
+```shell
+git remote add heroku git@heroku.com:porrio.git
+```
+
+es decir, crear un alias para la dirección real del repositorio en
+Heroku (que puedes consultar desde tu panel de control; será algo
+diferente a lo que hay aquí e igual que el `nombre_muy_chulo` que
+hayas decidido darle. Si vas a subir a Heroku una aplicación ya
+creada, tendrás que añadir esta orden. Si te has descargado el ejemplo
+de GitHub y seguido las instrucciones anteriores, tendrás que crear un
+repositorio vacío propio en GitHub y añadirle este como `origin` de la
+forma siguiente
+
+```shell
+# Borra el origen inicial, que será el de la aplicación de ejemplo
+git remote rm origin
+# Crea el nuevo origin
+git remote add origin git@github.com:mi-nick/mi-app.git
+```
+
+Todo esto puedes ahorrártelo si desde el principio haces un *fork* de
+la aplicación de node y trabajas con ese *fork*; el origen estará ya
+definido.
+
+Ahora tienes dos repositorios: el que está efectivamente desplegado y el que
+contiene los fuentes. ¿No sería una buena idea que se trabajara con uno solo?
+Efectivamente,
+[GitHub permite desplegar directamente a Heroku](https://stackoverflow.com/questions/17558007/deploy-to-heroku-directly-from-my-github-repository)
+cuando se hace un `push` a la rama `master`, aunque no es inmediato, sino que
+pasa por usar un servicio de integración continua, que se asegure de que todo
+funciona correctamente.
+
+Otros sistemas, como
+[AWS CodeDeploy de Amazon pueden desplegar a una instancia en la nube de esta empresa](https://medium.com/aws-activate-startup-blog/simplify-code-deployments-with-aws-codedeploy-e95599091304).
+Sin embargo,
+[no es complicado configurar un servicio de integración continua como Snap CI](https://stackoverflow.com/questions/17558007/deploy-to-heroku-directly-from-my-github-repository).
+Después de [darte de alta en el Snap CI](https://snap-ci.com/), la
+configuración se hace desde un panel de control y, si ya lo tienes configurado
+para Travis (como deberías) el propio sitio detecta la configuración
+automáticamente.
+
+Para añadir el paso de despliegue a Heroku desde un sistema de integración
+continua hay que hacer una configuración adicional adicional: en el menú de
+Configuración se puede añadir un paso adicional tras el de Test, en el que no
+hay que más que decirle el repositorio de Heroku al que se va a desplegar.
+
+![Panel de control de Snap CI con despliegue a Heroku](../img/despliegue-snap-ci.png)
+
+Con esto, un simple push a una rama determinada, que sería la
+`master`, se hará que se pruebe y, en caso de pasar los tests, se
+despliegue automáticamente en Heroku.
+
+<div class='ejercicios' markdown="1">
+
+Haz alguna modificación a tu aplicación en node.js para Heroku, sin olvidar
+añadir los tests para la nueva funcionalidad, y configura el despliegue
+automático a Heroku usando
+[algún servicio de los mencionados en
+StackOverflow](https://stackoverflow.com/questions/17558007/deploy-to-heroku-directly-from-my-github-repository)
+
+</div>
+
+En principio se ha preparado
+[a la aplicación](https://github.com/JJ/node-app-cc/blob/master/lib/index.js) para
+su despliegue en un solo PaaS, Heroku. Pero, ¿se podría desplegar en otro PaaS
+también?
+
+Hay que dar un paso atrás y ver qué es necesario para desplegar en Heroku,
+aparte de lo obvio, tener una cuenta. Hacen falta varias cosas:
+
+1. Un `packaje.json`, aunque en realidad esto no es específico de Heroku sino
+   de cualquier aplicación y cualquier despliegue. En general, hará falta un
+   fichero de una herramienta de construcción al que se pueda invocar para
+   arrancar la aplicación.
+2. El fichero `Procfile` con el trabaja Foreman y que distribuye las tareas
+   entre los diferentes *dynos*: `web`, `worker` y los demás. Desde este
+   fichero habrá que usar el target que hayamos definido previamente para
+   arrancar el servicio.
+3. Requisitos específicos de IP y puerto al que escuchar y que se pasan a
+   `app.listen`. Estos parámetros se definen como variables de entorno, como se
+   ha explicado en el capítulo anterior.
+
+Teniendo en cuenta esto, no es difícil cambiar la aplicación para que pueda
+funcionar correctamente al menos en esos dos PaaS, que son los más populares.
+En Openshift, en realidad, no hace falta `Procfile`. Como no tiene el concepto
+de diferentes tipos de dynos, usa directamente `package.json` para iniciar la
+aplicación. Por otro lado, los requisitos específicos de puerto e IP se tienen
+en cuenta en estas dos órdenes:
+
+```javascript
+const server_ip_address = process.env.OPENSHIFT_NODEJS_IP
+                              || '0.0.0.0';
+app.set('port', (process.env.PORT
+                     || process.env.OPENSHIFT_NODEJS_PORT
+     || 5000));
+```
+
+En la primera se establece la IP en la que tiene que escuchar la aplicación. En
+el caso por omisión, el segundo, la dirección `0.0.0.0` indica que Express
+escuchará en todas las IPs. Sin embargo, eso no es correcto ni posible en
+OpenShift, que tiene una IP específica, contenida en la variable de entorno
+`OPENSHIFT_NODEJS_IP` y que será una IP de tipo local (aunque realmente esto no
+tiene que importarnos salvo por el caso de que no podremos acceder a esa IP
+directamente).
+
+En cuanto al puerto, en los dos casos hay variables de entorno para
+definirlo. Simplemente las vamos comprobando con \|\| (OR) y si no está
+establecida ninguna, se asigna el valor por defecto, que también sirve
+para la ejecución local.
+
+<div class='ejercicios' markdown="1">
+ Preparar la aplicación con la que se ha
+ venido trabajando hasta este momento para ejecutarse en un PaaS, el
+ que se haya elegido.
+</div>
+
+También en OpenShift se puede desplegar automáticamente usando Travis,
+por ejemplo. De hecho, incluso en Heroku se puede trabajar también con
+Travis para el despliegue automático, aunque es mucho más simple
+hacerlo con Snap CI como se ha indicado más arriba.
 
 ## Creando un bot de Telegram para Heroku
 
@@ -452,270 +727,6 @@ pycrypto==2.6.1
 Y ya está todo. Ya solo nos queda desplegar y monitorizar, como veremos en la
 siguiente sección.
 
-## Desplegando en el PaaS
-
-Como ejemplo vamos a usar Heroku.
-
-> Sitios como Openshift tienen sistemas también similares,
-> pero por lo pronto vamos a usar este, que tiene un sistema un poco
-> más abierto y completo.
-
-Tras abrir una cuenta en Heroku, crear una
-[aplicación en Node](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction)
-es bastante directo. Primero, hay que tener en cuenta que en el PaaS, como
-debería de ser obvio, se trata de aplicaciones web. Por eso la aplicación más
-simple que se propone usa ya `express` (o, para el caso, cualquier otro marco
-de servicios REST).
-
-1. Descarga
-   [el *cinturón de herramientas* de Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up)
-2. Haz *login* con `heroku login`.
-3. Descarga
-   [la aplicación de ejemplo para node](https://github.com/heroku/node-js-getting-started.git).
-   Es una aplicación simple de node y express. Heroku tiene una serie de
-   ejemplos para diferentes lenguajes de programación. Por ejemplo,
-   [para PHP](https://devcenter.heroku.com/articles/getting-started-with-php#prepare-the-app).
-   Heroku admite
-   [7 lenguajes, que incluyen Scala, Clojure, Java, Ruby y Python](https://devcenter.heroku.com/start),
-   aparte de permitir también despliegue de contenedores.
-4. Con `heroku create` (dentro del directorio descargado) se crea la
-   aplicación en heroku. Previamente lo único que había era un repo,
-   con esta orden se crea una aplicación en heroku y se conecta con el
-   repositorio descargado; esencialmente lo que se hace es que se
-   añade un destino, `heroku` al que podemos hacer push. Con esto se
-   crea una app de nombre aleatorio, que luego podremos modificar.
-
-Puedes darle también un nombre a la aplicación y asignarle un servidor en
-Europa (legalmente obligatorio) escribiendo `heroku apps:create --region eu
-nombre_muy_chulo` Si te asignan un nombre puedes cambiarlo también más
-adelante, en la web y en el repo.
-
-Esto crea una aplicación en la web de Heroku, que al hacer `git push heroku
-master` se pondrá en marcha. La mayoría de los PaaS usa `git push` como modo de
-despliegue, que permite tener controlada la versión de todos los ficheros que
-hay en el mismo y además, con los *ganchos* post-`push`,
-[compilar y ejecutar la aplicación a través de los llamados *Buildpacks*](https://www.jamesward.com/2012/07/18/the-magic-behind-herokus-git-push-deployment).
-
-<div class='ejercicios' markdown="1">
-
-Instalar y echar a andar tu primera aplicación en Heroku.
-
-</div>
-
-Solo hemos, por lo pronto, desplegado la aplicación por omisión.
-
-> Y en esta aplicación por omisión se ha usado también el *buildpack*, es
-> decir, el proceso y herramientas de construcción, que esté programado para tu
-> pila, el de Node o el que sea. Pero si eres un poco atrevido, puedes
-> [crear tu propio Buildpack](https://devcenter.heroku.com/articles/buildpack-api),
-> que puede estar escrito en cualquier lenguaje y consiste en realidad en tres
-> scripts.
-
-Se
-habrá generado un fichero denominado `index.js` que será,
-efectivamente, el que se ejecute. Pero ¿cómo sabe Heroku qué es lo que
-hay que ejecutar? Si miramos el fichero `Procfile` encontraremos algo
-así
-
-```plain
-web: node index.js
-```
-
-Este [Procfile](https://devcenter.heroku.com/articles/procfile) se usa para
-indicar a heroku qué es lo que tiene que ejecutar. En casi todos los casos se
-tratará de una aplicación web, y por tanto la parte izquierda, `web:` será
-común. Dependiendo del lenguaje, variará la parte derecha; en este caso le
-estamos indicando la línea de órdenes que hay que ejecutar para *levantar* la
-web que hemos creado.
-
-Localmente, se recrea (aproximadamente) el entorno de Heroku usando Foreman. En
-versiones tempranas de `heroku` estaba incluido, pero ahora tendrás que
-instalarlo de forma independiente.
-
-Para ejecutar localmente nuestra aplicación ejecutaremos
-
-```shell
-foreman start web
-```
-
-`foreman` leerá el `Procfile` y ejecutará la
-tarea correspondiente a `web`, en este caso `index.js`.  Podemos
-interrumpirlo simplemente tecleando Ctrl-C.
-
-[`foreman`](https://github.com/ddollar/foreman)
-actúa como un envoltorio de tu aplicación, ejecutando todo lo
-necesario para que funcione (no solo la web, sino bases de datos o
-cualquier otra cosa que haya que levantar antes) codificando por
-colores la salida correspondiente a cada proceso y presentando también
-el registro o *log* de la misma de forma más amigable.
-
-<div class='ejercicios' markdown="1">
-
-Usar como base la aplicación de ejemplo de heroku y combinarla con la
-aplicación en node que se ha creado anteriormente. Probarla de forma
-local con `foreman`. Al final de cada modificación, los tests tendrán
-que funcionar correctamente; cuando se pasen los tests, se puede
-volver a desplegar en heroku.
-
->Como en todos los ejemplos anteriores, se puede cambiar "node" y
->"heroku" por la herramienta que se haya elegido.
-</div>
-
-Si está `package.json` bien configurado, por ejemplo, de esta forma
-
-```json
-    "scripts": {
-      "test": "mocha",
-      "start": "node index.js"
-    },
-```
-
-se puede arrancar también la aplicación, sin ningún tipo de
-envoltorio, simplemente con `npm start`, que ejecutará lo que hay a su
-izquierda. La clave `scripts` de `package.json` contiene una serie de
-tareas o procesos que se pueden comenzar; en ese sentido, la
-funcionalidad se solapa con el `Gruntfile` que se ha visto
-anteriormente, sin embargo y como se ha visto en el hito anterior,
-aconsejamos vivamente tener todas las tareas centralizadas en un solo
-sistema de lanzamiento de tareas.
-
->Siempre hay más de una manera de hacer las cosas.
-
-Ahora hay que gestionar los dos repositorios de `git` que
-tenemos. `heroku create` (en cualquiera de sus formas) crea un destino
-`heroku` dentro de la configuración de `git` de forma que se pueda
-hacer `git push heroku master`; `heroku` aquí no es más que un alias a
-la dirección de tu aplicación, que si miras en `.git/config` estará
-definido de una forma similar a la siguiente
-
-```ini
-[remote "heroku"]
-   url = git@heroku.com:porrio.git
-   fetch = +refs/heads/*:refs/remotes/heroku/*
-```
-
-Es el mismo resultado que si hubiéramos dado la orden
-
-```shell
-git remote add heroku git@heroku.com:porrio.git
-```
-
-es decir, crear un alias para la dirección real del repositorio en
-Heroku (que puedes consultar desde tu panel de control; será algo
-diferente a lo que hay aquí e igual que el `nombre_muy_chulo` que
-hayas decidido darle. Si vas a subir a Heroku una aplicación ya
-creada, tendrás que añadir esta orden. Si te has descargado el ejemplo
-de GitHub y seguido las instrucciones anteriores, tendrás que crear un
-repositorio vacío propio en GitHub y añadirle este como `origin` de la
-forma siguiente
-
-```shell
-# Borra el origen inicial, que será el de la aplicación de ejemplo
-git remote rm origin
-# Crea el nuevo origin
-git remote add origin git@github.com:mi-nick/mi-app.git
-```
-
-Todo esto puedes ahorrártelo si desde el principio haces un *fork* de
-la aplicación de node y trabajas con ese *fork*; el origen estará ya
-definido.
-
-Ahora tienes dos repositorios: el que está efectivamente desplegado y el que
-contiene los fuentes. ¿No sería una buena idea que se trabajara con uno solo?
-Efectivamente,
-[GitHub permite desplegar directamente a Heroku](https://stackoverflow.com/questions/17558007/deploy-to-heroku-directly-from-my-github-repository)
-cuando se hace un `push` a la rama `master`, aunque no es inmediato, sino que
-pasa por usar un servicio de integración continua, que se asegure de que todo
-funciona correctamente.
-
-Otros sistemas, como
-[AWS CodeDeploy de Amazon pueden desplegar a una instancia en la nube de esta empresa](https://medium.com/aws-activate-startup-blog/simplify-code-deployments-with-aws-codedeploy-e95599091304).
-Sin embargo,
-[no es complicado configurar un servicio de integración continua como Snap CI](https://stackoverflow.com/questions/17558007/deploy-to-heroku-directly-from-my-github-repository).
-Después de [darte de alta en el Snap CI](https://snap-ci.com/), la
-configuración se hace desde un panel de control y, si ya lo tienes configurado
-para Travis (como deberías) el propio sitio detecta la configuración
-automáticamente.
-
-Para añadir el paso de despliegue a Heroku desde un sistema de integración
-continua hay que hacer una configuración adicional adicional: en el menú de
-Configuración se puede añadir un paso adicional tras el de Test, en el que no
-hay que más que decirle el repositorio de Heroku al que se va a desplegar.
-
-![Panel de control de Snap CI con despliegue a Heroku](../img/despliegue-snap-ci.png)
-
-Con esto, un simple push a una rama determinada, que sería la
-`master`, se hará que se pruebe y, en caso de pasar los tests, se
-despliegue automáticamente en Heroku.
-
-<div class='ejercicios' markdown="1">
-
-Haz alguna modificación a tu aplicación en node.js para Heroku, sin olvidar
-añadir los tests para la nueva funcionalidad, y configura el despliegue
-automático a Heroku usando Snap CI o
-[alguno de los otros servicios, como Codeship, mencionados en StackOverflow](https://stackoverflow.com/questions/17558007/deploy-to-heroku-directly-from-my-github-repository)
-
-</div>
-
-En principio se ha preparado
-[a la aplicación](https://github.com/JJ/node-app-cc/blob/master/index.js) para
-su despliegue en un solo PaaS, Heroku. Pero, ¿se podría desplegar en otro PaaS
-también?
-
-Hay que dar un paso atrás y ver qué es necesario para desplegar en Heroku,
-aparte de lo obvio, tener una cuenta. Hacen falta varias cosas:
-
-1. Un `packaje.json`, aunque en realidad esto no es específico de Heroku sino
-   de cualquier aplicación y cualquier despliegue. En general, hará falta un
-   fichero de una herramienta de construcción al que se pueda invocar para
-   arrancar la aplicación.
-2. El fichero `Procfile` con el trabaja Foreman y que distribuye las tareas
-   entre los diferentes *dynos*: `web`, `worker` y los demás. Desde este
-   fichero habrá que usar el target que hayamos definido previamente para
-   arrancar el servicio.
-3. Requisitos específicos de IP y puerto al que escuchar y que se pasan a
-   `app.listen`. Estos parámetros se definen como variables de entorno, como se
-   ha explicado en el capítulo anterior.
-
-Teniendo en cuenta esto, no es difícil cambiar la aplicación para que pueda
-funcionar correctamente al menos en esos dos PaaS, que son los más populares.
-En Openshift, en realidad, no hace falta `Procfile`. Como no tiene el concepto
-de diferentes tipos de dynos, usa directamente `package.json` para iniciar la
-aplicación. Por otro lado, los requisitos específicos de puerto e IP se tienen
-en cuenta en estas dos órdenes:
-
-```js
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP
-                              || '0.0.0.0';
-app.set('port', (process.env.PORT
-                     || process.env.OPENSHIFT_NODEJS_PORT
-     || 5000));
-```
-
-En la primera se establece la IP en la que tiene que escuchar la aplicación. En
-el caso por omisión, el segundo, la dirección `0.0.0.0` indica que Express
-escuchará en todas las IPs. Sin embargo, eso no es correcto ni posible en
-OpenShift, que tiene una IP específica, contenida en la variable de entorno
-`OPENSHIFT_NODEJS_IP` y que será una IP de tipo local (aunque realmente esto no
-tiene que importarnos salvo por el caso de que no podremos acceder a esa IP
-directamente).
-
-En cuanto al puerto, en los dos casos hay variables de entorno para
-definirlo. Simplemente las vamos comprobando con \|\| (OR) y si no está
-establecida ninguna, se asigna el valor por defecto, que también sirve
-para la ejecución local.
-
-<div class='ejercicios' markdown="1">
- Preparar la aplicación con la que se ha
- venido trabajando hasta este momento para ejecutarse en un PaaS, el
- que se haya elegido.
-</div>
-
-También en OpenShift se puede desplegar automáticamente usando Travis,
-por ejemplo. De hecho, incluso en Heroku se puede trabajar también con
-Travis para el despliegue automático, aunque es mucho más simple
-hacerlo con Snap CI como se ha indicado más arriba.
-
 ## Despliegue del bot de Telegram
 
 Para desplegar el bot de Telegram usaremos también Heroku, pero en este caso
@@ -725,21 +736,22 @@ python y le ponemos el nombre nuestro bot. A continuación vamos a **Settings**
 -> Config Vars -> Reveal Config Vars. Añadimos las siguientes variables:
 
 ```plain
-HROKU_APP_NAME = miapp
+HEROKU_APP_NAME = miapp
 MODE = dev
 MYKEY = aquiunaclavede16
 TOKEN = nuestroToken
 ```
 
-En las claves, HEROKU_APP_NAME tiene que coincidir con el nombre del bot. Para
-el modo, por ahora, usaremos developer. MYKEY es para generar claves AES, y
-debe tener un tamaño de 16, 24 o 32. Y finalmente TOKEN es donde pegaremos el
-token de Telegram. Volvamos a la terminal, y hacemos `heroku login` desde el
-directorio donde está nuestro proyecto.
+En las claves, `HEROKU_APP_NAME` tiene que coincidir con el nombre del
+bot. Para el modo, por ahora, usaremos developer. MYKEY es para
+generar claves AES, y debe tener un tamaño de 16, 24 o 32. Y
+finalmente TOKEN es donde pegaremos el token de Telegram. Volvamos a
+la terminal, y hacemos `heroku login` desde el directorio donde está
+nuestro proyecto.
 
 ```plain
-heroku container: login
-heroku container: push --app mibot web
+heroku container:login
+heroku container:push --app mibot web
 heroku container:release -app mibot web
 heroku logs --tail --app miapp
 ```
@@ -748,7 +760,7 @@ Tras esto habremos desplegado la última `release` en desarrollo de nuestro bot,
 y podemos leer los logs para ver qué está sucediendo. Si escribimos comandos
 desde la conversación podemos observar como reacciona nuestro bot desde la
 terminal. Para probar, copia y pega en tu directorio
-[este ejemplo](enlacealbot).
+[este ejemplo](../../ejemplos/bot-python).
 
 ## A dónde ir desde aquí
 

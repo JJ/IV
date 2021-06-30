@@ -15,13 +15,10 @@ jobs:
   OrtografiaReadme:
     runs-on: ubuntu-latest
 
-    container:
-      image: perl:5.28
-
     steps:
       - name: Prerrequisites
         run: |
-          apt-get update && apt-get upgrade -y && apt-get install -y libtext-hunspell-perl
+          sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y libtext-hunspell-perl autopoint
       - uses: actions/checkout@v2
       - name: Usa install-with-cpm
         uses: perl-actions/install-with-cpm@stable
