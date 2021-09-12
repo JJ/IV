@@ -1,0 +1,32 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use Git;
+
+use v5.14;
+
+my @subcommands = qw(objetivo sube-objetivo);
+my $subcommand = shift;
+
+die "No se reconoce el subcomando $subcommand" unless grep( /\b$subcommand\b/, @subcommands );
+
+my $repo = Git->repository (Directory => '.');
+
+my @args = @ARGV;
+if ( $args[0] eq '?' or $args[0] eq '--help' or !@args ) {
+  say <<EOC;
+Uso:
+    git iv objetivo <número> -- crea una rama para ese objetivo
+    git iv sube-objetivo          -- sube al repo remoto la rama
+EOC
+}
+
+if ( $subcommand eq "objetivo" ) {
+  $repo->command( "checkout", "-b", "Objetivo-" . $args[0]);
+}
+
+if ( $subcommand eq "sube-objetivo" ) {
+  my $branch = $repo->command( "rev-parse", "--abbrev-ref", "HEAD" );
+  $repo->command ( "push", "-u", "origin", $branch );
+}
