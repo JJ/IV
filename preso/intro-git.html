@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+    <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Un poco de git</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/iv.css">
+        <link rel="stylesheet" href="dist/extra.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+    </head>
+    <body>
+	<div class="reveal">
+	    <div class="slides">
+		<section data-background="https://live.staticflickr.com/8700/16870559579_7468ffc22b_k_d.jpg"><h1>Introducción de git</h1>
+                    <h2>Para infraestructura virtual/cloud computing</h2>
+                    <h3><a href="https://github.com/JJ"><code>JJ</code>
+		        en GitHub</a>, <a href="https://twitter.com/jjmerelo"><code>@jjmerelo</code></a></h3>
+                </section>
+
+		<section data-background='https://live.staticflickr.com/87/248357911_1a1aa3cca2_o_d.jpg'><h1><code>git</code> es:</h1>
+		    <h2 class='fragment'>Sistema <em>distribuido</em> de control de <em>fuentes</em></h2>
+		    <h2 class='fragment'>Base de un sistema de gestión de <em>flujos de trabajo</em></h2>
+		    <aside class='notes'>De lo primero se deduce que todo lo que no sea fuente (todo lo que esté generado) no debe estar en el repositorio. De lo segundo, que no sólo se trata de guardar fuentes, sino de iniciar una serie de tareas en el momento que se produzca una incorporación al sistema</aside>
+		</section>
+
+		<section><h1>Trabajaremos en <em>repositorios</em> == <em>repo</em></h1>
+		  <h2 class='fragment'>... fuentes correspondientes a un solo proyecto </h2>
+		  <h2 class='fragment'> localmente (en nuestro ordenador)</h2>
+		  <h2 class='fragment'> remoto (en algún otro lugar)</h2>
+		  <h2 class='fragment'>que contienen diferentes <em>ramas</em></h2>
+		  <h3 class='fragment'>que difieren en uno o más <em>commits</em> (o cambios).</h3>
+		  <aside class='notes'>Como es un sistema distribuido, local y remoto son simplemente ramas del mismo repositorio. Esas ramas se sincronizan, aunque parece parezca que se "sube" a un repositorio remoto</aside>
+		</section>
+		  
+
+                <section><h1>Cuenta en GitHub/GitLab</h1>
+		  <aside class='notes'>Se puede trabajar sin necesidad del cliente de git, sobre todo en los primeros objetivos. Más adelante será necesario, como es natural.</aside>
+                </section>
+
+                <section>
+                    <h1>GitHub</h1>
+                    <h1 class="fragment">Configura email/nombre</h1>
+                    <h2 class="fragment">Incluye info específica del repositorio</h2>
+                    <h1 class="fragment">Crea el par público/privado</h1>
+
+                    <aside class="notes">Sometimes you need to have specific
+                    configurations for company repos, such as signed commits, or
+                            use the company email for that. Hay que trabajar siempre con la conexión por ssh, nunca por https. Aparte de ser más segura, es más eficiente. Para eso hace falta la clave pública/privada</aside>
+                </section>
+
+	    </div>
+	</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+			    hash: true,
+                            width: '98%',
+                            controls: true,
+                            progress: true,
+                            history: true,
+			    plugins: [ RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
