@@ -31,27 +31,58 @@
 
 		<section><h1>Trabajaremos en <em>repositorios</em> == <em>repo</em></h1>
 		  <h2 class='fragment'>... fuentes correspondientes a un solo proyecto </h2>
-		  <h2 class='fragment'> localmente (en nuestro ordenador)</h2>
-		  <h2 class='fragment'> remoto (en algún otro lugar)</h2>
+		  <h2 class='fragment'> <em>local</em>mente (en nuestro ordenador)</h2>
+		  <h2 class='fragment'> <em>remoto</em> (en algún otro lugar)</h2>
 		  <h2 class='fragment'>que contienen diferentes <em>ramas</em></h2>
 		  <h3 class='fragment'>que difieren en uno o más <em>commits</em> (o cambios).</h3>
 		  <aside class='notes'>Como es un sistema distribuido, local y remoto son simplemente ramas del mismo repositorio. Esas ramas se sincronizan, aunque parece parezca que se "sube" a un repositorio remoto</aside>
 		</section>
 
-
                 <section><h1>Cuenta en GitHub/GitLab</h1>
 		  <aside class='notes'>Se puede trabajar sin necesidad del cliente de git, sobre todo en los primeros objetivos. Más adelante será necesario, como es natural.</aside>
                 </section>
 
+                <section><h1>En GitHub/GitLab</h1>
+                    <h1 class="fragment">Añade a GitHub todos tus emails</h1>
+                    <h1 class="fragment">Configura tokens/info recuperación</h1>
+                    <h1 class="fragment">Avatar</h1>
+                    <aside class="notes">Adicionalmente, puedes crear tu perfil
+                        de GitHub y/o tu sitio web
+                        <code>tunick.github/gitlab.io</code>
+                    </aside>
+                </section>
+
                 <section>
-                    <h1>GitHub</h1>
+                    <h1>Instala git localmente</h1>
+                    <h1 class="fragment">Y <code>gh</code>, cliente línea de
+                        órdenes de Github</h1>
+                </section>
+                
+                <section>
+                    <h1>Localmente</h1>
                     <h1 class="fragment">Configura email/nombre</h1>
-                    <h2 class="fragment">Incluye info específica del repositorio</h2>
+                    <h3 class="fragment">Incluye info específica del repositorio
+                    (si cuentas diferentes)</h3>
                     <h1 class="fragment">Crea el par público/privado</h1>
 
                     <aside class="notes">Sometimes you need to have specific
                     configurations for company repos, such as signed commits, or
                             use the company email for that. Hay que trabajar siempre con la conexión por ssh, nunca por https. Aparte de ser más segura, es más eficiente. Para eso hace falta la clave pública/privada</aside>
+                </section>
+
+                <section><h1>Tres preguntas al crear un repo</h1>
+                    <h1 class="fragment">Nombre → crea <code>README.md</code></h1>
+                    <h1 class="fragment">Licencia</h1>
+                    <h1 class="fragment">Lenguage → crea
+                        <code>.gitignore</code></h1>
+                </section>
+                
+                <section><h1>Pruebas con un repositorio</h1>
+                    <pre>
+                        <code data-line-numbers="1|2|3|4">git clone git@github.com:minick/reponame.git
+touch zipi
+git add zipi
+git commit -am "Crea un fichero súper útil"</code></pre>
                 </section>
 
 	    </div>
