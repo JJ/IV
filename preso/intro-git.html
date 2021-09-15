@@ -92,9 +92,25 @@ git commit -am "Crea un fichero súper útil"</code></pre>
                 </section>
 
                 <section><h1>Usa <em>themes</em> para la línea de órdenes</h1>
-                    
+                    <img src="img/status.png" alt="diferentes estados">
+                    <h2 class="fragment">Como <code>oh-my-zsh</code>, <code>oh-my-bash</code></h2>
+                </section>
 
-	    </div>
+                <section><h1>La importancia de <code>.gitignore</code></h1>
+                    <pre><code data-line-numbers="1|2|3|4">touch .env # Fichero con posible contenido sensible
+git add . # NUNCA se debe hacer esto. NUNCA. 🙅🙅🙅⛔⛔⛔🚫🚫🚫
+echo .env >> .gitignore # Ese fichero será ignorado por git add
+git commit -am ":see_no_evil:"  # -a añade todos los que han cambiado, m →  mensaje en línea
+                    </code></pre>
+                </section>
+
+                <section><h1>Sincronizando</h1>
+                    <pre><code data-line-numbers="1|2|3|4">git pull --rebase # Siempre pull antes de push
+git status # Siempre status antes de pull
+git push   # igual que git push origin master
+                    </code></pre>
+                </section>
+            </div>
 	</div>
 
 		<script src="dist/reveal.js"></script>
