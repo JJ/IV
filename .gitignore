@@ -5,3 +5,4 @@ examenes/*.pdf
 examenes/*.html
 .Rhistory
 fatlib/
+.idea
