@@ -13,8 +13,7 @@ layout: index
 EOT
 
 my $git = Git->repository( Directory => '.' );
-my $get_branch =  $git->command(qw/rev-parse --abbrev-ref HEAD/);
-my $branch = $get_branch->final_output;
+my $branch =  $git->command(qw/rev-parse --abbrev-ref HEAD/);
 say "Branch ", $branch;
 if ( $branch =~ /^master/ ) {
   my $get_changed = $git->command(qw/show --name-status/);
