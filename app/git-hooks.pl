@@ -19,6 +19,7 @@ POST_COMMIT {
   say "Branch ", $branch;
   if ( $branch =~ /^master/ ) {
     my $get_changed = $git->command(qw/show --name-status/);
+    say $get_changed;
     my $changed = $get_changed->final_output;
     my @changed_files = ($changed =~ /\s\w\s+(\S+)/g);
     my @mds = grep ( /\.md/, @changed_files );
