@@ -24,7 +24,7 @@ if ( $branch =~ /^master/ ) {
   for my $f ( @mds ) {
     $git->command( 'checkout', 'master', '--', $f );
     my $file_content = read_file( $f );
-    $file_content =~ s/(?<!README)\.md\)/\)/g; # Change links
+    $file_content =~ s/(?<!README|objetivos-\d+|sesiones-\d+)\.md\)/\)/g; # Change links
     if ( $f =~ /temas/ ) {
       my ($breadcrumb) = ($file_content =~ /<!--@(.+)-->/gs);
       $file_content = $layout_preffix."$breadcrumb---\n\n".$file_content;
