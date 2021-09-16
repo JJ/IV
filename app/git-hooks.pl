@@ -29,7 +29,7 @@ POST_COMMIT {
       $git->command( 'checkout', 'master', '--', $f );
       my $file_content = read_file( $f );
       $file_content =~ s/(?<!README)\.md\)/\)/g; # Change links
-      $file_content =~ s/(proyectos.hito-\d)/$1.md/g; # Reset links to repo
+      $file_content =~ s/(proyectos\/\w+-\d+)/$1.md/g; # Reset links to repo
       if ( $f =~ /practicas/ ) {
 	  $file_content =~ s{/(\d)}{/$1.md}g; # Change back for links to prácticas
       }
