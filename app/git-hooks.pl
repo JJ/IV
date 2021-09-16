@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 use v5.14;
-use Git::Hooks;
+use Git;
 use File::Slurp qw(read_file write_file);
 
 my $layout_preffix=<<EOT;
@@ -12,51 +12,41 @@ layout: index
 
 EOT
 
-POST_COMMIT {
-  my ($git) = @_;
-  my $get_branch =  $git->command(qw/rev-parse --abbrev-ref HEAD/);
-  my $branch = $get_branch->final_output;
-  say "Branch ", $branch;
-  if ( $branch =~ /^master/ ) {
-    my $get_changed = $git->command(qw/show --name-status/);
-    my $changed = $get_changed->final_output;
-    my @changed_files = ($changed =~ /\s\w\s+(\S+)/g);
-    my @mds = grep ( /\.md/, @changed_files );
-    #Now change branch and process
-    #Inspired by http://stackoverflow.com/questions/15214762/how-can-i-sync-documentation-with-github-pages
-    $git->command(qw/checkout gh-pages/);
-    for my $f ( @mds ) {
-      $git->command( 'checkout', 'master', '--', $f );
-      my $file_content = read_file( $f );
-      $file_content =~ s/(?<!README)\.md\)/\)/g; # Change links
-      $file_content =~ s/(proyectos.\w+-\d+)/$1.md/g; # Reset links to repo
-      $file_content =~ s/(sesiones.\w+-\d+)/$1.md/g; # Reset links to repo
-      say $file_content;
-      if ( $f =~ /practicas/ ) {
-	  $file_content =~ s{/(\d)}{/$1.md}g; # Change back for links to prácticas
+my $git = Git->repository( Directory => '.' );
+my $get_branch =  $git->command(qw/rev-parse --abbrev-ref HEAD/);
+my $branch = $get_branch->final_output;
+say "Branch ", $branch;
+if ( $branch =~ /^master/ ) {
+  my $get_changed = $git->command(qw/show --name-status/);
+  my $changed = $get_changed->final_output;
+  my @changed_files = ($changed =~ /\s\w\s+(\S+)/g);
+  my @mds = grep ( /\.md/, @changed_files );
+  #Now change branch and process
+  #Inspired by http://stackoverflow.com/questions/15214762/how-can-i-sync-documentation-with-github-pages
+  $git->command(qw/checkout gh-pages/);
+  for my $f ( @mds ) {
+    $git->command( 'checkout', 'master', '--', $f );
+    my $file_content = read_file( $f );
+    $file_content =~ s/(?<!README)\.md\)/\)/g; # Change links
+    if ( $f =~ /temas/ ) {
+      my ($breadcrumb) = ($file_content =~ /<!--@(.+)-->/gs);
+      $file_content = $layout_preffix."$breadcrumb---\n\n".$file_content;
+      write_file($f, $file_content);
+      $git->command('add', $f );
+    } else {
+      if ( $f eq 'README.md' ) {
+        $f = 'index.md';
       }
-      if ( $f =~ /temas/ ) {
-	  my ($breadcrumb) = ($file_content =~ /<!--@(.+)-->/gs);
-	  $file_content = $layout_preffix."$breadcrumb---\n\n".$file_content;
-	  write_file($f, $file_content);
-	  $git->command('add', $f );
-      } else {
-	  if ( $f eq 'README.md' ) {
-	      $f = 'index.md';
-	  }
-	  $file_content = $layout_preffix."\n---\n".$file_content;
-	  write_file($f, $file_content );
-	  $git->command('add', 'index.md' );
-	  unlink('README.md');
-      }
-      $git->command('commit','-am', "Sync $f de master a gh-pages");
-      say "Procesando $f";
+      $file_content = $layout_preffix."\n---\n".$file_content;
+      write_file($f, $file_content );
+      $git->command('add', 'index.md' );
+      unlink('README.md');
     }
-    $git->command(qw/checkout master/); #back to original
+    $git->command('commit','-am', "Sync $f de master a gh-pages");
+    say "Procesando $f";
   }
-};
-
-run_hook($0, @ARGV);
+  $git->command(qw/checkout master/); #back to original
+}
 
 =head1 NAME
 
