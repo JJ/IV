@@ -16,24 +16,22 @@ es una asignatura obligatoria de la rama "Tecnologías de la Información" del
 primer cuatrimestre del cuarto curso del Grado de Ingeniería Informática y
 optativa en otras ramas y en el Doble Grado de Informática y Matemáticas.
 
-La asignatura se imparte en el
-[curso 2020-2021](https://etsiit.ugr.es/sites/centros/etsiit/public/inline-files/Horarios%20GII%20(20-21).pdf)
-~en el aula 3.3 los viernes y en la 3.7 los martes de 9:30 a 11:30 (clases de
-"prácticas"), y en la 1.8 los martes de 11:30 a 13:30. Se recuerda a los
-estudiantes que en todas las clases será necesario llevar el portátil, ya que
-son en realidad clases prácticas~de forma virtual desde las medidas
-tomadas por la Junta.
+La asignatura se imparte en el curso 21-22 en el aula 1.8 los jueves de 8:30 a
+10:30 (grupo conjunto) y en la -1.2 los viernes de 8:30 a 10:30 y de 12:30 a
+14:30 (grupos divididos). Se recuerda a los estudiantes que en todas las clases
+será necesario llevar el portátil, ya que son en realidad clases prácticas.
 
-Las clases se quedarán grabadas y almacenadas
-[en esta lista de reproducción de YouTube](https://www.youtube.com/playlist?list=PLsYEfmwhBQdKIwbMDIwK64pt3Fs03BDz9).
+> Las clases de años anteriores están grabadas, y puedes acceder a ellas [en
+> esta lista de reproducción de
+> YouTube](https://www.youtube.com/playlist?list=PLsYEfmwhBQdKIwbMDIwK64pt3Fs03BDz9).
 
 Se usará [GitHub](https://github.com) para el proyecto, la forma principal de
-examinar la asignatura; llamaremos *hitos* a cada una de las entregas que hay
+examinar la asignatura; llamaremos *objetivos* a cada una de las entregas que hay
 que hacer del mismo.
 
 Estos son los [objetivos de la asignatura](documentos/objetivos), cuyas
 sesiones de clase se irán reflejando en
-[un repositorio de GitHub; este es el de 2020-21](https://github.com/JJ/IV-20-21).
+[un repositorio de GitHub; este es el de 2021-22](https://github.com/JJ/IV-21-22).
 
 En resumen, nuestra intención es que el estudiante al final de la asignatura sea
 capaz de hacer lo siguiente:
@@ -94,7 +92,7 @@ Material adicional interesante para la asignatura, que se impartirá
    (JotaGalera)](documentos/seminarios/tutorial).
 2. [Introducción ligera al lenguaje Ruby](documentos/seminarios/ruby).
 
-## Prácticas - Actividades académicas dirigidas
+## Prácticas - Actividades académicas dirigidas en grupos divididos
 
 La parte práctica de esta asignatura consiste en la realización de un
 proyecto a lo largo de la asignatura, con diferentes hitos cuyo
@@ -102,19 +100,20 @@ contenido corresponde a los objetivos de aprendizaje cumplidos hasta
 ese momento. Los proyectos
 [consisten en crear la infraestructura virtual junto con una aplicación
 desarrollada según el modelo DevOps](documentos/proyecto/README.md). A
-grosso modo, los hitos se organizarán de la forma siguiente.
+grosso modo, los objetivos se organizarán de la forma siguiente.
 
-1. [Práctica cero: Uso básico de
+1. [Objetivo cero: Uso básico de
    herramientas](documentos/proyecto/0.Repositorio).
-2. [Organización de los grupos de práctica y creación del
-   proyecto](documentos/proyecto/1.Infraestructura).
-3. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/2.Tests).
-4. Técnicas de virtualización: [Contenedores](documentos/proyecto/3.Docker)
+2. [Historias de usuario y
+   planificación](documentos/proyecto/1.Infraestructura).
+3. [Definición de una entidad)(documentos/proyecto/2.Entidad).
+4. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/2.Tests).
+5. Técnicas de virtualización: [Contenedores](documentos/proyecto/3.Docker)
    para pruebas.
-5. [Integración continua](documentos/proyecto/4.CI)
-6. Despliegues [serverless](documentos/proyecto/5.Serverless)
-7. [Creando microservicios](documentos/proyecto/6.Microservicio).
-8. Desplegando a la nube:
+6. [Integración continua](documentos/proyecto/4.CI)
+7. Despliegues [serverless](documentos/proyecto/5.Serverless)
+8. [Creando microservicios](documentos/proyecto/6.Microservicio).
+9. Desplegando a la nube:
    [Platform as a Service](documentos/proyecto/7.PaaS).
 
 Estas prácticas se han hecho otros años:
@@ -125,12 +124,11 @@ Estas prácticas se han hecho otros años:
 
 ## Tutorías virtuales
 
-Las tutorías virtuales se realizarán preferiblemente a través de la plataforma
-de trabajo colaborativo
-[GitHub](https://github.com/JJ/IV-20-21/issues?state=open) y a través del grupo
+Las tutorías virtuales se realizarán preferiblemente a través del grupo
 de Telegram; habrá que solicitar al profesor ser añadido. Finalmente, el
-profesor está disponible por Telegram, Skype y Google Meet (en todos los
-casos: `jjmerelo`).
+profesor está disponible por Telegram y Google Meet (en todos los
+casos: `jjmerelo`); para cualquier videotutoría se pide consultar con cierta
+antelación.
 
 Se creará también una sala específica en Jitsi para las tutorías,
 consultar con los profesores la dirección y el horario.
@@ -140,11 +138,11 @@ consultar con los profesores la dirección y el horario.
 Los criterios de evaluación figuran en la
 [ficha de la asignatura](https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/curso_actual/cuarto/tecnologiasdelainformacion/gii_infraestructura_virtual_20172018_firmada)
 en la web del grado, y
-[se especifican en el repositorio de la clase](https://github.com/JJ/IV-19-20/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n).
+[se especifican en el repositorio de la clase](https://github.com/JJ/IV-21-22/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n).
 
 ## Convocatoria extraordinaria (AL FINAL DEL CUATRIMESTRE)
 
 Si no se ha superado la asignatura en la convocatoria ordinaria, en la
-extraordinaria habrá que entregar los diferentes hitos del proyecto no
-entregados, con los plazos que se anunciarán cuando se pongan las
-notas de la convocatoria ordinaria.
+extraordinaria habrá que entregar los diferentes objetivos del proyecto no
+entregados (o los que se quieran entregar, si se quiere subir nota), con los
+plazos que se anunciarán cuando se pongan las notas de la convocatoria ordinaria.
