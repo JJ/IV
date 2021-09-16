@@ -14,10 +14,8 @@ EOT
 
 my $git = Git->repository( Directory => '.' );
 my $branch =  $git->command(qw/rev-parse --abbrev-ref HEAD/);
-say "Branch ", $branch;
 if ( $branch =~ /^master/ ) {
-  my $get_changed = $git->command(qw/show --name-status/);
-  my $changed = $get_changed->final_output;
+  my $changed = $git->command(qw/show --name-status/);
   my @changed_files = ($changed =~ /\s\w\s+(\S+)/g);
   my @mds = grep ( /\.md/, @changed_files );
   #Now change branch and process
