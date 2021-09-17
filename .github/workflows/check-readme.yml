@@ -26,7 +26,7 @@ jobs:
           install: |
             Test::Text
             TAP::Harness
-          sudo: false
+          sudo: true
       - name: Comprueba la ortografía
         run: |
           curl https://raw.githubusercontent.com/JJ/Test-Text/master/data/Spanish.aff -o Spanish.aff
