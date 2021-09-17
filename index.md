@@ -29,7 +29,7 @@ Se usará [GitHub](https://github.com) para el proyecto, la forma principal de
 examinar la asignatura; llamaremos *objetivos* a cada una de las entregas que hay
 que hacer del mismo.
 
-Estos son los [objetivos de la asignatura](documentos/objetivos), cuyas
+Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas
 sesiones de clase se irán reflejando en
 [un repositorio de GitHub; este es el de 2021-22](https://github.com/JJ/IV-21-22).
 
@@ -90,7 +90,8 @@ Material adicional interesante para la asignatura, que se impartirá
 
 1. [Mini-tutorial de Markdown, por Justo Javier Galera
    (JotaGalera)](documentos/seminarios/tutorial).
-2. [Introducción ligera al lenguaje Ruby](documentos/seminarios/ruby).
+2. [Introducción ligera a git](preso/intro-git.html).
+3. [Introducción ligera al lenguaje Ruby](documentos/seminarios/ruby).
 
 ## Prácticas - Actividades académicas dirigidas en grupos divididos
 
@@ -99,7 +100,7 @@ proyecto a lo largo de la asignatura, con diferentes hitos cuyo
 contenido corresponde a los objetivos de aprendizaje cumplidos hasta
 ese momento. Los proyectos
 [consisten en crear la infraestructura virtual junto con una aplicación
-desarrollada según el modelo DevOps](documentos/proyecto/README.md). A
+desarrollada según el modelo DevOps](documentos/proyecto/README). A
 grosso modo, los objetivos se organizarán de la forma siguiente.
 
 1. [Objetivo cero: Uso básico de
@@ -138,7 +139,7 @@ consultar con los profesores la dirección y el horario.
 Los criterios de evaluación figuran en la
 [ficha de la asignatura](https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/curso_actual/cuarto/tecnologiasdelainformacion/gii_infraestructura_virtual_20172018_firmada)
 en la web del grado, y
-[se especifican en el repositorio de la clase](https://github.com/JJ/IV-21-22/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n).
+[se especifican en el repositorio de la clase](https://github.com/JJ/IV-21-22/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n.md).
 
 ## Convocatoria extraordinaria (AL FINAL DEL CUATRIMESTRE)
 
