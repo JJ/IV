@@ -23,7 +23,11 @@ my $subcommand = shift;
 
 die "No se reconoce el subcomando $subcommand" unless grep( /\b$subcommand\b/, @subcommands );
 
-my $repo = Git->repository (Directory => '.');
+my $repo;
+
+eval {
+  $repo = Git->repository;
+} or die "No estás en un repositorio aparentemente";
 
 my @args = @ARGV;
 die( print_usage ()) if  $args[0] eq '--help'  ;
