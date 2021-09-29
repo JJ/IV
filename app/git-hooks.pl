@@ -18,7 +18,7 @@ if ( $branch =~ /^master/ ) {
   my $changed = $git->command(qw/show --name-status/);
   my @changed_files = ($changed =~ /\s\w\s+(\S+)/g);
   my @mds = grep ( /\.md/, @changed_files );
-  my @presos = grep ( /preso/.+?\.html/, @changed_files );
+  my @presos = grep ( /preso\/.+?\.html/, @changed_files );
   #Now change branch and process
   #Inspired by http://stackoverflow.com/questions/15214762/how-can-i-sync-documentation-with-github-pages
   $git->command(qw/checkout gh-pages/);
