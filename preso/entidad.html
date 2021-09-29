@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+    <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>IV: Diseño de una aplicación</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/agil.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+	    <div class="reveal">
+		<div class="slides">
+		    <section><h2>IV</h2>
+                        <h1>Diseño de una aplicación</h1>
+                    </section>
+
+                    <section><h1><em>User journey</em></h1>
+                        <p>Un profesor necesita tener acceso a los datos de
+                        terminación de los hitos de todos los estudiantes desde
+                        cualquier dispositivo (móvil, portátil para clase,
+                        sobremesa) en tiempo real para tomar decisiones sobre
+                            tutorías u otras.</p>
+                        <aside class="notes">Lógica de negocio tampoco
+                        exagerada: calcular porcentajes, hacer ránkings, generar
+                        un gráfico, poco más. Pero se justifica que esté en la
+                        nube. Además, se puede conectar a un repositorio, con lo
+                            que sería imprescindible que fuera así.</aside>
+                    </section>
+
+                    <section>
+                        <ul>
+<li><strong>HU1</strong>: Como profesor, necesito validar todas las acciones
+                        sobre hitos, proyectos e issues
+    siguiendo el mismo modelo que GitHub.</li>
+<li><strong>HU2</strong>: Como profesor, necesito que cuando se cree un issue, se añadirá al hito correspondiente con estado “abierto”. Si no está asignado a ningún hito, se emitirá un mensaje de error.</li>
+<li><strong>HU3</strong>: Como profesor, dado que los datos de todos los hitos
+                        de todos los proyectos están almacenados, necesito saber
+                        el porcentaje de terminación de todos los hitos, respondiendo con una cantidad entre 0 y 100.</li>
+                        </ul>
+
+                        <aside class="notes">La HU1 es un poco ómnibus, pero
+                    ahorra tener que poner todas las tareas: los issues tienen
+                    que estar en un solo milestone, los milestones en un solo
+                            proyecto, y así sucesivamente.</aside>
+                    </section>
+
+                    <section>
+                        <section><h1>Diseño dirigido por dominio: DDD</h1>
+                            <h2 class="fragment">Identificar objetos
+                                valor, entidades y agregados</h2>
+                        </section>
+
+                        <section><h1>Y reflejarlo en el diseño de la
+                            jerarquía de clases o módulos</h1>
+                        </section>
+
+                        <section><h1>Diseñar la estructura de datos
+                            correctamente</h1></section>
+
+                        <section><h3>Issue <strong>HU1</strong> cada proyecto deberá tener una cadena única
+                            que lo identifique.</h3>
+
+                        <pre><code>class Project:
+
+    def __init__(self, name ):
+        self.name = name
+
+    def name(self):
+        return self.name
+                        </code></pre>
+                        <aside class="notes">Se deduce del "comportamiento
+                            normal" del proyecto. En este caso, posiblemente
+        también se podría usar una dataclass... Refinamiento al canto.</aside>
+                        </section>
+
+                        <section><h1>Refinar → Issue</h1>
+                            <h2 class="fragment">Como programador,
+                            quiero que el nombre de un proyecto sea
+                            inmutable, con el formato CamelCase y
+                                longitud < 255</h2>
+                        </section>
+
+                        <section><h1>Las HUs <strong>nunca</strong>
+                            tienen detalles de implementación</h1>
+                        </section>
+
+                    <section><h3>Como programador, dado HU1, cada issue debe
+                        tener un identificador, nombre de proyecto
+                            y un estado</h3>
+                        <pre><code data-line-numbers="1|2-8|3-5|10-11">enum IssueState &lt;Open Closed>;
+unit class Project::Issue;
+has IssueState $!state = Open;
+has Str $!project-name;
+has UInt $!issue-id;
+
+multi submethod BUILD( UInt :$!issue-id!,
+		       Str :$!project-name!) {}
+
+method close() { $!state = Closed }
+method reopen() { $!state = Open }
+                        </code></pre>
+                    </section>
+
+                    </section>
+
+                </div>
+	    </div>
+
+	    <script src="dist/reveal.js"></script>
+	    <script src="plugin/notes/notes.js"></script>
+	    <script src="plugin/markdown/markdown.js"></script>
+	    <script src="plugin/highlight/highlight.js"></script>
+	    <script>
+	     // More info about initialization & config:
+	     // - https://revealjs.com/initialization/
+	     // - https://revealjs.com/config/
+	     Reveal.initialize({
+		 hash: true,
+                 width: "95%",
+                 slideNumber: true,
+		 // Learn about plugins: https://revealjs.com/plugins/
+		 plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+	     });
+	    </script>
+	</body>
+</html>
