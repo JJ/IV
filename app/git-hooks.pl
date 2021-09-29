@@ -18,6 +18,7 @@ if ( $branch =~ /^master/ ) {
   my $changed = $git->command(qw/show --name-status/);
   my @changed_files = ($changed =~ /\s\w\s+(\S+)/g);
   my @mds = grep ( /\.md/, @changed_files );
+  my @presos = grep ( /preso/.+?\.html/, @changed_files );
   #Now change branch and process
   #Inspired by http://stackoverflow.com/questions/15214762/how-can-i-sync-documentation-with-github-pages
   $git->command(qw/checkout gh-pages/);
@@ -40,6 +41,13 @@ if ( $branch =~ /^master/ ) {
       $git->command('add', 'index.md' );
       unlink('README.md');
     }
+    $git->command('commit','-am', "Sync $f de master a gh-pages");
+    say "Procesando $f";
+  }
+
+  for my $f ( @presos ) {
+    $git->command( 'checkout', 'master', '--', $f );
+    $git->command('add', $f );
     $git->command('commit','-am', "Sync $f de master a gh-pages");
     say "Procesando $f";
   }
