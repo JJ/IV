@@ -107,7 +107,7 @@ grosso modo, los objetivos se organizarán de la forma siguiente.
    herramientas](documentos/proyecto/0.Repositorio).
 2. [Historias de usuario y
    planificación](documentos/proyecto/1.Infraestructura).
-3. [Definición de una entidad)(documentos/proyecto/2.Entidad).
+3. [Definición de una entidad](documentos/proyecto/2.Entidad).
 4. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/2.Tests).
 5. Técnicas de virtualización: [Contenedores](documentos/proyecto/3.Docker)
    para pruebas.
