@@ -194,14 +194,15 @@ usaban infraestructura virtual.
 
 <div class='ejercicios' markdown="1">
 
-Usando las tablas de precios de servicios
-de alojamiento en Internet "clásicos", es decir, que ofrezcan *Virtual Private
-Servers* o servidores físicos, y de proveedores de servicios en la nube,
-comparar el coste durante un año de un ordenador con un procesador estándar
-(escogerlo de forma que sea el mismo tipo de procesador en los dos vendedores)
-y con el resto de las características similares (tamaño de disco duro
-equivalente a transferencia de disco duro) en el caso de que la infraestructura
-comprada se usa solo el 1% o el 10% del tiempo. </div>
+Usando las tablas de precios de servicios de alojamiento en Internet "clásicos",
+es decir, que ofrezcan *Virtual Private Servers* o servidores físicos, y de
+proveedores de servicios en la nube, comparar el coste durante un año de un
+ordenador con un procesador estándar (escogerlo de forma que sea el mismo tipo
+de procesador en los dos vendedores) y con el resto de las características
+similares (tamaño de disco duro equivalente a transferencia de disco duro) en el
+caso de que la infraestructura comprada se usa solo el 1% o el 10% del tiempo.
+
+</div>
 
 ## Tipos de virtualización
 
@@ -360,7 +361,7 @@ correctamente sobre él.
 <div class='ejercicios' markdown="1">
 Instalar un hipervisor para gestionar máquinas virtuales, que más
 adelante se podrá usar en pruebas y ejercicios. Usar siempre que sea
-posible un hipervisor que sea software libre.
+posible un hipervisor que sea software libre, tal como `kvm/qemu`.
 </div>
 
 ## Niveles y tipos de infraestructura virtual
@@ -473,9 +474,9 @@ pero no tienen una comunidad tan activa como este.
 Antes de continuar (y, de hecho, antes de empezar) es imprescindible que
 aprendas y configures `git`. [Empieza por aquí](http://mini-git.github.io). En
 el temario se verá a continuación los ciclos de desarrollo modernos usando
-[desarrollo basado en pruebas](Desarrollo_basado_en_pruebas), *test-driven
+[desarrollo basado en pruebas](Desarrollo_basado_en_pruebas.md), *test-driven
 development*, TDD, pero se puede saltar directamente al tema dedicado a las
-[plataformas como servicio](PaaS) veremos como usarlos. Previamente habrá
+[plataformas como servicio](PaaS.md) veremos como usarlos. Previamente habrá
 que realizar la
 [práctica correspondiente a esta materia](../proyecto/0.Repositorio).
 
