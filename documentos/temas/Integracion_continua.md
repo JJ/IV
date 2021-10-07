@@ -93,8 +93,7 @@ Un sistema bastante popular de integración continua es
 [Jenkins](https://www.jenkins.io/). Para usar Jenkins puedes instalarlo en tu
 propio ordenador, en un servidor propio o en
 [algún servicio en la nube tal como CloudBees](https://CloudBees.com). Sin
-embargo, hay otros sistemas como [Travis](https://travis-ci.org) o
-[Shippable](https://www.shippable.com/) que podemos usar también desde la nube.
+embargo, hay otros sistemas como [Travis](https://travis-ci.org) que podemos usar también desde la nube.
 Hay otros muchos, como Circle-CI o AppVeyor, y todos ellos tienen servicios
 gratuitos para proyectos open source. Las propias plataformas de hosting de
 fuentes tienen su propio sistema de integración continua:
@@ -234,8 +233,7 @@ Por otro lado, los sistemas de CI/CD en ocasiones pueden producir
 hasta documentación generada a partir de los fuentes. En cualquiera de
 los casos, hay sistemas,
 como
-[este en Travis](https://docs.travis-ci.com/user/uploading-artifacts/),
-[este eh Shippable](http://docs.shippable.com/ci/push-artifacts/)
+[este en Travis](https://docs.travis-ci.com/user/uploading-artifacts/)
 o
 [este en AppVeyor](https://www.appveyor.com/docs/packaging-artifacts/),
 que permiten o bien almacenar (de forma temporal) esos artefactos o
