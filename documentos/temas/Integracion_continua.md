@@ -91,14 +91,14 @@ desarrollado.
 
 Un sistema bastante popular de integración continua es
 [Jenkins](https://www.jenkins.io/). Para usar Jenkins puedes instalarlo en tu
-propio ordenador, en un servidor propio o en
-[algún servicio en la nube tal como CloudBees](https://CloudBees.com). Sin
-embargo, hay otros sistemas como [Travis](https://travis-ci.org) que podemos usar también desde la nube.
-Hay otros muchos, como Circle-CI o AppVeyor, y todos ellos tienen servicios
+propio ordenador, en un servidor propio o en [algún servicio en la nube tal como
+CloudBees](https://CloudBees.com). Sin embargo, hay otros sistemas como
+[Travis](https://travis-ci.org) que podemos usar también desde la nube.  Hay
+otros muchos, como Circle-CI o AppVeyor, y todos ellos tienen servicios
 gratuitos para proyectos open source. Las propias plataformas de hosting de
-fuentes tienen su propio sistema de integración continua:
-[GitHub Actions](https://github.com/features/actions) o
-[GitLab pipelines](https://docs.gitlab.com/ee/ci/pipelines/), por ejemplo.
+fuentes tienen su propio sistema de integración continua: [GitHub
+Actions](https://github.com/features/actions) o [GitLab
+pipelines](https://docs.gitlab.com/ee/ci/pipelines/), por ejemplo.
 
 Los sitios de alojamiento de git como GitLab o GitHub tienen también
 un sistema de acciones o *ganchos* que se ejecutan cada vez que sucede
@@ -138,8 +138,8 @@ el fichero de configuración tal como este para Travis.
 ```yaml
 language: node_js
 node_js:
-  - "10"
-  - "11"
+  - "12"
+  - "14"
 before_install:
   - npm install -g mocha
 install:
