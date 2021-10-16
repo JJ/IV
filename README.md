@@ -1,7 +1,5 @@
 # Material docente para la asignatura Infraestructura Virtual
 
-[![Build Status](https://travis-ci.com/github/JJ/IV.svg?branch=master)](https://travis-ci.com/github/JJ/IV)
-|
 [![Checks README](https://github.com/JJ/Test-Text/workflows/Checks%20README/badge.svg)](https://github.com/JJ/IV/actions?query=workflow%3A%22Comprueba+README%22)
 |
 [![Lint Markdown](https://github.com/JJ/IV/workflows/Lint%20Markdown/badge.svg)](https://github.com/JJ/IV/actions?query=workflow%3A%22Lint+Markdown%22)
@@ -91,9 +89,7 @@ Material adicional interesante para la asignatura, que se impartirá
 ## Prácticas - Actividades académicas dirigidas en grupos divididos
 
 La parte práctica de esta asignatura consiste en la realización de un
-proyecto a lo largo de la asignatura, con diferentes hitos cuyo
-contenido corresponde a los objetivos de aprendizaje cumplidos hasta
-ese momento. Los proyectos
+proyecto a lo largo de la asignatura, cubriendo diferentes objetivos de aprendizaje. Los proyectos
 [consisten en crear la infraestructura virtual junto con una aplicación
 desarrollada según el modelo DevOps](documentos/proyecto/README.md). A
 grosso modo, los objetivos se organizarán de la forma siguiente.
@@ -103,13 +99,14 @@ grosso modo, los objetivos se organizarán de la forma siguiente.
 2. [Historias de usuario y
    planificación](documentos/proyecto/1.Infraestructura.md).
 3. [Definición de una entidad](documentos/proyecto/2.Entidad.md).
-4. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/2.Tests.md).
-5. Técnicas de virtualización: [Contenedores](documentos/proyecto/3.Docker.md)
+4. [Automatización de las tareas](documentos/proyecto/3.Automatizar.md).
+5. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/4.Tests.md).
+6. Técnicas de virtualización: [Contenedores](documentos/proyecto/3.Docker.md)
    para pruebas.
-6. [Integración continua](documentos/proyecto/4.CI.md)
-7. Despliegues [serverless](documentos/proyecto/5.Serverless.md)
-8. [Creando microservicios](documentos/proyecto/6.Microservicio.md).
-9. Desplegando a la nube:
+7. [Integración continua](documentos/proyecto/4.CI.md)
+8. Despliegues [serverless](documentos/proyecto/5.Serverless.md)
+9. [Creando microservicios](documentos/proyecto/6.Microservicio.md).
+10. Desplegando a la nube:
    [Platform as a Service](documentos/proyecto/7.PaaS.md).
 
 Estas prácticas se han hecho otros años:
