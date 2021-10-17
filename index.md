@@ -110,7 +110,7 @@ organizarán de la forma siguiente.
 6. Técnicas de virtualización: [Contenedores](documentos/proyecto/5.Docker)
    para pruebas.
 7. [Integración continua](documentos/proyecto/6.CI)
-8. Despliegues [serverless](documentos/proyecto/5.Serverless)
+8. [Servicios esenciales](documentos/proyecto/7.Servicios)
 9. [Creando microservicios](documentos/proyecto/6.Microservicio).
 10. Desplegando a la nube:
    [Platform as a Service](documentos/proyecto/7.PaaS).
@@ -120,6 +120,7 @@ Estas prácticas se han hecho otros años:
 1. [Provisionamiento de máquinas
    virtuales](documentos/proyecto/6.Provision).
 2. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS).
+3. Despliegues [serverless](documentos/proyecto/5.Serverless)
 
 ## Tutorías virtuales
 
