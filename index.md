@@ -130,7 +130,7 @@ casos: `jjmerelo`); para cualquier videotutoría se pide consultar con cierta
 antelación.
 
 Se creará también una sala específica en Jitsi para las tutorías,
-consultar con los profesores la dirección y el horario.
+consultar con el profesor la dirección.
 
 ## Criterios de evaluación
 
@@ -143,5 +143,5 @@ en la web del grado, y
 
 Si no se ha superado la asignatura en la convocatoria ordinaria, en la
 extraordinaria habrá que entregar los diferentes objetivos del proyecto no
-entregados (o los que se quieran entregar, si se quiere subir nota), con los
-plazos que se anunciarán cuando se pongan las notas de la convocatoria ordinaria.
+entregados (o los que se quieran entregar, si se quiere subir nota), como máximo
+el día que se haya anunciado oficialmente para el examen.
