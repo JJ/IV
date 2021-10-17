@@ -107,9 +107,9 @@ organizarán de la forma siguiente.
 3. [Definición de una entidad](documentos/proyecto/2.Entidad).
 4. [Automatización de las tareas](documentos/proyecto/3.Automatizar).
 5. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/4.Tests).
-6. Técnicas de virtualización: [Contenedores](documentos/proyecto/3.Docker)
+6. Técnicas de virtualización: [Contenedores](documentos/proyecto/5.Docker)
    para pruebas.
-7. [Integración continua](documentos/proyecto/4.CI)
+7. [Integración continua](documentos/proyecto/6.CI)
 8. Despliegues [serverless](documentos/proyecto/5.Serverless)
 9. [Creando microservicios](documentos/proyecto/6.Microservicio).
 10. Desplegando a la nube:
