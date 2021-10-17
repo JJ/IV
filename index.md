@@ -87,7 +87,7 @@ Material adicional interesante para la asignatura, que se impartirá
 (en todo caso) fuera del horario lectivo.
 
 1. [Mini-tutorial de Markdown, por Justo Javier Galera
-   (JotaGalera)](documentos/seminarios/tutorial).
+   (JotaGalera)](documentos/seminarios/MarkDown_tutorial).
 2. [Introducción ligera a git](preso/intro-git.html).
 3. [Introducción ligera al lenguaje Ruby](documentos/seminarios/ruby).
 
