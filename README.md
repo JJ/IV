@@ -88,11 +88,12 @@ Material adicional interesante para la asignatura, que se impartirá
 
 ## Prácticas - Actividades académicas dirigidas en grupos divididos
 
-La parte práctica de esta asignatura consiste en la realización de un
-proyecto a lo largo de la asignatura, cubriendo diferentes objetivos de aprendizaje. Los proyectos
-[consisten en crear la infraestructura virtual junto con una aplicación
-desarrollada según el modelo DevOps](documentos/proyecto/README.md). A
-grosso modo, los objetivos se organizarán de la forma siguiente.
+La parte práctica de esta asignatura consiste en la realización de un proyecto a
+lo largo de la asignatura, cubriendo diferentes objetivos de aprendizaje. Los
+proyectos [consisten en crear la infraestructura virtual junto con una
+aplicación desarrollada según el modelo
+DevOps](documentos/proyecto/README.md). A grosso modo, los objetivos se
+organizarán de la forma siguiente.
 
 1. [Objetivo cero: Uso básico de
    herramientas](documentos/proyecto/0.Repositorio.md).
