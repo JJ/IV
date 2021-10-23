@@ -5,8 +5,6 @@ layout: index
 ---
 # Material docente para la asignatura Infraestructura Virtual
 
-[![Build Status](https://travis-ci.com/github/JJ/IV.svg?branch=master)](https://travis-ci.com/github/JJ/IV)
-|
 [![Checks README](https://github.com/JJ/Test-Text/workflows/Checks%20README/badge.svg)](https://github.com/JJ/IV/actions?query=workflow%3A%22Comprueba+README%22)
 |
 [![Lint Markdown](https://github.com/JJ/IV/workflows/Lint%20Markdown/badge.svg)](https://github.com/JJ/IV/actions?query=workflow%3A%22Lint+Markdown%22)
@@ -89,32 +87,32 @@ Material adicional interesante para la asignatura, que se impartirá
 (en todo caso) fuera del horario lectivo.
 
 1. [Mini-tutorial de Markdown, por Justo Javier Galera
-   (JotaGalera)](documentos/seminarios/tutorial).
+   (JotaGalera)](documentos/seminarios/MarkDown_tutorial).
 2. [Introducción ligera a git](preso/intro-git.html).
 3. [Introducción ligera al lenguaje Ruby](documentos/seminarios/ruby).
 
 ## Prácticas - Actividades académicas dirigidas en grupos divididos
 
-La parte práctica de esta asignatura consiste en la realización de un
-proyecto a lo largo de la asignatura, con diferentes hitos cuyo
-contenido corresponde a los objetivos de aprendizaje cumplidos hasta
-ese momento. Los proyectos
-[consisten en crear la infraestructura virtual junto con una aplicación
-desarrollada según el modelo DevOps](documentos/proyecto/README). A
-grosso modo, los objetivos se organizarán de la forma siguiente.
+La parte práctica de esta asignatura consiste en la realización de un proyecto a
+lo largo de la asignatura, cubriendo diferentes objetivos de aprendizaje. Los
+proyectos [consisten en crear la infraestructura virtual junto con una
+aplicación desarrollada según el modelo
+DevOps](documentos/proyecto/README). A grosso modo, los objetivos se
+organizarán de la forma siguiente.
 
 1. [Objetivo cero: Uso básico de
    herramientas](documentos/proyecto/0.Repositorio).
 2. [Historias de usuario y
    planificación](documentos/proyecto/1.Infraestructura).
 3. [Definición de una entidad](documentos/proyecto/2.Entidad).
-4. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/2.Tests).
-5. Técnicas de virtualización: [Contenedores](documentos/proyecto/3.Docker)
+4. [Automatización de las tareas](documentos/proyecto/3.Automatizar).
+5. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/4.Tests).
+6. Técnicas de virtualización: [Contenedores](documentos/proyecto/5.Docker)
    para pruebas.
-6. [Integración continua](documentos/proyecto/4.CI)
-7. Despliegues [serverless](documentos/proyecto/5.Serverless)
-8. [Creando microservicios](documentos/proyecto/6.Microservicio).
-9. Desplegando a la nube:
+7. [Integración continua](documentos/proyecto/6.CI)
+8. [Servicios esenciales](documentos/proyecto/7.Servicios)
+9. [Creando microservicios](documentos/proyecto/6.Microservicio).
+10. Desplegando a la nube:
    [Platform as a Service](documentos/proyecto/7.PaaS).
 
 Estas prácticas se han hecho otros años:
@@ -122,6 +120,7 @@ Estas prácticas se han hecho otros años:
 1. [Provisionamiento de máquinas
    virtuales](documentos/proyecto/6.Provision).
 2. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS).
+3. Despliegues [serverless](documentos/proyecto/5.Serverless)
 
 ## Tutorías virtuales
 
@@ -132,7 +131,7 @@ casos: `jjmerelo`); para cualquier videotutoría se pide consultar con cierta
 antelación.
 
 Se creará también una sala específica en Jitsi para las tutorías,
-consultar con los profesores la dirección y el horario.
+consultar con el profesor la dirección.
 
 ## Criterios de evaluación
 
@@ -145,5 +144,5 @@ en la web del grado, y
 
 Si no se ha superado la asignatura en la convocatoria ordinaria, en la
 extraordinaria habrá que entregar los diferentes objetivos del proyecto no
-entregados (o los que se quieran entregar, si se quiere subir nota), con los
-plazos que se anunciarán cuando se pongan las notas de la convocatoria ordinaria.
+entregados (o los que se quieran entregar, si se quiere subir nota), como máximo
+el día que se haya anunciado oficialmente para el examen.
