@@ -33,6 +33,11 @@
                             que el equipo pueda sacar adelante</aside>
                     </section>
 
+                    <section><h1>Los issues plantean problemas</h1>
+                        <h2 class="fragment">Y el código va acompañado de tests
+                            que muestran que se ha resuelto el problema</h2>
+                    </section>
+
                     <section><h1>Los tests se ejecutan desde
                         <em>frameworks</em> de test</h1>
                         <aside class="notes">En muchos casos son
@@ -53,7 +58,11 @@
                             del framework</aside>
                     </section>
 
-                    <section><h1>Tests en Elixir (con
+                    <section><h1><em>Problema</em>: todos los issues están
+                        abiertos cuando se crean</h1>
+                    </section>
+
+                    <section><h1>Solución: Tests en Elixir (con
                         <code>mix</code>)</h1>
                         <pre><code data-line-numbers="1,2|5-8|10-12">defmodule IssueTest do
   use ExUnit.Case
@@ -74,7 +83,8 @@ end</code></pre>
                     <section><h1><em>Arrange</em>, <em>act</em>,
                         <em>assert</em></h1>
                         <aside class="notes">Corresponde a cada uno de los
-                            tests, a lo que se va a hacer en cada paso.</aside>
+                            tests, a lo que se va a hacer en cada paso; también
+                        al test en general</aside>
                     </section>
 
                     <section><h1>TypeScript con <code>jest</code></h1>
