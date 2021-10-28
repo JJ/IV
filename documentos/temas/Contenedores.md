@@ -1,4 +1,4 @@
-# Virtualización *ligera* usando contenedores
+# Contenedores y cómo usarlos
 
 <!--@
 prev: Desarrollo_basado_en_pruebas
@@ -7,8 +7,7 @@ next: Integracion_continua
 
 <div class="objetivos" markdown="1">
 
-Objetivos
---
+## Objetivos
 
 ### Cubre los siguientes objetivos de la asignatura
 
@@ -61,8 +60,10 @@ desarrollo, prueba o despliegue de aplicaciones.
 > específicamente como soporte para poder ejecutar Docker o sistemas
 > similares de contenedores.
 
-Por lo pronto,
-[instalar `docker` es fácil, pero no directo](https://www.docker.com/). Por
+## Instalación de un gestor de contenedores
+
+[Instalar `docker`](https://www.docker.com/) es sencillo desde que se
+publicó la versión 1.0, especialmente en distribuciones de Linux. Por
 ejemplo, para
 [Ubuntu hay que dar de alta una serie de repositorios](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
 
@@ -153,12 +154,40 @@ ello, al modo de Vagrant (lo que veremos más adelante).
 Podemos ejecutar, por ejemplo, un listado de los directorios
 
 ```shell
-docker run ubuntu ls
+docker run --rm alpine ls
 ```
 
-Tras el sudo, hace falta docker; `run` es el comando de docker que
-estamos usando, `ubuntu` es el id de la máquina y finalmente `ls`el
-comando que estamos ejecutando.
+> Por favor, obsérvese que no estamos usando `sudo` para usar el cliente de
+> Docker.
+
+`run` es el comando de
+docker que estamos usando, `--rm` hace que la máquina se borre una vez
+ejecutado el comando. `alpine` es el nombre de la máquina, el mismo
+que le hayamos dado antes cuando hemos hecho pull y finalmente `ls`,
+el comando que estamos ejecutando. Este comando arranca el contenedor,
+lo ejecuta y a continuación sale de él. Esta es una de las ventajas de
+este tipo de virtualización: es tan rápido arrancar que se puede usar
+para un simple comando y dejar de usarse a continuación, y de hecho
+hasta se puede borrar el contenedor correspondiente.
+
+Esta imagen de Alpine no contiene bash, pero si el shell básico
+llamado `ash` y que está instalado en `sh`,
+por lo que podremos *meternos* en la misma ejecutando
+
+```shell
+docker run -it alpine sh
+```
+
+Dentro de ella podemos trabajar como un consola cualquiera, pero
+teniendo acceso solo a los recursos propios.
+
+### Trabajando con Alpine Linux
+
+Alpine es una instalación peculiar y más bien mínima, pero es muy
+interesante para usarla como base para nuestros propios contenedores,
+por su minimalismo. Conviene
+[consultar el wiki](https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management)
+para ver las tareas que se pueden realizar en ella.
 
 La máquina instalada la podemos usar con el nombre de la imagen con
 que la hayamos descargado, pero cada
@@ -168,7 +197,7 @@ táper tiene un id único que se puede ver con
 docker ps -a=false
 ```
 
-Obteniendo algo así:
+siempre que se esté ejecutando, obteniendo algo así:
 
 ```plain
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
@@ -182,7 +211,7 @@ referirnos a ella en otros comandos. También se puede usar
 docker images
 ```
 
-Que devolverá algo así:
+Que, una vez más, devolverá algo así:
 
 ```plain
 REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
@@ -201,7 +230,10 @@ de la imagen:
 docker run b750fe79269d du
 ```
 
-En vez de ejecutar las cosas una a una podemos directamente
+## Cómo trabajar imágenes de contenedores interactivamente
+
+En vez de ejecutar las cosas una a una podemos
+directamente
 [ejecutar un shell](https://docs.docker.com/engine/getstarted/step_two/):
 
 ```shell
