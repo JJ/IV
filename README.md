@@ -105,18 +105,18 @@ organizarán de la forma siguiente.
 5. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/4.Tests.md).
 6. Técnicas de virtualización: [Contenedores](documentos/proyecto/5.Docker.md)
    para pruebas.
-7. [Integración continua](documentos/proyecto/6.CI.md)
-8. [Servicios esenciales](documentos/proyecto/7.Servicios.md)
-9. [Creando microservicios](documentos/proyecto/6.Microservicio.md).
-10. Desplegando a la nube:
-   [Platform as a Service](documentos/proyecto/7.PaaS.md).
+7. [Integración continua](documentos/proyecto/6.CI.md).
+8. [Servicios esenciales](documentos/proyecto/7.Servicios.md).
 
 Estas prácticas se han hecho otros años:
 
 1. [Provisionamiento de máquinas
    virtuales](documentos/proyecto/6.Provision.md).
 2. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS.md).
-3. Despliegues [serverless](documentos/proyecto/5.Serverless.md)
+3. Despliegues [serverless](documentos/proyecto/5.Serverless.md).
+4. [Creando microservicios](documentos/proyecto/6.Microservicio.md).
+5. Desplegando a la nube:
+   [Platform as a Service](documentos/proyecto/7.PaaS.md).
 
 ## Tutorías virtuales
 
