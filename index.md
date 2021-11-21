@@ -27,7 +27,7 @@ Se usará [GitHub](https://github.com) para el proyecto, la forma principal de
 examinar la asignatura; llamaremos *objetivos* a cada una de las entregas que hay
 que hacer del mismo.
 
-Estos son los [objetivos de la asignatura](documentos/objetivos), cuyas
+Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas
 sesiones de clase se irán reflejando en
 [un repositorio de GitHub; este es el de 2021-22](https://github.com/JJ/IV-21-22).
 
@@ -98,7 +98,7 @@ lo largo de la misma, cubriendo diferentes objetivos de aprendizaje a la vez que
 se realizan diferentes productos mínimamente viables de ese proyecto. Los
 proyectos [consisten en crear la infraestructura virtual junto con una
 aplicación desarrollada según el modelo
-DevOps](documentos/proyecto/README.md). A grosso modo, los objetivos se
+DevOps](documentos/proyecto/README). A grosso modo, los objetivos se
 organizarán de la forma siguiente.
 
 1. [Objetivo cero: Uso básico de
@@ -118,7 +118,7 @@ Estas prácticas se han hecho otros años:
 1. [Provisionamiento de máquinas
    virtuales](documentos/proyecto/6.Provision).
 2. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS).
-3. Despliegues [serverless](documentos/proyecto/5.Serverless).
+3. Sistemas [serverless](documentos/proyecto/5.Serverless).
 4. [Creando microservicios](documentos/proyecto/6.Microservicio).
 5. Desplegando a la nube:
    [Platform as a Service](documentos/proyecto/7.PaaS).
@@ -139,7 +139,7 @@ consultar con el profesor la dirección.
 Los criterios de evaluación figuran en la
 [ficha de la asignatura](https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/curso_actual/cuarto/tecnologiasdelainformacion/gii_infraestructura_virtual_20172018_firmada)
 en la web del grado, y
-[se especifican en el repositorio de la clase](https://github.com/JJ/IV-21-22/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n).
+[se especifican en el repositorio de la clase](https://github.com/JJ/IV-21-22/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n.md).
 
 ## Convocatoria extraordinaria (AL FINAL DEL CUATRIMESTRE)
 
