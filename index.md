@@ -112,6 +112,7 @@ organizarán de la forma siguiente.
    para pruebas.
 7. [Integración continua](documentos/proyecto/6.CI).
 8. [Servicios esenciales](documentos/proyecto/7.Servicios).
+9. [REST](documentos/proyecto/8.REST).
 
 Estas prácticas se han hecho otros años:
 
