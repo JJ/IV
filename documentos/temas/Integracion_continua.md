@@ -99,15 +99,14 @@ desarrollado.
 
 Un sistema bastante popular de integración continua es
 [Jenkins](https://www.jenkins.io/). Para usar Jenkins puedes instalarlo en tu
-propio ordenador, en un servidor propio o en
-[algún servicio en la nube tal como CloudBees](https://CloudBees.com). Sin
-embargo, hay otros sistemas como [Travis](https://travis-ci.org) o
-[Shippable](https://www.shippable.com/) que podemos usar también desde la nube.
-Hay otros muchos, como Circle-CI o AppVeyor, y todos ellos tienen servicios
+propio ordenador, en un servidor propio o en [algún servicio en la nube tal como
+CloudBees](https://CloudBees.com). Sin embargo, hay otros sistemas como
+[Travis](https://travis-ci.org) que podemos usar también desde la nube.  Hay
+otros muchos, como Circle-CI o AppVeyor, y todos ellos tienen servicios
 gratuitos para proyectos open source. Las propias plataformas de hosting de
-fuentes tienen su propio sistema de integración continua:
-[GitHub Actions](https://github.com/features/actions) o
-[GitLab pipelines](https://docs.gitlab.com/ee/ci/pipelines/), por ejemplo.
+fuentes tienen su propio sistema de integración continua: [GitHub
+Actions](https://github.com/features/actions) o [GitLab
+pipelines](https://docs.gitlab.com/ee/ci/pipelines/), por ejemplo.
 
 Los sitios de alojamiento de git como GitLab o GitHub tienen también
 un sistema de acciones o *ganchos* que se ejecutan cada vez que sucede
@@ -147,8 +146,8 @@ el fichero de configuración tal como este para Travis.
 ```yaml
 language: node_js
 node_js:
-  - "10"
-  - "11"
+  - "12"
+  - "14"
 before_install:
   - npm install -g mocha
 install:
@@ -242,8 +241,7 @@ Por otro lado, los sistemas de CI/CD en ocasiones pueden producir
 hasta documentación generada a partir de los fuentes. En cualquiera de
 los casos, hay sistemas,
 como
-[este en Travis](https://docs.travis-ci.com/user/uploading-artifacts/),
-[este eh Shippable](http://docs.shippable.com/ci/push-artifacts/)
+[este en Travis](https://docs.travis-ci.com/user/uploading-artifacts/)
 o
 [este en AppVeyor](https://www.appveyor.com/docs/packaging-artifacts/),
 que permiten o bien almacenar (de forma temporal) esos artefactos o
@@ -308,7 +306,7 @@ diferentes sistemas de integración continua que tengas configurados.
 ## A dónde ir desde aquí
 
 Una vez visto todo lo necesario para desplegar una aplicación, se puede pasar a
-estudiar los [*PaaS*, plataformas como servicio](PaaS), donde se pueden
+estudiar los [*PaaS*, plataformas como servicio](PaaS.md), donde se pueden
 desplegar aplicaciones para prototipo o para producción de forma relativamente
 simple.
 

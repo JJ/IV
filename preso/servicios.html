@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+    <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>IV/CC: Servicios: logs y configuración </title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/iv.css">
+        <link rel="stylesheet" href="dist/extra.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+    </head>
+    <body>
+	<div class="reveal">
+	    <div class="slides">
+		<section
+	            data-background="https://live.staticflickr.com/65535/51382549095_fcba3966cc_o_d.jpg"><h1>Servicios
+	para aplicaciones en desarrollo
+	ágil</h1>
+                    <h3><a href="https://github.com/JJ"><code>JJ</code>
+		        en GitHub</a>, <a href="https://twitter.com/jjmerelo"><code>@jjmerelo</code></a></h3>
+                </section>
+
+                <section><h1>Hay servicios imprescindibles en una
+                    aplicación</h1>
+                </section>
+
+                <section>
+                    <section><h1>💘 logs</h1>
+                        <aside class="notes">Los logs son
+                            imprescindibles en todo el ciclo de vida de
+                            las aplicaciones, pero especialmente cuando se
+                            están desarrollando. Saber qué está haciendo
+                            la aplicación y sobre todo cuando falla es
+                            imprescindible. Es algo que se puede añadir
+                            desde el principio.</aside>
+                    </section>
+
+                    <section><h1>Arquitectura κ</h1>
+                    </section>
+
+                    <section><h1>Librerías básicas o externas</h1>
+                    </section>
+
+                    <section><h1>Servicios externos (logz.io) o
+                        libres (logstash)</h1>
+                    </section>
+
+                    <section><pre><code data-line-numbers="1|18">use simple_logger::SimpleLogger;
+
+#[derive(Debug)]
+pub enum IssueState {
+    Open,
+    Closed,
+}
+
+#[derive(Debug)]
+pub struct Issue {
+    state: IssueState,
+    project_name: String,
+    issue_id: u64,
+}
+
+pub fn issue_factory( project_name: String,
+                      issue_id: u64) -> Issue {
+    log::debug!( "Creating closed issue for project {} with id {}", project_name, issue_id );
+    return Issue { state: IssueState::Closed,
+                   project_name: project_name,
+                   issue_id: issue_id }
+}</code></pre>
+                        <aside class="notes">Primer código del
+                            curso. Yupiii! ¡Y en Rust!</aside>
+                    </section>
+
+                    <section>
+                        <h1>Usando los logs siempre</h1>
+                        <pre><code data-line-numbers="2|6">fn main() {
+    SimpleLogger::new().init().unwrap();
+    let this_issue = issue_factory(String::from("CoolProject"), 1 );
+    let mut that_issue = issue_factory( String::from("CoolProject"), this_issue.issue_id + 1 );
+    that_issue.state = IssueState::Open; // Avoid warning
+    log::debug!("Changed state to Open");
+}</code></pre>
+                    </section>
+                </section>
+
+                <section><h1>Configuración remota</h1>
+                    <h2 class="fragment">Parte de los 12
+                        pasos</h2>
+                    <h2 class="fragment">Configuración en el
+                        entorno</h2>
+
+                    <aside class="notes">El manifiesto de los 12
+                        pasos es una de las metodologías que conforman la
+                        constelación ágil; lo veremos más adelante.</aside>
+                </section>
+
+                <section><h1>Hay que tener clase</h1>
+                    <pre><code data-line-numbers="1,2|9-11|12-16">import etcd3
+from dotenv import load_dotenv
+import os
+import sys
+
+class Config:
+    def __init__(self):
+        PORT_VAR_NAME= 'hugitos:PORT'
+        try:
+            etcd = etcd3.client()
+            self.port = int(etcd.get(PORT_VAR_NAME)[0].decode("utf8") )
+        except:
+            load_dotenv()
+            if (os.getenv('PORT')):
+                self.port = os.getenv('PORT')
+            else:
+                self.port = 3000
+                    </code></pre>
+
+                </section>
+
+                <section><h1>Las clases de configuración la encapsulan</h1>
+                    <h2 class="fragment">Y pueden <em>inyectarse</em> como
+                        dependencia</h2>
+                </section>
+            </div>
+	</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+			    hash: true,
+                            width: '98%',
+                            controls: true,
+                            progress: true,
+                            history: true,
+			    plugins: [ RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
