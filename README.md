@@ -96,18 +96,18 @@ aplicación desarrollada según el modelo
 DevOps](documentos/proyecto/README.md). A grosso modo, los objetivos se
 organizarán de la forma siguiente.
 
-0. [Objetivo cero: Uso básico de
+1. [Objetivo cero: Uso básico de
    herramientas](documentos/proyecto/0.Repositorio.md).
-1. [Historias de usuario y
+2. [Historias de usuario y
    planificación](documentos/proyecto/1.Infraestructura.md).
-2. [Definición de una entidad](documentos/proyecto/2.Entidad.md).
-3. [Automatización de las tareas](documentos/proyecto/3.Automatizar.md).
-4. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/4.Tests.md).
-5. Técnicas de virtualización: [Contenedores](documentos/proyecto/5.Docker.md)
+3. [Definición de una entidad](documentos/proyecto/2.Entidad.md).
+4. [Automatización de las tareas](documentos/proyecto/3.Automatizar.md).
+5. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/4.Tests.md).
+6. Técnicas de virtualización: [Contenedores](documentos/proyecto/5.Docker.md)
    para pruebas.
-6. [Integración continua](documentos/proyecto/6.CI.md).
-7. [Servicios esenciales](documentos/proyecto/7.Servicios.md).
-8. [REST](documentos/proyecto/8.REST.md).
+7. [Integración continua](documentos/proyecto/6.CI.md).
+8. [Servicios esenciales](documentos/proyecto/7.Servicios.md).
+9. [REST](documentos/proyecto/8.REST.md).
 
 Estas prácticas se han hecho otros años:
 
