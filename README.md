@@ -14,7 +14,7 @@ La asignatura se imparte en el curso 21-22 en el aula 1.8 los jueves de 8:30 a
 14:30 (grupos divididos). Se recuerda a los estudiantes que en todas las clases
 será necesario llevar el portátil, ya que son en realidad clases prácticas.
 
-> Las clases de años anteriores están grabadas, y puedes acceder a ellas [en
+> Las clases de cursos anteriores están grabadas, y puedes acceder a ellas [en
 > esta lista de reproducción de
 > YouTube](https://www.youtube.com/playlist?list=PLsYEfmwhBQdKIwbMDIwK64pt3Fs03BDz9).
 
@@ -129,9 +129,6 @@ profesor está disponible por Telegram y Google Meet (en todos los
 casos: `jjmerelo`); para cualquier videotutoría se pide consultar con cierta
 antelación.
 
-Se creará también una sala específica en Jitsi para las tutorías,
-consultar con el profesor la dirección.
-
 ## Criterios de evaluación
 
 Los criterios de evaluación figuran en la
@@ -143,5 +140,5 @@ en la web del grado, y
 
 Si no se ha superado la asignatura en la convocatoria ordinaria, en la
 extraordinaria habrá que entregar los diferentes objetivos del proyecto no
-entregados (o los que se quieran entregar, si se quiere subir nota), como máximo
+entregados, con fecha tope
 el día que se haya anunciado oficialmente para el examen.
