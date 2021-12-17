@@ -50,7 +50,7 @@ disponibles con una licencia libre. Los fuentes de los mismos están en
 [GitHub](https://github.com/JJ/IV).
 
 La temporización de la asignatura y los objetivos de cada sesión figuran en la
-[bitácora](https://github.com/JJ/IV-20-21/blob/master/sesiones/README.md) de
+[bitácora](https://github.com/JJ/IV-21-22/blob/master/sesiones/README.md) de
 clase. Enlazaremos también en ese fichero las grabaciones que se hagan de las
 sesiones en vivo.
 
