@@ -108,7 +108,7 @@ organizarán de la forma siguiente.
 7. [Integración continua](documentos/proyecto/6.CI.md).
 8. [Servicios esenciales](documentos/proyecto/7.Servicios.md).
 9. [REST](documentos/proyecto/8.REST.md).
-10. [Implementación de REST](documentos/proyecto/9.Microservicios.md).
+10. [Implementación de REST](documentos/proyecto/9.Microservicio.md).
 11. [PaaS](documentos/proyecto/10.PaaS.md).
 
 Estas prácticas se han hecho otros años:
