@@ -14,7 +14,7 @@ es una asignatura obligatoria de la rama "Tecnologías de la Información" del
 primer cuatrimestre del cuarto curso del Grado de Ingeniería Informática y
 optativa en otras ramas y en el Doble Grado de Informática y Matemáticas.
 
-La asignatura se imparte en el curso 21-22 en el aula 1.8 los jueves de 8:30 a
+La asignatura en el curso 21-22 se ha impartido en el aula 1.8 los jueves de 8:30 a
 10:30 (grupo conjunto) y en la -1.2 los viernes de 8:30 a 10:30 y de 12:30 a
 14:30 (grupos divididos). Se recuerda a los estudiantes que en todas las clases
 será necesario llevar el portátil, ya que son en realidad clases prácticas.
@@ -27,7 +27,7 @@ Se usará [GitHub](https://github.com) para el proyecto, la forma principal de
 examinar la asignatura; llamaremos *objetivos* a cada una de las entregas que hay
 que hacer del mismo.
 
-Estos son los [objetivos de la asignatura](documentos/objetivos), cuyas
+Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas
 sesiones de clase se irán reflejando en
 [un repositorio de GitHub; este es el de 2021-22](https://github.com/JJ/IV-21-22).
 
@@ -98,7 +98,7 @@ lo largo de la misma, cubriendo diferentes objetivos de aprendizaje a la vez que
 se realizan diferentes productos mínimamente viables de ese proyecto. Los
 proyectos [consisten en crear la infraestructura virtual junto con una
 aplicación desarrollada según el modelo
-DevOps](documentos/proyecto/README.md). A grosso modo, los objetivos se
+DevOps](documentos/proyecto/README). A grosso modo, los objetivos se
 organizarán de la forma siguiente.
 
 1. [Objetivo cero: Uso básico de
@@ -113,7 +113,7 @@ organizarán de la forma siguiente.
 7. [Integración continua](documentos/proyecto/6.CI).
 8. [Servicios esenciales](documentos/proyecto/7.Servicios).
 9. [REST](documentos/proyecto/8.REST).
-10. [Implementación de REST](documentos/proyecto/9.Microservicios).
+10. [Implementación de REST](documentos/proyecto/9.Microservicio).
 11. [PaaS](documentos/proyecto/10.PaaS).
 
 Estas prácticas se han hecho otros años:
@@ -139,7 +139,7 @@ antelación.
 Los criterios de evaluación figuran en la
 [ficha de la asignatura](https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/curso_actual/cuarto/tecnologiasdelainformacion/gii_infraestructura_virtual_20172018_firmada)
 en la web del grado, y
-[se especifican en el repositorio de la clase](https://github.com/JJ/IV-21-22/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n).
+[se especifican en el repositorio de la clase](https://github.com/JJ/IV-21-22/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n.md).
 
 ## Convocatoria extraordinaria (AL FINAL DEL CUATRIMESTRE)
 
