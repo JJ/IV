@@ -14,10 +14,11 @@ es una asignatura obligatoria de la rama "Tecnologías de la Información" del
 primer cuatrimestre del cuarto curso del Grado de Ingeniería Informática y
 optativa en otras ramas y en el Doble Grado de Informática y Matemáticas.
 
-La asignatura en el curso 21-22 se ha impartido en el aula 1.8 los jueves de 8:30 a
-10:30 (grupo conjunto) y en la -1.2 los viernes de 8:30 a 10:30 y de 12:30 a
-14:30 (grupos divididos). Se recuerda a los estudiantes que en todas las clases
-será necesario llevar el portátil, ya que son en realidad clases prácticas.
+La asignatura en el curso 21-22 se ha impartido en el aula 1.8 los jueves de
+8:30 a 10:30 (grupo conjunto) y en la -1.2 los viernes de 8:30 a 10:30 y de
+12:30 a 14:30 (grupos divididos). Se recuerda a los estudiantes que en todas las
+clases será necesario llevar el portátil, ya que son en realidad clases
+prácticas.
 
 > Las clases de cursos anteriores están grabadas, y puedes acceder a ellas [en
 > esta lista de reproducción de
