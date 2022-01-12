@@ -14,12 +14,13 @@ es una asignatura obligatoria de la rama "Tecnologías de la Información" del
 primer cuatrimestre del cuarto curso del Grado de Ingeniería Informática y
 optativa en otras ramas y en el Doble Grado de Informática y Matemáticas.
 
-La asignatura se imparte en el curso 21-22 en el aula 1.8 los jueves de 8:30 a
-10:30 (grupo conjunto) y en la -1.2 los viernes de 8:30 a 10:30 y de 12:30 a
-14:30 (grupos divididos). Se recuerda a los estudiantes que en todas las clases
-será necesario llevar el portátil, ya que son en realidad clases prácticas.
+La asignatura en el curso 21-22 se ha impartido en el aula 1.8 los jueves de
+8:30 a 10:30 (grupo conjunto) y en la -1.2 los viernes de 8:30 a 10:30 y de
+12:30 a 14:30 (grupos divididos). Se recuerda a los estudiantes que en todas las
+clases será necesario llevar el portátil, ya que son en realidad clases
+prácticas.
 
-> Las clases de años anteriores están grabadas, y puedes acceder a ellas [en
+> Las clases de cursos anteriores están grabadas, y puedes acceder a ellas [en
 > esta lista de reproducción de
 > YouTube](https://www.youtube.com/playlist?list=PLsYEfmwhBQdKIwbMDIwK64pt3Fs03BDz9).
 
@@ -27,7 +28,7 @@ Se usará [GitHub](https://github.com) para el proyecto, la forma principal de
 examinar la asignatura; llamaremos *objetivos* a cada una de las entregas que hay
 que hacer del mismo.
 
-Estos son los [objetivos de la asignatura](documentos/objetivos), cuyas
+Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas
 sesiones de clase se irán reflejando en
 [un repositorio de GitHub; este es el de 2021-22](https://github.com/JJ/IV-21-22).
 
@@ -55,7 +56,7 @@ disponibles con una licencia libre. Los fuentes de los mismos están en
 [GitHub](https://github.com/JJ/IV).
 
 La temporización de la asignatura y los objetivos de cada sesión figuran en la
-[bitácora](https://github.com/JJ/IV-20-21/blob/master/sesiones/README.md) de
+[bitácora](https://github.com/JJ/IV-21-22/blob/master/sesiones/README.md) de
 clase. Enlazaremos también en ese fichero las grabaciones que se hagan de las
 sesiones en vivo.
 
@@ -98,7 +99,7 @@ lo largo de la misma, cubriendo diferentes objetivos de aprendizaje a la vez que
 se realizan diferentes productos mínimamente viables de ese proyecto. Los
 proyectos [consisten en crear la infraestructura virtual junto con una
 aplicación desarrollada según el modelo
-DevOps](documentos/proyecto/README.md). A grosso modo, los objetivos se
+DevOps](documentos/proyecto/README). A grosso modo, los objetivos se
 organizarán de la forma siguiente.
 
 1. [Objetivo cero: Uso básico de
@@ -112,13 +113,16 @@ organizarán de la forma siguiente.
    para pruebas.
 7. [Integración continua](documentos/proyecto/6.CI).
 8. [Servicios esenciales](documentos/proyecto/7.Servicios).
+9. [REST](documentos/proyecto/8.REST).
+10. [Implementación de REST](documentos/proyecto/9.Microservicio).
+11. [PaaS](documentos/proyecto/10.PaaS).
 
 Estas prácticas se han hecho otros años:
 
 1. [Provisionamiento de máquinas
    virtuales](documentos/proyecto/6.Provision).
 2. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS).
-3. Despliegues [serverless](documentos/proyecto/5.Serverless).
+3. Sistemas [serverless](documentos/proyecto/5.Serverless).
 4. [Creando microservicios](documentos/proyecto/6.Microservicio).
 5. Desplegando a la nube:
    [Platform as a Service](documentos/proyecto/7.PaaS).
@@ -131,19 +135,16 @@ profesor está disponible por Telegram y Google Meet (en todos los
 casos: `jjmerelo`); para cualquier videotutoría se pide consultar con cierta
 antelación.
 
-Se creará también una sala específica en Jitsi para las tutorías,
-consultar con el profesor la dirección.
-
 ## Criterios de evaluación
 
 Los criterios de evaluación figuran en la
 [ficha de la asignatura](https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/curso_actual/cuarto/tecnologiasdelainformacion/gii_infraestructura_virtual_20172018_firmada)
 en la web del grado, y
-[se especifican en el repositorio de la clase](https://github.com/JJ/IV-21-22/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n).
+[se especifican en el repositorio de la clase](https://github.com/JJ/IV-21-22/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n.md).
 
 ## Convocatoria extraordinaria (AL FINAL DEL CUATRIMESTRE)
 
 Si no se ha superado la asignatura en la convocatoria ordinaria, en la
 extraordinaria habrá que entregar los diferentes objetivos del proyecto no
-entregados (o los que se quieran entregar, si se quiere subir nota), como máximo
+entregados, con fecha tope
 el día que se haya anunciado oficialmente para el examen.
