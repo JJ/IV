@@ -15,3 +15,4 @@ ggplot( datos, aes(x=Entrega,y=Objetivo))+geom_point()+theme_economist_white()
 ggplot( datos, aes(x=Objetivo, y=superacion,color=Objetivo))+ geom_boxplot()
 superados <- datos[ datos$Incompleto == "Completo",]
 ggplot( superados, aes(x=Objetivo, y=superacion,color=Objetivo))+ geom_boxplot() +theme_economist_white()
+ggplot( datos, aes(x=Objetivo, y=Entrega,color=Objetivo))+ geom_boxplot() +theme_economist_white()
