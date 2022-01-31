@@ -34,3 +34,7 @@ avg.correccion <- (datos %>% group_by( Estudiante ) %>% dplyr::summarize(Mean = 
 
 objetivo.vs.duracion <- merge(x=top.objetivo,y=avg.correccion,by.x="Estudiante")[,c('Objetivo','Mean','Incompleto')]
 ggplot(objetivo.vs.duracion, aes(x=Objetivo,y=Mean,color=Incompleto) )+ geom_point()+theme_economist_white()
+
+percentiles.correccion <- (superados %>% group_by( Objetivo ) %>% dplyr::summarize(Cuartil3 = quantile(superacion,0.75,na.rm=TRUE)))
+
+percentiles.entrega <- (superados %>% group_by( Objetivo ) %>% dplyr::summarize(Cuartil3 = quantile(Entrega,0.5,na.rm=TRUE)))
