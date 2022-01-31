@@ -5,12 +5,18 @@ library(dplyr)
 
 datos <- read.csv("../IV-21-22/data/fechas-entrega.csv", sep=";")
 
+inicio <- parse_iso_8601("2021-09-13T00:00:00+02:00")
+
 datos$Correccion <- parse_iso_8601(datos$Correccion)
+datos$Correccion.Semana <- as.numeric( datos$Correccion - inicio, units = "weeks")
+
 datos$Entrega <- parse_iso_8601(datos$Entrega)
+datos$Entrega.Semana <- as.numeric( datos$Entrega - inicio, units = "weeks")
 
 datos$superacion <- as.numeric(datos$Correccion - datos$Entrega, units="days");
 
 summary( datos$superacion )
+summary(datos$Entrega.Semana)
 datos$Objetivo <- as.factor(datos$Objetivo)
 ggplot( datos, aes(x=Entrega,y=Objetivo))+geom_point()+theme_economist_white()
 ggplot( datos, aes(x=Objetivo, y=superacion,color=Objetivo))+ geom_boxplot()
@@ -37,4 +43,8 @@ ggplot(objetivo.vs.duracion, aes(x=Objetivo,y=Mean,color=Incompleto) )+ geom_poi
 
 percentiles.correccion <- (superados %>% group_by( Objetivo ) %>% dplyr::summarize(Cuartil3 = quantile(superacion,0.75,na.rm=TRUE)))
 
-percentiles.entrega <- (superados %>% group_by( Objetivo ) %>% dplyr::summarize(Cuartil3 = quantile(Entrega,0.5,na.rm=TRUE)))
+percentiles.entrega <- (superados %>% group_by( Objetivo ) %>% dplyr::summarize(Mediana = quantile(Entrega,0.5,na.rm=TRUE)))
+
+percentiles.entrega.semana <- (superados %>% group_by( Objetivo ) %>% dplyr::summarize(Mediana = quantile(Entrega.Semana,0.5,na.rm=TRUE)))
+percentiles.superacion.semana <- (superados %>% group_by( Objetivo ) %>% dplyr::summarize(Mediana = quantile(Correccion.Semana,0.5,na.rm=TRUE)))
+
