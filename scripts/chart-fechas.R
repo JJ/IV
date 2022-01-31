@@ -8,7 +8,7 @@ datos <- read.csv("../IV-21-22/data/fechas-entrega.csv", sep=";")
 datos$Correccion <- parse_iso_8601(datos$Correccion)
 datos$Entrega <- parse_iso_8601(datos$Entrega)
 
-datos$superacion <- (datos$Correccion - datos$Entrega)/86400;
+datos$superacion <- datos$Correccion - datos$Entrega;
 
 summary( datos$superacion )
 datos$Objetivo <- as.factor(datos$Objetivo)
@@ -22,8 +22,13 @@ estudiantes.superado <- datos[ datos$Objetivo == 6, ]$Estudiante
 
 solo.superados <- filter( datos, Estudiante %in% estudiantes.superado )
 no.superados <- filter( datos, ! Estudiante %in% estudiantes.superado )
-
+solo.superados$Objetivo <- paste(solo.superados$Objetivo,"S")
+no.superados$Objetivo <- paste(no.superados$Objetivo,"N")
 ggplot( solo.superados, aes(x=Objetivo, y=Entrega,color=Objetivo))+ geom_boxplot() +theme_economist_white()
 
 
 ggplot()+ geom_boxplot(data=no.superados, aes(x=Objetivo, y=superacion,color=Objetivo),width=0.5,notch=TRUE)+geom_boxplot(data=solo.superados, aes(x=Objetivo, y=superacion,color=Objetivo,fill=Objetivo),width=0.5,notch=TRUE) +theme_economist_white()
+
+top.objetivo <- (datos %>% group_by( Estudiante ) %>% top_n(1, Objetivo ))[,c('Objetivo','Estudiante')]
+avg.correccion <- (datos %>% group_by( Estudiante ) %>% dplyr::summarize(Mean = mean(superacion, na.rm=TRUE)))[,c('Mean','Estudiante')]
+                   
