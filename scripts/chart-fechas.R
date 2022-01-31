@@ -1,6 +1,7 @@
 require(ggplot2)
 require(ggthemes)
 library(parsedate)
+library(dplyr)
 
 datos <- read.csv("../IV-21-22/data/fechas-entrega.csv", sep=";")
 
@@ -16,3 +17,13 @@ ggplot( datos, aes(x=Objetivo, y=superacion,color=Objetivo))+ geom_boxplot()
 superados <- datos[ datos$Incompleto == "Completo",]
 ggplot( superados, aes(x=Objetivo, y=superacion,color=Objetivo))+ geom_boxplot() +theme_economist_white()
 ggplot( datos, aes(x=Objetivo, y=Entrega,color=Objetivo))+ geom_boxplot() +theme_economist_white()
+
+estudiantes.superado <- datos[ datos$Objetivo == 6, ]$Estudiante
+
+solo.superados <- filter( datos, Estudiante %in% estudiantes.superado )
+no.superados <- filter( datos, ! Estudiante %in% estudiantes.superado )
+
+ggplot( solo.superados, aes(x=Objetivo, y=Entrega,color=Objetivo))+ geom_boxplot() +theme_economist_white()
+
+
+ggplot()+ geom_boxplot(data=no.superados, aes(x=Objetivo, y=superacion,color=Objetivo),width=0.5,notch=TRUE)+geom_boxplot(data=solo.superados, aes(x=Objetivo, y=superacion,color=Objetivo,fill=Objetivo),width=0.5,notch=TRUE) +theme_economist_white()
