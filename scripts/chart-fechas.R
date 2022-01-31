@@ -8,7 +8,7 @@ datos <- read.csv("../IV-21-22/data/fechas-entrega.csv", sep=";")
 datos$Correccion <- parse_iso_8601(datos$Correccion)
 datos$Entrega <- parse_iso_8601(datos$Entrega)
 
-datos$superacion <- datos$Correccion - datos$Entrega;
+datos$superacion <- as.numeric(datos$Correccion - datos$Entrega, units="days");
 
 summary( datos$superacion )
 datos$Objetivo <- as.factor(datos$Objetivo)
@@ -29,6 +29,8 @@ ggplot( solo.superados, aes(x=Objetivo, y=Entrega,color=Objetivo))+ geom_boxplot
 
 ggplot()+ geom_boxplot(data=no.superados, aes(x=Objetivo, y=superacion,color=Objetivo),width=0.5,notch=TRUE)+geom_boxplot(data=solo.superados, aes(x=Objetivo, y=superacion,color=Objetivo,fill=Objetivo),width=0.5,notch=TRUE) +theme_economist_white()
 
-top.objetivo <- (datos %>% group_by( Estudiante ) %>% top_n(1, Objetivo ))[,c('Objetivo','Estudiante')]
+top.objetivo <- (datos %>% group_by( Estudiante ) %>% top_n(1, Objetivo ))[,c('Objetivo','Estudiante','Incompleto')]
 avg.correccion <- (datos %>% group_by( Estudiante ) %>% dplyr::summarize(Mean = mean(superacion, na.rm=TRUE)))[,c('Mean','Estudiante')]
-                   
+
+objetivo.vs.duracion <- merge(x=top.objetivo,y=avg.correccion,by.x="Estudiante")[,c('Objetivo','Mean','Incompleto')]
+ggplot(objetivo.vs.duracion, aes(x=Objetivo,y=Mean,color=Incompleto) )+ geom_point()+theme_economist_white()
