@@ -1,5 +1,7 @@
 #!/usr/bin/env perl
 
+# Copia y procesa todo lo que haya en "documentos" a la rama gh-pages, creando los correspondientes breadcrumbs.
+
 use strict;
 use warnings;
 use v5.14;
