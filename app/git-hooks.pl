@@ -1,7 +1,5 @@
 #!/usr/bin/env perl
 
-# Copia y procesa todo lo que haya en "documentos" a la rama gh-pages, creando los correspondientes breadcrumbs.
-
 use strict;
 use warnings;
 use v5.14;
@@ -84,7 +82,7 @@ this answer by Cory Gross in StackOverflow, the ever helpful site. It
 was adapted to Perl instead of bash.
 
 Besides including Jekyll YAML headers in the files, it eliminates
-C<.md> suffixes to convert them to the correct URL in Github Pages. 
+C<.md> suffixes to convert them to the correct URL in Github Pages. It does so for every markdown file under the C<documentos> directory.
 
 =head1 LICENSE
 
