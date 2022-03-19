@@ -23,6 +23,7 @@ ggplot( datos, aes(x=Objetivo, y=superacion,color=Objetivo))+ geom_boxplot()
 superados <- datos[ datos$Incompleto == "Completo",]
 ggplot( superados, aes(x=Objetivo, y=superacion,color=Objetivo))+ geom_boxplot() +theme_economist_white()
 ggplot( datos, aes(x=Objetivo, y=Entrega,color=Objetivo))+ geom_boxplot() +theme_economist_white()
+ggplot( superados, aes(x=Objetivo, y=Entrega,color=Objetivo))+ geom_boxplot() +theme_economist_white()
 
 estudiantes.superado <- datos[ datos$Objetivo == 6, ]$Estudiante
 
