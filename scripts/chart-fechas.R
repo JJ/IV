@@ -38,6 +38,7 @@ ggplot()+ geom_boxplot(data=no.superados, aes(x=Objetivo, y=superacion,color=Obj
 
 top.objetivo <- (datos %>% group_by( Estudiante ) %>% top_n(1, Objetivo ))[,c('Objetivo','Estudiante','Incompleto')]
 avg.correccion <- (datos %>% group_by( Estudiante ) %>% dplyr::summarize(Mean = mean(superacion, na.rm=TRUE)))[,c('Mean','Estudiante')]
+avg.entrega <- (datos %>% group_by( Estudiante ) %>% dplyr::summarize(Mean = mean(Entrega, na.rm=TRUE)))[,c('Mean','Estudiante')]
 
 objetivo.vs.duracion <- merge(x=top.objetivo,y=avg.correccion,by.x="Estudiante")[,c('Objetivo','Mean','Incompleto')]
 ggplot(objetivo.vs.duracion, aes(x=Objetivo,y=Mean,color=Incompleto) )+ geom_point()+theme_economist_white()
@@ -48,4 +49,4 @@ percentiles.entrega <- (superados %>% group_by( Objetivo ) %>% dplyr::summarize(
 
 percentiles.entrega.semana <- (superados %>% group_by( Objetivo ) %>% dplyr::summarize(Mediana = quantile(Entrega.Semana,0.5,na.rm=TRUE)))
 percentiles.superacion.semana <- (superados %>% group_by( Objetivo ) %>% dplyr::summarize(Mediana = quantile(Correccion.Semana,0.5,na.rm=TRUE)))
-
+percentiles.entrega.semana$Mediana.Dias <- round(percentiles.entrega.semana$Mediana * 7)
