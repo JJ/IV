@@ -64,7 +64,6 @@ sesiones en vivo.
 3. [Usando contenedores](documentos/temas/Contenedores.md).
 4. [Integración continua](documentos/temas/Integracion_continua.md).
 5. Breve introducción a [REST](documentos/temas/REST.md).
-6. Computación [Serverless](documentos/temas/Serverless.md).
 7. [Puesta en marcha de microservicios](documentos/temas/Microservicios.md).
 8. [Platform as a Service](documentos/temas/PaaS.md).
 
@@ -76,6 +75,7 @@ este año del temario de la asignatura:
 3. [Aislamiento de recursos](documentos/temas/Aislamiento_de_recursos.md).
 4. [Almacenamiento virtual](documentos/temas/Almacenamiento.md).
 5. [Gestión de configuraciones](documentos/temas/Gestion_de_configuraciones.md).
+6. Computación [Serverless](documentos/temas/Serverless.md).
 
 ## Seminarios
 
@@ -110,7 +110,10 @@ organizarán de la forma siguiente.
 8. [Servicios esenciales](documentos/proyecto/7.Servicios.md).
 9. [REST](documentos/proyecto/8.REST.md).
 10. [Implementación de REST](documentos/proyecto/9.Microservicio.md).
-11. [PaaS](documentos/proyecto/10.PaaS.md).
+
+Este último para crédito adicional:
+
+1. [PaaS](documentos/proyecto/10.PaaS.md).
 
 Estas prácticas se han hecho otros años:
 
