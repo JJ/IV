@@ -64,8 +64,8 @@ sesiones en vivo.
 3. [Usando contenedores](documentos/temas/Contenedores.md).
 4. [Integración continua](documentos/temas/Integracion_continua.md).
 5. Breve introducción a [REST](documentos/temas/REST.md).
-7. [Puesta en marcha de microservicios](documentos/temas/Microservicios.md).
-8. [Platform as a Service](documentos/temas/PaaS.md).
+6. [Puesta en marcha de microservicios](documentos/temas/Microservicios.md).
+7. [Platform as a Service](documentos/temas/PaaS.md).
 
 Estos temas se pueden consultar como material adicional, pero no forman parte
 este año del temario de la asignatura:
