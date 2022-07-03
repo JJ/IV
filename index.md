@@ -28,7 +28,7 @@ Se usará [GitHub](https://github.com) para el proyecto, la forma principal de
 examinar la asignatura; llamaremos *objetivos* a cada una de las entregas que hay
 que hacer del mismo.
 
-Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas
+Estos son los [objetivos de la asignatura](documentos/objetivos), cuyas
 sesiones de clase se irán reflejando en
 [un repositorio de GitHub; este es el de 2021-22](https://github.com/JJ/IV-21-22).
 
@@ -69,8 +69,8 @@ sesiones en vivo.
 3. [Usando contenedores](documentos/temas/Contenedores).
 4. [Integración continua](documentos/temas/Integracion_continua).
 5. Breve introducción a [REST](documentos/temas/REST).
-7. [Puesta en marcha de microservicios](documentos/temas/Microservicios).
-8. [Platform as a Service](documentos/temas/PaaS).
+6. [Puesta en marcha de microservicios](documentos/temas/Microservicios).
+7. [Platform as a Service](documentos/temas/PaaS).
 
 Estos temas se pueden consultar como material adicional, pero no forman parte
 este año del temario de la asignatura:
@@ -99,7 +99,7 @@ lo largo de la misma, cubriendo diferentes objetivos de aprendizaje a la vez que
 se realizan diferentes productos mínimamente viables de ese proyecto. Los
 proyectos [consisten en crear la infraestructura virtual junto con una
 aplicación desarrollada según el modelo
-DevOps](documentos/proyecto/README). A grosso modo, los objetivos se
+DevOps](documentos/proyecto/README.md). A grosso modo, los objetivos se
 organizarán de la forma siguiente.
 
 1. [Objetivo cero: Uso básico de
@@ -143,7 +143,7 @@ antelación.
 Los criterios de evaluación figuran en la
 [ficha de la asignatura](https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/curso_actual/cuarto/tecnologiasdelainformacion/gii_infraestructura_virtual_20172018_firmada)
 en la web del grado, y
-[se especifican en el repositorio de la clase](https://github.com/JJ/IV-21-22/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n.md).
+[se especifican en el repositorio de la clase](https://github.com/JJ/IV-21-22/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n).
 
 ## Convocatoria extraordinaria (AL FINAL DEL CUATRIMESTRE)
 
