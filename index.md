@@ -14,11 +14,12 @@ es una asignatura obligatoria de la rama "Tecnologías de la Información" del
 primer cuatrimestre del cuarto curso del Grado de Ingeniería Informática y
 optativa en otras ramas y en el Doble Grado de Informática y Matemáticas.
 
-La asignatura en el curso 21-22 se ha impartido en el aula 1.8 los jueves de
-8:30 a 10:30 (grupo conjunto) y en la -1.2 los viernes de 8:30 a 10:30 y de
+La asignatura en el curso 22-23 [se imparte](https://etsiit.ugr.es/sites/centros/etsiit/public/inline-files/HorariosGII%2822-23%29.pdf) en el aula 1.2 los viernes de
+8:30 a 10:30 (grupo conjunto) y en la -1.2 los jueves de 8:30 a 10:30 y de
 12:30 a 14:30 (grupos divididos). Se recuerda a los estudiantes que en todas las
-clases será necesario llevar el portátil, ya que son en realidad clases
-prácticas.
+clases será necesario llevar el portátil, ya que son siempre clases
+prácticas; por lo mismo, se recomienda encarecidamente la asistencia a todas las
+clases para realizar las prácticas in situ.
 
 > Las clases de cursos anteriores están grabadas, y puedes acceder a ellas [en
 > esta lista de reproducción de
@@ -43,6 +44,12 @@ capaz de hacer lo siguiente:
 4. Entienda las técnicas de configuración automática de entornos virtuales y
    las sepa aplicar en los entornos anteriores.
 5. Use lo aprendido para despliegue masivo de aplicaciones en la nube.
+
+El *objetivo del proyecto* es que el estudiante se familiarice con la
+metodología usada habitualmente en desarrollo de aplicaciones (en la nube y
+cualquier otro tipo), por lo tanto, lo importante es que vaya, a través de la
+puesta en práctica en un proyecto propio, interiorizando las mejores prácticas
+en ingeniería de software.
 
 ## Temario - Programa de la asignatura
 
