@@ -39,6 +39,12 @@ capaz de hacer lo siguiente:
    las sepa aplicar en los entornos anteriores.
 5. Use lo aprendido para despliegue masivo de aplicaciones en la nube.
 
+El *objetivo del proyecto* es que el estudiante se familiarice con la
+metodología usada habitualmente en desarrollo de aplicaciones (en la nube y
+cualquier otro tipo), por lo tanto, lo importante es que vaya, a través de la
+puesta en práctica en un proyecto propio, interiorizando las mejores prácticas
+en ingeniería de software.
+
 ## Temario - Programa de la asignatura
 
 > Previo a la asignatura, es conveniente
