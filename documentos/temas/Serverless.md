@@ -215,6 +215,12 @@ función. En este caso no se ha hecho, pero en general sí se debe
 hacer. De esa forma se puede testear localmente todo lo que se vaya a
 ejecutar.
 
+En este caso se muestra como las funciones pueden hacer uso de una serie de
+datos que estén generados por otro proceso; haría falta volver a desplegar cada
+vez que se generen los datos, pero la idea principal de este tipo de servicios
+es que el despliegue sea ágil; de esta forma, además, no dependen de ningún
+servicio de datos externo.
+
 <div class='ejercicios' markdown="1">
 
 Tomar alguna de las funciones de prueba de Vercel, y hacer despliegues
