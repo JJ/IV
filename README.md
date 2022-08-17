@@ -75,15 +75,15 @@ sesiones en vivo.
 6. [Puesta en marcha de microservicios](documentos/temas/Microservicios.md).
 7. [Platform as a Service](documentos/temas/PaaS.md).
 
-Estos temas se pueden consultar como material adicional, pero no forman parte
-este año del temario de la asignatura:
+Estos temas se pueden consultar como material adicional, han dejado de formar
+parte del temario de la asignatura:
 
 1. [Introducción e historia de los contenedores](documentos/temas/Intro_contenedores.md).
 2. [Técnicas de virtualización](documentos/temas/Tecnicas_de_virtualizacion.md).
 3. [Aislamiento de recursos](documentos/temas/Aislamiento_de_recursos.md).
 4. [Almacenamiento virtual](documentos/temas/Almacenamiento.md).
 5. [Gestión de configuraciones](documentos/temas/Gestion_de_configuraciones.md).
-6. Computación [Serverless](documentos/temas/Serverless.md).
+6. Computación [*serverless*](documentos/temas/Serverless.md).
 
 ## Seminarios
 
