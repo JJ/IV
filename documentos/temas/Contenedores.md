@@ -97,6 +97,11 @@ tiene la ventaja de que se puede
 ejecutar sin necesidad de instalar ningún servicio con privilegios de
 administrador.
 
+> En ciertas configuraciones puede ser que no se tenga acceso desde los
+> contenedores a la red; pasa en ciertas configuraciones WiFi. En ese caso hay
+> que cambiar los DNS en la configuración de Docker. Si no tienes ese problema,
+> no pasa nada.
+
 <div class='ejercicios' markdown='1'>
 
 Instalar docker y/o otro gestor de contenedores como Podman/Buildah.
