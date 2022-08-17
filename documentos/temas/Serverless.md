@@ -261,7 +261,8 @@ no hace ningún tipo de gasto).
 Evidentemente, lo interesante en estas funciones es poder usar
 parámetros para hacer diferentes llamadas. Como se ha mostrado en el
 tema de [REST](REST.md), esos parámetros forman parte de la petición
-HTTP y por tanto están accesibles para la función.
+HTTP y por tanto están accesibles dentro del objeto o función que la
+represente.
 
 Como ejemplo de este tipo de peticiones,
 usaremos [Netlify](https://netlify.com). Netlify sigue un enfoque muy
@@ -399,14 +400,12 @@ de prueba con el mismo.
 
 ## Ver también
 
-Una
-biblioteca, [`serverless`](https://github.com/serverless/serverless),
-permite trabajar de forma común con los diferentes servicios, con una
-línea de órdenes que permite también desplegar en estos
-servicios. [OpenWhisk](https://openwhisk.apache.org/) te permite
-tener, en tu propio ordenador (o nube), una plataforma serverless en
-la que desplegar tus funciones en muchos lenguajes diferentes,
-incluyendo Rust.
+Una biblioteca, [`serverless`](https://github.com/serverless/serverless),
+permite trabajar de forma común con los diferentes servicios, con una línea de
+órdenes que permite también desplegar en estos
+servicios. [OpenWhisk](https://openwhisk.apache.org/) te permite tener, en tu
+propio ordenador (o nube), una plataforma serverless en la que desplegar tus
+funciones en muchos lenguajes diferentes, incluyendo Rust.
 
 ## Bibliografía y otros recursos
 
