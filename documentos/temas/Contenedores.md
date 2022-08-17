@@ -382,14 +382,15 @@ ENTRYPOINT ["raku"]
 ```
 
 La elección de la base del contenedor, que se hace generalmente en la
-primera línea usando el comando `FROM` es fundamental. En este caso,
+primera línea usando el comando `FROM`, es fundamental. En este caso,
 usamos la base que se ha hecho más popular por su pequeño tamaño,
 [Alpine Linux](https://alpinelinux.org/). Este pequeño tamaño viene a
 costa de una serie de recortes en la librería básica y en las
 utilidades, por lo que es posible que haya alguna cosa que no funcione
 exactamente igual, y por supuesto diferencia en el nivel de
 prestaciones. Por eso, en algunos casos, habrá que buscar diferentes
-tipos de contenedores base.
+tipos de contenedores base. En general, siempre que se elige una herramienta,
+habrá que justificarlo en el documento correspondiente.
 
 Para instalar las dependencias, usa `apk`, la orden de Alpine para
 instalar paquetes e instala lo necesario para que eche a andar el
@@ -488,7 +489,13 @@ Python mantenida por el mismo equipo que lo crea. El usar imágenes
 oficiales de un lenguaje es mucho más conveniente que usar la de un
 sistema operativo y posteriormente instalar el lenguaje y cualquier
 otra cosa que necesite; en este caso, la imagen lleva también
-`pip`. Para algunas bibliotecas puede haber también imágenes
+`pip`. Sin embargo, siempre hay otras alternativas a considerar. Empresas como
+Bitnami mantienen también imágenes para muchos lenguajes y servicios, y en
+algunos casos puede haber imágenes simplemente mantenidas por usuarios que
+tengan una característica determinada.
+
+
+Para algunas bibliotecas puede haber también imágenes
 oficiales; siempre nos ahorrará trabajo usar esas imágenes, sean
 oficiales o no, porque en muchos casos están optimizadas con solo las
 partes del sistema operativo necesarias y ocupan mucho menos espacio
