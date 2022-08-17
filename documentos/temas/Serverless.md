@@ -104,7 +104,7 @@ evita su uso generalizado dentro de las arquitecturas en la nube. Por
 ejemplo, los usos siguientes.
 
 - Prototipado rápido de rutas en
-  un [microservicio](Microservicios). Abstrayendo adecuadamente la
+  un [microservicio](Microservicios.md). Abstrayendo adecuadamente la
   lógica de negocio y el acceso a datos, se pueden probar si algunas
   funciones trabajan adecuadamente.
 - [*Single Page Applications*](https://es.wikipedia.org/wiki/Single-page_application)
@@ -223,6 +223,12 @@ función. En este caso no se ha hecho, pero en general sí se debe
 hacer. De esa forma se puede testear localmente todo lo que se vaya a
 ejecutar.
 
+En este caso se muestra como las funciones pueden hacer uso de una serie de
+datos que estén generados por otro proceso; haría falta volver a desplegar cada
+vez que se generen los datos, pero la idea principal de este tipo de servicios
+es que el despliegue sea ágil; de esta forma, además, no dependen de ningún
+servicio de datos externo.
+
 <div class='ejercicios' markdown="1">
 
 Tomar alguna de las funciones de prueba de Vercel, y hacer despliegues
@@ -241,7 +247,7 @@ el JSON que, a su vez, admite, lo importante en esa función
 es
 [esta línea](https://github.com/JJ/vercel-kekeda/blob/6d5f8e0fb29c7fcbb264c06c17b8244bd4a80450/api/kekeda_iv.go#L102),
 que establece que, como se ha explicado en [el capítulo que habla de
-las peticiones REST](REST), la respuesta va a tener un tipo MIME
+las peticiones REST](REST.md), la respuesta va a tener un tipo MIME
 determinado. Desde el punto de vista de la arquitectura, es
 interesante que se cambia un tipo de arquitectura *pull* (es decir,
 que va interrogando periódicamente a un punto de contacto de Telegram)
@@ -254,7 +260,7 @@ no hace ningún tipo de gasto).
 
 Evidentemente, lo interesante en estas funciones es poder usar
 parámetros para hacer diferentes llamadas. Como se ha mostrado en el
-tema de [REST](REST), esos parámetros forman parte de la petición
+tema de [REST](REST.md), esos parámetros forman parte de la petición
 HTTP y por tanto están accesibles para la función.
 
 Como ejemplo de este tipo de peticiones,
