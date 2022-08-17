@@ -148,8 +148,8 @@ El contenedor tarda un poco en instalarse, mientras se baja o no la imagen;
 esta imagen se compone de *capas*, por eso se ve cómo se van instalando estas
 capas, a veces simultáneamente. Una vez bajada, se pueden empezar a ejecutar
 comandos. Lo bueno de `docker` es que permite ejecutarlos directamente sin
-necesidad de conectarse a la máquina; la gestión de la conexión y demás lo hace
-ello, al modo de Vagrant (lo que veremos más adelante).
+necesidad de conectarse a la máquina; la gestión de la conexión y demás la hace
+el *daemon*.
 
 Podemos ejecutar, por ejemplo, un listado de los directorios
 
