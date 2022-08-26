@@ -492,16 +492,14 @@ CMD [ "hug",  "-p 80", "-f","HitosIV/hugitos.py" ]
 EXPOSE 80
 ```
 
-En este caso estamos usando `FROM python:3`, la imagen *oficial* de
-Python mantenida por el mismo equipo que lo crea. El usar imágenes
-oficiales de un lenguaje es mucho más conveniente que usar la de un
-sistema operativo y posteriormente instalar el lenguaje y cualquier
-otra cosa que necesite; en este caso, la imagen lleva también
-`pip`. Sin embargo, siempre hay otras alternativas a considerar. Empresas como
-Bitnami mantienen también imágenes para muchos lenguajes y servicios, y en
-algunos casos puede haber imágenes simplemente mantenidas por usuarios que
-tengan una característica determinada.
-
+En este caso estamos usando `FROM python:3`, la imagen *oficial* de Python
+mantenida por el mismo equipo que lo crea. El usar imágenes oficiales de un
+lenguaje es mucho más conveniente que usar la de un sistema operativo y
+posteriormente instalar el lenguaje y cualquier otra cosa que necesite; en este
+caso, la imagen lleva también `pip`. Sin embargo, siempre hay otras alternativas
+a considerar. Empresas como Bitnami mantienen también imágenes para muchos
+lenguajes y servicios en GitHub, y en algunos casos puede haber imágenes
+simplemente mantenidas por usuarios que tengan una característica determinada.
 
 Para algunas bibliotecas puede haber también imágenes
 oficiales; siempre nos ahorrará trabajo usar esas imágenes, sean
@@ -521,10 +519,10 @@ desplegarse directamente es el que se usará, pero si se está
 ejecutando localmente habrá que probarlo de esta forma
 
 ```shell
-docker run -p 8000:80 -it --rm minick/mitag
+docker run -p 8000:80 -it --rm minick/imagen:mitag
 ```
 
-donde `minick/mitag` es nuestro prefijo y tag elegidos para este caso
+donde `minick/imagen:mitag` es nuestro prefijo y tag elegidos para este caso
 en particular. Este contenedor, por ejemplo, está alojado en Docker
 Hub como
 [`jjmerelo/tests-python`](https://hub.docker.com/r/jjmerelo/tests-python/).
