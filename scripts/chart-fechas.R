@@ -53,5 +53,9 @@ percentiles.entrega.semana$Mediana.Dias <- round(percentiles.entrega.semana$Medi
 percentiles.entrega.semana$diferencia <-c(NA,diff( percentiles.entrega.semana$Mediana.Dias))
 
 percentiles.entrega.semana.trescuartos <- (superados %>% group_by( Objetivo ) %>% dplyr::summarize(Mediana = quantile(Entrega.Semana,0.75,na.rm=TRUE)))
-percentiles.entrega.semana.trescuartos$Mediana.Dias <- round(percentiles.entrega.semana.trescuartos$Mediana * 7)
-percentiles.entrega.semana.trescuartos$diferencia <-c(NA,diff( percentiles.entrega.semana.trescuartos$Mediana.Dias))
+percentiles.entrega.semana.trescuartos$Dias <- round(percentiles.entrega.semana.trescuartos$Mediana * 7)
+percentiles.entrega.semana.trescuartos$diferencia <-c(NA,diff( percentiles.entrega.semana.trescuartos$Dias))
+
+percentiles.entrega.semana.90 <- (superados %>% group_by( Objetivo ) %>% dplyr::summarize(Mediana = quantile(Entrega.Semana,0.9,na.rm=TRUE)))
+percentiles.entrega.semana.90$Dias <- round(percentiles.entrega.semana.90$Mediana * 7)
+percentiles.entrega.semana.90$diferencia <-c(NA,diff( percentiles.entrega.semana.90$Dias))
