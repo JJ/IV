@@ -8,7 +8,7 @@ DTSTAMP:20220901T114205
 SUMMARY:Recordatorio objetivo 0
 DTSTART:20220921T235959
 DTEND:20220921T235959
-DESCRIPTION: Objetivo 0 → la mitad lo ha entregado en esta fecha
+DESCRIPTION: Objetivo 0 → La mitad lo ha entregado en esta fecha
 STATUS:CONFIRMED
 BEGIN:VALARM
 TRIGGER:-PT12H
