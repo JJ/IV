@@ -138,7 +138,6 @@ Material adicional interesante para la asignatura, que se impartirá
 2. [Introducción ligera a git](preso/intro-git.html).
 3. [Introducción ligera al lenguaje Ruby](documentos/seminarios/ruby).
 
-
 ## Tutorías virtuales
 
 Las tutorías virtuales se realizarán preferiblemente a través del grupo
