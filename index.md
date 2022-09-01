@@ -52,6 +52,44 @@ cualquier otro tipo), por lo tanto, lo importante es que vaya, a través de la
 puesta en práctica en un proyecto propio, interiorizando las mejores prácticas
 en ingeniería de software.
 
+## Prácticas - Actividades académicas dirigidas en grupos divididos
+
+La parte práctica de esta asignatura consiste en la realización de un proyecto a
+lo largo de la misma, cubriendo diferentes objetivos de aprendizaje a la vez que
+se realizan diferentes productos mínimamente viables de ese proyecto. Los
+proyectos [consisten en crear la infraestructura virtual junto con una
+aplicación desarrollada según el modelo
+DevOps](documentos/proyecto/README). A grosso modo, los objetivos se
+organizarán de la forma siguiente.
+
+1. [Objetivo cero: Uso básico de
+   herramientas](documentos/proyecto/0.Repositorio).
+2. [Historias de usuario y
+   planificación](documentos/proyecto/1.Infraestructura).
+3. [Definición de una entidad](documentos/proyecto/2.Entidad).
+4. [Automatización de las tareas](documentos/proyecto/3.Automatizar).
+5. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/4.Tests).
+6. Técnicas de virtualización: [Contenedores](documentos/proyecto/5.Docker)
+   para pruebas.
+7. [Integración continua](documentos/proyecto/6.CI).
+8. [Servicios esenciales](documentos/proyecto/7.Servicios).
+9. [REST](documentos/proyecto/8.REST).
+10. [Implementación de REST](documentos/proyecto/9.Microservicio).
+
+Este último para crédito adicional:
+
+1. [PaaS](documentos/proyecto/10.PaaS).
+
+Estas prácticas se han hecho otros años:
+
+1. [Provisionamiento de máquinas
+   virtuales](documentos/proyecto/6.Provision).
+2. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS).
+3. Sistemas [serverless](documentos/proyecto/5.Serverless).
+4. [Creando microservicios](documentos/proyecto/6.Microservicio).
+5. Desplegando a la nube:
+   [Platform as a Service](documentos/proyecto/7.PaaS).
+
 ## Temario - Programa de la asignatura
 
 > Previo a la asignatura, es conveniente
@@ -100,43 +138,6 @@ Material adicional interesante para la asignatura, que se impartirá
 2. [Introducción ligera a git](preso/intro-git.html).
 3. [Introducción ligera al lenguaje Ruby](documentos/seminarios/ruby).
 
-## Prácticas - Actividades académicas dirigidas en grupos divididos
-
-La parte práctica de esta asignatura consiste en la realización de un proyecto a
-lo largo de la misma, cubriendo diferentes objetivos de aprendizaje a la vez que
-se realizan diferentes productos mínimamente viables de ese proyecto. Los
-proyectos [consisten en crear la infraestructura virtual junto con una
-aplicación desarrollada según el modelo
-DevOps](documentos/proyecto/README). A grosso modo, los objetivos se
-organizarán de la forma siguiente.
-
-1. [Objetivo cero: Uso básico de
-   herramientas](documentos/proyecto/0.Repositorio).
-2. [Historias de usuario y
-   planificación](documentos/proyecto/1.Infraestructura).
-3. [Definición de una entidad](documentos/proyecto/2.Entidad).
-4. [Automatización de las tareas](documentos/proyecto/3.Automatizar).
-5. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/4.Tests).
-6. Técnicas de virtualización: [Contenedores](documentos/proyecto/5.Docker)
-   para pruebas.
-7. [Integración continua](documentos/proyecto/6.CI).
-8. [Servicios esenciales](documentos/proyecto/7.Servicios).
-9. [REST](documentos/proyecto/8.REST).
-10. [Implementación de REST](documentos/proyecto/9.Microservicio).
-
-Este último para crédito adicional:
-
-1. [PaaS](documentos/proyecto/10.PaaS).
-
-Estas prácticas se han hecho otros años:
-
-1. [Provisionamiento de máquinas
-   virtuales](documentos/proyecto/6.Provision).
-2. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS).
-3. Sistemas [serverless](documentos/proyecto/5.Serverless).
-4. [Creando microservicios](documentos/proyecto/6.Microservicio).
-5. Desplegando a la nube:
-   [Platform as a Service](documentos/proyecto/7.PaaS).
 
 ## Tutorías virtuales
 
