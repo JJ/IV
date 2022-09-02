@@ -3,7 +3,7 @@ require(ggthemes)
 library(parsedate)
 library(dplyr)
 
-datos <- read.csv("../IV-21-22/data/fechas-entrega.csv", sep=";")
+datos <- read.csv("../../IV-21-22/data/fechas-entrega.csv", sep=";")
 
 inicio <- parse_iso_8601("2021-09-13T00:00:00+02:00")
 
