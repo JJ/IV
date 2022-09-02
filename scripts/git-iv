@@ -46,7 +46,7 @@ sub print_usage {
     return <<EOC;
 Uso:
     git iv objetivo <número> -- crea una rama para ese objetivo
-    git iv sube-objetivo          -- sube al repo remoto la rama
+    git iv sube-objetivo     -- sube al repo remoto la rama
 
     git iv --help -- imprime este mensaje
 EOC
