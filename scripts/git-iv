@@ -27,7 +27,7 @@ my $repo;
 
 eval {
   $repo = Git->repository;
-} or die "No estás en un repositorio aparentemente";
+} or die "Aparentemente, no estás en un repositorio";
 
 my @args = @ARGV;
 die( print_usage ()) if  $args[0] eq '--help'  ;
@@ -48,6 +48,6 @@ Uso:
     git iv objetivo <número> -- crea una rama para ese objetivo
     git iv sube-objetivo          -- sube al repo remoto la rama
 
-    git iv subcomando --help -- imprime este mensaje
+    git iv --help -- imprime este mensaje
 EOC
 }
