@@ -2,7 +2,7 @@
 
 # Plugin de IV para facilitar algunas cosas en la asignatura.
 # Instalación:
-# Prerrequisitos: Perl y git instalados (Perl estará instalado en cualquier Linux)
+# Prerrequisitos: Perl y git instalados (Perl estará instalado en cualquier Linux o Mac)
 # > cd ~/bin # O cualquier otro directorio en el path de ejecución
 # > wget https://raw.githubusercontent.com/JJ/IV/master/scripts/git-iv #O bajar el URL a ese directorio de cualquier otra manera
 # > chmod +x git-iv
