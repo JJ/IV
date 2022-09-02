@@ -54,7 +54,8 @@ percentiles.entrega.semana.decil9 <- (superados %>% group_by( Objetivo ) %>% dpl
 
 entregas.semanas <- data.frame( objetivo=c(0:9), mediana = percentiles.entrega.semana$Mediana, cuartil3 = percentiles.entrega.semana.cuartil3$Cuartil3, decil9 = percentiles.entrega.semana.decil9$Decil9)
 
-ggplot()+geom_point(data=entregas.semanas, aes(x=mediana,y=objetivo))+geom_point(data=entregas.semanas, aes(x=cuartil3,y=objetivo,color="3 cuartil"))+geom_point(data=entregas.semanas, aes(x=decil9,y=objetivo,color="90%"))
+ggplot()+geom_point(data=entregas.semanas, aes(x=mediana,y=objetivo))+geom_point(data=entregas.semanas, aes(x=cuartil3,y=objetivo,color="3 cuartil"))+geom_point(data=entregas.semanas, aes(x=decil9,y=objetivo,color="90%"))+ scale_x_continuous(breaks=c(0:16),labels=c(1:17))+ scale_y_continuous(breaks=c(0:9),labels=c(0:9))+
+  theme(axis.text.x = element_text(face="bold", color="#993333", size=14, angle=45))
 
 percentiles.superacion.semana <- (superados %>% group_by( Objetivo ) %>% dplyr::summarize(Mediana = quantile(Correccion.Semana,0.5,na.rm=TRUE)))
 percentiles.entrega.semana$Mediana.Dias <- round(percentiles.entrega.semana$Mediana * 7)
