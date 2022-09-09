@@ -5,18 +5,23 @@ layout: index
 ---
 # Scripts para gestionar cosas
 
-
 Diferentes scripts para crear infraestructura de nuevos repos, por
 ejemplo. Es una vez al año, pero viene bien tenerlo ahí.
 
-## Para crear la estructura dle repo de la asignatura `crea-asignatura.pl` 
+## Para crear la estructura dle repo de la asignatura `crea-asignatura.pl`
 
 Se ejecuta al principio del año para generar los ficheros
 correspondientes. Primero se crea el repo en GitHub. Luego, se cambia
 uno al repo y ...
 
-
-	/path/to/crea-asignatura.pl <este-directorio> <directorio-a-copiar>
+```shell
+/path/to/crea-asignatura.pl <este-directorio> <directorio-a-copiar>
+```
 
 Necesita Perl y `File::Copy` para funcionar. Y que se cree el
-directorio del repo de la asignatura previamente. 
+directorio del repo de la asignatura previamente.
+
+```shell
+/path/to/crea-fichero-objetivos.raku
+    <csv-con-primera-columna-nombres-segunda-nicks>
+```
