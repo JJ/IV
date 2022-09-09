@@ -15,3 +15,8 @@ uno al repo y ...
 
 Necesita Perl y `File::Copy` para funcionar. Y que se cree el
 directorio del repo de la asignatura previamente.
+
+```shell
+/path/to/crea-fichero-objetivos.raku
+    <csv-con-primera-columna-nombres-segunda-nicks>
+```
