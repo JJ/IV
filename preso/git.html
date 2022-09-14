@@ -68,10 +68,12 @@
                                 y cambiando a una rama</h1>
                             <pre><code>git checkout -b nombre-guay-de-rama</code></pre>
 
-                            <h1 class="fragment">Y push</h1>
+                    </section>
+                    <section>
+                        <h1 class="fragment">Y push</h1>
 
-                            <pre class="fragment"><code>git push -u origin $(git describe --contains --all HEAD)</code></pre>
-                            <aside class="notes">En push sucesivos se quita el
+                        <pre><code>git push -u origin $(git describe --contains --all HEAD)</code></pre>
+                        <aside class="notes">En push sucesivos se quita el
                             -u. Así siempre se hace push exclusivamente a la
                                 rama en la que se está.</aside>
 
