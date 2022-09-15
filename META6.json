@@ -1,0 +1,22 @@
+{
+  "auth" : "github:JJ",
+  "authors" : ["JJ Merelo"],
+  "depends" : [
+      "IO::Glob",
+      "Text::CSV",
+      "Git::File::History",
+      "JSON::Fast"
+  ],
+  "description" : "Scripts Raku para analizara datos de la asignatura IV",
+  "license" : "Artistic-2.0",
+  "name" : "IV scripts",
+  "perl" : "6.d",
+  "resources" : [ ],
+  "source-url" : "https://github.com/JJ/IV.git",
+  "provides": {},
+  "tags" : [
+    "scripts", "learning analytics"
+  ],
+  "version" : "0.0.2",
+  "meta-version": 1
+}
