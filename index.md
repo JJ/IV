@@ -54,6 +54,11 @@ en ingeniería de software.
 
 ## Prácticas - Actividades académicas dirigidas en grupos divididos
 
+> Previo a la asignatura, es conveniente
+> que [consultes este curso](https://jj.github.io/curso-tdd), con
+> material suplementario a lo que se imparte en la asignatura. Los
+> temas relevantes se enlazarán en cada hito.
+
 La parte práctica de esta asignatura consiste en la realización de un proyecto a
 lo largo de la misma, cubriendo diferentes objetivos de aprendizaje a la vez que
 se realizan diferentes productos mínimamente viables de ese proyecto. Los
@@ -63,7 +68,7 @@ DevOps](documentos/proyecto/README). A grosso modo, los objetivos se
 organizarán de la forma siguiente.
 
 1. [Objetivo cero: Uso básico de
-   herramientas](documentos/proyecto/0.Repositorio).
+   herramientas, problema a resolver](documentos/proyecto/0.Repositorio).
 2. [Historias de usuario y
    planificación](documentos/proyecto/1.Infraestructura).
 3. [Definición de una entidad](documentos/proyecto/2.Entidad).
@@ -92,17 +97,15 @@ Estas prácticas se han hecho otros años:
 
 ## Temario - Programa de la asignatura
 
-> Previo a la asignatura, es conveniente
-> que [consultes este curso](https://jj.github.io/curso-tdd), con
-> material suplementario a lo que se imparte en la asignatura. Los
-> temas relevantes se enlazarán en cada hito.
+> El temario está sólo como complemento, porque hy que partir de los objetivos
+semanales y los objetivos a entregar.
 
 Los materiales de la asignatura están enlazados desde abajo y
 disponibles con una licencia libre. Los fuentes de los mismos están en
 [GitHub](https://github.com/JJ/IV).
 
 La temporización de la asignatura y los objetivos de cada sesión figuran en la
-[bitácora](https://github.com/JJ/IV-21-22/blob/master/sesiones/README.md) de
+[bitácora](https://github.com/JJ/IV-22-23/blob/master/sesiones/README.md) de
 clase. Enlazaremos también en ese fichero las grabaciones que se hagan de las
 sesiones en vivo.
 
