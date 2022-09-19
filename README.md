@@ -92,7 +92,7 @@ Estas prácticas se han hecho otros años:
 
 ## Temario - Programa de la asignatura
 
-> El temario está sólo como complemento, porque hy que partir de los objetivos
+> El temario está sólo como complemento, porque hay que partir de los objetivos
 semanales y los objetivos a entregar.
 
 Los materiales de la asignatura están enlazados desde abajo y
