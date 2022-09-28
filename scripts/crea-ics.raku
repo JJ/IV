@@ -32,3 +32,29 @@ END:VCALENDAR
 EOI
 
 spurt( "calendarios/" ~ $objetivo ~ "-" ~ $percentil.split(" ").join("-") ~ ".ics", $ics);
+
+# Generate global ics file with all events of ics files inside "calendarios" folder
+
+$ics = qq:to<EOI>;
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:IV Cal
+EOI
+
+for dir "calendarios/" -> $file {
+    if ($file.IO.path ne "calendarios/global-asignatura.ics") {
+        say $file.IO.path;
+
+        my $i = 0;
+        for $file.IO.lines -> $line {
+            $i++;
+            if $i>=5 && $line ne "END:VCALENDAR" {
+                $ics ~= "\n$line";
+            }
+        }
+    }
+}
+$ics ~= "\nEND:VCALENDAR";
+
+spurt( "calendarios/global-asignatura.ics", $ics);
