@@ -6,3 +6,5 @@ examenes/*.html
 .Rhistory
 fatlib/
 .idea
+
+.RData
