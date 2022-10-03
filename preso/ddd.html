@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+    <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>IV: Domain Driven Design</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/iv.css" id="theme">
+        <link rel="stylesheet" href="dist/extra.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+	    <div class="reveal">
+		<div class="slides">
+		    <section><h2>IV 2022-23</h2>
+                        <h1>Diseño dirigido por dominio</h1>
+
+                        <aside class="notes">Vamos a ponernos al día
+                    en una serie de temas que por cualquier razón se
+                    han olvidado, no han entrado, o se ha visto según
+                            las entregas que eran necesarios.</aside>
+                    </section>
+
+		     <section><h1>Ingeniería del software: resolver
+                         problemas mediante código</h1>
+
+                         <aside class="notes">Se reconoce a Margaret
+		     Hamilton como la persona que convirtió el
+		             software en ingeniería. Antes era... hacer cosas</aside>
+		     </section>
+
+
+                     <section><h1>Hay que entender el problema</h1>
+                    <h1 class="fragment">Hacer un modelo del mismo</h1>
+                    <h1 class="fragment">... Y de la solución</h1>
+                </section>
+
+                <section data-background="Metodología"><h1>Mentalidad ágil:</h1>
+                    <h2 class="fragment">Enfocada a las
+                    personas, afronta necesidades reales</h2>
+                </section>
+
+                <section><h1>Empatizar</h1>
+                    <h2 class="fragment">Problema: los
+                        agricultores necesitan vender a precios más
+                        justos</h2>
+
+                    <h1 class="fragment">Empatía: personalizar los tipos
+                        de usuarios de una aplicación</h1>
+                    <aside class="notes">Se trata de ver
+                        siempre qué es lo que el usuario/cliente va a
+                        necesitar, y verlo desde la perspectiva del
+                        mismo, no desde el punto de vista de "quiero
+                        usar no sé qué framework"</aside>
+                </section>
+
+
+                <section><h1>Historias de usuario</h1>
+                    <h2>Los deseos de los clientes</h2>
+                    <h3 class="fragment"><em>Todos</em> los clientes</h3>
+                    <aside class="notes">En las aplicaciones en la nube,
+                        hay más clientes que el usuario directo, y puede querer
+                        diferentes tipos de cosas</aside>
+                </section>
+
+
+                <section> <!-- hitos -->
+                    <section><h1>Los hitos se organizan alrededor de
+		        <em>productos</em> mínimamente viables</h1>
+                        <h2 class="fragment">Algunos pueden ser internos: diseño
+                    de una clase, por ejemplo</h2>
+                    </section>
+
+                    <section data-background="https://live.staticflickr.com/1862/43650674834_4821133abc_k_d.jpg"><h1>Hitos: hoja de ruta del
+                        desarrollo</h1></section>
+
+                    <section data-background="https://live.staticflickr.com/2447/3702241682_88b9ea00ba_k_d.jpg"><h2>Hito 0: diseño e implementación de la(s) clase(s) necesarias
+                        para trabajar con los precios de los productos en
+                        lonja</h2>
+
+                        <h1 class="fragment">Válido: si compila</h1>
+                        <aside class="notes">Está claro que las dos HUs giran en
+                        torno a estos precios, luego habrá que empezar por
+                        ahí. Sin los productos en la lonja, no puede haber
+                            lógica de negocio</aside>
+                    </section>
+
+                    <section><h1>Hito 1: Hito 0 + lógica de validación y
+                        procesado de precios</h1>
+
+                        <aside class="notes">Los precios estarán en formato
+                            español, por ejemplo.</aside>
+                    </section>
+                </section>
+
+                <section>
+
+                    <section data-background="https://live.staticflickr.com/65535/52402219259_31f08a6912_o_d.jpg"><h1><em>Domain driven design</em>:</h1>
+                        <h2 class="fragment">Puente entre HUs (deseos) e issues (implementación)</h2>
+                    </section>
+
+                    <section><h1>Objeto valor: precio individual</h1>
+                        <h2 class="fragment">Entidad: histórico de precios (¿por
+                            producto?) + lógica de negocio</h2>
+                        <h3 class="fragment">Agregado: Todas las entidades
+                            (todos los productos).</h3>
+
+                        <aside class="notes">Siempre que haya una ambigüedad,
+                    debe haber un issue para discutirla y resolverla. (Casi)
+                            nunca hay una sola forma obvia de diseñar una clase,
+                    todas las entidades y funciones que tenga necesitarán una
+                            decisión técnica.</aside>
+                    </section>
+
+                    <section><h1>Issues: puentes entre HUs y PMVs</h1>
+                        <h3 class="fragment">Como programador, almacenaré los
+                        precios con 2 decimales, con las unidades estándar para
+                        cada producto, identificando de forma única la lonja y
+                            con fecha en formato <em>epoch</em></h3>
+
+                        <aside class="notes">Cómo se almacene el precio no es
+                            obvio, porque igual no se tienen precios por día, sino por
+                            semana, como <a
+                                             href="http://www.juntadeandalucia.es/agriculturaypesca/observatorio/servlet/FrontController?action=UltimosPrecios&subsector=35&producto=35000&posicion=0">aquí
+                            con la almendra, por ejemplo</a>. Aquí hacemos
+                            referencia al menos a los objetos valor que vamos a
+                            usar.
+                        </aside>
+                    </section>
+                </div>
+	    </div>
+
+            	    <script src="dist/reveal.js"></script>
+	    <script src="plugin/notes/notes.js"></script>
+	    <script src="plugin/highlight/highlight.js"></script>
+	    <script>
+	     Reveal.initialize({
+		 hash: true,
+                 width: "95%",
+                 slideNumber: true,
+		 // Learn about plugins: https://revealjs.com/plugins/
+		 plugins: [ RevealHighlight, RevealNotes ]
+	     });
+	    </script>
+
+	</body>
+</html>
