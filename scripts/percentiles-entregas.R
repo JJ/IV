@@ -38,11 +38,12 @@ percentiles.entrega.semana.decil1 <- (superados %>% group_by( Objetivo ) %>% dpl
 entregas.semanas <- data.frame( objetivo=c(0:9), mediana = percentiles.entrega.semana$Mediana, cuartil3 = percentiles.entrega.semana.cuartil3$Cuartil3, decil9 = percentiles.entrega.semana.decil9$Decil9, decil1 = percentiles.entrega.semana.decil1$Decil1)
 
 percentiles.superacion.semana <- (superados %>% group_by( Objetivo ) %>% dplyr::summarize(Mediana = quantile(Correccion.Semana,0.5,na.rm=TRUE)))
+
 percentiles.entrega.semana$Mediana.Dias <- round(percentiles.entrega.semana$Mediana * 7)
 percentiles.entrega.semana$diferencia <-c(NA,diff( percentiles.entrega.semana$Mediana.Dias))
 
 percentiles.entrega.semana.trescuartos <- (superados %>% group_by( Objetivo ) %>% dplyr::summarize(Cuartil3 = quantile(Entrega.Semana,0.75,na.rm=TRUE)))
-percentiles.entrega.semana.trescuartos$Dias <- round(percentiles.entrega.semana.trescuartos$Mediana * 7)
+percentiles.entrega.semana.trescuartos$Dias <- round(percentiles.entrega.semana.trescuartos$Cuartil3 * 7)
 percentiles.entrega.semana.trescuartos$diferencia <-c(NA,diff( percentiles.entrega.semana.trescuartos$Dias))
 
 percentiles.entrega.semana.90 <- (superados %>% group_by( Objetivo ) %>% dplyr::summarize(Mediana = quantile(Entrega.Semana,0.9,na.rm=TRUE)))
