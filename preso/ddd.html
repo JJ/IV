@@ -18,12 +18,8 @@
 	    <div class="reveal">
 		<div class="slides">
 		    <section><h2>IV 2022-23</h2>
-                        <h1>Diseño dirigido por dominio</h1>
+                        <h1>Diseño dirigido por dominio: DDD</h1>
 
-                        <aside class="notes">Vamos a ponernos al día
-                    en una serie de temas que por cualquier razón se
-                    han olvidado, no han entrado, o se ha visto según
-                            las entregas que eran necesarios.</aside>
                     </section>
 
 		     <section><h1>Ingeniería del software: resolver
@@ -36,14 +32,14 @@
 
 
                      <section><h1>Hay que entender el problema</h1>
-                    <h1 class="fragment">Hacer un modelo del mismo</h1>
-                    <h1 class="fragment">... Y de la solución</h1>
-                </section>
+                         <h1 class="fragment">Hacer un modelo del mismo</h1>
+                         <h1 class="fragment">... Y de la solución</h1>
+                     </section>
 
-                <section data-background="Metodología"><h1>Mentalidad ágil:</h1>
-                    <h2 class="fragment">Enfocada a las
+                     <section data-background="Metodología"><h1>Mentalidad ágil:</h1>
+                         <h2 class="fragment">Enfocada a las
                     personas, afronta necesidades reales</h2>
-                </section>
+                     </section>
 
                 <section><h1>Empatizar</h1>
                     <h2 class="fragment">Problema: los
@@ -104,7 +100,14 @@
                         <h2 class="fragment">Puente entre HUs (deseos) e issues (implementación)</h2>
                     </section>
 
-                    <section><h1>Objeto valor: precio individual</h1>
+                    <section>
+                        <h1>Objeto valor: precio individual</h1>
+                        <h2 class="fragment">¿Necesita un histórico?</h2>
+                        <h3 class="fragment">Si → inmutable</h3>
+                        <h3 class="fragment">No → Fácil de recuperar</h3>
+                    </section>
+
+                    <section>
                         <h2 class="fragment">Entidad: histórico de precios (¿por
                             producto?) + lógica de negocio</h2>
                         <h3 class="fragment">Agregado: Todas las entidades
@@ -114,23 +117,36 @@
                     debe haber un issue para discutirla y resolverla. (Casi)
                             nunca hay una sola forma obvia de diseñar una clase,
                     todas las entidades y funciones que tenga necesitarán una
-                            decisión técnica.</aside>
+                            decisión técnica. Por ejemplo, las fechas pueden ser
+                    parte del objeto valor o no; el que sea uno u otro dependerá
+                            de cómo vayamos a acceder a él.
+
+                        </aside>
                     </section>
 
-                    <section><h1>Issues: puentes entre HUs y PMVs</h1>
-                        <h3 class="fragment">Como programador, almacenaré los
-                        precios con 2 decimales, con las unidades estándar para
+                    <section data-background="https://live.staticflickr.com/60/219989069_1c4cdd6c12_o_d.jpg"><h1><strong>Nunca</strong> hay una sola forma de
+                        hacer las cosas</h1>
+                        <h2 class="fragment">Documentar la toma de decisiones</h2>
+                    </section>
+
+                    <section><h1><en>Issues</en>: puentes entre HUs y PMVs</h1>
+                        <h3 class="fragment">Como programador, necesito conocer
+                        los precios los precios con 2 decimales, con las unidades estándar para
                         cada producto, identificando de forma única la lonja y
-                            con fecha en formato <em>epoch</em></h3>
+                            la fecha.</h3>
 
                         <aside class="notes">Cómo se almacene el precio no es
                             obvio, porque igual no se tienen precios por día, sino por
-                            semana, como <a
-                                             href="http://www.juntadeandalucia.es/agriculturaypesca/observatorio/servlet/FrontController?action=UltimosPrecios&subsector=35&producto=35000&posicion=0">aquí
+                            semana, como <a href="http://www.juntadeandalucia.es/agriculturaypesca/observatorio/servlet/FrontController?action=UltimosPrecios&subsector=35&producto=35000&posicion=0">aquí
                             con la almendra, por ejemplo</a>. Aquí hacemos
                             referencia al menos a los objetos valor que vamos a
                             usar.
                         </aside>
+                    </section>
+
+                    <section><h1>Los issues plantean <em>problemas</em></h1>
+                        <h2 class="fragment">Se abren para discutir detalles de
+                            implementación, o se proponen en un PR</h2>
                     </section>
                 </div>
 	    </div>
