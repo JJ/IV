@@ -14,4 +14,4 @@ rule 'MD029', :style => :ordered
 # Allow raw HTML for notes and other stuff
 exclude_rule 'MD033'
 # Allow long lines on code blocks only
-rule 'MD013', :code_blocks => false
+rule 'MD013', :ignore_code_blocks => true
