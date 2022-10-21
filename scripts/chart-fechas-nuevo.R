@@ -3,9 +3,9 @@ require(ggthemes)
 library(parsedate)
 library(dplyr)
 
-datos <- read.csv("../IV-21-22/data/fechas-entrega.csv", sep=";")
+datos <- read.csv("../IV-22-23/data/fechas-entrega.csv", sep=";")
 
-inicio <- parse_iso_8601("2021-09-13T00:00:00+02:00")
+inicio <- parse_iso_8601("2022-09-15T00:00:00+02:00")
 
 datos$Correccion <- parse_iso_8601(datos$Correccion)
 datos$Correccion.Semana <- as.numeric( datos$Correccion - inicio, units = "weeks")
@@ -19,7 +19,7 @@ summary( datos$superacion )
 summary(datos$Entrega.Semana)
 datos$Objetivo <- as.factor(datos$Objetivo)
 ggplot( datos, aes(x=Entrega,y=Objetivo))+geom_point()+theme_economist_white()
-ggplot( datos, aes(x=Objetivo, y=superacion,color=Objetivo))+ geom_boxplot()+ylim(0,30)
+ggplot( datos, aes(x=Objetivo, y=superacion,color=Objetivo))+ geom_boxplot()
 superados <- datos[ datos$Incompleto == "Completo",]
 ggplot( superados, aes(x=Objetivo, y=superacion,color=Objetivo))+ geom_boxplot() +theme_economist_white()
 ggplot( datos, aes(x=Objetivo, y=Entrega,color=Objetivo))+ geom_boxplot() +theme_economist_white()
