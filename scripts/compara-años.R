@@ -36,7 +36,7 @@ today <- Sys.time()
 
 days <- today - inicio.2223
 
-date.2122 <- inicio + days
+# date.2122 <- inicio + days
 
 hasta.hoy.2122 <- datos[ datos$Entrega <= date.2122, ]
 
