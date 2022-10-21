@@ -25,7 +25,7 @@ ggplot( superados, aes(x=Objetivo, y=superacion,color=Objetivo))+ geom_boxplot()
 ggplot( datos, aes(x=Objetivo, y=Entrega,color=Objetivo))+ geom_boxplot() +theme_economist_white()
 ggplot( superados, aes(x=Objetivo, y=Entrega,color=Objetivo))+ geom_boxplot() +theme_economist_white()
 
-estudiantes.superado <- datos[ datos$Objetivo == 6, ]$Estudiante
+estudiantes.superado <- datos[ datos$Objetivo == 5, ]$Estudiante
 
 solo.superados <- filter( datos, Estudiante %in% estudiantes.superado )
 no.superados <- filter( datos, ! Estudiante %in% estudiantes.superado )
