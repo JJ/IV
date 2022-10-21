@@ -1,5 +1,6 @@
 library(parsedate)
 library(dplyr)
+library(ggplot2)
 
 datos <- read.csv("../IV-21-22/data/fechas-entrega.csv", sep=";")
 
@@ -13,11 +14,12 @@ datos$Entrega.Semana <- as.numeric( datos$Entrega - inicio, units = "weeks")
 
 datos$superacion <- as.numeric(datos$Correccion - datos$Entrega, units="days");
 datos$curso = "21-22"
+datos <- datos[order(datos$Entrega),]
 datos$entregas <- seq.int(nrow(datos))
 
-datos.2223 <- read.csv("../IV-21-22/data/fechas-entrega.csv", sep=";")
+datos.2223 <- read.csv("../IV-22-23/data/fechas-entrega.csv", sep=";")
 
-inicio.2223 <- parse_iso_8601("2021-09-13T00:00:00+02:00")
+inicio.2223 <- parse_iso_8601("2022-09-13T00:00:00+02:00")
 
 datos.2223$Correccion <- parse_iso_8601(datos.2223$Correccion)
 datos.2223$Correccion.Semana <- as.numeric( datos.2223$Correccion - inicio.2223, units = "weeks")
@@ -27,6 +29,7 @@ datos.2223$Entrega.Semana <- as.numeric( datos.2223$Entrega - inicio.2223, units
 
 datos.2223$superacion <- as.numeric(datos.2223$Correccion - datos.2223$Entrega, units="days");
 datos.2223$curso = "22-23"
+datos.2223 <- datos.2223[order(datos.2223$Entrega),]
 datos.2223$entregas <- seq.int(nrow(datos.2223))
 
 today <- Sys.time()
@@ -39,5 +42,5 @@ hasta.hoy.2122 <- datos[ datos$Entrega <= date.2122, ]
 
 vs.22.23 <- rbind( datos.2223, hasta.hoy.2122)
 
-ggplot(vs.22.23, aes(x=Entrega, y=entregas, color=curso)) + geom_line() + geom_point()
+ggplot(vs.22.23, aes(x=Entrega.Semana, y=entregas, color=curso)) + geom_line() + geom_point()
 
