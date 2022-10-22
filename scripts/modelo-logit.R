@@ -26,8 +26,21 @@ for (i in 7:15 ) {
   eta = predict( logit.entrega.3, data.frame(Entrega.Semana=i))
   probabilidades <- rbind(probabilidades, data.frame(semana=i, probabilidades=exp(eta)/(1+exp(eta))))
 }
-
 ggplot(probabilidades,aes(x=semana,y=probabilidades))+geom_point()+geom_line()+theme_economist()+ylim(0,1)
+
+# Superacion de objetivos
+datos.superacion <- subset(datos[ !is.na(datos$superacion),],select = c(superacion,aprobado,Objetivo))
+superados.logit <- glm( aprobado ~ superacion+Objetivo, family="binomial", data=datos.superacion)
+probabilidades.superacion <- data.frame(dias=numeric(),probabilidad=numeric(), objetivo=numeric())
+
+for (i in 1:28 ) {
+  for (j in 0:3) {
+    eta = predict( superados.logit, data.frame(superacion=i,Objetivo=j))
+    probabilidades.superacion <- rbind(probabilidades.superacion, data.frame(dias=i, Objetivo=j, probabilidades=exp(eta)/(1+exp(eta))))
+  }
+}
+ggplot(probabilidades.superacion,aes(x=dias,y=probabilidades,colour=Objetivo,group=Objetivo))+geom_point()+geom_line()+theme_economist()+ylim(0,1)
+
 datos.obj.4 <- subset(datos[ datos$Objetivo == 4,],select = c(Entrega.Semana,Correccion.Semana,superacion,aprobado))
 logit.entrega.4 <- glm( aprobado ~ Entrega.Semana, family="binomial", data=datos.obj.4)
 summary(logit.entrega.4)
