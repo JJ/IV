@@ -5,7 +5,8 @@
       "IO::Glob",
       "Text::CSV",
       "Git::File::History",
-      "JSON::Fast"
+      "JSON::Fast",
+      "Digest::MD5"
   ],
   "description" : "Scripts Raku para analizara datos de la asignatura IV",
   "license" : "Artistic-2.0",

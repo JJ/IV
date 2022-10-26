@@ -7,5 +7,7 @@ examenes/*.html
 fatlib/
 .idea
 
+# R
 .RData
 .Rproj.user
+*Rproj
