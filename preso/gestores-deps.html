@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+    <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>IV: gestores tareas y dependencias</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+        <link rel="stylesheet" href="dist/extra.css">
+	<link rel="stylesheet" href="dist/iv.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+	    <div class="reveal">
+		<div class="slides">
+		    <section><h2>IV</h2>
+                        <h1>Gestores de dependencias</h1>
+                        <h3><a href="https://jj.github.io/iv/preso/gestores-deps"><code>jj.github.io/IV/preso/gestores-deps</code></a></h3>
+                    </section>
+
+                    <section>
+                    <section><h1>¿Qué es desplegar una aplicación?</h1>
+                        <h2 class="fragment">Operaciones para que una aplicación
+                            se ejecute en la nube</h2>
+                    </section>
+                    <section><h1>Desplegar incluye →</h1>
+                        <h2 class="fragment">Transformar los fuentes</h2>
+                        <h2 class="fragment">Construir entorno de ejecución</h2>
+                        <h2 class="fragment">Copiar ficheros</h2>
+                        <h2 class="fragment">Instalar aplicación</h2>
+                        <h2 class="fragment">Instalar servicios</h2>
+                        <h2 class="fragment">Arrancar aplicación</h2>
+                        <aside class="notes">Alguna cosa adicional, como tests,
+                            van implícitos</aside>
+                    </section>
+
+                    <section><h1>Instalaciones <em>idempotentes</em></h1>
+                        <h2 class="fragment">🚫 "a mi me funciona"</h2>
+                        <aside class="notes">Se trata de que en las pruebas y en
+                        el despliegue, la aplicación se comporte de la misma
+                            forma, usando las mismas versiones o versiones
+                            compatibles</aside>
+                    </section>
+                    </section>
+                    
+                    <section><h1>Dependencias son bibliotecas necesarios para
+                            la aplicación</h2>
+                        <h2 class="fragment">Producción/Construcción/Test</h2>
+                        <h2 class="fragment">Construcción + Test ==
+                            Desarrollo</h2>
+                    </section>
+
+                    <section><h1>Configuración en el entorno</h1>
+                        <h2 class="fragment">Bibliotecas usadas deben ser las mismas</h2>
+
+                        <aside class="notes">Parte de los 12 factores y demás.</aside>
+                    </section>
+
+                    <section><h2>Los gestores deben asegurarse de</h2>
+                        <h3 class="fragment">Poner dependencias en un lugar
+                            estándar</h3>
+                        <h3 class="fragment">Resolver conflictos de
+                            versiones</h3>
+                        <h3 class="fragment">Instalar prerrequisitos
+                            recursivamente</h3>
+                        <h3 class="fragment">Registrar las versiones
+                            instaladas ⇒ fichero <code>lock</code></h3>
+                    </section>
+                    
+		     <section><h1>Configuración</h1>
+			<h2 class='fragment'>Lenguaje genérico (YAML, JSON) vs. DSL vs. lenguaje con el que trabajan</h2>
+
+			<aside class="notes">Domain specific language, un
+                    lenguaje específico y a veces diferente del lenguaje con el
+                            que trabajan. Por ejemplo, gradle usa Groovy.</aside>
+		      </section>
+
+		      <section><h1>Gradle usa un DSL sobre groovy</h1>
+			<pre><code>buildscript {
+    ext.kotlin_version = '1.6.21'
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.1.3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.4.2'
+    }
+} // ...</code></pre>
+			<aside class='notes'>Se usa en todos los proyectos de la JVM: Groovy, Kotlin, Scala o Java</aside>
+		      </section>
+
+                      <section><h1>Poetry en Python: gestor de
+                            dependencias</h1>
+                            <pre><code data-line-numbers="1,8,11,14|8-9|11-12">                            [tool.poetry]
+                            name = "Hugitos"
+                            version = "0.1.0"
+                            description = "Una pequeña demo para la asignatura de IV"
+                            authors = ["JJ Merelo"]
+                            packages= [ { include = "HitosIV" }, ]
+
+                            [tool.poetry.dependencies]
+                            python = ">=3.6" # Más...
+
+                            [tool.poetry.dev-dependencies]
+                            pytest = "^6.1.2"
+
+                            [tool.poetry.scripts]
+                            set-vars = "HitosIV.etcd_vars:main"
+                            start = "hugitos:__hug_wsgi__"</code></pre>
+
+                            <aside class="notes">En realidad sólo
+                        puede ejecutar tareas que estén en un programa
+                                en python. Necesitas un gestor de tareas por
+                        encima. Pero se pueden llamar directamente funciones en
+                        módulos de Python, así que se pueden definir diferentes
+                        entrypoints para ellos</aside>
+                        </section>
+                    </section>
+
+                </div>
+	    </div>
+
+	    <script src="dist/reveal.js"></script>
+	    <script src="plugin/notes/notes.js"></script>
+	    <script src="plugin/markdown/markdown.js"></script>
+	    <script src="plugin/highlight/highlight.js"></script>
+	    <script>
+	     Reveal.initialize({
+		 hash: true,
+                 width: "95%",
+                 slideNumber: true,
+		 // Learn about plugins: https://revealjs.com/plugins/
+		 plugins: [  RevealHighlight, RevealNotes ]
+	     });
+	    </script>
+	</body>
+</html>
