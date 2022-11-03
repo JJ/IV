@@ -44,11 +44,14 @@ vs.22.23 <- rbind( datos.2223, hasta.hoy.2122)
 
 ggplot(vs.22.23, aes(x=Entrega.Semana, y=entregas, color=curso)) + geom_line() + geom_point(colour=1+vs.22.23$Objetivo)
 
+print(mean(hasta.hoy.2122$Objetivo))
+print(mean(datos.2223$Objetivo))
+
 correcciones.2223 <- datos.2223[!is.na(datos.2223$Correccion),]
 correcciones.2223 <- correcciones.2223[order(correcciones.2223$Correccion),]
 correcciones.2223$entregas <- seq.int(nrow(correcciones.2223))
 
-correcciones.hasta.hoy.2122 <- datos[ datos$Correccion <= date.2122, ]
+correcciones.hasta.hoy.2122 <- hasta.hoy.2122[ hasta.hoy.2122$Correccion <= date.2122, ]
 
 correcciones.hasta.hoy.2122 <- correcciones.hasta.hoy.2122[ correcciones.hasta.hoy.2122$Incompleto == "Completo",]
 correcciones.hasta.hoy.2122 <- correcciones.hasta.hoy.2122[order(correcciones.hasta.hoy.2122$Correccion),]
@@ -59,3 +62,4 @@ ggplot(correcciones.vs.22.23, aes(x=Correccion.Semana, y=entregas, color=curso))
 
 ggplot(correcciones.vs.22.23, aes(x=curso,y=superacion))+ geom_boxplot( notch=T)
 wilcox.test(correcciones.2223$superacion,correcciones.hasta.hoy.2122$superacion)
+
