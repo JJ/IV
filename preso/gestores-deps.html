@@ -46,7 +46,7 @@
                             compatibles</aside>
                     </section>
                     </section>
-                    
+
                     <section><h1>Dependencias son bibliotecas necesarios para
                             la aplicación</h2>
                         <h2 class="fragment">Producción/Construcción/Test</h2>
@@ -61,25 +61,26 @@
                     </section>
 
                     <section><h2>Los gestores deben asegurarse de</h2>
+                        <h3 class="fragment">Descargar dependencias de repositorios</h3>
                         <h3 class="fragment">Poner dependencias en un lugar
-                            estándar</h3>
+                            estándar (puede incluir entornos virtuales)</h3>
                         <h3 class="fragment">Resolver conflictos de
                             versiones</h3>
-                        <h3 class="fragment">Instalar prerrequisitos
-                            recursivamente</h3>
                         <h3 class="fragment">Registrar las versiones
                             instaladas ⇒ fichero <code>lock</code></h3>
+                        <h3 class="fragment">Instalar prerrequisitos
+                            recursivamente</h3>
                     </section>
-                    
+
 		     <section><h1>Configuración</h1>
-			<h2 class='fragment'>Lenguaje genérico (YAML, JSON) vs. DSL vs. lenguaje con el que trabajan</h2>
+			<h2 class='fragment'>Lenguaje genérico (YAML, JSON, TOML) vs. DSL vs. lenguaje con el que trabajan</h2>
 
 			<aside class="notes">Domain specific language, un
                     lenguaje específico y a veces diferente del lenguaje con el
                             que trabajan. Por ejemplo, gradle usa Groovy.</aside>
 		      </section>
 
-		      <section><h1>Gradle usa un DSL sobre groovy</h1>
+		      <section><h1>Gradle: DSL sobre groovy</h1>
 			<pre><code>buildscript {
     ext.kotlin_version = '1.6.21'
     repositories {
@@ -95,8 +96,7 @@
 			<aside class='notes'>Se usa en todos los proyectos de la JVM: Groovy, Kotlin, Scala o Java</aside>
 		      </section>
 
-                      <section><h1>Poetry en Python: gestor de
-                            dependencias</h1>
+                      <section><h1>Poetry en Python</h1>
                             <pre><code data-line-numbers="1,8,11,14|8-9|11-12">                            [tool.poetry]
                             name = "Hugitos"
                             version = "0.1.0"
@@ -108,11 +108,7 @@
                             python = ">=3.6" # Más...
 
                             [tool.poetry.dev-dependencies]
-                            pytest = "^6.1.2"
-
-                            [tool.poetry.scripts]
-                            set-vars = "HitosIV.etcd_vars:main"
-                            start = "hugitos:__hug_wsgi__"</code></pre>
+                            pytest = "^6.1.2"</code></pre>
 
                             <aside class="notes">En realidad sólo
                         puede ejecutar tareas que estén en un programa
