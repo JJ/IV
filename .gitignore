@@ -11,3 +11,5 @@ fatlib/
 .RData
 .Rproj.user
 *Rproj
+
+.DS_Store
