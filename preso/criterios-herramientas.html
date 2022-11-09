@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+    <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>IV: Criterios de elección de herramientas y dependencias</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+        <link rel="stylesheet" href="dist/extra.css">
+	<link rel="stylesheet" href="dist/iv.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+	    <div class="reveal">
+		<div class="slides">
+		    <section><h2>IV</h2>
+                        <h1>Cómo elegir bien</h1>
+                        <h2 class="fragment">Sin generar deuda técnica en un proyecto</h2>
+                        <h3><a href="https://jj.github.io/iv/preso/gestores-deps"><code>jj.github.io/IV/preso/criterios-herramientas</code></a></h3>
+                    </section>
+
+                    <section><h1>Zapatero a tus zapatos</h1>
+                        <h2 class="fragment">Lenguajes, sistemas operativos,
+                            metodologías, servicios son nuestros zapatos</h2>
+                    </section>
+
+                    <section>
+                        <section><h1>Hay diferentes niveles de criterios de
+                            elección</h1>
+                            <h2 class="fragment">De obligatoriedad a
+                                optatividad</h2>
+                        </section>
+
+                        <section><h1>Estándares</h1>
+                            <h2 class="fragment">Son formatos, sintaxis,
+                                palabras clave de <em>obligatorio
+                                cumplimiento</em></h2>
+                            <h3 class="fragment">ECMAscript,
+                            <code>pyproject.toml</code>, TAP, directorios en Java...</h3>
+                        </section>
+
+                        <section><h1>La seguridad es importante</h1>
+                            <h2 class="fragment">Y horizontal</h2>
+                            <h3 class="fragment">Herramientas automáticas: Snyk,
+                                dependabot...</h3>
+                        </section>
+
+                        <section><h1>Actualización: <em>freshness</em></h1>
+                            <h2 class="fragment">Grado de mantenimiento de un
+                                proyecto</h2>
+                            <h3 class="fragment">Snyk, o herramientas
+                                similares</h3>
+                        </section>
+
+                        <section><h1>Buenas prácticas</h1>
+                            <h2 class="fragment">¿Qué aconseja la mayoría de la
+                                gente que se use</h2>
+                            <h3 class="fragment">Cambia a cada momento, y
+                                depende de todo lo anterior.</h3>
+                            <aside class="notes">Pero a falta de criterios como
+                            los anteriores, siempre es mejor tratar de usar lo
+                                que usa la mayoría</aside>
+                        </section>
+
+                        <section><h1>Criterios específicos del proyecto</h1>
+                            <h2 class="fragment">Tamaño del proyecto</h2>
+                            <h2 class="fragment">Organización: monorepo o
+                                no</h2>
+                            <h3 class="fragment">Velocidad de instalación</h3>
+                            <h3 class="fragment">Funcionalidad específica:
+                                scripting, mocks...</h3>
+                        </section>
+                    </section>
+
+                    <section><h1>Conocer las herramientas</h1>
+                        <h2 class="fragment">Charlas, meetups, grupos de
+                            usuarios, grupos de Telegram</h2>
+                        <h3 class="fragment">Crear proyectos personales</h3>
+                    </section>
+                </div>
+	    </div>
+
+	    <script src="dist/reveal.js"></script>
+	    <script src="plugin/notes/notes.js"></script>
+	    <script src="plugin/markdown/markdown.js"></script>
+	    <script src="plugin/highlight/highlight.js"></script>
+	    <script>
+	     Reveal.initialize({
+		 hash: true,
+                 width: "95%",
+                 slideNumber: true,
+		 // Learn about plugins: https://revealjs.com/plugins/
+		 plugins: [  RevealHighlight, RevealNotes ]
+	     });
+	    </script>
+	</body>
+</html>
