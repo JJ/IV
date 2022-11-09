@@ -61,5 +61,7 @@ correcciones.vs.22.23 <- rbind( correcciones.2223, correcciones.hasta.hoy.2122)
 ggplot(correcciones.vs.22.23, aes(x=Correccion.Semana, y=entregas, color=curso)) + geom_line() + geom_point(colour=1+correcciones.vs.22.23$Objetivo)
 
 ggplot(correcciones.vs.22.23, aes(x=curso,y=superacion))+ geom_boxplot( notch=T)
+summary(correcciones.2223$superacion)
+summary(correcciones.hasta.hoy.2122$superacion)
 wilcox.test(correcciones.2223$superacion,correcciones.hasta.hoy.2122$superacion)
 
