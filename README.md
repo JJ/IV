@@ -25,6 +25,15 @@ Se usará [GitHub](https://github.com) para el proyecto, la forma principal de
 examinar la asignatura; llamaremos *objetivos* a cada una de las entregas que hay
 que hacer del mismo.
 
+Los materiales de la asignatura están enlazados desde abajo y
+disponibles con una licencia libre. Los fuentes de los mismos están en
+[GitHub](https://github.com/JJ/IV).
+
+La temporización de la asignatura y los objetivos de cada sesión figuran en la
+[bitácora](https://github.com/JJ/IV-22-23/blob/master/sesiones/README.md) de
+clase. Enlazaremos también en ese fichero las grabaciones que se hagan de las
+sesiones en vivo.
+
 Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas
 sesiones de clase se irán reflejando en
 [un repositorio de GitHub; este es el de 2021-22](https://github.com/JJ/IV-21-22).
@@ -90,19 +99,12 @@ Estas prácticas se han hecho otros años:
 5. Desplegando a la nube:
    [Platform as a Service](documentos/proyecto/7.PaaS.md).
 
-## Temario - Programa de la asignatura
+## Material adicional
 
 > El temario está sólo como complemento, porque hay que partir de los objetivos
-semanales y los objetivos a entregar.
-
-Los materiales de la asignatura están enlazados desde abajo y
-disponibles con una licencia libre. Los fuentes de los mismos están en
-[GitHub](https://github.com/JJ/IV).
-
-La temporización de la asignatura y los objetivos de cada sesión figuran en la
-[bitácora](https://github.com/JJ/IV-22-23/blob/master/sesiones/README.md) de
-clase. Enlazaremos también en ese fichero las grabaciones que se hagan de las
-sesiones en vivo.
+de aprendizaje semanales y los objetivos a entregar. Esto se ha usado como
+material primario antes de 2021, pero ya no se considera material principal y
+está, en muchos casos, sin actualizar.
 
 1. [Introducción](documentos/temas/Intro_concepto_y_soporte_fisico.md):
    conceptos y soporte físico. Esta introducción es *cultura general*; aunque
