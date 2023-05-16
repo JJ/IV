@@ -40,8 +40,8 @@ sesiones de clase se irán reflejando en un repositorio de GitHub.
 En resumen, nuestra intención es que el estudiante al final de la asignatura sea
 capaz de hacer lo siguiente:
 
-1. Definir el entorno de trabajo y pruebas para desarrollo de una aplicación en
-   particular y desplegarlo en un PaaS.
+1. Definir el problema, entorno de trabajo y pruebas para desarrollo de una
+   aplicación en particular y desplegarlo en un PaaS.
 2. Usar ese entorno para configurar integración continua en una aplicación.
 3. Crear un entorno virtual para desarrollar y alojar la aplicación y comprenda
    el soporte físico de las técnicas usadas para crear tal entorno virtual.
