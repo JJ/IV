@@ -40,8 +40,7 @@ clase. Enlazaremos también en ese fichero las grabaciones que se hagan de las
 sesiones en vivo.
 
 Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas
-sesiones de clase se irán reflejando en
-[un repositorio de GitHub; este es el de 2021-22](https://github.com/JJ/IV-21-22).
+sesiones de clase se irán reflejando en un repositorio de GitHub.
 
 En resumen, nuestra intención es que el estudiante al final de la asignatura sea
 capaz de hacer lo siguiente:
