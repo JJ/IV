@@ -19,7 +19,8 @@ Papel y lápiz o bolígrafo.
 
 ## Objetivo del juego
 
-Entender mejor el problema que vamos a plantear en la asignatura y validarlo al menos de forma inicial.
+Entender mejor el problema que vamos a plantear en la asignatura y
+validarlo al menos de forma inicial.
 
 ## Desarrollo del juego
 
