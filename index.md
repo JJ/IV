@@ -89,7 +89,8 @@ organizarán de la forma siguiente.
 9. [REST](documentos/proyecto/8.REST).
 10. [Implementación de REST](documentos/proyecto/9.Microservicio).
 
-En estas prácticas se realizarán una serie de actividades para ayudar a interiorizar los conceptos.
+En estas prácticas se realizarán una serie de actividades para ayudar
+a interiorizar los conceptos.
 
 1. [Juego de rol: empatizar con el cliente para definir un problema](documentos/actividades/juego-rol-design-thinking).
 
