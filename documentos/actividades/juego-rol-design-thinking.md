@@ -22,9 +22,12 @@ Los estudiantes se organizan en parejas, y deciden quién va a ser
 estudiante A y estudiante B. El estudiante A *planteará el problema* y
 el estudiante B *tratará de comprenderlo*.
 
-<table> <thead>
-<th> Estudiante A </th><th> Estudiante B </th>
-</thead> <tbody>
+<table>
+  <thead>
+    <th> Estudiante A </th><th> Estudiante B </th>
+  </thead>
+
+  <tbody>
 <tr><td colspan="2"> <strong>5 minutos</strong> Los
 estudiantes, organizados por parejas, tienen 5 minutos para escribir,
 preferiblemente en papel y con bolígrafo, los problemas que conocen y
@@ -79,9 +82,10 @@ preguntas y solicitará aclaraciones, y al final validará (o no) el
 problema planteado como un problema que podría ser válido para la
 asignatura.</td></tr>
 
- <tr><td colspan="2"> <em>Puesta en común</em>: la clase dirá qué ha
+<tr><td colspan="2"> <em>Puesta en común</em>: la clase dirá qué ha
     aprendido de la experiencia, y sugerirá mejoras para iteraciones
-    sucesivas.  </td></tr>
+    sucesivas.  </td>
+</tr>
 
 </tbody>
 </table>
