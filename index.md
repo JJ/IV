@@ -39,7 +39,7 @@ La temporización de la asignatura y los objetivos de cada sesión figuran en la
 clase. Enlazaremos también en ese fichero las grabaciones que se hagan de las
 sesiones en vivo.
 
-Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas
+Estos son los [objetivos de la asignatura](documentos/objetivos), cuyas
 sesiones de clase se irán reflejando en un repositorio de GitHub.
 
 En resumen, nuestra intención es que el estudiante al final de la asignatura sea
@@ -72,7 +72,7 @@ lo largo de la misma, cubriendo diferentes objetivos de aprendizaje a la vez que
 se realizan diferentes productos mínimamente viables de ese proyecto. Los
 proyectos [consisten en crear la infraestructura virtual junto con una
 aplicación desarrollada según el modelo
-DevOps](documentos/proyecto/README). A grosso modo, los objetivos se
+DevOps](documentos/proyecto/README.md). A grosso modo, los objetivos se
 organizarán de la forma siguiente.
 
 1. [Objetivo cero: Uso básico de
@@ -88,6 +88,10 @@ organizarán de la forma siguiente.
 8. [Servicios esenciales](documentos/proyecto/7.Servicios).
 9. [REST](documentos/proyecto/8.REST).
 10. [Implementación de REST](documentos/proyecto/9.Microservicio).
+
+En estas prácticas se realizarán una serie de actividades para ayudar a interiorizar los conceptos.
+
+1. [Juego de rol: empatizar con el cliente para definir un problema](documentos/actividades/juego-rol-design-thinking).
 
 Este último para crédito adicional:
 
@@ -155,7 +159,7 @@ antelación.
 Los criterios de evaluación figuran en la
 [ficha de la asignatura](https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/curso_actual/cuarto/tecnologiasdelainformacion/gii_infraestructura_virtual_20172018_firmada)
 en la web del grado, y
-[se especifican en el repositorio de la clase](https://github.com/JJ/IV-21-22/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n.md).
+[se especifican en el repositorio de la clase](https://github.com/JJ/IV-21-22/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n).
 
 ## Convocatoria extraordinaria (AL FINAL DEL CUATRIMESTRE)
 
