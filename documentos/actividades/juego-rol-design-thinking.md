@@ -19,14 +19,14 @@ Entender mejor el problema que vamos a plantear en la asignatura y validarlo al 
 
 ## Desarrollo del juego
 
-Los estudiantes se organizan en parejas, y deciden quién va a ser estudiante A y estudiante B. El estudiante A *planteará el problema* y el estudiante B *tratará de comprenderlo.
+Los estudiantes se organizan en parejas, y deciden quién va a ser estudiante A y estudiante B. El estudiante A *planteará el problema* y el estudiante B *tratará de comprenderlo*.
 
 <table>
 <thead>
 <th> Estudiante A </th><th> Estudiante B </th>
 </thead>
 <tbody>
-<tr><td colspan="2">  **5 minutos** Los estudiantes, organizados por parejas, tienen 5 minutos para escribir, preferiblemente en papel y con bolígrafo, los problemas  que conocen y que piensan que pueden abordar mediante un programa. El énfasis es en que piensen en *los problemas*, no la
+<tr><td colspan="2">  <strong>5 minutos</strong> Los estudiantes, organizados por parejas, tienen 5 minutos para escribir, preferiblemente en papel y con bolígrafo, los problemas  que conocen y que piensan que pueden abordar mediante un programa. El énfasis es en que piensen en *los problemas*, no la
      solución. </td></tr>
 <tr><td> 	  **15 minutos para cada uno, 30 minutos en total** Asume el     rol de la persona *que tiene el problema*; le contará primero quién o qué es ("Soy un
       gerente de una empresa de envase de frutas", "Soy un estudiante
