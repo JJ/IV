@@ -85,8 +85,7 @@ asignatura.</td></tr>
 
 <tr><td colspan="2"> <em>Puesta en común</em>: la clase dirá qué ha
     aprendido de la experiencia, y sugerirá mejoras para iteraciones
-    sucesivas.  </td>
-</tr>
+    sucesivas.  </td> </tr>
 
 </tbody>
 </table>
