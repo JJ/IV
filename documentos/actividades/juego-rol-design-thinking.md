@@ -33,7 +33,7 @@ Los estudiantes se organizan en parejas, y deciden quién va a ser estudiante A 
 <tbody>
 <tr><td colspan="2">  <strong>5 minutos</strong> Los estudiantes, organizados por parejas, tienen 5 minutos para escribir, preferiblemente en papel y con bolígrafo, los problemas  que conocen y que piensan que pueden abordar mediante un programa. El énfasis es en que piensen en <em>los problemas</em>, no la
      solución. </td></tr>
-<tr><td> 	 <strong>15 minutos para cada uno, 30 minutos en total</strong> Asume el  rol de la persona <em>que tiene el problema</em>; le contará primero quién o qué es ("Soy un
+<tr><td> <strong>Opción 1</strong>	 <strong>15 minutos</strong> Asume el  rol de la persona <em>que tiene el problema</em>; le contará primero quién o qué es ("Soy un
       gerente de una empresa de envase de frutas", "Soy un estudiante
       que quiere comer sano", "Soy una persona mayor que quiere
       organizar mejor el tiempo de ejercicio") qué es lo que ocurre, qué es lo
@@ -56,7 +56,7 @@ Los estudiantes se organizan en parejas, y deciden quién va a ser estudiante A 
       los roles de estudiante A y estudiante B.
 	  </td>
 	  </tr>
-	  <tr><td>Puede que no haya tenido tiempo de formular ninguna idea en los 5 minutos anteriors, o no tiene ninguna idea clara. Al final de los 15 minutos, con la ayuda del estudiante B, tendrá que plantear el problema que luego enviará para el objetivo 0</td>
+	  <tr><td><strong>Opción 2</strong> 	 <strong>15 minutos</strong>: Puede que no haya tenido tiempo de formular ninguna idea en los 5 minutos anteriors, o no tiene ninguna idea clara. Al final de los 15 minutos, con la ayuda del estudiante B, tendrá que plantear el problema que luego enviará para el objetivo 0</td>
 		<td>Tendrá que
           intentar ayudarle a formular ese problema, haciéndole
           preguntas como
@@ -76,7 +76,8 @@ Los estudiantes se organizan en parejas, y deciden quién va a ser estudiante A 
           problema que el estudiante A podrá plantear en la asignatura.
 	</td>
 	</tr>
-	<tr><td colspan="2"><em>Validación</em><strong>10 minutos</strong>: se cambian las parejas, y una vez
+	<tr><td colspan="2"><strong>15 minutos</strong>Estudiante A será ahora estudiante B, y viceversa, y llevarán a cabo una de las dos opciones anteriores.</td></tr>
+	<tr><td colspan="2"><em>Validación</em> <strong>10 minutos</strong>: se cambian las parejas, y una vez
      más estudiante A volverá a asumir el rol del posible cliente y
      contar qué problema tiene con las modificaciones que haya hecho
      en la interacción anterior; una vez más el estudiante B será
@@ -84,7 +85,7 @@ Los estudiantes se organizan en parejas, y deciden quién va a ser estudiante A 
      final validará (o no) el problema planteado como un problema que
      podría ser válido para la asignatura.</td></tr>
 
- <tr><td> <em>Puesta en común</em>: la clase dirá qué ha aprendido de la
+ <tr><td colspan="2"> <em>Puesta en común</em>: la clase dirá qué ha aprendido de la
     experiencia, y sugerirá mejoras para iteraciones sucesivas.
 </tr></td>
 </tbody>
