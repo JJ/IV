@@ -31,9 +31,9 @@ Los estudiantes se organizan en parejas, y deciden quién va a ser estudiante A 
 <th> Estudiante A </th><th> Estudiante B </th>
 </thead>
 <tbody>
-<tr><td colspan="2">  <strong>5 minutos</strong> Los estudiantes, organizados por parejas, tienen 5 minutos para escribir, preferiblemente en papel y con bolígrafo, los problemas  que conocen y que piensan que pueden abordar mediante un programa. El énfasis es en que piensen en *los problemas*, no la
+<tr><td colspan="2">  <strong>5 minutos</strong> Los estudiantes, organizados por parejas, tienen 5 minutos para escribir, preferiblemente en papel y con bolígrafo, los problemas  que conocen y que piensan que pueden abordar mediante un programa. El énfasis es en que piensen en <em>los problemas</em>, no la
      solución. </td></tr>
-<tr><td> 	  **15 minutos para cada uno, 30 minutos en total** Asume el     rol de la persona *que tiene el problema*; le contará primero quién o qué es ("Soy un
+<tr><td> 	 <strong>15 minutos para cada uno, 30 minutos en total</strong> Asume el  rol de la persona <em>que tiene el problema</em>; le contará primero quién o qué es ("Soy un
       gerente de una empresa de envase de frutas", "Soy un estudiante
       que quiere comer sano", "Soy una persona mayor que quiere
       organizar mejor el tiempo de ejercicio") qué es lo que ocurre, qué es lo
@@ -49,7 +49,7 @@ Los estudiantes se organizan en parejas, y deciden quién va a ser estudiante A 
       las preguntas necesarias para entender bien qué es lo que
       necesita, absteniéndose de formular ningún tipo de solución
       posible y tomará notas. Al final de los 15 minutos, consultando si es necesario las
-      notas, le resumirá al estudiante A (el *cliente*) lo que ha
+      notas, le resumirá al estudiante A (el <em>cliente</em>) lo que ha
       entendido. También le dará una valoración de si entiende que se
       podría resolver dentro de una asignatura como IV, de
       infraestructura virtual. Al final de este proceso, se invertirán
@@ -60,29 +60,31 @@ Los estudiantes se organizan en parejas, y deciden quién va a ser estudiante A 
 		<td>Tendrá que
           intentar ayudarle a formular ese problema, haciéndole
           preguntas como
-			  1. ¿Alguna afición podría mejorar con ayuda de algún
-                 problema?
-			 2. ¿Alguna tarea doméstica o el conjunto de las mismas en
+		  <ol>
+			  <li>¿Alguna afición podría mejorar con ayuda de algún
+                 problema?</li>
+			 <li> ¿Alguna tarea doméstica o el conjunto de las mismas en
                 su vivienda podrían ser algún problema? ¿O la
-                organización de las mismas?
-			3. ¿Alguna preocupación social o política podría ser un
-               problema mejorable con alguna aplicación?
-		    4. ¿Hay algún dato que se pueda procesar a partir de
+                organización de las mismas?</li>
+			<li>¿Alguna preocupación social o política podría ser un
+               problema mejorable con alguna aplicación?</li>
+		    <li> ¿Hay algún dato que se pueda procesar a partir de
                fuentes poco estructuradas? ¿Ofertas de algo?
-               ¿Información de alguna página de una institución?
+               ¿Información de alguna página de una institución?</li>
+			   </ol>
 		Eventualmente tendrán que intentar entre los dos formular el
           problema que el estudiante A podrá plantear en la asignatura.
 	</td>
 	</tr>
-	<tr><td colspan="2">*Validación* **10 minutos**: se cambian las parejas, y una vez
+	<tr><td colspan="2"><em>Validación</em><strong>10 minutos</strong>: se cambian las parejas, y una vez
      más estudiante A volverá a asumir el rol del posible cliente y
      contar qué problema tiene con las modificaciones que haya hecho
      en la interacción anterior; una vez más el estudiante B será
      entrevistador, hará preguntas y solicitará aclaraciones, y al
      final validará (o no) el problema planteado como un problema que
      podría ser válido para la asignatura.</td></tr>
-	 
- <tr><td> *Puesta en común*: la clase dirá qué ha aprendido de la
+
+ <tr><td> <em>Puesta en común</em>: la clase dirá qué ha aprendido de la
     experiencia, y sugerirá mejoras para iteraciones sucesivas.
 </tr></td>
 </tbody>
