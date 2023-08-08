@@ -57,13 +57,18 @@ se podría resolver dentro de una asignatura como IV, de
 infraestructura virtual. Al final de este proceso, se invertirán los
 roles de estudiante A y estudiante B.  </td> </tr>
 
-<tr><td><strong>Opción 2</strong> <strong>15 minutos</strong>: Puede
-que no haya tenido tiempo de formular ninguna idea en los 5 minutos
-anteriors, o no tiene ninguna idea clara. Al final de los 15 minutos,
-con la ayuda del estudiante B, tendrá que plantear el problema que
-luego enviará para el objetivo 0</td> <td>Tendrá que intentar ayudarle
+<tr>
+    <td><strong>Opción 2</strong> <strong>15 minutos</strong>
+	Puede
+    que no haya tenido tiempo de formular ninguna idea en los 5
+    minutos anteriores, o no tiene ninguna idea clara. Al final de los
+    15 minutos, con la ayuda del estudiante B, tendrá que plantear el
+    problema que luego enviará para el objetivo 0.
+	</td>
+
+   <td>Tendrá que intentar ayudarle
 a formular ese problema, haciéndole preguntas como <ol> <li>¿Alguna
-afición podría mejorar con ayuda de algún problema?</li> <li> ¿Alguna
+afición podría mejorar con ayuda de algún programa?</li> <li> ¿Alguna
 tarea doméstica o el conjunto de las mismas en su vivienda podrían ser
 algún problema? ¿O la organización de las mismas?</li> <li>¿Alguna
 preocupación social o política podría ser un problema mejorable con
@@ -71,17 +76,28 @@ alguna aplicación?</li> <li> ¿Hay algún dato que se pueda procesar a
 partir de fuentes poco estructuradas? ¿Ofertas de algo?  ¿Información
 de alguna página de una institución?</li> </ol> Eventualmente tendrán
 que intentar entre los dos formular el problema que el estudiante A
-podrá plantear en la asignatura.  </td> </tr> <tr><td
+podrá plantear en la asignatura.  </td>
+</tr>
+
+<tr>
+    <td
 colspan="2"><strong>15 minutos</strong>Estudiante A será ahora
 estudiante B, y viceversa, y llevarán a cabo una de las dos opciones
-anteriores.</td></tr> <tr><td colspan="2"><em>Validación</em>
+anteriores.
+    </td>
+</tr>
+
+<tr>
+     <td colspan="2"><em>Validación</em>
 <strong>10 minutos</strong>: se cambian las parejas, y una vez más
 estudiante A volverá a asumir el rol del posible cliente y contar qué
 problema tiene con las modificaciones que haya hecho en la interacción
 anterior; una vez más el estudiante B será entrevistador, hará
 preguntas y solicitará aclaraciones, y al final validará (o no) el
 problema planteado como un problema que podría ser válido para la
-asignatura.</td></tr>
+asignatura.
+     </td>
+</tr>
 
 <tr><td colspan="2"> <em>Puesta en común</em>: la clase dirá qué ha
     aprendido de la experiencia, y sugerirá mejoras para iteraciones
