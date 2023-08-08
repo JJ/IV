@@ -12,6 +12,12 @@ qué necesita y por qué lo necesita.
 
 Papel y lápiz o bolígrafo.
 
+Se pueden usar las siguientes fichas:
+
+* [Ficha de cliente](https://drive.google.com/file/d/1gf7CRRJLEtrZoOyGsyc6yJdzK_uGScu0/view?usp=sharing).
+* [Ficha de entrevistador](https://drive.google.com/file/d/1oKNX3oN4yhazzXXvpnvCVTBNbam5VuRH/view?usp=sharing).
+* [Ficha de entrevistador - cliente que necesita ayuda](https://drive.google.com/file/d/1Ag8wpJaVwRYvLAeOXDLpzTcH69KxV3jc/view?usp=sharing).
+
 ## Objetivo del juego
 
 Entender mejor el problema que vamos a plantear en la asignatura y
@@ -21,7 +27,7 @@ validarlo al menos de forma inicial.
 
 Los estudiantes se organizan en parejas, y deciden quién va a ser
 estudiante A y estudiante B. El estudiante A *planteará el problema* y
-el estudiante B *tratará de comprenderlo*.
+el estudiante B *tratará de comprenderlo y a continuación, lo resumirá*.
 
 <table>
   <thead>
