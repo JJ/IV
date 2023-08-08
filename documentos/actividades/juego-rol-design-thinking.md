@@ -65,12 +65,12 @@ roles de estudiante A y estudiante B.  </td> </tr>
 
 <tr>
     <td><strong>Opción 2</strong> <strong>15 minutos</strong>
-	Puede
+Puede
     que no haya tenido tiempo de formular ninguna idea en los 5
     minutos anteriores, o no tiene ninguna idea clara. Al final de los
     15 minutos, con la ayuda del estudiante B, tendrá que plantear el
     problema que luego enviará para el objetivo 0.
-	</td>
+    </td>
 
    <td>Tendrá que intentar ayudarle
 a formular ese problema, haciéndole preguntas como <ol> <li>¿Alguna
