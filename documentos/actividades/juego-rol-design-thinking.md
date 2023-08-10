@@ -22,6 +22,8 @@ Se pueden usar las siguientes fichas:
 * [Ficha de cliente](https://drive.google.com/file/d/1gf7CRRJLEtrZoOyGsyc6yJdzK_uGScu0/view?usp=sharing).
 * [Ficha de entrevistador](https://drive.google.com/file/d/1oKNX3oN4yhazzXXvpnvCVTBNbam5VuRH/view?usp=sharing).
 * [Ficha de entrevistador - cliente que necesita ayuda](https://drive.google.com/file/d/1Ag8wpJaVwRYvLAeOXDLpzTcH69KxV3jc/view?usp=sharing).
+* [Ficha para
+  validar](https://drive.google.com/file/d/1uDEoPwotbd8TD7lXn5zSmRA6KXlWORt1/view?usp=sharing)
 
 ## Objetivo del juego
 
