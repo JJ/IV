@@ -95,13 +95,19 @@ anteriores.
 
 <tr>
      <td colspan="2"><em>Validación</em>
-<strong>10 minutos</strong>: se cambian las parejas, y una vez más
+<strong>10 minutos</strong>: se establacen nuevas parejas, y una vez más
 estudiante A volverá a asumir el rol del posible cliente y contar qué
 problema tiene con las modificaciones que haya hecho en la interacción
 anterior; una vez más el estudiante B será entrevistador, hará
 preguntas y solicitará aclaraciones, y al final validará (o no) el
 problema planteado como un problema que podría ser válido para la
-asignatura.
+asignatura. Si el estudiante B no valida el problema para la
+     asignatura, se volverá al paso anterior de formulación del
+     problema en el tiempo que permita la clase, con la temporización
+     necesaria y creando parejas entre las personas que no se hayan
+     validado. El estudiante B le entregará al A la ficha con lo que
+     ha impedido la validación, para que lleve a cabo otra iteración
+     del mismo o plantee un problema diferente.
      </td>
 </tr>
 
