@@ -12,7 +12,8 @@ qué necesita y por qué lo necesita.
 
 Papel y lápiz o bolígrafo.
 
-Se pueden descargar las siguientes fichas, aunque el profesor las llevará impresas a clase.:
+Se pueden descargar las siguientes fichas, aunque el profesor las
+llevará impresas a clase:
 
 * [Ficha de cliente](https://drive.google.com/file/d/1gf7CRRJLEtrZoOyGsyc6yJdzK_uGScu0/view?usp=sharing).
 * [Ficha de entrevistador](https://drive.google.com/file/d/1oKNX3oN4yhazzXXvpnvCVTBNbam5VuRH/view?usp=sharing).
