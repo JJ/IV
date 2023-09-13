@@ -9,7 +9,7 @@ layout: index
 |
 [![Lint Markdown](https://github.com/JJ/IV/workflows/Lint%20Markdown/badge.svg)](https://github.com/JJ/IV/actions?query=workflow%3A%22Lint+Markdown%22)
 
-[Infraestructura virtual](https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/curso_actual/cuarto/tecnologiasdelainformacion/infraestructuravirtual)
+[Infraestructura virtual](https://grados.ugr.es/sites/grados/default/public/guias-firmadas/2022-2023/296114N.pdf)
 es una asignatura obligatoria de la rama "Tecnologías de la Información" del
 primer cuatrimestre del cuarto curso del Grado de Ingeniería Informática y
 optativa en otras ramas y en el Doble Grado de Informática y Matemáticas.
@@ -35,11 +35,11 @@ disponibles con una licencia libre. Los fuentes de los mismos están en
 [GitHub](https://github.com/JJ/IV).
 
 La temporización de la asignatura y los objetivos de cada sesión figuran en la
-[bitácora](https://github.com/JJ/IV-22-23/blob/master/sesiones/README.md) de
+[bitácora](https://github.com/JJ/IV-/blob/master/sesiones/README.md) de
 clase. Enlazaremos también en ese fichero las grabaciones que se hagan de las
 sesiones en vivo.
 
-Estos son los [objetivos de la asignatura](documentos/objetivos), cuyas
+Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas
 sesiones de clase se irán reflejando en un repositorio de GitHub.
 
 En resumen, nuestra intención es que el estudiante al final de la asignatura sea
@@ -72,7 +72,7 @@ lo largo de la misma, cubriendo diferentes objetivos de aprendizaje a la vez que
 se realizan diferentes productos mínimamente viables de ese proyecto. Los
 proyectos [consisten en crear la infraestructura virtual junto con una
 aplicación desarrollada según el modelo
-DevOps](documentos/proyecto/README.md). A grosso modo, los objetivos se
+DevOps](documentos/proyecto/README). A grosso modo, los objetivos se
 organizarán de la forma siguiente.
 
 1. [Objetivo cero: Uso básico de
@@ -158,9 +158,9 @@ antelación.
 ## Criterios de evaluación
 
 Los criterios de evaluación figuran en la
-[ficha de la asignatura](https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/curso_actual/cuarto/tecnologiasdelainformacion/gii_infraestructura_virtual_20172018_firmada)
+[ficha de la asignatura](https://grados.ugr.es/sites/grados/default/public/guias-firmadas/2022-2023/296114N.pdf)
 en la web del grado, y
-[se especifican en el repositorio de la clase](https://github.com/JJ/IV-21-22/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n).
+[se especifican en el repositorio de la clase](https://github.com/JJ/IV-/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n.md).
 
 ## Convocatoria extraordinaria (AL FINAL DEL CUATRIMESTRE)
 
