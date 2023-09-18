@@ -12,10 +12,9 @@ my %nick-github-de;
 for @lines[1..*] -> $l {
     next if $l[0] !~~ /^^\w/;
     next if !$l[1];
-    %nick-github-de{lc($l[2])} = lc($l[1]);
+    %nick-github-de{trim(lc($l[2]))} = lc($l[1]);
 }
 
 my @asistentes = $fichero-nicks.IO.lines();
-say @asistentes;
 
 say @asistentes.map( { %nick-github-de{lc($_)} }).join("\n");
