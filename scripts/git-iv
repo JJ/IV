@@ -11,7 +11,8 @@
 
 use strict;
 use warnings;
-use lib '/Library/Developer/CommandLineTools/usr/share/git-core/perl';
+use lib qw( /Library/Developer/CommandLineTools/usr/share/git-core/perl
+            /usr/share/perl5 );
 use Git;
 
 use v5.14;
