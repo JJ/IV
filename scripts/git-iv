@@ -31,7 +31,7 @@ eval {
 } or die "Aparentemente, no estás en un repositorio";
 
 my @args = @ARGV;
-die( print_usage ()) if  $args[0] eq '--help'  ;
+die( print_usage ()) if @args && $args[0] eq '--help'  ;
 
 if ( $subcommand eq "objetivo" ) {
   $repo->command( "checkout", "-b", "Objetivo-" . $args[0]);
