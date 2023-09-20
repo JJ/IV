@@ -28,8 +28,8 @@ asistencia a todas las clases para realizar las prácticas in situ.
 > que te refieras a ellas *sólo para los conceptos*, no para los temas administrativos.
 
 Se usará [GitHub](https://github.com) para el proyecto, la forma principal de
-examinar la asignatura; llamaremos *objetivos* a cada una de las entregas que hay
-que hacer del mismo.
+examinar la asignatura; cada una de las entregas representan haber alcanzado
+objetivos de aprendizaje, y por lo tanto se denominan *objetivos*.
 
 Los materiales de la asignatura están enlazados desde abajo y
 disponibles con una licencia libre. Los fuentes de los mismos están en
