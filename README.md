@@ -20,7 +20,8 @@ asistencia a todas las clases para realizar las prácticas in situ.
 > Las clases de cursos anteriores están grabadas, y puedes acceder a ellas [en
 > esta lista de reproducción de
 > YouTube](https://www.youtube.com/playlist?list=PLsYEfmwhBQdKIwbMDIwK64pt3Fs03BDz9). Conviene
-> que te refieras a ellas *sólo para los conceptos*, no para los temas administrativos.
+> que te refieras a ellas *sólo para los conceptos*, no para los temas
+> administrativos.
 
 Se usará [GitHub](https://github.com) para el proyecto, la forma principal de
 examinar la asignatura; cada una de las entregas representan haber alcanzado
