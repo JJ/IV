@@ -78,7 +78,7 @@ organizarán de la forma siguiente.
 1. [Objetivo cero: Uso básico de
    herramientas, problema a resolver](documentos/proyecto/0.Repositorio).
 2. [Historias de usuario y
-   planificación](documentos/proyecto/1.Infraestructura).
+   planificación](documentos/proyecto/1.Planificacion).
 3. [Modelización del problema](documentos/proyecto/2.Modelo).
 4. [Automatización de las tareas](documentos/proyecto/3.Automatizar).
 5. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/4.Tests).
