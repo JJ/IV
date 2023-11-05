@@ -32,17 +32,37 @@ datos.2223$curso = "22-23"
 datos.2223 <- datos.2223[order(datos.2223$Entrega),]
 datos.2223$entregas <- seq.int(nrow(datos.2223))
 
+# 2324
+datos.2324 <- read.csv("../IV-/data/fechas-entrega.csv", sep=";")
+
+inicio.2324 <- parse_iso_8601("2023-09-13T00:00:00+02:00")
+
+datos.2324$Correccion <- parse_iso_8601(datos.2324$Correccion)
+datos.2324$Correccion.Semana <- as.numeric( datos.2324$Correccion - inicio.2324, units = "weeks")
+
+datos.2324$Entrega <- parse_iso_8601(datos.2324$Entrega)
+datos.2324$Entrega.Semana <- as.numeric( datos.2324$Entrega - inicio.2324, units = "weeks")
+
+datos.2324$superacion <- as.numeric(datos.2324$Correccion - datos.2324$Entrega, units="days");
+datos.2324$curso = "23-24"
+datos.2324 <- datos.2324[order(datos.2324$Entrega),]
+datos.2324$entregas <- seq.int(nrow(datos.2324))
+
+
 today <- Sys.time()
 
-days <- today - inicio.2223
+days <- today - inicio.2324
 
 date.2122 <- inicio + days
+date.2223 <- inicio.2223 + days
 
 hasta.hoy.2122 <- datos[ datos$Entrega <= date.2122, ]
+hasta.hoy.2223 <- datos.2223[ datos.2223$Entrega <= date.2223, ]
 
-vs.22.23 <- rbind( datos.2223, hasta.hoy.2122)
+compara.cursos <- rbind( hasta.hoy.2223, hasta.hoy.2122)
+compara.cursos <- rbind( compara.cursos, datos.2324)
 
-ggplot(vs.22.23, aes(x=Entrega.Semana, y=entregas, color=curso)) + geom_line() + geom_point(colour=1+vs.22.23$Objetivo)
+ggplot(compara.cursos, aes(x=Entrega.Semana, y=entregas, color=curso)) + geom_line() + geom_point(colour=1+compara.cursos$Objetivo)
 
 print(mean(hasta.hoy.2122$Objetivo))
 print(mean(datos.2223$Objetivo))
