@@ -11,14 +11,14 @@ on:
 jobs:
   markdown-link-check:
   name: Check markdown files for broken links
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
 
-      - name: Markdown links check
-        uses: ruzickap/action-my-markdown-link-checker@v1
-        with:
-          config_file: mlc_config.json
-          debug: true
-          search_paths: |
-            documentos/proyecto/
+    - name: Markdown links check
+      uses: ruzickap/action-my-markdown-link-checker@v1
+      with:
+        config_file: mlc_config.json
+        debug: true
+        search_paths: |
+          documentos/proyecto/
