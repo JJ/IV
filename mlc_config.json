@@ -9,6 +9,9 @@
     {
       "pattern": "^\\d\\."
     },
+    {
+      "pattern": "documentos/temas"
+    },
   ],
   "timeout": "20s",
   "retryOn429": true,
