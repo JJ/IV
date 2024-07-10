@@ -5,7 +5,10 @@
     },
     {
       "pattern": "documentos/proyecto"
-    }
+    },
+    {
+      "pattern": "^\\d\\."
+    },
   ],
   "timeout": "20s",
   "retryOn429": true,
