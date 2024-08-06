@@ -2,7 +2,9 @@
 
 [![Checks README](https://github.com/JJ/Test-Text/workflows/Checks%20README/badge.svg)](https://github.com/JJ/IV/actions?query=workflow%3A%22Comprueba+README%22)
 |
-[![Lint Markdown](https://github.com/JJ/IV/workflows/Lint%20Markdown/badge.svg)](https://github.com/JJ/IV/actions?query=workflow%3A%22Lint+Markdown%22) | [![markdown-link-check](https://github.com/JJ/IV/actions/workflows/linkchecker.yml/badge.svg)](https://github.com/JJ/IV/actions/workflows/linkchecker.yml)
+[![Lint Markdown](https://github.com/JJ/IV/workflows/Lint%20Markdown/badge.svg)](https://github.com/JJ/IV/actions?query=workflow%3A%22Lint+Markdown%22)
+|
+[![markdown-link-check](https://github.com/JJ/IV/actions/workflows/linkchecker.yml/badge.svg)](https://github.com/JJ/IV/actions/workflows/linkchecker.yml)
 
 [Infraestructura virtual](https://grados.ugr.es/sites/grados/default/public/guias-firmadas/2022-2023/296114N.pdf)
 es una asignatura obligatoria de la rama "Tecnologías de la Información" del
@@ -11,11 +13,13 @@ optativa en otras ramas y en el Doble Grado de Informática y Matemáticas.
 
 La asignatura en el curso 24-25 [se
 imparte](https://etsiit.ugr.es/sites/centros/etsiit/public/inline-files/HorariosGII%2824-25%29.pdf)
-en el aula 1.3 los viernes de 12:30 a 14:30 (grupo conjunto) y en la -1.2 los
-jueves de 8:30 a 10:30 y de 12:30 a 14:30 (grupos divididos). Se recuerda a los
-estudiantes que en todas las clases será necesario llevar el portátil, ya que
-son siempre clases prácticas; por lo mismo, se recomienda encarecidamente la
-asistencia a todas las clases para realizar las prácticas in situ y que el profesor pueda ayudarles.
+en el aula 1.3 los viernes de 12:30 a 14:30 (grupo conjunto) y en la
+-1.2 los jueves de 8:30 a 10:30 y de 12:30 a 14:30 (grupos
+divididos). Se recuerda a los estudiantes que en todas las clases será
+necesario llevar el portátil, ya que son siempre clases prácticas; por
+lo mismo, se recomienda encarecidamente la asistencia a todas las
+clases para realizar las prácticas in situ y que el profesor pueda
+ayudarles.
 
 > Las clases de cursos anteriores están grabadas, y puedes acceder a ellas [en
 > esta lista de reproducción de
