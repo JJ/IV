@@ -5,22 +5,26 @@ layout: index
 ---
 # Material docente para la asignatura Infraestructura Virtual
 
-[![Checks README](https://github.com/JJ/Test-Text/workflows/Checks%20README/badge.svg)](https://github.com/JJ/IV/actions?query=workflow%3A%22Comprueba+README%22)
+[![Comprueba README](https://github.com/JJ/IV/actions/workflows/check-readme.yml/badge.svg)](https://github.com/JJ/IV/actions/workflows/check-readme.yml)
 |
 [![Lint Markdown](https://github.com/JJ/IV/workflows/Lint%20Markdown/badge.svg)](https://github.com/JJ/IV/actions?query=workflow%3A%22Lint+Markdown%22)
+|
+[![markdown-link-check](https://github.com/JJ/IV/actions/workflows/linkchecker.yml/badge.svg)](https://github.com/JJ/IV/actions/workflows/linkchecker.yml)
 
 [Infraestructura virtual](https://grados.ugr.es/sites/grados/default/public/guias-firmadas/2022-2023/296114N.pdf)
 es una asignatura obligatoria de la rama "Tecnologías de la Información" del
 primer cuatrimestre del cuarto curso del Grado de Ingeniería Informática y
 optativa en otras ramas y en el Doble Grado de Informática y Matemáticas.
 
-La asignatura en el curso 23-24 [se
-imparte](https://etsiit.ugr.es/sites/centros/etsiit/public/inline-files/HorariosGII%2823-24%29.pdf)
-en el aula 1.2 los jueves de 8:30 a 10:30 (grupo conjunto) y en la -1.2 los
-viernes de 8:30 a 10:30 y de 12:30 a 14:30 (grupos divididos). Se recuerda a los
-estudiantes que en todas las clases será necesario llevar el portátil, ya que
-son siempre clases prácticas; por lo mismo, se recomienda encarecidamente la
-asistencia a todas las clases para realizar las prácticas in situ.
+La asignatura en el curso 24-25 [se
+imparte](https://etsiit.ugr.es/sites/centros/etsiit/public/inline-files/HorariosGII%2824-25%29.pdf)
+en el aula 1.3 los viernes de 12:30 a 14:30 (grupo conjunto) y en la
+-1.2 los jueves de 8:30 a 10:30 y de 12:30 a 14:30 (grupos
+divididos). Se recuerda a los estudiantes que en todas las clases será
+necesario llevar el portátil, ya que son siempre clases prácticas; por
+lo mismo, se recomienda encarecidamente la asistencia a todas las
+clases para realizar las prácticas in situ y que el profesor pueda
+ayudarles.
 
 > Las clases de cursos anteriores están grabadas, y puedes acceder a ellas [en
 > esta lista de reproducción de
@@ -41,7 +45,7 @@ La temporización de la asignatura y los objetivos de cada sesión figuran en la
 clase. Enlazaremos también en ese fichero las grabaciones que se hagan de las
 sesiones en vivo.
 
-Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas
+Estos son los [objetivos de la asignatura](documentos/objetivos), cuyas
 sesiones de clase se irán reflejando en un repositorio de GitHub.
 
 En resumen, nuestra intención es que el estudiante al final de la asignatura sea
@@ -74,7 +78,7 @@ lo largo de la misma, cubriendo diferentes objetivos de aprendizaje a la vez que
 se realizan diferentes productos mínimamente viables de ese proyecto. Los
 proyectos [consisten en crear la infraestructura virtual junto con una
 aplicación desarrollada según el modelo
-DevOps](documentos/proyecto/README). A grosso modo, los objetivos se
+DevOps](documentos/proyecto/README.md). A grosso modo, los objetivos se
 organizarán de la forma siguiente.
 
 1. [Objetivo cero: Uso básico de
@@ -160,9 +164,9 @@ antelación.
 ## Criterios de evaluación
 
 Los criterios de evaluación figuran en la
-[ficha de la asignatura](https://grados.ugr.es/sites/grados/default/public/guias-firmadas/2022-2023/296114N.pdf)
+[ficha de la asignatura](https://grados.ugr.es/sites/grados/default/public/guias-firmadas/2024-2025/296114N.pdf)
 en la web del grado, y
-[se especifican en el repositorio de la clase](https://github.com/JJ/IV-/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n.md).
+[se especifican en el repositorio de la clase](https://github.com/JJ/IV-/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n).
 
 ## Convocatoria extraordinaria (AL FINAL DEL CUATRIMESTRE)
 
