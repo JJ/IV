@@ -11,6 +11,9 @@
     },
     {
       "pattern": "documentos/temas"
+    },
+    {
+      "pattern": "proyectos/objetivo-?.md"
     }
   ],
   "timeout": "20s",
