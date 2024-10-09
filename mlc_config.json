@@ -13,7 +13,7 @@
       "pattern": "documentos/temas"
     },
     {
-      "pattern": "proyectos/objetivo-?.md"
+      "pattern": "https://github.com/JJ/IV-/blob/master/proyectos/objetivo-"
     }
   ],
   "timeout": "20s",
