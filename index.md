@@ -45,7 +45,7 @@ La temporización de la asignatura y los objetivos de cada sesión figuran en la
 clase. Enlazaremos también en ese fichero las grabaciones que se hagan de las
 sesiones en vivo.
 
-Estos son los [objetivos de la asignatura](documentos/objetivos), cuyas
+Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas
 sesiones de clase se irán reflejando en un repositorio de GitHub.
 
 En resumen, nuestra intención es que el estudiante al final de la asignatura sea
@@ -78,11 +78,11 @@ lo largo de la misma, cubriendo diferentes objetivos de aprendizaje a la vez que
 se realizan diferentes productos mínimamente viables de ese proyecto. Los
 proyectos [consisten en crear la infraestructura virtual junto con una
 aplicación desarrollada según el modelo
-DevOps](documentos/proyecto/README.md). A grosso modo, los objetivos se
+DevOps](documentos/proyecto/README). A grosso modo, los objetivos se
 organizarán de la forma siguiente.
 
-1. [Objetivo cero: Uso básico de
-   herramientas, problema a resolver](documentos/proyecto/0.Repositorio).
+1. [Objetivo cero: Uso básico de herramientas de desarrollo, problema a
+   resolver](documentos/proyecto/0.Repositorio).
 2. [Historias de usuario y
    planificación](documentos/proyecto/1.Planificacion).
 3. [Modelización del problema](documentos/proyecto/2.Modelo).
@@ -166,7 +166,7 @@ antelación.
 Los criterios de evaluación figuran en la
 [ficha de la asignatura](https://grados.ugr.es/sites/grados/default/public/guias-firmadas/2024-2025/296114N.pdf)
 en la web del grado, y
-[se especifican en el repositorio de la clase](https://github.com/JJ/IV-/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n).
+[se especifican en el repositorio de la clase](https://github.com/JJ/IV-/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n.md).
 
 ## Convocatoria extraordinaria (AL FINAL DEL CUATRIMESTRE)
 
