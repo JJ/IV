@@ -109,8 +109,9 @@ convocatoria ordinaria o extraordinaria).
 | 4                     | 6, 7 y 8                        |
 | 5                     | 6                               |
 
-Si se no se han aprobado dos objetivos en convocatoria ordinaria, sean cuales
-sean, se considera suspenso en esta convocatoria.
+Si no se han aprobado dos objetivos menores e iguales que el 5 en convocatoria
+ordinaria o extraordinaria, sean cuales sean, se considera suspenso en esa
+convocatoria.
 
 Este último para crédito adicional:
 
