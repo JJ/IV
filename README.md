@@ -95,6 +95,23 @@ a interiorizar los conceptos.
 
 1. [Juego de rol: empatizar con el cliente para definir un problema](documentos/actividades/juego-rol-design-thinking.md).
 
+La asignatura se considerará superada **si se superan todos los objetivos hasta
+el 5**. Si alguno de los objetivos hasta el 5 no se ha superado, pero sí los
+siguientes, esta será la tabla de sustitución para que se considere aprobado (en
+convocatoria ordinaria o extraordinaria).
+
+| Si no se ha pasado el | Habrá que superar los objetivos |
+| --------------------- | ------------------------------- |
+| 0                     | 6                               |
+| 1                     | 6 y 7                           |
+| 2                     | 6, 7 y 8                        |
+| 3                     | 6 y 7                           |
+| 4                     | 6, 7 y 8                        |
+| 5                     | 6                               |
+
+Si se no se han aprobado dos objetivos en convocatoria ordinaria, sean cuales
+sean, se considera suspenso en esta convocatoria.
+
 Este último para crédito adicional:
 
 1. [PaaS](documentos/proyecto/10.PaaS.md).
