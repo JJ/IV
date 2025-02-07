@@ -76,8 +76,8 @@ aplicación desarrollada según el modelo
 DevOps](documentos/proyecto/README.md). A grosso modo, los objetivos se
 organizarán de la forma siguiente.
 
-1. [Objetivo cero: Uso básico de
-   herramientas, problema a resolver](documentos/proyecto/0.Repositorio.md).
+1. [Objetivo cero: Uso básico de herramientas de desarrollo, problema a
+   resolver](documentos/proyecto/0.Repositorio.md).
 2. [Historias de usuario y
    planificación](documentos/proyecto/1.Planificacion.md).
 3. [Modelización del problema](documentos/proyecto/2.Modelo.md).
