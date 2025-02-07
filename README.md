@@ -95,6 +95,20 @@ a interiorizar los conceptos.
 
 1. [Juego de rol: empatizar con el cliente para definir un problema](documentos/actividades/juego-rol-design-thinking.md).
 
+Los objetivos iniciales tienen plazos obligatorios de entrega y superación. El
+incumplimiento de esos plazos llevará a la no superación del objetivo *para la
+convocatoria ordinaria*. Los números son las semanas máximas en las que habrá
+que entregarlo.
+
+| Objetivo | Entrega  | Superación                    |
+| -------- | -------- | --------                      |
+| 0        | 2        | 4                             |
+| 1        | 4        | 5                             |
+| 2        | 6        | 10                            |
+| 3        | 10       | 12                            |
+| 4        | 12       | 15                            |
+| 5        | 15       | Fecha de evaluación ordinaria |
+
 La asignatura se considerará superada **si se superan todos los objetivos hasta
 el 5**. Si alguno de los objetivos hasta el 5 no se ha superado, pero sí los
 siguientes, esta será la tabla de sustitución para que se considere aprobado (en
