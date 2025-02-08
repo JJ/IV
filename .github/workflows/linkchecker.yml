@@ -1,4 +1,4 @@
-name: markdown-link-check
+name: Comprueba enlaces externos
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Markdown links check
+      - name: Comprueba links markdown
         uses: ruzickap/action-my-markdown-link-checker@v1
         with:
           config_file: mlc_config.json
