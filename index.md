@@ -105,14 +105,15 @@ incumplimiento de esos plazos llevará a la no superación del objetivo *para la
 convocatoria ordinaria*. Los números son las semanas máximas en las que habrá
 que entregarlo.
 
-| Objetivo | Entrega  | Superación                    |
-| -------- | -------- | --------                      |
-| 0        | 2        | 4                             |
-| 1        | 4        | 5                             |
-| 2        | 6        | 10                            |
-| 3        | 10       | 12                            |
-| 4        | 12       | 15                            |
-| 5        | 15       | Fecha de evaluación ordinaria |
+| Objetivo | Entrega  | Superación                                    |
+| -------- | -------- | --------                                      |
+| 0        | 2        | 4                                             |
+| 1        | 4        | 5                                             |
+| 2        | 6        | 10                                            |
+| 3        | 10       | 12                                            |
+| 4        | 12       | 15                                            |
+| 5        | 15       | Día antes de la fecha de evaluación ordinaria |
+
 
 La asignatura se considerará superada **si se superan todos los objetivos hasta
 el 5**. Si alguno de los objetivos hasta el 5 no se ha superado, pero sí los
@@ -128,9 +129,16 @@ convocatoria ordinaria o extraordinaria).
 | 4                     | 6, 7 y 8                        |
 | 5                     | 6                               |
 
-Si no se han aprobado dos objetivos menores e iguales que el 5 en convocatoria
+Si no se han aprobado **dos** objetivos menores o iguales que el 5 en convocatoria
 ordinaria o extraordinaria, sean cuales sean, se considera suspenso en esa
 convocatoria.
+
+Para la convocatoria extraordinaria se incrementa en **3 semanas** el plazo de
+entrega y superación para cada uno de los objetivos, con la fecha de superación
+máxima para el objetivo cinco un día antes de la fecha de evaluación
+ordinaria. Dado que (como indica la guía docente) la evaluación en esta
+convocatoria se hace de la misma forma que en la ordinaria, los plazos para
+entrega y superación sólo se mueven con la diferencia entre las dos fechas.
 
 Estas prácticas se han hecho otros años, y se dejan solo a título informativo:
 
