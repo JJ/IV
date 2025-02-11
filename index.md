@@ -78,8 +78,8 @@ lo largo de la misma, cubriendo diferentes objetivos de aprendizaje a la vez que
 se realizan diferentes productos mínimamente viables de ese proyecto. Los
 proyectos [consisten en crear la infraestructura virtual junto con una
 aplicación desarrollada según el modelo
-DevOps](documentos/proyecto/README). A grosso modo, los objetivos se
-organizarán de la forma siguiente.
+DevOps](documentos/proyecto/README). Los objetivos se organizarán de la forma
+siguiente.
 
 1. [Objetivo cero: Uso básico de herramientas de desarrollo, problema a
    resolver](documentos/proyecto/0.Repositorio).
