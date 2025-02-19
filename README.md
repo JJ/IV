@@ -109,7 +109,6 @@ que entregarlo.
 | 4        | 12       | 15                                            |
 | 5        | 15       | Día antes de la fecha de evaluación ordinaria |
 
-
 La asignatura se considerará superada **si se superan todos los objetivos hasta
 el 5**. Si alguno de los objetivos hasta el 5 no se ha superado, pero sí los
 siguientes, esta será la tabla de sustitución para que se considere aprobado (en
@@ -124,9 +123,9 @@ convocatoria ordinaria o extraordinaria).
 | 4                     | 6, 7 y 8                        |
 | 5                     | 6                               |
 
-Si no se han aprobado **dos** objetivos menores o iguales que el 5 en convocatoria
-ordinaria o extraordinaria, sean cuales sean, se considera suspenso en esa
-convocatoria.
+Si no se han superado **dos** objetivos menores o iguales que el 5 en
+convocatoria ordinaria o extraordinaria, sean cuales sean, se considera suspenso
+en esa convocatoria.
 
 Para la convocatoria extraordinaria se incrementa en **3 semanas** el plazo de
 entrega y superación para cada uno de los objetivos, con la fecha de superación
