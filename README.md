@@ -97,17 +97,20 @@ a interiorizar los conceptos.
 
 Los objetivos iniciales tienen plazos obligatorios de entrega y superación. El
 incumplimiento de esos plazos llevará a la no superación del objetivo *para la
-convocatoria ordinaria*. Los números son las semanas máximas en las que habrá
-que entregarlo.
+convocatoria ordinaria*. Los números son las *semanas* máximas en las que habrá
+**obligatoriamente* que entregarlo o tener superado. La columna adicional es
+proporcional a la nota (es decir, esfuerzo) de cada objetivo, y es la que que el
+estudiante debería marcarse como objetivo.
 
-| Objetivo | Entrega  | Superación                                    |
-| -------- | -------- | --------                                      |
-| 0        | 2        | 4                                             |
-| 1        | 4        | 5                                             |
-| 2        | 6        | 10                                            |
-| 3        | 10       | 12                                            |
-| 4        | 12       | 15                                            |
-| 5        | 15       | Día antes de la fecha de evaluación ordinaria |
+| Objetivo | Entrega  | Superación                                    | Superación **aconsejada** |
+| -------- | -------- | --------                                      | --------                  |
+| 0        | 2        | 4                                             | 1.3                       |
+| 1        | 4        | 5                                             | 3.4                       |
+| 2        | 6        | 10                                            | 7.5                       |
+| 3        | 10       | 12                                            | 9.5                       |
+| 4        | 12       | 15                                            | 13.6                      |
+| 5        | 15       | Día antes de la fecha de evaluación ordinaria | 15                        |
+
 
 La asignatura se considerará superada **si se superan todos los objetivos hasta
 el 5**. Si alguno de los objetivos hasta el 5 no se ha superado, pero sí los
