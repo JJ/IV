@@ -95,9 +95,10 @@ a interiorizar los conceptos.
 
 1. [Juego de rol: empatizar con el cliente para definir un problema](documentos/actividades/juego-rol-design-thinking.md).
 
-Los objetivos iniciales tienen plazos obligatorios de entrega y superación. El
-incumplimiento de esos plazos llevará a la no superación del objetivo *para la
-convocatoria ordinaria*. Los números son las *semanas* máximas en las que habrá
+Los objetivos iniciales tienen plazos obligatorios de entrega y superación tanto
+en convocatoria ordinaria como en evaluación única final. El incumplimiento de
+esos plazos llevará a la no superación del objetivo *para la convocatoria
+ordinaria*. Los números son las *semanas* máximas en las que habrá
 **obligatoriamente* que entregarlo o tener superado. La columna adicional es
 proporcional a la nota (es decir, esfuerzo) de cada objetivo, y es la que que el
 estudiante debería marcarse como objetivo.
