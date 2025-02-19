@@ -107,15 +107,14 @@ convocatoria ordinaria*. Los números son las *semanas* máximas en las que habr
 proporcional a la nota (es decir, esfuerzo) de cada objetivo, y es la que que el
 estudiante debería marcarse como objetivo.
 
-| Objetivo | Entrega  | Superación                                    | Superación **aconsejada** |
-| -------- | -------- | --------                                      | --------                  |
-| 0        | 2        | 4                                             | 1.3                       |
-| 1        | 4        | 5                                             | 3.4                       |
-| 2        | 6        | 10                                            | 7.5                       |
-| 3        | 10       | 12                                            | 9.5                       |
-| 4        | 12       | 15                                            | 13.6                      |
-| 5        | 15       | Día antes de la fecha de evaluación ordinaria | 15                        |
-
+| Objetivo | Entrega  | Superación    | Superación **aconsejada** |
+| -------- | -------- | --------      | --------                  |
+| 0        | 2        | 4             | 1.3                       |
+| 1        | 4        | 5             | 3.4                       |
+| 2        | 6        | 10            | 7.5                       |
+| 3        | 10       | 12            | 9.5                       |
+| 4        | 12       | 15            | 13.6                      |
+| 5        | 15       | Día antes de la fecha de evaluación ordinaria | 15 |
 
 La asignatura se considerará superada **si se superan todos los objetivos hasta
 el 5**. Si alguno de los objetivos hasta el 5 no se ha superado, pero sí los
