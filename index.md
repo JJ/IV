@@ -116,7 +116,7 @@ desde el comienzo del curso.
 | 2        | 6        | 10            | 7.5                       |
 | 3        | 10       | 12            | 9.5                       |
 | 4        | 12       | 15            | 13.6                      |
-| 5        | 15       | 24 h antes de la fecha de evaluación ordinaria | 15 |
+| 5        | 15       | 24h antes de la fecha de evaluación ordinaria | 15 |
 
 Estos plazos están vigentes tanto para la evaluación ordinaria como para la
 Evaluación Única Final.
