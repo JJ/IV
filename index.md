@@ -106,9 +106,10 @@ esos plazos llevará a la no superación del objetivo *para la convocatoria
 ordinaria*. Los números son las *semanas* máximas en las que habrá
 **obligatoriamente** que entregarlo o tener superado. La columna adicional es
 proporcional a la nota (es decir, esfuerzo) de cada objetivo, y es la que que el
-estudiante debería marcarse como objetivo.
+estudiante debería marcarse como objetivo. Todas las fechas están en semanas
+desde el comienzo del curso.
 
-| Objetivo | Entrega (semana)  | Superación (semana)    | Superación **aconsejada** (semana) |
+| Objetivo | Entrega  | Superación | Superación **aconsejada**  |
 | -------- | -------- | --------      | --------                  |
 | 0        | 2        | 4             | 1.3                       |
 | 1        | 4        | 5             | 3.4                       |
