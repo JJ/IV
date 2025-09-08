@@ -64,7 +64,7 @@ El *objetivo del proyecto* es que el estudiante se familiarice con la
 metodología usada habitualmente en desarrollo de aplicaciones (en la nube y
 cualquier otro tipo), por lo tanto, lo importante es que vaya, a través de la
 puesta en práctica en un proyecto propio, interiorizando las mejores prácticas
-en ingeniería de software.
+en ingeniería de software para desplegar proyectos en la nube.
 
 ## Prácticas - Actividades académicas dirigidas en grupos divididos
 
@@ -104,25 +104,29 @@ Los objetivos iniciales tienen plazos obligatorios de entrega y superación tant
 en convocatoria ordinaria como en evaluación única final. El incumplimiento de
 esos plazos llevará a la no superación del objetivo *para la convocatoria
 ordinaria*. Los números son las *semanas* máximas en las que habrá
-**obligatoriamente* que entregarlo o tener superado. La columna adicional es
+**obligatoriamente** que entregarlo o tener superado. La columna adicional es
 proporcional a la nota (es decir, esfuerzo) de cada objetivo, y es la que que el
 estudiante debería marcarse como objetivo.
 
-| Objetivo | Entrega  | Superación    | Superación **aconsejada** |
+| Objetivo | Entrega (semana)  | Superación (semana)    | Superación **aconsejada** (semana) |
 | -------- | -------- | --------      | --------                  |
 | 0        | 2        | 4             | 1.3                       |
 | 1        | 4        | 5             | 3.4                       |
 | 2        | 6        | 10            | 7.5                       |
 | 3        | 10       | 12            | 9.5                       |
 | 4        | 12       | 15            | 13.6                      |
-| 5        | 15       | Día antes de la fecha de evaluación ordinaria | 15 |
+| 5        | 15       | 24 h antes de la fecha de evaluación ordinaria | 15 |
 
-La asignatura se considerará superada **si se superan todos los objetivos hasta
-el 5**. Si alguno de los objetivos hasta el 5 no se ha superado, pero sí los
-siguientes, esta será la tabla de sustitución para que se considere aprobado (en
-convocatoria ordinaria o extraordinaria).
+Estos plazos están vigentes tanto para la evaluación ordinaria como para la
+Evaluación Única Final.
 
-| Si no se ha pasado el | Habrá que superar los objetivos |
+La parte "teórica" de la asignatura se considerará superada **si se superan
+todos los objetivos hasta el 5**. Si alguno de los objetivos hasta el 5 no se ha
+superado, pero sí los siguientes, esta será la tabla de sustitución para que se
+considere aprobada (la parte teórica) (en convocatoria ordinaria o
+extraordinaria).
+
+| Si no se ha pasado el | Habrá que superar el/los objetivo(s) |
 | --------------------- | ------------------------------- |
 | 0                     | 6                               |
 | 1                     | 6 y 7                           |
