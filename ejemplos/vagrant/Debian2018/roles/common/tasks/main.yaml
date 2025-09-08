@@ -1,4 +1,0 @@
----
-- name: Instala básicos
-  apt:
-    pkg: ['git','make','perl']
