@@ -6,7 +6,7 @@
 |
 [![markdown-link-check](https://github.com/JJ/IV/actions/workflows/linkchecker.yml/badge.svg)](https://github.com/JJ/IV/actions/workflows/linkchecker.yml)
 
-[Infraestructura virtual](https://grados.ugr.es/sites/grados/default/public/guias-firmadas/2022-2023/296114N.pdf)
+[Infraestructura virtual](https://grados.ugr.es/ramas/ingenieria-arquitectura/grado-ingenieria-informatica/infraestructura-virtual-especialidad-tecnologias-la-informacion/guia-docente)
 es una asignatura obligatoria de la rama "Tecnologías de la Información" del
 primer cuatrimestre del cuarto curso del Grado de Ingeniería Informática y
 optativa en otras ramas y en el Doble Grado de Informática y Matemáticas.
