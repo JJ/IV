@@ -11,15 +11,15 @@ es una asignatura obligatoria de la rama "Tecnologías de la Información" del
 primer cuatrimestre del cuarto curso del Grado de Ingeniería Informática y
 optativa en otras ramas y en el Doble Grado de Informática y Matemáticas.
 
-La asignatura en el curso 24-25 [se
-imparte](https://etsiit.ugr.es/sites/centros/etsiit/public/inline-files/HorariosGII%2824-25%29.pdf)
-en el aula 1.3 los viernes de 12:30 a 14:30 (grupo conjunto) y en la
--1.2 los jueves de 8:30 a 10:30 y de 12:30 a 14:30 (grupos
-divididos). Se recuerda a los estudiantes que en todas las clases será
-necesario llevar el portátil, ya que son siempre clases prácticas; por
-lo mismo, se recomienda encarecidamente la asistencia a todas las
-clases para realizar las prácticas in situ y que el profesor pueda
-ayudarles.
+La asignatura en el curso 25-26 [se
+imparte](https://etsiit.ugr.es/sites/centros/etsiit/public/inline-files/HorariosGII%2825-26%29.pdf)
+en el aula 1.3 los jueves de 12:30 a 14:30 (grupo conjunto) y en la -1.2 los
+viernes de 8:30 a 10:30 y de 12:30 a 14:30 (grupos divididos, debes consultar tu
+grupo). Se recuerda a los estudiantes que en todas las clases será necesario
+llevar el portátil, ya que son siempre clases prácticas; por lo mismo, se
+recomienda encarecidamente la asistencia a todas las clases para realizar las
+prácticas in situ y que el profesor pueda ayudarles. La asistencia a las clases
+de los viernes es **obligatoria** las 8 primeras semanas del curso.
 
 > Las clases de cursos anteriores están grabadas, y puedes acceder a ellas [en
 > esta lista de reproducción de
