@@ -29,7 +29,9 @@ de los viernes es **obligatoria** las 8 primeras semanas del curso.
 
 Se usará [GitHub](https://github.com) para el proyecto, la forma principal de
 examinar la asignatura; cada una de las entregas representan haber alcanzado
-objetivos de aprendizaje, y por lo tanto se denominan *objetivos*.
+objetivos de aprendizaje, y por lo tanto se denominan *objetivos*. Usaremos
+solamente este nick de GitHub para la corrección. El estudiante habrá recibido
+un correo al principio del curso solicitándole el suyo.
 
 Los materiales de la asignatura están enlazados desde abajo y
 disponibles con una licencia libre. Los fuentes de los mismos están en
