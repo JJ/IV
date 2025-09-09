@@ -149,12 +149,10 @@ entrega y superación sólo se mueven con la diferencia entre las dos fechas.
 
 Estas prácticas se han hecho otros años, y se dejan solo a título informativo:
 
-1. [Provisionamiento de máquinas
-   virtuales](documentos/proyecto/6.Provision).
-2. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS).
-3. Sistemas [*serverless*](documentos/proyecto/5.Serverless).
-4. [Creando microservicios](documentos/proyecto/6.Microservicio).
-5. Desplegando a la nube: [Platform as a Service](documentos/proyecto/7.PaaS)
+1. [Virtualización de aplicaciones](documentos/proyecto/5.IaaS).
+2. Sistemas [*serverless*](documentos/proyecto/5.Serverless).
+3. [Creando microservicios](documentos/proyecto/6.Microservicio).
+4. Desplegando a la nube: [Platform as a Service](documentos/proyecto/7.PaaS)
    en [dos versiones](documentos/proyecto/10.PaaS).
 
 ## Material adicional
