@@ -139,10 +139,12 @@ en esa convocatoria.
 
 Para la convocatoria extraordinaria se incrementa en **3 semanas** el plazo de
 entrega y superación para cada uno de los objetivos, con la fecha de superación
-máxima para el objetivo cinco un día antes de la fecha de evaluación
-ordinaria. Dado que (como indica la guía docente) la evaluación en esta
-convocatoria se hace de la misma forma que en la ordinaria, los plazos para
-entrega y superación sólo se mueven con la diferencia entre las dos fechas.
+máxima para el objetivo cinco un día antes de la fecha de esa evaluación. Dado
+que (como indica la guía docente) la evaluación en esa convocatoria se hace de
+la misma forma que en la ordinaria, los plazos para entrega y superación sólo se
+mueven con la diferencia entre las dos fechas.
+
+## Material adicional
 
 Estas prácticas se han hecho otros años, y se dejan solo a título informativo:
 
@@ -151,8 +153,6 @@ Estas prácticas se han hecho otros años, y se dejan solo a título informativo
 3. [Creando microservicios](documentos/proyecto/6.Microservicio.md).
 4. Desplegando a la nube: [Platform as a Service](documentos/proyecto/7.PaaS.md)
    en [dos versiones](documentos/proyecto/10.PaaS.md).
-
-## Material adicional
 
 > El temario está sólo como complemento, porque hay que partir de los objetivos
 de aprendizaje semanales y los objetivos a entregar. Esto se ha usado como
