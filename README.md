@@ -202,7 +202,7 @@ antelación.
 ## Criterios de evaluación
 
 Los criterios de evaluación figuran en la
-[ficha de la asignatura](https://grados.ugr.es/sites/grados/default/public/guias-firmadas/2024-2025/296114N.pdf)
+[ficha de la asignatura](https://grados.ugr.es/ramas/ingenieria-arquitectura/grado-ingenieria-informatica/infraestructura-virtual-especialidad-tecnologias-la-informacion/guia-docente)
 en la web del grado, y
 [se especifican en el repositorio de la clase](https://github.com/JJ/IV-/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n.md).
 
