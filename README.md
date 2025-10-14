@@ -39,8 +39,7 @@ disponibles con una licencia libre. Los fuentes de los mismos están en
 
 La temporización de la asignatura y los objetivos de cada sesión figuran en la
 [bitácora](https://github.com/JJ/IV-/blob/master/sesiones/README.md) de
-clase. Enlazaremos también en ese fichero las grabaciones que se hagan de las
-sesiones en vivo.
+clase.
 
 Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas
 sesiones de clase se irán reflejando en un repositorio de GitHub.
