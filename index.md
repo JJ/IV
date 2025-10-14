@@ -129,13 +129,13 @@ considere aprobada (la parte teórica) (en convocatoria ordinaria o
 extraordinaria).
 
 | Si no se ha pasado el | Habrá que superar el/los objetivo(s) |
-| --------------------- | ------------------------------- |
-| 0                     | 6                               |
-| 1                     | 6 y 7                           |
-| 2                     | 6, 7 y 8                        |
-| 3                     | 6 y 7                           |
-| 4                     | 6, 7 y 8                        |
-| 5                     | 6                               |
+| --------------------- | -------------------------------      |
+| 0                     | 6                                    |
+| 1                     | 6 y 7                                |
+| 2                     | 6, 7 y 8                             |
+| 3                     | 6 y 7                                |
+| 4                     | 6, 7 y 8                             |
+| 5                     | 6                                    |
 
 Si no se han superado **dos** objetivos menores o iguales que el 5 en
 convocatoria ordinaria o extraordinaria, sean cuales sean, se considera suspenso
@@ -162,6 +162,8 @@ Estas prácticas se han hecho otros años, y se dejan solo a título informativo
 de aprendizaje semanales y los objetivos a entregar. Esto se ha usado como
 material primario antes de 2021, pero ya no se considera material principal y
 está, en muchos casos, sin actualizar.
+
+> Se agradecen PRs en todo caso.
 
 1. [Introducción](documentos/temas/Intro_concepto_y_soporte_fisico):
    conceptos y soporte físico. Esta introducción es *cultura general*; aunque
@@ -214,5 +216,8 @@ en la web del grado, y
 
 Si no se ha superado la asignatura en la convocatoria ordinaria, en la
 extraordinaria habrá que entregar los diferentes objetivos del proyecto no
-entregados, con fecha tope
-el día que se haya anunciado oficialmente para el examen.
+entregados, con fecha tope como figura en la guía docente.
+
+## Licencia
+
+Este material tiene licencia CC-BY-SA.
