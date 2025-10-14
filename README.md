@@ -156,9 +156,7 @@ Estas prácticas se han hecho otros años, y se dejan solo a título informativo
 > El temario está sólo como complemento, porque hay que partir de los objetivos
 de aprendizaje semanales y los objetivos a entregar. Esto se ha usado como
 material primario antes de 2021, pero ya no se considera material principal y
-está, en muchos casos, sin actualizar.
-
-> Se agradecen PRs en todo caso.
+está, en muchos casos, sin actualizar. Se agradecen PRs en todo caso.
 
 1. [Introducción](documentos/temas/Intro_concepto_y_soporte_fisico.md):
    conceptos y soporte físico. Esta introducción es *cultura general*; aunque
