@@ -107,15 +107,15 @@ desde el comienzo del curso.
 
 | Objetivo | Entrega  | Superación | Superación **aconsejada**  |
 | -------- | -------- | --------      | --------                  |
-| 0        | 2        | 4             | 1.3                       |
-| 1        | 4        | 5             | 3.4                       |
-| 2        | 6        | 10            | 7.5                       |
-| 3        | 10       | 12            | 9.5                       |
-| 4        | 12       | Último día    | 13.6                      |
+| 0        | 1        | 2             | 1.3                       |
+| 1        | 2        | 3             | 3.4                       |
+| 2        | 4        | 8             | 7.5                       |
+| 3        | 8        | 10            | 9.5                       |
+| 4        | 10       | Último día    | 13.6                      |
 | 5 | Último día | 24h de la evaluación ordinaria | Último día |
 
 Estos plazos están vigentes tanto para la evaluación ordinaria como para la
-Evaluación Única Final.
+Evaluación Única Final en convocatoria ordinaria.
 
 La parte "teórica" de la asignatura se considerará superada **si se superan
 todos los objetivos hasta el 5**. Si alguno de los objetivos hasta el 5 no se ha
