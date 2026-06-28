@@ -27,8 +27,8 @@ recomienda encarecidamente la asistencia a todas las clases para realizar las
 prácticas in situ y que el profesor pueda ayudarles. La asistencia a las clases
 divididas (prácticas) es **obligatoria** las 10 primeras semanas del curso.
 
-> Las clases de cursos anteriores están grabadas, y puedes acceder a ellas [en
-> esta lista de reproducción de
+> Las clases de cursos (bastante) anteriores están grabadas, y puedes acceder a
+> ellas [en esta lista de reproducción de
 > YouTube](https://www.youtube.com/playlist?list=PLsYEfmwhBQdKIwbMDIwK64pt3Fs03BDz9).
 > Conviene que te refieras a ellas *sólo para los conceptos*, no para los temas
 > administrativos.
