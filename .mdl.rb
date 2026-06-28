@@ -13,7 +13,6 @@ rule 'MD003', :style => :atx
 rule 'MD029', :style => :ordered
 # Allow raw HTML for notes and other stuff
 exclude_rule 'MD033'
-# Allow long lines on links
-rule 'MD013', :treat_links_as_single_words => true
+exclude_rule 'MD013'
 # Unordered list impossible to fix
 exclude_rule 'MD007'
