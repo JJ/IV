@@ -1,18 +1,27 @@
 # Material docente para la asignatura Infraestructura Virtual
 
-[![Comprueba README](https://github.com/JJ/IV/actions/workflows/check-readme.yml/badge.svg)](https://github.com/JJ/IV/actions/workflows/check-readme.yml)
+[![Comprueba README](
+https://github.com/JJ/IV/actions/workflows/check-readme.yml/badge.svg
+)](https://github.com/JJ/IV/actions/workflows/check-readme.yml)
 |
-[![Lint Markdown](https://github.com/JJ/IV/workflows/Lint%20Markdown/badge.svg)](https://github.com/JJ/IV/actions?query=workflow%3A%22Lint+Markdown%22)
+[![Lint Markdown](
+https://github.com/JJ/IV/workflows/Lint%20Markdown/badge.svg
+)](https://github.com/JJ/IV/actions?query=workflow%3A%22Lint+Markdown%22)
 |
-[![markdown-link-check](https://github.com/JJ/IV/actions/workflows/linkchecker.yml/badge.svg)](https://github.com/JJ/IV/actions/workflows/linkchecker.yml)
+[![markdown-link-check](
+https://github.com/JJ/IV/actions/workflows/linkchecker.yml/badge.svg
+)](https://github.com/JJ/IV/actions/workflows/linkchecker.yml)
 
-[Infraestructura virtual](https://grados.ugr.es/ramas/ingenieria-arquitectura/grado-ingenieria-informatica/infraestructura-virtual-especialidad-tecnologias-la-informacion/guia-docente)
-es una asignatura obligatoria de la rama "Tecnologías de la Información" del
+[Infraestructura virtual](
+https://grados.ugr.es/ramas/ingenieria-arquitectura/grado-ingenieria-informatica/infraestructura-virtual-especialidad-tecnologias-la-informacion/guia-docente
+) es una asignatura obligatoria de la rama "Tecnologías de la Información" del
 primer cuatrimestre del cuarto curso del Grado de Ingeniería Informática y
 optativa en otras ramas y en el Doble Grado de Informática y Matemáticas.
 
 La asignatura en el curso 26-27 [se
-imparte](https://etsiit.ugr.es/sites/centros/etsiit/public/inline-files/HorariosGII%2825-26%29.pdf)
+imparte](
+https://etsiit.ugr.es/sites/centros/etsiit/public/inline-files/HorariosGII%2825-26%29.pdf
+)
 en el aula 1.5 los viernes de 12:30 a 14:30 (grupo conjunto) y en la 2.9 los
 jueves de 8:30 a 10:30 y la 3.6 de 12:30 a 14:30 (grupos divididos, debes consultar tu
 grupo). Se recuerda a los estudiantes que en todas las clases será necesario
@@ -96,7 +105,9 @@ convocatoria correspondiente.
 En estas prácticas se realizarán una serie de actividades para ayudar
 a interiorizar los conceptos.
 
-1. [Juego de rol: empatizar con el cliente para definir un problema](documentos/actividades/juego-rol-design-thinking.md).
+1. [Juego de rol: empatizar con el cliente para definir un problema](
+documentos/actividades/juego-rol-design-thinking.md
+).
 
 Los objetivos iniciales tienen plazos obligatorios de entrega y superación tanto
 en convocatoria ordinaria como en evaluación única final. El incumplimiento de
@@ -165,7 +176,9 @@ está, en muchos casos, sin actualizar. Se agradecen PRs en todo caso.
    conviene conocerlo, no es imprescindible para llevar a cabo, en general, el
    proyecto de la asignatura. Se aconseja vivamente, sin embargo, leerlo y
    llevar a cabo los ejercicios de autoevaluación.
-2. [Iniciación a DevOps: desarrollo basado en pruebas](documentos/temas/Desarrollo_basado_en_pruebas.md).
+2. [Iniciación a DevOps: desarrollo basado en pruebas](
+documentos/temas/Desarrollo_basado_en_pruebas.md
+).
 3. [Usando contenedores](documentos/temas/Contenedores.md).
 4. [Integración continua](documentos/temas/Integracion_continua.md).
 5. Breve introducción a [REST](documentos/temas/REST.md).
@@ -175,7 +188,9 @@ está, en muchos casos, sin actualizar. Se agradecen PRs en todo caso.
 Estos temas se pueden consultar como material adicional, han dejado de formar
 parte del temario de la asignatura:
 
-1. [Introducción e historia de los contenedores](documentos/temas/Intro_contenedores.md).
+1. [Introducción e historia de los contenedores](
+documentos/temas/Intro_contenedores.md
+).
 2. [Técnicas de virtualización](documentos/temas/Tecnicas_de_virtualizacion.md).
 3. [Aislamiento de recursos](documentos/temas/Aislamiento_de_recursos.md).
 4. [Almacenamiento virtual](documentos/temas/Almacenamiento.md).
@@ -203,9 +218,13 @@ antelación.
 ## Criterios de evaluación
 
 Los criterios de evaluación figuran en la
-[ficha de la asignatura](https://grados.ugr.es/ramas/ingenieria-arquitectura/grado-ingenieria-informatica/infraestructura-virtual-especialidad-tecnologias-la-informacion/guia-docente)
+[ficha de la asignatura](
+https://grados.ugr.es/ramas/ingenieria-arquitectura/grado-ingenieria-informatica/infraestructura-virtual-especialidad-tecnologias-la-informacion/guia-docente
+)
 en la web del grado, y
-[se especifican en el repositorio de la clase](https://github.com/JJ/IV-/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n.md).
+[se especifican en el repositorio de la clase](
+https://github.com/JJ/IV-/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n.md
+).
 
 ## Convocatoria extraordinaria (AL FINAL DEL CUATRIMESTRE)
 

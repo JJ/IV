@@ -28,7 +28,9 @@ gestionar máquinas virtual completas que funcione de forma aislada del resto
 del sistema y que permita trabajar con sistemas virtualizados de forma
 flexible, escalable y adaptada a cualquier objetivo. Eventualmente, el objetivo
 de este este tema es aprender a crear
-[infraestructura como servicio tal como vimos en el primer tema](Intro_concepto_y_soporte_fisico.md).
+[infraestructura como servicio tal como vimos en el primer tema](
+Intro_concepto_y_soporte_fisico.md
+).
 Para ello necesitamos configurar una serie de infraestructuras virtuales,
 especialmente [almacenamiento](Almacenamiento.md).
 
@@ -49,7 +51,9 @@ y en todo caso la distinción es más académica que funcional; en la
 práctica, en la mayoría de los casos nos vamos a encontrar con
 hipervisores alojados que se ejecutan desde un sistema operativo.
 
-![Ilustración de los dos tipos de hipervisores (alojada en la Wikipedia)](https://upload.wikimedia.org/wikipedia/commons/e/e1/Hyperviseur.png)
+![Ilustración de los dos tipos de hipervisores (alojada en la Wikipedia)](
+https://upload.wikimedia.org/wikipedia/commons/e/e1/Hyperviseur.png
+)
 
 Para apoyar la virtualización, casi todos los procesadores actuales y
 especialmente los de las líneas más populares
@@ -216,7 +220,9 @@ qemu-system-x86_64 -hda /media/Backup/Isos/discovirtual.img -vnc :1
 ```
 
 Con esto podemos conectar a la máquina virtual usando algún
-[cliente de VNC tal como `vinagre`](https://help.ubuntu.com/community/VNC/Clients).
+[cliente de VNC tal como `vinagre`](
+https://help.ubuntu.com/community/VNC/Clients
+).
 Hay [múltiples opciones más](http://man.cx/qemu-system-x86_64%281%29) en la
 línea de órdenes, que nos permiten establecer los tipos de CPU, todo tipo de
 periféricos, tamaño de memoria (son 128 megas por omisión) o nombre del
