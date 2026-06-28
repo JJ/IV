@@ -16,15 +16,15 @@ es una asignatura obligatoria de la rama "Tecnologías de la Información" del
 primer cuatrimestre del cuarto curso del Grado de Ingeniería Informática y
 optativa en otras ramas y en el Doble Grado de Informática y Matemáticas.
 
-La asignatura en el curso 25-26 [se
+La asignatura en el curso 26-27 [se
 imparte](https://etsiit.ugr.es/sites/centros/etsiit/public/inline-files/HorariosGII%2825-26%29.pdf)
-en el aula 1.3 los jueves de 12:30 a 14:30 (grupo conjunto) y en la -1.2 los
-viernes de 8:30 a 10:30 y de 12:30 a 14:30 (grupos divididos, debes consultar tu
+en el aula 1.5 los viernes de 12:30 a 14:30 (grupo conjunto) y en la 2.9 los
+jueves de 8:30 a 10:30 y la 3.6 de 12:30 a 14:30 (grupos divididos, debes consultar tu
 grupo). Se recuerda a los estudiantes que en todas las clases será necesario
 llevar el portátil, ya que son siempre clases prácticas; por lo mismo, se
 recomienda encarecidamente la asistencia a todas las clases para realizar las
 prácticas in situ y que el profesor pueda ayudarles. La asistencia a las clases
-de los viernes es **obligatoria** las 8 primeras semanas del curso.
+divididas (prácticas) es **obligatoria** las 10 primeras semanas del curso.
 
 > Las clases de cursos anteriores están grabadas, y puedes acceder a ellas [en
 > esta lista de reproducción de
@@ -80,12 +80,14 @@ se realizan diferentes productos mínimamente viables de ese proyecto. Los
 proyectos [consisten en crear la infraestructura virtual junto con una
 aplicación desarrollada según el modelo
 DevOps](documentos/proyecto/README). Los objetivos se organizarán de la forma
-siguiente.
+siguiente. Se marcan en **negrita** los objetivos bloqueantes, que en caso de no
+superarse implicarán automáticamente la calificación de *no apto* en la
+convocatoria correspondiente.
 
-1. [Objetivo cero: Uso básico de herramientas de desarrollo, problema a
-   resolver](documentos/proyecto/0.Repositorio).
-2. [Historias de usuario y
-   planificación](documentos/proyecto/1.Planificacion).
+1. **[Objetivo cero: Uso básico de herramientas de desarrollo, problema a
+   resolver](documentos/proyecto/0.Repositorio)**.
+2. **[Historias de usuario y
+   planificación](documentos/proyecto/1.Planificacion)**.
 3. [Modelización del problema](documentos/proyecto/2.Modelo).
 4. [Automatización de las tareas](documentos/proyecto/3.Automatizar).
 5. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/4.Tests).
@@ -123,22 +125,22 @@ Estos plazos están vigentes tanto para la evaluación ordinaria como para la
 Evaluación Única Final en convocatoria ordinaria.
 
 La parte "teórica" de la asignatura se considerará superada **si se superan
-todos los objetivos hasta el 5**. Si alguno de los objetivos hasta el 5 no se ha
-superado, pero sí los siguientes, esta será la tabla de sustitución para que se
-considere aprobada (la parte teórica) (en convocatoria ordinaria o
-extraordinaria).
+todos los objetivos hasta el 5**. Si alguno de los objetivos (salvo los dos
+primeros) hasta el 5 no se ha superado, pero sí los siguientes, esta será la
+tabla de sustitución para que se considere aprobada (la parte teórica) (en
+convocatoria ordinaria o extraordinaria).
 
 | Si no se ha pasado el | Habrá que superar el/los objetivo(s) |
 | --------------------- | -------------------------------      |
-| 0                     | 6                                    |
-| 1                     | 6 y 7                                |
+| 0                     | No apto en la convocatoria           |
+| 1                     | No apto en la convocatoria           |
 | 2                     | 6, 7 y 8                             |
 | 3                     | 6 y 7                                |
 | 4                     | 6, 7 y 8                             |
 | 5                     | 6                                    |
 
 Si no se han superado **dos** objetivos menores o iguales que el 5 en
-convocatoria ordinaria o extraordinaria, sean cuales sean, se considera suspenso
+convocatoria ordinaria o extraordinaria, sean cuales sean, se considera no apto
 en esa convocatoria.
 
 Para la convocatoria extraordinaria se incrementa en **3 semanas** el plazo de
