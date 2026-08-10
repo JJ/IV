@@ -1,8 +1,8 @@
 ---
 layout: index
 
-
 ---
+
 # Objetivos perseguidos con la materia de la asignatura
 
 - Conocer la historia de la computación virtual, sus orígenes y
@@ -49,12 +49,12 @@ layout: index
 - Aprender a crear un entorno personal de aprendizaje que ayude al aprendizaje
   autónomo.
 - Aprender una serie de lenguajes de programación de scripting de
-  aplicación en computación nube tales como Ruby, *shell* de Linux y
+  aplicación en computación nube tales como YAML, *shell* de Linux y
   JavaScript (en forma de node.js).
 - Saber trabajar en un entorno de desarrollo colaborativo de software.
 - Asumir los factores económicos en la implantación de centros de procesos de
   datos y cómo facturarlos.
-- Usar diferentes lenguajes de marcas tales como MediaWiki y Markdown.
+- Usar diferentes lenguajes de marcas tales como  Markdown.
 - Trabajar en un entorno de desarrollo basado en tecnologías libres.
 - Ampliar conocimientos de administración de sistemas Linux.
 - Comprender las implicaciones de seguridad de las diferentes tecnologías de

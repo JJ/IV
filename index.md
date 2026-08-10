@@ -5,7 +5,8 @@ layout: index
 ---
 # Material docente para la asignatura Infraestructura Virtual
 
-[![Comprueba README](https://github.com/JJ/IV/actions/workflows/check-readme.yml/badge.svg)](https://github.com/JJ/IV/actions/workflows/check-readme.yml)
+[![Comprueba README](
+https://github.com/JJ/IV/actions/workflows/check-readme.yml/badge.svg)](https://github.com/JJ/IV/actions/workflows/check-readme.yml)
 |
 [![Lint Markdown](https://github.com/JJ/IV/workflows/Lint%20Markdown/badge.svg)](https://github.com/JJ/IV/actions?query=workflow%3A%22Lint+Markdown%22)
 |
@@ -16,18 +17,18 @@ es una asignatura obligatoria de la rama "Tecnologías de la Información" del
 primer cuatrimestre del cuarto curso del Grado de Ingeniería Informática y
 optativa en otras ramas y en el Doble Grado de Informática y Matemáticas.
 
-La asignatura en el curso 25-26 [se
+La asignatura en el curso 26-27 [se
 imparte](https://etsiit.ugr.es/sites/centros/etsiit/public/inline-files/HorariosGII%2825-26%29.pdf)
-en el aula 1.3 los jueves de 12:30 a 14:30 (grupo conjunto) y en la -1.2 los
-viernes de 8:30 a 10:30 y de 12:30 a 14:30 (grupos divididos, debes consultar tu
+en el aula 1.5 los viernes de 12:30 a 14:30 (grupo conjunto) y en la 2.9 los
+jueves de 8:30 a 10:30 y la 3.6 de 12:30 a 14:30 (grupos divididos, debes consultar tu
 grupo). Se recuerda a los estudiantes que en todas las clases será necesario
 llevar el portátil, ya que son siempre clases prácticas; por lo mismo, se
 recomienda encarecidamente la asistencia a todas las clases para realizar las
 prácticas in situ y que el profesor pueda ayudarles. La asistencia a las clases
-de los viernes es **obligatoria** las 8 primeras semanas del curso.
+divididas (prácticas) es **obligatoria** las 10 primeras semanas del curso.
 
-> Las clases de cursos anteriores están grabadas, y puedes acceder a ellas [en
-> esta lista de reproducción de
+> Las clases de cursos (bastante) anteriores están grabadas, y puedes acceder a
+> ellas [en esta lista de reproducción de
 > YouTube](https://www.youtube.com/playlist?list=PLsYEfmwhBQdKIwbMDIwK64pt3Fs03BDz9).
 > Conviene que te refieras a ellas *sólo para los conceptos*, no para los temas
 > administrativos.
@@ -44,8 +45,7 @@ disponibles con una licencia libre. Los fuentes de los mismos están en
 
 La temporización de la asignatura y los objetivos de cada sesión figuran en la
 [bitácora](https://github.com/JJ/IV-/blob/master/sesiones/README.md) de
-clase. Enlazaremos también en ese fichero las grabaciones que se hagan de las
-sesiones en vivo.
+clase.
 
 Estos son los [objetivos de la asignatura](documentos/objetivos.md), cuyas
 sesiones de clase se irán reflejando en un repositorio de GitHub.
@@ -81,12 +81,14 @@ se realizan diferentes productos mínimamente viables de ese proyecto. Los
 proyectos [consisten en crear la infraestructura virtual junto con una
 aplicación desarrollada según el modelo
 DevOps](documentos/proyecto/README). Los objetivos se organizarán de la forma
-siguiente.
+siguiente. Se marcan en **negrita** los objetivos bloqueantes, que en caso de no
+superarse implicarán automáticamente la calificación de *no apto* en la
+convocatoria correspondiente.
 
-1. [Objetivo cero: Uso básico de herramientas de desarrollo, problema a
-   resolver](documentos/proyecto/0.Repositorio).
-2. [Historias de usuario y
-   planificación](documentos/proyecto/1.Planificacion).
+1. **[Objetivo cero: Uso básico de herramientas de desarrollo, problema a
+   resolver](documentos/proyecto/0.Repositorio)**.
+2. **[Historias de usuario y
+   planificación](documentos/proyecto/1.Planificacion)**.
 3. [Modelización del problema](documentos/proyecto/2.Modelo).
 4. [Automatización de las tareas](documentos/proyecto/3.Automatizar).
 5. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/4.Tests).
@@ -113,41 +115,43 @@ desde el comienzo del curso.
 
 | Objetivo | Entrega  | Superación | Superación **aconsejada**  |
 | -------- | -------- | --------      | --------                  |
-| 0        | 2        | 4             | 1.3                       |
-| 1        | 4        | 5             | 3.4                       |
-| 2        | 6        | 10            | 7.5                       |
-| 3        | 10       | 12            | 9.5                       |
-| 4        | 12       | 15            | 13.6                      |
-| 5        | 15       | 24h antes de la fecha de evaluación ordinaria | 15 |
+| 0        | 1        | 2             | 1.3                       |
+| 1        | 2        | 3             | 3.4                       |
+| 2        | 4        | 8             | 7.5                       |
+| 3        | 8        | 10            | 9.5                       |
+| 4        | 10       | Último día    | 13.6                      |
+| 5 | Último día | 24h de la evaluación ordinaria | Último día |
 
 Estos plazos están vigentes tanto para la evaluación ordinaria como para la
-Evaluación Única Final.
+Evaluación Única Final en convocatoria ordinaria.
 
 La parte "teórica" de la asignatura se considerará superada **si se superan
-todos los objetivos hasta el 5**. Si alguno de los objetivos hasta el 5 no se ha
-superado, pero sí los siguientes, esta será la tabla de sustitución para que se
-considere aprobada (la parte teórica) (en convocatoria ordinaria o
-extraordinaria).
+todos los objetivos hasta el 5**. Si alguno de los objetivos (salvo los dos
+primeros) hasta el 5 no se ha superado, pero sí los siguientes, esta será la
+tabla de sustitución para que se considere aprobada (la parte teórica) (en
+convocatoria ordinaria o extraordinaria).
 
 | Si no se ha pasado el | Habrá que superar el/los objetivo(s) |
-| --------------------- | ------------------------------- |
-| 0                     | 6                               |
-| 1                     | 6 y 7                           |
-| 2                     | 6, 7 y 8                        |
-| 3                     | 6 y 7                           |
-| 4                     | 6, 7 y 8                        |
-| 5                     | 6                               |
+| --------------------- | -------------------------------      |
+| 0                     | No apto en la convocatoria           |
+| 1                     | No apto en la convocatoria           |
+| 2                     | 6, 7 y 8                             |
+| 3                     | 6 y 7                                |
+| 4                     | 6, 7 y 8                             |
+| 5                     | 6                                    |
 
 Si no se han superado **dos** objetivos menores o iguales que el 5 en
-convocatoria ordinaria o extraordinaria, sean cuales sean, se considera suspenso
+convocatoria ordinaria o extraordinaria, sean cuales sean, se considera no apto
 en esa convocatoria.
 
 Para la convocatoria extraordinaria se incrementa en **3 semanas** el plazo de
 entrega y superación para cada uno de los objetivos, con la fecha de superación
-máxima para el objetivo cinco un día antes de la fecha de evaluación
-ordinaria. Dado que (como indica la guía docente) la evaluación en esta
-convocatoria se hace de la misma forma que en la ordinaria, los plazos para
-entrega y superación sólo se mueven con la diferencia entre las dos fechas.
+máxima para el objetivo cinco un día antes de la fecha de esa evaluación. Dado
+que (como indica la guía docente) la evaluación en esa convocatoria se hace de
+la misma forma que en la ordinaria, los plazos para entrega y superación sólo se
+mueven con la diferencia entre las dos fechas.
+
+## Material adicional
 
 Estas prácticas se han hecho otros años, y se dejan solo a título informativo:
 
@@ -157,12 +161,10 @@ Estas prácticas se han hecho otros años, y se dejan solo a título informativo
 4. Desplegando a la nube: [Platform as a Service](documentos/proyecto/7.PaaS)
    en [dos versiones](documentos/proyecto/10.PaaS).
 
-## Material adicional
-
 > El temario está sólo como complemento, porque hay que partir de los objetivos
 de aprendizaje semanales y los objetivos a entregar. Esto se ha usado como
 material primario antes de 2021, pero ya no se considera material principal y
-está, en muchos casos, sin actualizar.
+está, en muchos casos, sin actualizar. Se agradecen PRs en todo caso.
 
 1. [Introducción](documentos/temas/Intro_concepto_y_soporte_fisico):
    conceptos y soporte físico. Esta introducción es *cultura general*; aunque
@@ -207,7 +209,7 @@ antelación.
 ## Criterios de evaluación
 
 Los criterios de evaluación figuran en la
-[ficha de la asignatura](https://grados.ugr.es/sites/grados/default/public/guias-firmadas/2024-2025/296114N.pdf)
+[ficha de la asignatura](https://grados.ugr.es/ramas/ingenieria-arquitectura/grado-ingenieria-informatica/infraestructura-virtual-especialidad-tecnologias-la-informacion/guia-docente)
 en la web del grado, y
 [se especifican en el repositorio de la clase](https://github.com/JJ/IV-/blob/master/Metodolog%C3%ADa_y_criterios_de_evaluaci%C3%B3n.md).
 
@@ -215,5 +217,8 @@ en la web del grado, y
 
 Si no se ha superado la asignatura en la convocatoria ordinaria, en la
 extraordinaria habrá que entregar los diferentes objetivos del proyecto no
-entregados, con fecha tope
-el día que se haya anunciado oficialmente para el examen.
+entregados, con fecha tope como figura en la guía docente.
+
+## Licencia
+
+Este material tiene licencia CC-BY-SA.

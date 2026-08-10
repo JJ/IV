@@ -13,7 +13,6 @@ rule 'MD003', :style => :atx
 rule 'MD029', :style => :ordered
 # Allow raw HTML for notes and other stuff
 exclude_rule 'MD033'
-# Allow long lines on code blocks only
-rule 'MD013', :ignore_code_blocks => true
+exclude_rule 'MD013'
 # Unordered list impossible to fix
 exclude_rule 'MD007'
