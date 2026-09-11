@@ -84,14 +84,17 @@ Format the output document following this exact template structure:
 ## 📋 Lista de Tareas Paso a Paso
 
 ### Fase 1: Preparación y Comprensión
+
 - [ ] **Paso 1.1:** [Acción concreta]
 - [ ] **Paso 1.2:** [Acción concreta]
 
 ### Fase 2: Desarrollo y Ejecución
+
 - [ ] **Paso 2.1:** [Acción concreta]
 - [ ] **Paso 2.2:** [Acción concreta]
 
 ### Fase 3: Verificación y Entrega
+
 - [ ] **Paso 3.1:** [Acción de comprobación]
 - [ ] **Paso 3.2:** [Instrucción exacta de entrega]
 
@@ -102,16 +105,15 @@ Format the output document following this exact template structure:
 > ❗ **CRITERIOS DE EVALUACIÓN Y BLOQUEOS**
 > - [Criterio 1]
 > - [Criterio 2]
-
 > ⚠️ **ADVERTENCIA**
 > [Advertencias sobre entregas incorrectas, plazos o faltas graves]
-
 > ℹ️ **NOTA DE GESTIÓN**
 > [Notas aclaratorias sobre flujo de trabajo]
 
 ---
 
 ## 🔍 Lista de Auto-comprobación (Antes de Entregar)
+
 - [ ] ¿He comprobado X?
 - [ ] ¿He generado Y?
 - [ ] ¿He enviado el enlace correcto (URL del PR, no de la rama)?
@@ -139,6 +141,11 @@ Para consultar las explicaciones teóricas detalladas, la motivación y el trasf
 6. **Link Original Document for Deep Theory**:
    - **DO NOT** embed full theoretical text or dense background in `<details>` blocks. HTML `<details>` tags break Markdown rendering in Jekyll / GitHub Pages (rendering text unformatted as a giant wall of text) and create cognitive clutter for TDAH readers.
    - Instead, include a clean link to the original document `[Documento Original completa]([INPUT_FILE_BASENAME].md)` for readers who need deep background.
+7. **Strict Markdownlint Compliance**:
+   - **MD009**: Ensure zero trailing spaces at line ends.
+   - **MD022 & MD032**: Surround headers (`### Header`) and lists with blank lines before and after.
+   - **MD027**: Use exactly one single space after `>` in blockquotes (`> text`). Do NOT add multiple spaces (e.g. `>   1.`).
+   - **MD028**: Do NOT place blank lines between adjacent blockquote lines.
 
 ### Step 5: QA Integrity Check
 Perform a completeness check comparing the `-adapted.md` document with the original input file:
@@ -148,7 +155,8 @@ Perform a completeness check comparing the `-adapted.md` document with the origi
 4. Are callouts using universal emoji blockquotes (`> ❗`, `> ⚠️`, `> ℹ️`) instead of GFM raw tags (`[!IMPORTANT]`)? (Yes / No)
 5. Are hidden LLM instructions preserved using zero-visual-noise tags (`<!-- ... -->`, `<span style="display:none">`)? (Yes / No)
 6. Is long theoretical text linked to the original document instead of embedded in broken `<details>` blocks? (Yes / No)
-7. Is the tone consistently 3rd person singular ("el estudiante")? (Yes / No)
+7. Are markdownlint rules (MD009, MD022, MD027, MD028, MD032) fully respected? (Yes / No)
+8. Is the tone consistently 3rd person singular ("el estudiante")? (Yes / No)
 
 ---
 
