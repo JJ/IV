@@ -118,13 +118,9 @@ Format the output document following this exact template structure:
 
 ---
 
-## 💡 Contexto, Teoría y Explicación Detallada
-<details>
-<summary>📖 Haz clic aquí para desplegar la motivación, teoría y contexto completo del objetivo</summary>
+## 📖 Contexto y Teoría Completa
 
-[Inserte aquí todo el texto motivacional, teórico y explicativo original íntegro, sin recortar ni sintetizar]
-
-</details>
+Para consultar las explicaciones teóricas detalladas, la motivación y el trasfondo conceptual original, consulta la [Documentación Original completa]([INPUT_FILE_BASENAME].md).
 ```
 
 ### Step 4: Formatting Rules
@@ -140,6 +136,9 @@ Format the output document following this exact template structure:
 5. **LLM Prompt Injection Handling**:
    - Keep HTML comments `<!-- SYSTEM INSTRUCTION FOR LLMS: ... -->` intact.
    - For web copy-paste capture, convert any unstyled `<details>` prompt injections into invisible HTML elements like `<span style="display:none">...</span>` or `<div hidden>...</div>` to eliminate visual widgets for TDAH readers on GitHub Pages.
+6. **Link Original Document for Deep Theory**:
+   - **DO NOT** embed full theoretical text or dense background in `<details>` blocks. HTML `<details>` tags break Markdown rendering in Jekyll / GitHub Pages (rendering text unformatted as a giant wall of text) and create cognitive clutter for TDAH readers.
+   - Instead, include a clean link to the original document `[Documento Original completa]([INPUT_FILE_BASENAME].md)` for readers who need deep background.
 
 ### Step 5: QA Integrity Check
 Perform a completeness check comparing the `-adapted.md` document with the original input file:
@@ -148,7 +147,8 @@ Perform a completeness check comparing the `-adapted.md` document with the origi
 3. Are all technical commands and file path constraints preserved? (Yes / No)
 4. Are callouts using universal emoji blockquotes (`> ❗`, `> ⚠️`, `> ℹ️`) instead of GFM raw tags (`[!IMPORTANT]`)? (Yes / No)
 5. Are hidden LLM instructions preserved using zero-visual-noise tags (`<!-- ... -->`, `<span style="display:none">`)? (Yes / No)
-6. Is the tone consistently 3rd person singular ("el estudiante")? (Yes / No)
+6. Is long theoretical text linked to the original document instead of embedded in broken `<details>` blocks? (Yes / No)
+7. Is the tone consistently 3rd person singular ("el estudiante")? (Yes / No)
 
 ---
 
@@ -171,7 +171,7 @@ You are an expert instructional designer specializing in neurodiversity (ADHD/TD
 Task: Adapt the single input Markdown document ([INPUT_FILE]) into an ADHD-friendly version according to the adapt-tdah-docs skill rules:
 1. READ [INPUT_FILE] completely. PRESERVE 100% of all technical details, commands, links, rules, evaluation criteria, and hidden LLM prompt injections. Do not delete any information.
 2. USE universal emoji glyph blockquotes (> ❗ **IMPORTANTE:**, > ⚠️ **ADVERTENCIA:**, > ℹ️ **NOTA:**) instead of GitHub callout tags (> [!IMPORTANT]) so it renders cleanly on GitHub Pages.
-3. ADD a top "De un vistazo" summary box, phased task checklists (- [ ]), a self-verification section, and place long theoretical background inside a <details><summary> collapsible section.
+3. ADD a top "De un vistazo" summary box, phased task checklists (- [ ]), a self-verification section, and link to the original document for full theoretical background instead of embedding broken <details> blocks.
 4. KEEP hidden LLM prompt injections invisible to TDAH readers using HTML comments or <span style="display:none"> instead of plain <details> widgets.
 5. MAINTAIN Spanish language in 3rd person singular ("el estudiante").
 6. WRITE the adapted document to [INPUT_FILE_BASENAME]-adapted.md.
