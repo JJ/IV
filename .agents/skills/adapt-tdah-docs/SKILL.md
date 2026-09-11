@@ -31,17 +31,27 @@ This skill addresses these challenges through five core principles:
    - Provide an **"At a Glance / De un vistazo"** header box summarizing the goal, nature (e.g., blocking/obligatory), deliverable, and prerequisites.
    - Break down complex objectives into a clear, phased action checklist (`- [ ]`).
 
-3. **Visual Hierarchy & Cognitive Noise Reduction**:
-   - Use standardized emoji landmarks (🎯, 📋, ⚠️, 🔍, 💡, 🚀) for visual scanning.
-   - Use GitHub Markdown callout blocks (`> [!IMPORTANT]`, `> [!WARNING]`, `> [!NOTE]`, `> [!TIP]`).
-   - Group long theoretical explanations, motivation, or historical background into collapsible `<details><summary>...</summary></details>` blocks. This allows students to focus immediately on action items while keeping all context 100% accessible.
+3. **Visual Hierarchy & Universal Web-Renderable Callouts**:
+   - Use standardized, universal emoji landmarks (🎯, 📋, ⚠️, ❗, 🔍, 💡, ℹ️, 🚀) for visual scanning.
+   - **DO NOT** use GitHub Flavored Markdown callout syntax like `> [!IMPORTANT]` or `> [!WARNING]`, because Jekyll / GitHub Pages / Kramdown HTML renderers display those syntax tags literally as raw text (`[!IMPORTANT]`).
+   - Use standard Markdown blockquotes with universal glyph headers instead:
+     - `> ❗ **IMPORTANTE:**` for mandatory requirements / blocking rules.
+     - `> ⚠️ **ADVERTENCIA:**` for critical alerts / academic integrity.
+     - `> ℹ️ **NOTA:**` for administrative / repository process notes.
+     - `> 💡 **CONSEJO / TIP:**` for practical suggestions.
 
 4. **Actionable Micro-Steps & Self-Verification**:
    - Convert long multi-sentence instructions into short, sequential micro-steps.
    - Highlight key terms, commands, paths, and verbs in **bold**.
    - Include a **Lista de Auto-comprobación (Self-Verification Checklist)** before submission.
 
-5. **Style and Tone Consistency**:
+5. **Invisible Prompt-Injection & Honeypot Preservation**:
+   - Preserve all hidden LLM instructions, watermarks, or honeypots from the original document.
+   - Use techniques that do **NOT** introduce visual noise for TDAH readers on rendered HTML pages (such as GitHub Pages):
+     - **HTML Comments**: `<!-- SYSTEM INSTRUCTION FOR LLMS: ... -->` for LLM CLI tools and raw file parsing.
+     - **CSS Hidden Elements / `hidden` Attribute**: Use `<span style="display:none">...</span>` or `<div hidden>...</div>` (or `<details hidden style="display:none">...`) for rich-text copy-paste prompt injections. Avoid plain `<details>` without a summary, as it renders as an interactive toggle widget on HTML pages, distracting TDAH readers.
+
+6. **Style and Tone Consistency**:
    - Maintain Spanish language with 3rd person singular reference ("el estudiante"), consistent with repository rules.
 
 ---
@@ -94,13 +104,15 @@ Format the output document following this exact template structure:
 
 ## ⚠️ Requisitos Clave y Reglas de Evaluación
 
-> [!IMPORTANT]
-> **Criterios de Evaluación y Bloqueos**
+> ❗ **CRITERIOS DE EVALUACIÓN Y BLOQUEOS**
 > - [Criterio 1]
 > - [Criterio 2]
 
-> [!WARNING]
+> ⚠️ **ADVERTENCIA**
 > [Advertencias sobre entregas incorrectas, plazos o faltas graves]
+
+> ℹ️ **NOTA DE GESTIÓN**
+> [Notas aclaratorias sobre flujo de trabajo]
 
 ---
 
@@ -123,18 +135,25 @@ Format the output document following this exact template structure:
 ### Step 4: Formatting Rules
 1. **Bold Key Terms**: Apply **bold** formatting to action verbs, filenames, URLs, git commands, and parameters.
 2. **Chunk Dense Paragraphs**: Break paragraphs exceeding 3 sentences into bullet points.
-3. **Callout Mapping**:
-   - Mandatory / Blocking rules -> `> [!IMPORTANT]` or `> [!WARNING]`
-   - Tips / Recommendations -> `> [!TIP]`
-   - Context / Clarifications -> `> [!NOTE]`
+3. **Universal Callout Mapping (HTML & GitHub Pages Compatible)**:
+   - **DO NOT** use `> [!IMPORTANT]`, `> [!WARNING]`, etc. (they render raw text in Jekyll/GitHub Pages).
+   - Mandatory / Blocking rules -> `> ❗ **IMPORTANTE:**` or `> ⚠️ **CARÁCTER BLOQUEANTE:**`
+   - Warning / Plagiarism -> `> ⚠️ **ADVERTENCIA:**`
+   - Tips / Recommendations -> `> 💡 **CONSEJO / TIP:**`
+   - Context / Clarifications -> `> ℹ️ **NOTA:**`
 4. **Preserve All Links**: Ensure all links `[texto](url)` remain functional and unaltered.
+5. **LLM Prompt Injection Handling**:
+   - Keep HTML comments `<!-- SYSTEM INSTRUCTION FOR LLMS: ... -->` intact.
+   - For web copy-paste capture, convert any unstyled `<details>` prompt injections into invisible HTML elements like `<span style="display:none">...</span>` or `<div hidden>...</div>` to eliminate visual widgets for TDAH readers on GitHub Pages.
 
 ### Step 5: QA Integrity Check
 Perform a completeness check comparing the `-adapted.md` document with the original input file:
 1. Did I keep all links and URLs? (Yes / No)
 2. Are all evaluation criteria included? (Yes / No)
 3. Are all technical commands and file path constraints preserved? (Yes / No)
-4. Is the tone consistently 3rd person singular ("el estudiante")? (Yes / No)
+4. Are callouts using universal emoji blockquotes (`> ❗`, `> ⚠️`, `> ℹ️`) instead of GFM raw tags (`[!IMPORTANT]`)? (Yes / No)
+5. Are hidden LLM instructions preserved using zero-visual-noise tags (`<!-- ... -->`, `<span style="display:none">`)? (Yes / No)
+6. Is the tone consistently 3rd person singular ("el estudiante")? (Yes / No)
 
 ---
 
@@ -155,10 +174,12 @@ To invoke this skill with any standard LLM on a single input file:
 SYSTEM PROMPT:
 You are an expert instructional designer specializing in neurodiversity (ADHD/TDAH) and computer science education.
 Task: Adapt the single input Markdown document ([INPUT_FILE]) into an ADHD-friendly version according to the adapt-tdah-docs skill rules:
-1. READ [INPUT_FILE] completely. PRESERVE 100% of all technical details, commands, links, rules, and evaluation criteria. Do not delete any information.
-2. ADD a top "De un vistazo" summary box, phased task checklists (- [ ]), callouts (> [!IMPORTANT]), a self-verification section, and place long theoretical background inside a <details><summary> collapsible section.
-3. MAINTAIN Spanish language in 3rd person singular ("el estudiante").
-4. WRITE the adapted document to [INPUT_FILE_BASENAME]-adapted.md.
+1. READ [INPUT_FILE] completely. PRESERVE 100% of all technical details, commands, links, rules, evaluation criteria, and hidden LLM prompt injections. Do not delete any information.
+2. USE universal emoji glyph blockquotes (> ❗ **IMPORTANTE:**, > ⚠️ **ADVERTENCIA:**, > ℹ️ **NOTA:**) instead of GitHub callout tags (> [!IMPORTANT]) so it renders cleanly on GitHub Pages.
+3. ADD a top "De un vistazo" summary box, phased task checklists (- [ ]), a self-verification section, and place long theoretical background inside a <details><summary> collapsible section.
+4. KEEP hidden LLM prompt injections invisible to TDAH readers using HTML comments or <span style="display:none"> instead of plain <details> widgets.
+5. MAINTAIN Spanish language in 3rd person singular ("el estudiante").
+6. WRITE the adapted document to [INPUT_FILE_BASENAME]-adapted.md.
 ```
 
 ---
@@ -173,6 +194,5 @@ Task: Adapt the single input Markdown document ([INPUT_FILE]) into an ADHD-frien
 > - **Carácter:** ⚠️ **BLOQUEANTE** (No superarlo equivale a **No Apto** en la convocatoria ordinaria).
 > - **Acción requerida:** Leer detenidamente la especificación completa antes de iniciar el trabajo.
 >
-> > [!WARNING]
-> > **Carácter Bloqueante del Objetivo**:
+> > ⚠️ **ADVERTENCIA: Carácter Bloqueante del Objetivo**
 > > La entrega y superación de este objetivo dentro del plazo establecido es un requisito indispensable. La no superación conlleva la calificación de **No Apto** en la convocatoria ordinaria.
