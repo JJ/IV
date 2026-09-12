@@ -73,10 +73,10 @@ Take the path of the single input file and construct the output filename in the 
 
 ### Step 3: Standard TDAH Structure Application
 
-Format the output document following this exact template structure:
+Format the output document following this exact template structure. Mark the document as adapted by placing the 🧠 marker directly in the top-level (H1) header, immediately before the title's leading word (e.g., before "Objetivo" in course documents titled "Objetivo N: ..."), instead of spelling out "TDAH":
 
 ```markdown
-# [Original Title] (Versión Adaptada TDAH)
+# 🧠 [Original Title]
 
 > 🎯 **DE UN VISTAZO / AT A GLANCE**
 > - **Objetivo Principal:** [Resumen de 1-2 frases del objetivo]
