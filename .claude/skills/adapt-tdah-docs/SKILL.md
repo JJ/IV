@@ -69,7 +69,7 @@ Read the specified single input file completely using `view_file`. Inventory all
 - External links and references
 
 ### Step 2: Target File Naming & Output Path
-Take the path of the single input file and construct the output filename in the same directory by replacing `.md` with `-adapted.md` (e.g., `0.Repositorio.md` -> `0.Repositorio-adapted.md`).
+Take the path of the single input file and construct the output filename in the same directory by replacing `.md` with `-skel.md` (e.g., `0.Repositorio.md` -> `0.Repositorio-skel.md`).
 
 ### Step 3: Standard TDAH Structure Application
 
@@ -132,7 +132,7 @@ Format the output document following this exact template structure. Mark the doc
 
 ## 📖 Contexto y Teoría Completa
 
-Para consultar las explicaciones teóricas detalladas, la motivación y el trasfondo conceptual original, consulta la [Documentación Original completa]([INPUT_FILE_BASENAME]).
+Para consultar las explicaciones teóricas detalladas, la motivación y el trasfondo conceptual original, consulta la [Documentación Original completa]([INPUT_FILE_BASENAME].md).
 ```
 
 ### Step 4: Formatting Rules
@@ -148,10 +148,9 @@ Para consultar las explicaciones teóricas detalladas, la motivación y el trasf
 4. **Preserve All Links**: Ensure all links `[texto](url)` remain functional and unaltered.
 5. **LLM Prompt Injection Handling**:
    - Keep HTML comments `<!-- SYSTEM INSTRUCTION FOR LLMS: ... -->` intact.
-   - For web copy-paste capture, convert any unstyled `<details>` prompt injections into invisible HTML elements like `<span style="display:none">...</span>` or `<div hidden>...</div>` to eliminate visual widgets for TDAH readers on GitHub Pages.
 6. **Link Original Document for Deep Theory**:
    - **DO NOT** embed full theoretical text or dense background in `<details>` blocks. HTML `<details>` tags break Markdown rendering in Jekyll / GitHub Pages (rendering text unformatted as a giant wall of text) and create cognitive clutter for TDAH readers.
-   - Instead, include a clean link to the original document `[Documento Original completa]([INPUT_FILE_BASENAME])` for readers who need deep background.
+   - Instead, include a clean link to the original document `[Documento Original completa]([INPUT_FILE_BASENAME].md)` for readers who need deep background.
 7. **Strict Markdownlint Compliance** (this repo runs `mdl --style .mdl.rb` on every document, adapted ones included — verify against it before finishing):
    - **MD009**: Ensure zero trailing spaces at line ends.
    - **MD012**: Never leave more than one consecutive blank line (check especially right before a trailing HTML comment or at end of file).
