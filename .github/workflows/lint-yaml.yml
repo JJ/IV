@@ -8,5 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Comprueba yaml
+      - name: Comprueba yaml usando yq
         run: yq eval .github/workflows/*.yml
