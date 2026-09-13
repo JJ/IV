@@ -13,7 +13,7 @@ jobs:
     name: Check markdown files for broken links
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Comprueba links markdown
         uses: ruzickap/action-my-markdown-link-checker@v1
