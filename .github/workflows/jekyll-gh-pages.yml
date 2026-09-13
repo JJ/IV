@@ -1,7 +1,6 @@
 name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["gh-pages"]
 
@@ -24,10 +23,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
         with:
           ref: gh-pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
