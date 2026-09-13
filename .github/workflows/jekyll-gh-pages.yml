@@ -32,6 +32,11 @@ jobs:
         with:
           source: ./
           destination: ./_site
+      - name: Copy stylesheets and javascripts
+        run: |
+          mkdir -p ./_site/stylesheets ./_site/javascripts
+          cp -r ./stylesheets/. ./_site/stylesheets/
+          cp -r ./javascripts/. ./_site/javascripts/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
