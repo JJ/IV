@@ -64,7 +64,7 @@ Read the specified single input file completely using `view_file`. Inventory all
 - External links and references
 
 ### Step 2: Target File Naming & Output Path
-Take the path of the single input file and construct the output filename in the same directory by replacing `.md` with `-adapted.md` (e.g., `0.Repositorio.md` -> `0.Repositorio-adapted.md`).
+Take the path of the single input file and construct the output filename in the same directory by replacing `.md` with `-skel.md` (e.g., `0.Repositorio.md` -> `0.Repositorio-skel.md`).
 
 ### Step 3: Standard TDAH Structure Application
 
