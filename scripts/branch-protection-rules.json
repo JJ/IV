@@ -1,0 +1,62 @@
+{
+  "description": "Branch protection rules: require pull requests and 2 approving reviews. Includes payload examples for both the Branch Protection API and the Repository Rulesets API. Includes a repository-level ruleset that targets all branches and disallows force pushes.",
+  "branch_protection_api": {
+    "branch": "main",
+    "protection": {
+      "required_status_checks": {
+        "strict": true,
+        "contexts": []
+      },
+      "enforce_admins": true,
+      "required_pull_request_reviews": {
+        "dismissal_restrictions": {},
+        "dismiss_stale_reviews": true,
+        "require_code_owner_reviews": false,
+        "required_approving_review_count": 2
+      },
+      "restrictions": null,
+      "allow_force_pushes": false,
+      "allow_deletions": false
+    }
+  },
+  "repository_rulesets_api": {
+    "name": "protect-all-branches",
+    "target": "branch",
+    "enforcement": "active",
+    "conditions": {
+      "ref_name": {
+        "include": ["~ALL"]
+      }
+    },
+    "rules": [
+      {
+        "required_pull_request_reviews": {
+          "dismiss_stale_reviews": true,
+          "require_code_owner_reviews": false,
+          "required_approving_review_count": 2
+        }
+      },
+      {
+        "creation": {
+          "type": "creation"
+        }
+      },
+      {
+        "update": {
+          "type": "update",
+          "parameters": {
+            "update_allows_fetch_and_merge": false
+          }
+        }
+      }
+    ],
+    "global_settings": {
+      "allow_force_pushes": false,
+      "note": "To disallow force pushes across all branches, use the repository rulesets API with conditions.ref_name.include = ['~ALL'] (this object). Some fields for force-push blocking are applied via branch protection APIs per-branch; when using rulesets, the platform enforces non-fast-forward protections." 
+    }
+  },
+  "usage": {
+    "branch_protection_api_instructions": "Use the 'branch_protection_api.protection' object as the body for PUT /repos/{owner}/{repo}/branches/main/protection (requires admin access).",
+    "repository_rulesets_api_instructions": "Use the 'repository_rulesets_api' object as the body for POST /repos/{owner}/{repo}/rulesets to create a ruleset that targets all branches (~ALL). Ensure Accept: application/vnd.github+json and proper auth."
+  }
+}
