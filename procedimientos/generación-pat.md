@@ -9,6 +9,6 @@ Hay que hacer lo siguiente:
 * Generar un PAT con permisos sólo para el repositorio IV-
   * Acceso de lectura a metadatos (esto es obligatorio)
   * Acceso de lectura y escritura a PRs y Actions
-* Almacenar el PAT en el repo: Settings → Actions → Repository secrets →
+* Almacenar el PAT en el repo: Settings → Secrets and Variables → Actions →
   `COMMENT_TOKEN` (se le llama así desde el script que pone los revisores
   aleatorios).
