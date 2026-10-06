@@ -80,19 +80,22 @@ siguiente. Se marcan en **negrita** los objetivos bloqueantes, que en caso de no
 superarse implicarán automáticamente la calificación de *no apto* en la
 convocatoria correspondiente.
 
-1. **[Objetivo cero: Uso básico de herramientas de desarrollo, problema a
-   resolver](documentos/proyecto/0.Repositorio.md)**.
-2. **[Historias de usuario y
-   planificación](documentos/proyecto/1.Planificacion.md)**.
-3. [Modelización del problema](documentos/proyecto/2.Modelo.md).
-4. [Automatización de las tareas](documentos/proyecto/3.Automatizar.md).
-5. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/4.Tests.md).
-6. Técnicas de virtualización: [Contenedores](documentos/proyecto/5.Docker.md)
-   para pruebas.
-7. [Integración continua](documentos/proyecto/6.CI.md).
-8. [Servicios esenciales](documentos/proyecto/7.Servicios.md).
-9. [REST](documentos/proyecto/8.REST.md).
-10. [Implementación de REST](documentos/proyecto/9.Microservicio.md).
+- Objetivo 0: **[Uso básico de herramientas de desarrollo, problema a
+  resolver](documentos/proyecto/0.Repositorio.md)**.
+- Objetivo 1: **[Historias de usuario y
+  planificación](documentos/proyecto/1.Planificacion.md)**.
+- Objetivo 2: [Modelización del problema](documentos/proyecto/2.Modelo.md).
+- Objetivo 3: [Automatización de las
+  tareas](documentos/proyecto/3.Automatizar.md).
+- Objetivo 4: [Tests unitarios para la clase/s
+  diseñadas](documentos/proyecto/4.Tests.md).
+- Objetivo 5: Técnicas de virtualización:
+  [Contenedores](documentos/proyecto/5.Docker.md) para pruebas.
+- Objetivo 6: [Integración continua](documentos/proyecto/6.CI.md).
+- Objetivo 7: [Servicios esenciales](documentos/proyecto/7.Servicios.md).
+- Objetivo 8: [REST](documentos/proyecto/8.REST.md).
+- Objetivo 9: [Implementación de
+  REST](documentos/proyecto/9.Microservicio.md).
 
 En estas prácticas se realizarán una serie de actividades para ayudar
 a interiorizar los conceptos.
