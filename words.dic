@@ -1,4 +1,4 @@
-1321
+1323
 AMD
 API
 APIs
@@ -748,6 +748,7 @@ hostname
 hosts
 hour
 hset
+href
 html
 http
 https
@@ -1195,6 +1196,7 @@ storage
 strict
 string
 strip
+strong
 subcomando
 subdirectorio
 subdirectorios

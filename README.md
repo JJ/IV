@@ -80,22 +80,26 @@ siguiente. Se marcan en **negrita** los objetivos bloqueantes, que en caso de no
 superarse implicarán automáticamente la calificación de *no apto* en la
 convocatoria correspondiente.
 
-- Objetivo 0: **[Uso básico de herramientas de desarrollo, problema a
-  resolver](documentos/proyecto/0.Repositorio.md)**.
-- Objetivo 1: **[Historias de usuario y
-  planificación](documentos/proyecto/1.Planificacion.md)**.
-- Objetivo 2: [Modelización del problema](documentos/proyecto/2.Modelo.md).
-- Objetivo 3: [Automatización de las
-  tareas](documentos/proyecto/3.Automatizar.md).
-- Objetivo 4: [Tests unitarios para la clase/s
-  diseñadas](documentos/proyecto/4.Tests.md).
-- Objetivo 5: Técnicas de virtualización:
-  [Contenedores](documentos/proyecto/5.Docker.md) para pruebas.
-- Objetivo 6: [Integración continua](documentos/proyecto/6.CI.md).
-- Objetivo 7: [Servicios esenciales](documentos/proyecto/7.Servicios.md).
-- Objetivo 8: [REST](documentos/proyecto/8.REST.md).
-- Objetivo 9: [Implementación de
-  REST](documentos/proyecto/9.Microservicio.md).
+<ol start="0">
+  <li><strong><a href="documentos/proyecto/0.Repositorio.md">Uso básico de
+  herramientas de desarrollo, problema a resolver</a></strong>.</li>
+  <li><strong><a href="documentos/proyecto/1.Planificacion.md">Historias de
+  usuario y planificación</a></strong>.</li>
+  <li><a href="documentos/proyecto/2.Modelo.md">Modelización del
+  problema</a>.</li>
+  <li><a href="documentos/proyecto/3.Automatizar.md">Automatización de las
+  tareas</a>.</li>
+  <li><a href="documentos/proyecto/4.Tests.md">Tests unitarios para la clase/s
+  diseñadas</a>.</li>
+  <li>Técnicas de virtualización:
+  <a href="documentos/proyecto/5.Docker.md">Contenedores</a> para pruebas.</li>
+  <li><a href="documentos/proyecto/6.CI.md">Integración continua</a>.</li>
+  <li><a href="documentos/proyecto/7.Servicios.md">Servicios
+  esenciales</a>.</li>
+  <li><a href="documentos/proyecto/8.REST.md">REST</a>.</li>
+  <li><a href="documentos/proyecto/9.Microservicio.md">Implementación de
+  REST</a>.</li>
+</ol>
 
 En estas prácticas se realizarán una serie de actividades para ayudar
 a interiorizar los conceptos.
