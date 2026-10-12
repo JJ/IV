@@ -78,26 +78,27 @@ en ingeniería de software para desplegar proyectos en la nube.
 La parte práctica de esta asignatura consiste en la realización de un proyecto a
 lo largo de la misma, cubriendo diferentes objetivos de aprendizaje a la vez que
 se realizan diferentes productos mínimamente viables de ese proyecto. Los
-proyectos [consisten en crear la infraestructura virtual junto con una
-aplicación desarrollada según el modelo
-DevOps](documentos/proyecto/README). Los objetivos se organizarán de la forma
-siguiente. Se marcan en **negrita** los objetivos bloqueantes, que en caso de no
-superarse implicarán automáticamente la calificación de *no apto* en la
-convocatoria correspondiente.
+proyectos consisten en crear la infraestructura virtual de una aplicación junto
+con la misma. Los objetivos se organizarán de la forma siguiente. Se marcan en
+**negrita** los objetivos bloqueantes, que en caso de no superarse implicarán
+automáticamente la calificación de *no apto* en la convocatoria correspondiente.
 
-1. **[Objetivo cero: Uso básico de herramientas de desarrollo, problema a
-   resolver](documentos/proyecto/0.Repositorio)**.
-2. **[Historias de usuario y
-   planificación](documentos/proyecto/1.Planificacion)**.
-3. [Modelización del problema](documentos/proyecto/2.Modelo).
-4. [Automatización de las tareas](documentos/proyecto/3.Automatizar).
-5. [Tests unitarios para la clase/s diseñadas](documentos/proyecto/4.Tests).
-6. Técnicas de virtualización: [Contenedores](documentos/proyecto/5.Docker)
-   para pruebas.
-7. [Integración continua](documentos/proyecto/6.CI).
-8. [Servicios esenciales](documentos/proyecto/7.Servicios).
-9. [REST](documentos/proyecto/8.REST).
-10. [Implementación de REST](documentos/proyecto/9.Microservicio).
+- Objetivo 0: **[Uso básico de herramientas de desarrollo, problema a
+  resolver](documentos/proyecto/0.Repositorio)**.
+- Objetivo 1: **[Historias de usuario y
+  planificación](documentos/proyecto/1.Planificacion)**.
+- Objetivo 2: [Modelización del problema](documentos/proyecto/2.Modelo).
+- Objetivo 3: [Automatización de las
+  tareas](documentos/proyecto/3.Automatizar).
+- Objetivo 4: [Tests unitarios para la clase/s
+  diseñadas](documentos/proyecto/4.Tests).
+- Objetivo 5: Técnicas de virtualización:
+  [Contenedores](documentos/proyecto/5.Docker) para pruebas.
+- Objetivo 6: [Integración continua](documentos/proyecto/6.CI).
+- Objetivo 7: [Servicios esenciales](documentos/proyecto/7.Servicios).
+- Objetivo 8: [REST](documentos/proyecto/8.REST).
+- Objetivo 9: [Implementación de
+  REST](documentos/proyecto/9.Microservicio).
 
 En estas prácticas se realizarán una serie de actividades para ayudar
 a interiorizar los conceptos.
