@@ -73,12 +73,10 @@ en ingeniería de software para desplegar proyectos en la nube.
 La parte práctica de esta asignatura consiste en la realización de un proyecto a
 lo largo de la misma, cubriendo diferentes objetivos de aprendizaje a la vez que
 se realizan diferentes productos mínimamente viables de ese proyecto. Los
-proyectos [consisten en crear la infraestructura virtual junto con una
-aplicación desarrollada según el modelo
-DevOps](documentos/proyecto/README.md). Los objetivos se organizarán de la forma
-siguiente. Se marcan en **negrita** los objetivos bloqueantes, que en caso de no
-superarse implicarán automáticamente la calificación de *no apto* en la
-convocatoria correspondiente.
+proyectos consisten en crear la infraestructura virtual de una aplicación junto
+con la misma. Los objetivos se organizarán de la forma siguiente. Se marcan en
+**negrita** los objetivos bloqueantes, que en caso de no superarse implicarán
+automáticamente la calificación de *no apto* en la convocatoria correspondiente.
 
 - Objetivo 0: **[Uso básico de herramientas de desarrollo, problema a
   resolver](documentos/proyecto/0.Repositorio.md)**.
